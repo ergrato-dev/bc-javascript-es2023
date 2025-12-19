@@ -363,7 +363,7 @@ const calculateStats = numbers => {
   const avg = sum / numbers.length;
   const max = Math.max(...numbers);
   const min = Math.min(...numbers);
-  
+
   return { sum, avg, max, min };
 };
 
@@ -656,28 +656,28 @@ console.log(y);  // 5
 
 ## 🎓 Conceptos Clave
 
-| Término                    | Definición                                          |
-| -------------------------- | --------------------------------------------------- |
-| **Destructuring**          | Extraer valores de arrays/objetos a variables      |
-| **Pattern Matching**       | Coincidencia de patrones para extracción           |
-| **Default Values**         | Valores asignados si la propiedad no existe        |
-| **Rest Pattern**           | Capturar elementos restantes con `...`             |
-| **Nested Destructuring**   | Destructuring de estructuras anidadas              |
-| **Renaming**               | Cambiar nombre de variable durante destructuring   |
+| Término                  | Definición                                       |
+| ------------------------ | ------------------------------------------------ |
+| **Destructuring**        | Extraer valores de arrays/objetos a variables    |
+| **Pattern Matching**     | Coincidencia de patrones para extracción         |
+| **Default Values**       | Valores asignados si la propiedad no existe      |
+| **Rest Pattern**         | Capturar elementos restantes con `...`           |
+| **Nested Destructuring** | Destructuring de estructuras anidadas            |
+| **Renaming**             | Cambiar nombre de variable durante destructuring |
 
 ---
 
 ## 📊 Tabla Comparativa: Sintaxis
 
-| Tipo          | Sintaxis                              | Ejemplo                                     |
-| ------------- | ------------------------------------- | ------------------------------------------- |
-| **Objeto**    | `const { prop } = obj`                | `const { name } = user`                     |
-| **Array**     | `const [item] = arr`                  | `const [first] = numbers`                   |
-| **Renombrar** | `const { old: new } = obj`            | `const { name: userName } = user`           |
-| **Default**   | `const { prop = val } = obj`          | `const { age = 18 } = user`                 |
-| **Rest**      | `const { a, ...rest } = obj`          | `const { id, ...data } = user`              |
-| **Anidado**   | `const { a: { b } } = obj`            | `const { address: { city } } = user`        |
-| **Parámetro** | `const func = ({ prop }) => {...}`    | `const greet = ({ name }) => \`Hi ${name}\`` |
+| Tipo          | Sintaxis                           | Ejemplo                                      |
+| ------------- | ---------------------------------- | -------------------------------------------- |
+| **Objeto**    | `const { prop } = obj`             | `const { name } = user`                      |
+| **Array**     | `const [item] = arr`               | `const [first] = numbers`                    |
+| **Renombrar** | `const { old: new } = obj`         | `const { name: userName } = user`            |
+| **Default**   | `const { prop = val } = obj`       | `const { age = 18 } = user`                  |
+| **Rest**      | `const { a, ...rest } = obj`       | `const { id, ...data } = user`               |
+| **Anidado**   | `const { a: { b } } = obj`         | `const { address: { city } } = user`         |
+| **Parámetro** | `const func = ({ prop }) => {...}` | `const greet = ({ name }) => \`Hi ${name}\`` |
 
 ---
 
