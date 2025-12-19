@@ -52,17 +52,17 @@ Desarrollarás una tarjeta de presentación digital que muestra información per
 ## 📁 Estructura de Archivos
 
 ```
-tarjeta-presentacion/
-├── README.md           # Este archivo
-├── index.html          # Estructura HTML
-├── styles.css          # Estilos CSS
+3-proyecto/
+├── README.md           # Este archivo con instrucciones
+├── index.html          # Estructura HTML (completa)
+├── styles.css          # Estilos CSS (completo)
 ├── starter/
-│   └── script.js      # JavaScript inicial con TODOs
-├── solution/
-│   └── script.js      # Solución completa
-└── assets/
-    └── avatar.png     # Imagen de perfil (placeholder)
+│   └── script.js       # Archivo inicial con TODOs
+└── solution/
+    └── script.js       # Solución completa (excluida de GitHub)
 ```
+
+> **📌 Nota Pedagógica**: Las carpetas `solution/` están **excluidas del repositorio de GitHub** (`.gitignore`). Esto es intencional para fomentar el aprendizaje activo. Debes completar los ejercicios por ti mismo sin depender de soluciones pre-hechas. Las soluciones solo están disponibles localmente para tu instructor/mentor.
 
 ---
 
@@ -322,16 +322,16 @@ apellido-nombre-tarjeta/
 
 ## ❓ Preguntas Frecuentes
 
-**P: ¿Puedo usar librerías externas?**  
+**P: ¿Puedo usar librerías externas?**
 R: No, este proyecto debe usar solo JavaScript ES6+ puro.
 
-**P: ¿Puedo cambiar el diseño CSS?**  
+**P: ¿Puedo cambiar el diseño CSS?**
 R: Sí, puedes personalizar los estilos a tu gusto.
 
-**P: ¿Debo usar mis datos reales?**  
+**P: ¿Debo usar mis datos reales?**
 R: Puedes usar datos ficticios o reales, como prefieras.
 
-**P: ¿Qué pasa si no sé hacer algo?**  
+**P: ¿Qué pasa si no sé hacer algo?**
 R: Revisa la teoría, los ejercicios, y usa las pistas. Si aún tienes dudas, pregunta.
 
 ---
