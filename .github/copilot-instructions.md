@@ -374,6 +374,7 @@ Cuando trabajes en este proyecto:
 ### Límites de Respuesta
 
 1. **Divide respuestas largas**
+
    - ❌ **NUNCA generar respuestas que superen los límites de tokens**
    - ✅ **SIEMPRE dividir contenido extenso en múltiples entregas**
    - ✅ Crear contenido por secciones, esperar confirmación del usuario

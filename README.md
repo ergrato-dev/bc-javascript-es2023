@@ -100,7 +100,7 @@ bootcamp/week-XX/
 
 ### Prerrequisitos
 
-- **Node.js** 18+ (para herramientas de desarrollo)
+- **Node.js** 24 LTS (recomendado para herramientas de desarrollo)
 - **Git** para control de versiones
 - **VS Code** (recomendado) con extensiones incluidas
 - Navegador moderno (Chrome, Firefox, Edge)
