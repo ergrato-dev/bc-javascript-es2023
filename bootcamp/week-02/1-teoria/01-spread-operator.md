@@ -1,5 +1,7 @@
 # 📦 Spread Operator (`...`)
 
+![Spread Operator Diagram](../0-assets/01-spread-operator.svg)
+
 ## 🎯 Objetivos
 
 - Comprender qué es y cómo funciona el spread operator

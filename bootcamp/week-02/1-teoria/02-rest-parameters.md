@@ -1,5 +1,5 @@
 # 🎒 Rest Parameters (`...`)
-
+![Rest Parameters Diagram](../0-assets/02-rest-parameters.svg)
 ## 🎯 Objetivos
 
 - Comprender la diferencia entre spread y rest

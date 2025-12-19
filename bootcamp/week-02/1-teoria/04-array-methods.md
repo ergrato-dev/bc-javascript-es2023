@@ -1,5 +1,7 @@
 # 🔄 Array Methods (Métodos de Arrays ES6+)
 
+![Array Methods Diagram](../0-assets/04-array-methods.svg)
+
 ## 🎯 Objetivos
 
 - Dominar `map()`, `filter()`, `reduce()`

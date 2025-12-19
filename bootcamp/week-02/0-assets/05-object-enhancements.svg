@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 650">
   <!-- Background -->
   <rect width="800" height="650" fill="#1a1a2e"/>
-  
+
   <!-- Title -->
   <text x="400" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#F0DB4F" text-anchor="middle">
     Object Enhancements
   </text>
-  
+
   <!-- Subtitle -->
   <text x="400" y="70" font-family="Arial, sans-serif" font-size="16" fill="#a0a0a0" text-anchor="middle">
     Mejoras en la sintaxis de objetos ES6+
   </text>
-  
+
   <!-- Property Shorthand -->
   <g id="property-shorthand">
     <text x="50" y="110" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#F0DB4F">
       1. Property Shorthand
     </text>
-    
+
     <rect x="50" y="130" width="330" height="100" fill="#2d2d44" stroke="#ef4444" stroke-width="2" rx="8"/>
     <text x="60" y="155" font-family="Arial, sans-serif" font-size="14" fill="#ef4444">
       ❌ Antiguo
@@ -31,7 +31,7 @@
     <text x="80" y="220" font-family="monospace" font-size="14" fill="#a0a0a0">
       age: age
     </text>
-    
+
     <rect x="420" y="130" width="330" height="100" fill="#2d2d44" stroke="#4CAF50" stroke-width="2" rx="8"/>
     <text x="430" y="155" font-family="Arial, sans-serif" font-size="14" fill="#4CAF50">
       ✅ Moderno
@@ -46,13 +46,13 @@
       age
     </text>
   </g>
-  
+
   <!-- Computed Properties -->
   <g id="computed-properties">
     <text x="50" y="270" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#F0DB4F">
       2. Computed Property Names
     </text>
-    
+
     <rect x="50" y="290" width="700" height="90" fill="#2d2d44" stroke="#9C27B0" stroke-width="2" rx="8"/>
     <text x="60" y="320" font-family="monospace" font-size="14" fill="#ffffff">
       const key = 'email';
@@ -67,13 +67,13 @@
       // { email: 'user@example.com' }
     </text>
   </g>
-  
+
   <!-- Method Shorthand -->
   <g id="method-shorthand">
     <text x="50" y="420" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#F0DB4F">
       3. Method Shorthand
     </text>
-    
+
     <rect x="50" y="440" width="330" height="110" fill="#2d2d44" stroke="#ef4444" stroke-width="2" rx="8"/>
     <text x="60" y="465" font-family="Arial, sans-serif" font-size="14" fill="#ef4444">
       ❌ Antiguo
@@ -87,7 +87,7 @@
     <text x="90" y="530" font-family="monospace" font-size="13" fill="#a0a0a0">
       return a + b;
     </text>
-    
+
     <rect x="420" y="440" width="330" height="110" fill="#2d2d44" stroke="#4CAF50" stroke-width="2" rx="8"/>
     <text x="430" y="465" font-family="Arial, sans-serif" font-size="14" fill="#4CAF50">
       ✅ Moderno
@@ -102,28 +102,28 @@
       return a + b;
     </text>
   </g>
-  
+
   <!-- Object Methods -->
   <g id="object-methods">
     <text x="50" y="585" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#F0DB4F">
       4. Object Static Methods
     </text>
-    
+
     <rect x="50" y="605" width="165" height="35" fill="#3b82f6" rx="6"/>
     <text x="132" y="628" font-family="monospace" font-size="13" fill="#ffffff" text-anchor="middle">
       Object.keys()
     </text>
-    
+
     <rect x="230" y="605" width="180" height="35" fill="#9C27B0" rx="6"/>
     <text x="320" y="628" font-family="monospace" font-size="13" fill="#ffffff" text-anchor="middle">
       Object.values()
     </text>
-    
+
     <rect x="425" y="605" width="180" height="35" fill="#00bcd4" rx="6"/>
     <text x="515" y="628" font-family="monospace" font-size="13" fill="#ffffff" text-anchor="middle">
       Object.entries()
     </text>
-    
+
     <rect x="620" y="605" width="130" height="35" fill="#4CAF50" rx="6"/>
     <text x="685" y="628" font-family="monospace" font-size="13" fill="#ffffff" text-anchor="middle">
       Object.assign()

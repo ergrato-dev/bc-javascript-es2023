@@ -1,5 +1,7 @@
 # 🎯 Default Parameters (Parámetros por Defecto)
 
+![Default Parameters Diagram](../0-assets/03-default-parameters.svg)
+
 ## 🎯 Objetivos
 
 - Definir valores por defecto en parámetros
