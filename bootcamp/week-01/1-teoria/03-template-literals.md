@@ -30,7 +30,7 @@ const modernMessage = `Welcome to JavaScript`;
 
 ## 🔤 Interpolación de Variables
 
-![Template Literals vs Concatenación](../0-assets/template-literals-comparison.svg)
+![Template Literals vs Concatenación](../0-assets/03-template-literals-comparison.svg)
 
 ### El Problema con Concatenación
 
