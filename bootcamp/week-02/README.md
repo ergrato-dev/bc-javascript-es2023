@@ -127,12 +127,12 @@ Aplicación de gestión de tareas que utiliza:
 
 ## ⏱️ Distribución del Tiempo (8 horas)
 
-| Actividad | Tiempo | Descripción |
-|-----------|--------|-------------|
-| **Teoría** | 2.5h | Lectura de los 5 archivos teóricos |
-| **Prácticas** | 3h | Completar 4 ejercicios guiados |
-| **Proyecto** | 2h | Gestor de tareas interactivo |
-| **Recursos** | 0.5h | Revisión de material adicional |
+| Actividad     | Tiempo | Descripción                        |
+| ------------- | ------ | ---------------------------------- |
+| **Teoría**    | 2.5h   | Lectura de los 5 archivos teóricos |
+| **Prácticas** | 3h     | Completar 4 ejercicios guiados     |
+| **Proyecto**  | 2h     | Gestor de tareas interactivo       |
+| **Recursos**  | 0.5h   | Revisión de material adicional     |
 
 ---
 

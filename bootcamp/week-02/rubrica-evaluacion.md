@@ -2,12 +2,12 @@
 
 ## 🎯 Distribución de Evidencias
 
-| Tipo de Evidencia | Peso | Puntaje Mínimo |
-|-------------------|------|----------------|
-| 🧠 Conocimiento   | 30%  | 21/30 (70%)    |
-| 💪 Desempeño      | 40%  | 28/40 (70%)    |
-| 📦 Producto       | 30%  | 21/30 (70%)    |
-| **TOTAL**         | **100%** | **70/100** |
+| Tipo de Evidencia | Peso     | Puntaje Mínimo |
+| ----------------- | -------- | -------------- |
+| 🧠 Conocimiento    | 30%      | 21/30 (70%)    |
+| 💪 Desempeño       | 40%      | 28/40 (70%)    |
+| 📦 Producto        | 30%      | 21/30 (70%)    |
+| **TOTAL**         | **100%** | **70/100**     |
 
 ---
 
@@ -15,11 +15,11 @@
 
 ### Evaluación Teórica
 
-| Criterio | Excelente<br>(9-10) | Bueno<br>(7-8) | Suficiente<br>(5-6) | Insuficiente<br>(0-4) |
-|----------|---------------------|----------------|---------------------|-----------------------|
-| **Spread Operator** | Explica perfectamente cuándo y cómo usar spread, con ejemplos claros | Comprende el uso básico de spread en arrays y objetos | Identifica spread pero tiene dudas en su aplicación | No comprende el concepto |
-| **Rest Parameters** | Diferencia claramente rest de spread, explica casos de uso | Entiende rest parameters pero confunde ocasionalmente con spread | Conoce la sintaxis pero no domina aplicaciones | No distingue rest de spread |
-| **Array Methods** | Domina map, filter, reduce y explica cuándo usar cada uno | Usa correctamente map y filter, tiene dudas con reduce | Conoce los métodos básicamente pero no sabe cuándo aplicarlos | No comprende los métodos |
+| Criterio            | Excelente<br>(9-10)                                                  | Bueno<br>(7-8)                                                   | Suficiente<br>(5-6)                                           | Insuficiente<br>(0-4)       |
+| ------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------- |
+| **Spread Operator** | Explica perfectamente cuándo y cómo usar spread, con ejemplos claros | Comprende el uso básico de spread en arrays y objetos            | Identifica spread pero tiene dudas en su aplicación           | No comprende el concepto    |
+| **Rest Parameters** | Diferencia claramente rest de spread, explica casos de uso           | Entiende rest parameters pero confunde ocasionalmente con spread | Conoce la sintaxis pero no domina aplicaciones                | No distingue rest de spread |
+| **Array Methods**   | Domina map, filter, reduce y explica cuándo usar cada uno            | Usa correctamente map y filter, tiene dudas con reduce           | Conoce los métodos básicamente pero no sabe cuándo aplicarlos | No comprende los métodos    |
 
 **Total Conocimiento: ___ / 30 puntos**
 
@@ -31,39 +31,39 @@
 
 #### Ejercicio 01: Spread y Rest (10 puntos)
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| **Funcionalidad** | 0-4 | Todas las operaciones de spread funcionan correctamente |
-| **Rest Parameters** | 0-3 | Implementa correctamente funciones con rest |
-| **Código Limpio** | 0-2 | Código legible, bien estructurado |
-| **Casos Edge** | 0-1 | Maneja casos especiales (arrays vacíos, undefined) |
+| Criterio            | Puntos | Descripción                                             |
+| ------------------- | ------ | ------------------------------------------------------- |
+| **Funcionalidad**   | 0-4    | Todas las operaciones de spread funcionan correctamente |
+| **Rest Parameters** | 0-3    | Implementa correctamente funciones con rest             |
+| **Código Limpio**   | 0-2    | Código legible, bien estructurado                       |
+| **Casos Edge**      | 0-1    | Maneja casos especiales (arrays vacíos, undefined)      |
 
 #### Ejercicio 02: Array Methods Básicos (10 puntos)
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| **map() correcto** | 0-3 | Transforma arrays correctamente con map |
-| **filter() correcto** | 0-3 | Filtra elementos adecuadamente |
-| **find/some/every** | 0-2 | Usa métodos de búsqueda apropiadamente |
-| **Código Limpio** | 0-2 | Arrow functions, nombres descriptivos |
+| Criterio              | Puntos | Descripción                             |
+| --------------------- | ------ | --------------------------------------- |
+| **map() correcto**    | 0-3    | Transforma arrays correctamente con map |
+| **filter() correcto** | 0-3    | Filtra elementos adecuadamente          |
+| **find/some/every**   | 0-2    | Usa métodos de búsqueda apropiadamente  |
+| **Código Limpio**     | 0-2    | Arrow functions, nombres descriptivos   |
 
 #### Ejercicio 03: Map y Filter Avanzado (10 puntos)
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| **Transformaciones** | 0-4 | Transforma objetos complejos correctamente |
-| **Filtros Complejos** | 0-3 | Combina múltiples condiciones de filtrado |
-| **Encadenamiento** | 0-2 | Encadena métodos de forma eficiente |
-| **Performance** | 0-1 | No hace operaciones redundantes |
+| Criterio              | Puntos | Descripción                                |
+| --------------------- | ------ | ------------------------------------------ |
+| **Transformaciones**  | 0-4    | Transforma objetos complejos correctamente |
+| **Filtros Complejos** | 0-3    | Combina múltiples condiciones de filtrado  |
+| **Encadenamiento**    | 0-2    | Encadena métodos de forma eficiente        |
+| **Performance**       | 0-1    | No hace operaciones redundantes            |
 
 #### Ejercicio 04: Reduce Patterns (10 puntos)
 
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| **Reduce básico** | 0-3 | Suma, cuenta, agrupa con reduce |
-| **Reduce complejo** | 0-4 | Transforma estructuras de datos complejas |
-| **Valor inicial** | 0-2 | Usa valores iniciales apropiados |
-| **Alternativas** | 0-1 | Reconoce cuándo usar reduce vs otros métodos |
+| Criterio            | Puntos | Descripción                                  |
+| ------------------- | ------ | -------------------------------------------- |
+| **Reduce básico**   | 0-3    | Suma, cuenta, agrupa con reduce              |
+| **Reduce complejo** | 0-4    | Transforma estructuras de datos complejas    |
+| **Valor inicial**   | 0-2    | Usa valores iniciales apropiados             |
+| **Alternativas**    | 0-1    | Reconoce cuándo usar reduce vs otros métodos |
 
 **Total Desempeño: ___ / 40 puntos**
 
@@ -73,24 +73,24 @@
 
 ### Proyecto: Gestor de Tareas
 
-| Criterio | Excelente<br>(9-10) | Bueno<br>(7-8) | Suficiente<br>(5-6) | Insuficiente<br>(0-4) |
-|----------|---------------------|----------------|---------------------|-----------------------|
-| **Funcionalidad** | Todas las features funcionan perfectamente (agregar, eliminar, filtrar, ordenar) | La mayoría de features funcionan, bugs menores | Funcionalidad básica presente pero con errores | No funciona o features incompletas |
-| **Uso de ES6+** | Usa spread, rest, array methods naturalmente en todo el código | Usa ES6+ en la mayoría del código, algunos patrones antiguos | Mezcla ES6+ con código antiguo inconsistentemente | Código principalmente ES5 o mal uso de ES6+ |
-| **Código Limpio** | Código muy legible, bien organizado, nombres descriptivos, comentarios útiles | Código legible en general, organización adecuada | Código funciona pero difícil de leer, mala organización | Código difícil de entender, sin estructura |
+| Criterio          | Excelente<br>(9-10)                                                              | Bueno<br>(7-8)                                               | Suficiente<br>(5-6)                                     | Insuficiente<br>(0-4)                       |
+| ----------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------- |
+| **Funcionalidad** | Todas las features funcionan perfectamente (agregar, eliminar, filtrar, ordenar) | La mayoría de features funcionan, bugs menores               | Funcionalidad básica presente pero con errores          | No funciona o features incompletas          |
+| **Uso de ES6+**   | Usa spread, rest, array methods naturalmente en todo el código                   | Usa ES6+ en la mayoría del código, algunos patrones antiguos | Mezcla ES6+ con código antiguo inconsistentemente       | Código principalmente ES5 o mal uso de ES6+ |
+| **Código Limpio** | Código muy legible, bien organizado, nombres descriptivos, comentarios útiles    | Código legible en general, organización adecuada             | Código funciona pero difícil de leer, mala organización | Código difícil de entender, sin estructura  |
 
 **Desglose Detallado del Proyecto:**
 
-| Feature | Puntos | Criterios de Evaluación |
-|---------|--------|-------------------------|
-| **Agregar Tareas** | 0-5 | Usa spread para inmutabilidad, genera IDs únicos |
-| **Eliminar Tareas** | 0-3 | Usa filter() para eliminar, no muta array original |
-| **Filtrar Tareas** | 0-5 | Filtros por estado, prioridad, búsqueda por texto |
-| **Ordenar Tareas** | 0-3 | Ordena por fecha, prioridad, alfabético |
-| **Estadísticas** | 0-4 | Usa reduce() para contar completadas, pendientes |
-| **Object Enhancements** | 0-3 | Property/method shorthand, computed properties |
-| **Default Params** | 0-2 | Usa defaults para configuración y opciones |
-| **Código Limpio** | 0-5 | Estructura clara, funciones pequeñas, comentarios |
+| Feature                 | Puntos | Criterios de Evaluación                            |
+| ----------------------- | ------ | -------------------------------------------------- |
+| **Agregar Tareas**      | 0-5    | Usa spread para inmutabilidad, genera IDs únicos   |
+| **Eliminar Tareas**     | 0-3    | Usa filter() para eliminar, no muta array original |
+| **Filtrar Tareas**      | 0-5    | Filtros por estado, prioridad, búsqueda por texto  |
+| **Ordenar Tareas**      | 0-3    | Ordena por fecha, prioridad, alfabético            |
+| **Estadísticas**        | 0-4    | Usa reduce() para contar completadas, pendientes   |
+| **Object Enhancements** | 0-3    | Property/method shorthand, computed properties     |
+| **Default Params**      | 0-2    | Usa defaults para configuración y opciones         |
+| **Código Limpio**       | 0-5    | Estructura clara, funciones pequeñas, comentarios  |
 
 **Total Producto: ___ / 30 puntos**
 
@@ -163,13 +163,13 @@ week-02-entregas/
 
 ## 🏆 Niveles de Logro
 
-| Puntaje | Nivel | Descripción |
-|---------|-------|-------------|
-| 90-100 | 🌟 Excelente | Dominio completo de spread, rest y array methods. Código profesional |
-| 80-89 | 🎯 Muy Bueno | Buen entendimiento, aplica conceptos correctamente |
-| 70-79 | ✅ Bueno | Comprende los conceptos básicos, algunas dudas |
-| 60-69 | ⚠️ Suficiente | Conocimiento básico, necesita más práctica |
-| 0-59 | ❌ Insuficiente | No alcanza los objetivos mínimos |
+| Puntaje | Nivel          | Descripción                                                          |
+| ------- | -------------- | -------------------------------------------------------------------- |
+| 90-100  | 🌟 Excelente    | Dominio completo de spread, rest y array methods. Código profesional |
+| 80-89   | 🎯 Muy Bueno    | Buen entendimiento, aplica conceptos correctamente                   |
+| 70-79   | ✅ Bueno        | Comprende los conceptos básicos, algunas dudas                       |
+| 60-69   | ⚠️ Suficiente   | Conocimiento básico, necesita más práctica                           |
+| 0-59    | ❌ Insuficiente | No alcanza los objetivos mínimos                                     |
 
 ---
 
