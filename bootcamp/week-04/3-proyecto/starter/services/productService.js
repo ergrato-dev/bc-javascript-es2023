@@ -62,7 +62,7 @@ export const updateProduct = (id, data) => {
   loadProducts();
   const product = products.find(p => p.id === id);
   if (!product) throw new Error('Product not found');
-  
+
   product.update(data);
   saveProducts();
   return product;
@@ -75,7 +75,7 @@ export const deleteProduct = id => {
   loadProducts();
   const index = products.findIndex(p => p.id === id);
   if (index === -1) throw new Error('Product not found');
-  
+
   const deleted = products.splice(index, 1)[0];
   saveProducts();
   return deleted;

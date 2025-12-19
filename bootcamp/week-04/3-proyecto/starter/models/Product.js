@@ -17,25 +17,25 @@ class Product {
     this.description = description;
     this.createdAt = new Date();
   }
-  
+
   // TODO: Getter isLowStock
   // Retorna true si stock < 10
   get isLowStock() {
     // Tu código aquí
   }
-  
+
   // TODO: Getter totalValue
   // Calcula price * stock
   get totalValue() {
     // Tu código aquí
   }
-  
+
   // TODO: Método updateStock
   // Aumenta o disminuye stock (no puede ser negativo)
   updateStock(quantity) {
     // Tu código aquí
   }
-  
+
   // TODO: Método update
   // Actualiza las propiedades del producto
   update(data) {

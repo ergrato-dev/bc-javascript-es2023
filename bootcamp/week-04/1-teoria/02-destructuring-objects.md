@@ -578,12 +578,12 @@ let config = {
   secondary: 'red'
 };
 
-// Swap usando destructuring
-({ primary: config.secondary, secondary: config.primary } = 
-  { primary: config.primary, secondary: config.secondary });
+// Swap usando destructuring (requiere paréntesis)
+const temp = { primary: config.primary, secondary: config.secondary };
+({ primary: config.secondary, secondary: config.primary } = temp);
 
 console.log(config); // { primary: 'red', secondary: 'blue' }
-// Se intercambiaron los valores
+// Los valores se intercambiaron
 ```
 
 ### 5. Opciones con Defaults

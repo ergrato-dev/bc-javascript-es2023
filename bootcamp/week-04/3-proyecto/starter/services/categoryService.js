@@ -10,7 +10,7 @@ const DEFAULT_CATEGORIES = [
   { name: 'Ropa', description: 'Prendas de vestir' },
   { name: 'Alimentos', description: 'Productos alimenticios' },
   { name: 'Hogar', description: 'Artículos para el hogar' },
-  { name: 'Deportes', description: 'Equipamiento deportivo' }
+  { name: 'Deportes', description: 'Equipamiento deportivo' },
 ];
 
 // Array de categorías en memoria

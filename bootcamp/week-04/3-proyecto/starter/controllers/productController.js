@@ -8,10 +8,10 @@
 /*
 export const initializeProducts = () => {
   console.log('✅ Inicializando productos...');
-  
+
   const form = document.getElementById('productForm');
   form.addEventListener('submit', handleFormSubmit);
-  
+
   renderProducts();
   updateStats();
   updateLowStockAlerts();
@@ -22,7 +22,7 @@ export const initializeProducts = () => {
 /*
 const handleFormSubmit = e => {
   e.preventDefault();
-  
+
   // Destructuring de los elementos del formulario
   const {
     name: { value: name },
@@ -31,7 +31,7 @@ const handleFormSubmit = e => {
     category: { value: category },
     description: { value: description }
   } = e.target.elements;
-  
+
   try {
     productService.createProduct({
       name,
@@ -40,7 +40,7 @@ const handleFormSubmit = e => {
       category,
       description
     });
-    
+
     e.target.reset();
     renderProducts();
     updateStats();
@@ -57,7 +57,7 @@ const handleFormSubmit = e => {
 export const renderProducts = (category = 'all') => {
   const products = productService.getProductsByCategory(category);
   const tbody = document.getElementById('productsTableBody');
-  
+
   if (products.length === 0) {
     tbody.innerHTML = `
       <tr>
@@ -68,7 +68,7 @@ export const renderProducts = (category = 'all') => {
     `;
     return;
   }
-  
+
   tbody.innerHTML = products.map(({ id, name, price, stock, category, totalValue }) => `
     <tr>
       <td>${id}</td>
@@ -102,7 +102,7 @@ export const handleEdit = id => {
 /*
 export const handleDelete = id => {
   if (!confirm('¿Estás seguro de eliminar este producto?')) return;
-  
+
   try {
     productService.deleteProduct(id);
     renderProducts();
@@ -119,10 +119,10 @@ export const handleDelete = id => {
 /*
 const updateStats = () => {
   const products = productService.getAllProducts();
-  
+
   const total = products.length;
   const totalValue = products.reduce((sum, { totalValue }) => sum + totalValue, 0);
-  
+
   document.getElementById('totalProducts').textContent = total;
   document.getElementById('totalValue').textContent = formatPrice(totalValue);
 };
@@ -133,7 +133,7 @@ const updateStats = () => {
 const updateLowStockAlerts = () => {
   const lowStock = productService.getLowStockProducts();
   const container = document.getElementById('lowStockAlerts');
-  
+
   if (lowStock.length === 0) {
     container.innerHTML = `
       <h2>⚠️ Alertas de Stock</h2>
@@ -143,7 +143,7 @@ const updateLowStockAlerts = () => {
     `;
     return;
   }
-  
+
   container.innerHTML = `
     <h2>⚠️ Alertas de Stock</h2>
     ${lowStock.map(({ name, stock }) => `
@@ -161,7 +161,7 @@ const showNotification = (message, type = 'success') => {
   const notification = document.getElementById('notification');
   notification.textContent = message;
   notification.className = `notification ${type} show`;
-  
+
   setTimeout(() => {
     notification.classList.remove('show');
   }, 3000);
