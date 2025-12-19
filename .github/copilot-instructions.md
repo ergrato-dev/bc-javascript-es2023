@@ -371,6 +371,21 @@ Cada semana incluye **tres tipos de evidencias**:
 
 Cuando trabajes en este proyecto:
 
+### Límites de Respuesta
+
+1. **Divide respuestas largas**
+   - ❌ **NUNCA generar respuestas que superen los límites de tokens**
+   - ✅ **SIEMPRE dividir contenido extenso en múltiples entregas**
+   - ✅ Crear contenido por secciones, esperar confirmación del usuario
+   - ✅ Priorizar calidad sobre cantidad en cada entrega
+   - Razón: Evitar pérdida de contenido y garantizar completitud
+
+2. **Estrategia de División**
+   - Para semanas completas: dividir por carpetas (teoria → practicas → proyecto)
+   - Para archivos grandes: dividir por secciones lógicas
+   - Siempre indicar claramente qué parte se entrega y qué falta
+   - Esperar confirmación del usuario antes de continuar
+
 ### Generación de Código
 
 1. **Usa siempre sintaxis ES6+**
