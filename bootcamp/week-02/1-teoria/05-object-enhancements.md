@@ -191,18 +191,18 @@ const user = {
   firstName: 'Ana',
   lastName: 'García',
   age: 25,
-  
+
   // Getter usando method shorthand
   getFullName() {
     return `${this.firstName} ${this.lastName}`;
   },
-  
+
   // Método con lógica
   celebrateBirthday() {
     this.age++;
     return `Happy birthday! You are now ${this.age}`;
   },
-  
+
   // Método que retorna objeto
   toJSON() {
     return {
@@ -441,7 +441,7 @@ const transformUser = (apiUser) => {
     email_address: email,
     ...rest
   } = apiUser;
-  
+
   return {
     id,
     fullName: `${first_name} ${last_name}`,
@@ -512,21 +512,21 @@ const userReducer = (state = initialState, action) => {
         loading: true,
         error: null
       };
-      
+
     case 'FETCH_SUCCESS':
       return {
         ...state,
         loading: false,
         users: action.payload
       };
-      
+
     case 'FETCH_ERROR':
       return {
         ...state,
         loading: false,
         error: action.payload
       };
-      
+
     default:
       return state;
   }
@@ -540,7 +540,7 @@ const buildQueryString = (params) => {
   const filtered = Object.fromEntries(
     Object.entries(params).filter(([_, value]) => value != null)
   );
-  
+
   return Object.entries(filtered)
     .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
     .join('&');
@@ -632,13 +632,13 @@ const updated = { ...product, stock: 4 };
 
 ## 📊 Resumen de Métodos
 
-| Método | Entrada | Salida | Uso |
-|--------|---------|--------|-----|
-| `Object.keys()` | Objeto | Array de strings | Obtener claves |
-| `Object.values()` | Objeto | Array de valores | Obtener valores |
-| `Object.entries()` | Objeto | Array de pares | Iterar key-value |
-| `Object.fromEntries()` | Array de pares | Objeto | Crear objeto |
-| `Object.assign()` | Objetos | Objeto | Fusionar (muta destino) |
+| Método                 | Entrada        | Salida           | Uso                     |
+| ---------------------- | -------------- | ---------------- | ----------------------- |
+| `Object.keys()`        | Objeto         | Array de strings | Obtener claves          |
+| `Object.values()`      | Objeto         | Array de valores | Obtener valores         |
+| `Object.entries()`     | Objeto         | Array de pares   | Iterar key-value        |
+| `Object.fromEntries()` | Array de pares | Objeto           | Crear objeto            |
+| `Object.assign()`      | Objetos        | Objeto           | Fusionar (muta destino) |
 
 ---
 
