@@ -11,7 +11,7 @@
 </p>
 
 <p align="right">
-  <a href="README_EN.md">�🇸 English</a>
+  <a href="README_EN.md">🇺🇸 English</a>
 </p>
 
 ---
