@@ -1,5 +1,7 @@
 # ✨ Object Enhancements (Mejoras de Objetos ES6+)
 
+![Object Enhancements Diagram](../0-assets/05-object-enhancements.svg)
+
 ## 🎯 Objetivos
 
 - Usar property shorthand (sintaxis abreviada)

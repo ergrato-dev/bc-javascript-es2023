@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
   <!-- Background -->
   <rect width="800" height="600" fill="#1a1a2e"/>
-  
+
   <!-- Title -->
   <text x="400" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#F0DB4F" text-anchor="middle">
     Rest Parameters (...)
   </text>
-  
+
   <!-- Subtitle -->
   <text x="400" y="70" font-family="Arial, sans-serif" font-size="16" fill="#a0a0a0" text-anchor="middle">
     Agrupa elementos individuales en un array
   </text>
-  
+
   <!-- Comparison: Spread vs Rest -->
   <g id="comparison">
     <rect x="50" y="100" width="340" height="140" fill="#2d2d44" stroke="#F0DB4F" stroke-width="2" rx="8"/>
@@ -30,7 +30,7 @@
     <text x="70" y="225" font-family="Arial, sans-serif" font-size="13" fill="#F0DB4F">
       → Elementos separados
     </text>
-    
+
     <rect x="410" y="100" width="340" height="140" fill="#2d2d44" stroke="#F0DB4F" stroke-width="2" rx="8"/>
     <text x="580" y="125" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#F0DB4F" text-anchor="middle">
       REST (Agrupa)
@@ -48,13 +48,13 @@
       → Array agrupado
     </text>
   </g>
-  
+
   <!-- Function Example -->
   <g id="function-example">
     <text x="50" y="280" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#F0DB4F">
       En Funciones
     </text>
-    
+
     <rect x="50" y="300" width="700" height="120" fill="#2d2d44" stroke="#4CAF50" stroke-width="2" rx="8"/>
     <text x="70" y="330" font-family="monospace" font-size="15" fill="#ffffff">
       const multiply = (multiplier, ...numbers) => {
@@ -69,13 +69,13 @@
       multiply(2, 1, 2, 3) // [2, 4, 6]
     </text>
   </g>
-  
+
   <!-- Destructuring Example -->
   <g id="destructuring-example">
     <text x="50" y="450" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#F0DB4F">
       En Destructuring
     </text>
-    
+
     <!-- Array Destructuring -->
     <rect x="50" y="470" width="340" height="100" fill="#2d2d44" stroke="#9C27B0" stroke-width="2" rx="8"/>
     <text x="60" y="495" font-family="Arial, sans-serif" font-size="16" fill="#9C27B0">
@@ -90,7 +90,7 @@
     <text x="70" y="560" font-family="monospace" font-size="13" fill="#4CAF50">
       // rest = [3, 4, 5]
     </text>
-    
+
     <!-- Object Destructuring -->
     <rect x="410" y="470" width="340" height="100" fill="#2d2d44" stroke="#9C27B0" stroke-width="2" rx="8"/>
     <text x="420" y="495" font-family="Arial, sans-serif" font-size="16" fill="#9C27B0">
@@ -106,7 +106,7 @@
       // other = {name, age}
     </text>
   </g>
-  
+
   <!-- Arrow marker definition -->
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
