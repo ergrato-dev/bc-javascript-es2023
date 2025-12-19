@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a202c"/>
+
+  <!-- Title -->
+  <text x="400" y="35" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#f0db4f" text-anchor="middle">
+    Block Scope: let/const vs var
+  </text>
+
+  <!-- LEFT SIDE: var (Function Scope) -->
+  <text x="200" y="75" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#ef4444" text-anchor="middle">
+    ❌ var (Obsoleto)
+  </text>
+
+  <!-- Global scope for var -->
+  <rect x="50" y="90" width="300" height="350" fill="#2d3748" stroke="#4a5568" stroke-width="2" rx="8"/>
+  <text x="60" y="115" font-family="system-ui, sans-serif" font-size="12" fill="#a0aec0">Global Scope</text>
+
+  <!-- Function scope -->
+  <rect x="70" y="130" width="260" height="140" fill="#374151" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="80" y="155" font-family="system-ui, sans-serif" font-size="12" fill="#fca5a5">Function Scope</text>
+  <text x="80" y="175" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">function test() {</text>
+  <text x="90" y="195" font-family="Courier, monospace" font-size="11" fill="#fca5a5">  var x = 10;</text>
+
+  <!-- Block inside function -->
+  <rect x="90" y="205" width="220" height="50" fill="#1f2937" stroke="#6b7280" stroke-width="1" stroke-dasharray="4" rx="3"/>
+  <text x="100" y="225" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">  if (true) {</text>
+  <text x="110" y="240" font-family="Courier, monospace" font-size="11" fill="#fca5a5">    var y = 20;</text>
+  <text x="100" y="255" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">  }</text>
+
+  <text x="90" y="267" font-family="Courier, monospace" font-size="11" fill="#48bb78">  console.log(y); // 20 ✓</text>
+  <text x="80" y="280" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">}</text>
+
+  <!-- Problem explanation -->
+  <rect x="70" y="295" width="260" height="130" fill="#374151" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="200" y="315" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">
+    ⚠️ Problemas
+  </text>
+  <text x="80" y="335" font-family="system-ui, sans-serif" font-size="10" fill="#fca5a5">• Ignora bloques { }</text>
+  <text x="80" y="353" font-family="system-ui, sans-serif" font-size="10" fill="#fca5a5">• Hoisting confuso</text>
+  <text x="80" y="371" font-family="system-ui, sans-serif" font-size="10" fill="#fca5a5">• Puede ser reasignada</text>
+  <text x="80" y="389" font-family="system-ui, sans-serif" font-size="10" fill="#fca5a5">• Contamina scope global</text>
+  <text x="80" y="407" font-family="system-ui, sans-serif" font-size="10" fill="#fca5a5">• Errores difíciles de detectar</text>
+
+  <!-- RIGHT SIDE: let/const (Block Scope) -->
+  <text x="600" y="75" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#48bb78" text-anchor="middle">
+    ✅ let/const (Moderno)
+  </text>
+
+  <!-- Global scope for let/const -->
+  <rect x="450" y="90" width="300" height="350" fill="#2d3748" stroke="#4a5568" stroke-width="2" rx="8"/>
+  <text x="460" y="115" font-family="system-ui, sans-serif" font-size="12" fill="#a0aec0">Global Scope</text>
+
+  <!-- Function scope -->
+  <rect x="470" y="130" width="260" height="160" fill="#374151" stroke="#48bb78" stroke-width="2" rx="5"/>
+  <text x="480" y="155" font-family="system-ui, sans-serif" font-size="12" fill="#86efac">Function Scope</text>
+  <text x="480" y="175" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">function test() {</text>
+  <text x="490" y="195" font-family="Courier, monospace" font-size="11" fill="#86efac">  const x = 10;</text>
+
+  <!-- Block scope (highlighted) -->
+  <rect x="490" y="205" width="220" height="65" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="3"/>
+  <text x="500" y="220" font-family="system-ui, sans-serif" font-size="10" fill="#86efac">Block Scope</text>
+  <text x="500" y="238" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">  if (true) {</text>
+  <text x="510" y="253" font-family="Courier, monospace" font-size="11" fill="#86efac">    let y = 20;</text>
+  <text x="500" y="268" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">  }</text>
+
+  <text x="490" y="285" font-family="Courier, monospace" font-size="11" fill="#ef4444">  console.log(y); // Error ✗</text>
+  <text x="480" y="300" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">}</text>
+
+  <!-- Benefits explanation -->
+  <rect x="470" y="310" width="260" height="115" fill="#374151" stroke="#48bb78" stroke-width="2" rx="5"/>
+  <text x="600" y="330" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#48bb78" text-anchor="middle">
+    ✅ Ventajas
+  </text>
+  <text x="480" y="350" font-family="system-ui, sans-serif" font-size="10" fill="#86efac">• Respeta bloques { }</text>
+  <text x="480" y="368" font-family="system-ui, sans-serif" font-size="10" fill="#86efac">• Temporal Dead Zone (TDZ)</text>
+  <text x="480" y="386" font-family="system-ui, sans-serif" font-size="10" fill="#86efac">• const previene reasignación</text>
+  <text x="480" y="404" font-family="system-ui, sans-serif" font-size="10" fill="#86efac">• Código más predecible</text>
+
+  <!-- Bottom comparison -->
+  <rect x="50" y="455" width="700" height="35" fill="#2d3748" stroke="#f0db4f" stroke-width="2" rx="5"/>
+  <text x="400" y="477" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#f0db4f" text-anchor="middle">
+    Regla: Usar const por defecto, let cuando necesites reasignar, NUNCA var
+  </text>
+</svg>

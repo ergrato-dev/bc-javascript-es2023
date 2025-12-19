@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#1a202c"/>
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#f0db4f" text-anchor="middle">
+    Evolución de JavaScript (ECMAScript)
+  </text>
+
+  <!-- Timeline -->
+  <line x1="50" y1="200" x2="750" y2="200" stroke="#4a5568" stroke-width="4"/>
+
+  <!-- ES5 (2009) -->
+  <circle cx="100" cy="200" r="8" fill="#4a5568"/>
+  <text x="100" y="230" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0" text-anchor="middle">ES5</text>
+  <text x="100" y="250" font-family="system-ui, sans-serif" font-size="12" fill="#a0aec0" text-anchor="middle">2009</text>
+  <text x="100" y="180" font-family="system-ui, sans-serif" font-size="11" fill="#cbd5e0" text-anchor="middle">Legacy</text>
+
+  <!-- ES6/ES2015 (Big Jump) -->
+  <circle cx="300" cy="200" r="12" fill="#f0db4f"/>
+  <text x="300" y="235" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#f0db4f" text-anchor="middle">ES6/ES2015</text>
+  <text x="300" y="255" font-family="system-ui, sans-serif" font-size="12" fill="#a0aec0" text-anchor="middle">2015</text>
+
+  <!-- Features box for ES6 -->
+  <rect x="220" y="80" width="160" height="90" fill="#2d3748" stroke="#f0db4f" stroke-width="2" rx="5"/>
+  <text x="300" y="100" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f0db4f" text-anchor="middle">Características ES6+</text>
+  <text x="230" y="118" font-family="system-ui, sans-serif" font-size="10" fill="#e2e8f0">• let/const</text>
+  <text x="230" y="133" font-family="system-ui, sans-serif" font-size="10" fill="#e2e8f0">• Arrow functions</text>
+  <text x="230" y="148" font-family="system-ui, sans-serif" font-size="10" fill="#e2e8f0">• Template literals</text>
+  <text x="230" y="163" font-family="system-ui, sans-serif" font-size="10" fill="#e2e8f0">• Destructuring</text>
+
+  <!-- ES2016 -->
+  <circle cx="420" cy="200" r="8" fill="#48bb78"/>
+  <text x="420" y="230" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0" text-anchor="middle">ES2016</text>
+  <text x="420" y="250" font-family="system-ui, sans-serif" font-size="12" fill="#a0aec0" text-anchor="middle">2016</text>
+
+  <!-- ES2017 -->
+  <circle cx="500" cy="200" r="8" fill="#48bb78"/>
+  <text x="500" y="230" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0" text-anchor="middle">ES2017</text>
+  <text x="500" y="250" font-family="system-ui, sans-serif" font-size="12" fill="#a0aec0" text-anchor="middle">2017</text>
+
+  <!-- ES2018 -->
+  <circle cx="580" cy="200" r="8" fill="#48bb78"/>
+  <text x="580" y="230" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0" text-anchor="middle">ES2018</text>
+  <text x="580" y="250" font-family="system-ui, sans-serif" font-size="12" fill="#a0aec0" text-anchor="middle">2018</text>
+
+  <!-- ES2019+ -->
+  <circle cx="660" cy="200" r="8" fill="#48bb78"/>
+  <text x="660" y="230" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#e2e8f0" text-anchor="middle">ES2019+</text>
+  <text x="660" y="250" font-family="system-ui, sans-serif" font-size="12" fill="#a0aec0" text-anchor="middle">2019+</text>
+
+  <!-- Modern label -->
+  <text x="540" y="180" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#48bb78" text-anchor="middle">Modern JS</text>
+
+  <!-- Annual releases note -->
+  <text x="400" y="320" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e0" text-anchor="middle">
+    Desde 2015: Nuevas versiones anuales con mejoras incrementales
+  </text>
+
+  <!-- Arrow pointing to modern era -->
+  <path d="M 420 170 L 660 170" stroke="#48bb78" stroke-width="2" fill="none"/>
+  <polygon points="665,170 655,165 655,175" fill="#48bb78"/>
+
+  <!-- Note about this bootcamp -->
+  <rect x="200" y="350" width="400" height="35" fill="#2d3748" stroke="#f0db4f" stroke-width="2" rx="5"/>
+  <text x="400" y="372" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#f0db4f" text-anchor="middle">
+    Este bootcamp enseña ES6+ (JavaScript Moderno)
+  </text>
+</svg>

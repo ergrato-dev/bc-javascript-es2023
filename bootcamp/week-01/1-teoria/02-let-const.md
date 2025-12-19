@@ -23,6 +23,8 @@ En JavaScript moderno, **olvidamos `var`** y usamos únicamente:
 
 ## 🆚 var vs let vs const
 
+![Comparación Block Scope](../0-assets/block-scope-comparison.svg)
+
 ### Tabla Comparativa
 
 | Característica         | var      | let       | const     |

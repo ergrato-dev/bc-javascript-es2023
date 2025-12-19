@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#1a202c"/>
+
+  <!-- Title -->
+  <text x="400" y="35" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#f0db4f" text-anchor="middle">
+    Template Literals vs Concatenación
+  </text>
+
+  <!-- OLD WAY - Concatenation -->
+  <text x="200" y="75" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#ef4444" text-anchor="middle">
+    ❌ Concatenación (Antiguo)
+  </text>
+
+  <rect x="30" y="90" width="340" height="140" fill="#2d3748" stroke="#ef4444" stroke-width="2" rx="8"/>
+
+  <!-- Code example - concatenation -->
+  <text x="45" y="115" font-family="Courier, monospace" font-size="12" fill="#a0aec0">const nombre = 'Alex';</text>
+  <text x="45" y="135" font-family="Courier, monospace" font-size="12" fill="#a0aec0">const edad = 25;</text>
+  <text x="45" y="155" font-family="Courier, monospace" font-size="12" fill="#a0aec0">const ciudad = 'NYC';</text>
+  <text x="45" y="185" font-family="Courier, monospace" font-size="12" fill="#fca5a5">const mensaje = </text>
+  <text x="45" y="205" font-family="Courier, monospace" font-size="12" fill="#fca5a5">  'Hola, soy ' + nombre +</text>
+  <text x="45" y="220" font-family="Courier, monospace" font-size="12" fill="#fca5a5">  ', tengo ' + edad + ' años';</text>
+
+  <!-- Problems -->
+  <rect x="30" y="245" width="340" height="110" fill="#374151" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="200" y="268" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">
+    Problemas
+  </text>
+  <text x="45" y="288" font-family="system-ui, sans-serif" font-size="11" fill="#fca5a5">• Difícil de leer</text>
+  <text x="45" y="308" font-family="system-ui, sans-serif" font-size="11" fill="#fca5a5">• Propenso a errores (olvido de espacios, +)</text>
+  <text x="45" y="328" font-family="system-ui, sans-serif" font-size="11" fill="#fca5a5">• Difícil mantener strings multi-línea</text>
+  <text x="45" y="348" font-family="system-ui, sans-serif" font-size="11" fill="#fca5a5">• Escaping complejo de comillas</text>
+
+  <!-- NEW WAY - Template Literals -->
+  <text x="600" y="75" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#48bb78" text-anchor="middle">
+    ✅ Template Literals (Moderno)
+  </text>
+
+  <rect x="430" y="90" width="340" height="140" fill="#2d3748" stroke="#48bb78" stroke-width="2" rx="8"/>
+
+  <!-- Code example - template literals -->
+  <text x="445" y="115" font-family="Courier, monospace" font-size="12" fill="#a0aec0">const nombre = 'Alex';</text>
+  <text x="445" y="135" font-family="Courier, monospace" font-size="12" fill="#a0aec0">const edad = 25;</text>
+  <text x="445" y="155" font-family="Courier, monospace" font-size="12" fill="#a0aec0">const ciudad = 'NYC';</text>
+  <text x="445" y="185" font-family="Courier, monospace" font-size="12" fill="#86efac">const mensaje = </text>
+  <text x="445" y="205" font-family="Courier, monospace" font-size="12" fill="#86efac">  `Hola, soy ${nombre},</text>
+  <text x="445" y="220" font-family="Courier, monospace" font-size="12" fill="#86efac">   tengo ${edad} años`;</text>
+
+  <!-- Benefits -->
+  <rect x="430" y="245" width="340" height="110" fill="#374151" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="600" y="268" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#48bb78" text-anchor="middle">
+    Ventajas
+  </text>
+  <text x="445" y="288" font-family="system-ui, sans-serif" font-size="11" fill="#86efac">• Fácil de leer y escribir</text>
+  <text x="445" y="308" font-family="system-ui, sans-serif" font-size="11" fill="#86efac">• Interpolación ${} para expresiones</text>
+  <text x="445" y="328" font-family="system-ui, sans-serif" font-size="11" fill="#86efac">• Multi-línea sin esfuerzo</text>
+  <text x="445" y="348" font-family="system-ui, sans-serif" font-size="11" fill="#86efac">• No necesita escaping complejo</text>
+
+  <!-- Syntax comparison -->
+  <rect x="100" y="380" width="600" height="55" fill="#2d3748" stroke="#f0db4f" stroke-width="2" rx="8"/>
+  <text x="400" y="402" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e0" text-anchor="middle">
+    Sintaxis:
+  </text>
+  <text x="220" y="422" font-family="Courier, monospace" font-size="13" fill="#ef4444" text-anchor="middle">
+    'string ' + variable + ' más'
+  </text>
+  <text x="400" y="422" font-family="system-ui, sans-serif" font-size="16" fill="#f0db4f" text-anchor="middle">
+    →
+  </text>
+  <text x="560" y="422" font-family="Courier, monospace" font-size="13" fill="#48bb78" text-anchor="middle">
+    `string ${variable} más`
+  </text>
+</svg>
