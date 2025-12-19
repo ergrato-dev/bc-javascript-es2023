@@ -1,0 +1,214 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <!-- Background -->
+  <rect width="900" height="700" fill="#1a1a2e"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#F0DB4F" text-anchor="middle">
+    Array Methods (map, filter, reduce)
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="450" y="70" font-family="Arial, sans-serif" font-size="16" fill="#a0a0a0" text-anchor="middle">
+    Métodos funcionales para transformar arrays
+  </text>
+  
+  <!-- Original Array -->
+  <g id="original-array">
+    <rect x="300" y="100" width="300" height="60" fill="#2d2d44" stroke="#F0DB4F" stroke-width="2" rx="8"/>
+    <text x="450" y="125" font-family="monospace" font-size="14" fill="#a0a0a0" text-anchor="middle">
+      Array original
+    </text>
+    <text x="450" y="145" font-family="monospace" font-size="16" fill="#ffffff" text-anchor="middle">
+      [1, 2, 3, 4, 5]
+    </text>
+  </g>
+  
+  <!-- MAP -->
+  <g id="map-method">
+    <rect x="50" y="200" width="240" height="180" fill="#2d2d44" stroke="#4CAF50" stroke-width="3" rx="8"/>
+    <text x="170" y="230" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#4CAF50" text-anchor="middle">
+      map()
+    </text>
+    <text x="60" y="255" font-family="Arial, sans-serif" font-size="13" fill="#a0a0a0">
+      Transforma cada elemento
+    </text>
+    
+    <text x="60" y="285" font-family="monospace" font-size="13" fill="#ffffff">
+      arr.map(x => x * 2)
+    </text>
+    
+    <!-- Visual -->
+    <rect x="60" y="300" width="35" height="25" fill="#3b82f6" rx="4"/>
+    <text x="77" y="318" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+    
+    <path d="M 97 312 L 117 312" stroke="#4CAF50" stroke-width="2" marker-end="url(#arrow-green)"/>
+    
+    <rect x="120" y="300" width="35" height="25" fill="#4CAF50" rx="4"/>
+    <text x="137" y="318" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">2</text>
+    
+    <text x="60" y="345" font-family="monospace" font-size="13" fill="#4CAF50">
+      → [2, 4, 6, 8, 10]
+    </text>
+    <text x="60" y="365" font-family="Arial, sans-serif" font-size="12" fill="#a0a0a0">
+      Mismo tamaño, nuevos valores
+    </text>
+  </g>
+  
+  <!-- FILTER -->
+  <g id="filter-method">
+    <rect x="330" y="200" width="240" height="180" fill="#2d2d44" stroke="#F0DB4F" stroke-width="3" rx="8"/>
+    <text x="450" y="230" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#F0DB4F" text-anchor="middle">
+      filter()
+    </text>
+    <text x="340" y="255" font-family="Arial, sans-serif" font-size="13" fill="#a0a0a0">
+      Selecciona elementos
+    </text>
+    
+    <text x="340" y="285" font-family="monospace" font-size="13" fill="#ffffff">
+      arr.filter(x => x > 2)
+    </text>
+    
+    <!-- Visual -->
+    <rect x="340" y="300" width="35" height="25" fill="#3b82f6" opacity="0.3" rx="4"/>
+    <text x="357" y="318" font-family="monospace" font-size="12" fill="#666" text-anchor="middle">1</text>
+    <text x="380" y="318" font-family="Arial, sans-serif" font-size="14" fill="#ef4444">✗</text>
+    
+    <rect x="410" y="300" width="35" height="25" fill="#3b82f6" rx="4"/>
+    <text x="427" y="318" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="450" y="318" font-family="Arial, sans-serif" font-size="14" fill="#4CAF50">✓</text>
+    
+    <text x="340" y="345" font-family="monospace" font-size="13" fill="#F0DB4F">
+      → [3, 4, 5]
+    </text>
+    <text x="340" y="365" font-family="Arial, sans-serif" font-size="12" fill="#a0a0a0">
+      Menor o igual tamaño
+    </text>
+  </g>
+  
+  <!-- REDUCE -->
+  <g id="reduce-method">
+    <rect x="610" y="200" width="240" height="180" fill="#2d2d44" stroke="#9C27B0" stroke-width="3" rx="8"/>
+    <text x="730" y="230" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#9C27B0" text-anchor="middle">
+      reduce()
+    </text>
+    <text x="620" y="255" font-family="Arial, sans-serif" font-size="13" fill="#a0a0a0">
+      Reduce a un valor
+    </text>
+    
+    <text x="620" y="285" font-family="monospace" font-size="12" fill="#ffffff">
+      arr.reduce((a,b)=>a+b,0)
+    </text>
+    
+    <!-- Visual -->
+    <rect x="620" y="300" width="30" height="25" fill="#3b82f6" rx="4"/>
+    <text x="635" y="318" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="655" y="313" font-family="Arial, sans-serif" font-size="16" fill="#9C27B0">+</text>
+    <rect x="665" y="300" width="30" height="25" fill="#3b82f6" rx="4"/>
+    <text x="680" y="318" font-family="monospace" font-size="12" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="700" y="313" font-family="Arial, sans-serif" font-size="16" fill="#9C27B0">+...</text>
+    
+    <text x="620" y="345" font-family="monospace" font-size="16" fill="#9C27B0" font-weight="bold">
+      → 15
+    </text>
+    <text x="620" y="365" font-family="Arial, sans-serif" font-size="12" fill="#a0a0a0">
+      Un solo valor
+    </text>
+  </g>
+  
+  <!-- Other Methods -->
+  <g id="other-methods">
+    <text x="50" y="420" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#F0DB4F">
+      Otros Métodos Útiles
+    </text>
+    
+    <!-- find/findIndex -->
+    <rect x="50" y="440" width="190" height="100" fill="#2d2d44" stroke="#3b82f6" stroke-width="2" rx="8"/>
+    <text x="60" y="465" font-family="monospace" font-size="15" fill="#3b82f6" font-weight="bold">
+      find()
+    </text>
+    <text x="60" y="485" font-family="monospace" font-size="12" fill="#ffffff">
+      arr.find(x => x > 3)
+    </text>
+    <text x="60" y="505" font-family="monospace" font-size="12" fill="#4CAF50">
+      → 4
+    </text>
+    <text x="60" y="525" font-family="Arial, sans-serif" font-size="11" fill="#a0a0a0">
+      Primer elemento que cumple
+    </text>
+    
+    <!-- some/every -->
+    <rect x="260" y="440" width="190" height="100" fill="#2d2d44" stroke="#ff9800" stroke-width="2" rx="8"/>
+    <text x="270" y="465" font-family="monospace" font-size="15" fill="#ff9800" font-weight="bold">
+      some() / every()
+    </text>
+    <text x="270" y="485" font-family="monospace" font-size="12" fill="#ffffff">
+      arr.some(x => x > 3)
+    </text>
+    <text x="270" y="505" font-family="monospace" font-size="12" fill="#4CAF50">
+      → true
+    </text>
+    <text x="270" y="525" font-family="Arial, sans-serif" font-size="11" fill="#a0a0a0">
+      ¿Alguno/Todos cumplen?
+    </text>
+    
+    <!-- includes -->
+    <rect x="470" y="440" width="190" height="100" fill="#2d2d44" stroke="#00bcd4" stroke-width="2" rx="8"/>
+    <text x="480" y="465" font-family="monospace" font-size="15" fill="#00bcd4" font-weight="bold">
+      includes()
+    </text>
+    <text x="480" y="485" font-family="monospace" font-size="12" fill="#ffffff">
+      arr.includes(3)
+    </text>
+    <text x="480" y="505" font-family="monospace" font-size="12" fill="#4CAF50">
+      → true
+    </text>
+    <text x="480" y="525" font-family="Arial, sans-serif" font-size="11" fill="#a0a0a0">
+      ¿Contiene el valor?
+    </text>
+    
+    <!-- sort -->
+    <rect x="680" y="440" width="190" height="100" fill="#2d2d44" stroke="#e91e63" stroke-width="2" rx="8"/>
+    <text x="690" y="465" font-family="monospace" font-size="15" fill="#e91e63" font-weight="bold">
+      sort()
+    </text>
+    <text x="690" y="485" font-family="monospace" font-size="12" fill="#ffffff">
+      arr.sort((a,b)=>a-b)
+    </text>
+    <text x="690" y="505" font-family="monospace" font-size="12" fill="#4CAF50">
+      → [1,2,3,4,5]
+    </text>
+    <text x="690" y="525" font-family="Arial, sans-serif" font-size="11" fill="#a0a0a0">
+      Ordena el array
+    </text>
+  </g>
+  
+  <!-- Chaining Example -->
+  <g id="chaining">
+    <rect x="50" y="560" width="800" height="110" fill="#2d2d44" stroke="#F0DB4F" stroke-width="2" rx="8"/>
+    <text x="60" y="585" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#F0DB4F">
+      🔗 Encadenamiento (Chaining)
+    </text>
+    <text x="70" y="615" font-family="monospace" font-size="14" fill="#ffffff">
+      users
+    </text>
+    <text x="90" y="635" font-family="monospace" font-size="14" fill="#4CAF50">
+      .filter(u => u.age >= 18)
+    </text>
+    <text x="370" y="635" font-family="Arial, sans-serif" font-size="12" fill="#a0a0a0">
+      // Solo adultos
+    </text>
+    <text x="90" y="655" font-family="monospace" font-size="14" fill="#3b82f6">
+      .map(u => u.name)
+    </text>
+    <text x="280" y="655" font-family="Arial, sans-serif" font-size="12" fill="#a0a0a0">
+      // Solo nombres
+    </text>
+  </g>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#4CAF50"/>
+    </marker>
+  </defs>
+</svg>

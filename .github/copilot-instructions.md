@@ -416,6 +416,7 @@ Cuando trabajes en este proyecto:
      # o
      yarn add <paquete>
      ```
+
 3. **Base de Datos**
 
    - ✅ **USAR SQLite** cuando se necesite base de datos relacional
@@ -426,13 +427,14 @@ Cuando trabajes en este proyecto:
      - Desarrollo local sin configuración compleja
    - No requiere instalación de servidor de base de datos
    - Archivo único, fácil de compartir y versionar
-3. **Comenta el código de manera educativa**
+
+4. **Comenta el código de manera educativa**
 
    - Explica conceptos para principiantes
    - Incluye referencias a documentación cuando sea útil
    - Usa comentarios que enseñen, no solo describan
 
-4. **Proporciona ejemplos completos y funcionales**
+5. **Proporciona ejemplos completos y funcionales**
    - Código que se pueda copiar y ejecutar
    - Incluye casos de uso realistas
    - Muestra tanto lo que se debe hacer como lo que se debe evitar

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1a1a2e"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#F0DB4F" text-anchor="middle">
+    Default Parameters
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="70" font-family="Arial, sans-serif" font-size="16" fill="#a0a0a0" text-anchor="middle">
+    Valores por defecto en parámetros de función
+  </text>
+  
+  <!-- Old vs New Comparison -->
+  <g id="comparison">
+    <rect x="50" y="100" width="340" height="160" fill="#2d2d44" stroke="#ef4444" stroke-width="2" rx="8"/>
+    <text x="220" y="125" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ef4444" text-anchor="middle">
+      ❌ ANTIGUO
+    </text>
+    <text x="70" y="155" font-family="monospace" font-size="14" fill="#ffffff">
+      function greet(name) {
+    </text>
+    <text x="80" y="180" font-family="monospace" font-size="14" fill="#a0a0a0">
+      name = name || 'Guest';
+    </text>
+    <text x="80" y="205" font-family="monospace" font-size="14" fill="#ffffff">
+      return 'Hi ' + name;
+    </text>
+    <text x="70" y="230" font-family="monospace" font-size="14" fill="#ffffff">
+      }
+    </text>
+    <text x="70" y="250" font-family="Arial, sans-serif" font-size="12" fill="#ef4444">
+      ⚠️ Problema con valores falsy
+    </text>
+    
+    <rect x="410" y="100" width="340" height="160" fill="#2d2d44" stroke="#4CAF50" stroke-width="2" rx="8"/>
+    <text x="580" y="125" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4CAF50" text-anchor="middle">
+      ✅ MODERNO
+    </text>
+    <text x="430" y="155" font-family="monospace" font-size="14" fill="#ffffff">
+      const greet = (name =
+    </text>
+    <text x="440" y="180" font-family="monospace" font-size="14" fill="#F0DB4F">
+      'Guest'
+    </text>
+    <text x="430" y="205" font-family="monospace" font-size="14" fill="#ffffff">
+      ) => `Hi ${name}`;
+    </text>
+    <text x="430" y="230" font-family="Arial, sans-serif" font-size="12" fill="#4CAF50">
+      ✓ Solo undefined activa default
+    </text>
+  </g>
+  
+  <!-- Examples -->
+  <g id="examples">
+    <text x="50" y="300" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#F0DB4F">
+      Ejemplos de Uso
+    </text>
+    
+    <!-- Simple Default -->
+    <rect x="50" y="320" width="340" height="80" fill="#2d2d44" stroke="#F0DB4F" stroke-width="2" rx="8"/>
+    <text x="60" y="345" font-family="Arial, sans-serif" font-size="14" fill="#a0a0a0">
+      Valor simple
+    </text>
+    <text x="70" y="370" font-family="monospace" font-size="14" fill="#ffffff">
+      const multiply = (a, b = 1)
+    </text>
+    <text x="80" y="390" font-family="monospace" font-size="14" fill="#4CAF50">
+      => a * b
+    </text>
+    
+    <!-- Expression Default -->
+    <rect x="410" y="320" width="340" height="80" fill="#2d2d44" stroke="#F0DB4F" stroke-width="2" rx="8"/>
+    <text x="420" y="345" font-family="Arial, sans-serif" font-size="14" fill="#a0a0a0">
+      Expresión dinámica
+    </text>
+    <text x="430" y="370" font-family="monospace" font-size="14" fill="#ffffff">
+      const log = (msg, time =
+    </text>
+    <text x="440" y="390" font-family="monospace" font-size="14" fill="#4CAF50">
+      new Date().toISOString())
+    </text>
+  </g>
+  
+  <!-- Rules Box -->
+  <g id="rules">
+    <rect x="50" y="420" width="700" height="150" fill="#2d2d44" stroke="#9C27B0" stroke-width="2" rx="8"/>
+    <text x="60" y="445" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#9C27B0">
+      ⚡ Reglas Importantes
+    </text>
+    
+    <text x="70" y="475" font-family="monospace" font-size="14" fill="#ffffff">
+      1. Solo
+    </text>
+    <text x="130" y="475" font-family="monospace" font-size="14" fill="#F0DB4F">
+      undefined
+    </text>
+    <text x="230" y="475" font-family="monospace" font-size="14" fill="#ffffff">
+      activa el default (no null, '', 0, false)
+    </text>
+    
+    <text x="70" y="505" font-family="monospace" font-size="14" fill="#ffffff">
+      2. Parámetros
+    </text>
+    <text x="200" y="505" font-family="monospace" font-size="14" fill="#F0DB4F">
+      anteriores
+    </text>
+    <text x="310" y="505" font-family="monospace" font-size="14" fill="#ffffff">
+      disponibles para posteriores:
+    </text>
+    <text x="80" y="525" font-family="monospace" font-size="13" fill="#4CAF50">
+      (width, height = width) => {...}
+    </text>
+    
+    <text x="70" y="555" font-family="monospace" font-size="14" fill="#ffffff">
+      3. Se evalúan en
+    </text>
+    <text x="220" y="555" font-family="monospace" font-size="14" fill="#F0DB4F">
+      cada llamada
+    </text>
+    <text x="360" y="555" font-family="monospace" font-size="14" fill="#ffffff">
+      (no solo una vez)
+    </text>
+  </g>
+</svg>
