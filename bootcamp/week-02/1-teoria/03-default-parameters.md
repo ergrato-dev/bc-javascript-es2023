@@ -240,7 +240,7 @@ const customApi = createApiClient({
 const paginate = (items, page = 1, itemsPerPage = 10) => {
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-  
+
   return {
     data: items.slice(startIndex, endIndex),
     page,
@@ -264,13 +264,13 @@ console.log(paginate(items, 3, 20));
 ```javascript
 const createLogger = (prefix = '', showTimestamp = true) => {
   const formatMessage = (level, message) => {
-    const timestamp = showTimestamp 
-      ? `[${new Date().toLocaleTimeString()}]` 
+    const timestamp = showTimestamp
+      ? `[${new Date().toLocaleTimeString()}]`
       : '';
     const prefixStr = prefix ? `[${prefix}]` : '';
     return `${timestamp}${prefixStr}[${level}] ${message}`;
   };
-  
+
   return {
     info: (msg) => console.log(formatMessage('INFO', msg)),
     warn: (msg) => console.warn(formatMessage('WARN', msg)),
@@ -296,19 +296,19 @@ const validateForm = (data, rules = {
   required: true
 }) => {
   const errors = [];
-  
+
   if (rules.required && !data) {
     errors.push('Field is required');
   }
-  
+
   if (data && data.length < rules.minLength) {
     errors.push(`Minimum length is ${rules.minLength}`);
   }
-  
+
   if (data && data.length > rules.maxLength) {
     errors.push(`Maximum length is ${rules.maxLength}`);
   }
-  
+
   return {
     isValid: errors.length === 0,
     errors

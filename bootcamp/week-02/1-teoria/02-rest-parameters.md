@@ -154,7 +154,7 @@ console.log(publicUser); // Sin password
 const log = (level, message, ...metadata) => {
   const timestamp = new Date().toISOString();
   console.log(`[${timestamp}] [${level}] ${message}`);
-  
+
   if (metadata.length > 0) {
     console.log('Metadata:', metadata);
   }
@@ -174,12 +174,12 @@ const apiCall = async (endpoint, ...options) => {
       'Content-Type': 'application/json'
     }
   };
-  
+
   const mergedOptions = {
     ...defaultOptions,
     ...Object.assign({}, ...options)
   };
-  
+
   return fetch(endpoint, mergedOptions);
 };
 
@@ -192,13 +192,13 @@ apiCall('/api/users', { method: 'POST' }, { body: JSON.stringify(data) });
 ```javascript
 const validateFields = (requiredFields, ...fields) => {
   const errors = [];
-  
+
   requiredFields.forEach(required => {
     if (!fields.includes(required)) {
       errors.push(`Missing field: ${required}`);
     }
   });
-  
+
   return {
     isValid: errors.length === 0,
     errors
@@ -219,12 +219,12 @@ console.log(result); // { isValid: true, errors: [] }
 ```javascript
 const stats = (...numbers) => {
   if (numbers.length === 0) return null;
-  
+
   const sum = numbers.reduce((a, b) => a + b, 0);
   const avg = sum / numbers.length;
   const max = Math.max(...numbers); // Spread aquí!
   const min = Math.min(...numbers);
-  
+
   return { sum, avg, max, min, count: numbers.length };
 };
 
@@ -236,13 +236,13 @@ console.log(stats(10, 20, 30, 40, 50));
 
 ## 🆚 Spread vs Rest: Tabla Comparativa
 
-| Aspecto | Spread (`...`) | Rest (`...`) |
-|---------|----------------|--------------|
-| **Propósito** | Expandir elementos | Agrupar elementos |
-| **Uso** | Donde se esperan múltiples valores | Parámetros de función, destructuring |
-| **Dirección** | De array/objeto → elementos | De elementos → array |
-| **Ejemplo** | `func(...arr)` | `func(...args) {}` |
-| **Resultado** | Elementos separados | Array con elementos |
+| Aspecto       | Spread (`...`)                     | Rest (`...`)                         |
+| ------------- | ---------------------------------- | ------------------------------------ |
+| **Propósito** | Expandir elementos                 | Agrupar elementos                    |
+| **Uso**       | Donde se esperan múltiples valores | Parámetros de función, destructuring |
+| **Dirección** | De array/objeto → elementos        | De elementos → array                 |
+| **Ejemplo**   | `func(...arr)`                     | `func(...args) {}`                   |
+| **Resultado** | Elementos separados                | Array con elementos                  |
 
 ### Ejemplos Lado a Lado
 

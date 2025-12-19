@@ -266,7 +266,7 @@ console.log(notFound); // -1
 const updateUser = (users, id, updates) => {
   const index = users.findIndex(u => u.id === id);
   if (index === -1) return users;
-  
+
   return [
     ...users.slice(0, index),
     { ...users[index], ...updates },
@@ -392,20 +392,20 @@ const searchProducts = (products, query, filters = {}) => {
   return products
     .filter(p => {
       // Búsqueda por texto
-      const matchesQuery = query 
+      const matchesQuery = query
         ? p.name.toLowerCase().includes(query.toLowerCase())
         : true;
-      
+
       // Filtro por categoría
       const matchesCategory = filters.category
         ? p.category === filters.category
         : true;
-      
+
       // Filtro por precio
       const matchesPrice = filters.maxPrice
         ? p.price <= filters.maxPrice
         : true;
-      
+
       return matchesQuery && matchesCategory && matchesPrice;
     });
 };
@@ -534,15 +534,15 @@ const user = users.find(u => u.username === 'bob456');
 
 ## 📊 Comparativa de Métodos
 
-| Método | Retorna | Modifica Original | Uso Principal |
-|--------|---------|-------------------|---------------|
-| `map()` | Nuevo array (mismo tamaño) | ❌ No | Transformar elementos |
-| `filter()` | Nuevo array (menor o igual) | ❌ No | Filtrar elementos |
-| `reduce()` | Cualquier valor | ❌ No | Reducir a un valor |
-| `find()` | Elemento o undefined | ❌ No | Encontrar un elemento |
-| `findIndex()` | Número (índice o -1) | ❌ No | Encontrar posición |
-| `some()` | Boolean | ❌ No | ¿Alguno cumple? |
-| `every()` | Boolean | ❌ No | ¿Todos cumplen? |
+| Método        | Retorna                     | Modifica Original | Uso Principal         |
+| ------------- | --------------------------- | ----------------- | --------------------- |
+| `map()`       | Nuevo array (mismo tamaño)  | ❌ No              | Transformar elementos |
+| `filter()`    | Nuevo array (menor o igual) | ❌ No              | Filtrar elementos     |
+| `reduce()`    | Cualquier valor             | ❌ No              | Reducir a un valor    |
+| `find()`      | Elemento o undefined        | ❌ No              | Encontrar un elemento |
+| `findIndex()` | Número (índice o -1)        | ❌ No              | Encontrar posición    |
+| `some()`      | Boolean                     | ❌ No              | ¿Alguno cumple?       |
+| `every()`     | Boolean                     | ❌ No              | ¿Todos cumplen?       |
 
 ---
 
