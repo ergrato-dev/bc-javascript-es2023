@@ -19,10 +19,10 @@ const isEven = number => number % 2 === 0;
 
 const multiply = (a, b) => a * b;
 
-console.log('Square of 5:', square(5));  // 25
-console.log('Greet Ana:', greet('Ana'));  // Hello Ana
-console.log('Is 4 even?', isEven(4));  // true
-console.log('Multiply 3 * 4:', multiply(3, 4));  // 12
+console.log('Square of 5:', square(5)); // 25
+console.log('Greet Ana:', greet('Ana')); // Hello Ana
+console.log('Is 4 even?', isEven(4)); // true
+console.log('Multiply 3 * 4:', multiply(3, 4)); // 12
 console.log('');
 
 // ============================================
@@ -44,10 +44,10 @@ const isPositive = num => num > 0;
 // 4. Retornar objeto (necesita paréntesis)
 const createPerson = (name, age) => ({ name, age });
 
-console.log('Double 5:', double(5));  // 10
-console.log('Upper "hello":', toUpper('hello'));  // HELLO
-console.log('Is -5 positive?', isPositive(-5));  // false
-console.log('Create person:', createPerson('Ana', 25));  // { name: 'Ana', age: 25 }
+console.log('Double 5:', double(5)); // 10
+console.log('Upper "hello":', toUpper('hello')); // HELLO
+console.log('Is -5 positive?', isPositive(-5)); // false
+console.log('Create person:', createPerson('Ana', 25)); // { name: 'Ana', age: 25 }
 console.log('');
 
 // ============================================
@@ -72,15 +72,13 @@ const sum = numbers.reduce((acc, n) => acc + n, 0);
 const greaterThanFive = numbers.filter(n => n > 5);
 
 // 5. Cuadrados de números impares
-const oddSquares = numbers
-  .filter(n => n % 2 !== 0)
-  .map(n => n * n);
+const oddSquares = numbers.filter(n => n % 2 !== 0).map(n => n * n);
 
-console.log('Doubled:', doubled);  // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
-console.log('Evens:', evens);  // [2, 4, 6, 8, 10]
-console.log('Sum:', sum);  // 55
-console.log('Greater than 5:', greaterThanFive);  // [6, 7, 8, 9, 10]
-console.log('Odd squares:', oddSquares);  // [1, 9, 25, 49, 81]
+console.log('Doubled:', doubled); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+console.log('Evens:', evens); // [2, 4, 6, 8, 10]
+console.log('Sum:', sum); // 55
+console.log('Greater than 5:', greaterThanFive); // [6, 7, 8, 9, 10]
+console.log('Odd squares:', oddSquares); // [1, 9, 25, 49, 81]
 console.log('');
 
 // ============================================
@@ -92,7 +90,7 @@ const users = [
   { firstName: 'Ana', lastName: 'García', age: 25, active: true },
   { firstName: 'Carlos', lastName: 'López', age: 30, active: false },
   { firstName: 'María', lastName: 'Pérez', age: 28, active: true },
-  { firstName: 'Juan', lastName: 'Martínez', age: 22, active: true }
+  { firstName: 'Juan', lastName: 'Martínez', age: 22, active: true },
 ];
 
 // ✅ SOLUCIÓN: Transformación de datos
@@ -118,12 +116,12 @@ console.log('Full names:', fullNames);
 console.log('Active users:', activeUsers);
 // [{ firstName: 'Ana', ... }, { firstName: 'María', ... }, { firstName: 'Juan', ... }]
 
-console.log('Ages:', ages);  // [25, 30, 28, 22]
+console.log('Ages:', ages); // [25, 30, 28, 22]
 
 console.log('Oldest user:', oldestUser);
 // { firstName: 'Carlos', lastName: 'López', age: 30, active: false }
 
-console.log('All adults?', allAdults);  // true
+console.log('All adults?', allAdults); // true
 console.log('');
 
 // ============================================
@@ -146,16 +144,16 @@ const applyDiscount = (price, percent) => price * (1 - percent / 100);
 const slugify = text => text.toLowerCase().replace(/\s+/g, '-');
 
 // 5. Truncador de texto
-const truncate = (text, maxLength) => 
+const truncate = (text, maxLength) =>
   text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 
 // Pruebas
-console.log('Valid email?', isValidEmail('test@example.com'));  // true
-console.log('Invalid email?', isValidEmail('notanemail'));  // false
-console.log('Format 99.5:', formatCurrency(99.5));  // €99.50
-console.log('20% off 100:', applyDiscount(100, 20));  // 80
-console.log('Slugify:', slugify('Hello World Example'));  // hello-world-example
-console.log('Truncate:', truncate('This is a very long text', 10));  // This is a...
+console.log('Valid email?', isValidEmail('test@example.com')); // true
+console.log('Invalid email?', isValidEmail('notanemail')); // false
+console.log('Format 99.5:', formatCurrency(99.5)); // €99.50
+console.log('20% off 100:', applyDiscount(100, 20)); // 80
+console.log('Slugify:', slugify('Hello World Example')); // hello-world-example
+console.log('Truncate:', truncate('This is a very long text', 10)); // This is a...
 console.log('');
 
 // ============================================
@@ -168,16 +166,16 @@ const products = [
   { name: 'Mouse', price: 25, category: 'electronics', inStock: true },
   { name: 'Desk', price: 300, category: 'furniture', inStock: false },
   { name: 'Chair', price: 150, category: 'furniture', inStock: true },
-  { name: 'Monitor', price: 200, category: 'electronics', inStock: true }
+  { name: 'Monitor', price: 200, category: 'electronics', inStock: true },
 ];
 
 // ✅ SOLUCIÓN: Cadena completa de operaciones
 const result = products
-  .filter(p => p.inStock)                          // En stock
-  .filter(p => p.category === 'electronics')       // Solo electrónicos
-  .map(p => ({ ...p, price: p.price * 0.8 }))     // 20% descuento
-  .sort((a, b) => a.price - b.price)               // Ordenar por precio
-  .map(p => ({ name: p.name, price: formatCurrency(p.price) }));  // Nombre y precio
+  .filter(p => p.inStock) // En stock
+  .filter(p => p.category === 'electronics') // Solo electrónicos
+  .map(p => ({ ...p, price: p.price * 0.8 })) // 20% descuento
+  .sort((a, b) => a.price - b.price) // Ordenar por precio
+  .map(p => ({ name: p.name, price: formatCurrency(p.price) })); // Nombre y precio
 
 console.log('Result:', result);
 // [
@@ -200,19 +198,23 @@ console.log(getUserInfo({ firstName: 'Ana', age: 25 }));
 // ✅ Currying con arrows
 const add = a => b => a + b;
 const add5 = add(5);
-console.log('Add 5 to 10:', add5(10));  // 15
+console.log('Add 5 to 10:', add5(10)); // 15
 
 // ✅ Arrow en sort con destructuring
 const sortedUsers = users.sort((a, b) => a.age - b.age);
-console.log('Sorted by age:', sortedUsers.map(u => u.firstName));
+console.log(
+  'Sorted by age:',
+  sortedUsers.map(u => u.firstName)
+);
 
 // ✅ Array pipeline
-const processNumbers = nums => nums
-  .filter(n => n > 0)
-  .map(n => n * 2)
-  .reduce((sum, n) => sum + n, 0);
+const processNumbers = nums =>
+  nums
+    .filter(n => n > 0)
+    .map(n => n * 2)
+    .reduce((sum, n) => sum + n, 0);
 
-console.log('Process [-1, 2, 3, 4]:', processNumbers([-1, 2, 3, 4]));  // 18
+console.log('Process [-1, 2, 3, 4]:', processNumbers([-1, 2, 3, 4])); // 18
 
 console.log('');
 console.log('=== Ejercicio Completado ===');
@@ -227,18 +229,18 @@ console.log('=== Ejercicio Completado ===');
  *    - Sin parámetros: () => 'value'
  *    - Retorno implícito: x => x * 2
  *    - Retorno explícito: x => { return x * 2; }
- * 
+ *
  * ✅ Retornar Objetos:
  *    - Necesita paréntesis: x => ({ key: x })
  *    - Sin paréntesis es bloque de código
- * 
+ *
  * ✅ Array Methods:
  *    - map: Transformar elementos
  *    - filter: Filtrar elementos
  *    - reduce: Acumular valores
  *    - find: Encontrar elemento
  *    - every/some: Verificar condiciones
- * 
+ *
  * ✅ Mejores Prácticas:
  *    - Usar arrows para funciones cortas
  *    - Retorno implícito cuando sea posible
