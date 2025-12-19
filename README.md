@@ -3,11 +3,15 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/epti-dev/bc-javascript-es6+/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
+  <a href="https://github.com/ergrato-dev/bc-javascript-es6/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
   <a href="#"><img src="https://img.shields.io/badge/semanas-28-yellow.svg" alt="28 Semanas"></a>
   <a href="#"><img src="https://img.shields.io/badge/horas-224-orange.svg" alt="224 Horas"></a>
   <a href="#"><img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript" alt="JavaScript ES6+"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
+</p>
+
+<p align="right">
+  <a href="README_EN.md">�🇸 English</a>
 </p>
 
 ---
