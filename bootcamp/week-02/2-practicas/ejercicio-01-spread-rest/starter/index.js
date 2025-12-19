@@ -22,7 +22,7 @@ const combineFruits = (fruits1, fruits2) => {
  * @param {number[]} numbers - Array de números
  * @returns {number} - El número mayor
  */
-const findMax = (numbers) => {
+const findMax = numbers => {
   // TODO: Usa Math.max con spread operator
 };
 
@@ -67,7 +67,7 @@ const updatePrice = (product, newPrice) => {
  * @param {object} user - Objeto usuario
  * @returns {object} - Usuario sin password ni ssn
  */
-const sanitizeUser = (user) => {
+const sanitizeUser = user => {
   // TODO: Usa destructuring con rest para remover password y ssn
   // Pista: const { password, ssn, ...safeUser } = user
 };
@@ -114,7 +114,7 @@ const combineFirstAndRest = (first, ...rest) => {
  * @param {any[]} array - Array de elementos
  * @returns {object} - { first, second, rest }
  */
-const extractFirstTwo = (array) => {
+const extractFirstTwo = array => {
   // TODO: Usa destructuring: const [first, second, ...rest] = array
 };
 
@@ -123,7 +123,7 @@ const extractFirstTwo = (array) => {
  * @param {object} obj - Objeto con propiedades
  * @returns {object} - { id, name, others }
  */
-const separateMainProps = (obj) => {
+const separateMainProps = obj => {
   // TODO: Usa destructuring: const { id, name, ...others } = obj
 };
 
@@ -154,7 +154,10 @@ console.log('Max number:', findMax(numbers));
 // Expected: 30
 
 const letters = ['a', 'b', 'e', 'f'];
-console.log('Insert [c,d] at position 2:', insertElements(letters, 2, ['c', 'd']));
+console.log(
+  'Insert [c,d] at position 2:',
+  insertElements(letters, 2, ['c', 'd'])
+);
 // Expected: ['a', 'b', 'c', 'd', 'e', 'f']
 
 console.log('\n=== PARTE 2: SPREAD CON OBJETOS ===\n');
@@ -168,7 +171,13 @@ const product = { id: 1, name: 'Laptop', price: 999, stock: 5 };
 console.log('Updated product:', updatePrice(product, 899));
 // Expected: { id: 1, name: 'Laptop', price: 899, stock: 5 }
 
-const user = { id: 1, name: 'Ana', email: 'ana@example.com', password: 'secret', ssn: '123-45-6789' };
+const user = {
+  id: 1,
+  name: 'Ana',
+  email: 'ana@example.com',
+  password: 'secret',
+  ssn: '123-45-6789',
+};
 console.log('Sanitized user:', sanitizeUser(user));
 // Expected: { id: 1, name: 'Ana', email: 'ana@example.com' }
 
@@ -177,7 +186,10 @@ console.log('\n=== PARTE 3: REST PARAMETERS ===\n');
 console.log('Sum(1,2,3,4,5):', sum(1, 2, 3, 4, 5));
 // Expected: 15
 
-console.log('Log:', log('ERROR', 'Database connection failed', 'Retrying in 5s'));
+console.log(
+  'Log:',
+  log('ERROR', 'Database connection failed', 'Retrying in 5s')
+);
 // Expected: '[ERROR] Database connection failed Retrying in 5s'
 
 console.log('Combine first and rest:', combineFirstAndRest(10, 1, 2, 3, 4));
@@ -189,10 +201,25 @@ const items = ['a', 'b', 'c', 'd', 'e'];
 console.log('Extract first two:', extractFirstTwo(items));
 // Expected: { first: 'a', second: 'b', rest: ['c', 'd', 'e'] }
 
-const person = { id: 1, name: 'Bob', age: 30, city: 'Madrid', country: 'Spain' };
+const person = {
+  id: 1,
+  name: 'Bob',
+  age: 30,
+  city: 'Madrid',
+  country: 'Spain',
+};
 console.log('Separate main props:', separateMainProps(person));
 // Expected: { id: 1, name: 'Bob', others: { age: 30, city: 'Madrid', country: 'Spain' } }
 
-const data = { id: 1, name: 'Test', password: 'secret', apiKey: '12345', email: 'test@example.com' };
-console.log('Remove password & apiKey:', removeProperties(data, ['password', 'apiKey']));
+const data = {
+  id: 1,
+  name: 'Test',
+  password: 'secret',
+  apiKey: '12345',
+  email: 'test@example.com',
+};
+console.log(
+  'Remove password & apiKey:',
+  removeProperties(data, ['password', 'apiKey'])
+);
 // Expected: { id: 1, name: 'Test', email: 'test@example.com' }

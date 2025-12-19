@@ -416,7 +416,16 @@ Cuando trabajes en este proyecto:
      # o
      yarn add <paquete>
      ```
+3. **Base de Datos**
 
+   - ✅ **USAR SQLite** cuando se necesite base de datos relacional
+   - Razón: Facilidad de configuración, sin servidor, perfecto para aprendizaje
+   - SQLite es ideal para:
+     - Prototipos y proyectos educativos
+     - Aplicaciones que no requieren concurrencia extrema
+     - Desarrollo local sin configuración compleja
+   - No requiere instalación de servidor de base de datos
+   - Archivo único, fácil de compartir y versionar
 3. **Comenta el código de manera educativa**
 
    - Explica conceptos para principiantes

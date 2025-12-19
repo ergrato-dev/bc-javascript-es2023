@@ -7,15 +7,21 @@
 const users = [
   { id: 1, name: 'Ana', email: 'ana@example.com', age: 25, verified: true },
   { id: 2, name: 'Bob', email: 'bob@example.com', age: 17, verified: false },
-  { id: 3, name: 'Carlos', email: 'carlos@example.com', age: 30, verified: true },
-  { id: 4, name: 'Diana', email: 'diana@example.com', age: 22, verified: true }
+  {
+    id: 3,
+    name: 'Carlos',
+    email: 'carlos@example.com',
+    age: 30,
+    verified: true,
+  },
+  { id: 4, name: 'Diana', email: 'diana@example.com', age: 22, verified: true },
 ];
 
 const products = [
   { id: 101, name: 'Laptop', price: 999, stock: 5, category: 'electronics' },
   { id: 102, name: 'Mouse', price: 25, stock: 0, category: 'electronics' },
   { id: 103, name: 'Keyboard', price: 75, stock: 10, category: 'electronics' },
-  { id: 104, name: 'Monitor', price: 300, stock: 3, category: 'electronics' }
+  { id: 104, name: 'Monitor', price: 300, stock: 3, category: 'electronics' },
 ];
 
 // ============================================
@@ -71,7 +77,7 @@ const getUserName = (users, userId) => {
  * @param {object[]} products - Array de productos
  * @returns {boolean} - true si algún producto tiene stock 0
  */
-const hasOutOfStock = (products) => {
+const hasOutOfStock = products => {
   // TODO: Usa some() para verificar si stock === 0
 };
 
@@ -80,7 +86,7 @@ const hasOutOfStock = (products) => {
  * @param {object[]} users - Array de usuarios
  * @returns {boolean} - true si todos son adultos
  */
-const areAllAdults = (users) => {
+const areAllAdults = users => {
   // TODO: Usa every() para verificar age >= 18
 };
 
@@ -89,7 +95,7 @@ const areAllAdults = (users) => {
  * @param {object[]} users - Array de usuarios
  * @returns {boolean} - true si todos están verificados
  */
-const areAllVerified = (users) => {
+const areAllVerified = users => {
   // TODO: Usa every() para verificar verified === true
 };
 
@@ -98,7 +104,7 @@ const areAllVerified = (users) => {
  * @param {object[]} products - Array de productos
  * @returns {boolean} - true si hay stock disponible
  */
-const hasAvailableProducts = (products) => {
+const hasAvailableProducts = products => {
   // TODO: Usa some() para verificar stock > 0
 };
 
@@ -107,7 +113,7 @@ const hasAvailableProducts = (products) => {
  * @param {object[]} products - Array de productos
  * @returns {boolean} - true si hay productos > 500
  */
-const hasExpensiveProducts = (products) => {
+const hasExpensiveProducts = products => {
   // TODO: Usa some() con condición price > 500
 };
 
@@ -132,7 +138,7 @@ const updateProductStock = (products, productId, newStock) => {
  * @param {object[]} users - Array de usuarios
  * @returns {string[]} - Array de emails
  */
-const getVerifiedEmails = (users) => {
+const getVerifiedEmails = users => {
   // TODO: Combina filter() y map()
   // Filtra por verified === true, luego mapea a email
 };
@@ -152,7 +158,7 @@ const isProductAvailable = (products, productId) => {
  * @param {object[]} products - Array de productos
  * @returns {string} - Nombre del producto más caro
  */
-const getMostExpensiveProduct = (products) => {
+const getMostExpensiveProduct = products => {
   // TODO: Usa reduce para encontrar el de mayor precio
   // Luego retorna su nombre
 };
@@ -163,10 +169,16 @@ const getMostExpensiveProduct = (products) => {
 
 console.log('=== PARTE 1: FIND Y FINDINDEX ===\n');
 
-console.log('Find user by email (ana@example.com):', findUserByEmail(users, 'ana@example.com'));
+console.log(
+  'Find user by email (ana@example.com):',
+  findUserByEmail(users, 'ana@example.com')
+);
 // Expected: { id: 1, name: 'Ana', ... }
 
-console.log('Find user by email (notfound@example.com):', findUserByEmail(users, 'notfound@example.com'));
+console.log(
+  'Find user by email (notfound@example.com):',
+  findUserByEmail(users, 'notfound@example.com')
+);
 // Expected: undefined
 
 console.log('Get product index (ID 102):', getProductIndex(products, 102));
@@ -175,7 +187,10 @@ console.log('Get product index (ID 102):', getProductIndex(products, 102));
 console.log('Get product index (ID 999):', getProductIndex(products, 999));
 // Expected: -1
 
-console.log('First number > 50 in [10, 30, 60, 80]:', findFirstGreaterThan([10, 30, 60, 80], 50));
+console.log(
+  'First number > 50 in [10, 30, 60, 80]:',
+  findFirstGreaterThan([10, 30, 60, 80], 50)
+);
 // Expected: 60
 
 console.log('Get user name (ID 3):', getUserName(users, 3));
