@@ -13,7 +13,7 @@
 
 ## 📖 Introducción
 
-![Destructuring Visual](../0-assets/destructuring-visual.svg)
+![Destructuring Visual](../0-assets/05-destructuring-visual.svg)
 
 **Destructuring** (desestructuración) es una forma elegante de extraer valores de arrays y objetos, asignándolos a variables en una sola línea.
 

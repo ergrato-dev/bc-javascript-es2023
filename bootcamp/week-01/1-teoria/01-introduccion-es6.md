@@ -30,7 +30,7 @@
 
 ## 🌟 ¿Por qué ES6+ es tan importante?
 
-![Evolución de JavaScript](../0-assets/evolucion-javascript.svg)
+![Evolución de JavaScript](../0-assets/01-evolucion-javascript.svg)
 
 ### Antes de ES6 (JavaScript antiguo)
 

@@ -30,7 +30,7 @@ const greet = name => `Hello ${name}`;
 
 ## 📐 Sintaxis Completa
 
-![Arrow Functions Syntax](../0-assets/arrow-functions-syntax.svg)
+![Arrow Functions Syntax](../0-assets/04-arrow-functions-syntax.svg)
 
 ### Diferentes Formas
 
