@@ -16,15 +16,15 @@ export const validateTitle = title => {
 /*
 export const validateDate = date => {
   if (!date) return null;
-  
+
   const taskDate = new Date(date);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  
+
   if (taskDate < today) {
     throw new Error('La fecha no puede estar en el pasado');
   }
-  
+
   return date;
 };
 */

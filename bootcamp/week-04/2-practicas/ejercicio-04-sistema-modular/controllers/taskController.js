@@ -9,11 +9,11 @@
 /*
 export const initialize = () => {
   console.log('✅ Inicializando aplicación...');
-  
+
   // Configurar event listeners
   const form = document.getElementById('taskForm');
   form.addEventListener('submit', handleFormSubmit);
-  
+
   // Renderizar tareas existentes
   render();
 };
@@ -23,14 +23,14 @@ export const initialize = () => {
 /*
 const handleFormSubmit = e => {
   e.preventDefault();
-  
+
   const formData = {
     title: document.getElementById('title').value,
     description: document.getElementById('description').value,
     dueDate: document.getElementById('dueDate').value || null,
     priority: document.getElementById('priority').value
   };
-  
+
   try {
     taskService.createTask(formData);
     e.target.reset();
@@ -57,7 +57,7 @@ export const handleToggle = id => {
 /*
 export const handleDelete = id => {
   if (!confirm('¿Estás seguro de eliminar esta tarea?')) return;
-  
+
   try {
     taskService.deleteTask(id);
     render();
@@ -73,12 +73,12 @@ export const handleDelete = id => {
 export const render = () => {
   const tasks = taskService.getAllTasks();
   const tasksList = document.getElementById('tasksList');
-  
+
   if (tasks.length === 0) {
     tasksList.innerHTML = '<li style="text-align: center; padding: 40px; color: #666;">No hay tareas. ¡Crea tu primera tarea!</li>';
     return;
   }
-  
+
   tasksList.innerHTML = tasks.map(task => `
     <li class="task-item ${task.completed ? 'completed' : ''} ${task.priority}" data-id="${task.id}">
       <div class="task-header">

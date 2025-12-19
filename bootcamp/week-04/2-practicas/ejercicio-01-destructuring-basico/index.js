@@ -18,7 +18,7 @@ console.log('\n📋 PARTE 1: Arrays\n');
 const getFirstTwo = array => {
   // TODO: Usa destructuring para extraer los primeros dos elementos
   // Pista: const [first, second] = array;
-  
+
   return []; // Reemplaza esto con tu solución
 };
 
@@ -30,7 +30,7 @@ const getFirstTwo = array => {
 const getLastElement = array => {
   // TODO: Usa destructuring con rest operator
   // Pista: Necesitas omitir todos menos el último
-  
+
   return null; // Reemplaza esto
 };
 
@@ -42,7 +42,7 @@ const getLastElement = array => {
 const swapFirstTwo = array => {
   // TODO: Usa destructuring para hacer swap
   // Pista: [a, b] = [b, a]
-  
+
   return array; // Reemplaza esto
 };
 
@@ -54,7 +54,7 @@ const swapFirstTwo = array => {
 const skipAndGet = array => {
   // TODO: Omite el primero usando comas
   // Pista: const [, second, third] = array;
-  
+
   return []; // Reemplaza esto
 };
 
@@ -81,7 +81,7 @@ console.log('\n📋 PARTE 2: Objetos\n');
 const extractUserData = user => {
   // TODO: Usa destructuring para extraer name, email, age
   // Pista: const { name, email, age } = user;
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -93,7 +93,7 @@ const extractUserData = user => {
 const getUserWithDefaults = user => {
   // TODO: Aplica defaults: role='user', active=true
   // Pista: const { name, role = 'user', active = true } = user;
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -105,7 +105,7 @@ const getUserWithDefaults = user => {
 const renameProperties = product => {
   // TODO: Renombra id→productId, name→productName
   // Pista: const { id: productId, name: productName } = product;
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -117,7 +117,7 @@ const renameProperties = product => {
 const getContactInfo = user => {
   // TODO: Destructuring anidado para extraer email y phone
   // Pista: const { contact: { email, phone } } = user;
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -126,26 +126,26 @@ const user1 = {
   id: 1,
   name: 'Ana García',
   email: 'ana@example.com',
-  age: 28
+  age: 28,
 };
 
 const user2 = {
   name: 'Carlos López',
-  email: 'carlos@example.com'
+  email: 'carlos@example.com',
 };
 
 const user3 = {
   name: 'María Rodríguez',
   contact: {
     email: 'maria@example.com',
-    phone: '+34 600 123 456'
-  }
+    phone: '+34 600 123 456',
+  },
 };
 
 const product = {
   id: 101,
   name: 'Laptop',
-  price: 999
+  price: 999,
 };
 
 console.log('Extraer datos:', extractUserData(user1));
@@ -167,7 +167,7 @@ console.log('\n📋 PARTE 3: Rest Operator\n');
 const separateFirstFromRest = array => {
   // TODO: Usa rest operator
   // Pista: const [first, ...rest] = array;
-  
+
   return { first: null, rest: [] }; // Reemplaza esto
 };
 
@@ -179,7 +179,7 @@ const separateFirstFromRest = array => {
 const removePassword = user => {
   // TODO: Usa rest properties para excluir password
   // Pista: const { password, ...safeUser } = user;
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -191,7 +191,7 @@ const userWithPassword = {
   username: 'anagarcia',
   email: 'ana@example.com',
   password: 'secret123',
-  role: 'admin'
+  role: 'admin',
 };
 
 console.log('Separar primero:', separateFirstFromRest(numbers));
@@ -208,42 +208,61 @@ console.log('='.repeat(60));
 const validate = (testName, expected, actual) => {
   const passed = JSON.stringify(expected) === JSON.stringify(actual);
   console.log(
-    passed ? `✅ ${testName}` : `❌ ${testName} - Esperado: ${JSON.stringify(expected)}, Actual: ${JSON.stringify(actual)}`
+    passed
+      ? `✅ ${testName}`
+      : `❌ ${testName} - Esperado: ${JSON.stringify(
+          expected
+        )}, Actual: ${JSON.stringify(actual)}`
   );
 };
 
 // Validaciones
 validate('getFirstTwo', ['red', 'green'], getFirstTwo(colors));
 validate('getLastElement', 'purple', getLastElement(colors));
-validate('swapFirstTwo', ['b', 'a', 'c', 'd'], swapFirstTwo(['a', 'b', 'c', 'd']));
+validate(
+  'swapFirstTwo',
+  ['b', 'a', 'c', 'd'],
+  swapFirstTwo(['a', 'b', 'c', 'd'])
+);
 validate('skipAndGet', ['green', 'blue'], skipAndGet(colors));
 
-validate('extractUserData', 
+validate(
+  'extractUserData',
   { name: 'Ana García', email: 'ana@example.com', age: 28 },
   extractUserData(user1)
 );
 
-validate('getUserWithDefaults',
-  { name: 'Carlos López', email: 'carlos@example.com', role: 'user', active: true },
+validate(
+  'getUserWithDefaults',
+  {
+    name: 'Carlos López',
+    email: 'carlos@example.com',
+    role: 'user',
+    active: true,
+  },
   getUserWithDefaults(user2)
 );
 
-validate('renameProperties',
+validate(
+  'renameProperties',
   { productId: 101, productName: 'Laptop', price: 999 },
   renameProperties(product)
 );
 
-validate('getContactInfo',
+validate(
+  'getContactInfo',
   { email: 'maria@example.com', phone: '+34 600 123 456' },
   getContactInfo(user3)
 );
 
-validate('separateFirstFromRest',
+validate(
+  'separateFirstFromRest',
   { first: 1, rest: [2, 3, 4, 5, 6, 7, 8, 9, 10] },
   separateFirstFromRest(numbers)
 );
 
-validate('removePassword',
+validate(
+  'removePassword',
   { id: 1, username: 'anagarcia', email: 'ana@example.com', role: 'admin' },
   removePassword(userWithPassword)
 );

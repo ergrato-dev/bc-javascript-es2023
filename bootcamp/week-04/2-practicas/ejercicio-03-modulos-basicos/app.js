@@ -125,5 +125,7 @@ tests.forEach(({ name, test }) => {
 console.log('\n' + '='.repeat(60));
 
 // Actualizar estado en HTML
-document.getElementById('status').innerHTML = '✅ <span class="success">Módulos cargados correctamente</span>';
-document.getElementById('status').innerHTML += '<br><br>Revisa la consola para ver los resultados.';
+document.getElementById('status').innerHTML =
+  '✅ <span class="success">Módulos cargados correctamente</span>';
+document.getElementById('status').innerHTML +=
+  '<br><br>Revisa la consola para ver los resultados.';

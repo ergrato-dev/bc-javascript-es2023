@@ -90,15 +90,15 @@ class Product {
     this.description = description;
     this.createdAt = new Date();
   }
-  
+
   get isLowStock() {
     return this.stock < 10;
   }
-  
+
   get totalValue() {
     return this.price * this.stock;
   }
-  
+
   updateStock(quantity) {
     this.stock += quantity;
     if (this.stock < 0) this.stock = 0;
@@ -195,7 +195,7 @@ export const formatDate = date => {
 // Crear producto
 const handleCreateProduct = e => {
   e.preventDefault();
-  
+
   // Destructuring del formulario
   const {
     name: { value: name },
@@ -204,7 +204,7 @@ const handleCreateProduct = e => {
     category: { value: category },
     description: { value: description }
   } = e.target.elements;
-  
+
   try {
     const product = productService.createProduct({
       name,
@@ -213,7 +213,7 @@ const handleCreateProduct = e => {
       category,
       description
     });
-    
+
     renderProducts();
     e.target.reset();
     showNotification('Producto creado exitosamente', 'success');
@@ -228,12 +228,12 @@ const handleCreateProduct = e => {
 ```javascript
 const filterByCategory = category => {
   const products = productService.getAllProducts();
-  
+
   if (category === 'all') {
     renderProducts(products);
     return;
   }
-  
+
   const filtered = products.filter(p => p.category === category);
   renderProducts(filtered);
 };
@@ -245,11 +245,11 @@ const filterByCategory = category => {
 const showLowStockAlerts = () => {
   const products = productService.getAllProducts();
   const lowStock = products.filter(({ isLowStock }) => isLowStock);
-  
+
   if (lowStock.length === 0) {
     return '<p>✅ Stock normal en todos los productos</p>';
   }
-  
+
   return lowStock.map(({ name, stock }) => `
     <div class="alert-item">
       ⚠️ ${name}: ${stock} unidades
@@ -266,7 +266,7 @@ const showStats = async () => {
   try {
     // Lazy load del módulo de estadísticas
     const { renderStats } = await import('../components/stats.js');
-    
+
     const products = productService.getAllProducts();
     renderStats(products);
   } catch (error) {
@@ -281,13 +281,13 @@ export const renderStats = products => {
   const total = products.length;
   const totalValue = products.reduce((sum, p) => sum + p.totalValue, 0);
   const avgPrice = totalValue / total || 0;
-  
+
   // Destructuring con rest para agrupar por categoría
   const byCategory = products.reduce((acc, { category, totalValue }) => {
     acc[category] = (acc[category] || 0) + totalValue;
     return acc;
   }, {});
-  
+
   // Renderizar en el DOM...
 };
 ```
@@ -302,17 +302,17 @@ export const exportToJSON = () => {
     categories: categoryService.getAllCategories(),
     exportDate: new Date().toISOString()
   };
-  
+
   const blob = new Blob([JSON.stringify(data, null, 2)], {
     type: 'application/json'
   });
-  
+
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
   a.download = `inventory-${Date.now()}.json`;
   a.click();
-  
+
   URL.revokeObjectURL(url);
 };
 ```

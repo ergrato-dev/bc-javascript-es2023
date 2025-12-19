@@ -6,7 +6,7 @@ class APIService {
   constructor(baseURL) {
     this.baseURL = baseURL;
   }
-  
+
   async get(endpoint) {
     const response = await fetch(`${this.baseURL}/${endpoint}`);
     if (!response.ok) {
@@ -14,7 +14,7 @@ class APIService {
     }
     return response.json();
   }
-  
+
   async post(endpoint, data) {
     const response = await fetch(`${this.baseURL}/${endpoint}`, {
       method: 'POST',
