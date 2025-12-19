@@ -10,19 +10,19 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: system-ui, -apple-system, sans-serif;
       background: #1e1e1e;
       color: #dcdcdc;
       padding: 20px;
     }
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
     }
-    
+
     header {
       background: linear-gradient(135deg, #2d2d2d 0%, #1e1e1e 100%);
       padding: 30px;
@@ -30,59 +30,59 @@
       margin-bottom: 30px;
       border-left: 4px solid #F0DB4F;
     }
-    
+
     h1 {
       color: #F0DB4F;
       margin-bottom: 10px;
     }
-    
+
     .subtitle {
       color: #9CDCFE;
       font-size: 14px;
     }
-    
+
     .layout {
       display: grid;
       grid-template-columns: 1fr 300px;
       gap: 20px;
     }
-    
+
     .main-content {
       background: #2d2d2d;
       padding: 20px;
       border-radius: 8px;
     }
-    
+
     .sidebar {
       background: #2d2d2d;
       padding: 20px;
       border-radius: 8px;
     }
-    
+
     .form-section {
       background: #252525;
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 20px;
     }
-    
+
     h2 {
       color: #61DAFB;
       margin-bottom: 15px;
       font-size: 18px;
     }
-    
+
     .form-group {
       margin-bottom: 15px;
     }
-    
+
     label {
       display: block;
       margin-bottom: 5px;
       color: #9CDCFE;
       font-size: 14px;
     }
-    
+
     input, select, textarea {
       width: 100%;
       padding: 10px;
@@ -93,17 +93,17 @@
       font-family: inherit;
       font-size: 14px;
     }
-    
+
     input:focus, select:focus, textarea:focus {
       outline: none;
       border-color: #F0DB4F;
     }
-    
+
     textarea {
       resize: vertical;
       min-height: 60px;
     }
-    
+
     button {
       background: #F0DB4F;
       color: #1e1e1e;
@@ -115,66 +115,66 @@
       font-size: 14px;
       transition: background 0.2s;
     }
-    
+
     button:hover {
       background: #d4c043;
     }
-    
+
     button.secondary {
       background: #61DAFB;
     }
-    
+
     button.secondary:hover {
       background: #4fa8c5;
     }
-    
+
     button.danger {
       background: #F48771;
     }
-    
+
     button.danger:hover {
       background: #d76f5c;
     }
-    
+
     .table-container {
       overflow-x: auto;
     }
-    
+
     table {
       width: 100%;
       border-collapse: collapse;
     }
-    
+
     th, td {
       padding: 12px;
       text-align: left;
       border-bottom: 1px solid #3e3e3e;
     }
-    
+
     th {
       background: #252525;
       color: #F0DB4F;
       font-weight: 600;
     }
-    
+
     tr:hover {
       background: #252525;
     }
-    
+
     .actions {
       display: flex;
       gap: 5px;
     }
-    
+
     .btn-small {
       padding: 5px 10px;
       font-size: 12px;
     }
-    
+
     .category-filter {
       margin-bottom: 20px;
     }
-    
+
     .filter-btn {
       display: block;
       width: 100%;
@@ -187,32 +187,32 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    
+
     .filter-btn.active {
       background: #F0DB4F;
       color: #1e1e1e;
       border-color: #F0DB4F;
     }
-    
+
     .stats-card {
       background: #252525;
       padding: 15px;
       border-radius: 4px;
       margin-bottom: 10px;
     }
-    
+
     .stats-card h3 {
       color: #9CDCFE;
       font-size: 14px;
       margin-bottom: 5px;
     }
-    
+
     .stats-value {
       color: #F0DB4F;
       font-size: 24px;
       font-weight: bold;
     }
-    
+
     .alert {
       background: #F48771;
       color: #1e1e1e;
@@ -221,7 +221,7 @@
       margin-bottom: 10px;
       font-size: 12px;
     }
-    
+
     .notification {
       position: fixed;
       top: 20px;
@@ -234,15 +234,15 @@
       display: none;
       animation: slideIn 0.3s ease;
     }
-    
+
     .notification.error {
       background: #F48771;
     }
-    
+
     .notification.show {
       display: block;
     }
-    
+
     @keyframes slideIn {
       from {
         transform: translateX(400px);
@@ -253,7 +253,7 @@
         opacity: 1;
       }
     }
-    
+
     @media (max-width: 768px) {
       .layout {
         grid-template-columns: 1fr;
@@ -267,7 +267,7 @@
       <h1>📦 Sistema de Gestión de Inventario</h1>
       <p class="subtitle">Proyecto Week-04: Destructuring y Módulos ES6</p>
     </header>
-    
+
     <div class="layout">
       <div class="main-content">
         <!-- Formulario de Producto -->
@@ -278,33 +278,33 @@
               <label for="name">Nombre del Producto *</label>
               <input type="text" id="name" required>
             </div>
-            
+
             <div class="form-group">
               <label for="price">Precio (€) *</label>
               <input type="number" id="price" step="0.01" min="0" required>
             </div>
-            
+
             <div class="form-group">
               <label for="stock">Stock *</label>
               <input type="number" id="stock" min="0" required>
             </div>
-            
+
             <div class="form-group">
               <label for="category">Categoría *</label>
               <select id="category" required>
                 <option value="">Seleccionar categoría</option>
               </select>
             </div>
-            
+
             <div class="form-group">
               <label for="description">Descripción</label>
               <textarea id="description"></textarea>
             </div>
-            
+
             <button type="submit">Agregar Producto</button>
           </form>
         </div>
-        
+
         <!-- Tabla de Productos -->
         <div>
           <h2>Inventario</h2>
@@ -332,7 +332,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="sidebar">
         <!-- Filtros -->
         <div class="category-filter">
@@ -343,7 +343,7 @@
             </button>
           </div>
         </div>
-        
+
         <!-- Estadísticas -->
         <div id="statsSection">
           <h2>Estadísticas</h2>
@@ -356,7 +356,7 @@
             <div class="stats-value" id="totalValue">0€</div>
           </div>
         </div>
-        
+
         <!-- Alertas de Stock Bajo -->
         <div id="lowStockAlerts" style="margin-top: 20px;">
           <h2>⚠️ Alertas de Stock</h2>
@@ -367,10 +367,10 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Notificación -->
   <div id="notification" class="notification"></div>
-  
+
   <script type="module" src="app.js"></script>
 </body>
 </html>

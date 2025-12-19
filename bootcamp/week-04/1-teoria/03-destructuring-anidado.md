@@ -367,17 +367,10 @@ const widget = createWidget({
 });
 
 console.log(widget);
-/*
-{
-  title: 'My Widget',
-  width: 500,
-  height: 200,       // default
-  color: 'red',
-  fontSize: 14,      // default
-  borderWidth: 2,
-  borderColor: 'gray' // default
-}
-*/
+// Resultado:
+// { title: 'My Widget', width: 500, height: 200,
+//   color: 'red', fontSize: 14, borderWidth: 2,
+//   borderColor: 'gray' }
 ```
 
 ### Procesamiento de Datos de API

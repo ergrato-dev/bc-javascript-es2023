@@ -19,10 +19,10 @@ export const initializeCategories = () => {
 const loadCategoryOptions = () => {
   const categories = categoryService.getAllCategories();
   const select = document.getElementById('category');
-  
+
   // Limpiar opciones existentes (excepto la primera)
   select.innerHTML = '<option value="">Seleccionar categoría</option>';
-  
+
   // Agregar categorías
   categories.forEach(({ name }) => {
     const option = document.createElement('option');
@@ -39,7 +39,7 @@ const loadCategoryOptions = () => {
 const renderCategoryFilters = () => {
   const categories = categoryService.getAllCategories();
   const container = document.getElementById('categoryFilters');
-  
+
   container.innerHTML = `
     <button class="filter-btn active" data-category="all" onclick="window.categoryController.handleFilter('all')">
       📋 Todas las categorías
@@ -61,7 +61,7 @@ export const handleFilter = category => {
     btn.classList.remove('active');
   });
   document.querySelector(`[data-category="${category}"]`).classList.add('active');
-  
+
   // Renderizar productos filtrados
   renderProducts(category);
 };
