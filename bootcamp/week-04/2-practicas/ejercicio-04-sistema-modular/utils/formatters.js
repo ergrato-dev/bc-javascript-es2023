@@ -5,7 +5,7 @@
 /*
 export const formatDate = date => {
   if (!date) return 'Sin fecha';
-  
+
   const d = new Date(date);
   return d.toLocaleDateString('es-ES', {
     day: '2-digit',

@@ -9,7 +9,7 @@ class User {
     this.email = email;
     this.createdAt = new Date();
   }
-  
+
   // Getter para obtener las iniciales del nombre
   get initials() {
     return this.name
@@ -18,7 +18,7 @@ class User {
       .join('')
       .toUpperCase();
   }
-  
+
   // Método para obtener información formateada
   getInfo() {
     return `${this.name} (${this.email})`;

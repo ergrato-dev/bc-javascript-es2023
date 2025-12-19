@@ -62,7 +62,7 @@ export const updateTask = (id, data) => {
   loadTasks();
   const task = tasks.find(t => t.id === id);
   if (!task) throw new Error('Task not found');
-  
+
   task.update(data);
   saveTasks();
   return task;
@@ -75,7 +75,7 @@ export const deleteTask = id => {
   loadTasks();
   const index = tasks.findIndex(t => t.id === id);
   if (index === -1) throw new Error('Task not found');
-  
+
   const deleted = tasks.splice(index, 1)[0];
   saveTasks();
   return deleted;
@@ -88,7 +88,7 @@ export const toggleTask = id => {
   loadTasks();
   const task = tasks.find(t => t.id === id);
   if (!task) throw new Error('Task not found');
-  
+
   task.toggle();
   saveTasks();
   return task;

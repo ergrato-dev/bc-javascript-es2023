@@ -18,13 +18,13 @@ const user1 = {
     country: 'España',
     coordinates: {
       lat: 40.4168,
-      lng: -3.7038
-    }
+      lng: -3.7038,
+    },
   },
   posts: [
     { id: 1, title: 'Mi primer post', content: '...' },
-    { id: 2, title: 'Segundo post', content: '...' }
-  ]
+    { id: 2, title: 'Segundo post', content: '...' },
+  ],
 };
 
 const company = {
@@ -35,18 +35,18 @@ const company = {
       role: 'Developer',
       contact: {
         email: 'carlos@techcorp.com',
-        phone: '+34 600 111 222'
-      }
+        phone: '+34 600 111 222',
+      },
     },
     {
       name: 'María Rodríguez',
       role: 'Designer',
       contact: {
         email: 'maria@techcorp.com',
-        phone: '+34 600 333 444'
-      }
-    }
-  ]
+        phone: '+34 600 333 444',
+      },
+    },
+  ],
 };
 
 const apiResponse = {
@@ -55,11 +55,11 @@ const apiResponse = {
   data: {
     users: [
       { id: 1, name: 'User 1', active: true },
-      { id: 2, name: 'User 2', active: false }
+      { id: 2, name: 'User 2', active: false },
     ],
     total: 2,
-    page: 1
-  }
+    page: 1,
+  },
 };
 
 // ==========================================
@@ -76,7 +76,7 @@ console.log('\n📋 PARTE 1: Destructuring Anidado\n');
 const getUserLocation = user => {
   // TODO: Destructuring anidado para extraer city y country
   // Pista: const { address: { city, country } } = user;
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -88,7 +88,7 @@ const getUserLocation = user => {
 const getCoordinates = location => {
   // TODO: Extrae lat y lng de coordinates
   // Pista: const { coordinates: { lat, lng } } = location;
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -100,7 +100,7 @@ const getCoordinates = location => {
 const getFirstPostTitle = user => {
   // TODO: Combina array y object destructuring
   // Pista: const { posts: [{ title }] } = user;
-  
+
   return ''; // Reemplaza esto
 };
 
@@ -123,11 +123,11 @@ console.log('\n📋 PARTE 2: Destructuring en Parámetros\n');
 const createUser = (/* TODO: destructura aquí */) => {
   // TODO: Destructura { name, email, age } directamente en parámetros
   // Pista: const createUser = ({ name, email, age }) => {
-  
+
   return {
     id: Date.now(),
     // TODO: completa con las propiedades
-    createdAt: new Date()
+    createdAt: new Date(),
   };
 };
 
@@ -139,7 +139,7 @@ const createUser = (/* TODO: destructura aquí */) => {
 const renderCard = (/* TODO: destructura con defaults */) => {
   // TODO: Aplica defaults: color='blue', size='medium'
   // Pista: ({ title, description, color = 'blue', size = 'medium' })
-  
+
   return {
     // TODO: completa
   };
@@ -153,45 +153,54 @@ const renderCard = (/* TODO: destructura con defaults */) => {
 const configureAPI = ({
   baseURL,
   timeout = 5000,
-  headers: {
-    authorization,
-    contentType = 'application/json'
-  } = {}
+  headers: { authorization, contentType = 'application/json' } = {},
 } = {}) => {
   // Esta función ya está completa como ejemplo
   return {
     baseURL,
     timeout,
     authorization,
-    contentType
+    contentType,
   };
 };
 
 // Tests
-console.log('Usuario creado:', createUser({
-  name: 'Pedro Sánchez',
-  email: 'pedro@example.com',
-  age: 35
-}));
+console.log(
+  'Usuario creado:',
+  createUser({
+    name: 'Pedro Sánchez',
+    email: 'pedro@example.com',
+    age: 35,
+  })
+);
 
-console.log('Card básica:', renderCard({
-  title: 'Mi Tarjeta',
-  description: 'Descripción'
-}));
+console.log(
+  'Card básica:',
+  renderCard({
+    title: 'Mi Tarjeta',
+    description: 'Descripción',
+  })
+);
 
-console.log('Card completa:', renderCard({
-  title: 'Tarjeta Custom',
-  description: 'Descripción',
-  color: 'red',
-  size: 'large'
-}));
+console.log(
+  'Card completa:',
+  renderCard({
+    title: 'Tarjeta Custom',
+    description: 'Descripción',
+    color: 'red',
+    size: 'large',
+  })
+);
 
-console.log('API Config:', configureAPI({
-  baseURL: 'https://api.example.com',
-  headers: {
-    authorization: 'Bearer token123'
-  }
-}));
+console.log(
+  'API Config:',
+  configureAPI({
+    baseURL: 'https://api.example.com',
+    headers: {
+      authorization: 'Bearer token123',
+    },
+  })
+);
 
 // ==========================================
 // PARTE 3: COMBINACIONES COMPLEJAS
@@ -207,7 +216,7 @@ console.log('\n📋 PARTE 3: Combinaciones Complejas\n');
 const processAPIResponse = response => {
   // TODO: Extrae status, message, users (del data) y total
   // Pista: const { status, message, data: { users, total } } = response;
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -219,7 +228,7 @@ const processAPIResponse = response => {
 const extractEmployeeData = company => {
   // TODO: Extrae name, role, email y phone del primer empleado
   // Pista: const { employees: [{ name, role, contact: { email, phone } }] } = company;
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -231,7 +240,7 @@ const extractEmployeeData = company => {
 const flattenUserData = user => {
   // TODO: Extrae todas las propiedades necesarias y devuélvelas en un objeto plano
   // Incluye: name, email, city, country, lat, lng
-  
+
   return {}; // Reemplaza esto
 };
 
@@ -254,7 +263,7 @@ console.log('\n📋 PARTE 4: Iteraciones\n');
 const mapEmployees = company => {
   // TODO: Usa map con destructuring
   // Pista: employees.map(({ name, contact: { email } }) => ({ name, email }))
-  
+
   return []; // Reemplaza esto
 };
 
@@ -265,7 +274,7 @@ const mapEmployees = company => {
  */
 const getActiveUsers = response => {
   // TODO: Extrae users y filtra por active: true
-  
+
   return []; // Reemplaza esto
 };
 
@@ -283,9 +292,7 @@ console.log('='.repeat(60));
 
 const validate = (testName, expected, actual) => {
   const passed = JSON.stringify(expected) === JSON.stringify(actual);
-  console.log(
-    passed ? `✅ ${testName}` : `❌ ${testName}`
-  );
+  console.log(passed ? `✅ ${testName}` : `❌ ${testName}`);
   if (!passed) {
     console.log('  Esperado:', expected);
     console.log('  Actual:', actual);
@@ -293,58 +300,64 @@ const validate = (testName, expected, actual) => {
 };
 
 // Validaciones
-validate('getUserLocation', 
+validate(
+  'getUserLocation',
   { city: 'Madrid', country: 'España' },
   getUserLocation(user1)
 );
 
-validate('getCoordinates',
+validate(
+  'getCoordinates',
   { lat: 40.4168, lng: -3.7038 },
   getCoordinates(user1.address)
 );
 
-validate('getFirstPostTitle',
-  'Mi primer post',
-  getFirstPostTitle(user1)
-);
+validate('getFirstPostTitle', 'Mi primer post', getFirstPostTitle(user1));
 
 const newUser = createUser({
   name: 'Test User',
   email: 'test@example.com',
-  age: 25
+  age: 25,
 });
-console.log(newUser.name === 'Test User' && newUser.email === 'test@example.com' 
-  ? '✅ createUser' 
-  : '❌ createUser');
+console.log(
+  newUser.name === 'Test User' && newUser.email === 'test@example.com'
+    ? '✅ createUser'
+    : '❌ createUser'
+);
 
 const card1 = renderCard({ title: 'Test', description: 'Desc' });
-console.log(card1.color === 'blue' && card1.size === 'medium'
-  ? '✅ renderCard (defaults)'
-  : '❌ renderCard (defaults)');
+console.log(
+  card1.color === 'blue' && card1.size === 'medium'
+    ? '✅ renderCard (defaults)'
+    : '❌ renderCard (defaults)'
+);
 
-validate('processAPIResponse',
+validate(
+  'processAPIResponse',
   { status: 200, message: 'Success', users: apiResponse.data.users, total: 2 },
   processAPIResponse(apiResponse)
 );
 
-validate('extractEmployeeData',
+validate(
+  'extractEmployeeData',
   {
     name: 'Carlos López',
     role: 'Developer',
     email: 'carlos@techcorp.com',
-    phone: '+34 600 111 222'
+    phone: '+34 600 111 222',
   },
   extractEmployeeData(company)
 );
 
-validate('flattenUserData',
+validate(
+  'flattenUserData',
   {
     name: 'Ana García',
     email: 'ana@example.com',
     city: 'Madrid',
     country: 'España',
     lat: 40.4168,
-    lng: -3.7038
+    lng: -3.7038,
   },
   flattenUserData(user1)
 );

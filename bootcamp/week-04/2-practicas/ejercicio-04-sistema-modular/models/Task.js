@@ -15,13 +15,13 @@ class Task {
     this.completed = completed;
     this.createdAt = new Date();
   }
-  
+
   // Getter: verifica si la tarea está vencida
   get isOverdue() {
     if (!this.dueDate || this.completed) return false;
     return new Date(this.dueDate) < new Date();
   }
-  
+
   // Getter: días hasta vencimiento
   get daysUntilDue() {
     if (!this.dueDate) return null;
@@ -30,12 +30,12 @@ class Task {
     const diff = due - today;
     return Math.ceil(diff / (1000 * 60 * 60 * 24));
   }
-  
+
   // Método: alternar estado completado
   toggle() {
     this.completed = !this.completed;
   }
-  
+
   // Método: actualizar tarea
   update(data) {
     if (data.title) this.title = validateTitle(data.title);
