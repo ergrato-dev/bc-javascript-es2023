@@ -151,7 +151,7 @@ gestor-tareas/
 - [ ] Estadísticas correctas (10pts)
 - [ ] Interfaz responsiva y usable (10pts)
 
-**Total: 100 puntos**  
+**Total: 100 puntos**
 **Mínimo para aprobar: 70 puntos**
 
 ---
@@ -208,7 +208,7 @@ const newTasks = [...tasks, newTask];
 
 ```javascript
 // Usa map para actualizar
-const updated = tasks.map(task => 
+const updated = tasks.map(task =>
   task.id === id ? { ...task, completed: !task.completed } : task
 );
 ```
