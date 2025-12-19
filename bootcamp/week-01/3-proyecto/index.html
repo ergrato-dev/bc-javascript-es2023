@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Business Card</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+      <span class="theme-icon">🌙</span>
+    </button>
+
+    <!-- Business Card -->
+    <div class="card" id="businessCard">
+      <!-- Header Section -->
+      <div class="card-header">
+        <div class="avatar">
+          <img src="https://via.placeholder.com/150" alt="Profile Avatar" id="avatarImg">
+        </div>
+        <div class="header-info">
+          <h1 id="userName">Loading...</h1>
+          <p class="title" id="userTitle">Loading...</p>
+          <p class="location" id="userLocation">📍 Loading...</p>
+        </div>
+      </div>
+
+      <!-- Bio Section -->
+      <div class="card-section">
+        <h2>About Me</h2>
+        <p id="userBio" class="bio">Loading...</p>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="card-section">
+        <h2>Contact</h2>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="icon">📧</span>
+            <span id="userEmail">Loading...</span>
+            <button id="copyEmailBtn" class="btn btn-small">Copy</button>
+          </div>
+          <div class="contact-item">
+            <span class="icon">📱</span>
+            <span id="userPhone">Loading...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="card-section">
+        <h2>Skills</h2>
+        <div id="skillsList" class="skills-list">
+          Loading...
+        </div>
+        <button id="toggleSkills" class="btn btn-secondary">Show More</button>
+      </div>
+
+      <!-- Social Media Section -->
+      <div class="card-section">
+        <h2>Connect</h2>
+        <div id="socialLinks" class="social-links">
+          Loading...
+        </div>
+      </div>
+
+      <!-- Statistics Section -->
+      <div class="card-section">
+        <h2>Statistics</h2>
+        <div id="stats" class="stats-grid">
+          Loading...
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Built with ❤️ using ES6+ JavaScript</p>
+      <p class="small">Week 01 Project - JavaScript Modern Bootcamp</p>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toastMessage"></span>
+  </div>
+
+  <script src="starter/script.js"></script>
+</body>
+</html>
