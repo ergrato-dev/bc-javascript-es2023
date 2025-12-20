@@ -4,6 +4,8 @@
 - Dominar clases, cuantificadores, anclas, alternancia.
 - Capturar, agrupar y usar backreferences.
 
+![Grupos y cuantificadores](../0-assets/04-grupos-cuantificadores.svg)
+
 ## 📋 Contenido
 ### Clases de caracteres
 - `[abc]`, `[a-z]`, `[^a-z]`

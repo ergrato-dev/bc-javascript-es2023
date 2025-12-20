@@ -4,6 +4,8 @@
 - Manejar métodos ES6+ útiles para limpieza y formato.
 - Aplicar replace/replaceAll con seguridad básica.
 
+![replace vs replaceAll](../0-assets/02-replace-vs-replaceall.svg)
+
 ## 📋 Contenido
 ### Presencia y prefijos/sufijos
 - `includes(sub, pos=0)`

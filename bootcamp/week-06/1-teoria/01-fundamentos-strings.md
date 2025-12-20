@@ -5,6 +5,8 @@
 - Usar templates y escapes correctamente.
 - Dominar slicing y comparaciones básicas.
 
+![Comparativa de slicing de strings](../0-assets/01-strings-slice-substring.svg)
+
 ## 📋 Contenido
 ### Representación y longitud
 - Strings inmutables; length cuenta UTF-16 code units.
