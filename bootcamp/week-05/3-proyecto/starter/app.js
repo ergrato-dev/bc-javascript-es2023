@@ -1,7 +1,7 @@
 /**
  * APP.JS
  * Lógica principal del dashboard
- * 
+ *
  * TODO: Completa las funciones para hacer que el dashboard sea funcional
  */
 
@@ -21,8 +21,8 @@ const state = {
     priceMin: 0,
     priceMax: Infinity,
     stock: '',
-    search: ''
-  }
+    search: '',
+  },
 };
 
 // ============================================
@@ -61,7 +61,7 @@ const elements = {
   goButton: document.getElementById('goButton'),
 
   // Tabla header
-  tableHeaders: document.querySelectorAll('.data-table th.sortable')
+  tableHeaders: document.querySelectorAll('.data-table th.sortable'),
 };
 
 // ============================================
@@ -73,17 +73,17 @@ const elements = {
  */
 const init = () => {
   console.log('Inicializando dashboard...');
-  
-  // TODO: 
+
+  // TODO:
   // 1. Cargar datos de PRODUCTS
   // 2. Validar datos con cleanData()
   // 3. Establecer estado inicial
   // 4. Registrar event listeners
   // 5. Renderizar vista inicial
-  
+
   state.allData = cleanData([...PRODUCTS]);
   state.filteredData = [...state.allData];
-  
+
   attachEventListeners();
   render();
 };
@@ -122,7 +122,7 @@ const applyFilters = () => {
   // 3. Guardar resultado en state.filteredData
   // 4. Resetear a página 1
   // 5. Llamar a render()
-  
+
   state.currentPage = 1;
   render();
 };
@@ -137,7 +137,7 @@ const clearAllFilters = () => {
     priceMin: 0,
     priceMax: Infinity,
     stock: '',
-    search: ''
+    search: '',
   };
   state.currentPage = 1;
   applyFilters();
@@ -151,7 +151,7 @@ const clearAllFilters = () => {
  * Cambia el ordenamiento
  * @param {string} column - Columna a ordenar
  */
-const handleSort = (column) => {
+const handleSort = column => {
   // TODO: Implementar
   // Si es la misma columna, alternar asc/desc
   // Si es columna diferente, ordenar ascendente
@@ -188,7 +188,7 @@ const goToNextPage = () => {
  * Va a una página específica
  * @param {number} page - Número de página
  */
-const goToPage = (page) => {
+const goToPage = page => {
   // TODO: Validar página e ir si es válida
 };
 

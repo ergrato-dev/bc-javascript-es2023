@@ -1,7 +1,7 @@
 /**
  * UTILS.JS
  * Funciones utilitarias para transformación de arrays
- * 
+ *
  * IMPORTANTES: Completa estas funciones usando métodos avanzados de arrays
  * Métodos a usar: flat(), flatMap(), Array.from(), sort(), filter(), map(), reduce()
  */
@@ -81,7 +81,7 @@ const sortBy = (products, column, order = 'asc') => {
  * @param {Array} products - Array de productos
  * @returns {Object} Objeto con estadísticas
  */
-const calculateStats = (products) => {
+const calculateStats = products => {
   // TODO: Implementar usando reduce()
   // Retornar: { total, avgPrice, maxPrice, minPrice, totalStock, outOfStock }
   return {
@@ -90,7 +90,7 @@ const calculateStats = (products) => {
     maxPrice: 0,
     minPrice: 0,
     totalStock: 0,
-    outOfStock: 0
+    outOfStock: 0,
   };
 };
 
@@ -131,10 +131,10 @@ const getTotalPages = (totalItems, pageSize = 10) => {
  * @param {number} amount - Cantidad a formatear
  * @returns {string} Cantidad formateada como moneda
  */
-const formatCurrency = (amount) => {
+const formatCurrency = amount => {
   return new Intl.NumberFormat('es-CO', {
     style: 'currency',
-    currency: 'COP'
+    currency: 'COP',
   }).format(amount);
 };
 
@@ -143,7 +143,7 @@ const formatCurrency = (amount) => {
  * @param {string} dateStr - Fecha en formato YYYY-MM-DD
  * @returns {string} Fecha formateada
  */
-const formatDate = (dateStr) => {
+const formatDate = dateStr => {
   return new Date(dateStr).toLocaleDateString('es-CO');
 };
 
@@ -169,7 +169,14 @@ const convertToCSV = (data, columns) => {
  * @param {string} filename - Nombre del archivo
  */
 const downloadCSV = (data, filename = 'data.csv') => {
-  const csv = convertToCSV(data, ['id', 'name', 'category', 'price', 'stock', 'date']);
+  const csv = convertToCSV(data, [
+    'id',
+    'name',
+    'category',
+    'price',
+    'stock',
+    'date',
+  ]);
   const blob = new Blob([csv], { type: 'text/csv' });
   const url = window.URL.createObjectURL(blob);
   const link = document.createElement('a');
@@ -187,7 +194,7 @@ const downloadCSV = (data, filename = 'data.csv') => {
  * @param {Object} product - Producto a validar
  * @returns {boolean} true si es válido
  */
-const isValidProduct = (product) => {
+const isValidProduct = product => {
   // TODO: Implementar
   const requiredFields = ['id', 'name', 'category', 'price', 'stock', 'date'];
   return requiredFields.every(field => field in product);
@@ -198,7 +205,7 @@ const isValidProduct = (product) => {
  * @param {Array} data - Datos brutos
  * @returns {Array} Datos validados y limpios
  */
-const cleanData = (data) => {
+const cleanData = data => {
   // TODO: Implementar usando filter() y map()
   // Validar cada producto y descartar inválidos
   return data;

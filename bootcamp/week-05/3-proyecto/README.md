@@ -318,7 +318,7 @@ Implementa estas características para puntos extra:
 
 ---
 
-**Tiempo total estimado**: 2-3 horas  
+**Tiempo total estimado**: 2-3 horas
 **Dificultad**: ⭐⭐⭐ Avanzado
 
 ¡Este es tu chance de demostrar todo lo que has aprendido! 🚀
