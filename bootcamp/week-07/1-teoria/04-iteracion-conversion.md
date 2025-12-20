@@ -4,6 +4,8 @@
 - Recorrer Sets y Maps de forma idiomática.
 - Convertir entre arrays, objetos, Sets y Maps sin perder información.
 
+![Conversiones Set/Map](../0-assets/03-conversiones-set-map.svg)
+
 ## 📋 Contenido
 ### Iterar Set
 - `for (const value of set) { ... }`

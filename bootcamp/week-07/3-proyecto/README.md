@@ -8,6 +8,8 @@ Sistema para gestionar usuarios únicos, sesiones y permisos usando Sets, Maps y
 - Implementar caché de metadatos con WeakMap (sesiones, tokens efímeros).
 - Manejar operaciones CRUD con reportes consistentes (listados, búsquedas, conteos).
 
+![Flujo del toolkit](../0-assets/06-identity-toolkit-flujo.svg)
+
 ## 🧩 Requerimientos
 ### Módulos mínimos
 1. **UserRegistry**: gestiona usuarios con IDs únicos (usa Map id -> user, Set para emails).

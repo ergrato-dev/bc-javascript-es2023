@@ -4,6 +4,10 @@
 - Usar Map para claves de cualquier tipo y mantener orden de inserción.
 - Implementar caches y metadatos con WeakMap sin fugas de memoria.
 
+![WeakMap caché pattern](../0-assets/04-cache-weakmap.svg)
+
+![WeakMap y GC](../0-assets/02-weakset-weakmap-gc.svg)
+
 ## 📋 Contenido
 ### Map
 - Métodos: `set`, `get`, `has`, `delete`, `clear`, propiedad `size`.

@@ -1,9 +1,10 @@
 # 0-assets - Week 07
 
-Diagramas pendientes (tema dark, paleta JS amarillo, sin gradientes):
-- Set vs Map: operaciones y casos de uso
-- WeakSet/WeakMap: ciclo de vida y GC
-- Conversiones Array/Object <-> Set/Map
-- Patrones de caché con WeakMap
-- Registro de permisos con Set/Map
-- Flujo del proyecto Identity & Access Toolkit
+SVGs listos (tema dark, paleta JS amarillo, sin gradientes):
+
+- 01-set-vs-map.svg — Comparativa de operaciones y casos de uso de Set y Map. Referenciado en 1-teoria/01.
+- 02-weakset-weakmap-gc.svg — Ciclo de vida y garbage collection de WeakSet/WeakMap. Referenciado en 1-teoria/02 y 03.
+- 03-conversiones-set-map.svg — Conversiones entre Array/Object y Set/Map. Referenciado en 1-teoria/04.
+- 04-cache-weakmap.svg — Patrón de caché con WeakMap sin memory leaks. Referenciado en 1-teoria/03.
+- 05-operaciones-conjunto.svg — Operaciones de conjunto (unión, intersección, diferencia). Referenciado en 1-teoria/02.
+- 06-identity-toolkit-flujo.svg — Flujo del proyecto (UserRegistry, SessionManager, Permissions). Referenciado en 3-proyecto/README.md.

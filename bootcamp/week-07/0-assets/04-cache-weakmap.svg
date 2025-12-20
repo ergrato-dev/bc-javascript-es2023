@@ -6,7 +6,7 @@
   <g transform="translate(60,130)">
     <rect width="780" height="340" fill="#161b22" rx="10" stroke="#30363d"/>
     <text x="20" y="40" fill="#F0DB4F" font-family="'Inter','Segoe UI',sans-serif" font-size="20" font-weight="700">Implementación básica</text>
-    
+
     <rect x="20" y="60" width="740" height="260" fill="#0d1117" rx="8" stroke="#30363d"/>
     <text x="40" y="90" fill="#8b949e" font-family="'Cascadia Code','Fira Code',monospace" font-size="13">const cache = new WeakMap();</text>
     <text x="40" y="115" fill="#8b949e" font-family="'Cascadia Code','Fira Code',monospace" font-size="13"></text>

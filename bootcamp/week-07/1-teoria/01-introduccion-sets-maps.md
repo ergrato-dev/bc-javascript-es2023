@@ -5,6 +5,8 @@
 - Conocer propiedades clave: unicidad (Set) y claves arbitrarias (Map).
 - Reconocer el orden de inserción y su impacto en iteración.
 
+![Set vs Map operaciones](../0-assets/01-set-vs-map.svg)
+
 ## 📋 Contenido
 ### ¿Por qué nuevas colecciones?
 - Arrays: ordenados, permiten duplicados, índices numéricos.

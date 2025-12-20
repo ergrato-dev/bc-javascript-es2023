@@ -4,6 +4,10 @@
 - Dominar operaciones de Set y patrones comunes (deduplicar, unión, intersección, diferencia).
 - Entender WeakSet y su rol en gestionar referencias débiles.
 
+![Operaciones de conjunto](../0-assets/05-operaciones-conjunto.svg)
+
+![WeakSet y GC](../0-assets/02-weakset-weakmap-gc.svg)
+
 ## 📋 Contenido
 ### Set
 - Métodos: `add`, `has`, `delete`, `clear`, propiedad `size`.
