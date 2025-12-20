@@ -220,24 +220,24 @@ const grouped = data.reduce((acc, item) => {
 
 ## ⏱️ Distribución del Tiempo (8 horas)
 
-| Actividad                  | Duración | Acumulado |
-| -------------------------- | -------- | --------- |
-| **Teoría**                 |          |           |
-| - Flat y FlatMap           | 30 min   | 0.5h      |
-| - Array.from() y Array.of()| 30 min   | 1h        |
-| - Sort Avanzado            | 40 min   | 1.67h     |
-| - Chaining Complejo        | 30 min   | 2.17h     |
-| - Transformaciones         | 23 min   | 2.5h      |
-| **Prácticas**              |          |           |
-| - Ejercicio 1              | 30 min   | 3h        |
-| - Ejercicio 2              | 40 min   | 3.67h     |
-| - Ejercicio 3              | 45 min   | 4.42h     |
-| - Ejercicio 4              | 1h       | 5.42h     |
-| **Proyecto**               |          |           |
-| - Setup e instalación      | 30 min   | 6h        |
-| - Implementación           | 1.5h     | 7.5h      |
-| **Recursos**               |          |           |
-| - Revisión y consolidación | 30 min   | 8h        |
+| Actividad                   | Duración | Acumulado |
+| --------------------------- | -------- | --------- |
+| **Teoría**                  |          |           |
+| - Flat y FlatMap            | 30 min   | 0.5h      |
+| - Array.from() y Array.of() | 30 min   | 1h        |
+| - Sort Avanzado             | 40 min   | 1.67h     |
+| - Chaining Complejo         | 30 min   | 2.17h     |
+| - Transformaciones          | 23 min   | 2.5h      |
+| **Prácticas**               |          |           |
+| - Ejercicio 1               | 30 min   | 3h        |
+| - Ejercicio 2               | 40 min   | 3.67h     |
+| - Ejercicio 3               | 45 min   | 4.42h     |
+| - Ejercicio 4               | 1h       | 5.42h     |
+| **Proyecto**                |          |           |
+| - Setup e instalación       | 30 min   | 6h        |
+| - Implementación            | 1.5h     | 7.5h      |
+| **Recursos**                |          |           |
+| - Revisión y consolidación  | 30 min   | 8h        |
 
 ## 📌 Entregables
 
