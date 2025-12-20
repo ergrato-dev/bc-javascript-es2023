@@ -9,6 +9,8 @@ En esta lección aprenderás a:
 - ✅ Debuggear chains complejos
 - ✅ Optimizar rendimiento de chains
 
+![Method Chaining](../0-assets/04-method-chaining.svg)
+
 ## 📋 Contenido
 
 ### 1. ¿Qué es Chaining?

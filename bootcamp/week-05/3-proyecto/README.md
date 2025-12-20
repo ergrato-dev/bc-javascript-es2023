@@ -12,6 +12,12 @@ En este proyecto integrador, construirás un **Dashboard de análisis de datos**
 - ✅ Implementar búsqueda, filtrado y paginación
 - ✅ Escribir código limpio, modular y documentado
 
+## 🔄 Pipeline de Datos
+
+El dashboard procesa datos a través de este pipeline:
+
+![Dashboard Pipeline](../0-assets/06-dashboard-pipeline.svg)
+
 ## 🏗️ Estructura del Proyecto
 
 ```

@@ -9,6 +9,8 @@ En esta lección aprenderás a:
 - ✅ Implementar ordenamiento con múltiples criterios
 - ✅ Entender la mutabilidad de `sort()`
 
+![Comparador en sort()](../0-assets/03-sort-comparator.svg)
+
 ## 📋 Contenido
 
 ### 1. Fundamentos de sort()

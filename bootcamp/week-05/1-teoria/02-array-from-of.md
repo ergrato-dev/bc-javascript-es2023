@@ -9,6 +9,8 @@ En esta lección aprenderás a:
 - ✅ Aplicar mapeo durante la conversión
 - ✅ Trabajar con NodeList y argumentos de funciones
 
+![Array.from() vs Array.of()](../0-assets/02-array-from-of.svg)
+
 ## 📋 Contenido
 
 ### 1. ¿Qué es un Array-Like Object?
