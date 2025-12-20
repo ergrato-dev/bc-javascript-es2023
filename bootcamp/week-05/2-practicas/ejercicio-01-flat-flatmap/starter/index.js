@@ -1,6 +1,6 @@
 /**
  * EJERCICIO 1: FLAT Y FLATMAP
- * 
+ *
  * Completa las siguientes funciones usando flat() y flatMap()
  * Sigue las instrucciones en README.md
  */
@@ -14,7 +14,7 @@
  * @param {Array} array - Array con elementos anidados
  * @returns {Array} Array completamente aplanado
  */
-const flattenSimple = (array) => {
+const flattenSimple = array => {
   // TODO: Implementar usando flat()
 };
 
@@ -41,7 +41,7 @@ const flattenByDepth = (array, depth) => {
  * @param {Array} array - Array de elementos
  * @returns {Array} Array con elementos duplicados
  */
-const flatMapDuplicate = (array) => {
+const flatMapDuplicate = array => {
   // TODO: Implementar usando flatMap()
   // Pista: Para cada elemento, retorna [elemento, elemento]
 };
@@ -55,7 +55,7 @@ const flatMapDuplicate = (array) => {
  * @param {Array} array - Array de números
  * @returns {Array} Array con rangos expandidos
  */
-const expandRanges = (array) => {
+const expandRanges = array => {
   // TODO: Implementar usando flatMap()
   // Pista: Para cada número n, crea array [1, 2, ..., n]
   // Puedes usar Array.from({ length: n }, (_, i) => i + 1)
@@ -70,7 +70,7 @@ const expandRanges = (array) => {
  * @param {Array} data - Array de objetos con propiedad 'tags'
  * @returns {Array} Array único de tags en mayúsculas
  */
-const flatMapFilter = (data) => {
+const flatMapFilter = data => {
   // TODO: Implementar usando flatMap()
   // 1. Usar flatMap() para extraer todos los tags
   // 2. Eliminar duplicados (usar Set)
@@ -88,7 +88,7 @@ const flatMapFilter = (data) => {
  * @param {Array} array - Array anidado a cualquier profundidad
  * @returns {Array} Array completamente aplanado
  */
-const flattenComplex = (array) => {
+const flattenComplex = array => {
   // TODO: Implementar usando flat()
   // Pista: Usa flat(Infinity) para aplanar completamente
 };
@@ -102,7 +102,7 @@ const flattenComplex = (array) => {
  * @param {Array} users - Array de usuarios con propiedad 'orders'
  * @returns {Array} Array de todas las órdenes
  */
-const flatMapUsers = (users) => {
+const flatMapUsers = users => {
   // TODO: Implementar usando flatMap()
   // Extrae la propiedad 'orders' de cada usuario
 };
@@ -116,7 +116,7 @@ const flatMapUsers = (users) => {
  * @param {Array} array - Array que puede contener valores falsy
  * @returns {Array} Array aplanado solo con valores truthy
  */
-const flatMapClean = (array) => {
+const flatMapClean = array => {
   // TODO: Implementar usando flatMap()
   // Pista: flatMap puede retornar array vacío [] para filtrar
   // flatMap(item => item ? [item] : [])
@@ -132,28 +132,29 @@ function runTests() {
   const tests = [
     {
       name: 'flattenSimple',
-      fn: () => flattenSimple([1, [2, 3], 4]).join(',') === '1,2,3,4'
+      fn: () => flattenSimple([1, [2, 3], 4]).join(',') === '1,2,3,4',
     },
     {
       name: 'flattenByDepth (depth=1)',
-      fn: () => flattenByDepth([1, [2, [3, 4]]], 1).join(',') === '1,2,3,4'
+      fn: () => flattenByDepth([1, [2, [3, 4]]], 1).join(',') === '1,2,3,4',
     },
     {
       name: 'flattenByDepth (depth=2)',
-      fn: () => flattenByDepth([1, [2, [3, [4]]]], 2).join(',') === '1,2,3,4'
+      fn: () => flattenByDepth([1, [2, [3, [4]]]], 2).join(',') === '1,2,3,4',
     },
     {
       name: 'flatMapDuplicate',
-      fn: () => flatMapDuplicate(['a', 'b']).join(',') === 'a,a,b,b'
+      fn: () => flatMapDuplicate(['a', 'b']).join(',') === 'a,a,b,b',
     },
     {
       name: 'expandRanges',
-      fn: () => expandRanges([1, 2]).join(',') === '1,1,2'
+      fn: () => expandRanges([1, 2]).join(',') === '1,1,2',
     },
     {
       name: 'flattenComplex',
-      fn: () => flattenComplex([1, [2, [3, [4, [5]]]]]).join(',') === '1,2,3,4,5'
-    }
+      fn: () =>
+        flattenComplex([1, [2, [3, [4, [5]]]]]).join(',') === '1,2,3,4,5',
+    },
   ];
 
   tests.forEach(test => {
@@ -181,5 +182,5 @@ module.exports = {
   flatMapFilter,
   flattenComplex,
   flatMapUsers,
-  flatMapClean
+  flatMapClean,
 };
