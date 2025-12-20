@@ -5,8 +5,8 @@ Bienvenido a los ejercicios prácticos de la semana. Cada ejercicio está diseñ
 ## 📊 Estructura de Ejercicios
 
 ### Ejercicio 1: Flat y FlatMap
-**Carpeta**: [ejercicio-01-flat-flatmap/](ejercicio-01-flat-flatmap/)  
-**Duración**: ~30 minutos  
+**Carpeta**: [ejercicio-01-flat-flatmap/](ejercicio-01-flat-flatmap/)
+**Duración**: ~30 minutos
 **Nivel**: ⭐ Básico
 
 Trabajarás con arrays anidados, aprenderás a usar `flat()` con diferentes profundidades y explorarás cómo `flatMap()` combina transformación con aplanamiento.
@@ -20,8 +20,8 @@ Trabajarás con arrays anidados, aprenderás a usar `flat()` con diferentes prof
 ---
 
 ### Ejercicio 2: Array.from() y Conversiones
-**Carpeta**: [ejercicio-02-array-conversiones/](ejercicio-02-array-conversiones/)  
-**Duración**: ~40 minutos  
+**Carpeta**: [ejercicio-02-array-conversiones/](ejercicio-02-array-conversiones/)
+**Duración**: ~40 minutos
 **Nivel**: ⭐⭐ Intermedio
 
 Convertirás objects array-like en arrays reales, trabajarás con NodeList del DOM, y aprenderás a usar `Array.of()` de forma segura.
@@ -35,8 +35,8 @@ Convertirás objects array-like en arrays reales, trabajarás con NodeList del D
 ---
 
 ### Ejercicio 3: Sort Personalizado
-**Carpeta**: [ejercicio-03-sort-personalizado/](ejercicio-03-sort-personalizado/)  
-**Duración**: ~45 minutos  
+**Carpeta**: [ejercicio-03-sort-personalizado/](ejercicio-03-sort-personalizado/)
+**Duración**: ~45 minutos
 **Nivel**: ⭐⭐ Intermedio
 
 Dominarás la función comparadora, ordenarás números correctamente, trabajarás con objetos complejos y implementarás ordenamiento multi-criterio.
@@ -51,8 +51,8 @@ Dominarás la función comparadora, ordenarás números correctamente, trabajar�
 ---
 
 ### Ejercicio 4: Chaining Avanzado
-**Carpeta**: [ejercicio-04-chaining-avanzado/](ejercicio-04-chaining-avanzado/)  
-**Duración**: ~1 hora  
+**Carpeta**: [ejercicio-04-chaining-avanzado/](ejercicio-04-chaining-avanzado/)
+**Duración**: ~1 hora
 **Nivel**: ⭐⭐⭐ Avanzado
 
 Crearás chains complejos de 4+ métodos encadenados, resolverás problemas del mundo real y aprenderás a debuggear transformaciones complejas.
@@ -168,11 +168,11 @@ Marca tu progreso aquí:
 
 Cada ejercicio se evalúa en:
 
-| Criterio | Peso |
-|----------|------|
-| **Funcionalidad** | 50% |
-| **Código Limpio** | 30% |
-| **Manejo de Casos Edge** | 20% |
+| Criterio                 | Peso |
+| ------------------------ | ---- |
+| **Funcionalidad**        | 50%  |
+| **Código Limpio**        | 30%  |
+| **Manejo de Casos Edge** | 20%  |
 
 **Mínimo de aprobación**: 70%
 

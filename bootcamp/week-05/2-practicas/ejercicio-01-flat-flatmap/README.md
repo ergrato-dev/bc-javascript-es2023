@@ -169,5 +169,5 @@ console.assert(
 
 ---
 
-**Tiempo estimado**: 30 minutos  
+**Tiempo estimado**: 30 minutos
 **Dificultad**: ⭐ Básico
