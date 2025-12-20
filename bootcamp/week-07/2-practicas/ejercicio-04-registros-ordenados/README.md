@@ -1,22 +1,107 @@
-# Ejercicio 04 - Registros Ordenados con Map + Set
+# 🗄️ Ejercicio 4: Registros Ordenados (Map + Set)
 
-## Objetivo
-Gestionar registros manteniendo orden de inserción y unicidad de atributos auxiliares.
+## 📌 Descripción
 
-## Tareas
-1. Implementa `createRegistry()` que retorne un objeto con métodos: `add(record)`, `remove(id)`, `get(id)`, `list()`, `tagsOf(id)`.
-2. Usa un Map interno para `id -> record` (record incluye `id`, `name`, `tags` array).
-3. Usa un Set global de tags para saber qué tags existen en el registro.
-4. `list()` debe devolver un array en orden de inserción (valores del Map).
-5. `tagsOf(id)` devuelve un Set con las tags únicas del registro (derivado del array de tags).
+Combina Map y Set para crear estructuras de datos complejas: registros ordenados con índices múltiples, sistemas de tags bidireccionales y colecciones con metadata.
 
-## Criterios de aceptación
-- `add` no inserta duplicados de id; si existe, actualiza el registro manteniendo el orden original.
-- `remove` elimina del Map y actualiza el Set global de tags.
-- No muta los arrays de entrada; crea copias internas cuando corresponda.
+## 🎯 Objetivos
 
-## Starter
-- `starter/index.js` con esqueletos.
+- ✅ Combinar Map y Set para estructuras complejas
+- ✅ Mantener múltiples índices sincronizados
+- ✅ Implementar búsquedas eficientes
+- ✅ Preservar orden de inserción
 
-## Solution
-- `solution/index.js` con implementación de referencia.
+## 📝 Tareas
+
+### Tarea 1: Registro Ordenado
+
+**Función**: `createOrderedRegistry()`
+
+Crea un registro que mantiene orden de inserción y permite búsqueda por ID.
+
+```javascript
+const registry = createOrderedRegistry();
+registry.add({ id: 1, name: 'Alice' });
+registry.getById(1); // { id: 1, name: 'Alice' }
+registry.getAll(); // Array en orden de inserción
+```
+
+### Tarea 2: Índice de Tags
+
+**Función**: `createTagIndex()`
+
+Sistema donde cada item tiene múltiples tags, permite buscar items por tag.
+
+```javascript
+const index = createTagIndex();
+index.add('article-1', ['js', 'tutorial']);
+index.getByTag('js'); // Set { 'article-1', ... }
+```
+
+### Tarea 3: Registro con Timestamps
+
+**Función**: `createTimestampedRegistry()`
+
+Registros con timestamps automáticos, ordenados cronológicamente.
+
+```javascript
+const reg = createTimestampedRegistry();
+reg.add('user-1', { name: 'Alice' });
+reg.getRecent(5); // Últimos 5 registros
+```
+
+### Tarea 4: Set Operations
+
+**Función**: `setOperations(setA, setB)`
+
+Retorna objeto con `union`, `intersection`, `difference`.
+
+```javascript
+setOperations(
+  new Set([1, 2, 3]),
+  new Set([2, 3, 4])
+);
+// {
+//   union: Set { 1, 2, 3, 4 },
+//   intersection: Set { 2, 3 },
+//   difference: Set { 1 }
+// }
+```
+
+### Tarea 5: Multi-Index Store
+
+**Función**: `createMultiIndexStore()`
+
+Store con múltiples índices (por ID, por categoría, por tag).
+
+```javascript
+const store = createMultiIndexStore();
+store.add({ id: 1, category: 'A', tags: ['x', 'y'] });
+store.findByCategory('A'); // [...]
+store.findByTag('x'); // [...]
+```
+
+## 🧪 Casos de Prueba
+
+```javascript
+const registry = createOrderedRegistry();
+registry.add({ id: 1, name: 'Test' });
+console.assert(registry.getById(1).name === 'Test', 'Falla');
+```
+
+## 📚 Referencia
+
+- [Map - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map)
+- [Set - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set)
+
+## 💡 Tips
+
+1. Map mantiene orden de inserción, ideal para registros
+2. Set para tags evita duplicados automáticamente
+3. Combina ambos para índices múltiples
+4. Usa Map.get() para O(1) lookups
+
+---
+
+**Tiempo estimado**: 35 minutos
+**Dificultad**: ⭐⭐⭐ Avanzado
