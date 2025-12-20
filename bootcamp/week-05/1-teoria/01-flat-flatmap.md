@@ -9,6 +9,8 @@ En esta lección aprenderás a:
 - ✅ Eliminar valores vacíos y null/undefined
 - ✅ Reconocer casos de uso prácticos
 
+![flat() vs flatMap()](../0-assets/01-flat-vs-flatmap.svg)
+
 ## 📋 Contenido
 
 ### 1. Método `flat()`

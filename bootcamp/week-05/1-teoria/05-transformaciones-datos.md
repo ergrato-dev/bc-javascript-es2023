@@ -9,6 +9,8 @@ En esta lección aprenderás a:
 - ✅ Pivotar y transponer datos
 - ✅ Trabajar con datos anidados complejos
 
+![Transformaciones Avanzadas](../0-assets/05-transformations.svg)
+
 ## 📋 Contenido
 
 ### 1. Agrupamiento de Datos

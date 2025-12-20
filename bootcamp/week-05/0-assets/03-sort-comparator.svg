@@ -20,7 +20,7 @@
   <g>
     <!-- Box -->
     <rect x="50" y="160" width="250" height="130" fill="#2d3748" stroke="#48bb78" stroke-width="2" rx="5"/>
-    
+
     <!-- Title -->
     <text x="175" y="180" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#48bb78" text-anchor="middle">
       Ascendente
@@ -51,7 +51,7 @@
   <g>
     <!-- Box -->
     <rect x="325" y="160" width="250" height="130" fill="#2d3748" stroke="#ef4444" stroke-width="2" rx="5"/>
-    
+
     <!-- Title -->
     <text x="450" y="180" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">
       Descendente
@@ -82,7 +82,7 @@
   <g>
     <!-- Box -->
     <rect x="600" y="160" width="250" height="130" fill="#2d3748" stroke="#4299e1" stroke-width="2" rx="5"/>
-    
+
     <!-- Title -->
     <text x="725" y="180" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#4299e1" text-anchor="middle">
       Alfabético
@@ -111,7 +111,7 @@
 
   <!-- Multi-criterio example -->
   <rect x="50" y="330" width="800" height="180" fill="#2d3748" stroke="#f0db4f" stroke-width="2" rx="5"/>
-  
+
   <text x="450" y="355" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f0db4f" text-anchor="middle">
     Ordenamiento Multi-Criterio (Objetos)
   </text>
