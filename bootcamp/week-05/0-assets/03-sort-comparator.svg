@@ -122,16 +122,16 @@
     users.sort((a, b) => {
   </text>
   <text x="85" y="412" font-family="Courier, monospace" font-size="10" fill="#4299e1">
-    &nbsp;&nbsp;// Primero por edad (ascendente)
+      // Primero por edad (ascendente)
   </text>
   <text x="85" y="429" font-family="Courier, monospace" font-size="10" fill="#4299e1">
-    &nbsp;&nbsp;if (a.age !== b.age) return a.age - b.age;
+      if (a.age !== b.age) return a.age - b.age;
   </text>
   <text x="85" y="446" font-family="Courier, monospace" font-size="10" fill="#4299e1">
-    &nbsp;&nbsp;// Si edad igual, por nombre (alfabético)
+      // Si edad igual, por nombre (alfabético)
   </text>
   <text x="85" y="463" font-family="Courier, monospace" font-size="10" fill="#4299e1">
-    &nbsp;&nbsp;return a.name.localeCompare(b.name);
+      return a.name.localeCompare(b.name);
   </text>
   <text x="85" y="480" font-family="Courier, monospace" font-size="10" fill="#4299e1">
     });
