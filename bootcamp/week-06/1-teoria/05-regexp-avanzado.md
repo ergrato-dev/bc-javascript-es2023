@@ -4,6 +4,8 @@
 - Aplicar lookahead/lookbehind, backreferences y boundaries.
 - Evitar patrones inseguros y manejar errores.
 
+![Lookarounds y backtracking](../0-assets/05-lookarounds-backtracking.svg)
+
 ## 📋 Contenido
 ### Lookarounds
 - Lookahead positivo: `(?=patron)`

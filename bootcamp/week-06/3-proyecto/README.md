@@ -7,6 +7,8 @@ Mini herramienta para normalizar, validar, buscar, reemplazar y resaltar patrone
 - Manejar entradas de usuario con seguridad (escapado y validación de patrones).
 - Entregar una API simple (CLI o módulo) para operar sobre texto.
 
+![Flujo del toolkit](../0-assets/06-text-pattern-toolkit.svg)
+
 ## 🧩 Requerimientos
 - Funciones mínimas:
   - `normalize(text, opts)` (trim, lower, opcional diacríticos/puntuación)

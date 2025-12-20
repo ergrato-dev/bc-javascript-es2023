@@ -4,6 +4,8 @@
 - Crear expresiones regulares y aplicar flags.
 - Usar test, exec, match, matchAll.
 
+![Flags de RegExp y sus efectos](../0-assets/03-regexp-flags.svg)
+
 ## 📋 Contenido
 ### Creación
 - Literal: `/patron/flags`
