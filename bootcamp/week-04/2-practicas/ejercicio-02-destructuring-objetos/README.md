@@ -1,70 +1,151 @@
-# 🏋️ Ejercicio 02: Destructuring de Objetos
+# 📘 Ejercicio 02: Destructuring de Objetos
 
-## 🎯 Objetivo
+## 🎯 Objetivos
 
-Practicar la extracción de propiedades de objetos usando destructuring ES6+.
-
----
-
-## 📋 Instrucciones
-
-Completa los ejercicios en `starter/index.js`. Cada ejercicio tiene instrucciones específicas.
+- Dominar la extracción de propiedades de objetos
+- Practicar renombrado con alias
+- Usar valores por defecto
+- Aplicar destructuring anidado y en funciones
 
 ---
 
-## 🧪 Ejercicios
+## 📋 Descripción
 
-### Ejercicio 2.1: Extracción Básica
-Extrae propiedades directamente de un objeto.
+Este es un **ejercicio guiado paso a paso**. Aprenderás destructuring de objetos descomentando código y observando los resultados.
 
-### Ejercicio 2.2: Alias (Renombrar)
-Extrae propiedades con nombres diferentes usando alias.
+---
 
-### Ejercicio 2.3: Valores por Defecto
-Usa valores por defecto para propiedades que no existen.
+## 📝 Práctica Guiada
 
-### Ejercicio 2.4: Alias + Default Combinados
-Combina renombrado con valores por defecto.
+### Paso 1: Extracción Básica
 
-### Ejercicio 2.5: Destructuring Anidado
-Extrae valores de objetos dentro de objetos.
+Extraer propiedades de un objeto por nombre:
 
-### Ejercicio 2.6: Rest en Objetos
-Separa algunas propiedades del resto del objeto.
+```javascript
+const { username, email, age } = user;
+```
 
-### Ejercicio 2.7: En Parámetros de Función
-Usa destructuring en parámetros de función con defaults.
+**Abre `starter/index.js`** y descomenta la sección del Paso 1.
 
-### Ejercicio 2.8: Destructuring Complejo
-Combina todas las técnicas en un caso real.
+---
+
+### Paso 2: Alias (Renombrar)
+
+Renombrar propiedades al extraerlas:
+
+```javascript
+const { product_id: productId } = product;
+```
+
+---
+
+### Paso 3: Valores por Defecto
+
+Asignar defaults para propiedades que no existen:
+
+```javascript
+const { theme, language = 'en' } = config;
+```
+
+---
+
+### Paso 4: Alias + Default Combinados
+
+Combinar renombrado con valor por defecto:
+
+```javascript
+const { api_url: apiUrl = 'http://localhost' } = settings;
+```
+
+---
+
+### Paso 5: Destructuring Anidado
+
+Extraer valores de objetos dentro de objetos:
+
+```javascript
+const { department: { name: deptName } } = employee;
+```
+
+---
+
+### Paso 6: Rest en Objetos
+
+Separar propiedades específicas del resto:
+
+```javascript
+const { id, ...userInfo } = user;
+```
+
+---
+
+### Paso 7: En Parámetros de Función
+
+Destructuring directamente en los parámetros:
+
+```javascript
+const createUser = ({ name, email, role = 'user' }) => ({ ... });
+```
+
+---
+
+### Paso 8: Destructuring Complejo
+
+Combinar arrays y objetos anidados:
+
+```javascript
+const { data: { users: [firstUser] } } = apiResponse;
+```
+
+---
+
+### Paso 9: Destructuring en Loops
+
+Extraer propiedades en iteraciones:
+
+```javascript
+for (const { id, name } of products) { ... }
+```
+
+---
+
+### Paso 10: Caso Práctico
+
+Procesar un objeto evento complejo extrayendo solo lo necesario.
+
+---
+
+## ▶️ Ejecución
+
+```bash
+cd starter
+node index.js
+```
 
 ---
 
 ## ⏱️ Tiempo Estimado
 
-45 minutos
+40-50 minutos
 
 ---
 
-## 🎯 Criterios de Éxito
+## ✅ Checklist
 
-- [ ] Todos los ejercicios completados
-- [ ] Uso correcto de alias con `:`
-- [ ] Valores por defecto aplicados correctamente
-- [ ] Destructuring anidado sin errores
-
----
-
-## 💡 Pistas
-
-1. Alias: `const { oldName: newName } = obj`
-2. Default: `const { prop = 'default' } = obj`
-3. Combinado: `const { prop: alias = 'default' } = obj`
-4. Anidado: `const { outer: { inner } } = obj`
+- [ ] Paso 1: Extracción básica descomentado
+- [ ] Paso 2: Alias descomentado
+- [ ] Paso 3: Valores por defecto descomentado
+- [ ] Paso 4: Alias + default descomentado
+- [ ] Paso 5: Anidado descomentado
+- [ ] Paso 6: Rest descomentado
+- [ ] Paso 7: Parámetros de función descomentado
+- [ ] Paso 8: Complejo descomentado
+- [ ] Paso 9: Loops descomentado
+- [ ] Paso 10: Caso práctico descomentado
 
 ---
 
 ## 🔗 Recursos
 
-- [Teoría: Destructuring Objetos](../../1-teoria/02-destructuring-objetos.md)
-- [MDN: Object Destructuring](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#desestructuraci%C3%B3n_de_objetos)
+- [Teoría: Destructuring Avanzado](../../1-teoria/01-destructuring-avanzado.md)
+- [MDN: Object Destructuring](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
