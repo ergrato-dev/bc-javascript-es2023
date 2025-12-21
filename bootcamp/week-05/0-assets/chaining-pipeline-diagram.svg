@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+  <defs>
+    <style>
+      .bg { fill: #1e1e1e; }
+      .title { fill: #f0db4f; font-family: Inter, system-ui, sans-serif; font-size: 24px; font-weight: 600; }
+      .subtitle { fill: #4ec9b0; font-family: Inter, system-ui, sans-serif; font-size: 16px; font-weight: 500; }
+      .label { fill: #e0e0e0; font-family: Inter, system-ui, sans-serif; font-size: 13px; }
+      .code { fill: #9cdcfe; font-family: 'Fira Code', monospace; font-size: 11px; }
+      .comment { fill: #6a9955; font-family: 'Fira Code', monospace; font-size: 11px; }
+      .step-box { fill: #2d2d2d; stroke: #569cd6; stroke-width: 2; rx: 8; }
+      .data-box { fill: #3d3d3d; stroke: #f0db4f; stroke-width: 1.5; rx: 6; }
+      .result-box { fill: #2d2d2d; stroke: #4ec9b0; stroke-width: 2; rx: 8; }
+      .arrow { stroke: #f0db4f; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .flow-line { stroke: #569cd6; stroke-width: 1.5; fill: none; }
+      .item { fill: #ce9178; font-family: 'Fira Code', monospace; font-size: 11px; }
+      .method { fill: #dcdcaa; font-family: 'Fira Code', monospace; font-size: 13px; font-weight: 600; }
+      .number { fill: #b5cea8; font-family: 'Fira Code', monospace; font-size: 12px; }
+      .keyword { fill: #c586c0; font-family: 'Fira Code', monospace; font-size: 12px; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f0db4f"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="550"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Chaining - Pipeline de Transformación de Datos</text>
+
+  <!-- Initial Data -->
+  <text class="subtitle" x="40" y="70">Datos Iniciales:</text>
+  <rect class="data-box" x="40" y="85" width="720" height="55"/>
+  <text class="code" x="55" y="105">const users = [</text>
+  <text class="code" x="70" y="120">{name: 'Ana', age: 28, active: true}, {name: 'Bob', age: 17, active: true}, {name: 'Carlos', age: 35, active: false}, ...</text>
+  <text class="code" x="55" y="135">];</text>
+
+  <!-- Pipeline Flow -->
+  <text class="subtitle" x="40" y="175">Pipeline de Transformación:</text>
+
+  <!-- Step 1: filter -->
+  <rect class="step-box" x="40" y="195" width="150" height="65"/>
+  <text class="method" x="80" y="215">.filter()</text>
+  <text class="code" x="55" y="235">u => u.active</text>
+  <text class="comment" x="55" y="250">// Solo activos</text>
+
+  <path class="arrow" d="M200 227 L230 227"/>
+
+  <!-- Intermediate 1 -->
+  <rect class="data-box" x="240" y="200" width="120" height="55"/>
+  <text class="number" x="250" y="220">3 usuarios</text>
+  <text class="item" x="250" y="240">activos</text>
+
+  <path class="arrow" d="M370 227 L400 227"/>
+
+  <!-- Step 2: filter age -->
+  <rect class="step-box" x="410" y="195" width="150" height="65"/>
+  <text class="method" x="450" y="215">.filter()</text>
+  <text class="code" x="425" y="235">u => u.age >= 18</text>
+  <text class="comment" x="425" y="250">// Solo adultos</text>
+
+  <path class="arrow" d="M570 227 L600 227"/>
+
+  <!-- Intermediate 2 -->
+  <rect class="data-box" x="610" y="200" width="120" height="55"/>
+  <text class="number" x="625" y="220">2 usuarios</text>
+  <text class="item" x="625" y="240">activos adultos</text>
+
+  <!-- Arrow down -->
+  <path class="arrow" d="M670 265 L670 295"/>
+
+  <!-- Step 3: map -->
+  <rect class="step-box" x="540" y="300" width="190" height="65"/>
+  <text class="method" x="605" y="320">.map()</text>
+  <text class="code" x="555" y="340">u => u.name.toUpperCase()</text>
+  <text class="comment" x="555" y="355">// Extraer nombres</text>
+
+  <path class="arrow" d="M530 332 L500 332"/>
+
+  <!-- Intermediate 3 -->
+  <rect class="data-box" x="350" y="305" width="140" height="55"/>
+  <text class="item" x="365" y="335">['ANA', 'CARLOS']</text>
+
+  <path class="arrow" d="M340 332 L310 332"/>
+
+  <!-- Step 4: sort -->
+  <rect class="step-box" x="140" y="300" width="160" height="65"/>
+  <text class="method" x="190" y="320">.sort()</text>
+  <text class="code" x="155" y="340">(a, b) => a.localeCompare(b)</text>
+  <text class="comment" x="155" y="355">// Ordenar A-Z</text>
+
+  <path class="arrow" d="M130 332 L100 332"/>
+
+  <!-- Final result -->
+  <rect class="result-box" x="40" y="385" width="720" height="70"/>
+  <text class="subtitle" x="55" y="410">Resultado Final:</text>
+  <text class="item" x="55" y="435">['ANA', 'CARLOS']</text>
+  <text class="comment" x="55" y="450">// Nombres en mayúsculas, ordenados, de usuarios activos y adultos</text>
+
+  <!-- Code example -->
+  <text class="subtitle" x="40" y="490">Código completo:</text>
+  <text class="code" x="40" y="510">const result = users</text>
+  <text class="method" x="155" y="510">.filter</text>
+  <text class="code" x="200" y="510">(u => u.active)</text>
+  <text class="method" x="315" y="510">.filter</text>
+  <text class="code" x="360" y="510">(u => u.age >= 18)</text>
+  <text class="method" x="480" y="510">.map</text>
+  <text class="code" x="515" y="510">(u => u.name.toUpperCase())</text>
+  <text class="method" x="700" y="510">.sort()</text>
+
+  <text class="comment" x="40" y="535">// Cada método retorna un nuevo array, permitiendo encadenar el siguiente método</text>
+</svg>

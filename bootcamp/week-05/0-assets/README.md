@@ -10,11 +10,11 @@ Esta carpeta contiene los diagramas y recursos visuales para la Semana 5: Arrays
 
 | Archivo | Descripción | Usado en |
 |---------|-------------|----------|
-| `01-flat-flatmap.svg` | Diagrama de aplanamiento de arrays | Teoría 01 |
-| `02-array-from-of.svg` | Creación de arrays desde iterables | Teoría 02 |
-| `03-chaining.svg` | Flujo de chaining de métodos | Teoría 03 |
-| `04-transformaciones.svg` | Patrones de transformación de datos | Teoría 04 |
-| `05-sort-personalizado.svg` | Ordenamiento con comparadores | Teoría 05 |
+| `flat-diagram.svg` | Diagrama de aplanamiento con flat() | Teoría 01 |
+| `flatmap-diagram.svg` | Map + flat combinado | Teoría 01 |
+| `array-from-of-diagram.svg` | Creación de arrays desde iterables | Teoría 02 |
+| `chaining-pipeline-diagram.svg` | Flujo de chaining de métodos | Teoría 03 |
+| `sort-compare-diagram.svg` | Ordenamiento con comparadores | Teoría 05 |
 
 ---
 
@@ -66,11 +66,11 @@ Esta carpeta contiene los diagramas y recursos visuales para la Semana 5: Arrays
 
 ## ✅ Checklist de Assets
 
-- [ ] `01-flat-flatmap.svg` - Aplanamiento visual
-- [ ] `02-array-from-of.svg` - Creación de arrays
-- [ ] `03-chaining.svg` - Pipeline de métodos
-- [ ] `04-transformaciones.svg` - Transformación de datos
-- [ ] `05-sort-personalizado.svg` - Algoritmo de ordenamiento
+- [x] `flat-diagram.svg` - Aplanamiento visual
+- [x] `flatmap-diagram.svg` - Map + flat combinado
+- [x] `array-from-of-diagram.svg` - Creación de arrays
+- [x] `chaining-pipeline-diagram.svg` - Pipeline de métodos
+- [x] `sort-compare-diagram.svg` - Función de comparación
 
 ---
 
