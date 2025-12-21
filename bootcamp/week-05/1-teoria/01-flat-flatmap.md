@@ -91,6 +91,10 @@ console.log(withEmpty.flat()); // [1, 2, 4, 5]
 
 ## 2️⃣ El Método `flatMap()`
 
+### 📊 Diagrama: flatMap() = map() + flat()
+
+![Diagrama flatMap()](../0-assets/02-flatmap.svg)
+
 ### ¿Por qué `flatMap()`?
 
 `flatMap()` combina `map()` + `flat(1)` en una sola operación más eficiente:
