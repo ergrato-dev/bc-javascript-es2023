@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard de Análisis de Datos</title>
+    <link
+      rel="stylesheet"
+      href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>📊 Dashboard de Análisis de Datos</h1>
+      <p>Week 05 - Arrays Avanzados</p>
+    </header>
+
+    <main class="dashboard">
+      <!-- Estadísticas Generales -->
+      <section class="card stats-card">
+        <h2>📈 Estadísticas Generales</h2>
+        <div
+          id="stats-container"
+          class="stats-grid">
+          <div class="stat-item">
+            <span
+              class="stat-value"
+              id="total-sales"
+              >--</span
+            >
+            <span class="stat-label">Total Ventas</span>
+          </div>
+          <div class="stat-item">
+            <span
+              class="stat-value"
+              id="total-orders"
+              >--</span
+            >
+            <span class="stat-label">Órdenes</span>
+          </div>
+          <div class="stat-item">
+            <span
+              class="stat-value"
+              id="avg-order"
+              >--</span
+            >
+            <span class="stat-label">Promedio/Orden</span>
+          </div>
+          <div class="stat-item">
+            <span
+              class="stat-value"
+              id="total-items"
+              >--</span
+            >
+            <span class="stat-label">Items Vendidos</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Top Clientes -->
+      <section class="card">
+        <h2>🏆 Top 5 Clientes</h2>
+        <div
+          id="top-customers"
+          class="list-container">
+          <p class="loading">Cargando...</p>
+        </div>
+      </section>
+
+      <!-- Ventas por Región -->
+      <section class="card">
+        <h2>🗺️ Ventas por Región</h2>
+        <div
+          id="sales-by-region"
+          class="list-container">
+          <p class="loading">Cargando...</p>
+        </div>
+      </section>
+
+      <!-- Ventas por Categoría -->
+      <section class="card">
+        <h2>📦 Ventas por Categoría</h2>
+        <div
+          id="sales-by-category"
+          class="list-container">
+          <p class="loading">Cargando...</p>
+        </div>
+      </section>
+
+      <!-- Productos Más Vendidos -->
+      <section class="card">
+        <h2>🔥 Productos Más Vendidos</h2>
+        <div
+          id="top-products"
+          class="list-container">
+          <p class="loading">Cargando...</p>
+        </div>
+      </section>
+
+      <!-- Tendencia Mensual -->
+      <section class="card full-width">
+        <h2>📅 Tendencia Mensual</h2>
+        <div
+          id="monthly-trend"
+          class="trend-container">
+          <p class="loading">Cargando...</p>
+        </div>
+      </section>
+
+      <!-- Últimas Órdenes -->
+      <section class="card full-width">
+        <h2>📋 Últimas Órdenes</h2>
+        <div
+          id="recent-orders"
+          class="table-container">
+          <p class="loading">Cargando...</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>JavaScript ES6+ Bootcamp - Week 05 - Arrays Avanzados</p>
+    </footer>
+
+    <!-- Cambiar a solution/script.js para ver la solución -->
+    <script src="starter/script.js"></script>
+  </body>
+</html>

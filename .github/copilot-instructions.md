@@ -112,6 +112,7 @@ bootcamp/week-XX/
 Los ejercicios son **tutoriales guiados**, NO tareas con TODOs. El estudiante aprende descomentando código:
 
 **README.md del ejercicio:**
+
 ```markdown
 ### Paso 1: Nombre del Concepto
 
@@ -126,6 +127,7 @@ const result = data.method(x => x.transform);
 ```
 
 **starter/index.js:**
+
 ```javascript
 // ============================================
 // PASO 1: Nombre del Concepto
@@ -141,6 +143,7 @@ console.log('');
 ```
 
 **solution/index.js:**
+
 ```javascript
 // ============================================
 // PASO 1: Nombre del Concepto
@@ -152,12 +155,14 @@ console.log('Resultado:', result);
 ```
 
 #### ❌ NO usar este formato en ejercicios:
+
 ```javascript
 // ❌ INCORRECTO - Este formato es para PROYECTOS, no ejercicios
 const result = null; // TODO: Implementar
 ```
 
 #### ✅ Usar este formato en ejercicios:
+
 ```javascript
 // ✅ CORRECTO - Código comentado para descomentar
 // Descomenta las siguientes líneas:
@@ -177,6 +182,7 @@ const result = null; // TODO: Implementar
 A diferencia de los ejercicios, el proyecto SÍ usa TODOs para que el estudiante implemente desde cero:
 
 **starter/script.js:**
+
 ```javascript
 // ============================================
 // FUNCIÓN: nombreFuncion
@@ -195,6 +201,7 @@ const nombreFuncion = param => {
 ```
 
 El estudiante debe:
+
 1. Leer las instrucciones en README.md
 2. Completar cada TODO con su propia implementación
 3. Usar lo aprendido en las prácticas guiadas
