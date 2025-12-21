@@ -10,7 +10,13 @@
 
 ---
 
-## 📋 Contenido
+## �️ Diagrama
+
+![Getters y Setters: Propiedades Computadas](../0-assets/04-getters-setters.svg)
+
+---
+
+## �📋 Contenido
 
 ### 1. ¿Qué son Getters y Setters?
 

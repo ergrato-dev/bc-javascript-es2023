@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#1a202c"/>
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#f0db4f" text-anchor="middle">
+    Métodos Estáticos vs Métodos de Instancia
+  </text>
+
+  <!-- Left Side: Instance Methods -->
+  <rect x="30" y="70" width="350" height="320" fill="#2d3748" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="205" y="100" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#4299e1" text-anchor="middle">
+    Métodos de INSTANCIA
+  </text>
+
+  <!-- Instance code -->
+  <rect x="50" y="120" width="310" height="120" fill="#374151" rx="5"/>
+  <text x="70" y="145" font-family="Courier, monospace" font-size="12" fill="#a0aec0">class Calculator {</text>
+  <text x="90" y="165" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">add(a, b) {</text>
+  <text x="110" y="185" font-family="Courier, monospace" font-size="12" fill="#48bb78">return a + b;</text>
+  <text x="90" y="205" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">}</text>
+  <text x="70" y="225" font-family="Courier, monospace" font-size="12" fill="#a0aec0">}</text>
+
+  <!-- Instance usage -->
+  <rect x="50" y="250" width="310" height="60" fill="#374151" rx="5"/>
+  <text x="70" y="275" font-family="Courier, monospace" font-size="12" fill="#f0db4f">const calc = new Calculator();</text>
+  <text x="70" y="295" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">calc.add(2, 3);  // 5</text>
+
+  <!-- Instance note -->
+  <text x="205" y="340" font-family="system-ui, sans-serif" font-size="12" fill="#4299e1" text-anchor="middle">
+    ✓ Requiere crear instancia con new
+  </text>
+  <text x="205" y="360" font-family="system-ui, sans-serif" font-size="12" fill="#4299e1" text-anchor="middle">
+    ✓ Accede a this (datos de instancia)
+  </text>
+  <text x="205" y="380" font-family="system-ui, sans-serif" font-size="12" fill="#4299e1" text-anchor="middle">
+    ✓ Cada instancia tiene su copia
+  </text>
+
+  <!-- Right Side: Static Methods -->
+  <rect x="420" y="70" width="350" height="320" fill="#2d3748" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="595" y="100" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#48bb78" text-anchor="middle">
+    Métodos ESTÁTICOS
+  </text>
+
+  <!-- Static code -->
+  <rect x="440" y="120" width="310" height="120" fill="#374151" rx="5"/>
+  <text x="460" y="145" font-family="Courier, monospace" font-size="12" fill="#a0aec0">class MathUtils {</text>
+  <text x="480" y="165" font-family="Courier, monospace" font-size="12" fill="#f0db4f">static</text>
+  <text x="530" y="165" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">add(a, b) {</text>
+  <text x="500" y="185" font-family="Courier, monospace" font-size="12" fill="#48bb78">return a + b;</text>
+  <text x="480" y="205" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">}</text>
+  <text x="460" y="225" font-family="Courier, monospace" font-size="12" fill="#a0aec0">}</text>
+
+  <!-- Static usage -->
+  <rect x="440" y="250" width="310" height="60" fill="#374151" rx="5"/>
+  <text x="460" y="275" font-family="Courier, monospace" font-size="12" fill="#a0aec0">// No necesita instancia</text>
+  <text x="460" y="295" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">MathUtils.add(2, 3);  // 5</text>
+
+  <!-- Static note -->
+  <text x="595" y="340" font-family="system-ui, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle">
+    ✓ Se llama directamente en la clase
+  </text>
+  <text x="595" y="360" font-family="system-ui, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle">
+    ✓ NO tiene acceso a this
+  </text>
+  <text x="595" y="380" font-family="system-ui, sans-serif" font-size="12" fill="#48bb78" text-anchor="middle">
+    ✓ Utilidades que no dependen de estado
+  </text>
+
+  <!-- VS Divider -->
+  <circle cx="400" cy="230" r="25" fill="#f0db4f"/>
+  <text x="400" y="236" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#1a202c" text-anchor="middle">VS</text>
+
+  <!-- Bottom summary -->
+  <rect x="100" y="405" width="600" height="35" fill="#1e293b" stroke="#f0db4f" stroke-width="1" rx="5"/>
+  <text x="400" y="428" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0" text-anchor="middle">
+    static → pertenece a la CLASE  |  sin static → pertenece a la INSTANCIA
+  </text>
+</svg>

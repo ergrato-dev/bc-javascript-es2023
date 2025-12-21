@@ -9,7 +9,13 @@
 
 ---
 
-## 📋 Contenido
+## �️ Diagrama
+
+![Anatomía de una Clase en JavaScript](../0-assets/01-clases-basicas.svg)
+
+---
+
+## �📋 Contenido
 
 ### 1. ¿Qué son las Clases?
 
