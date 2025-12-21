@@ -1,202 +1,260 @@
-# 🏋️ Ejercicio 01: flat() y flatMap()
+# 📘 Ejercicio 01: flat() y flatMap()
 
-## 🎯 Objetivo
+## 🎯 Objetivos
 
-Practicar el aplanamiento de arrays anidados usando `flat()` y `flatMap()` para transformar y procesar estructuras de datos complejas.
+- Comprender cómo aplanar arrays anidados con `flat()`
+- Dominar `flatMap()` para transformar y aplanar en un paso
+- Aplicar estos métodos a casos de uso reales
 
 ---
 
 ## 📋 Descripción
 
-En este ejercicio trabajarás con datos que contienen arrays anidados, como listas de categorías con productos, departamentos con empleados, y órdenes con items. Aprenderás a aplanar estas estructuras y extraer información de manera eficiente.
+Los arrays anidados son muy comunes cuando trabajas con datos reales: categorías con productos, usuarios con múltiples direcciones, posts con tags. En este ejercicio aprenderás a manejarlos eficientemente.
 
 ---
 
-## 📚 Conceptos Clave
+## 📝 Práctica Guiada
 
-- `flat(depth)` - Aplana arrays anidados hasta el nivel especificado
-- `flat(Infinity)` - Aplana completamente sin importar profundidad
-- `flatMap(fn)` - Combina `map()` + `flat(1)` en una operación
-- Usar `flatMap()` para filtrar y expandir elementos
+### Paso 1: Entendiendo flat()
+
+El método `flat()` convierte un array de arrays en un array simple:
+
+```javascript
+const nested = [['a', 'b'], ['c', 'd'], ['e']];
+
+// Sin flat() tendríamos que hacer loops complicados
+// Con flat() es directo:
+const flat = nested.flat();
+console.log(flat); // ['a', 'b', 'c', 'd', 'e']
+```
+
+**Abre `starter/index.js`** y observa el primer ejemplo con categorías de productos.
+
+El código ya incluye la solución comentada. **Descomenta la línea** para ver cómo funciona:
+
+```javascript
+const allProducts = categories.flat();
+```
+
+Ejecuta el archivo y verifica el resultado.
 
 ---
 
-## 🎯 Tareas
+### Paso 2: Controlando la Profundidad
 
-### Tarea 1: Aplanar Categorías de Productos
-
-```javascript
-const categories = [
-  ['Laptop', 'Desktop', 'Tablet'],
-  ['Mouse', 'Keyboard', 'Monitor'],
-  ['Headphones', 'Speakers']
-];
-
-// TODO: Obtener lista plana de todos los productos
-// Resultado esperado: ['Laptop', 'Desktop', 'Tablet', 'Mouse', 'Keyboard', 'Monitor', 'Headphones', 'Speakers']
-```
-
-### Tarea 2: Aplanar Estructura Profunda
+Por defecto, `flat()` aplana solo **un nivel**. Para arrays más profundos, especifica la profundidad:
 
 ```javascript
-const deepData = [1, [2, [3, [4, [5, [6]]]]]];
+const deep = [1, [2, [3, [4]]]];
 
-// TODO: Aplanar completamente
-// Resultado esperado: [1, 2, 3, 4, 5, 6]
+deep.flat(1);        // [1, 2, [3, [4]]]
+deep.flat(2);        // [1, 2, 3, [4]]
+deep.flat(3);        // [1, 2, 3, 4]
+deep.flat(Infinity); // [1, 2, 3, 4] - aplana todo
 ```
 
-### Tarea 3: Extraer Todos los Tags
+**En el archivo starter**, encuentra el ejemplo `deepData` y descomenta la solución:
+
+```javascript
+const flatDeep = deepData.flat(Infinity);
+```
+
+---
+
+### Paso 3: Introducción a flatMap()
+
+`flatMap()` combina `map()` + `flat(1)` en una sola operación. Es perfecto cuando cada elemento se transforma en múltiples elementos:
 
 ```javascript
 const posts = [
-  { title: 'Post 1', tags: ['javascript', 'es6'] },
-  { title: 'Post 2', tags: ['react', 'hooks', 'javascript'] },
-  { title: 'Post 3', tags: ['node', 'express'] }
+  { title: 'Post 1', tags: ['js', 'es6'] },
+  { title: 'Post 2', tags: ['react'] }
 ];
 
-// TODO: Obtener array con todos los tags (puede haber duplicados)
-// Resultado esperado: ['javascript', 'es6', 'react', 'hooks', 'javascript', 'node', 'express']
+// Con map + flat (dos pasos):
+const tags1 = posts.map(p => p.tags).flat();
+
+// Con flatMap (un paso, más eficiente):
+const tags2 = posts.flatMap(p => p.tags);
+
+// Ambos dan: ['js', 'es6', 'react']
 ```
 
-### Tarea 4: Tags Únicos
+**Descomenta** el ejemplo de tags en el starter y verifica el resultado.
+
+---
+
+### Paso 4: Eliminar Duplicados
+
+Una vez que tienes un array plano, puedes usar `Set` para eliminar duplicados:
 
 ```javascript
-// TODO: Usando el resultado anterior, obtener tags únicos
-// Resultado esperado: ['javascript', 'es6', 'react', 'hooks', 'node', 'express']
+const tags = ['js', 'react', 'js', 'node'];
+const unique = [...new Set(tags)];
+// ['js', 'react', 'node']
 ```
 
-### Tarea 5: Expandir Cantidades
+**Descomenta** el ejemplo `uniqueTags` y observa cómo se combina con `flatMap()`.
+
+---
+
+### Paso 5: Expandir Elementos con flatMap()
+
+`flatMap()` es ideal cuando un elemento debe generar múltiples elementos:
 
 ```javascript
 const items = [
-  { name: 'Apple', qty: 3 },
-  { name: 'Banana', qty: 2 },
+  { name: 'Apple', qty: 2 },
   { name: 'Orange', qty: 1 }
 ];
 
-// TODO: Crear array con cada item repetido según su cantidad
-// Resultado esperado: ['Apple', 'Apple', 'Apple', 'Banana', 'Banana', 'Orange']
+// Queremos: ['Apple', 'Apple', 'Orange']
+const expanded = items.flatMap(item => 
+  Array(item.qty).fill(item.name)
+);
 ```
 
-### Tarea 6: Filtrar y Expandir
+La clave es que `flatMap()` espera que la función retorne un **array**, y luego aplana todo.
+
+**Descomenta** el ejemplo `expandedItems` en el starter.
+
+---
+
+### Paso 6: Filtrar con flatMap()
+
+Truco poderoso: retornar `[]` para "eliminar" un elemento:
 
 ```javascript
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numbers = [1, 2, 3, 4, 5];
 
-// TODO: Solo números pares, cada uno duplicado
-// Resultado esperado: [2, 2, 4, 4, 6, 6, 8, 8, 10, 10]
+// Solo pares, duplicados
+const result = numbers.flatMap(n => 
+  n % 2 === 0 ? [n, n] : []  // [] elimina el elemento
+);
+// [2, 2, 4, 4]
 ```
 
-### Tarea 7: Procesar Órdenes
+**Descomenta** el ejemplo `evenDoubled`.
+
+---
+
+### Paso 7: Enriquecer Datos
+
+Cuando aplanas estructuras anidadas, a menudo necesitas agregar contexto del padre:
 
 ```javascript
 const orders = [
-  {
-    id: 'ORD001',
-    items: [
-      { product: 'Laptop', price: 1000 },
-      { product: 'Mouse', price: 25 }
-    ]
-  },
-  {
-    id: 'ORD002',
-    items: [
-      { product: 'Keyboard', price: 75 },
-      { product: 'Monitor', price: 300 },
-      { product: 'Webcam', price: 50 }
-    ]
-  }
+  { id: 'A', items: [{product: 'X'}, {product: 'Y'}] },
+  { id: 'B', items: [{product: 'Z'}] }
 ];
 
-// TODO: Lista plana de items con orderId incluido
-// Resultado esperado:
-// [
-//   { orderId: 'ORD001', product: 'Laptop', price: 1000 },
-//   { orderId: 'ORD001', product: 'Mouse', price: 25 },
-//   { orderId: 'ORD002', product: 'Keyboard', price: 75 },
-//   { orderId: 'ORD002', product: 'Monitor', price: 300 },
-//   { orderId: 'ORD002', product: 'Webcam', price: 50 }
-// ]
+const flatItems = orders.flatMap(order =>
+  order.items.map(item => ({
+    orderId: order.id,
+    ...item
+  }))
+);
+// [{orderId: 'A', product: 'X'}, {orderId: 'A', product: 'Y'}, {orderId: 'B', product: 'Z'}]
 ```
 
-### Tarea 8: Generar Combinaciones
+**Descomenta** el ejemplo de órdenes.
+
+---
+
+### Paso 8: Generar Combinaciones
+
+`flatMap()` anidado puede generar todas las combinaciones de dos arrays:
 
 ```javascript
 const colors = ['red', 'blue'];
-const sizes = ['S', 'M', 'L'];
+const sizes = ['S', 'M'];
 
-// TODO: Todas las combinaciones color-size
-// Resultado esperado:
-// [
-//   { color: 'red', size: 'S' },
-//   { color: 'red', size: 'M' },
-//   { color: 'red', size: 'L' },
-//   { color: 'blue', size: 'S' },
-//   { color: 'blue', size: 'M' },
-//   { color: 'blue', size: 'L' }
-// ]
+const combos = colors.flatMap(color =>
+  sizes.map(size => ({ color, size }))
+);
+// [{color: 'red', size: 'S'}, {color: 'red', size: 'M'}, ...]
 ```
 
-### Tarea 9: Parsear Oraciones
+**Descomenta** el ejemplo de combinaciones.
+
+---
+
+### Paso 9: Separar Strings
+
+`flatMap()` es perfecto para dividir y aplanar strings:
 
 ```javascript
-const sentences = [
-  'Hello world',
-  'JavaScript is awesome',
-  'flatMap rocks'
-];
-
-// TODO: Array de todas las palabras
-// Resultado esperado: ['Hello', 'world', 'JavaScript', 'is', 'awesome', 'flatMap', 'rocks']
+const sentences = ['Hello world', 'Hi there'];
+const words = sentences.flatMap(s => s.split(' '));
+// ['Hello', 'world', 'Hi', 'there']
 ```
 
-### Tarea 10: Expandir Rangos
+**Descomenta** el ejemplo de oraciones.
+
+---
+
+### Paso 10: Expandir Rangos
+
+Combina todo lo aprendido para generar secuencias desde rangos:
 
 ```javascript
-const ranges = [
-  { start: 1, end: 3 },
-  { start: 10, end: 12 },
-  { start: 20, end: 21 }
-];
+const ranges = [{ start: 1, end: 3 }, { start: 10, end: 12 }];
 
-// TODO: Expandir cada rango a sus números
-// Resultado esperado: [1, 2, 3, 10, 11, 12, 20, 21]
+const expanded = ranges.flatMap(r => {
+  const result = [];
+  for (let i = r.start; i <= r.end; i++) {
+    result.push(i);
+  }
+  return result;
+});
+// [1, 2, 3, 10, 11, 12]
+```
+
+**Descomenta** el último ejemplo.
+
+---
+
+## 🚀 Cómo Ejecutar
+
+```bash
+cd bootcamp/week-05/2-practicas/ejercicio-01-flat-flatmap
+node starter/index.js
 ```
 
 ---
 
-## 📁 Archivos
+## ✅ Verificación
 
-- `starter/index.js` - Archivo inicial con los ejercicios
-- `solution/index.js` - Solución completa
-
----
-
-## ⏱️ Tiempo Estimado
-
-40 minutos
-
----
-
-## 🎓 Criterios de Evaluación
-
-| Criterio | Puntos |
-|----------|--------|
-| Uso correcto de `flat()` | 20 |
-| Uso correcto de `flatMap()` | 30 |
-| Manejo de estructuras anidadas | 20 |
-| Combinaciones y expansiones | 20 |
-| Código limpio y ES6+ | 10 |
+Al finalizar, deberías ver en consola:
+- Tarea 1: Array de 8 productos
+- Tarea 2: Array `[1, 2, 3, 4, 5, 6]`
+- Tarea 3: 7 tags (con duplicados)
+- Tarea 4: 6 tags únicos
+- Tarea 5: 6 frutas expandidas
+- Tarea 6: 10 números (pares duplicados)
+- Tarea 7: 5 items con orderId
+- Tarea 8: 6 combinaciones
+- Tarea 9: 7 palabras
+- Tarea 10: 7 números de rangos
 
 ---
 
-## 💡 Pistas
+## 💡 Resumen
 
-1. `flat()` sin argumentos aplana solo 1 nivel
-2. `flatMap()` es equivalente a `map().flat(1)`
-3. Para filtrar con `flatMap()`, retorna array vacío `[]`
-4. Para duplicar elementos, retorna `[elem, elem]`
-5. `Array.from({ length: n })` ayuda a generar secuencias
+| Método | Uso | Ejemplo |
+|--------|-----|---------|
+| `flat()` | Aplanar arrays anidados | `[[1,2],[3]].flat()` → `[1,2,3]` |
+| `flat(n)` | Aplanar n niveles | `[1,[2,[3]]].flat(2)` → `[1,2,3]` |
+| `flatMap(fn)` | map + flat en uno | `arr.flatMap(x => [x, x])` |
+
+---
+
+## 📚 Recursos
+
+- [Teoría: flat() y flatMap()](../../1-teoria/01-flat-flatmap.md)
+- [MDN: Array.flat()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
+- [MDN: Array.flatMap()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)
 
 ---
 

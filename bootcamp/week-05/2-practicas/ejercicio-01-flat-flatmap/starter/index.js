@@ -1,12 +1,14 @@
 /**
- * Ejercicio 01: flat() y flatMap()
- *
- * Practica el aplanamiento de arrays anidados
+ * 📘 Ejercicio 01: flat() y flatMap()
+ * Práctica guiada - Descomenta cada sección para aprender
  */
 
+console.log('=== Ejercicio 01: flat() y flatMap() ===\n');
+
 // ============================================
-// TAREA 1: Aplanar Categorías de Productos
+// PASO 1: Entendiendo flat()
 // ============================================
+console.log('--- Paso 1: flat() básico ---');
 
 const categories = [
   ['Laptop', 'Desktop', 'Tablet'],
@@ -14,27 +16,36 @@ const categories = [
   ['Headphones', 'Speakers'],
 ];
 
-// TODO: Obtener lista plana de todos los productos
-const allProducts = null; // Implementar
+// flat() convierte un array de arrays en un array simple
+// Descomenta la siguiente línea:
+// const allProducts = categories.flat();
 
-console.log('Tarea 1 - Productos:', allProducts);
+// console.log('Productos:', allProducts);
 // Esperado: ['Laptop', 'Desktop', 'Tablet', 'Mouse', 'Keyboard', 'Monitor', 'Headphones', 'Speakers']
 
+console.log('');
+
 // ============================================
-// TAREA 2: Aplanar Estructura Profunda
+// PASO 2: Controlando la Profundidad
 // ============================================
+console.log('--- Paso 2: flat() con profundidad ---');
 
 const deepData = [1, [2, [3, [4, [5, [6]]]]]];
 
-// TODO: Aplanar completamente
-const flatDeep = null; // Implementar
+// flat() sin argumento solo aplana 1 nivel
+// flat(Infinity) aplana completamente
+// Descomenta la siguiente línea:
+// const flatDeep = deepData.flat(Infinity);
 
-console.log('Tarea 2 - Deep flat:', flatDeep);
+// console.log('Deep flat:', flatDeep);
 // Esperado: [1, 2, 3, 4, 5, 6]
 
+console.log('');
+
 // ============================================
-// TAREA 3: Extraer Todos los Tags
+// PASO 3: Introducción a flatMap()
 // ============================================
+console.log('--- Paso 3: flatMap() básico ---');
 
 const posts = [
   { title: 'Post 1', tags: ['javascript', 'es6'] },
@@ -42,25 +53,35 @@ const posts = [
   { title: 'Post 3', tags: ['node', 'express'] },
 ];
 
-// TODO: Obtener array con todos los tags
-const allTags = null; // Implementar
+// flatMap() = map() + flat(1) en una operación
+// Perfecto para extraer arrays anidados de objetos
+// Descomenta la siguiente línea:
+// const allTags = posts.flatMap(post => post.tags);
 
-console.log('Tarea 3 - Todos los tags:', allTags);
+// console.log('Todos los tags:', allTags);
 // Esperado: ['javascript', 'es6', 'react', 'hooks', 'javascript', 'node', 'express']
 
-// ============================================
-// TAREA 4: Tags Únicos
-// ============================================
+console.log('');
 
-// TODO: Obtener tags únicos (sin duplicados)
-const uniqueTags = null; // Implementar usando allTags
+// ============================================
+// PASO 4: Eliminar Duplicados
+// ============================================
+console.log('--- Paso 4: Tags únicos ---');
 
-console.log('Tarea 4 - Tags únicos:', uniqueTags);
+// Combina flatMap con Set para eliminar duplicados
+// Descomenta las siguientes líneas:
+// const allTagsForUnique = posts.flatMap(post => post.tags);
+// const uniqueTags = [...new Set(allTagsForUnique)];
+
+// console.log('Tags únicos:', uniqueTags);
 // Esperado: ['javascript', 'es6', 'react', 'hooks', 'node', 'express']
 
+console.log('');
+
 // ============================================
-// TAREA 5: Expandir Cantidades
+// PASO 5: Expandir Elementos
 // ============================================
+console.log('--- Paso 5: Expandir con flatMap() ---');
 
 const items = [
   { name: 'Apple', qty: 3 },
@@ -68,27 +89,36 @@ const items = [
   { name: 'Orange', qty: 1 },
 ];
 
-// TODO: Crear array con cada item repetido según su cantidad
-const expandedItems = null; // Implementar
+// flatMap puede generar múltiples elementos por cada elemento original
+// Array(n).fill(value) crea un array con n copias de value
+// Descomenta la siguiente línea:
+// const expandedItems = items.flatMap(item => Array(item.qty).fill(item.name));
 
-console.log('Tarea 5 - Items expandidos:', expandedItems);
+// console.log('Items expandidos:', expandedItems);
 // Esperado: ['Apple', 'Apple', 'Apple', 'Banana', 'Banana', 'Orange']
 
+console.log('');
+
 // ============================================
-// TAREA 6: Filtrar y Expandir
+// PASO 6: Filtrar con flatMap()
 // ============================================
+console.log('--- Paso 6: Filtrar y expandir ---');
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-// TODO: Solo números pares, cada uno duplicado
-const evenDoubled = null; // Implementar
+// Truco: retornar [] para "eliminar" un elemento
+// Descomenta la siguiente línea:
+// const evenDoubled = numbers.flatMap(n => n % 2 === 0 ? [n, n] : []);
 
-console.log('Tarea 6 - Pares duplicados:', evenDoubled);
+// console.log('Pares duplicados:', evenDoubled);
 // Esperado: [2, 2, 4, 4, 6, 6, 8, 8, 10, 10]
 
+console.log('');
+
 // ============================================
-// TAREA 7: Procesar Órdenes
+// PASO 7: Enriquecer Datos
 // ============================================
+console.log('--- Paso 7: Agregar contexto del padre ---');
 
 const orders = [
   {
@@ -108,40 +138,59 @@ const orders = [
   },
 ];
 
-// TODO: Lista plana de items con orderId incluido
-const flatOrderItems = null; // Implementar
+// Al aplanar, agregamos el orderId a cada item
+// Descomenta las siguientes líneas:
+// const flatOrderItems = orders.flatMap(order =>
+//   order.items.map(item => ({
+//     orderId: order.id,
+//     ...item
+//   }))
+// );
 
-console.log('Tarea 7 - Items de órdenes:', flatOrderItems);
-// Esperado: Array de objetos { orderId, product, price }
+// console.log('Items con orderId:', flatOrderItems);
+// Esperado: Array de 5 objetos, cada uno con orderId, product, price
+
+console.log('');
 
 // ============================================
-// TAREA 8: Generar Combinaciones
+// PASO 8: Generar Combinaciones
 // ============================================
+console.log('--- Paso 8: Combinaciones ---');
 
 const colors = ['red', 'blue'];
 const sizes = ['S', 'M', 'L'];
 
-// TODO: Todas las combinaciones color-size
-const combinations = null; // Implementar
+// flatMap anidado genera todas las combinaciones
+// Descomenta las siguientes líneas:
+// const combinations = colors.flatMap(color =>
+//   sizes.map(size => ({ color, size }))
+// );
 
-console.log('Tarea 8 - Combinaciones:', combinations);
-// Esperado: Array de 6 objetos { color, size }
+// console.log('Combinaciones:', combinations);
+// Esperado: 6 objetos con todas las combinaciones color-size
+
+console.log('');
 
 // ============================================
-// TAREA 9: Parsear Oraciones
+// PASO 9: Separar Strings
 // ============================================
+console.log('--- Paso 9: Parsear oraciones ---');
 
 const sentences = ['Hello world', 'JavaScript is awesome', 'flatMap rocks'];
 
-// TODO: Array de todas las palabras
-const allWords = null; // Implementar
+// split(' ') divide por espacios, flatMap aplana todo
+// Descomenta la siguiente línea:
+// const allWords = sentences.flatMap(s => s.split(' '));
 
-console.log('Tarea 9 - Palabras:', allWords);
+// console.log('Palabras:', allWords);
 // Esperado: ['Hello', 'world', 'JavaScript', 'is', 'awesome', 'flatMap', 'rocks']
 
+console.log('');
+
 // ============================================
-// TAREA 10: Expandir Rangos
+// PASO 10: Expandir Rangos
 // ============================================
+console.log('--- Paso 10: Expandir rangos ---');
 
 const ranges = [
   { start: 1, end: 3 },
@@ -149,22 +198,18 @@ const ranges = [
   { start: 20, end: 21 },
 ];
 
-// TODO: Expandir cada rango a sus números
-const expandedRanges = null; // Implementar
+// Generamos un array de números para cada rango
+// Descomenta las siguientes líneas:
+// const expandedRanges = ranges.flatMap(range => {
+//   const result = [];
+//   for (let i = range.start; i <= range.end; i++) {
+//     result.push(i);
+//   }
+//   return result;
+// });
 
-console.log('Tarea 10 - Rangos expandidos:', expandedRanges);
+// console.log('Rangos expandidos:', expandedRanges);
 // Esperado: [1, 2, 3, 10, 11, 12, 20, 21]
 
-// ============================================
-// BONUS: Función genérica flatMap con profundidad
-// ============================================
-
-// TODO: Implementar flatMapDeep que acepte profundidad
-const flatMapDeep = (arr, fn, depth = 1) => {
-  // Implementar
-  return null;
-};
-
-// Test bonus
-const nestedData = [[1, 2], [[3, 4]], [[[5, 6]]]];
-// flatMapDeep(nestedData, x => x, 2) debería dar [1, 2, 3, 4, [5, 6]]
+console.log('');
+console.log('=== ¡Descomenta cada sección y ejecuta de nuevo! ===');
