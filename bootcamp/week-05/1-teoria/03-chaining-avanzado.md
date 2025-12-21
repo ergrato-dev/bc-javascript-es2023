@@ -138,7 +138,7 @@ const departments = [
 
 // Empleados con salario > 4000, con su departamento
 const highEarners = departments
-  .flatMap(dept => 
+  .flatMap(dept =>
     dept.employees.map(emp => ({
       ...emp,
       department: dept.name
@@ -196,9 +196,9 @@ const result1 = data
   .filter(x => x.country === 'PE');
 
 // ✅ Una sola pasada
-const result2 = data.filter(x => 
-  x.active && 
-  x.age >= 18 && 
+const result2 = data.filter(x =>
+  x.active &&
+  x.age >= 18 &&
   x.country === 'PE'
 );
 ```
@@ -324,21 +324,21 @@ const pipeline = data
 ```javascript
 const buildQuery = (data, options = {}) => {
   let result = [...data];
-  
+
   if (options.filterActive) {
     result = result.filter(x => x.active);
   }
-  
+
   if (options.sortBy) {
-    result = result.sort((a, b) => 
+    result = result.sort((a, b) =>
       a[options.sortBy] > b[options.sortBy] ? 1 : -1
     );
   }
-  
+
   if (options.limit) {
     result = result.slice(0, options.limit);
   }
-  
+
   return result;
 };
 
