@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a202c"/>
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#f0db4f" text-anchor="middle">
+    Encapsulación: Campos Privados con #
+  </text>
+
+  <!-- Class Box -->
+  <rect x="100" y="70" width="600" height="350" fill="#2d3748" stroke="#f0db4f" stroke-width="2" rx="8"/>
+
+  <!-- Class header -->
+  <text x="130" y="100" font-family="Courier, monospace" font-size="14" fill="#f0db4f">class BankAccount {</text>
+
+  <!-- Private section -->
+  <rect x="130" y="115" width="250" height="120" fill="#374151" stroke="#ef4444" stroke-width="2" rx="5"/>
+  <text x="150" y="138" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#ef4444">🔒 PRIVADO (no accesible desde fuera)</text>
+  <text x="150" y="165" font-family="Courier, monospace" font-size="13" fill="#ef4444">#balance</text>
+  <text x="240" y="165" font-family="Courier, monospace" font-size="13" fill="#e2e8f0">= 0;</text>
+  <text x="150" y="190" font-family="Courier, monospace" font-size="13" fill="#ef4444">#pin</text>
+  <text x="200" y="190" font-family="Courier, monospace" font-size="13" fill="#e2e8f0">= '1234';</text>
+  <text x="150" y="215" font-family="Courier, monospace" font-size="13" fill="#ef4444">#validatePin</text>
+  <text x="270" y="215" font-family="Courier, monospace" font-size="13" fill="#e2e8f0">(pin) { ... }</text>
+
+  <!-- Public section -->
+  <rect x="420" y="115" width="250" height="120" fill="#374151" stroke="#48bb78" stroke-width="2" rx="5"/>
+  <text x="440" y="138" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#48bb78">🌐 PÚBLICO (API externa)</text>
+  <text x="440" y="165" font-family="Courier, monospace" font-size="13" fill="#48bb78">deposit</text>
+  <text x="510" y="165" font-family="Courier, monospace" font-size="13" fill="#e2e8f0">(amount) { ... }</text>
+  <text x="440" y="190" font-family="Courier, monospace" font-size="13" fill="#48bb78">withdraw</text>
+  <text x="520" y="190" font-family="Courier, monospace" font-size="13" fill="#e2e8f0">(amount, pin)</text>
+  <text x="440" y="215" font-family="Courier, monospace" font-size="13" fill="#48bb78">get balance</text>
+  <text x="545" y="215" font-family="Courier, monospace" font-size="13" fill="#e2e8f0">() { ... }</text>
+
+  <!-- Arrow from private to public -->
+  <line x1="380" y1="175" x2="420" y2="175" stroke="#a0aec0" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="400" y="165" font-family="system-ui, sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">solo</text>
+  <text x="400" y="190" font-family="system-ui, sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">interno</text>
+
+  <text x="130" y="255" font-family="Courier, monospace" font-size="14" fill="#f0db4f">}</text>
+
+  <!-- External access examples -->
+  <rect x="130" y="275" width="540" height="130" fill="#1e293b" rx="5"/>
+
+  <!-- Allowed -->
+  <text x="150" y="300" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#48bb78">✅ PERMITIDO (métodos públicos)</text>
+  <text x="150" y="325" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">account.deposit(100);</text>
+  <text x="150" y="345" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">account.withdraw(50, '1234');</text>
+  <text x="150" y="365" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">console.log(account.balance);</text>
+
+  <!-- Blocked -->
+  <text x="430" y="300" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#ef4444">❌ BLOQUEADO (campos privados)</text>
+  <text x="430" y="325" font-family="Courier, monospace" font-size="12" fill="#a0aec0" text-decoration="line-through">account.#balance = 1000000;</text>
+  <text x="430" y="345" font-family="Courier, monospace" font-size="12" fill="#a0aec0" text-decoration="line-through">account.#pin;</text>
+  <text x="430" y="365" font-family="Courier, monospace" font-size="12" fill="#ef4444">// SyntaxError!</text>
+
+  <!-- Bottom summary -->
+  <rect x="100" y="420" width="600" height="65" fill="#2d3748" stroke="#f0db4f" stroke-width="1" rx="5"/>
+  <text x="400" y="445" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f0db4f" text-anchor="middle">
+    El prefijo # hace que campos y métodos sean VERDADERAMENTE privados
+  </text>
+  <text x="400" y="470" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0" text-anchor="middle">
+    Solo accesibles dentro de la clase • Error de sintaxis si se intenta acceder desde fuera
+  </text>
+</svg>

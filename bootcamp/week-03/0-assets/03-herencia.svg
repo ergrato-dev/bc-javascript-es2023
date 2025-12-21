@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a202c"/>
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#f0db4f" text-anchor="middle">
+    Herencia en JavaScript: extends y super
+  </text>
+
+  <!-- Parent Class (Animal) -->
+  <rect x="250" y="70" width="300" height="130" fill="#2d3748" stroke="#4299e1" stroke-width="3" rx="8"/>
+  <rect x="250" y="70" width="300" height="35" fill="#4299e1" rx="8"/>
+  <rect x="250" y="97" width="300" height="8" fill="#4299e1"/>
+  <text x="400" y="95" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#1a202c" text-anchor="middle">
+    CLASE PADRE
+  </text>
+  <text x="270" y="130" font-family="Courier, monospace" font-size="13" fill="#f0db4f">class Animal {</text>
+  <text x="290" y="150" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">constructor(name) { this.name = name; }</text>
+  <text x="290" y="170" font-family="Courier, monospace" font-size="12" fill="#e2e8f0">speak() { return "..."; }</text>
+  <text x="270" y="190" font-family="Courier, monospace" font-size="13" fill="#f0db4f">}</text>
+
+  <!-- Inheritance arrows -->
+  <line x1="300" y1="200" x2="200" y2="270" stroke="#48bb78" stroke-width="3"/>
+  <polygon points="200,275 190,260 210,260" fill="#48bb78"/>
+
+  <line x1="500" y1="200" x2="600" y2="270" stroke="#48bb78" stroke-width="3"/>
+  <polygon points="600,275 590,260 610,260" fill="#48bb78"/>
+
+  <!-- extends label -->
+  <rect x="340" y="215" width="120" height="30" fill="#48bb78" rx="15"/>
+  <text x="400" y="236" font-family="Courier, monospace" font-size="14" font-weight="bold" fill="#1a202c" text-anchor="middle">
+    extends
+  </text>
+
+  <!-- Child Class 1 (Dog) -->
+  <rect x="50" y="280" width="280" height="160" fill="#2d3748" stroke="#48bb78" stroke-width="3" rx="8"/>
+  <rect x="50" y="280" width="280" height="35" fill="#48bb78" rx="8"/>
+  <rect x="50" y="307" width="280" height="8" fill="#48bb78"/>
+  <text x="190" y="305" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#1a202c" text-anchor="middle">
+    CLASE HIJA
+  </text>
+  <text x="70" y="340" font-family="Courier, monospace" font-size="12" fill="#f0db4f">class Dog extends Animal {</text>
+  <text x="90" y="360" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">constructor(name, breed) {</text>
+  <text x="110" y="380" font-family="Courier, monospace" font-size="11" fill="#ed8936">super(name);</text>
+  <text x="110" y="400" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">this.breed = breed;</text>
+  <text x="90" y="420" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">}</text>
+  <text x="70" y="435" font-family="Courier, monospace" font-size="12" fill="#f0db4f">}</text>
+
+  <!-- Child Class 2 (Cat) -->
+  <rect x="470" y="280" width="280" height="160" fill="#2d3748" stroke="#48bb78" stroke-width="3" rx="8"/>
+  <rect x="470" y="280" width="280" height="35" fill="#48bb78" rx="8"/>
+  <rect x="470" y="307" width="280" height="8" fill="#48bb78"/>
+  <text x="610" y="305" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#1a202c" text-anchor="middle">
+    CLASE HIJA
+  </text>
+  <text x="490" y="340" font-family="Courier, monospace" font-size="12" fill="#f0db4f">class Cat extends Animal {</text>
+  <text x="510" y="360" font-family="Courier, monospace" font-size="11" fill="#a0aec0">// Override del método padre</text>
+  <text x="510" y="380" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">speak() {</text>
+  <text x="530" y="400" font-family="Courier, monospace" font-size="11" fill="#ed8936">return super.speak() + " Meow!";</text>
+  <text x="510" y="420" font-family="Courier, monospace" font-size="11" fill="#e2e8f0">}</text>
+  <text x="490" y="435" font-family="Courier, monospace" font-size="12" fill="#f0db4f">}</text>
+
+  <!-- super annotation -->
+  <rect x="200" y="455" width="400" height="35" fill="#1e293b" stroke="#ed8936" stroke-width="2" rx="5"/>
+  <text x="400" y="478" font-family="system-ui, sans-serif" font-size="13" fill="#ed8936" text-anchor="middle">
+    super() → Llama al constructor padre  |  super.method() → Llama método padre
+  </text>
+</svg>

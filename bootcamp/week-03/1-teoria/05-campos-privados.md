@@ -10,7 +10,13 @@
 
 ---
 
-## 📋 Contenido
+## �️ Diagrama
+
+![Encapsulación: Campos Privados con #](../0-assets/05-campos-privados.svg)
+
+---
+
+## �📋 Contenido
 
 ### 1. ¿Qué son los Campos Privados?
 

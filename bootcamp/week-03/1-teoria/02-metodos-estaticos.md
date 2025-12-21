@@ -9,7 +9,13 @@
 
 ---
 
-## 📋 Contenido
+## �️ Diagrama
+
+![Métodos Estáticos vs Métodos de Instancia](../0-assets/02-metodos-estaticos.svg)
+
+---
+
+## �📋 Contenido
 
 ### 1. ¿Qué son los Métodos Estáticos?
 

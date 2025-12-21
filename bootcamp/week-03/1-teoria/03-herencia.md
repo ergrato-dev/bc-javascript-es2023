@@ -10,7 +10,13 @@
 
 ---
 
-## 📋 Contenido
+## �️ Diagrama
+
+![Herencia en JavaScript: extends y super](../0-assets/03-herencia.svg)
+
+---
+
+## �📋 Contenido
 
 ### 1. ¿Qué es la Herencia?
 
