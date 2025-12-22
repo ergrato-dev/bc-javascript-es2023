@@ -1,14 +1,22 @@
 /**
- * 🏋️ Ejercicio 04: Imports Avanzados
+ * 📘 Ejercicio 04: Imports Avanzados
  *
  * Archivo: app.js - Aplicación principal
  *
- * TODO: Implementa la carga dinámica de módulos
+ * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * para aprender dynamic imports y carga de módulos bajo demanda.
  */
 
-import moduleLoader from './loader.js';
+// ============================================
+// PASO 1: Importar el Module Loader
+// ============================================
 
-// Referencias al DOM
+// Importamos nuestro loader personalizado
+// Descomenta la siguiente línea:
+
+// import moduleLoader from './loader.js';
+
+// Referencias al DOM (no modificar)
 const calcBtn = document.getElementById('calc-btn');
 const convBtn = document.getElementById('conv-btn');
 const fmtBtn = document.getElementById('fmt-btn');
@@ -16,10 +24,13 @@ const showRegistryBtn = document.getElementById('show-registry');
 const clearRegistryBtn = document.getElementById('clear-registry');
 
 // ============================================
-// TODO 4.1: Dynamic Import Básico
+// PASO 2: Dynamic Import Básico
 // ============================================
-// Carga el módulo calculator cuando se hace click
-// Muestra el resultado de algunas operaciones
+console.log('--- Paso 2: Dynamic Import Básico ---');
+
+// import() retorna una Promise con el módulo
+// Se ejecuta solo cuando se necesita (lazy loading)
+// Descomenta el contenido del try/catch:
 
 calcBtn.addEventListener('click', async () => {
   const output = document.getElementById('calc-output');
@@ -29,12 +40,21 @@ calcBtn.addEventListener('click', async () => {
   status.className = 'status loading';
 
   try {
-    // TODO: Usa import() para cargar './features/calculator.js'
-    // Luego usa las funciones del módulo
+    // Dynamic import - carga el módulo solo cuando se hace click
+    // const calculator = await import('./features/calculator.js');
+    //
+    // const results = [
+    //   `5 + 3 = ${calculator.add(5, 3)}`,
+    //   `10 - 4 = ${calculator.subtract(10, 4)}`,
+    //   `6 × 7 = ${calculator.multiply(6, 7)}`,
+    //   `15 ÷ 3 = ${calculator.divide(15, 3)}`
+    // ];
+    //
+    // output.innerHTML = results.join('<br>');
 
-    output.innerHTML = 'Implementa el dynamic import';
-    status.textContent = 'Estado: Cargado ✓';
-    status.className = 'status loaded';
+    output.innerHTML = 'Descomenta el código en app.js (Paso 2)';
+    status.textContent = 'Estado: Esperando';
+    status.className = 'status';
   } catch (error) {
     output.innerHTML = `Error: ${error.message}`;
     status.textContent = 'Estado: Error ✗';
@@ -43,9 +63,12 @@ calcBtn.addEventListener('click', async () => {
 });
 
 // ============================================
-// TODO 4.2: Carga con Destructuring
+// PASO 3: Dynamic Import con Destructuring
 // ============================================
-// Carga converter y usa destructuring para extraer funciones
+console.log('--- Paso 3: Dynamic Import con Destructuring ---');
+
+// Podemos extraer funciones específicas al importar
+// Descomenta el contenido del try/catch:
 
 convBtn.addEventListener('click', async () => {
   const output = document.getElementById('conv-output');
@@ -55,11 +78,22 @@ convBtn.addEventListener('click', async () => {
   status.className = 'status loading';
 
   try {
-    // TODO: Importa y usa destructuring para obtener las funciones
+    // Destructuring del módulo importado
+    // const { celsiusToFahrenheit, kmToMiles, kgToLbs } = await import('./features/converter.js');
+    //
+    // const results = [
+    //   `25°C = ${celsiusToFahrenheit(25).toFixed(1)}°F`,
+    //   `100 km = ${kmToMiles(100).toFixed(2)} miles`,
+    //   `70 kg = ${kgToLbs(70).toFixed(2)} lbs`
+    // ];
+    //
+    // output.innerHTML = results.join('<br>');
+    // status.textContent = 'Estado: Cargado ✓';
+    // status.className = 'status loaded';
 
-    output.innerHTML = 'Implementa el dynamic import con destructuring';
-    status.textContent = 'Estado: Cargado ✓';
-    status.className = 'status loaded';
+    output.innerHTML = 'Descomenta el código en app.js (Paso 3)';
+    status.textContent = 'Estado: Esperando';
+    status.className = 'status';
   } catch (error) {
     output.innerHTML = `Error: ${error.message}`;
     status.textContent = 'Estado: Error ✗';
@@ -68,9 +102,12 @@ convBtn.addEventListener('click', async () => {
 });
 
 // ============================================
-// TODO 4.3: Carga con Module Loader
+// PASO 4: Carga con Module Loader (Cache)
 // ============================================
-// Usa el moduleLoader para cargar formatter con cache
+console.log('--- Paso 4: Carga con Module Loader ---');
+
+// Usamos nuestro moduleLoader para cachear módulos
+// Descomenta el contenido del try/catch:
 
 fmtBtn.addEventListener('click', async () => {
   const output = document.getElementById('fmt-output');
@@ -80,12 +117,22 @@ fmtBtn.addEventListener('click', async () => {
   status.className = 'status loading';
 
   try {
-    // TODO: Usa moduleLoader.load() para cargar el módulo
-    // El loader debe cachear el módulo para futuras cargas
+    // Usando el loader con cache
+    // const formatter = await moduleLoader.load('formatter', './features/formatter.js');
+    //
+    // const results = [
+    //   `Moneda: ${formatter.formatCurrency(1234.56)}`,
+    //   `Fecha: ${formatter.formatDate(new Date())}`,
+    //   `Número: ${formatter.formatNumber(Math.PI, 4)}`
+    // ];
+    //
+    // output.innerHTML = results.join('<br>');
+    // status.textContent = `Estado: ${moduleLoader.isLoaded('formatter') ? 'Desde cache ✓' : 'Cargado ✓'}`;
+    // status.className = 'status loaded';
 
-    output.innerHTML = 'Implementa usando moduleLoader';
-    status.textContent = 'Estado: Cargado ✓';
-    status.className = 'status loaded';
+    output.innerHTML = 'Descomenta el código en app.js (Paso 4)';
+    status.textContent = 'Estado: Esperando';
+    status.className = 'status';
   } catch (error) {
     output.innerHTML = `Error: ${error.message}`;
     status.textContent = 'Estado: Error ✗';
@@ -94,39 +141,49 @@ fmtBtn.addEventListener('click', async () => {
 });
 
 // ============================================
-// TODO 4.4: Preloading en Hover
+// PASO 5: Preloading en Hover
 // ============================================
-// Precarga módulos cuando el usuario hace hover sobre las cards
+console.log('--- Paso 5: Preloading en Hover ---');
 
-const cards = {
-  'calc-card': './features/calculator.js',
-  'conv-card': './features/converter.js',
-  'fmt-card': './features/formatter.js',
-};
+// Precargamos módulos cuando el usuario hace hover
+// Esto mejora la UX al anticipar la carga
+// Descomenta los event listeners:
 
-// TODO: Agrega event listeners de 'mouseenter' a cada card
-// para precargar el módulo correspondiente
+// const preloadCalculator = () => {
+//   moduleLoader.load('calculator', './features/calculator.js');
+// };
+// calcBtn.parentElement.addEventListener('mouseenter', preloadCalculator);
+//
+// const preloadConverter = () => {
+//   moduleLoader.load('converter', './features/converter.js');
+// };
+// convBtn.parentElement.addEventListener('mouseenter', preloadConverter);
 
 // ============================================
-// Registry UI
+// PASO 6: Mostrar y Limpiar Registry
 // ============================================
+console.log('--- Paso 6: Module Registry ---');
 
-showRegistryBtn.addEventListener('click', () => {
-  const output = document.getElementById('registry-output');
-  const modules = moduleLoader.getLoadedModules();
+// Mostramos qué módulos están cargados
+// Descomenta los event listeners:
 
-  if (modules.length === 0) {
-    output.innerHTML = 'No hay módulos cargados';
-  } else {
-    output.innerHTML =
-      `Módulos cargados (${modules.length}):<br>` +
-      modules.map(m => `• ${m}`).join('<br>');
-  }
-});
+// showRegistryBtn.addEventListener('click', () => {
+//   const output = document.getElementById('registry-output');
+//   const loaded = moduleLoader.getLoadedModules();
+//
+//   if (loaded.length === 0) {
+//     output.innerHTML = 'No hay módulos cargados';
+//   } else {
+//     output.innerHTML = `<strong>Módulos en cache:</strong><br>${loaded.join('<br>')}`;
+//   }
+//   output.className = 'output';
+// });
+//
+// clearRegistryBtn.addEventListener('click', () => {
+//   moduleLoader.clearAll();
+//   const output = document.getElementById('registry-output');
+//   output.innerHTML = 'Cache limpiado ✓';
+//   output.className = 'output success';
+// });
 
-clearRegistryBtn.addEventListener('click', () => {
-  moduleLoader.clear();
-  document.getElementById('registry-output').innerHTML = 'Cache limpiado';
-});
-
-console.log('🚀 App initialized');
+console.log('🚀 app.js cargado. Descomenta el código paso a paso.');
