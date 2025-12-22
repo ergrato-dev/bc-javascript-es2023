@@ -1,116 +1,71 @@
 # 📝 Ejercicio 02: Template Literals
 
-## 🎯 Objetivos
+## 🎯 Objetivo
 
-- Dominar template literals con backticks
-- Crear strings con interpolación de variables
-- Usar strings multilínea
-- Generar HTML dinámico
-
----
+Dominar los template literals para crear strings dinámicos, multilínea y con interpolación de variables y expresiones.
 
 ## 📋 Descripción
 
-En este ejercicio trabajarás con template literals para crear strings dinámicos, eliminando la concatenación con `+` y usando interpolación moderna.
+Este ejercicio guiado te enseña a:
 
----
+- Usar backticks (`) para template literals
+- Interpolar variables con `${variable}`
+- Incluir expresiones JavaScript en strings
+- Crear strings multilínea
+- Generar HTML dinámico
+- Construir URLs de forma limpia
 
-## 📝 Instrucciones
+## 🚀 Instrucciones
 
-### Parte 1: Conversión de Concatenación
+### 1. Abre el archivo
 
-Convierte estos strings que usan concatenación a template literals:
+Navega a `starter/index.js`
 
-```javascript
-const firstName = 'Ana';
-const lastName = 'García';
-const age = 25;
-
-const greeting = 'Hello, my name is ' + firstName + ' ' + lastName;
-const info = 'I am ' + age + ' years old';
-```
-
-### Parte 2: Expresiones en Templates
-
-Crea templates que incluyan:
-- Operaciones matemáticas
-- Llamadas a funciones
-- Operador ternario
-- Métodos de string
-
-### Parte 3: Strings Multilínea
-
-Crea un mensaje de bienvenida multilínea con formato.
-
-### Parte 4: HTML Dinámico
-
-Genera una tarjeta de usuario en HTML usando template literals.
-
-### Parte 5: URLs Dinámicas
-
-Crea URLs con parámetros dinámicos.
-
----
-
-## ✅ Criterios de Éxito
-
-- [ ] Usar backticks en lugar de comillas
-- [ ] Interpolación con `${}`
-- [ ] Sin concatenación con `+`
-- [ ] Código limpio y legible
-- [ ] Comentarios en inglés
-
----
-
-## 🚀 Ejecución
+### 2. Ejecuta el archivo
 
 ```bash
-cd starter
-node index.js
+node starter/index.js
 ```
+
+### 3. Sigue los pasos
+
+Descomenta el código en cada sección (PASO 1-8) y observa los resultados.
+
+## 📚 Conceptos Cubiertos
+
+| Paso | Concepto | Descripción |
+|------|----------|-------------|
+| 1 | Sintaxis Básica | Uso de backticks |
+| 2 | Interpolación | Insertar variables con ${} |
+| 3 | Expresiones | Operaciones y ternarios |
+| 4 | Multilínea | Strings con saltos de línea |
+| 5 | HTML Dinámico | Generar markup |
+| 6 | URLs | Construir endpoints |
+| 7 | Escapar | Backticks literales |
+| 8 | Caso Práctico | Sistema de notificaciones |
+
+## 💡 Comparación Rápida
+
+```javascript
+// ❌ ANTES - Concatenación fea
+const msg = 'Hola ' + name + ', tienes ' + count + ' mensajes.';
+
+// ✅ AHORA - Template literal limpio
+const msg = `Hola ${name}, tienes ${count} mensajes.`;
+```
+
+## ✅ Checklist de Aprendizaje
+
+- [ ] Uso backticks (`) en lugar de comillas para strings dinámicos
+- [ ] Puedo interpolar variables con ${variable}
+- [ ] Puedo incluir expresiones como ${a + b}
+- [ ] Sé crear strings multilínea
+- [ ] Puedo generar HTML dinámico limpiamente
+
+## 🔗 Recursos
+
+- [MDN - Template literals](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals)
 
 ---
 
-## 💡 Pistas
-
-<details>
-<summary>Pista 1: Sintaxis básica</summary>
-
-```javascript
-const name = 'Carlos';
-const greeting = `Hello ${name}!`;
-```
-</details>
-
-<details>
-<summary>Pista 2: Expresiones</summary>
-
-```javascript
-const price = 100;
-const total = `Total: €${price * 1.21}`;
-```
-</details>
-
-<details>
-<summary>Pista 3: Multilínea</summary>
-
-```javascript
-const poem = `Line 1
-Line 2
-Line 3`;
-```
-</details>
-
----
-
-## 📚 Recursos
-
-- [Teoría: Template Literals](../../1-teoria/03-template-literals.md)
-- [MDN: Template Literals](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals)
-
----
-
-<p align="center">
-  <strong>📝 Buena suerte</strong><br>
-  <em>Adiós concatenación, hola interpolación</em>
-</p>
+⬅️ [Ejercicio Anterior](../ejercicio-01-variables/README.md) | [Siguiente Ejercicio](../ejercicio-03-arrows/README.md) ➡️

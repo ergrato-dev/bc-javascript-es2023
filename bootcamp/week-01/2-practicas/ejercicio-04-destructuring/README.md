@@ -1,107 +1,85 @@
-# 🎁 Ejercicio 04: Destructuring
+# 📦 Ejercicio 04: Destructuring
 
-## 🎯 Objetivos
+## 🎯 Objetivo
 
-- Dominar destructuring de objetos y arrays
-- Usar valores por defecto
-- Aplicar destructuring en parámetros de funciones
-- Simplificar acceso a datos complejos
-
----
+Dominar el destructuring de objetos y arrays para extraer datos de forma concisa y elegante.
 
 ## 📋 Descripción
 
-En este ejercicio trabajarás con destructuring para extraer valores de objetos y arrays de forma elegante y concisa.
+Este ejercicio guiado te enseña a:
 
----
+- Extraer propiedades de objetos
+- Extraer elementos de arrays
+- Usar valores por defecto
+- Renombrar variables
+- Destructuring anidado
+- Rest operator en destructuring
+- Destructuring en parámetros de funciones
 
-## 📝 Instrucciones
+## 🚀 Instrucciones
 
-### Parte 1: Destructuring de Objetos
+### 1. Abre el archivo
 
-Extrae propiedades de objetos usando destructuring.
+Navega a `starter/index.js`
 
-### Parte 2: Destructuring de Arrays
-
-Extrae elementos de arrays por posición.
-
-### Parte 3: Valores por Defecto
-
-Usa valores por defecto cuando las propiedades no existan.
-
-### Parte 4: Destructuring Anidado
-
-Extrae valores de estructuras anidadas.
-
-### Parte 5: Parámetros de Funciones
-
-Usa destructuring en parámetros.
-
----
-
-## ✅ Criterios de Éxito
-
-- [ ] Usar destructuring en lugar de acceso manual
-- [ ] Aplicar valores por defecto apropiadamente
-- [ ] Sintaxis correcta para objetos y arrays
-- [ ] Código limpio y funcional
-- [ ] Comentarios en inglés
-
----
-
-## 🚀 Ejecución
+### 2. Ejecuta el archivo
 
 ```bash
-cd starter
-node index.js
+node starter/index.js
 ```
 
----
+### 3. Sigue los pasos
 
-## 💡 Pistas
+Descomenta el código en cada sección (PASO 1-9) y observa los resultados.
 
-<details>
-<summary>Pista 1: Objetos</summary>
+## 📚 Conceptos Cubiertos
+
+| Paso | Concepto | Descripción |
+|------|----------|-------------|
+| 1 | Objetos Básico | Extraer propiedades |
+| 2 | Arrays Básico | Extraer por posición |
+| 3 | Valores por Defecto | Fallback para undefined |
+| 4 | Renombrar | Usar nombres diferentes |
+| 5 | Anidado | Objetos dentro de objetos |
+| 6 | Rest (...) | Capturar el resto |
+| 7 | En Funciones | Parámetros con destructuring |
+| 8 | Swap | Intercambiar variables |
+| 9 | Caso Práctico | Procesar API response |
+
+## 💡 Referencia Rápida
 
 ```javascript
+// Objetos
 const { name, age } = user;
-```
-</details>
+const { name: userName } = user;           // Renombrar
+const { role = 'guest' } = user;           // Default
+const { address: { city } } = user;        // Anidado
 
-<details>
-<summary>Pista 2: Arrays</summary>
-
-```javascript
+// Arrays
 const [first, second] = array;
+const [first, , third] = array;            // Saltar
+const [head, ...tail] = array;             // Rest
+
+// En funciones
+const fn = ({ name, age }) => { };
+const fn = ([x, y]) => { };
 ```
-</details>
 
-<details>
-<summary>Pista 3: Valores por defecto</summary>
+## ✅ Checklist de Aprendizaje
 
-```javascript
-const { name, age = 18 } = user;
-```
-</details>
+- [ ] Puedo extraer propiedades de objetos
+- [ ] Puedo extraer elementos de arrays por posición
+- [ ] Sé usar valores por defecto
+- [ ] Puedo renombrar variables al destructurar
+- [ ] Entiendo el destructuring anidado
+- [ ] Puedo usar rest (...) para capturar el resto
+- [ ] Uso destructuring en parámetros de funciones
 
-<details>
-<summary>Pista 4: Renombrar</summary>
+## 🔗 Recursos
 
-```javascript
-const { name: userName } = user;
-```
-</details>
+- [MDN - Destructuring assignment](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [JavaScript.info - Destructuring](https://javascript.info/destructuring-assignment)
 
 ---
 
-## 📚 Recursos
-
-- [Teoría: Destructuring](../../1-teoria/05-destructuring-basico.md)
-- [MDN: Destructuring](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
-
----
-
-<p align="center">
-  <strong>🎁 Buena suerte</strong><br>
-  <em>Extrae datos como un profesional</em>
-</p>
+⬅️ [Ejercicio Anterior](../ejercicio-03-arrows/README.md) | [Volver a Prácticas](../README.md) ➡️

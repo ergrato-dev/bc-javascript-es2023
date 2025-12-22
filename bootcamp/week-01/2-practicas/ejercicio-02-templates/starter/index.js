@@ -1,134 +1,222 @@
-/*
- * Ejercicio 02: Template Literals
- * Objetivo: Dominar interpolación y strings modernos
+/**
+ * 📘 Ejercicio 02: Template Literals
+ *
+ * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * para dominar los template literals de JavaScript moderno.
+ *
+ * Ejecuta: node index.js
  */
 
-console.log('=== Ejercicio 02: Template Literals ===\n');
-
 // ============================================
-// PARTE 1: Conversión de Concatenación
+// PASO 1: Sintaxis Básica - Backticks
 // ============================================
-console.log('--- Parte 1: Conversión de Concatenación ---');
+console.log('--- Paso 1: Sintaxis Básica ---');
 
-const firstName = 'Ana';
-const lastName = 'García';
-const age = 25;
-const city = 'Madrid';
+// Template literals usan backticks (`) en lugar de comillas
+// Descomenta las siguientes líneas:
 
-// TODO: Convertir a template literals (eliminar +)
-const greeting = 'Hello, my name is ' + firstName + ' ' + lastName;
-const info = 'I am ' + age + ' years old and I live in ' + city;
+// const simple = `Hola mundo`;
+// console.log('Template simple:', simple);
+//
+// // Puedes incluir comillas sin escapar
+// const withQuotes = `Ella dijo "Hola" y él respondió 'Adiós'`;
+// console.log('Con comillas:', withQuotes);
 
-console.log(greeting);
-console.log(info);
 console.log('');
 
 // ============================================
-// PARTE 2: Expresiones en Templates
+// PASO 2: Interpolación de Variables
 // ============================================
-console.log('--- Parte 2: Expresiones en Templates ---');
+console.log('--- Paso 2: Interpolación ---');
 
-const price = 100;
-const quantity = 3;
-const taxRate = 0.21;
+// Usa ${variable} para insertar valores
+// Descomenta las siguientes líneas:
 
-// TODO: Crear template con operación matemática
-// Calcular: (price * quantity) * (1 + taxRate)
-const total = /* tu código aquí */;
+// const name = 'Ana';
+// const age = 25;
+// const city = 'Madrid';
+//
+// // Forma antigua (concatenación)
+// const oldWay = 'Hola, soy ' + name + ' y tengo ' + age + ' años.';
+// console.log('Concatenación:', oldWay);
+//
+// // Forma moderna (template literal)
+// const newWay = `Hola, soy ${name} y tengo ${age} años.`;
+// console.log('Template literal:', newWay);
+//
+// const profile = `Nombre: ${name}, Edad: ${age}, Ciudad: ${city}`;
+// console.log('Perfil:', profile);
 
-// TODO: Crear template con ternario
-// Si quantity > 1, mostrar "items", sino "item"
-const itemText = /* tu código aquí */;
-
-// TODO: Crear template con método de string
-// Convertir firstName a mayúsculas
-const upperName = /* tu código aquí */;
-
-console.log('Total:', total);
-console.log('Item text:', itemText);
-console.log('Upper name:', upperName);
 console.log('');
 
 // ============================================
-// PARTE 3: Strings Multilínea
+// PASO 3: Expresiones en Templates
 // ============================================
-console.log('--- Parte 3: Strings Multilínea ---');
+console.log('--- Paso 3: Expresiones ---');
 
-// TODO: Crear mensaje de bienvenida multilínea
-// Debe incluir:
-// - Título
-// - Nombre del usuario
-// - Mensaje personalizado
-// - Fecha actual
-const welcomeMessage = /* tu código aquí */;
+// Puedes poner cualquier expresión JavaScript dentro de ${}
+// Descomenta las siguientes líneas:
 
-console.log(welcomeMessage);
+// const price = 100;
+// const quantity = 3;
+// const taxRate = 0.21;
+//
+// // Operaciones matemáticas
+// const subtotal = `Subtotal: $${price * quantity}`;
+// console.log(subtotal);
+//
+// const total = `Total con IVA: $${(price * quantity * (1 + taxRate)).toFixed(2)}`;
+// console.log(total);
+//
+// // Operador ternario
+// const items = quantity > 1 ? 'items' : 'item';
+// const cartInfo = `Tienes ${quantity} ${items} en el carrito`;
+// console.log(cartInfo);
+//
+// // Métodos de string
+// const shout = `¡${name.toUpperCase()}!`;
+// console.log(shout);
+
 console.log('');
 
 // ============================================
-// PARTE 4: HTML Dinámico
+// PASO 4: Strings Multilínea
 // ============================================
-console.log('--- Parte 4: HTML Dinámico ---');
+console.log('--- Paso 4: Strings Multilínea ---');
 
-const user = {
-  name: 'Carlos López',
-  email: 'carlos@example.com',
-  role: 'Developer',
-  isActive: true
-};
+// Template literals respetan saltos de línea
+// Descomenta las siguientes líneas:
 
-// TODO: Crear tarjeta HTML con template literal
-// Estructura:
+// const poem = `Roses are red,
+// Violets are blue,
+// JavaScript is awesome,
+// And so are you!`;
+// console.log(poem);
+//
+// console.log('---');
+//
+// const userName = 'Carlos';
+// const welcomeMessage = `
+// ================================
+// ¡Bienvenido, ${userName}!
+// ================================
+// Fecha: ${new Date().toLocaleDateString()}
+// Hora: ${new Date().toLocaleTimeString()}
+// `;
+// console.log(welcomeMessage);
+
+console.log('');
+
+// ============================================
+// PASO 5: HTML Dinámico
+// ============================================
+console.log('--- Paso 5: HTML Dinámico ---');
+
+// Template literals son perfectos para generar HTML
+// Descomenta las siguientes líneas:
+
+// const user = {
+//   name: 'María López',
+//   email: 'maria@example.com',
+//   role: 'Developer',
+//   active: true
+// };
+//
+// const userCard = `
 // <div class="user-card">
-//   <h3>Nombre</h3>
-//   <p>Email</p>
-//   <p>Role</p>
-//   <span>Status</span>
+//   <h3>${user.name}</h3>
+//   <p>Email: ${user.email}</p>
+//   <p>Role: ${user.role}</p>
+//   <span class="${user.active ? 'active' : 'inactive'}">
+//     ${user.active ? '✅ Activo' : '❌ Inactivo'}
+//   </span>
 // </div>
-const userCard = /* tu código aquí */;
+// `;
+// console.log('HTML generado:', userCard);
 
-console.log(userCard);
 console.log('');
 
 // ============================================
-// PARTE 5: URLs Dinámicas
+// PASO 6: URLs Dinámicas
 // ============================================
-console.log('--- Parte 5: URLs Dinámicas ---');
+console.log('--- Paso 6: URLs Dinámicas ---');
 
-const apiBase = 'https://api.example.com';
-const version = 'v2';
-const endpoint = 'users';
-const userId = 123;
+// Construir URLs es mucho más limpio con templates
+// Descomenta las siguientes líneas:
 
-// TODO: Crear URL completa
-const apiUrl = /* tu código aquí */;
+// const apiBase = 'https://api.example.com';
+// const version = 'v2';
+// const endpoint = 'users';
+// const userId = 42;
+// const params = { include: 'profile', format: 'json' };
+//
+// // URL simple
+// const simpleUrl = `${apiBase}/${version}/${endpoint}`;
+// console.log('URL base:', simpleUrl);
+//
+// // URL con ID
+// const userUrl = `${apiBase}/${version}/${endpoint}/${userId}`;
+// console.log('URL de usuario:', userUrl);
+//
+// // URL con query params
+// const fullUrl = `${userUrl}?include=${params.include}&format=${params.format}`;
+// console.log('URL completa:', fullUrl);
 
-// TODO: Crear URL con query parameters
-const searchTerm = 'javascript';
-const page = 1;
-const limit = 10;
-const searchUrl = /* tu código aquí */;
-
-console.log('API URL:', apiUrl);
-console.log('Search URL:', searchUrl);
 console.log('');
 
 // ============================================
-// PARTE 6: Desafío - Tabla de Datos
+// PASO 7: Escapar Backticks
 // ============================================
-console.log('--- Parte 6: Desafío - Tabla de Datos ---');
+console.log('--- Paso 7: Escapar Caracteres ---');
 
-const products = [
-  { name: 'Laptop', price: 999, stock: 5 },
-  { name: 'Mouse', price: 25, stock: 50 },
-  { name: 'Keyboard', price: 75, stock: 30 }
-];
+// Si necesitas un backtick literal, usa \`
+// Descomenta las siguientes líneas:
 
-// TODO: Generar tabla HTML con los productos
-// Usar map() para crear las filas
-const productTable = /* tu código aquí */;
+// const codeExample = `Para crear un template literal, usa \`backticks\``;
+// console.log(codeExample);
+//
+// const dollarSign = `El precio es \${precio} (sin interpolar)`;
+// console.log(dollarSign);
+//
+// // Template dentro de template
+// const nested = `Código: \`const x = ${2 + 2}\``;
+// console.log(nested);
 
-console.log(productTable);
 console.log('');
 
-console.log('=== Ejercicio Completado ===');
+// ============================================
+// PASO 8: Caso Práctico - Mensajes
+// ============================================
+console.log('--- Paso 8: Caso Práctico ---');
+
+// Generar mensajes dinámicos para una app
+// Descomenta las siguientes líneas:
+
+// const notifications = [
+//   { type: 'success', message: 'Guardado correctamente' },
+//   { type: 'error', message: 'Error de conexión' },
+//   { type: 'warning', message: 'Sesión por expirar' }
+// ];
+//
+// const icons = { success: '✅', error: '❌', warning: '⚠️' };
+//
+// notifications.forEach(notification => {
+//   const icon = icons[notification.type];
+//   const formatted = `${icon} [${notification.type.toUpperCase()}] ${notification.message}`;
+//   console.log(formatted);
+// });
+//
+// // Generar lista HTML
+// const listItems = notifications
+//   .map(n => `<li class="${n.type}">${icons[n.type]} ${n.message}</li>`)
+//   .join('\n');
+// console.log('\nLista HTML:');
+// console.log(`<ul>\n${listItems}\n</ul>`);
+
+console.log('');
+
+// ============================================
+// ✅ EJERCICIO COMPLETADO
+// ============================================
+console.log('🎉 ¡Excelente! Has dominado los template literals.');
+console.log('Úsalos siempre en lugar de concatenación con +.');

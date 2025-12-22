@@ -1,246 +1,263 @@
-/*
- * Ejercicio 04: Destructuring
- * Objetivo: Dominar destructuring de objetos y arrays
+/**
+ * 📘 Ejercicio 04: Destructuring
+ *
+ * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * para dominar el destructuring de objetos y arrays.
+ *
+ * Ejecuta: node index.js
  */
 
-console.log('=== Ejercicio 04: Destructuring ===\n');
-
 // ============================================
-// PARTE 1: Destructuring de Objetos
+// DATOS DE PRUEBA (no modificar)
 // ============================================
-console.log('--- Parte 1: Destructuring de Objetos ---');
 
 const user = {
   firstName: 'Ana',
   lastName: 'García',
   age: 25,
   email: 'ana@example.com',
-  city: 'Madrid'
+  city: 'Madrid',
 };
-
-// TODO: Extrae firstName, lastName y email usando destructuring
-
-
-// TODO: Muestra las variables extraídas
-console.log(/* tus variables aquí */);
-console.log('');
-
-// ============================================
-// PARTE 2: Destructuring de Arrays
-// ============================================
-console.log('--- Parte 2: Destructuring de Arrays ---');
 
 const colors = ['red', 'green', 'blue', 'yellow', 'purple'];
 
-// TODO: Extrae los primeros 3 colores
+// ============================================
+// PASO 1: Destructuring de Objetos
+// ============================================
+console.log('--- Paso 1: Objetos Básico ---');
 
+// Extraer propiedades de un objeto en variables individuales
+// Descomenta las siguientes líneas:
 
-// TODO: Extrae primer y tercer color (salta el segundo)
+// const { firstName, lastName, email } = user;
+// console.log('Nombre:', firstName);
+// console.log('Apellido:', lastName);
+// console.log('Email:', email);
+//
+// // Comparación con forma antigua:
+// // const firstName = user.firstName;
+// // const lastName = user.lastName;
 
-
-// TODO: Muestra los resultados
-console.log(/* tus variables aquí */);
 console.log('');
 
 // ============================================
-// PARTE 3: Valores por Defecto
+// PASO 2: Destructuring de Arrays
 // ============================================
-console.log('--- Parte 3: Valores por Defecto ---');
+console.log('--- Paso 2: Arrays Básico ---');
 
-const partialUser = {
-  name: 'Carlos'
-  // age y city no están definidos
-};
+// Extraer elementos por posición
+// Descomenta las siguientes líneas:
 
-// TODO: Extrae name, age (default 18) y city (default 'Unknown')
+// const [first, second, third] = colors;
+// console.log('Primer color:', first);
+// console.log('Segundo color:', second);
+// console.log('Tercer color:', third);
+//
+// // Saltar elementos con comas
+// const [primary, , tertiary] = colors;
+// console.log('Primario:', primary);
+// console.log('Terciario:', tertiary);
 
-
-console.log(/* tus variables aquí */);
 console.log('');
 
 // ============================================
-// PARTE 4: Renombrar Variables
+// PASO 3: Valores por Defecto
 // ============================================
-console.log('--- Parte 4: Renombrar Variables ---');
+console.log('--- Paso 3: Valores por Defecto ---');
 
-const product = {
-  name: 'Laptop',
-  price: 999
-};
+// Asignar valores si la propiedad no existe
+// Descomenta las siguientes líneas:
 
-const category = {
-  name: 'Electronics',
-  code: 'ELEC'
-};
+// const partialUser = { name: 'Carlos' };
+//
+// // Sin default: undefined
+// const { name, country } = partialUser;
+// console.log('Name:', name);
+// console.log('Country:', country); // undefined
+//
+// // Con default
+// const { name: userName, country: userCountry = 'Spain' } = partialUser;
+// console.log('User Country:', userCountry); // 'Spain'
+//
+// // En arrays
+// const shortArray = [1, 2];
+// const [a, b, c = 0] = shortArray;
+// console.log('a, b, c:', a, b, c); // 1, 2, 0
 
-// TODO: Extrae name de product como productName
-// TODO: Extrae name de category como categoryName
-
-
-console.log(/* tus variables aquí */);
 console.log('');
 
 // ============================================
-// PARTE 5: Destructuring Anidado
+// PASO 4: Renombrar Variables
 // ============================================
-console.log('--- Parte 5: Destructuring Anidado ---');
+console.log('--- Paso 4: Renombrar Variables ---');
 
-const employee = {
-  name: 'María',
-  position: 'Developer',
-  address: {
-    street: 'Calle Mayor 10',
-    city: 'Barcelona',
-    zipCode: '08001',
-    country: 'Spain'
-  },
-  skills: ['JavaScript', 'React', 'Node.js']
-};
+// Usar nombre diferente al de la propiedad
+// Descomenta las siguientes líneas:
 
-// TODO: Extrae name, city (de address) y la primera skill
+// const product = { name: 'Laptop', price: 999 };
+// const category = { name: 'Electronics', code: 'ELEC' };
+//
+// // Renombrar para evitar conflicto
+// const { name: productName, price } = product;
+// const { name: categoryName, code } = category;
+//
+// console.log('Producto:', productName);
+// console.log('Categoría:', categoryName);
+//
+// // Renombrar con default
+// const { stock: productStock = 0 } = product;
+// console.log('Stock:', productStock);
 
-
-console.log(/* tus variables aquí */);
 console.log('');
 
 // ============================================
-// PARTE 6: Rest Pattern
+// PASO 5: Destructuring Anidado
 // ============================================
-console.log('--- Parte 6: Rest Pattern ---');
+console.log('--- Paso 5: Objetos Anidados ---');
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// Extraer de objetos dentro de objetos
+// Descomenta las siguientes líneas:
 
-// TODO: Extrae primero, segundo y el resto
+// const employee = {
+//   name: 'María',
+//   position: 'Developer',
+//   address: {
+//     street: 'Calle Mayor 10',
+//     city: 'Barcelona',
+//     zipCode: '08001'
+//   },
+//   skills: ['JavaScript', 'React', 'Node.js']
+// };
+//
+// // Extraer propiedades anidadas
+// const { name, address: { city, zipCode } } = employee;
+// console.log('Nombre:', name);
+// console.log('Ciudad:', city);
+// console.log('CP:', zipCode);
+//
+// // Extraer elemento de array anidado
+// const { skills: [firstSkill] } = employee;
+// console.log('Primera skill:', firstSkill);
 
-
-const settings = {
-  theme: 'dark',
-  language: 'es',
-  notifications: true,
-  autoSave: true,
-  fontSize: 14
-};
-
-// TODO: Extrae theme y language, el resto en otherSettings
-
-
-console.log(/* tus variables aquí */);
 console.log('');
 
 // ============================================
-// PARTE 7: Destructuring en Parámetros
+// PASO 6: Rest en Destructuring
 // ============================================
-console.log('--- Parte 7: Destructuring en Parámetros ---');
+console.log('--- Paso 6: Rest (...) ---');
 
-// TODO: Crea función que reciba objeto { name, age, city }
-// y retorne string formateado usando destructuring en parámetros
-const formatUser = /* tu código aquí */ => {
-  // ...
-};
+// Capturar el "resto" de propiedades/elementos
+// Descomenta las siguientes líneas:
 
-const testUser = { name: 'Juan', age: 30, city: 'Valencia' };
-console.log(formatUser(testUser));
+// // En objetos
+// const { firstName: fName, ...restOfUser } = user;
+// console.log('Nombre:', fName);
+// console.log('Resto:', restOfUser);
+//
+// // En arrays
+// const [firstColor, secondColor, ...otherColors] = colors;
+// console.log('Primeros:', firstColor, secondColor);
+// console.log('Otros:', otherColors);
 
-// TODO: Crea función que reciba array [day, month, year]
-// y retorne fecha formateada DD/MM/YYYY
-const formatDate = /* tu código aquí */ => {
-  // ...
-};
-
-console.log(formatDate([18, 12, 2025]));
 console.log('');
 
 // ============================================
-// PARTE 8: Swap Variables
+// PASO 7: Destructuring en Parámetros
 // ============================================
-console.log('--- Parte 8: Swap Variables ---');
+console.log('--- Paso 7: En Funciones ---');
 
-let x = 10;
-let y = 20;
+// Destructuring directamente en parámetros
+// Descomenta las siguientes líneas:
 
-console.log('Before swap - x:', x, 'y:', y);
+// // Función con destructuring de objeto
+// const printUser = ({ firstName, lastName, age }) => {
+//   console.log(`${firstName} ${lastName}, ${age} años`);
+// };
+// printUser(user);
+//
+// // Con defaults
+// const createConfig = ({ timeout = 3000, debug = false } = {}) => {
+//   console.log(`Timeout: ${timeout}, Debug: ${debug}`);
+// };
+// createConfig({ timeout: 5000 });
+// createConfig(); // Usa defaults
+//
+// // En arrays (parámetros de callback)
+// const points = [[0, 0], [10, 20], [30, 40]];
+// points.forEach(([x, y]) => {
+//   console.log(`Punto: (${x}, ${y})`);
+// });
 
-// TODO: Intercambia los valores de x e y usando destructuring
-
-
-console.log('After swap - x:', x, 'y:', y);
 console.log('');
 
 // ============================================
-// PARTE 9: Desafío - API Response
+// PASO 8: Swap de Variables
 // ============================================
-console.log('--- Parte 9: Desafío - API Response ---');
+console.log('--- Paso 8: Swap de Variables ---');
 
-const apiResponse = {
-  status: 200,
-  data: {
-    user: {
-      id: 123,
-      profile: {
-        firstName: 'Laura',
-        lastName: 'Martínez',
-        avatar: 'https://example.com/avatar.jpg'
-      },
-      settings: {
-        theme: 'dark',
-        notifications: true
-      }
-    },
-    posts: [
-      { id: 1, title: 'First Post', likes: 42 },
-      { id: 2, title: 'Second Post', likes: 18 },
-      { id: 3, title: 'Third Post', likes: 67 }
-    ]
-  }
-};
+// Intercambiar valores sin variable temporal
+// Descomenta las siguientes líneas:
 
-// TODO: Extrae usando destructuring:
-// - status
-// - firstName y lastName (de user.profile)
-// - theme (de user.settings)
-// - El título del primer post
+// let x = 1;
+// let y = 2;
+// console.log('Antes - x:', x, 'y:', y);
+//
+// // Swap con destructuring
+// [x, y] = [y, x];
+// console.log('Después - x:', x, 'y:', y);
+//
+// // Swap múltiple
+// let a = 1, b = 2, c = 3;
+// [a, b, c] = [c, a, b];
+// console.log('Rotación - a:', a, 'b:', b, 'c:', c);
 
-
-console.log(/* tus variables aquí */);
 console.log('');
 
 // ============================================
-// PARTE 10: Desafío - Función Compleja
+// PASO 9: Caso Práctico - API Response
 // ============================================
-console.log('--- Parte 10: Desafío - Función Compleja ---');
+console.log('--- Paso 9: Caso Práctico ---');
 
-const orders = [
-  {
-    id: 1,
-    customer: { name: 'Ana', email: 'ana@example.com' },
-    items: [
-      { product: 'Laptop', price: 999, quantity: 1 },
-      { product: 'Mouse', price: 25, quantity: 2 }
-    ]
-  },
-  {
-    id: 2,
-    customer: { name: 'Carlos', email: 'carlos@example.com' },
-    items: [
-      { product: 'Keyboard', price: 75, quantity: 1 }
-    ]
-  }
-];
+// Procesar respuesta de API con destructuring
+// Descomenta las siguientes líneas:
 
-// TODO: Crea función que procese cada order y retorne:
-// {
-//   orderId: id,
-//   customerName: name,
-//   totalItems: número total de items,
-//   totalPrice: precio total
-// }
-const processOrder = /* tu código aquí */ => {
-  // Usa destructuring en el parámetro y en el cuerpo
-  // ...
-};
+// const apiResponse = {
+//   status: 200,
+//   data: {
+//     users: [
+//       { id: 1, name: 'Ana', email: 'ana@example.com' },
+//       { id: 2, name: 'Bob', email: 'bob@example.com' }
+//     ],
+//     pagination: {
+//       page: 1,
+//       totalPages: 5,
+//       hasMore: true
+//     }
+//   },
+//   timestamp: '2024-01-15T10:30:00Z'
+// };
+//
+// // Extraer datos relevantes
+// const {
+//   status,
+//   data: {
+//     users,
+//     pagination: { page, totalPages }
+//   }
+// } = apiResponse;
+//
+// console.log('Status:', status);
+// console.log('Página:', page, 'de', totalPages);
+// console.log('Usuarios:', users.length);
+//
+// // Procesar usuarios con destructuring en map
+// const emails = users.map(({ email }) => email);
+// console.log('Emails:', emails);
 
-const processedOrders = orders.map(processOrder);
-console.log('Processed orders:', processedOrders);
 console.log('');
 
-console.log('=== Ejercicio Completado ===');
+// ============================================
+// ✅ EJERCICIO COMPLETADO
+// ============================================
+console.log('🎉 ¡Excelente! Has dominado el destructuring.');
+console.log('Úsalo para escribir código más limpio y legible.');

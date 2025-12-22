@@ -1,176 +1,233 @@
-/*
- * Ejercicio 03: Arrow Functions
- * Objetivo: Dominar sintaxis y uso de arrow functions
+/**
+ * 📘 Ejercicio 03: Arrow Functions
+ *
+ * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * para dominar las arrow functions de JavaScript moderno.
+ *
+ * Ejecuta: node index.js
  */
 
-console.log('=== Ejercicio 03: Arrow Functions ===\n');
-
 // ============================================
-// PARTE 1: Conversión de Funciones
+// PASO 1: Sintaxis Básica
 // ============================================
-console.log('--- Parte 1: Conversión de Funciones ---');
+console.log('--- Paso 1: Sintaxis Básica ---');
 
-// TODO: Convertir estas funciones a arrow functions
+// Arrow function con un parámetro (paréntesis opcionales)
+// Descomenta las siguientes líneas:
 
-function square(x) {
-  return x * x;
-}
-
-function greet(name) {
-  return `Hello ${name}`;
-}
-
-function isEven(number) {
-  return number % 2 === 0;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-console.log('Square of 5:', square(5));
-console.log('Greet Ana:', greet('Ana'));
-console.log('Is 4 even?', isEven(4));
-console.log('Multiply 3 * 4:', multiply(3, 4));
-console.log('');
-
-// ============================================
-// PARTE 2: Retorno Implícito
-// ============================================
-console.log('--- Parte 2: Retorno Implícito ---');
-
-// TODO: Crear arrow functions con retorno implícito
-
-// 1. Función que calcule el doble de un número
-
-
-// 2. Función que convierta a mayúsculas
-
-
-// 3. Función que verifique si un número es positivo
-
-
-// 4. Función que retorne objeto { name, age }
-
+// const square = x => x * x;
+// console.log('Cuadrado de 5:', square(5));
+//
+// const greet = name => `Hola, ${name}!`;
+// console.log(greet('Ana'));
+//
+// // Sin parámetros: paréntesis obligatorios
+// const sayHello = () => 'Hello World';
+// console.log(sayHello());
 
 console.log('');
 
 // ============================================
-// PARTE 3: Array Methods
+// PASO 2: Múltiples Parámetros
 // ============================================
-console.log('--- Parte 3: Array Methods ---');
+console.log('--- Paso 2: Múltiples Parámetros ---');
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// Con 2+ parámetros, los paréntesis son obligatorios
+// Descomenta las siguientes líneas:
 
-// TODO: Usa arrow functions con métodos de array
-
-// 1. Duplicar todos los números (map)
-const doubled = /* tu código aquí */;
-
-// 2. Filtrar solo números pares (filter)
-const evens = /* tu código aquí */;
-
-// 3. Sumar todos los números (reduce)
-const sum = /* tu código aquí */;
-
-// 4. Obtener solo números mayores a 5 (filter)
-const greaterThanFive = /* tu código aquí */;
-
-// 5. Cuadrados de números impares (filter + map)
-const oddSquares = /* tu código aquí */;
-
-console.log('Doubled:', doubled);
-console.log('Evens:', evens);
-console.log('Sum:', sum);
-console.log('Greater than 5:', greaterThanFive);
-console.log('Odd squares:', oddSquares);
-console.log('');
-
-// ============================================
-// PARTE 4: Transformación de Datos
-// ============================================
-console.log('--- Parte 4: Transformación de Datos ---');
-
-const users = [
-  { firstName: 'Ana', lastName: 'García', age: 25, active: true },
-  { firstName: 'Carlos', lastName: 'López', age: 30, active: false },
-  { firstName: 'María', lastName: 'Pérez', age: 28, active: true },
-  { firstName: 'Juan', lastName: 'Martínez', age: 22, active: true }
-];
-
-// TODO: Usa arrow functions para transformar datos
-
-// 1. Obtener array de nombres completos
-const fullNames = /* tu código aquí */;
-
-// 2. Filtrar solo usuarios activos
-const activeUsers = /* tu código aquí */;
-
-// 3. Obtener array de edades
-const ages = /* tu código aquí */;
-
-// 4. Encontrar usuario mayor de 25 años
-const oldestUser = /* tu código aquí */;
-
-// 5. Verificar si todos son mayores de edad
-const allAdults = /* tu código aquí */;
-
-console.log('Full names:', fullNames);
-console.log('Active users:', activeUsers);
-console.log('Ages:', ages);
-console.log('Oldest user:', oldestUser);
-console.log('All adults?', allAdults);
-console.log('');
-
-// ============================================
-// PARTE 5: Funciones de Utilidad
-// ============================================
-console.log('--- Parte 5: Funciones de Utilidad ---');
-
-// TODO: Crear funciones helper con arrow functions
-
-// 1. Validador de email
-
-
-// 2. Formateador de moneda
-
-
-// 3. Calculador de descuento
-
-
-// 4. Generador de slug
-
-
-// 5. Truncador de texto
-
-
-// Prueba tus funciones aquí
+// const add = (a, b) => a + b;
+// console.log('Suma:', add(3, 4));
+//
+// const multiply = (a, b) => a * b;
+// console.log('Multiplicación:', multiply(5, 6));
+//
+// const fullName = (first, last) => `${first} ${last}`;
+// console.log('Nombre completo:', fullName('Ana', 'García'));
+//
+// const power = (base, exponent) => base ** exponent;
+// console.log('2 elevado a 8:', power(2, 8));
 
 console.log('');
 
 // ============================================
-// PARTE 6: Desafío - Cadena de Operaciones
+// PASO 3: Retorno Implícito vs Explícito
 // ============================================
-console.log('--- Parte 6: Desafío - Cadena de Operaciones ---');
+console.log('--- Paso 3: Tipos de Retorno ---');
 
-const products = [
-  { name: 'Laptop', price: 999, category: 'electronics', inStock: true },
-  { name: 'Mouse', price: 25, category: 'electronics', inStock: true },
-  { name: 'Desk', price: 300, category: 'furniture', inStock: false },
-  { name: 'Chair', price: 150, category: 'furniture', inStock: true },
-  { name: 'Monitor', price: 200, category: 'electronics', inStock: true }
-];
+// Sin llaves: retorno implícito (una expresión)
+// Con llaves: necesitas return explícito
+// Descomenta las siguientes líneas:
 
-// TODO: Crear cadena de operaciones que:
-// 1. Filtre productos en stock
-// 2. Filtre solo electrónicos
-// 3. Aplique 20% de descuento
-// 4. Ordene por precio (menor a mayor)
-// 5. Retorne array de nombres y precios
+// // Retorno implícito (una línea)
+// const double = x => x * 2;
+//
+// // Retorno explícito (con llaves)
+// const triple = x => {
+//   const result = x * 3;
+//   return result;
+// };
+//
+// console.log('Doble de 5:', double(5));
+// console.log('Triple de 5:', triple(5));
+//
+// // Retorno de objeto (necesita paréntesis)
+// const createUser = (name, age) => ({ name, age });
+// console.log('Usuario:', createUser('Carlos', 30));
 
-const result = /* tu código aquí */;
-
-console.log('Result:', result);
 console.log('');
 
-console.log('=== Ejercicio Completado ===');
+// ============================================
+// PASO 4: Arrow Functions con Arrays
+// ============================================
+console.log('--- Paso 4: Con Métodos de Array ---');
+
+// Las arrow functions brillan con map, filter, reduce
+// Descomenta las siguientes líneas:
+
+// const numbers = [1, 2, 3, 4, 5];
+//
+// // map: transformar cada elemento
+// const doubled = numbers.map(n => n * 2);
+// console.log('Duplicados:', doubled);
+//
+// // filter: filtrar elementos
+// const evens = numbers.filter(n => n % 2 === 0);
+// console.log('Pares:', evens);
+//
+// // find: encontrar un elemento
+// const firstEven = numbers.find(n => n % 2 === 0);
+// console.log('Primer par:', firstEven);
+//
+// // some: verificar si alguno cumple
+// const hasEven = numbers.some(n => n % 2 === 0);
+// console.log('¿Tiene pares?:', hasEven);
+
+console.log('');
+
+// ============================================
+// PASO 5: Encadenar Métodos
+// ============================================
+console.log('--- Paso 5: Encadenar Métodos ---');
+
+// Puedes encadenar múltiples operaciones
+// Descomenta las siguientes líneas:
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//
+// // Filtrar pares y duplicarlos
+// const doubledEvens = numbers
+//   .filter(n => n % 2 === 0)
+//   .map(n => n * 2);
+// console.log('Pares duplicados:', doubledEvens);
+//
+// // Cuadrados de impares
+// const oddSquares = numbers
+//   .filter(n => n % 2 !== 0)
+//   .map(n => n ** 2);
+// console.log('Cuadrados de impares:', oddSquares);
+//
+// // Suma de los primeros 5
+// const sumFirst5 = numbers
+//   .slice(0, 5)
+//   .reduce((sum, n) => sum + n, 0);
+// console.log('Suma primeros 5:', sumFirst5);
+
+console.log('');
+
+// ============================================
+// PASO 6: Transformar Objetos
+// ============================================
+console.log('--- Paso 6: Transformar Objetos ---');
+
+// Trabajar con arrays de objetos
+// Descomenta las siguientes líneas:
+
+// const users = [
+//   { name: 'Ana', age: 25, active: true },
+//   { name: 'Bob', age: 17, active: false },
+//   { name: 'Carlos', age: 30, active: true },
+//   { name: 'Diana', age: 22, active: true }
+// ];
+//
+// // Extraer nombres
+// const names = users.map(u => u.name);
+// console.log('Nombres:', names);
+//
+// // Filtrar adultos activos
+// const activeAdults = users
+//   .filter(u => u.age >= 18)
+//   .filter(u => u.active);
+// console.log('Adultos activos:', activeAdults);
+//
+// // Crear resumen
+// const summaries = users.map(u => ({
+//   displayName: u.name.toUpperCase(),
+//   status: u.active ? 'Activo' : 'Inactivo'
+// }));
+// console.log('Resúmenes:', summaries);
+
+console.log('');
+
+// ============================================
+// PASO 7: Callbacks Concisos
+// ============================================
+console.log('--- Paso 7: Callbacks ---');
+
+// Arrow functions hacen callbacks más legibles
+// Descomenta las siguientes líneas:
+
+// // setTimeout
+// console.log('Esperando 1 segundo...');
+// setTimeout(() => {
+//   console.log('¡1 segundo después!');
+// }, 1000);
+//
+// // forEach
+// const fruits = ['🍎', '🍌', '🍊'];
+// fruits.forEach((fruit, index) => {
+//   console.log(`${index + 1}. ${fruit}`);
+// });
+
+console.log('');
+
+// ============================================
+// PASO 8: Caso Práctico - Procesamiento de Datos
+// ============================================
+console.log('--- Paso 8: Caso Práctico ---');
+
+// Procesar lista de productos
+// Descomenta las siguientes líneas:
+
+// const products = [
+//   { name: 'Laptop', price: 999, inStock: true },
+//   { name: 'Mouse', price: 25, inStock: true },
+//   { name: 'Monitor', price: 300, inStock: false },
+//   { name: 'Keyboard', price: 75, inStock: true }
+// ];
+//
+// // Productos disponibles con precio formateado
+// const available = products
+//   .filter(p => p.inStock)
+//   .map(p => `${p.name}: $${p.price}`)
+//   .join(' | ');
+// console.log('Disponibles:', available);
+//
+// // Total de productos en stock
+// const totalStock = products
+//   .filter(p => p.inStock)
+//   .reduce((sum, p) => sum + p.price, 0);
+// console.log('Total en stock: $' + totalStock);
+//
+// // Producto más caro disponible
+// const mostExpensive = products
+//   .filter(p => p.inStock)
+//   .reduce((max, p) => p.price > max.price ? p : max);
+// console.log('Más caro disponible:', mostExpensive.name);
+
+console.log('');
+
+// ============================================
+// ✅ EJERCICIO COMPLETADO
+// ============================================
+console.log('🎉 ¡Excelente! Has dominado las arrow functions.');
+console.log('Úsalas especialmente con map, filter y reduce.');

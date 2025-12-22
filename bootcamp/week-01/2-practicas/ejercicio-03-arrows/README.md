@@ -1,108 +1,84 @@
 # ➡️ Ejercicio 03: Arrow Functions
 
-## 🎯 Objetivos
+## 🎯 Objetivo
 
-- Dominar la sintaxis de arrow functions
-- Comprender retorno implícito vs explícito
-- Usar arrow functions con métodos de array
-- Aplicar arrow functions en callbacks
-
----
+Dominar la sintaxis de arrow functions y su uso con métodos de array como `map`, `filter`, `find` y `reduce`.
 
 ## 📋 Descripción
 
-En este ejercicio trabajarás con arrow functions, aprenderás sus diferentes sintaxis y las aplicarás en casos del mundo real.
+Este ejercicio guiado te enseña a:
 
----
+- Escribir arrow functions con sintaxis concisa
+- Usar retorno implícito y explícito
+- Aplicar arrow functions con métodos de array
+- Encadenar transformaciones
+- Procesar arrays de objetos
 
-## 📝 Instrucciones
+## 🚀 Instrucciones
 
-### Parte 1: Conversión de Funciones
+### 1. Abre el archivo
 
-Convierte funciones tradicionales a arrow functions.
+Navega a `starter/index.js`
 
-### Parte 2: Retorno Implícito
-
-Practica la sintaxis concisa con retorno implícito.
-
-### Parte 3: Array Methods
-
-Usa arrow functions con map, filter, reduce.
-
-### Parte 4: Callbacks
-
-Implementa event listeners y setTimeout con arrows.
-
-### Parte 5: Funciones de Utilidad
-
-Crea funciones helper modernas.
-
----
-
-## ✅ Criterios de Éxito
-
-- [ ] Usar arrow functions en lugar de `function`
-- [ ] Aplicar retorno implícito cuando sea apropiado
-- [ ] Sintaxis concisa y legible
-- [ ] Código funcional sin errores
-- [ ] Comentarios en inglés
-
----
-
-## 🚀 Ejecución
+### 2. Ejecuta el archivo
 
 ```bash
-cd starter
-node index.js
+node starter/index.js
 ```
 
----
+### 3. Sigue los pasos
 
-## 💡 Pistas
+Descomenta el código en cada sección (PASO 1-8) y observa los resultados.
 
-<details>
-<summary>Pista 1: Sintaxis básica</summary>
+## 📚 Conceptos Cubiertos
+
+| Paso | Concepto | Descripción |
+|------|----------|-------------|
+| 1 | Sintaxis Básica | Un parámetro, sin parámetros |
+| 2 | Múltiples Parámetros | Paréntesis obligatorios |
+| 3 | Tipos de Retorno | Implícito vs explícito |
+| 4 | Con Arrays | map, filter, find, some |
+| 5 | Encadenar | Múltiples operaciones |
+| 6 | Objetos | Transformar arrays de objetos |
+| 7 | Callbacks | setTimeout, forEach |
+| 8 | Caso Práctico | Procesamiento de datos |
+
+## 💡 Referencia Rápida
 
 ```javascript
-// Un parámetro
-const double = x => x * 2;
+// Sin parámetros
+const fn = () => 'resultado';
+
+// Un parámetro (paréntesis opcionales)
+const fn = x => x * 2;
+const fn = (x) => x * 2;
 
 // Múltiples parámetros
-const add = (a, b) => a + b;
+const fn = (a, b) => a + b;
 
-// Sin parámetros
-const greet = () => 'Hello';
+// Retorno de objeto (paréntesis obligatorios)
+const fn = () => ({ key: 'value' });
+
+// Cuerpo con múltiples líneas
+const fn = (x) => {
+  const result = x * 2;
+  return result;
+};
 ```
-</details>
 
-<details>
-<summary>Pista 2: Retorno de objetos</summary>
+## ✅ Checklist de Aprendizaje
 
-```javascript
-// Envolver objeto en paréntesis
-const createUser = (name, age) => ({ name, age });
-```
-</details>
+- [ ] Sé cuándo los paréntesis son opcionales vs obligatorios
+- [ ] Entiendo la diferencia entre retorno implícito y explícito
+- [ ] Puedo usar arrow functions con map y filter
+- [ ] Puedo encadenar múltiples métodos de array
+- [ ] Sé retornar objetos con paréntesis
 
-<details>
-<summary>Pista 3: Con array methods</summary>
+## 🔗 Recursos
 
-```javascript
-const numbers = [1, 2, 3];
-const doubled = numbers.map(n => n * 2);
-```
-</details>
+- [MDN - Arrow functions](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [JavaScript.info - Arrow functions](https://javascript.info/arrow-functions-basics)
 
 ---
 
-## 📚 Recursos
-
-- [Teoría: Arrow Functions](../../1-teoria/04-arrow-functions.md)
-- [MDN: Arrow Functions](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-
----
-
-<p align="center">
-  <strong>➡️ Buena suerte</strong><br>
-  <em>Funciones concisas, código elegante</em>
-</p>
+⬅️ [Ejercicio Anterior](../ejercicio-02-templates/README.md) | [Siguiente Ejercicio](../ejercicio-04-destructuring/README.md) ➡️
