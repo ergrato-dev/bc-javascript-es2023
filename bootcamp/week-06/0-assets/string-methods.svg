@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .surface { fill: #16213e; }
+      .title { fill: #F0DB4F; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #e94560; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .code { fill: #4ecca3; font-family: monospace; font-size: 14px; }
+      .text { fill: #eee; font-family: system-ui, sans-serif; font-size: 12px; }
+      .text-muted { fill: #aaa; font-family: system-ui, sans-serif; font-size: 11px; }
+      .arrow { fill: none; stroke: #e94560; stroke-width: 2; }
+      .box { fill: #16213e; stroke: #333; stroke-width: 1; rx: 8; }
+      .highlight { fill: #F0DB4F; }
+      .string-char { fill: #4ecca3; font-family: monospace; font-size: 18px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="400"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">String Methods Modernos ES6+</text>
+
+  <!-- String visualization -->
+  <rect class="box" x="50" y="60" width="700" height="50"/>
+  <text class="subtitle" x="70" y="82">const str = </text>
+  <text class="code" x="160" y="82">"JavaScript"</text>
+
+  <!-- Character boxes -->
+  <g transform="translate(280, 65)">
+    <rect class="surface" x="0" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="15" y="28" text-anchor="middle">J</text>
+    <text class="text-muted" x="15" y="52" text-anchor="middle">0</text>
+
+    <rect class="surface" x="35" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="50" y="28" text-anchor="middle">a</text>
+    <text class="text-muted" x="50" y="52" text-anchor="middle">1</text>
+
+    <rect class="surface" x="70" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="85" y="28" text-anchor="middle">v</text>
+    <text class="text-muted" x="85" y="52" text-anchor="middle">2</text>
+
+    <rect class="surface" x="105" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="120" y="28" text-anchor="middle">a</text>
+    <text class="text-muted" x="120" y="52" text-anchor="middle">3</text>
+
+    <rect class="surface" x="140" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="155" y="28" text-anchor="middle">S</text>
+    <text class="text-muted" x="155" y="52" text-anchor="middle">4</text>
+
+    <rect class="surface" x="175" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="190" y="28" text-anchor="middle">c</text>
+    <text class="text-muted" x="190" y="52" text-anchor="middle">5</text>
+
+    <rect class="surface" x="210" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="225" y="28" text-anchor="middle">r</text>
+    <text class="text-muted" x="225" y="52" text-anchor="middle">6</text>
+
+    <rect class="surface" x="245" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="260" y="28" text-anchor="middle">i</text>
+    <text class="text-muted" x="260" y="52" text-anchor="middle">7</text>
+
+    <rect class="surface" x="280" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="295" y="28" text-anchor="middle">p</text>
+    <text class="text-muted" x="295" y="52" text-anchor="middle">8</text>
+
+    <rect class="surface" x="315" y="0" width="30" height="40" rx="4" stroke="#4ecca3" stroke-width="1"/>
+    <text class="string-char" x="330" y="28" text-anchor="middle">t</text>
+    <text class="text-muted" x="330" y="52" text-anchor="middle">9</text>
+  </g>
+
+  <!-- Methods Grid -->
+  <!-- Row 1 -->
+  <rect class="box" x="50" y="140" width="220" height="70"/>
+  <text class="subtitle" x="70" y="165">includes()</text>
+  <text class="code" x="70" y="185">str.includes('Script')</text>
+  <text class="text" x="70" y="200">→ true</text>
+
+  <rect class="box" x="290" y="140" width="220" height="70"/>
+  <text class="subtitle" x="310" y="165">startsWith()</text>
+  <text class="code" x="310" y="185">str.startsWith('Java')</text>
+  <text class="text" x="310" y="200">→ true</text>
+
+  <rect class="box" x="530" y="140" width="220" height="70"/>
+  <text class="subtitle" x="550" y="165">endsWith()</text>
+  <text class="code" x="550" y="185">str.endsWith('Script')</text>
+  <text class="text" x="550" y="200">→ true</text>
+
+  <!-- Row 2 -->
+  <rect class="box" x="50" y="220" width="220" height="70"/>
+  <text class="subtitle" x="70" y="245">at()</text>
+  <text class="code" x="70" y="265">str.at(-1)</text>
+  <text class="text" x="70" y="280">→ "t" (último)</text>
+
+  <rect class="box" x="290" y="220" width="220" height="70"/>
+  <text class="subtitle" x="310" y="245">padStart()</text>
+  <text class="code" x="310" y="265">'5'.padStart(3, '0')</text>
+  <text class="text" x="310" y="280">→ "005"</text>
+
+  <rect class="box" x="530" y="220" width="220" height="70"/>
+  <text class="subtitle" x="550" y="245">repeat()</text>
+  <text class="code" x="550" y="265">'ab'.repeat(3)</text>
+  <text class="text" x="550" y="280">→ "ababab"</text>
+
+  <!-- Row 3 -->
+  <rect class="box" x="50" y="300" width="220" height="70"/>
+  <text class="subtitle" x="70" y="325">trim()</text>
+  <text class="code" x="70" y="345">'  hi  '.trim()</text>
+  <text class="text" x="70" y="360">→ "hi"</text>
+
+  <rect class="box" x="290" y="300" width="220" height="70"/>
+  <text class="subtitle" x="310" y="325">replaceAll()</text>
+  <text class="code" x="310" y="345">'aaa'.replaceAll('a','b')</text>
+  <text class="text" x="310" y="360">→ "bbb"</text>
+
+  <rect class="box" x="530" y="300" width="220" height="70"/>
+  <text class="subtitle" x="550" y="325">split()</text>
+  <text class="code" x="550" y="345">'a,b,c'.split(',')</text>
+  <text class="text" x="550" y="360">→ ["a","b","c"]</text>
+</svg>
