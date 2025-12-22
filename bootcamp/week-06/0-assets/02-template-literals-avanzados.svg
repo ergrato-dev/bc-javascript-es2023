@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .surface { fill: #16213e; }
+      .title { fill: #F0DB4F; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #e94560; font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; }
+      .code { fill: #4ecca3; font-family: monospace; font-size: 13px; }
+      .text { fill: #eee; font-family: system-ui, sans-serif; font-size: 12px; }
+      .text-muted { fill: #aaa; font-family: system-ui, sans-serif; font-size: 11px; }
+      .box { fill: #16213e; stroke: #333; stroke-width: 1; }
+      .highlight { fill: #F0DB4F; }
+      .arrow { fill: none; stroke: #e94560; stroke-width: 2; marker-end: url(#arrowhead); }
+      .keyword { fill: #e94560; font-family: monospace; font-size: 13px; }
+      .string { fill: #4ecca3; font-family: monospace; font-size: 13px; }
+      .param { fill: #F0DB4F; font-family: monospace; font-size: 13px; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e94560"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Tagged Template Literals</text>
+
+  <!-- Anatomy Section -->
+  <text class="subtitle" x="50" y="70">Anatomía de un Tagged Template</text>
+
+  <rect class="box" x="50" y="85" width="700" height="80" rx="8"/>
+
+  <!-- Tag function call visualization -->
+  <text class="keyword" x="70" y="115">tag</text>
+  <text class="code" x="100" y="115">`Hola </text>
+  <text class="param" x="155" y="115">${name}</text>
+  <text class="code" x="210" y="115">, tienes </text>
+  <text class="param" x="290" y="115">${age}</text>
+  <text class="code" x="340" y="115"> años`</text>
+
+  <text class="text-muted" x="70" y="145">↓</text>
+  <text class="text" x="90" y="145">Se convierte en:</text>
+  <text class="code" x="70" y="160">tag(["Hola ", ", tienes ", " años"], name, age)</text>
+
+  <!-- Function signature -->
+  <text class="subtitle" x="50" y="200">Función Tag</text>
+
+  <rect class="box" x="50" y="215" width="340" height="100" rx="8"/>
+  <text class="keyword" x="70" y="240">const</text>
+  <text class="code" x="105" y="240"> tag = (strings, ...values) => {</text>
+  <text class="text-muted" x="90" y="260">// strings: ["Hola ", ", tienes ", " años"]</text>
+  <text class="text-muted" x="90" y="280">// values: [name, age]</text>
+  <text class="code" x="70" y="300">}</text>
+
+  <!-- Visual representation -->
+  <rect class="box" x="410" y="215" width="340" height="100" rx="8"/>
+  <text class="subtitle" x="430" y="240">Visualización</text>
+
+  <!-- strings array -->
+  <rect class="surface" x="430" y="255" width="70" height="25" rx="4" stroke="#4ecca3"/>
+  <text class="string" x="465" y="272" text-anchor="middle">"Hola "</text>
+
+  <rect class="surface" x="510" y="255" width="90" height="25" rx="4" stroke="#4ecca3"/>
+  <text class="string" x="555" y="272" text-anchor="middle">", tienes "</text>
+
+  <rect class="surface" x="610" y="255" width="70" height="25" rx="4" stroke="#4ecca3"/>
+  <text class="string" x="645" y="272" text-anchor="middle">" años"</text>
+
+  <!-- values -->
+  <rect class="surface" x="470" y="290" width="60" height="20" rx="4" stroke="#F0DB4F"/>
+  <text class="param" x="500" y="304" text-anchor="middle">name</text>
+
+  <rect class="surface" x="570" y="290" width="50" height="20" rx="4" stroke="#F0DB4F"/>
+  <text class="param" x="595" y="304" text-anchor="middle">age</text>
+
+  <!-- Use Cases -->
+  <text class="subtitle" x="50" y="350">Casos de Uso</text>
+
+  <rect class="box" x="50" y="365" width="170" height="70" rx="8"/>
+  <text class="keyword" x="70" y="390">html</text>
+  <text class="code" x="100" y="390">`...`</text>
+  <text class="text-muted" x="70" y="410">Escapar HTML</text>
+  <text class="text-muted" x="70" y="425">Prevenir XSS</text>
+
+  <rect class="box" x="235" y="365" width="170" height="70" rx="8"/>
+  <text class="keyword" x="255" y="390">css</text>
+  <text class="code" x="280" y="390">`...`</text>
+  <text class="text-muted" x="255" y="410">Styled Components</text>
+  <text class="text-muted" x="255" y="425">CSS-in-JS</text>
+
+  <rect class="box" x="420" y="365" width="170" height="70" rx="8"/>
+  <text class="keyword" x="440" y="390">sql</text>
+  <text class="code" x="465" y="390">`...`</text>
+  <text class="text-muted" x="440" y="410">Queries seguras</text>
+  <text class="text-muted" x="440" y="425">Evitar inyección</text>
+
+  <rect class="box" x="605" y="365" width="145" height="70" rx="8"/>
+  <text class="keyword" x="625" y="390">i18n</text>
+  <text class="code" x="655" y="390">`...`</text>
+  <text class="text-muted" x="625" y="410">Traducción</text>
+  <text class="text-muted" x="625" y="425">Localización</text>
+</svg>

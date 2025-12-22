@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .surface { fill: #16213e; }
+      .title { fill: #F0DB4F; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #e94560; font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; }
+      .code { fill: #4ecca3; font-family: monospace; font-size: 13px; }
+      .text { fill: #eee; font-family: system-ui, sans-serif; font-size: 12px; }
+      .text-muted { fill: #aaa; font-family: system-ui, sans-serif; font-size: 11px; }
+      .box { fill: #16213e; stroke: #333; stroke-width: 1; }
+      .highlight { fill: #F0DB4F; }
+      .pattern { fill: #e94560; font-family: monospace; font-size: 16px; font-weight: bold; }
+      .flag { fill: #4ecca3; font-family: monospace; font-size: 14px; }
+      .match { fill: #F0DB4F; font-family: monospace; font-size: 14px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">RegExp Fundamentos</text>
+
+  <!-- Syntax Section -->
+  <text class="subtitle" x="50" y="70">Sintaxis Básica</text>
+
+  <rect class="box" x="50" y="85" width="700" height="60" rx="8"/>
+  <text class="code" x="200" y="115">/</text>
+  <text class="pattern" x="210" y="115">patrón</text>
+  <text class="code" x="280" y="115">/</text>
+  <text class="flag" x="290" y="115">flags</text>
+
+  <text class="text-muted" x="200" y="135">delimitador</text>
+  <text class="text-muted" x="240" y="135">qué buscar</text>
+  <text class="text-muted" x="290" y="135">modificadores</text>
+
+  <text class="code" x="450" y="115">new RegExp(</text>
+  <text class="pattern" x="535" y="115">'patrón'</text>
+  <text class="code" x="600" y="115">, </text>
+  <text class="flag" x="615" y="115">'flags'</text>
+  <text class="code" x="665" y="115">)</text>
+
+  <!-- Flags -->
+  <text class="subtitle" x="50" y="175">Flags (Banderas)</text>
+
+  <rect class="box" x="50" y="190" width="140" height="50" rx="8"/>
+  <text class="flag" x="70" y="215">g</text>
+  <text class="text" x="90" y="215">global</text>
+  <text class="text-muted" x="70" y="230">todas las coincidencias</text>
+
+  <rect class="box" x="200" y="190" width="140" height="50" rx="8"/>
+  <text class="flag" x="220" y="215">i</text>
+  <text class="text" x="240" y="215">ignore case</text>
+  <text class="text-muted" x="220" y="230">mayús = minús</text>
+
+  <rect class="box" x="350" y="190" width="140" height="50" rx="8"/>
+  <text class="flag" x="370" y="215">m</text>
+  <text class="text" x="390" y="215">multiline</text>
+  <text class="text-muted" x="370" y="230">^ $ por línea</text>
+
+  <rect class="box" x="500" y="190" width="120" height="50" rx="8"/>
+  <text class="flag" x="520" y="215">s</text>
+  <text class="text" x="540" y="215">dotAll</text>
+  <text class="text-muted" x="520" y="230">. incluye \n</text>
+
+  <rect class="box" x="630" y="190" width="120" height="50" rx="8"/>
+  <text class="flag" x="650" y="215">u</text>
+  <text class="text" x="670" y="215">unicode</text>
+  <text class="text-muted" x="650" y="230">UTF-16 completo</text>
+
+  <!-- Character Classes -->
+  <text class="subtitle" x="50" y="275">Clases de Caracteres</text>
+
+  <rect class="box" x="50" y="290" width="340" height="100" rx="8"/>
+  <text class="pattern" x="70" y="315">\d</text>
+  <text class="text" x="100" y="315">→ dígito [0-9]</text>
+  <text class="pattern" x="70" y="335">\w</text>
+  <text class="text" x="100" y="335">→ palabra [a-zA-Z0-9_]</text>
+  <text class="pattern" x="70" y="355">\s</text>
+  <text class="text" x="100" y="355">→ espacio [ \t\n\r]</text>
+  <text class="pattern" x="70" y="375">.</text>
+  <text class="text" x="100" y="375">→ cualquier carácter</text>
+
+  <rect class="box" x="410" y="290" width="340" height="100" rx="8"/>
+  <text class="pattern" x="430" y="315">\D</text>
+  <text class="text" x="460" y="315">→ NO dígito</text>
+  <text class="pattern" x="430" y="335">\W</text>
+  <text class="text" x="460" y="335">→ NO palabra</text>
+  <text class="pattern" x="430" y="355">\S</text>
+  <text class="text" x="460" y="355">→ NO espacio</text>
+  <text class="pattern" x="430" y="375">[abc]</text>
+  <text class="text" x="490" y="375">→ uno de: a, b, c</text>
+
+  <!-- Quantifiers -->
+  <text class="subtitle" x="50" y="420">Cuantificadores</text>
+
+  <rect class="box" x="50" y="435" width="120" height="50" rx="8"/>
+  <text class="pattern" x="70" y="460">*</text>
+  <text class="text" x="90" y="460">0 o más</text>
+
+  <rect class="box" x="180" y="435" width="120" height="50" rx="8"/>
+  <text class="pattern" x="200" y="460">+</text>
+  <text class="text" x="220" y="460">1 o más</text>
+
+  <rect class="box" x="310" y="435" width="120" height="50" rx="8"/>
+  <text class="pattern" x="330" y="460">?</text>
+  <text class="text" x="350" y="460">0 o 1</text>
+
+  <rect class="box" x="440" y="435" width="120" height="50" rx="8"/>
+  <text class="pattern" x="460" y="460">{n}</text>
+  <text class="text" x="500" y="460">exacto</text>
+
+  <rect class="box" x="570" y="435" width="90" height="50" rx="8"/>
+  <text class="pattern" x="590" y="460">{n,}</text>
+  <text class="text" x="630" y="460">mín</text>
+
+  <rect class="box" x="670" y="435" width="80" height="50" rx="8"/>
+  <text class="pattern" x="685" y="460">{n,m}</text>
+  <text class="text-muted" x="685" y="475">rango</text>
+</svg>

@@ -1,5 +1,7 @@
 # 🎯 Patrones Comunes de RegExp
 
+![Grupos de Captura y Lookaround](../0-assets/04-regexp-patterns.svg)
+
 ## 🎯 Objetivos
 
 - Conocer patrones de validación frecuentes

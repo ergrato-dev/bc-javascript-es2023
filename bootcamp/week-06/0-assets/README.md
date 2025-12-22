@@ -1,19 +1,43 @@
-# 🎨 Assets - Semana 06
+# 🎨 Assets Visuales - Semana 06
 
-## Strings y RegExp Modernos
+Diagramas y recursos visuales para complementar el material teórico.
 
-Esta carpeta contiene los recursos visuales para la semana 06.
+---
 
-## 📁 Contenido
+## 📋 Lista de Assets
 
-| Archivo | Descripción | Usado en |
-|---------|-------------|----------|
-| `string-methods.svg` | Métodos modernos de strings | 01-string-methods.md |
-| `tagged-templates.svg` | Anatomía de tagged templates | 02-template-literals-avanzados.md |
-| `regexp-anatomy.svg` | Estructura de expresiones regulares | 03-regexp-fundamentos.md |
-| `regexp-quantifiers.svg` | Cuantificadores y flags | 03-regexp-fundamentos.md |
-| `capture-groups.svg` | Grupos de captura | 04-regexp-patterns.md |
-| `matchall-vs-match.svg` | Comparación matchAll vs match | 05-matchall-search.md |
+### 01. String Methods Modernos
+**Archivo**: `01-string-methods.svg`
+**Usado en**: [01-string-methods.md](../1-teoria/01-string-methods.md)
+**Descripción**: Visualización de métodos modernos de strings con ejemplos.
+
+---
+
+### 02. Tagged Template Literals
+**Archivo**: `02-template-literals-avanzados.svg`
+**Usado en**: [02-template-literals-avanzados.md](../1-teoria/02-template-literals-avanzados.md)
+**Descripción**: Anatomía de tagged templates, función tag y casos de uso.
+
+---
+
+### 03. RegExp Fundamentos
+**Archivo**: `03-regexp-fundamentos.svg`
+**Usado en**: [03-regexp-fundamentos.md](../1-teoria/03-regexp-fundamentos.md)
+**Descripción**: Sintaxis básica, flags, clases de caracteres y cuantificadores.
+
+---
+
+### 04. Grupos de Captura y Lookaround
+**Archivo**: `04-regexp-patterns.svg`
+**Usado en**: [04-regexp-patterns.md](../1-teoria/04-regexp-patterns.md)
+**Descripción**: Grupos nombrados, lookahead y lookbehind.
+
+---
+
+### 05. matchAll vs match
+**Archivo**: `05-matchall-search.svg`
+**Usado en**: [05-matchall-search.md](../1-teoria/05-matchall-search.md)
+**Descripción**: Comparación entre matchAll() y match(), iteradores y grupos.
 
 ## 🎨 Especificaciones
 

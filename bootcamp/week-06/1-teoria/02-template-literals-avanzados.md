@@ -1,5 +1,7 @@
 # 🏷️ Template Literals Avanzados
 
+![Tagged Template Literals](../0-assets/02-template-literals-avanzados.svg)
+
 ## 🎯 Objetivos
 
 - Entender el mecanismo de tagged templates

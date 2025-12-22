@@ -1,5 +1,7 @@
 # 🔍 Fundamentos de Expresiones Regulares
 
+![RegExp Fundamentos](../0-assets/03-regexp-fundamentos.svg)
+
 ## 🎯 Objetivos
 
 - Entender qué son las expresiones regulares

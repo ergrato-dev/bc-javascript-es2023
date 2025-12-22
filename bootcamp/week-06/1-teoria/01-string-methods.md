@@ -1,5 +1,7 @@
 # 📝 Métodos Modernos de Strings
 
+![String Methods Modernos](../0-assets/01-string-methods.svg)
+
 ## 🎯 Objetivos
 
 - Dominar los métodos de búsqueda modernos

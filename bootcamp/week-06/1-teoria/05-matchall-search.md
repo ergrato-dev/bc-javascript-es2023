@@ -1,5 +1,7 @@
 # 🔎 matchAll y Búsqueda Avanzada
 
+![matchAll vs match](../0-assets/05-matchall-search.svg)
+
 ## 🎯 Objetivos
 
 - Dominar `String.prototype.matchAll()`

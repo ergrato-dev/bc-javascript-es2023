@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .surface { fill: #16213e; }
+      .title { fill: #F0DB4F; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #e94560; font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; }
+      .code { fill: #4ecca3; font-family: monospace; font-size: 12px; }
+      .text { fill: #eee; font-family: system-ui, sans-serif; font-size: 12px; }
+      .text-muted { fill: #aaa; font-family: system-ui, sans-serif; font-size: 11px; }
+      .box { fill: #16213e; stroke: #333; stroke-width: 1; }
+      .pattern { fill: #e94560; font-family: monospace; font-size: 13px; }
+      .capture { fill: #F0DB4F; font-family: monospace; font-size: 13px; }
+      .result { fill: #4ecca3; font-family: monospace; font-size: 12px; }
+      .label { fill: #aaa; font-family: system-ui, sans-serif; font-size: 10px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Grupos de Captura y Lookaround</text>
+
+  <!-- Capture Groups -->
+  <text class="subtitle" x="50" y="70">Grupos de Captura</text>
+
+  <rect class="box" x="50" y="85" width="340" height="90" rx="8"/>
+  <text class="text" x="70" y="110">Grupo básico:</text>
+  <text class="pattern" x="70" y="130">/(\d{2})\/(\d{2})\/(\d{4})/</text>
+  <text class="code" x="70" y="155">'25/12/2024'.match(regex)</text>
+  <text class="result" x="70" y="170">→ ['25/12/2024', '25', '12', '2024']</text>
+
+  <rect class="box" x="410" y="85" width="340" height="90" rx="8"/>
+  <text class="text" x="430" y="110">Grupo nombrado:</text>
+  <text class="pattern" x="430" y="130">/(?&lt;day&gt;\d{2})\/(?&lt;month&gt;\d{2})/</text>
+  <text class="code" x="430" y="155">match.groups.day</text>
+  <text class="result" x="430" y="170">→ '25'</text>
+
+  <!-- Named vs Numbered -->
+  <rect class="box" x="50" y="190" width="700" height="60" rx="8"/>
+  <text class="subtitle" x="70" y="215">Comparación</text>
+  <text class="capture" x="70" y="240">(\d+)</text>
+  <text class="text" x="130" y="240">→ match[1]</text>
+  <text class="text-muted" x="230" y="240">grupo numerado</text>
+  <text class="capture" x="400" y="240">(?&lt;num&gt;\d+)</text>
+  <text class="text" x="500" y="240">→ match.groups.num</text>
+  <text class="text-muted" x="630" y="240">grupo nombrado</text>
+
+  <!-- Lookahead -->
+  <text class="subtitle" x="50" y="285">Lookahead (Mirar adelante)</text>
+
+  <rect class="box" x="50" y="300" width="340" height="80" rx="8"/>
+  <text class="text" x="70" y="325">Positivo (?=...)</text>
+  <text class="pattern" x="70" y="345">/\d+(?=€)/</text>
+  <text class="code" x="70" y="365">'100€'.match(regex)</text>
+  <text class="result" x="210" y="365">→ ['100']</text>
+  <text class="text-muted" x="70" y="375">número seguido de €</text>
+
+  <rect class="box" x="410" y="300" width="340" height="80" rx="8"/>
+  <text class="text" x="430" y="325">Negativo (?!...)</text>
+  <text class="pattern" x="430" y="345">/\d+(?!€)/</text>
+  <text class="code" x="430" y="365">'100$'.match(regex)</text>
+  <text class="result" x="570" y="365">→ ['100']</text>
+  <text class="text-muted" x="430" y="375">número NO seguido de €</text>
+
+  <!-- Lookbehind -->
+  <text class="subtitle" x="50" y="410">Lookbehind (Mirar atrás)</text>
+
+  <rect class="box" x="50" y="425" width="340" height="60" rx="8"/>
+  <text class="text" x="70" y="450">Positivo (?&lt;=...)</text>
+  <text class="pattern" x="70" y="470">/(?&lt;=\$)\d+/</text>
+  <text class="result" x="200" y="470">→ número después de $</text>
+
+  <rect class="box" x="410" y="425" width="340" height="60" rx="8"/>
+  <text class="text" x="430" y="450">Negativo (?&lt;!...)</text>
+  <text class="pattern" x="430" y="470">/(?&lt;!\$)\d+/</text>
+  <text class="result" x="560" y="470">→ número NO después de $</text>
+</svg>
