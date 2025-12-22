@@ -1,329 +1,239 @@
 /**
- * 📘 Ejercicio 03: Map & Filter Avanzado
- * Practica transformaciones y filtros complejos
+ * 📘 Ejercicio 03: map() y filter()
+ *
+ * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * para aprender transformación y filtrado de arrays.
+ *
+ * Ejecuta: node index.js
  */
 
-// Datos de prueba
+// ============================================
+// DATOS DE PRUEBA (no modificar)
+// ============================================
+
 const users = [
-  {
-    id: 1,
-    firstName: 'Ana',
-    lastName: 'García',
-    age: 25,
-    active: true,
-    role: 'admin',
-  },
-  {
-    id: 2,
-    firstName: 'Bob',
-    lastName: 'Smith',
-    age: 17,
-    active: false,
-    role: 'user',
-  },
-  {
-    id: 3,
-    firstName: 'Carlos',
-    lastName: 'López',
-    age: 30,
-    active: true,
-    role: 'user',
-  },
-  {
-    id: 4,
-    firstName: 'Diana',
-    lastName: 'Martínez',
-    age: 22,
-    active: true,
-    role: 'moderator',
-  },
+  { id: 1, name: 'Ana García', email: 'ana@example.com', age: 25, active: true },
+  { id: 2, name: 'Bob Smith', email: 'bob@example.com', age: 17, active: false },
+  { id: 3, name: 'Carlos López', email: 'carlos@example.com', age: 30, active: true },
+  { id: 4, name: 'Diana Ruiz', email: 'diana@example.com', age: 22, active: true },
+  { id: 5, name: 'Eva Torres', email: 'eva@example.com', age: 16, active: false },
 ];
 
 const products = [
-  {
-    id: 1,
-    name: 'Laptop',
-    price: 999,
-    category: 'electronics',
-    inStock: true,
-    rating: 4.5,
-  },
-  {
-    id: 2,
-    name: 'Mouse',
-    price: 25,
-    category: 'electronics',
-    inStock: false,
-    rating: 4.2,
-  },
-  {
-    id: 3,
-    name: 'Desk',
-    price: 200,
-    category: 'furniture',
-    inStock: true,
-    rating: 4.8,
-  },
-  {
-    id: 4,
-    name: 'Chair',
-    price: 150,
-    category: 'furniture',
-    inStock: true,
-    rating: 4.6,
-  },
-  {
-    id: 5,
-    name: 'Monitor',
-    price: 300,
-    category: 'electronics',
-    inStock: true,
-    rating: 4.7,
-  },
+  { id: 101, name: 'Laptop', price: 999, stock: 5, category: 'electronics' },
+  { id: 102, name: 'Mouse', price: 25, stock: 0, category: 'electronics' },
+  { id: 103, name: 'Desk', price: 200, stock: 3, category: 'furniture' },
+  { id: 104, name: 'Chair', price: 150, stock: 8, category: 'furniture' },
+  { id: 105, name: 'Monitor', price: 300, stock: 0, category: 'electronics' },
 ];
 
-const apiUsers = [
-  {
-    user_id: 1,
-    first_name: 'Ana',
-    last_name: 'García',
-    email_address: 'ana@example.com',
-    is_verified: true,
-  },
-  {
-    user_id: 2,
-    first_name: 'Bob',
-    last_name: 'Smith',
-    email_address: 'bob@example.com',
-    is_verified: false,
-  },
-  {
-    user_id: 3,
-    first_name: 'Carlos',
-    last_name: 'López',
-    email_address: 'carlos@example.com',
-    is_verified: true,
-  },
-];
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // ============================================
-// PARTE 1: TRANSFORMACIONES CON MAP
+// PASO 1: map() - Transformar Elementos
 // ============================================
+console.log('--- Paso 1: map() Básico ---');
 
-/**
- * TODO: Extrae solo los nombres completos de usuarios
- * @param {object[]} users - Array de usuarios
- * @returns {string[]} - Array de nombres completos
- */
-const getFullNames = users => {
-  // TODO: Usa map para crear array de "firstName lastName"
-};
+// map() crea un NUEVO array transformando cada elemento
+// Nunca modifica el array original
+// Descomenta las siguientes líneas:
 
-/**
- * TODO: Transforma datos de API a formato UI
- * @param {object[]} apiUsers - Usuarios en formato API
- * @returns {object[]} - Usuarios en formato UI
- */
-const transformApiUsers = apiUsers => {
-  // TODO: Mapea cada usuario a:
-  // { id, fullName, email, verified }
-};
+// const doubled = numbers.map(n => n * 2);
+// console.log('Original:', numbers);
+// console.log('Duplicados:', doubled);
+//
+// const squared = numbers.map(n => n ** 2);
+// console.log('Cuadrados:', squared);
+//
+// // Extraer una propiedad de objetos
+// const names = users.map(user => user.name);
+// console.log('Solo nombres:', names);
+//
+// const emails = users.map(user => user.email);
+// console.log('Solo emails:', emails);
 
-/**
- * TODO: Añade propiedad discountPrice (10% descuento)
- * @param {object[]} products - Array de productos
- * @returns {object[]} - Productos con discountPrice
- */
-const addDiscountPrice = products => {
-  // TODO: Usa map y spread para añadir discountPrice
-  // discountPrice = price * 0.9
-};
-
-/**
- * TODO: Crea objetos simplificados solo con id y nombre
- * @param {object[]} products - Array de productos
- * @returns {object[]} - Array de { id, name }
- */
-const simplifyProducts = products => {
-  // TODO: Mapea a { id, name }
-};
-
-/**
- * TODO: Añade initials a cada usuario (primeras letras)
- * @param {object[]} users - Array de usuarios
- * @returns {object[]} - Usuarios con initials
- */
-const addInitials = users => {
-  // TODO: Añade propiedad initials: "A.G." (firstName[0] + lastName[0])
-};
+console.log('');
 
 // ============================================
-// PARTE 2: FILTROS CON FILTER
+// PASO 2: map() - Crear Nuevos Objetos
 // ============================================
+console.log('--- Paso 2: map() con Objetos ---');
 
-/**
- * TODO: Filtra productos por categoría y disponibilidad
- * @param {object[]} products - Array de productos
- * @param {string} category - Categoría a filtrar
- * @returns {object[]} - Productos filtrados
- */
-const getAvailableByCategory = (products, category) => {
-  // TODO: Filtra por category === category AND inStock === true
-};
+// map() puede transformar objetos en otros objetos
+// Descomenta las siguientes líneas:
 
-/**
- * TODO: Filtra usuarios activos y adultos
- * @param {object[]} users - Array de usuarios
- * @returns {object[]} - Usuarios activos >= 18
- */
-const getActiveAdults = users => {
-  // TODO: Filtra por active === true AND age >= 18
-};
+// // Crear objetos simplificados
+// const userCards = users.map(user => ({
+//   id: user.id,
+//   displayName: user.name.toUpperCase(),
+//   isAdult: user.age >= 18
+// }));
+// console.log('User cards:', userCards);
+//
+// // Agregar propiedades calculadas
+// const productsWithTax = products.map(p => ({
+//   ...p,
+//   priceWithTax: (p.price * 1.21).toFixed(2),
+//   available: p.stock > 0
+// }));
+// console.log('Con impuestos:', productsWithTax);
 
-/**
- * TODO: Filtra productos por rango de precio
- * @param {object[]} products - Array de productos
- * @param {number} min - Precio mínimo
- * @param {number} max - Precio máximo
- * @returns {object[]} - Productos en el rango
- */
-const getProductsByPriceRange = (products, min, max) => {
-  // TODO: Filtra por price >= min AND price <= max
-};
-
-/**
- * TODO: Busca productos por texto en nombre (case insensitive)
- * @param {object[]} products - Array de productos
- * @param {string} searchTerm - Texto a buscar
- * @returns {object[]} - Productos que coinciden
- */
-const searchProducts = (products, searchTerm) => {
-  // TODO: Filtra por name.toLowerCase().includes(searchTerm.toLowerCase())
-};
-
-/**
- * TODO: Remueve valores falsy de un array
- * @param {any[]} array - Array con posibles valores falsy
- * @returns {any[]} - Array sin falsy
- */
-const removeFalsy = array => {
-  // TODO: Usa filter(Boolean)
-};
+console.log('');
 
 // ============================================
-// PARTE 3: ENCADENAMIENTO MAP + FILTER
+// PASO 3: filter() - Filtrar Elementos
 // ============================================
+console.log('--- Paso 3: filter() Básico ---');
 
-/**
- * TODO: Obtén nombres de usuarios activos
- * @param {object[]} users - Array de usuarios
- * @returns {string[]} - Nombres completos de usuarios activos
- */
-const getActiveUserNames = users => {
-  // TODO: Filtra por active, luego mapea a fullName
-};
+// filter() crea un NUEVO array con elementos que cumplen la condición
+// Descomenta las siguientes líneas:
 
-/**
- * TODO: Productos electrónicos disponibles con descuento
- * @param {object[]} products - Array de productos
- * @returns {object[]} - Productos procesados
- */
-const getElectronicsWithDiscount = products => {
-  // TODO:
-  // 1. Filtra por category === 'electronics' AND inStock === true
-  // 2. Mapea añadiendo discountPrice (price * 0.9)
-};
+// const evens = numbers.filter(n => n % 2 === 0);
+// console.log('Pares:', evens);
+//
+// const greaterThan5 = numbers.filter(n => n > 5);
+// console.log('Mayores que 5:', greaterThan5);
+//
+// // Filtrar objetos
+// const adults = users.filter(user => user.age >= 18);
+// console.log('Adultos:', adults.map(u => u.name));
+//
+// const activeUsers = users.filter(user => user.active);
+// console.log('Activos:', activeUsers.map(u => u.name));
 
-/**
- * TODO: IDs de productos caros (> 100) disponibles
- * @param {object[]} products - Array de productos
- * @returns {number[]} - Array de IDs
- */
-const getExpensiveProductIds = products => {
-  // TODO:
-  // 1. Filtra por price > 100 AND inStock === true
-  // 2. Mapea a solo id
-};
-
-/**
- * TODO: Emails de usuarios verificados de la API
- * @param {object[]} apiUsers - Usuarios de API
- * @returns {string[]} - Array de emails
- */
-const getVerifiedEmails = apiUsers => {
-  // TODO:
-  // 1. Filtra por is_verified === true
-  // 2. Mapea a email_address
-};
-
-/**
- * TODO: Reporte de productos premium (rating > 4.5)
- * @param {object[]} products - Array de productos
- * @returns {object[]} - Objetos { name, price, rating }
- */
-const getPremiumProductsReport = products => {
-  // TODO:
-  // 1. Filtra por rating > 4.5
-  // 2. Mapea a { name, price, rating }
-};
+console.log('');
 
 // ============================================
-// PRUEBAS - NO MODIFICAR
+// PASO 4: filter() - Múltiples Condiciones
 // ============================================
+console.log('--- Paso 4: filter() Avanzado ---');
 
-console.log('=== PARTE 1: TRANSFORMACIONES CON MAP ===\n');
+// Puedes combinar condiciones con && y ||
+// Descomenta las siguientes líneas:
 
-console.log('Full names:', getFullNames(users));
-// Expected: ['Ana García', 'Bob Smith', 'Carlos López', 'Diana Martínez']
+// // Adultos activos
+// const activeAdults = users.filter(u => u.age >= 18 && u.active);
+// console.log('Adultos activos:', activeAdults.map(u => u.name));
+//
+// // Productos disponibles (con stock > 0)
+// const available = products.filter(p => p.stock > 0);
+// console.log('Disponibles:', available.map(p => p.name));
+//
+// // Electrónicos disponibles
+// const availableElectronics = products.filter(
+//   p => p.category === 'electronics' && p.stock > 0
+// );
+// console.log('Electrónicos disponibles:', availableElectronics.map(p => p.name));
 
-console.log('Transformed API users:', transformApiUsers(apiUsers));
-// Expected: [{ id: 1, fullName: 'Ana García', email: '...', verified: true }, ...]
+console.log('');
 
-console.log('Products with discount:', addDiscountPrice(products));
-// Expected: [..., { ..., price: 999, discountPrice: 899.1 }, ...]
+// ============================================
+// PASO 5: Encadenar map() y filter()
+// ============================================
+console.log('--- Paso 5: Encadenar map() + filter() ---');
 
-console.log('Simplified products:', simplifyProducts(products));
-// Expected: [{ id: 1, name: 'Laptop' }, ...]
+// Puedes encadenar métodos para transformaciones complejas
+// Descomenta las siguientes líneas:
 
-console.log('Users with initials:', addInitials(users));
-// Expected: [{ ..., initials: 'A.G.' }, ...]
+// // Filtrar y luego transformar
+// const adultNames = users
+//   .filter(u => u.age >= 18)
+//   .map(u => u.name);
+// console.log('Nombres de adultos:', adultNames);
+//
+// // Transformar y luego filtrar
+// const expensiveProducts = products
+//   .map(p => ({
+//     name: p.name,
+//     finalPrice: p.price * 1.21
+//   }))
+//   .filter(p => p.finalPrice > 200);
+// console.log('Productos caros (con IVA):', expensiveProducts);
+//
+// // Cadena más compleja
+// const activeAdultEmails = users
+//   .filter(u => u.age >= 18)
+//   .filter(u => u.active)
+//   .map(u => u.email.toLowerCase());
+// console.log('Emails de adultos activos:', activeAdultEmails);
 
-console.log('\n=== PARTE 2: FILTROS CON FILTER ===\n');
+console.log('');
 
-console.log(
-  'Available electronics:',
-  getAvailableByCategory(products, 'electronics')
-);
-// Expected: [Laptop, Monitor] (Mouse no porque inStock: false)
+// ============================================
+// PASO 6: map() con Índice
+// ============================================
+console.log('--- Paso 6: map() con Índice ---');
 
-console.log('Active adults:', getActiveAdults(users));
-// Expected: [Ana, Carlos, Diana] (Bob no porque age: 17)
+// El segundo parámetro del callback es el índice
+// Descomenta las siguientes líneas:
 
-console.log('Products $100-$500:', getProductsByPriceRange(products, 100, 500));
-// Expected: [Desk, Chair, Monitor]
+// const indexed = users.map((user, index) => ({
+//   position: index + 1,
+//   name: user.name
+// }));
+// console.log('Con posición:', indexed);
+//
+// // Crear IDs secuenciales
+// const withNewIds = products.map((p, i) => ({
+//   ...p,
+//   newId: `PROD-${String(i + 1).padStart(3, '0')}`
+// }));
+// console.log('Con nuevos IDs:', withNewIds.map(p => p.newId));
 
-console.log('Search "mon":', searchProducts(products, 'mon'));
-// Expected: [Monitor]
+console.log('');
 
-console.log(
-  'Remove falsy [0, 1, false, 2, "", 3]:',
-  removeFalsy([0, 1, false, 2, '', 3])
-);
-// Expected: [1, 2, 3]
+// ============================================
+// PASO 7: Caso Práctico - Lista de Productos
+// ============================================
+console.log('--- Paso 7: Caso Práctico ---');
 
-console.log('\n=== PARTE 3: ENCADENAMIENTO ===\n');
+// Generar una lista de productos para mostrar en UI
+// Descomenta las siguientes líneas:
 
-console.log('Active user names:', getActiveUserNames(users));
-// Expected: ['Ana García', 'Carlos López', 'Diana Martínez']
+// const productList = products
+//   .filter(p => p.stock > 0)
+//   .map(p => ({
+//     id: p.id,
+//     display: `${p.name} - $${p.price}`,
+//     badge: p.stock < 5 ? '¡Últimas unidades!' : null
+//   }));
+// console.log('Lista para UI:', productList);
+//
+// // Generar HTML (simulado)
+// const html = productList
+//   .map(p => `<li>${p.display}${p.badge ? ` <span>${p.badge}</span>` : ''}</li>`)
+//   .join('\n');
+// console.log('HTML generado:\n', html);
 
-console.log('Electronics with discount:', getElectronicsWithDiscount(products));
-// Expected: [Laptop, Monitor] con discountPrice
+console.log('');
 
-console.log('Expensive product IDs:', getExpensiveProductIds(products));
-// Expected: [1, 3, 4, 5] (todos > 100 y disponibles)
+// ============================================
+// PASO 8: Filtrar Duplicados
+// ============================================
+console.log('--- Paso 8: Filtrar Duplicados ---');
 
-console.log('Verified emails:', getVerifiedEmails(apiUsers));
-// Expected: ['ana@example.com', 'carlos@example.com']
+// Usar filter con indexOf para eliminar duplicados
+// Descomenta las siguientes líneas:
 
-console.log('Premium products report:', getPremiumProductsReport(products));
-// Expected: [{ name: 'Desk', price: 200, rating: 4.8 }, { name: 'Chair', ... }, { name: 'Monitor', ... }]
+// const numbersWithDupes = [1, 2, 2, 3, 4, 4, 4, 5];
+// const unique = numbersWithDupes.filter((num, index, array) => {
+//   return array.indexOf(num) === index;
+// });
+// console.log('Con duplicados:', numbersWithDupes);
+// console.log('Sin duplicados:', unique);
+//
+// // También puedes usar Set (más moderno)
+// const uniqueWithSet = [...new Set(numbersWithDupes)];
+// console.log('Con Set:', uniqueWithSet);
+//
+// // Categorías únicas de productos
+// const categories = [...new Set(products.map(p => p.category))];
+// console.log('Categorías:', categories);
+
+console.log('');
+
+// ============================================
+// ✅ EJERCICIO COMPLETADO
+// ============================================
+console.log('🎉 ¡Excelente! Has completado el ejercicio de map() y filter().');
+console.log('Revisa cada paso y experimenta creando tus propias transformaciones.');

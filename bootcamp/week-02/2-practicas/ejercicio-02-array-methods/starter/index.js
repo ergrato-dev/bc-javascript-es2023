@@ -1,9 +1,16 @@
 /**
  * 📘 Ejercicio 02: Array Methods Básicos
- * Completa las funciones usando find, findIndex, some, every
+ *
+ * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * para aprender find, findIndex, some, every e includes.
+ *
+ * Ejecuta: node index.js
  */
 
-// Datos de prueba
+// ============================================
+// DATOS DE PRUEBA (no modificar)
+// ============================================
+
 const users = [
   { id: 1, name: 'Ana', email: 'ana@example.com', age: 25, verified: true },
   { id: 2, name: 'Bob', email: 'bob@example.com', age: 17, verified: false },
@@ -24,211 +31,209 @@ const products = [
   { id: 104, name: 'Monitor', price: 300, stock: 3, category: 'electronics' },
 ];
 
-// ============================================
-// PARTE 1: FIND Y FINDINDEX
-// ============================================
-
-/**
- * TODO: Encuentra un usuario por email
- * @param {object[]} users - Array de usuarios
- * @param {string} email - Email a buscar
- * @returns {object|undefined} - Usuario encontrado o undefined
- */
-const findUserByEmail = (users, email) => {
-  // TODO: Usa find() para buscar el usuario
-};
-
-/**
- * TODO: Obtén el índice de un producto por ID
- * @param {object[]} products - Array de productos
- * @param {number} productId - ID del producto
- * @returns {number} - Índice del producto o -1
- */
-const getProductIndex = (products, productId) => {
-  // TODO: Usa findIndex() para encontrar el índice
-};
-
-/**
- * TODO: Encuentra el primer número mayor que el valor dado
- * @param {number[]} numbers - Array de números
- * @param {number} threshold - Valor umbral
- * @returns {number|undefined} - Primer número mayor o undefined
- */
-const findFirstGreaterThan = (numbers, threshold) => {
-  // TODO: Usa find() con condición >
-};
-
-/**
- * TODO: Busca un usuario por ID y retorna solo su nombre
- * @param {object[]} users - Array de usuarios
- * @param {number} userId - ID del usuario
- * @returns {string|null} - Nombre del usuario o null
- */
-const getUserName = (users, userId) => {
-  // TODO: Usa find() y luego extrae el name, o retorna null
-};
+const numbers = [5, 12, 8, 130, 44, 3, 99];
 
 // ============================================
-// PARTE 2: SOME Y EVERY
+// PASO 1: find() - Encontrar un Elemento
 // ============================================
+console.log('--- Paso 1: find() ---');
 
-/**
- * TODO: Verifica si hay productos fuera de stock
- * @param {object[]} products - Array de productos
- * @returns {boolean} - true si algún producto tiene stock 0
- */
-const hasOutOfStock = products => {
-  // TODO: Usa some() para verificar si stock === 0
-};
+// find() retorna el PRIMER elemento que cumple la condición
+// Si no encuentra nada, retorna undefined
+// Descomenta las siguientes líneas:
 
-/**
- * TODO: Comprueba si todos los usuarios son adultos (>= 18)
- * @param {object[]} users - Array de usuarios
- * @returns {boolean} - true si todos son adultos
- */
-const areAllAdults = users => {
-  // TODO: Usa every() para verificar age >= 18
-};
+// const userAna = users.find(user => user.name === 'Ana');
+// console.log('Usuario Ana:', userAna);
+//
+// const userByEmail = users.find(user => user.email === 'carlos@example.com');
+// console.log('Usuario por email:', userByEmail);
+//
+// const adult = users.find(user => user.age >= 18);
+// console.log('Primer adulto:', adult);
+//
+// const notFound = users.find(user => user.name === 'Zoe');
+// console.log('No encontrado:', notFound); // undefined
 
-/**
- * TODO: Verifica si todos los usuarios están verificados
- * @param {object[]} users - Array de usuarios
- * @returns {boolean} - true si todos están verificados
- */
-const areAllVerified = users => {
-  // TODO: Usa every() para verificar verified === true
-};
-
-/**
- * TODO: Verifica si al menos un producto está disponible (stock > 0)
- * @param {object[]} products - Array de productos
- * @returns {boolean} - true si hay stock disponible
- */
-const hasAvailableProducts = products => {
-  // TODO: Usa some() para verificar stock > 0
-};
-
-/**
- * TODO: Comprueba si hay productos caros (price > 500)
- * @param {object[]} products - Array de productos
- * @returns {boolean} - true si hay productos > 500
- */
-const hasExpensiveProducts = products => {
-  // TODO: Usa some() con condición price > 500
-};
+console.log('');
 
 // ============================================
-// PARTE 3: COMBINACIÓN DE MÉTODOS
+// PASO 2: findIndex() - Encontrar Posición
 // ============================================
+console.log('--- Paso 2: findIndex() ---');
 
-/**
- * TODO: Actualiza el stock de un producto
- * @param {object[]} products - Array de productos
- * @param {number} productId - ID del producto
- * @param {number} newStock - Nuevo stock
- * @returns {object[]} - Nuevo array con producto actualizado
- */
-const updateProductStock = (products, productId, newStock) => {
-  // TODO: Usa findIndex para encontrar, luego crea nuevo array con spread
-  // [...products.slice(0, index), {...product, stock: newStock}, ...products.slice(index + 1)]
-};
+// findIndex() retorna el ÍNDICE del primer elemento que cumple
+// Si no encuentra nada, retorna -1
+// Descomenta las siguientes líneas:
 
-/**
- * TODO: Obtén todos los emails de usuarios verificados
- * @param {object[]} users - Array de usuarios
- * @returns {string[]} - Array de emails
- */
-const getVerifiedEmails = users => {
-  // TODO: Combina filter() y map()
-  // Filtra por verified === true, luego mapea a email
-};
+// const bobIndex = users.findIndex(user => user.name === 'Bob');
+// console.log('Índice de Bob:', bobIndex);
+//
+// const laptopIndex = products.findIndex(p => p.name === 'Laptop');
+// console.log('Índice de Laptop:', laptopIndex);
+//
+// // Útil para actualizar o eliminar
+// const productToUpdate = products[laptopIndex];
+// console.log('Producto a actualizar:', productToUpdate);
+//
+// const notFoundIndex = users.findIndex(user => user.id === 999);
+// console.log('Índice no encontrado:', notFoundIndex); // -1
 
-/**
- * TODO: Verifica si un producto existe y tiene stock
- * @param {object[]} products - Array de productos
- * @param {number} productId - ID del producto
- * @returns {boolean} - true si existe y tiene stock > 0
- */
-const isProductAvailable = (products, productId) => {
-  // TODO: Usa find() y verifica que existe Y tiene stock > 0
-};
-
-/**
- * TODO: Obtén el nombre del producto más caro
- * @param {object[]} products - Array de productos
- * @returns {string} - Nombre del producto más caro
- */
-const getMostExpensiveProduct = products => {
-  // TODO: Usa reduce para encontrar el de mayor precio
-  // Luego retorna su nombre
-};
+console.log('');
 
 // ============================================
-// PRUEBAS - NO MODIFICAR
+// PASO 3: some() - ¿Alguno Cumple?
 // ============================================
+console.log('--- Paso 3: some() ---');
 
-console.log('=== PARTE 1: FIND Y FINDINDEX ===\n');
+// some() retorna true si AL MENOS UN elemento cumple
+// Es como un OR lógico entre todos los elementos
+// Descomenta las siguientes líneas:
 
+// const hasMinors = users.some(user => user.age < 18);
+// console.log('¿Hay menores?:', hasMinors);
+//
+// const hasOutOfStock = products.some(p => p.stock === 0);
+// console.log('¿Hay productos sin stock?:', hasOutOfStock);
+//
+// const hasExpensive = products.some(p => p.price > 500);
+// console.log('¿Hay productos > $500?:', hasExpensive);
+//
+// const hasUnverified = users.some(user => !user.verified);
+// console.log('¿Hay no verificados?:', hasUnverified);
+
+console.log('');
+
+// ============================================
+// PASO 4: every() - ¿Todos Cumplen?
+// ============================================
+console.log('--- Paso 4: every() ---');
+
+// every() retorna true si TODOS los elementos cumplen
+// Es como un AND lógico entre todos los elementos
+// Descomenta las siguientes líneas:
+
+// const allAdults = users.every(user => user.age >= 18);
+// console.log('¿Todos son adultos?:', allAdults);
+//
+// const allVerified = users.every(user => user.verified);
+// console.log('¿Todos verificados?:', allVerified);
+//
+// const allInStock = products.every(p => p.stock > 0);
+// console.log('¿Todos con stock?:', allInStock);
+//
+// const allElectronics = products.every(p => p.category === 'electronics');
+// console.log('¿Todos electronics?:', allElectronics);
+
+console.log('');
+
+// ============================================
+// PASO 5: includes() - Arrays Simples
+// ============================================
+console.log('--- Paso 5: includes() ---');
+
+// includes() busca un valor exacto en arrays de primitivos
+// Retorna true/false
+// Descomenta las siguientes líneas:
+
+// const fruits = ['apple', 'banana', 'orange', 'grape'];
+// console.log('¿Tiene banana?:', fruits.includes('banana'));
+// console.log('¿Tiene mango?:', fruits.includes('mango'));
+//
+// console.log('¿Tiene 12?:', numbers.includes(12));
+// console.log('¿Tiene 100?:', numbers.includes(100));
+//
+// // Buscar desde un índice específico
+// const letters = ['a', 'b', 'c', 'a', 'd'];
+// console.log('¿Tiene "a" desde índice 2?:', letters.includes('a', 2));
+
+console.log('');
+
+// ============================================
+// PASO 6: Combinando Métodos
+// ============================================
+console.log('--- Paso 6: Combinando Métodos ---');
+
+// Puedes combinar métodos para lógica más compleja
+// Descomenta las siguientes líneas:
+
+// // Verificar si un usuario existe y está verificado
+// const checkUser = email => {
+//   const user = users.find(u => u.email === email);
+//   return user && user.verified;
+// };
+// console.log('¿ana@example.com verificado?:', checkUser('ana@example.com'));
+// console.log('¿bob@example.com verificado?:', checkUser('bob@example.com'));
+//
+// // Verificar disponibilidad de producto
+// const isAvailable = productName => {
+//   const product = products.find(p => p.name === productName);
+//   return product ? product.stock > 0 : false;
+// };
+// console.log('¿Laptop disponible?:', isAvailable('Laptop'));
+// console.log('¿Mouse disponible?:', isAvailable('Mouse'));
+
+console.log('');
+
+// ============================================
+// PASO 7: Validación de Formularios
+// ============================================
+console.log('--- Paso 7: Validación de Formularios ---');
+
+// Caso práctico: validar campos de un formulario
+// Descomenta las siguientes líneas:
+
+// const formData = {
+//   username: 'john_doe',
+//   email: 'john@example.com',
+//   password: 'secret123',
+//   age: 25
+// };
+//
+// const requiredFields = ['username', 'email', 'password'];
+//
+// // ¿Todos los campos requeridos tienen valor?
+// const allFieldsFilled = requiredFields.every(field => {
+//   const value = formData[field];
+//   return value !== undefined && value !== '';
+// });
+// console.log('¿Formulario completo?:', allFieldsFilled);
+//
+// // ¿Algún campo está vacío?
+// const hasEmptyField = requiredFields.some(field => {
+//   const value = formData[field];
+//   return value === undefined || value === '';
+// });
+// console.log('¿Hay campos vacíos?:', hasEmptyField);
+
+console.log('');
+
+// ============================================
+// PASO 8: Búsqueda con Múltiples Criterios
+// ============================================
+console.log('--- Paso 8: Búsqueda Múltiple ---');
+
+// Búsqueda combinando varios criterios
+// Descomenta las siguientes líneas:
+
+// const findProduct = (criteria) => {
+//   return products.find(p => {
+//     const matchName = !criteria.name || p.name.toLowerCase().includes(criteria.name.toLowerCase());
+//     const matchMaxPrice = !criteria.maxPrice || p.price <= criteria.maxPrice;
+//     const matchInStock = !criteria.inStock || p.stock > 0;
+//     return matchName && matchMaxPrice && matchInStock;
+//   });
+// };
+//
+// console.log('Buscar barato:', findProduct({ maxPrice: 50 }));
+// console.log('Buscar "key" con stock:', findProduct({ name: 'key', inStock: true }));
+// console.log('Buscar "mouse" con stock:', findProduct({ name: 'mouse', inStock: true }));
+
+console.log('');
+
+// ============================================
+// ✅ EJERCICIO COMPLETADO
+// ============================================
 console.log(
-  'Find user by email (ana@example.com):',
-  findUserByEmail(users, 'ana@example.com')
+  '🎉 ¡Excelente! Has completado el ejercicio de Array Methods Básicos.'
 );
-// Expected: { id: 1, name: 'Ana', ... }
-
-console.log(
-  'Find user by email (notfound@example.com):',
-  findUserByEmail(users, 'notfound@example.com')
-);
-// Expected: undefined
-
-console.log('Get product index (ID 102):', getProductIndex(products, 102));
-// Expected: 1
-
-console.log('Get product index (ID 999):', getProductIndex(products, 999));
-// Expected: -1
-
-console.log(
-  'First number > 50 in [10, 30, 60, 80]:',
-  findFirstGreaterThan([10, 30, 60, 80], 50)
-);
-// Expected: 60
-
-console.log('Get user name (ID 3):', getUserName(users, 3));
-// Expected: 'Carlos'
-
-console.log('Get user name (ID 999):', getUserName(users, 999));
-// Expected: null
-
-console.log('\n=== PARTE 2: SOME Y EVERY ===\n');
-
-console.log('Has out of stock products?', hasOutOfStock(products));
-// Expected: true (Mouse tiene stock 0)
-
-console.log('Are all users adults?', areAllAdults(users));
-// Expected: false (Bob tiene 17)
-
-console.log('Are all users verified?', areAllVerified(users));
-// Expected: false (Bob no está verificado)
-
-console.log('Has available products?', hasAvailableProducts(products));
-// Expected: true
-
-console.log('Has expensive products (>500)?', hasExpensiveProducts(products));
-// Expected: true (Laptop 999)
-
-console.log('\n=== PARTE 3: COMBINACIÓN ===\n');
-
-console.log('Update Mouse stock to 15:', updateProductStock(products, 102, 15));
-// Expected: Array con Mouse.stock = 15
-
-console.log('Verified emails:', getVerifiedEmails(users));
-// Expected: ['ana@example.com', 'carlos@example.com', 'diana@example.com']
-
-console.log('Is product 101 available?', isProductAvailable(products, 101));
-// Expected: true (Laptop, stock 5)
-
-console.log('Is product 102 available?', isProductAvailable(products, 102));
-// Expected: false (Mouse, stock 0)
-
-console.log('Most expensive product:', getMostExpensiveProduct(products));
-// Expected: 'Laptop'
+console.log('Revisa cada paso y experimenta modificando las condiciones.');
