@@ -1,18 +1,55 @@
 /**
- * 🏋️ Ejercicio 03: Módulos Básicos
+ * 📘 Ejercicio 03: Módulos Básicos
  *
  * Archivo: utils/math.js
  *
- * TODO: Crea y exporta las siguientes funciones y constantes
+ * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * para aprender named exports de funciones matemáticas.
  */
 
-// TODO 3.1.1: Exporta la constante PI (3.14159)
+// ============================================
+// PASO 1: Exportar una Constante
+// ============================================
 
-// TODO 3.1.2: Exporta la función sum(a, b) que retorna la suma
+// Las constantes se exportan con export const
+// Descomenta la siguiente línea:
 
-// TODO 3.1.3: Exporta la función multiply(a, b) que retorna el producto
+// export const PI = 3.14159;
 
-// TODO 3.1.4: Exporta la función divide(a, b) que retorna la división
-// Si b es 0, retorna null
+// ============================================
+// PASO 2: Exportar una Función (sum)
+// ============================================
 
-// TODO 3.1.5: Exporta la función power(base, exponent) que retorna base^exponent
+// Las funciones se exportan igual que las constantes
+// Descomenta las siguientes líneas:
+
+// export const sum = (a, b) => a + b;
+
+// ============================================
+// PASO 3: Exportar Función multiply
+// ============================================
+
+// Descomenta la siguiente línea:
+
+// export const multiply = (a, b) => a * b;
+
+// ============================================
+// PASO 4: Exportar Función divide
+// ============================================
+
+// Esta función maneja el caso especial de división por cero
+// Descomenta las siguientes líneas:
+
+// export const divide = (a, b) => {
+//   if (b === 0) return null;
+//   return a / b;
+// };
+
+// ============================================
+// PASO 5: Exportar Función power
+// ============================================
+
+// Usamos el operador ** para exponenciación
+// Descomenta la siguiente línea:
+
+// export const power = (base, exponent) => base ** exponent;

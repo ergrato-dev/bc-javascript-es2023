@@ -1,24 +1,47 @@
 /**
- * 🏋️ Ejercicio 03: Módulos Básicos
+ * 📘 Ejercicio 03: Módulos Básicos
  *
  * Archivo: main.js (Punto de entrada)
  *
- * TODO: Importa los módulos y crea las funciones de prueba
+ * Este es un ejercicio guiado. Descomenta el código para
+ * aprender a importar desde otros módulos.
  */
 
-// TODO 3.5.1: Importa sum, multiply, PI desde utils (barrel)
+// ============================================
+// PASO 1: Importar desde el Barrel (math)
+// ============================================
 
-// TODO 3.5.2: Importa capitalize, truncate desde utils (barrel)
+// Importamos funciones matemáticas del barrel utils/index.js
+// Descomenta la siguiente línea:
 
-// TODO 3.5.3: Importa el config por defecto
+// import { sum, multiply, PI } from './utils/index.js';
 
 // ============================================
-// Funciones de prueba (completa los imports primero)
+// PASO 2: Importar desde el Barrel (strings)
+// ============================================
+
+// También podemos importar las funciones de strings
+// Descomenta la siguiente línea:
+
+// import { capitalize, truncate } from './utils/index.js';
+
+// ============================================
+// PASO 3: Importar Default Export
+// ============================================
+
+// Los default exports se importan SIN llaves
+// Descomenta la siguiente línea:
+
+// import config from './config.js';
+
+// ============================================
+// Funciones de prueba
 // ============================================
 
 const testMath = () => {
   const output = document.getElementById('math-output');
   try {
+    // Estas líneas funcionarán cuando descomentes los imports
     const results = [
       `PI = ${PI}`,
       `sum(5, 3) = ${sum(5, 3)}`,
@@ -27,7 +50,7 @@ const testMath = () => {
     output.innerHTML = results.join('<br>');
     output.className = 'output success';
   } catch (error) {
-    output.innerHTML = `Error: ${error.message}`;
+    output.innerHTML = `Error: ${error.message}<br>¿Descomentaste los imports?`;
     output.className = 'output error';
   }
 };
@@ -35,6 +58,7 @@ const testMath = () => {
 const testStrings = () => {
   const output = document.getElementById('string-output');
   try {
+    // Estas líneas funcionarán cuando descomentes los imports
     const results = [
       `capitalize("hello") = "${capitalize('hello')}"`,
       `truncate("hello world", 5) = "${truncate('hello world', 5)}"`,
@@ -42,7 +66,7 @@ const testStrings = () => {
     output.innerHTML = results.join('<br>');
     output.className = 'output success';
   } catch (error) {
-    output.innerHTML = `Error: ${error.message}`;
+    output.innerHTML = `Error: ${error.message}<br>¿Descomentaste los imports?`;
     output.className = 'output error';
   }
 };
@@ -50,7 +74,7 @@ const testStrings = () => {
 const testConfig = () => {
   const output = document.getElementById('config-output');
   try {
-    // TODO: Usa el config importado
+    // Estas líneas funcionarán cuando descomentes el import
     const results = [
       `App: ${config.appName}`,
       `Version: ${config.version}`,
@@ -59,7 +83,7 @@ const testConfig = () => {
     output.innerHTML = results.join('<br>');
     output.className = 'output success';
   } catch (error) {
-    output.innerHTML = `Error: ${error.message}`;
+    output.innerHTML = `Error: ${error.message}<br>¿Descomentaste el import de config?`;
     output.className = 'output error';
   }
 };
@@ -81,4 +105,4 @@ window.testStrings = testStrings;
 window.testConfig = testConfig;
 window.runAllTests = runAllTests;
 
-console.log('🚀 Módulos cargados correctamente');
+console.log('🚀 main.js cargado. Descomenta los imports para que funcione.');
