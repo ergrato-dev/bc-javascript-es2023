@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .title { font: bold 24px system-ui, sans-serif; fill: #f0db4f; }
+      .subtitle { font: 16px system-ui, sans-serif; fill: #94a3b8; }
+      .label { font: bold 14px system-ui, sans-serif; fill: #f1f5f9; }
+      .code { font: 13px 'Fira Code', monospace; fill: #f1f5f9; }
+      .code-keyword { font: 13px 'Fira Code', monospace; fill: #f0db4f; }
+      .code-error { font: 13px 'Fira Code', monospace; fill: #ef4444; }
+      .code-success { font: 13px 'Fira Code', monospace; fill: #22c55e; }
+      .small { font: 12px system-ui, sans-serif; fill: #94a3b8; }
+      .flow-label { font: bold 12px system-ui, sans-serif; fill: #f1f5f9; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" class="title">Flujo de Manejo de Errores</text>
+  <text x="450" y="65" text-anchor="middle" class="subtitle">try - catch - finally</text>
+
+  <!-- TRY Block -->
+  <rect x="50" y="100" width="250" height="180" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <rect x="50" y="100" width="250" height="35" rx="8" fill="#3b82f6"/>
+  <text x="175" y="123" text-anchor="middle" class="label">try</text>
+
+  <text x="70" y="160" class="code-keyword">try</text>
+  <text x="95" y="160" class="code"> {</text>
+  <text x="80" y="185" class="code">  </text>
+  <text x="95" y="185" class="code-success">// Código que puede fallar</text>
+  <text x="80" y="210" class="code">  validateUser(data);</text>
+  <text x="80" y="235" class="code">  saveToDatabase(data);</text>
+  <text x="70" y="260" class="code">}</text>
+
+  <!-- Arrow from TRY - Success path -->
+  <path d="M 300 190 L 340 190 L 340 450 L 380 450" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="350" y="320" class="small" transform="rotate(90 350 320)">Sin error</text>
+
+  <!-- Arrow from TRY - Error path -->
+  <path d="M 300 190 L 380 190" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="340" y="180" class="small">Error!</text>
+
+  <!-- CATCH Block -->
+  <rect x="400" y="100" width="250" height="180" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <rect x="400" y="100" width="250" height="35" rx="8" fill="#ef4444"/>
+  <text x="525" y="123" text-anchor="middle" class="label">catch</text>
+
+  <text x="420" y="160" class="code-keyword">catch</text>
+  <text x="465" y="160" class="code"> (error) {</text>
+  <text x="430" y="185" class="code-error">// Manejar el error</text>
+  <text x="430" y="210" class="code">console.error(error);</text>
+  <text x="430" y="235" class="code">showUserMessage();</text>
+  <text x="420" y="260" class="code">}</text>
+
+  <!-- Arrow from CATCH to FINALLY -->
+  <path d="M 650 190 L 690 190 L 690 350 L 525 350 L 525 380" fill="none" stroke="#f0db4f" stroke-width="2" marker-end="url(#arrowYellow)"/>
+
+  <!-- FINALLY Block -->
+  <rect x="400" y="400" width="250" height="150" rx="8" fill="#1e293b" stroke="#f0db4f" stroke-width="2"/>
+  <rect x="400" y="400" width="250" height="35" rx="8" fill="#f0db4f"/>
+  <text x="525" y="423" text-anchor="middle" class="label" style="fill: #0f172a;">finally</text>
+
+  <text x="420" y="455" class="code-keyword">finally</text>
+  <text x="475" y="455" class="code"> {</text>
+  <text x="430" y="478" class="code-success">// Siempre se ejecuta</text>
+  <text x="430" y="501" class="code">cleanup();</text>
+  <text x="430" y="524" class="code">closeConnection();</text>
+  <text x="420" y="542" class="code">}</text>
+
+  <!-- Flow Legend -->
+  <rect x="700" y="100" width="180" height="180" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="790" y="125" text-anchor="middle" class="label">Flujo de Ejecución</text>
+
+  <!-- Legend items -->
+  <line x1="720" y1="155" x2="760" y2="155" stroke="#22c55e" stroke-width="2"/>
+  <text x="770" y="160" class="small">Sin error</text>
+
+  <line x1="720" y1="185" x2="760" y2="185" stroke="#ef4444" stroke-width="2"/>
+  <text x="770" y="190" class="small">Con error</text>
+
+  <line x1="720" y1="215" x2="760" y2="215" stroke="#f0db4f" stroke-width="2"/>
+  <text x="770" y="220" class="small">Siempre</text>
+
+  <text x="715" y="250" class="small">✓ try: Riesgoso</text>
+  <text x="715" y="268" class="small">✓ catch: Maneja</text>
+  <text x="715" y="286" class="small">✓ finally: Limpia</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#22c55e"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrowYellow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f0db4f"/>
+    </marker>
+  </defs>
+
+  <!-- Footer -->
+  <text x="450" y="585" text-anchor="middle" class="small">Week 11 | Manejo de Errores Moderno</text>
+</svg>

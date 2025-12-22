@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .title { font: bold 24px system-ui, sans-serif; fill: #f0db4f; }
+      .subtitle { font: 16px system-ui, sans-serif; fill: #94a3b8; }
+      .label { font: bold 14px system-ui, sans-serif; fill: #f1f5f9; }
+      .class-name { font: bold 16px system-ui, sans-serif; fill: #f0db4f; }
+      .property { font: 13px 'Fira Code', monospace; fill: #94a3b8; }
+      .method { font: 13px 'Fira Code', monospace; fill: #3b82f6; }
+      .small { font: 12px system-ui, sans-serif; fill: #94a3b8; }
+      .extends { font: italic 12px system-ui, sans-serif; fill: #22c55e; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" class="title">Jerarquía de Errores Personalizados</text>
+  <text x="450" y="65" text-anchor="middle" class="subtitle">Extendiendo la clase Error nativa</text>
+
+  <!-- Native Error (Top) -->
+  <rect x="350" y="90" width="200" height="80" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+  <text x="450" y="115" text-anchor="middle" class="class-name" style="fill: #64748b;">Error</text>
+  <text x="370" y="140" class="property">name, message</text>
+  <text x="370" y="158" class="property">stack</text>
+
+  <!-- Arrow down to AppError -->
+  <line x1="450" y1="170" x2="450" y2="200" stroke="#64748b" stroke-width="2"/>
+  <polygon points="450,210 445,200 455,200" fill="#64748b"/>
+
+  <!-- AppError (Base Custom) -->
+  <rect x="325" y="220" width="250" height="100" rx="8" fill="#1e293b" stroke="#f0db4f" stroke-width="2"/>
+  <text x="450" y="245" text-anchor="middle" class="class-name">AppError</text>
+  <text x="340" y="270" class="extends">extends Error</text>
+  <text x="340" y="290" class="property">+ code: string</text>
+  <text x="340" y="308" class="property">+ timestamp: Date</text>
+  <text x="480" y="290" class="method">toJSON()</text>
+
+  <!-- Arrows down to child classes -->
+  <line x1="380" y1="320" x2="180" y2="380" stroke="#f0db4f" stroke-width="2"/>
+  <line x1="450" y1="320" x2="450" y2="380" stroke="#f0db4f" stroke-width="2"/>
+  <line x1="520" y1="320" x2="720" y2="380" stroke="#f0db4f" stroke-width="2"/>
+
+  <!-- ValidationError -->
+  <rect x="50" y="390" width="230" height="120" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="165" y="415" text-anchor="middle" class="class-name" style="fill: #ef4444;">ValidationError</text>
+  <text x="65" y="440" class="extends">extends AppError</text>
+  <text x="65" y="460" class="property">+ field: string</text>
+  <text x="65" y="478" class="property">+ value: any</text>
+  <text x="65" y="496" class="method">toUserMessage()</text>
+
+  <!-- NetworkError -->
+  <rect x="335" y="390" width="230" height="120" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="450" y="415" text-anchor="middle" class="class-name" style="fill: #3b82f6;">NetworkError</text>
+  <text x="350" y="440" class="extends">extends AppError</text>
+  <text x="350" y="460" class="property">+ status: number</text>
+  <text x="350" y="478" class="property">+ url: string</text>
+  <text x="350" y="496" class="method">get isRetryable()</text>
+
+  <!-- StorageError -->
+  <rect x="620" y="390" width="230" height="120" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="735" y="415" text-anchor="middle" class="class-name" style="fill: #f59e0b;">StorageError</text>
+  <text x="635" y="440" class="extends">extends AppError</text>
+  <text x="635" y="460" class="property">+ operation: string</text>
+  <text x="635" y="478" class="property">+ key: string</text>
+  <text x="635" y="496" class="method">toUserMessage()</text>
+
+  <!-- Benefits box -->
+  <rect x="50" y="530" width="800" height="50" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="100" y="560" class="small">✓ Identificación por tipo (instanceof)</text>
+  <text x="330" y="560" class="small">✓ Información contextual específica</text>
+  <text x="580" y="560" class="small">✓ Mensajes amigables al usuario</text>
+
+  <!-- Footer -->
+  <text x="450" y="598" text-anchor="middle" class="small">Week 11 | Manejo de Errores Moderno</text>
+</svg>
