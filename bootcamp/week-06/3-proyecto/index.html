@@ -1,142 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Validador de Formularios | Semana 06</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <header>
-      <h1>📝 Validador de Formularios</h1>
-      <p>Proyecto Semana 06 - Strings y RegExp Modernos</p>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Validador de Formularios | Semana 06</title>
+    <link
+      rel="stylesheet"
+      href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📝 Validador de Formularios</h1>
+        <p>Proyecto Semana 06 - Strings y RegExp Modernos</p>
+      </header>
 
-    <form id="registrationForm" novalidate>
-      <!-- Nombre -->
-      <div class="form-group">
-        <label for="name">Nombre completo</label>
-        <input 
-          type="text" 
-          id="name" 
-          name="name" 
-          placeholder="Ej: Juan García López"
-          aria-describedby="nameError"
-        >
-        <span class="error-message" id="nameError"></span>
-      </div>
-
-      <!-- Email -->
-      <div class="form-group">
-        <label for="email">Correo electrónico</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          placeholder="Ej: usuario@dominio.com"
-          aria-describedby="emailError"
-        >
-        <span class="error-message" id="emailError"></span>
-      </div>
-
-      <!-- Teléfono -->
-      <div class="form-group">
-        <label for="phone">Teléfono</label>
-        <input 
-          type="tel" 
-          id="phone" 
-          name="phone" 
-          placeholder="Ej: +34 612 345 678"
-          aria-describedby="phoneError"
-        >
-        <span class="error-message" id="phoneError"></span>
-      </div>
-
-      <!-- Contraseña -->
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input 
-          type="password" 
-          id="password" 
-          name="password" 
-          placeholder="Mínimo 8 caracteres"
-          aria-describedby="passwordError"
-        >
-        <div class="password-strength">
-          <div class="strength-bar" id="strengthBar"></div>
+      <form
+        id="registrationForm"
+        novalidate>
+        <!-- Nombre -->
+        <div class="form-group">
+          <label for="name">Nombre completo</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Ej: Juan García López"
+            aria-describedby="nameError" />
+          <span
+            class="error-message"
+            id="nameError"></span>
         </div>
-        <span class="strength-text" id="strengthText"></span>
-        <span class="error-message" id="passwordError"></span>
-      </div>
 
-      <!-- Confirmar Contraseña -->
-      <div class="form-group">
-        <label for="confirmPassword">Confirmar contraseña</label>
-        <input 
-          type="password" 
-          id="confirmPassword" 
-          name="confirmPassword" 
-          placeholder="Repite la contraseña"
-          aria-describedby="confirmError"
-        >
-        <span class="error-message" id="confirmError"></span>
-      </div>
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Ej: usuario@dominio.com"
+            aria-describedby="emailError" />
+          <span
+            class="error-message"
+            id="emailError"></span>
+        </div>
 
-      <!-- Fecha de Nacimiento -->
-      <div class="form-group">
-        <label for="birthdate">Fecha de nacimiento</label>
-        <input 
-          type="text" 
-          id="birthdate" 
-          name="birthdate" 
-          placeholder="DD/MM/YYYY"
-          aria-describedby="birthdateError"
-        >
-        <span class="error-message" id="birthdateError"></span>
-      </div>
+        <!-- Teléfono -->
+        <div class="form-group">
+          <label for="phone">Teléfono</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Ej: +34 612 345 678"
+            aria-describedby="phoneError" />
+          <span
+            class="error-message"
+            id="phoneError"></span>
+        </div>
 
-      <!-- Código Postal -->
-      <div class="form-group">
-        <label for="postal">Código postal</label>
-        <input 
-          type="text" 
-          id="postal" 
-          name="postal" 
-          placeholder="Ej: 28001"
-          maxlength="5"
-          aria-describedby="postalError"
-        >
-        <span class="error-message" id="postalError"></span>
-      </div>
+        <!-- Contraseña -->
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Mínimo 8 caracteres"
+            aria-describedby="passwordError" />
+          <div class="password-strength">
+            <div
+              class="strength-bar"
+              id="strengthBar"></div>
+          </div>
+          <span
+            class="strength-text"
+            id="strengthText"></span>
+          <span
+            class="error-message"
+            id="passwordError"></span>
+        </div>
 
-      <!-- URL -->
-      <div class="form-group">
-        <label for="website">Sitio web (opcional)</label>
-        <input 
-          type="url" 
-          id="website" 
-          name="website" 
-          placeholder="https://ejemplo.com"
-          aria-describedby="websiteError"
-        >
-        <span class="error-message" id="websiteError"></span>
-      </div>
+        <!-- Confirmar Contraseña -->
+        <div class="form-group">
+          <label for="confirmPassword">Confirmar contraseña</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Repite la contraseña"
+            aria-describedby="confirmError" />
+          <span
+            class="error-message"
+            id="confirmError"></span>
+        </div>
 
-      <!-- Botones -->
-      <div class="form-actions">
-        <button type="reset" class="btn btn-secondary">Limpiar</button>
-        <button type="submit" class="btn btn-primary" id="submitBtn">Registrarse</button>
-      </div>
-    </form>
+        <!-- Fecha de Nacimiento -->
+        <div class="form-group">
+          <label for="birthdate">Fecha de nacimiento</label>
+          <input
+            type="text"
+            id="birthdate"
+            name="birthdate"
+            placeholder="DD/MM/YYYY"
+            aria-describedby="birthdateError" />
+          <span
+            class="error-message"
+            id="birthdateError"></span>
+        </div>
 
-    <!-- Resultado -->
-    <div id="result" class="result hidden">
-      <h2>✅ Registro Exitoso</h2>
-      <pre id="formData"></pre>
+        <!-- Código Postal -->
+        <div class="form-group">
+          <label for="postal">Código postal</label>
+          <input
+            type="text"
+            id="postal"
+            name="postal"
+            placeholder="Ej: 28001"
+            maxlength="5"
+            aria-describedby="postalError" />
+          <span
+            class="error-message"
+            id="postalError"></span>
+        </div>
+
+        <!-- URL -->
+        <div class="form-group">
+          <label for="website">Sitio web (opcional)</label>
+          <input
+            type="url"
+            id="website"
+            name="website"
+            placeholder="https://ejemplo.com"
+            aria-describedby="websiteError" />
+          <span
+            class="error-message"
+            id="websiteError"></span>
+        </div>
+
+        <!-- Botones -->
+        <div class="form-actions">
+          <button
+            type="reset"
+            class="btn btn-secondary">
+            Limpiar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="submitBtn">
+            Registrarse
+          </button>
+        </div>
+      </form>
+
+      <!-- Resultado -->
+      <div
+        id="result"
+        class="result hidden">
+        <h2>✅ Registro Exitoso</h2>
+        <pre id="formData"></pre>
+      </div>
     </div>
-  </div>
 
-  <script src="starter/script.js"></script>
-</body>
+    <script src="starter/script.js"></script>
+  </body>
 </html>
