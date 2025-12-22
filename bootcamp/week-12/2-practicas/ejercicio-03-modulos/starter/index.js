@@ -35,7 +35,9 @@ const APP_NAME = 'Mi App';
 
 console.log('Importando con destructuring:');
 console.log(`formatPrice(99.99) = ${formatPrice(99.99)}`);
-console.log(`validateEmail('test@mail.com') = ${validateEmail('test@mail.com')}`);
+console.log(
+  `validateEmail('test@mail.com') = ${validateEmail('test@mail.com')}`
+);
 console.log(`APP_NAME = ${APP_NAME}`);
 
 console.log('');
