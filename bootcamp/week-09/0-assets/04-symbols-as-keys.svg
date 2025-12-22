@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .text { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 12px; }
+      .code { fill: #fbbf24; font-family: Consolas, Monaco, monospace; font-size: 11px; }
+      .box-blue { fill: #1e3a5f; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .box-purple { fill: #2d1f4e; stroke: #8b5cf6; stroke-width: 2; rx: 8; }
+      .box-green { fill: #14532d; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .box-red { fill: #450a0a; stroke: #ef4444; stroke-width: 2; rx: 8; }
+      .accent-blue { fill: #3b82f6; }
+      .accent-purple { fill: #8b5cf6; }
+      .accent-green { fill: #22c55e; }
+      .check { fill: #22c55e; }
+      .cross { fill: #ef4444; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Symbols como Claves "Privadas"</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Ocultación vs privacidad real</text>
+
+  <!-- Object with Symbol keys -->
+  <rect class="box-purple" x="30" y="80" width="280" height="200"/>
+  <text class="label" x="170" y="105" text-anchor="middle">Objeto con Symbol Keys</text>
+
+  <text class="code" x="50" y="135">const _secret = Symbol('secret');</text>
+  <text class="code" x="50" y="160">const obj = {</text>
+  <text class="code" x="70" y="180">name: 'visible',</text>
+  <text class="code" x="70" y="200">[_secret]: 'hidden'</text>
+  <text class="code" x="50" y="220">};</text>
+
+  <text class="text" x="50" y="250">El Symbol es la "llave"</text>
+  <text class="text" x="50" y="268">para acceder al valor</text>
+
+  <!-- What's hidden -->
+  <rect class="box-green" x="340" y="80" width="200" height="200"/>
+  <text class="label" x="440" y="105" text-anchor="middle">✓ Oculto de:</text>
+
+  <text class="code" x="360" y="135">Object.keys(obj)</text>
+  <text class="text" x="360" y="152" fill="#86efac">→ ['name']</text>
+
+  <text class="code" x="360" y="180">for (k in obj)</text>
+  <text class="text" x="360" y="197" fill="#86efac">→ solo 'name'</text>
+
+  <text class="code" x="360" y="225">JSON.stringify(obj)</text>
+  <text class="text" x="360" y="242" fill="#86efac">→ {"name":"visible"}</text>
+
+  <text class="text" x="360" y="270">Los símbolos no</text>
+  <text class="text" x="360" y="285">son enumerables</text>
+
+  <!-- Still accessible -->
+  <rect class="box-red" x="570" y="80" width="200" height="200"/>
+  <text class="label" x="670" y="105" text-anchor="middle">✗ Pero accesible:</text>
+
+  <text class="code" x="590" y="135">obj[_secret]</text>
+  <text class="text" x="590" y="152" fill="#fca5a5">→ 'hidden'</text>
+
+  <text class="code" x="590" y="180">getOwnPropertySymbols</text>
+  <text class="text" x="590" y="197" fill="#fca5a5">→ [Symbol(secret)]</text>
+
+  <text class="code" x="590" y="225">Reflect.ownKeys(obj)</text>
+  <text class="text" x="590" y="242" fill="#fca5a5">→ ['name', Symbol]</text>
+
+  <text class="text" x="590" y="270">No es privacidad</text>
+  <text class="text" x="590" y="285">real!</text>
+
+  <!-- Comparison with #private -->
+  <rect class="box-blue" x="30" y="300" width="740" height="120"/>
+  <text class="label" x="400" y="325" text-anchor="middle">Symbol vs # Private Fields (ES2022)</text>
+
+  <!-- Symbol column -->
+  <text class="label" x="150" y="355" text-anchor="middle" fill="#8b5cf6">Symbol</text>
+  <text class="text" x="60" y="378">• Oculto pero accesible</text>
+  <text class="text" x="60" y="396">• Funciona en ES6+</text>
+  <text class="text" x="60" y="414">• Convención, no enforcement</text>
+
+  <!-- Divider -->
+  <line x1="400" y1="345" x2="400" y2="410" stroke="#475569" stroke-width="2"/>
+
+  <!-- #private column -->
+  <text class="label" x="600" y="355" text-anchor="middle" fill="#3b82f6">#private</text>
+  <text class="text" x="430" y="378">• Verdadera privacidad</text>
+  <text class="text" x="430" y="396">• Solo en clases (ES2022+)</text>
+  <text class="text" x="430" y="414">• Enforcement del lenguaje</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="440" text-anchor="middle">Week 09 | Símbolos y Metaprogramación</text>
+</svg>

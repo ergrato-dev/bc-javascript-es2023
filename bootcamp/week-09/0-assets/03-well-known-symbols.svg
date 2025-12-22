@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; }
+      .text { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 11px; }
+      .code { fill: #fbbf24; font-family: Consolas, Monaco, monospace; font-size: 10px; }
+      .box-blue { fill: #1e3a5f; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .box-purple { fill: #2d1f4e; stroke: #8b5cf6; stroke-width: 2; rx: 8; }
+      .box-green { fill: #14532d; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .box-amber { fill: #422006; stroke: #f59e0b; stroke-width: 2; rx: 8; }
+      .accent-blue { fill: #3b82f6; }
+      .accent-purple { fill: #8b5cf6; }
+      .accent-green { fill: #22c55e; }
+      .accent-amber { fill: #f59e0b; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="480"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Well-known Symbols</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Símbolos predefinidos para personalizar el lenguaje</text>
+
+  <!-- Symbol.iterator -->
+  <rect class="box-blue" x="30" y="80" width="235" height="165"/>
+  <rect x="40" y="90" width="130" height="24" rx="4" class="accent-blue"/>
+  <text class="label" x="105" y="107" text-anchor="middle">Symbol.iterator</text>
+
+  <text class="text" x="50" y="130">Hace objeto iterable</text>
+
+  <text class="code" x="50" y="155">const obj = {</text>
+  <text class="code" x="60" y="170">*[Symbol.iterator]() {</text>
+  <text class="code" x="70" y="185">yield 1; yield 2;</text>
+  <text class="code" x="60" y="200">}</text>
+  <text class="code" x="50" y="215">};</text>
+  <text class="code" x="50" y="235">[...obj] // [1, 2]</text>
+
+  <!-- Symbol.toStringTag -->
+  <rect class="box-purple" x="282" y="80" width="235" height="165"/>
+  <rect x="292" y="90" width="140" height="24" rx="4" class="accent-purple"/>
+  <text class="label" x="362" y="107" text-anchor="middle">Symbol.toStringTag</text>
+
+  <text class="text" x="302" y="130">Personaliza toString</text>
+
+  <text class="code" x="302" y="155">class MyClass {</text>
+  <text class="code" x="312" y="170">get [Symbol.toStringTag]() {</text>
+  <text class="code" x="322" y="185">return 'MyClass';</text>
+  <text class="code" x="312" y="200">}</text>
+  <text class="code" x="302" y="215">}</text>
+  <text class="code" x="302" y="235">// [object MyClass]</text>
+
+  <!-- Symbol.toPrimitive -->
+  <rect class="box-green" x="534" y="80" width="235" height="165"/>
+  <rect x="544" y="90" width="140" height="24" rx="4" class="accent-green"/>
+  <text class="label" x="614" y="107" text-anchor="middle">Symbol.toPrimitive</text>
+
+  <text class="text" x="554" y="130">Control de conversión</text>
+
+  <text class="code" x="554" y="155">[Symbol.toPrimitive](hint) {</text>
+  <text class="code" x="564" y="170">if (hint === 'number')</text>
+  <text class="code" x="574" y="185">return this.value;</text>
+  <text class="code" x="564" y="200">if (hint === 'string')</text>
+  <text class="code" x="574" y="215">return this.name;</text>
+  <text class="code" x="554" y="230">}</text>
+
+  <!-- Symbol.hasInstance -->
+  <rect class="box-amber" x="30" y="265" width="235" height="165"/>
+  <rect x="40" y="275" width="140" height="24" rx="4" class="accent-amber"/>
+  <text class="label" x="110" y="292" text-anchor="middle">Symbol.hasInstance</text>
+
+  <text class="text" x="50" y="315">Personaliza instanceof</text>
+
+  <text class="code" x="50" y="340">class Validator {</text>
+  <text class="code" x="60" y="355">static [Symbol.hasInstance](v) {</text>
+  <text class="code" x="70" y="370">return typeof v === 'string';</text>
+  <text class="code" x="60" y="385">}</text>
+  <text class="code" x="50" y="400">}</text>
+  <text class="code" x="50" y="420">'hi' instanceof Validator //true</text>
+
+  <!-- Others Summary -->
+  <rect class="box-blue" x="282" y="265" width="487" height="165"/>
+  <text class="label" x="525" y="290" text-anchor="middle">Otros Well-known Symbols</text>
+
+  <!-- Column 1 -->
+  <text class="code" x="302" y="320">Symbol.asyncIterator</text>
+  <text class="text" x="302" y="335">for await...of</text>
+
+  <text class="code" x="302" y="360">Symbol.match</text>
+  <text class="text" x="302" y="375">String.match()</text>
+
+  <text class="code" x="302" y="400">Symbol.replace</text>
+  <text class="text" x="302" y="415">String.replace()</text>
+
+  <!-- Column 2 -->
+  <text class="code" x="480" y="320">Symbol.search</text>
+  <text class="text" x="480" y="335">String.search()</text>
+
+  <text class="code" x="480" y="360">Symbol.split</text>
+  <text class="text" x="480" y="375">String.split()</text>
+
+  <text class="code" x="480" y="400">Symbol.species</text>
+  <text class="text" x="480" y="415">Constructor derivados</text>
+
+  <!-- Column 3 -->
+  <text class="code" x="640" y="320">isConcatSpreadable</text>
+  <text class="text" x="640" y="335">Array.concat()</text>
+
+  <text class="code" x="640" y="360">Symbol.unscopables</text>
+  <text class="text" x="640" y="375">with statement</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="465" text-anchor="middle">Week 09 | Símbolos y Metaprogramación</text>
+</svg>

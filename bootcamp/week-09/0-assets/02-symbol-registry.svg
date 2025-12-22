@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .text { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 12px; }
+      .code { fill: #fbbf24; font-family: Consolas, Monaco, monospace; font-size: 11px; }
+      .box-blue { fill: #1e3a5f; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .box-purple { fill: #2d1f4e; stroke: #8b5cf6; stroke-width: 2; rx: 8; }
+      .box-green { fill: #14532d; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .registry { fill: #1e293b; stroke: #f59e0b; stroke-width: 2; rx: 8; }
+      .accent-blue { fill: #3b82f6; }
+      .accent-purple { fill: #8b5cf6; }
+      .accent-green { fill: #22c55e; }
+      .accent-amber { fill: #f59e0b; }
+      .line { stroke: #475569; stroke-width: 2; stroke-dasharray: 5,5; }
+      .arrow { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Symbol.for() y Registro Global</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Símbolos compartidos entre módulos y archivos</text>
+
+  <!-- Global Registry (center) -->
+  <rect class="registry" x="280" y="85" width="240" height="180"/>
+  <text class="label" x="400" y="110" text-anchor="middle" fill="#f59e0b">Global Symbol Registry</text>
+
+  <!-- Registry entries -->
+  <rect x="300" y="125" width="200" height="35" rx="4" fill="#374151"/>
+  <text class="code" x="310" y="147">'app.id'</text>
+  <text class="text" x="420" y="147">→ Symbol(app.id)</text>
+
+  <rect x="300" y="170" width="200" height="35" rx="4" fill="#374151"/>
+  <text class="code" x="310" y="192">'user.key'</text>
+  <text class="text" x="420" y="192">→ Symbol(user.key)</text>
+
+  <rect x="300" y="215" width="200" height="35" rx="4" fill="#374151"/>
+  <text class="code" x="310" y="237">'shared'</text>
+  <text class="text" x="420" y="237">→ Symbol(shared)</text>
+
+  <!-- Module A (left) -->
+  <rect class="box-blue" x="30" y="100" width="200" height="150"/>
+  <text class="label" x="130" y="125" text-anchor="middle">Módulo A</text>
+
+  <text class="code" x="50" y="160">const id = </text>
+  <text class="code" x="50" y="178">  Symbol.for('app.id');</text>
+  <text class="text" x="50" y="210">Crea o recupera</text>
+  <text class="text" x="50" y="227">del registro</text>
+
+  <!-- Arrow from Module A to Registry -->
+  <path class="arrow" d="M 230 175 L 275 175"/>
+
+  <!-- Module B (right) -->
+  <rect class="box-purple" x="570" y="100" width="200" height="150"/>
+  <text class="label" x="670" y="125" text-anchor="middle">Módulo B</text>
+
+  <text class="code" x="590" y="160">const id = </text>
+  <text class="code" x="590" y="178">  Symbol.for('app.id');</text>
+  <text class="text" x="590" y="210">Obtiene el mismo</text>
+  <text class="text" x="590" y="227">Symbol!</text>
+
+  <!-- Arrow from Registry to Module B -->
+  <path class="arrow" d="M 525 175 L 565 175"/>
+
+  <!-- Comparison box -->
+  <rect class="box-green" x="130" y="290" width="250" height="90"/>
+  <text class="label" x="255" y="315" text-anchor="middle">Symbol.for() vs Symbol()</text>
+
+  <text class="code" x="150" y="345">Symbol.for('x') === Symbol.for('x')</text>
+  <rect x="150" y="353" width="50" height="20" rx="4" fill="#14532d" stroke="#22c55e"/>
+  <text class="code" x="175" y="368" text-anchor="middle" fill="#86efac">true</text>
+
+  <!-- Symbol() comparison -->
+  <rect class="box-blue" x="420" y="290" width="250" height="90"/>
+  <text class="label" x="545" y="315" text-anchor="middle">Symbol() Siempre Único</text>
+
+  <text class="code" x="440" y="345">Symbol('x') === Symbol('x')</text>
+  <rect x="440" y="353" width="50" height="20" rx="4" fill="#7f1d1d"/>
+  <text class="code" x="465" y="368" text-anchor="middle" fill="#fca5a5">false</text>
+
+  <!-- Symbol.keyFor() -->
+  <rect x="200" y="395" width="400" height="35" rx="4" fill="#374151" stroke="#475569"/>
+  <text class="code" x="220" y="417">Symbol.keyFor(Symbol.for('app.id'))</text>
+  <text class="text" x="490" y="417">→</text>
+  <text class="code" x="510" y="417" fill="#86efac">'app.id'</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="445" text-anchor="middle">Week 09 | Símbolos y Metaprogramación</text>
+</svg>

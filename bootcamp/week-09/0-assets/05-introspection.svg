@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .text { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 12px; }
+      .code { fill: #fbbf24; font-family: Consolas, Monaco, monospace; font-size: 11px; }
+      .result { fill: #86efac; font-family: Consolas, Monaco, monospace; font-size: 11px; }
+      .box-blue { fill: #1e3a5f; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .box-purple { fill: #2d1f4e; stroke: #8b5cf6; stroke-width: 2; rx: 8; }
+      .box-green { fill: #14532d; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .box-amber { fill: #422006; stroke: #f59e0b; stroke-width: 2; rx: 8; }
+      .accent-blue { fill: #3b82f6; }
+      .accent-purple { fill: #8b5cf6; }
+      .accent-green { fill: #22c55e; }
+      .accent-amber { fill: #f59e0b; }
+      .arrow { stroke: #475569; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Introspección de Símbolos</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Métodos para descubrir claves simbólicas</text>
+
+  <!-- Source Object -->
+  <rect class="box-amber" x="30" y="80" width="200" height="150"/>
+  <text class="label" x="130" y="105" text-anchor="middle">Objeto Fuente</text>
+
+  <text class="code" x="50" y="135">const _id = Symbol('id');</text>
+  <text class="code" x="50" y="155">const obj = {</text>
+  <text class="code" x="70" y="175">name: 'Alice',</text>
+  <text class="code" x="70" y="195">[_id]: 123</text>
+  <text class="code" x="50" y="215">};</text>
+
+  <!-- Arrow down -->
+  <path class="arrow" d="M 130 235 L 130 260"/>
+
+  <!-- Object.keys -->
+  <rect class="box-blue" x="30" y="270" width="200" height="90"/>
+  <text class="label" x="130" y="295" text-anchor="middle">Object.keys()</text>
+  <text class="code" x="50" y="320">Object.keys(obj)</text>
+  <text class="result" x="50" y="345">→ ['name']</text>
+  <text class="text" x="130" y="355" text-anchor="middle">Solo strings</text>
+
+  <!-- getOwnPropertySymbols -->
+  <rect class="box-purple" x="300" y="80" width="220" height="140"/>
+  <text class="label" x="410" y="105" text-anchor="middle">getOwnPropertySymbols()</text>
+
+  <text class="code" x="320" y="135">Object</text>
+  <text class="code" x="330" y="155">.getOwnPropertySymbols(obj)</text>
+  <text class="result" x="320" y="185">→ [Symbol(id)]</text>
+
+  <text class="text" x="320" y="210">Solo símbolos propios</text>
+
+  <!-- Reflect.ownKeys -->
+  <rect class="box-green" x="300" y="240" width="220" height="120"/>
+  <text class="label" x="410" y="265" text-anchor="middle">Reflect.ownKeys()</text>
+
+  <text class="code" x="320" y="295">Reflect.ownKeys(obj)</text>
+  <text class="result" x="320" y="325">→ ['name', Symbol(id)]</text>
+
+  <text class="text" x="320" y="350">Strings + Símbolos</text>
+
+  <!-- Comparison Table -->
+  <rect class="box-blue" x="570" y="80" width="200" height="280"/>
+  <text class="label" x="670" y="105" text-anchor="middle">Comparación</text>
+
+  <!-- Header row -->
+  <text class="text" x="590" y="130">Método</text>
+  <text class="text" x="700" y="130">Incluye</text>
+
+  <line x1="580" y1="140" x2="760" y2="140" stroke="#475569" stroke-width="1"/>
+
+  <!-- Row 1 -->
+  <text class="code" x="590" y="165">Object.keys()</text>
+  <text class="text" x="700" y="165">strings</text>
+
+  <!-- Row 2 -->
+  <text class="code" x="590" y="195">for...in</text>
+  <text class="text" x="700" y="195">strings*</text>
+
+  <!-- Row 3 -->
+  <text class="code" x="590" y="225">getOwnProperty</text>
+  <text class="code" x="590" y="240">Names()</text>
+  <text class="text" x="700" y="232">strings</text>
+
+  <!-- Row 4 -->
+  <text class="code" x="590" y="270">getOwnProperty</text>
+  <text class="code" x="590" y="285">Symbols()</text>
+  <text class="text" x="700" y="277" fill="#8b5cf6">symbols</text>
+
+  <!-- Row 5 -->
+  <text class="code" x="590" y="315">Reflect</text>
+  <text class="code" x="590" y="330">.ownKeys()</text>
+  <text class="text" x="700" y="322" fill="#22c55e">todo</text>
+
+  <text class="text" x="590" y="355" font-size="10px">*incluye heredados</text>
+
+  <!-- Use Case -->
+  <rect class="box-amber" x="30" y="375" width="490" height="55"/>
+  <text class="label" x="275" y="398" text-anchor="middle">Caso de Uso: Copiar objeto con símbolos</text>
+  <text class="code" x="50" y="420">const clone = Object.fromEntries(Reflect.ownKeys(obj).map(k => [k, obj[k]]));</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="445" text-anchor="middle">Week 09 | Símbolos y Metaprogramación</text>
+</svg>

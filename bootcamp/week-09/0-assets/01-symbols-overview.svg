@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 13px; font-weight: 600; }
+      .text { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 12px; }
+      .code { fill: #fbbf24; font-family: Consolas, Monaco, monospace; font-size: 12px; }
+      .box-blue { fill: #1e3a5f; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .box-purple { fill: #2d1f4e; stroke: #8b5cf6; stroke-width: 2; rx: 8; }
+      .box-green { fill: #14532d; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .accent-blue { fill: #3b82f6; }
+      .accent-purple { fill: #8b5cf6; }
+      .accent-green { fill: #22c55e; }
+      .line { stroke: #475569; stroke-width: 2; }
+      .arrow { fill: #475569; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Symbol: El 7° Tipo Primitivo</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Identificadores únicos e inmutables en JavaScript</text>
+
+  <!-- Primitive Types Box -->
+  <rect class="box-blue" x="30" y="80" width="220" height="200"/>
+  <text class="label" x="140" y="105" text-anchor="middle">Tipos Primitivos</text>
+
+  <text class="code" x="50" y="135">undefined</text>
+  <text class="code" x="50" y="158">boolean</text>
+  <text class="code" x="50" y="181">number</text>
+  <text class="code" x="50" y="204">bigint</text>
+  <text class="code" x="50" y="227">string</text>
+  <text class="code" x="50" y="250">null</text>
+
+  <!-- Symbol highlighted -->
+  <rect x="130" y="235" width="100" height="28" rx="4" class="accent-purple"/>
+  <text class="label" x="180" y="254" text-anchor="middle">symbol</text>
+  <text class="text" x="180" y="273" text-anchor="middle">ES6+</text>
+
+  <!-- Symbol Creation Box -->
+  <rect class="box-purple" x="290" y="80" width="230" height="200"/>
+  <text class="label" x="405" y="105" text-anchor="middle">Creación de Symbols</text>
+
+  <text class="code" x="310" y="140">const s1 = Symbol();</text>
+  <text class="code" x="310" y="170">const s2 = Symbol('id');</text>
+  <text class="code" x="310" y="200">const s3 = Symbol('id');</text>
+
+  <text class="text" x="310" y="235">s2 === s3</text>
+  <rect x="400" y="220" width="60" height="24" rx="4" fill="#7f1d1d"/>
+  <text class="code" x="430" y="237" text-anchor="middle" fill="#fca5a5">false</text>
+
+  <text class="text" x="310" y="265" fill="#94a3b8">Cada Symbol es único</text>
+
+  <!-- Symbol as Key Box -->
+  <rect class="box-green" x="560" y="80" width="210" height="200"/>
+  <text class="label" x="665" y="105" text-anchor="middle">Symbol como Clave</text>
+
+  <text class="code" x="580" y="140">const _id = Symbol();</text>
+  <text class="code" x="580" y="170">const obj = {</text>
+  <text class="code" x="600" y="193">[_id]: 'secret',</text>
+  <text class="code" x="600" y="216">name: 'public'</text>
+  <text class="code" x="580" y="239">};</text>
+  <text class="text" x="580" y="270">Oculto de for..in</text>
+
+  <!-- Key Characteristics -->
+  <rect class="box-blue" x="30" y="310" width="740" height="110"/>
+  <text class="label" x="400" y="335" text-anchor="middle">Características Clave</text>
+
+  <!-- Characteristic 1 -->
+  <circle cx="80" cy="370" r="20" class="accent-blue"/>
+  <text class="label" x="80" y="375" text-anchor="middle">1</text>
+  <text class="text" x="110" y="365">Únicos</text>
+  <text class="text" x="110" y="382" fill="#64748b">Cada Symbol() es diferente</text>
+
+  <!-- Characteristic 2 -->
+  <circle cx="280" cy="370" r="20" class="accent-purple"/>
+  <text class="label" x="280" y="375" text-anchor="middle">2</text>
+  <text class="text" x="310" y="365">Inmutables</text>
+  <text class="text" x="310" y="382" fill="#64748b">No se pueden modificar</text>
+
+  <!-- Characteristic 3 -->
+  <circle cx="480" cy="370" r="20" class="accent-green"/>
+  <text class="label" x="480" y="375" text-anchor="middle">3</text>
+  <text class="text" x="510" y="365">No enumerables</text>
+  <text class="text" x="510" y="382" fill="#64748b">Ocultos en for...in</text>
+
+  <!-- Characteristic 4 -->
+  <circle cx="665" cy="370" r="20" fill="#f59e0b"/>
+  <text class="label" x="665" y="375" text-anchor="middle">4</text>
+  <text class="text" x="695" y="365">Debug</text>
+  <text class="text" x="695" y="382" fill="#64748b">description</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="440" text-anchor="middle">Week 09 | Símbolos y Metaprogramación</text>
+</svg>
