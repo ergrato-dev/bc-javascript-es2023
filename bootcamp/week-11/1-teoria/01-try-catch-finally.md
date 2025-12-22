@@ -171,7 +171,7 @@ const reThrow = () => {
 ```javascript
 const processFile = async filePath => {
   let fileHandle = null;
-  
+
   try {
     fileHandle = await openFile(filePath);
     const content = await fileHandle.read();
@@ -215,11 +215,11 @@ const divide = (a, b) => {
   if (typeof a !== 'number' || typeof b !== 'number') {
     throw new TypeError('Both arguments must be numbers');
   }
-  
+
   if (b === 0) {
     throw new RangeError('Cannot divide by zero');
   }
-  
+
   return a / b;
 };
 
@@ -247,7 +247,7 @@ const parseUserData = jsonString => {
   } catch (error) {
     // Log for debugging
     console.error('Failed to parse user data:', error.message);
-    
+
     // Re-throw with more context
     throw new Error(`Invalid user data format: ${error.message}`);
   }
@@ -260,11 +260,11 @@ const parseUserData = jsonString => {
 const fetchUserData = async userId => {
   try {
     const response = await fetch(`/api/users/${userId}`);
-    
+
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
-    
+
     return await response.json();
   } catch (error) {
     // Only handle network errors here
@@ -272,7 +272,7 @@ const fetchUserData = async userId => {
       console.log('Network error, using cached data');
       return getCachedUser(userId);
     }
-    
+
     // Re-throw other errors
     throw error;
   }
@@ -327,7 +327,7 @@ const processData = data => {
   try {
     // Outer try
     const parsed = JSON.parse(data);
-    
+
     try {
       // Inner try for specific operation
       return transformData(parsed);
