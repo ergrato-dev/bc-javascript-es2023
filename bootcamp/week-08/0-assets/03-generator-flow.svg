@@ -101,5 +101,5 @@
   <text class="label" x="450" y="390" font-size="12">• Son iterables (for...of, spread)</text>
 
   <!-- Footer -->
-  <text class="subtitle" x="400" y="450" text-anchor="middle">function* crea generador → yield pausa → next() reanuda</text>
+  <text class="subtitle" x="400" y="450" text-anchor="middle">function* → yield pausa → next() reanuda</text>
 </svg>
