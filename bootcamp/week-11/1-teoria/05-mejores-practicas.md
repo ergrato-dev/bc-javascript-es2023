@@ -89,11 +89,11 @@ const fetchUser = async id => {
 // ✅ GOOD - Single responsibility
 const fetchUser = async id => {
   const response = await fetch(`/api/users/${id}`);
-  
+
   if (!response.ok) {
     throw new HttpError(response.status, response.statusText);
   }
-  
+
   return response.json();
 };
 
@@ -136,10 +136,10 @@ class AppError extends Error {
     this.isOperational = options.isOperational ?? true;
     this.context = options.context ?? {};
     this.timestamp = new Date().toISOString();
-    
+
     Error.captureStackTrace?.(this, this.constructor);
   }
-  
+
   toJSON() {
     return {
       name: this.name,
@@ -151,7 +151,7 @@ class AppError extends Error {
       stack: this.stack
     };
   }
-  
+
   toUserMessage() {
     // Override in subclasses for user-friendly messages
     return 'An unexpected error occurred. Please try again.';
@@ -203,7 +203,7 @@ class ProgrammerError extends AppError {
 ```javascript
 const globalErrorHandler = error => {
   logger.error(error);
-  
+
   if (error.isOperational) {
     // Operational error - handle gracefully
     showUserMessage(error.toUserMessage());
@@ -211,7 +211,7 @@ const globalErrorHandler = error => {
     // Programmer error - something is very wrong
     showCriticalError();
     reportToDeveloper(error);
-    
+
     // In production, might want to restart the process
     // process.exit(1);
   }
@@ -253,7 +253,7 @@ const structuredLog = (level, message, data = {}) => {
     environment: process.env.NODE_ENV,
     version: process.env.APP_VERSION
   };
-  
+
   console[level](JSON.stringify(logEntry));
 };
 
@@ -277,21 +277,21 @@ const logError = (error, context = {}) => {
     errorMessage: error.message,
     errorCode: error.code,
     errorStack: error.stack,
-    
+
     // Context
     ...context,
-    
+
     // Environment
     url: window.location?.href,
     userAgent: navigator?.userAgent,
     timestamp: new Date().toISOString(),
-    
+
     // User (if available)
     userId: getCurrentUser()?.id
   };
-  
+
   console.error('Error occurred:', logData);
-  
+
   // Send to error tracking service
   if (process.env.NODE_ENV === 'production') {
     sendToErrorTracking(logData);
@@ -312,7 +312,7 @@ class HttpError extends AppError {
     this.status = status;
     this.url = url;
   }
-  
+
   toUserMessage() {
     const messages = {
       400: 'The request was invalid. Please check your input.',
@@ -324,7 +324,7 @@ class HttpError extends AppError {
       502: 'Service temporarily unavailable. Please try again.',
       503: 'Service is undergoing maintenance. Please try later.'
     };
-    
+
     return messages[this.status] ?? 'An unexpected error occurred.';
   }
 }
@@ -335,7 +335,7 @@ try {
 } catch (error) {
   // Technical log for developers
   logger.error('API request failed', error.toJSON());
-  
+
   // Friendly message for users
   showNotification(error.toUserMessage());
 }
@@ -374,7 +374,7 @@ showError({
 const createUser = userData => {
   // Validate immediately
   validateUserData(userData);
-  
+
   // Now safe to proceed
   return {
     id: generateId(),
@@ -385,19 +385,19 @@ const createUser = userData => {
 
 const validateUserData = data => {
   const errors = [];
-  
+
   if (!data.email) {
     errors.push(new ValidationError('email', 'Email is required'));
   } else if (!isValidEmail(data.email)) {
     errors.push(new ValidationError('email', 'Invalid email format'));
   }
-  
+
   if (!data.password) {
     errors.push(new ValidationError('password', 'Password is required'));
   } else if (data.password.length < 8) {
     errors.push(new ValidationError('password', 'Password must be at least 8 characters'));
   }
-  
+
   if (errors.length > 0) {
     throw new MultiValidationError(errors);
   }
@@ -411,7 +411,7 @@ const sanitizeUserInput = input => {
   if (typeof input !== 'string') {
     throw new ValidationError('input', 'Expected string input');
   }
-  
+
   return input
     .trim()
     .slice(0, 1000)  // Limit length
@@ -433,11 +433,11 @@ const processItems = items => {
       `Expected array, got ${typeof items}`
     );
   }
-  
+
   if (items.length === 0) {
     return [];  // Early return for empty case
   }
-  
+
   return items.map(item => transform(item));
 };
 ```
@@ -454,12 +454,12 @@ const timeout = config?.settings?.network?.timeout ?? 5000;
 // ✅ SAFER - Validate and default
 const getTimeout = config => {
   const value = config?.settings?.network?.timeout;
-  
+
   if (typeof value !== 'number' || value < 0) {
     logger.warn('Invalid timeout config, using default', { value });
     return 5000;
   }
-  
+
   return value;
 };
 ```
@@ -477,13 +477,13 @@ const loadUserProfile = async userId => {
     return await api.getUserProfile(userId);
   } catch (error) {
     logger.warn('Failed to load full profile', { error, userId });
-    
+
     try {
       // Fall back to basic info
       return await api.getUserBasic(userId);
     } catch (fallbackError) {
       logger.warn('Failed to load basic info', { error: fallbackError });
-      
+
       // Last resort: return minimal default
       return {
         id: userId,
@@ -506,7 +506,7 @@ class CircuitBreaker {
     this.state = 'CLOSED';  // CLOSED, OPEN, HALF_OPEN
     this.nextAttempt = 0;
   }
-  
+
   async execute(fn) {
     if (this.state === 'OPEN') {
       if (Date.now() < this.nextAttempt) {
@@ -514,7 +514,7 @@ class CircuitBreaker {
       }
       this.state = 'HALF_OPEN';
     }
-    
+
     try {
       const result = await fn();
       this.onSuccess();
@@ -524,15 +524,15 @@ class CircuitBreaker {
       throw error;
     }
   }
-  
+
   onSuccess() {
     this.failures = 0;
     this.state = 'CLOSED';
   }
-  
+
   onFailure() {
     this.failures++;
-    
+
     if (this.failures >= this.failureThreshold) {
       this.state = 'OPEN';
       this.nextAttempt = Date.now() + this.resetTimeout;
@@ -565,7 +565,7 @@ describe('validateEmail', () => {
       validateEmail('not-an-email');
     }).toThrow(ValidationError);
   });
-  
+
   test('error has correct field name', () => {
     try {
       validateEmail('bad');
@@ -586,12 +586,12 @@ describe('fetchUser', () => {
     global.fetch = jest.fn().mockRejectedValue(
       new Error('Network error')
     );
-    
+
     const result = await fetchUserSafe(123);
-    
-    expect(result).toEqual({ 
-      error: true, 
-      message: 'Failed to load user' 
+
+    expect(result).toEqual({
+      error: true,
+      message: 'Failed to load user'
     });
   });
 });

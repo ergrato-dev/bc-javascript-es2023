@@ -28,13 +28,13 @@ getData(url, (error, data) => {
     handleError(error);
     return;
   }
-  
+
   processData(data, (error, result) => {
     if (error) {
       handleError(error);  // Same error handling repeated
       return;
     }
-    
+
     saveResult(result, (error) => {
       if (error) {
         handleError(error);  // Again...
@@ -142,7 +142,7 @@ const processOrder = async orderId => {
     const order = await fetchOrder(orderId);
     const user = await fetchUser(order.userId);
     const inventory = await checkInventory(order.items);
-    
+
     return { order, user, inventory };
   } catch (error) {
     // Catches error from ANY await above
@@ -157,7 +157,7 @@ const processOrder = async orderId => {
 ```javascript
 const uploadFile = async file => {
   const progressBar = showProgressBar();
-  
+
   try {
     const result = await uploadToServer(file);
     showSuccess('File uploaded!');
@@ -181,30 +181,30 @@ const uploadFile = async file => {
 const fetchUserData = async userId => {
   try {
     const response = await fetch(`/api/users/${userId}`);
-    
+
     if (response.status === 404) {
       throw new NotFoundError('User', userId);
     }
-    
+
     if (response.status === 401) {
       throw new UnauthorizedError('Session expired');
     }
-    
+
     if (!response.ok) {
       throw new HttpError(response.status, response.statusText);
     }
-    
+
     return await response.json();
   } catch (error) {
     if (error instanceof NotFoundError) {
       return createGuestUser();
     }
-    
+
     if (error instanceof UnauthorizedError) {
       redirectToLogin();
       return null;
     }
-    
+
     // Network error or other
     console.error('Unexpected error:', error);
     throw error;
@@ -256,7 +256,7 @@ const data = {
 
 results.forEach((result, index) => {
   const keys = ['users', 'posts', 'comments'];
-  
+
   if (result.status === 'fulfilled') {
     data[keys[index]] = result.value;
   } else {
@@ -271,10 +271,10 @@ results.forEach((result, index) => {
 const processSettledResults = (results, keys) => {
   const data = {};
   const errors = [];
-  
+
   results.forEach((result, index) => {
     const key = keys[index];
-    
+
     if (result.status === 'fulfilled') {
       data[key] = result.value;
     } else {
@@ -282,7 +282,7 @@ const processSettledResults = (results, keys) => {
       errors.push({ key, error: result.reason });
     }
   });
-  
+
   return { data, errors };
 };
 
@@ -316,7 +316,7 @@ const withTimeout = (promise, ms) => {
       reject(new Error(`Timeout after ${ms}ms`));
     }, ms);
   });
-  
+
   return Promise.race([promise, timeout]);
 };
 
@@ -341,7 +341,7 @@ try {
 const fetchWithTimeout = async (url, ms) => {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), ms);
-  
+
   try {
     const response = await fetch(url, {
       signal: controller.signal
@@ -381,10 +381,10 @@ fetchData();  // No .catch(), no try...catch wrapper
 // In browser
 window.addEventListener('unhandledrejection', event => {
   console.error('Unhandled rejection:', event.reason);
-  
+
   // Optionally prevent default browser behavior
   event.preventDefault();
-  
+
   // Log to error tracking service
   trackError(event.reason);
 });
@@ -425,7 +425,7 @@ fetchData().catch(error => {
 ```javascript
 const processSequential = async items => {
   const results = [];
-  
+
   for (const item of items) {
     try {
       const result = await processItem(item);
@@ -435,7 +435,7 @@ const processSequential = async items => {
       throw error;  // Stop processing
     }
   }
-  
+
   return results;
 };
 ```
@@ -446,7 +446,7 @@ const processSequential = async items => {
 const processSequentialSafe = async items => {
   const results = [];
   const errors = [];
-  
+
   for (const item of items) {
     try {
       const result = await processItem(item);
@@ -456,7 +456,7 @@ const processSequentialSafe = async items => {
       errors.push({ item, error });
     }
   }
-  
+
   return { results, errors };
 };
 ```
@@ -468,7 +468,7 @@ const processParallel = async items => {
   const results = await Promise.allSettled(
     items.map(item => processItem(item))
   );
-  
+
   return results.map((result, index) => ({
     item: items[index],
     success: result.status === 'fulfilled',
@@ -485,21 +485,21 @@ const processParallel = async items => {
 ```javascript
 const retry = async (fn, maxAttempts = 3, delay = 1000) => {
   let lastError;
-  
+
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       return await fn();
     } catch (error) {
       lastError = error;
       console.warn(`Attempt ${attempt} failed:`, error.message);
-      
+
       if (attempt < maxAttempts) {
         // Exponential backoff
         await new Promise(r => setTimeout(r, delay * attempt));
       }
     }
   }
-  
+
   throw new Error(
     `Failed after ${maxAttempts} attempts: ${lastError.message}`
   );
@@ -518,17 +518,17 @@ const data = await retry(
 ```javascript
 const retryIf = async (fn, shouldRetry, maxAttempts = 3) => {
   let lastError;
-  
+
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       return await fn();
     } catch (error) {
       lastError = error;
-      
+
       if (!shouldRetry(error) || attempt === maxAttempts) {
         throw error;
       }
-      
+
       await new Promise(r => setTimeout(r, 1000 * attempt));
     }
   }
@@ -552,28 +552,28 @@ class ApiClient {
     this.timeout = options.timeout ?? 10000;
     this.retries = options.retries ?? 3;
   }
-  
+
   async request(endpoint, options = {}) {
     const url = `${this.baseUrl}${endpoint}`;
-    
+
     return this.withRetry(async () => {
       const response = await this.fetchWithTimeout(url, options);
-      
+
       if (!response.ok) {
         throw new HttpError(response.status, response.statusText, url);
       }
-      
+
       return response.json();
     });
   }
-  
+
   async fetchWithTimeout(url, options) {
     const controller = new AbortController();
     const timeoutId = setTimeout(
       () => controller.abort(),
       this.timeout
     );
-    
+
     try {
       return await fetch(url, {
         ...options,
@@ -588,28 +588,28 @@ class ApiClient {
       clearTimeout(timeoutId);
     }
   }
-  
+
   async withRetry(fn) {
     let lastError;
-    
+
     for (let i = 0; i < this.retries; i++) {
       try {
         return await fn();
       } catch (error) {
         lastError = error;
-        
+
         // Only retry on network/timeout errors
         if (!this.isRetryable(error)) {
           throw error;
         }
-        
+
         await this.delay(1000 * (i + 1));
       }
     }
-    
+
     throw lastError;
   }
-  
+
   isRetryable(error) {
     return (
       error instanceof NetworkError ||
@@ -617,7 +617,7 @@ class ApiClient {
       (error instanceof HttpError && error.status >= 500)
     );
   }
-  
+
   delay(ms) {
     return new Promise(r => setTimeout(r, ms));
   }
