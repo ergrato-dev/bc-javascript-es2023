@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #f1f5f9; }
+      .subtitle { font: 14px sans-serif; fill: #94a3b8; }
+      .box-title { font: bold 14px sans-serif; fill: #f1f5f9; }
+      .box-subtitle { font: 11px sans-serif; fill: #94a3b8; }
+      .code { font: 11px monospace; fill: #f0db4f; }
+      .code-comment { font: 10px monospace; fill: #64748b; }
+      .arrow { stroke: #f0db4f; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .arrow-dashed { stroke: #22c55e; stroke-width: 2; stroke-dasharray: 5,3; fill: none; marker-end: url(#arrow-green); }
+      .label { font: 10px sans-serif; fill: #f0db4f; }
+      .label-green { font: 10px sans-serif; fill: #22c55e; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f0db4f"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="450" fill="#1e293b"/>
+
+  <!-- Title -->
+  <text x="350" y="35" text-anchor="middle" class="title">Observer Pattern - CartService</text>
+  <text x="350" y="55" text-anchor="middle" class="subtitle">Notificación reactiva de cambios en el estado</text>
+
+  <!-- Subject: CartService -->
+  <rect x="225" y="80" width="250" height="150" rx="8" fill="#22c55e"/>
+  <text x="350" y="105" text-anchor="middle" class="box-title">CartService (Subject)</text>
+
+  <rect x="240" y="115" width="220" height="100" rx="4" fill="#166534"/>
+  <text x="255" y="135" class="code">#listeners = new Set();</text>
+  <text x="255" y="155" class="code">subscribe(callback) {'{'}</text>
+  <text x="265" y="170" class="code">  this.#listeners.add(cb);</text>
+  <text x="255" y="185" class="code">{'}'}</text>
+  <text x="255" y="205" class="code">#notify() {'{'} ... {'}'}</text>
+
+  <!-- Observer 1: CartView -->
+  <rect x="50" y="300" width="160" height="120" rx="8" fill="#3b82f6"/>
+  <text x="130" y="325" text-anchor="middle" class="box-title">CartView</text>
+  <text x="130" y="342" text-anchor="middle" class="box-subtitle">Observer 1</text>
+
+  <rect x="60" y="355" width="140" height="55" rx="4" fill="#1e40af"/>
+  <text x="75" y="375" class="code">onStateChange =</text>
+  <text x="75" y="390" class="code">  (state) => {'{'}</text>
+  <text x="75" y="405" class="code">    this.render();</text>
+
+  <!-- Observer 2: Badge -->
+  <rect x="270" y="300" width="160" height="120" rx="8" fill="#3b82f6"/>
+  <text x="350" y="325" text-anchor="middle" class="box-title">Badge</text>
+  <text x="350" y="342" text-anchor="middle" class="box-subtitle">Observer 2</text>
+
+  <rect x="280" y="355" width="140" height="55" rx="4" fill="#1e40af"/>
+  <text x="295" y="375" class="code">updateCount =</text>
+  <text x="295" y="390" class="code">  (state) => {'{'}</text>
+  <text x="295" y="405" class="code">    badge.text =</text>
+
+  <!-- Observer 3: Analytics -->
+  <rect x="490" y="300" width="160" height="120" rx="8" fill="#3b82f6"/>
+  <text x="570" y="325" text-anchor="middle" class="box-title">Analytics</text>
+  <text x="570" y="342" text-anchor="middle" class="box-subtitle">Observer 3</text>
+
+  <rect x="500" y="355" width="140" height="55" rx="4" fill="#1e40af"/>
+  <text x="515" y="375" class="code">trackCart =</text>
+  <text x="515" y="390" class="code">  (state) => {'{'}</text>
+  <text x="515" y="405" class="code">    log(state);</text>
+
+  <!-- Subscribe arrows (solid) -->
+  <path d="M 130 300 L 130 260 L 240 230" class="arrow"/>
+  <text x="100" y="275" class="label">subscribe()</text>
+
+  <path d="M 350 300 L 350 230" class="arrow"/>
+  <text x="360" y="270" class="label">subscribe()</text>
+
+  <path d="M 570 300 L 570 260 L 460 230" class="arrow"/>
+  <text x="515" y="275" class="label">subscribe()</text>
+
+  <!-- Notify arrows (dashed) -->
+  <path d="M 260 230 L 155 290" class="arrow-dashed"/>
+  <path d="M 350 230 L 350 290" class="arrow-dashed"/>
+  <path d="M 440 230 L 545 290" class="arrow-dashed"/>
+
+  <text x="185" y="250" class="label-green">notify(state)</text>
+
+  <!-- Listeners Set visualization -->
+  <rect x="540" y="100" width="140" height="80" rx="6" fill="#0f172a"/>
+  <text x="610" y="120" text-anchor="middle" class="box-subtitle">#listeners (Set)</text>
+  <text x="555" y="140" class="code-comment">// Callbacks</text>
+  <text x="555" y="155" class="code">fn1 → CartView</text>
+  <text x="555" y="170" class="code">fn2 → Badge</text>
+
+  <!-- Arrow from CartService to Set -->
+  <path d="M 475 140 L 535 140" class="arrow"/>
+</svg>

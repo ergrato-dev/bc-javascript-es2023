@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <style>
+      .title { font: bold 22px sans-serif; fill: #f1f5f9; }
+      .box-title { font: bold 14px sans-serif; fill: #1e293b; }
+      .box-content { font: 11px monospace; fill: #f1f5f9; }
+      .arrow { stroke: #f0db4f; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .arrow-label { font: 10px sans-serif; fill: #f0db4f; }
+      .step { font: bold 12px sans-serif; fill: #f1f5f9; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#f0db4f"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="400" fill="#1e293b"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" class="title">Flujo de Datos: Agregar Producto al Carrito</text>
+
+  <!-- Step 1: User Action -->
+  <circle cx="80" cy="70" r="15" fill="#f0db4f"/>
+  <text x="80" y="75" text-anchor="middle" class="box-title">1</text>
+
+  <rect x="30" y="100" width="100" height="70" rx="6" fill="#3b82f6"/>
+  <text x="80" y="125" text-anchor="middle" class="box-title">Usuario</text>
+  <text x="80" y="145" text-anchor="middle" class="box-content">Click en</text>
+  <text x="80" y="160" text-anchor="middle" class="box-content">"Agregar"</text>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M 130 135 L 175 135" class="arrow"/>
+  <text x="152" y="125" class="arrow-label">event</text>
+
+  <!-- Step 2: UI Component -->
+  <circle cx="230" cy="70" r="15" fill="#f0db4f"/>
+  <text x="230" y="75" text-anchor="middle" class="box-title">2</text>
+
+  <rect x="180" y="100" width="100" height="70" rx="6" fill="#3b82f6"/>
+  <text x="230" y="120" text-anchor="middle" class="box-title">ProductList</text>
+  <text x="230" y="145" text-anchor="middle" class="box-content">handleAdd</text>
+  <text x="230" y="160" text-anchor="middle" class="box-content">(product)</text>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M 280 135 L 325 135" class="arrow"/>
+  <text x="302" y="125" class="arrow-label">call</text>
+
+  <!-- Step 3: Service -->
+  <circle cx="380" cy="70" r="15" fill="#f0db4f"/>
+  <text x="380" y="75" text-anchor="middle" class="box-title">3</text>
+
+  <rect x="330" y="100" width="100" height="70" rx="6" fill="#22c55e"/>
+  <text x="380" y="120" text-anchor="middle" class="box-title">CartService</text>
+  <text x="380" y="145" text-anchor="middle" class="box-content">addItem</text>
+  <text x="380" y="160" text-anchor="middle" class="box-content">(product)</text>
+
+  <!-- Arrow 3 to 4 -->
+  <path d="M 430 135 L 475 135" class="arrow"/>
+  <text x="452" y="125" class="arrow-label">create</text>
+
+  <!-- Step 4: Model -->
+  <circle cx="530" cy="70" r="15" fill="#f0db4f"/>
+  <text x="530" y="75" text-anchor="middle" class="box-title">4</text>
+
+  <rect x="480" y="100" width="100" height="70" rx="6" fill="#ca8a04"/>
+  <text x="530" y="120" text-anchor="middle" class="box-title">CartItem</text>
+  <text x="530" y="145" text-anchor="middle" class="box-content">new CartItem</text>
+  <text x="530" y="160" text-anchor="middle" class="box-content">(product, 1)</text>
+
+  <!-- Arrow 4 to 5 -->
+  <path d="M 580 135 L 625 135" class="arrow"/>
+  <text x="602" y="125" class="arrow-label">save</text>
+
+  <!-- Step 5: Storage -->
+  <circle cx="680" cy="70" r="15" fill="#f0db4f"/>
+  <text x="680" y="75" text-anchor="middle" class="box-title">5</text>
+
+  <rect x="630" y="100" width="100" height="70" rx="6" fill="#64748b"/>
+  <text x="680" y="120" text-anchor="middle" class="box-title">Storage</text>
+  <text x="680" y="145" text-anchor="middle" class="box-content">localStorage</text>
+  <text x="680" y="160" text-anchor="middle" class="box-content">.setItem()</text>
+
+  <!-- Step 6: Notify -->
+  <circle cx="830" cy="70" r="15" fill="#f0db4f"/>
+  <text x="830" y="75" text-anchor="middle" class="box-title">6</text>
+
+  <rect x="780" y="100" width="100" height="70" rx="6" fill="#8b5cf6"/>
+  <text x="830" y="120" text-anchor="middle" class="box-title">Observer</text>
+  <text x="830" y="145" text-anchor="middle" class="box-content">notify</text>
+  <text x="830" y="160" text-anchor="middle" class="box-content">Listeners()</text>
+
+  <!-- Arrow 5 to 6 -->
+  <path d="M 730 135 L 775 135" class="arrow"/>
+  <text x="752" y="125" class="arrow-label">then</text>
+
+  <!-- Return flow - bottom row -->
+
+  <!-- Step 7: CartView receives update -->
+  <circle cx="680" cy="220" r="15" fill="#f0db4f"/>
+  <text x="680" y="225" text-anchor="middle" class="box-title">7</text>
+
+  <rect x="630" y="250" width="100" height="70" rx="6" fill="#3b82f6"/>
+  <text x="680" y="270" text-anchor="middle" class="box-title">CartView</text>
+  <text x="680" y="295" text-anchor="middle" class="box-content">onStateChange</text>
+  <text x="680" y="310" text-anchor="middle" class="box-content">(newState)</text>
+
+  <!-- Arrow from Observer to CartView -->
+  <path d="M 830 170 L 830 285 L 735 285" class="arrow"/>
+  <text x="840" y="230" class="arrow-label">callback</text>
+
+  <!-- Step 8: Render -->
+  <circle cx="530" cy="220" r="15" fill="#f0db4f"/>
+  <text x="530" y="225" text-anchor="middle" class="box-title">8</text>
+
+  <rect x="480" y="250" width="100" height="70" rx="6" fill="#3b82f6"/>
+  <text x="530" y="270" text-anchor="middle" class="box-title">CartView</text>
+  <text x="530" y="295" text-anchor="middle" class="box-content">render()</text>
+  <text x="530" y="310" text-anchor="middle" class="box-content">updateBadge()</text>
+
+  <!-- Arrow 7 to 8 -->
+  <path d="M 625 285 L 585 285" class="arrow"/>
+  <text x="605" y="275" class="arrow-label">call</text>
+
+  <!-- Step 9: DOM Update -->
+  <circle cx="380" cy="220" r="15" fill="#f0db4f"/>
+  <text x="380" y="225" text-anchor="middle" class="box-title">9</text>
+
+  <rect x="330" y="250" width="100" height="70" rx="6" fill="#ec4899"/>
+  <text x="380" y="270" text-anchor="middle" class="box-title">DOM</text>
+  <text x="380" y="295" text-anchor="middle" class="box-content">innerHTML =</text>
+  <text x="380" y="310" text-anchor="middle" class="box-content">newHTML</text>
+
+  <!-- Arrow 8 to 9 -->
+  <path d="M 475 285 L 435 285" class="arrow"/>
+  <text x="455" y="275" class="arrow-label">update</text>
+
+  <!-- Step 10: User sees update -->
+  <circle cx="230" cy="220" r="15" fill="#f0db4f"/>
+  <text x="230" y="225" text-anchor="middle" class="box-title">10</text>
+
+  <rect x="180" y="250" width="100" height="70" rx="6" fill="#22c55e"/>
+  <text x="230" y="275" text-anchor="middle" class="box-title">Usuario</text>
+  <text x="230" y="300" text-anchor="middle" class="box-content">Ve carrito</text>
+  <text x="230" y="315" text-anchor="middle" class="box-content">actualizado</text>
+
+  <!-- Arrow 9 to 10 -->
+  <path d="M 325 285 L 285 285" class="arrow"/>
+  <text x="305" y="275" class="arrow-label">view</text>
+
+  <!-- Legend -->
+  <rect x="30" y="350" width="840" height="40" rx="4" fill="#0f172a"/>
+  <rect x="45" y="365" width="20" height="12" fill="#3b82f6"/>
+  <text x="70" y="375" class="box-content">UI Layer</text>
+  <rect x="145" y="365" width="20" height="12" fill="#22c55e"/>
+  <text x="170" y="375" class="box-content">Services</text>
+  <rect x="245" y="365" width="20" height="12" fill="#ca8a04"/>
+  <text x="270" y="375" class="box-content">Models</text>
+  <rect x="335" y="365" width="20" height="12" fill="#64748b"/>
+  <text x="360" y="375" class="box-content">Storage</text>
+  <rect x="430" y="365" width="20" height="12" fill="#8b5cf6"/>
+  <text x="455" y="375" class="box-content">Pattern</text>
+  <rect x="520" y="365" width="20" height="12" fill="#ec4899"/>
+  <text x="545" y="375" class="box-content">Browser</text>
+</svg>
