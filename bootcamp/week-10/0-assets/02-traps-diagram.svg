@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 24px; font-weight: 600; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box { rx: 8; ry: 8; }
+      .trap-box { fill: #374151; stroke: #8b5cf6; stroke-width: 2; }
+      .category { fill: #f1f5f9; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .trap-name { fill: #f0db4f; font-family: monospace; font-size: 12px; }
+      .trap-desc { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 10px; }
+      .label { fill: #f1f5f9; font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; }
+      .header-box { fill: #8b5cf6; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="40" text-anchor="middle">🪤 Traps Diagram</text>
+  <text class="subtitle" x="400" y="65" text-anchor="middle">Métodos del handler que interceptan operaciones</text>
+
+  <!-- Column 1: Property Access -->
+  <rect class="box header-box" x="40" y="90" width="170" height="30"/>
+  <text class="label" x="125" y="112" text-anchor="middle" font-size="13">📖 Propiedades</text>
+
+  <rect class="box trap-box" x="40" y="130" width="170" height="55"/>
+  <text class="trap-name" x="125" y="152" text-anchor="middle">get(target, prop)</text>
+  <text class="trap-desc" x="125" y="172" text-anchor="middle">Lectura: obj.prop</text>
+
+  <rect class="box trap-box" x="40" y="195" width="170" height="55"/>
+  <text class="trap-name" x="125" y="217" text-anchor="middle">set(target, prop, val)</text>
+  <text class="trap-desc" x="125" y="237" text-anchor="middle">Escritura: obj.prop = x</text>
+
+  <rect class="box trap-box" x="40" y="260" width="170" height="55"/>
+  <text class="trap-name" x="125" y="282" text-anchor="middle">has(target, prop)</text>
+  <text class="trap-desc" x="125" y="302" text-anchor="middle">Verificar: 'prop' in obj</text>
+
+  <rect class="box trap-box" x="40" y="325" width="170" height="55"/>
+  <text class="trap-name" x="125" y="347" text-anchor="middle">deleteProperty()</text>
+  <text class="trap-desc" x="125" y="367" text-anchor="middle">Eliminar: delete obj.p</text>
+
+  <!-- Column 2: Object Operations -->
+  <rect class="box header-box" x="230" y="90" width="170" height="30"/>
+  <text class="label" x="315" y="112" text-anchor="middle" font-size="13">🔑 Claves/Keys</text>
+
+  <rect class="box trap-box" x="230" y="130" width="170" height="55"/>
+  <text class="trap-name" x="315" y="152" text-anchor="middle">ownKeys(target)</text>
+  <text class="trap-desc" x="315" y="172" text-anchor="middle">Object.keys(), etc.</text>
+
+  <rect class="box trap-box" x="230" y="195" width="170" height="55"/>
+  <text class="trap-name" x="315" y="217" text-anchor="middle">getOwnProperty...()</text>
+  <text class="trap-desc" x="315" y="237" text-anchor="middle">Obtener descriptor</text>
+
+  <rect class="box trap-box" x="230" y="260" width="170" height="55"/>
+  <text class="trap-name" x="315" y="282" text-anchor="middle">defineProperty()</text>
+  <text class="trap-desc" x="315" y="302" text-anchor="middle">Definir propiedad</text>
+
+  <!-- Column 3: Functions -->
+  <rect class="box header-box" x="420" y="90" width="170" height="30"/>
+  <text class="label" x="505" y="112" text-anchor="middle" font-size="13">⚡ Funciones</text>
+
+  <rect class="box trap-box" x="420" y="130" width="170" height="55"/>
+  <text class="trap-name" x="505" y="152" text-anchor="middle">apply(target, this)</text>
+  <text class="trap-desc" x="505" y="172" text-anchor="middle">Llamada: fn()</text>
+
+  <rect class="box trap-box" x="420" y="195" width="170" height="55"/>
+  <text class="trap-name" x="505" y="217" text-anchor="middle">construct(target)</text>
+  <text class="trap-desc" x="505" y="237" text-anchor="middle">Instancia: new Fn()</text>
+
+  <!-- Column 4: Prototype -->
+  <rect class="box header-box" x="610" y="90" width="170" height="30"/>
+  <text class="label" x="695" y="112" text-anchor="middle" font-size="13">🔗 Prototype</text>
+
+  <rect class="box trap-box" x="610" y="130" width="170" height="55"/>
+  <text class="trap-name" x="695" y="152" text-anchor="middle">getPrototypeOf()</text>
+  <text class="trap-desc" x="695" y="172" text-anchor="middle">Object.getPrototype...</text>
+
+  <rect class="box trap-box" x="610" y="195" width="170" height="55"/>
+  <text class="trap-name" x="695" y="217" text-anchor="middle">setPrototypeOf()</text>
+  <text class="trap-desc" x="695" y="237" text-anchor="middle">Object.setPrototype...</text>
+
+  <rect class="box trap-box" x="610" y="260" width="170" height="55"/>
+  <text class="trap-name" x="695" y="282" text-anchor="middle">isExtensible()</text>
+  <text class="trap-desc" x="695" y="302" text-anchor="middle">Object.isExtensible()</text>
+
+  <rect class="box trap-box" x="610" y="325" width="170" height="55"/>
+  <text class="trap-name" x="695" y="347" text-anchor="middle">preventExtensions()</text>
+  <text class="trap-desc" x="695" y="367" text-anchor="middle">Object.preventExt...</text>
+
+  <!-- Usage Note -->
+  <rect class="box" x="150" y="400" width="500" height="60" fill="#374151" stroke="#f0db4f" stroke-width="2"/>
+  <text class="category" x="400" y="425" text-anchor="middle">💡 Los traps más usados:</text>
+  <text class="trap-name" x="400" y="445" text-anchor="middle">get, set, has, deleteProperty, ownKeys</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="485" text-anchor="middle">Week 10 | Bootcamp JavaScript ES6+</text>
+</svg>

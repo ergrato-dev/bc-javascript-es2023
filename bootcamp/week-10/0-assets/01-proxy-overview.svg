@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 24px; font-weight: 600; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box { rx: 8; ry: 8; }
+      .box-target { fill: #374151; stroke: #22c55e; stroke-width: 2; }
+      .box-handler { fill: #374151; stroke: #8b5cf6; stroke-width: 2; }
+      .box-proxy { fill: #374151; stroke: #3b82f6; stroke-width: 2; }
+      .box-code { fill: #374151; stroke: #475569; stroke-width: 2; }
+      .label { fill: #f1f5f9; font-family: system-ui, sans-serif; font-size: 16px; font-weight: 600; }
+      .label-small { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 12px; }
+      .code { fill: #f0db4f; font-family: monospace; font-size: 13px; }
+      .arrow { stroke: #64748b; stroke-width: 2; fill: none; }
+      .arrow-head { fill: #64748b; }
+      .highlight-green { fill: #22c55e; }
+      .highlight-purple { fill: #8b5cf6; }
+      .highlight-blue { fill: #3b82f6; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="40" text-anchor="middle">🎭 Proxy Overview</text>
+  <text class="subtitle" x="400" y="65" text-anchor="middle">Interceptando operaciones en objetos JavaScript</text>
+
+  <!-- Syntax Box -->
+  <rect class="box box-code" x="200" y="85" width="400" height="40"/>
+  <text class="code" x="400" y="110" text-anchor="middle">const proxy = new Proxy(target, handler);</text>
+
+  <!-- TARGET Box -->
+  <rect class="box box-target" x="80" y="160" width="180" height="140"/>
+  <text class="label" x="170" y="190" text-anchor="middle">📦 TARGET</text>
+  <text class="label-small" x="170" y="215" text-anchor="middle">Objeto original</text>
+  <rect class="box" x="100" y="230" width="140" height="55" fill="#1f2937" stroke="#475569"/>
+  <text class="code" x="170" y="252" text-anchor="middle" font-size="11">{ name: 'Alice',</text>
+  <text class="code" x="170" y="272" text-anchor="middle" font-size="11">  age: 30 }</text>
+
+  <!-- HANDLER Box -->
+  <rect class="box box-handler" x="310" y="160" width="180" height="140"/>
+  <text class="label" x="400" y="190" text-anchor="middle">🪤 HANDLER</text>
+  <text class="label-small" x="400" y="215" text-anchor="middle">Traps (interceptores)</text>
+  <rect class="box" x="330" y="230" width="140" height="55" fill="#1f2937" stroke="#475569"/>
+  <text class="code" x="400" y="252" text-anchor="middle" font-size="11">{ get(), set(),</text>
+  <text class="code" x="400" y="272" text-anchor="middle" font-size="11">  has(), ... }</text>
+
+  <!-- PROXY Box -->
+  <rect class="box box-proxy" x="540" y="160" width="180" height="140"/>
+  <text class="label" x="630" y="190" text-anchor="middle">🎭 PROXY</text>
+  <text class="label-small" x="630" y="215" text-anchor="middle">Objeto resultante</text>
+  <rect class="box" x="560" y="230" width="140" height="55" fill="#1f2937" stroke="#475569"/>
+  <text class="code" x="630" y="252" text-anchor="middle" font-size="11">Usa proxy en</text>
+  <text class="code" x="630" y="272" text-anchor="middle" font-size="11">lugar de target</text>
+
+  <!-- Arrows -->
+  <path class="arrow" d="M260 230 L310 230" marker-end="url(#arrowhead)"/>
+  <path class="arrow" d="M490 230 L540 230" marker-end="url(#arrowhead)"/>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon class="arrow-head" points="0 0, 10 3.5, 0 7"/>
+    </marker>
+  </defs>
+
+  <!-- Flow Section -->
+  <text class="label" x="400" y="340" text-anchor="middle" fill="#94a3b8">Flujo de operación</text>
+
+  <!-- Flow boxes -->
+  <rect class="box" x="50" y="360" width="140" height="50" fill="#374151" stroke="#f0db4f" stroke-width="2"/>
+  <text class="label-small" x="120" y="390" text-anchor="middle" fill="#f1f5f9">proxy.name</text>
+
+  <rect class="box" x="230" y="360" width="140" height="50" fill="#374151" stroke="#8b5cf6" stroke-width="2"/>
+  <text class="label-small" x="300" y="390" text-anchor="middle" fill="#f1f5f9">handler.get()</text>
+
+  <rect class="box" x="410" y="360" width="140" height="50" fill="#374151" stroke="#22c55e" stroke-width="2"/>
+  <text class="label-small" x="480" y="390" text-anchor="middle" fill="#f1f5f9">target.name</text>
+
+  <rect class="box" x="590" y="360" width="140" height="50" fill="#374151" stroke="#3b82f6" stroke-width="2"/>
+  <text class="label-small" x="660" y="390" text-anchor="middle" fill="#f1f5f9">'Alice'</text>
+
+  <!-- Flow arrows -->
+  <path class="arrow" d="M190 385 L230 385" marker-end="url(#arrowhead)"/>
+  <path class="arrow" d="M370 385 L410 385" marker-end="url(#arrowhead)"/>
+  <path class="arrow" d="M550 385 L590 385" marker-end="url(#arrowhead)"/>
+
+  <!-- Legend -->
+  <rect x="200" y="430" width="12" height="12" fill="#22c55e" rx="2"/>
+  <text class="label-small" x="220" y="441">Target</text>
+
+  <rect x="300" y="430" width="12" height="12" fill="#8b5cf6" rx="2"/>
+  <text class="label-small" x="320" y="441">Handler</text>
+
+  <rect x="400" y="430" width="12" height="12" fill="#3b82f6" rx="2"/>
+  <text class="label-small" x="420" y="441">Proxy</text>
+
+  <rect x="500" y="430" width="12" height="12" fill="#f0db4f" rx="2"/>
+  <text class="label-small" x="520" y="441">Código</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="480" text-anchor="middle">Week 10 | Bootcamp JavaScript ES6+</text>
+</svg>

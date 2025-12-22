@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 24px; font-weight: 600; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box { rx: 8; ry: 8; }
+      .input-box { fill: #374151; stroke: #f0db4f; stroke-width: 2; }
+      .proxy-box { fill: #374151; stroke: #3b82f6; stroke-width: 2; }
+      .valid-box { fill: #374151; stroke: #22c55e; stroke-width: 2; }
+      .error-box { fill: #374151; stroke: #ef4444; stroke-width: 2; }
+      .label { fill: #f1f5f9; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .code { fill: #f0db4f; font-family: monospace; font-size: 12px; }
+      .text { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 12px; }
+      .arrow { stroke: #64748b; stroke-width: 2; fill: none; }
+      .arrow-head { fill: #64748b; }
+      .valid { fill: #22c55e; }
+      .error { fill: #ef4444; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="40" text-anchor="middle">✅ Validación Reactiva</text>
+  <text class="subtitle" x="400" y="65" text-anchor="middle">Validación automática con Proxy interceptando set()</text>
+
+  <!-- Flow Diagram -->
+
+  <!-- Step 1: Input -->
+  <rect class="box input-box" x="60" y="100" width="160" height="80"/>
+  <text class="label" x="140" y="130" text-anchor="middle">📝 Asignación</text>
+  <text class="code" x="140" y="155" text-anchor="middle">user.age = -5</text>
+
+  <!-- Arrow 1 -->
+  <path class="arrow" d="M220 140 L280 140" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Proxy -->
+  <rect class="box proxy-box" x="280" y="100" width="160" height="80"/>
+  <text class="label" x="360" y="130" text-anchor="middle">🎭 Proxy</text>
+  <text class="code" x="360" y="155" text-anchor="middle">trap: set()</text>
+
+  <!-- Arrow 2 -->
+  <path class="arrow" d="M440 140 L500 140" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Validator -->
+  <rect class="box" x="500" y="100" width="160" height="80" fill="#374151" stroke="#8b5cf6" stroke-width="2"/>
+  <text class="label" x="580" y="130" text-anchor="middle">🔍 Validador</text>
+  <text class="code" x="580" y="155" text-anchor="middle">schema.age()</text>
+
+  <!-- Branch arrows -->
+  <path class="arrow" d="M580 180 L580 220" marker-end="url(#arrow)"/>
+
+  <!-- Decision -->
+  <polygon points="580,220 620,260 580,300 540,260" fill="#374151" stroke="#64748b" stroke-width="2"/>
+  <text class="text" x="580" y="265" text-anchor="middle" fill="#f1f5f9">¿Válido?</text>
+
+  <!-- Valid path -->
+  <path class="arrow" d="M620 260 L700 260" stroke="#22c55e" marker-end="url(#arrow-green)"/>
+  <text class="valid" x="660" y="250" text-anchor="middle" font-size="11">Sí</text>
+
+  <!-- Invalid path -->
+  <path class="arrow" d="M540 260 L460 260" stroke="#ef4444" marker-end="url(#arrow-red)"/>
+  <text class="error" x="500" y="250" text-anchor="middle" font-size="11">No</text>
+
+  <!-- Valid result -->
+  <rect class="box valid-box" x="700" y="230" width="80" height="60"/>
+  <text class="label" x="740" y="255" text-anchor="middle" font-size="12">✓ Asignar</text>
+  <text class="code" x="740" y="275" text-anchor="middle" font-size="10">Reflect.set</text>
+
+  <!-- Invalid result -->
+  <rect class="box error-box" x="380" y="230" width="80" height="60"/>
+  <text class="label" x="420" y="255" text-anchor="middle" font-size="12">✗ Error</text>
+  <text class="code" x="420" y="275" text-anchor="middle" font-size="10">throw</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon class="arrow-head" points="0 0, 10 3.5, 0 7"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon fill="#22c55e" points="0 0, 10 3.5, 0 7"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon fill="#ef4444" points="0 0, 10 3.5, 0 7"/>
+    </marker>
+  </defs>
+
+  <!-- Schema Example -->
+  <rect class="box" x="60" y="330" width="300" height="120" fill="#374151" stroke="#475569" stroke-width="2"/>
+  <text class="label" x="210" y="355" text-anchor="middle">📋 Schema de Validación</text>
+  <text class="code" x="80" y="380" font-size="11">const schema = {</text>
+  <text class="code" x="90" y="398" font-size="11">  age: v =&gt; v &gt; 0 || 'must be +',</text>
+  <text class="code" x="90" y="416" font-size="11">  email: v =&gt; /@/.test(v)</text>
+  <text class="code" x="80" y="434" font-size="11">};</text>
+
+  <!-- Benefits -->
+  <rect class="box" x="380" y="330" width="360" height="120" fill="#374151" stroke="#22c55e" stroke-width="2"/>
+  <text class="label" x="560" y="355" text-anchor="middle">💡 Beneficios</text>
+  <text class="text" x="400" y="380" fill="#f1f5f9">✓ Validación automática en cada asignación</text>
+  <text class="text" x="400" y="400" fill="#f1f5f9">✓ Errores inmediatos, no después</text>
+  <text class="text" x="400" y="420" fill="#f1f5f9">✓ Schema reutilizable y componible</text>
+  <text class="text" x="400" y="440" fill="#f1f5f9">✓ Sin llamadas manuales a validate()</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="485" text-anchor="middle">Week 10 | Bootcamp JavaScript ES6+</text>
+</svg>

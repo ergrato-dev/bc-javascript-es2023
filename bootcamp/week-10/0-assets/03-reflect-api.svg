@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 24px; font-weight: 600; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box { rx: 8; ry: 8; }
+      .reflect-box { fill: #374151; stroke: #3b82f6; stroke-width: 2; }
+      .code-box { fill: #374151; stroke: #475569; stroke-width: 2; }
+      .label { fill: #f1f5f9; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .method { fill: #3b82f6; font-family: monospace; font-size: 13px; }
+      .equiv { fill: #22c55e; font-family: monospace; font-size: 11px; }
+      .returns { fill: #f0db4f; font-family: monospace; font-size: 10px; }
+      .desc { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 11px; }
+      .header { fill: #3b82f6; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="40" text-anchor="middle">🪞 Reflect API</text>
+  <text class="subtitle" x="400" y="65" text-anchor="middle">Métodos estáticos para operaciones de objetos</text>
+
+  <!-- Main Reflect Box -->
+  <rect class="box header" x="300" y="85" width="200" height="35"/>
+  <text class="label" x="400" y="108" text-anchor="middle" fill="#f1f5f9">Reflect (objeto global)</text>
+
+  <!-- Row 1 -->
+  <rect class="box reflect-box" x="40" y="140" width="230" height="70"/>
+  <text class="method" x="155" y="162" text-anchor="middle">Reflect.get(obj, prop)</text>
+  <text class="equiv" x="155" y="180" text-anchor="middle">≈ obj[prop]</text>
+  <text class="returns" x="155" y="198" text-anchor="middle">→ valor de la propiedad</text>
+
+  <rect class="box reflect-box" x="285" y="140" width="230" height="70"/>
+  <text class="method" x="400" y="162" text-anchor="middle">Reflect.set(obj, prop, val)</text>
+  <text class="equiv" x="400" y="180" text-anchor="middle">≈ obj[prop] = val</text>
+  <text class="returns" x="400" y="198" text-anchor="middle">→ boolean (éxito)</text>
+
+  <rect class="box reflect-box" x="530" y="140" width="230" height="70"/>
+  <text class="method" x="645" y="162" text-anchor="middle">Reflect.has(obj, prop)</text>
+  <text class="equiv" x="645" y="180" text-anchor="middle">≈ prop in obj</text>
+  <text class="returns" x="645" y="198" text-anchor="middle">→ boolean</text>
+
+  <!-- Row 2 -->
+  <rect class="box reflect-box" x="40" y="220" width="230" height="70"/>
+  <text class="method" x="155" y="242" text-anchor="middle">Reflect.deleteProperty()</text>
+  <text class="equiv" x="155" y="260" text-anchor="middle">≈ delete obj[prop]</text>
+  <text class="returns" x="155" y="278" text-anchor="middle">→ boolean (éxito)</text>
+
+  <rect class="box reflect-box" x="285" y="220" width="230" height="70"/>
+  <text class="method" x="400" y="242" text-anchor="middle">Reflect.ownKeys(obj)</text>
+  <text class="equiv" x="400" y="260" text-anchor="middle">≈ Object.keys + Symbols</text>
+  <text class="returns" x="400" y="278" text-anchor="middle">→ Array de claves</text>
+
+  <rect class="box reflect-box" x="530" y="220" width="230" height="70"/>
+  <text class="method" x="645" y="242" text-anchor="middle">Reflect.apply(fn, this)</text>
+  <text class="equiv" x="645" y="260" text-anchor="middle">≈ fn.apply(this, args)</text>
+  <text class="returns" x="645" y="278" text-anchor="middle">→ resultado función</text>
+
+  <!-- Row 3 -->
+  <rect class="box reflect-box" x="160" y="300" width="230" height="70"/>
+  <text class="method" x="275" y="322" text-anchor="middle">Reflect.construct(Fn)</text>
+  <text class="equiv" x="275" y="340" text-anchor="middle">≈ new Fn(...args)</text>
+  <text class="returns" x="275" y="358" text-anchor="middle">→ nueva instancia</text>
+
+  <rect class="box reflect-box" x="410" y="300" width="230" height="70"/>
+  <text class="method" x="525" y="322" text-anchor="middle">Reflect.getPrototypeOf()</text>
+  <text class="equiv" x="525" y="340" text-anchor="middle">≈ Object.getPrototypeOf</text>
+  <text class="returns" x="525" y="358" text-anchor="middle">→ prototype</text>
+
+  <!-- Why Reflect Box -->
+  <rect class="box code-box" x="100" y="390" width="600" height="70"/>
+  <text class="label" x="400" y="415" text-anchor="middle">¿Por qué usar Reflect en Proxy traps?</text>
+  <text class="desc" x="400" y="435" text-anchor="middle">✓ Retorna boolean en lugar de lanzar errores</text>
+  <text class="desc" x="400" y="450" text-anchor="middle">✓ Mantiene el receiver correcto para getters/setters</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="485" text-anchor="middle">Week 10 | Bootcamp JavaScript ES6+</text>
+</svg>
