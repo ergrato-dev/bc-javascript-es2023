@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .title { font: bold 24px sans-serif; fill: #f1f5f9; }
+      .layer-title { font: bold 16px sans-serif; fill: #1e293b; }
+      .file-name { font: 12px monospace; fill: #f1f5f9; }
+      .description { font: 11px sans-serif; fill: #94a3b8; }
+      .arrow { stroke: #f0db4f; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .arrow-label { font: 10px sans-serif; fill: #f0db4f; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f0db4f"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1e293b"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" class="title">Arquitectura de 3 Capas - E-commerce App</text>
+
+  <!-- UI Layer -->
+  <rect x="50" y="80" width="700" height="100" rx="8" fill="#3b82f6"/>
+  <text x="400" y="105" text-anchor="middle" class="layer-title">UI (User Interface)</text>
+
+  <rect x="70" y="115" width="140" height="50" rx="4" fill="#1e40af"/>
+  <text x="140" y="138" text-anchor="middle" class="file-name">ProductList.js</text>
+  <text x="140" y="153" text-anchor="middle" class="description">Grid de productos</text>
+
+  <rect x="230" y="115" width="140" height="50" rx="4" fill="#1e40af"/>
+  <text x="300" y="138" text-anchor="middle" class="file-name">CartView.js</text>
+  <text x="300" y="153" text-anchor="middle" class="description">Sidebar del carrito</text>
+
+  <rect x="390" y="115" width="140" height="50" rx="4" fill="#1e40af"/>
+  <text x="460" y="138" text-anchor="middle" class="file-name">AuthView.js</text>
+  <text x="460" y="153" text-anchor="middle" class="description">Modal de auth</text>
+
+  <rect x="550" y="115" width="140" height="50" rx="4" fill="#1e40af"/>
+  <text x="620" y="138" text-anchor="middle" class="file-name">Notifications.js</text>
+  <text x="620" y="153" text-anchor="middle" class="description">Toast messages</text>
+
+  <!-- Arrow UI to Services -->
+  <path d="M 400 180 L 400 220" class="arrow"/>
+  <text x="415" y="205" class="arrow-label">usa</text>
+
+  <!-- Services Layer -->
+  <rect x="50" y="230" width="700" height="100" rx="8" fill="#22c55e"/>
+  <text x="400" y="255" text-anchor="middle" class="layer-title">Services (Lógica de Negocio)</text>
+
+  <rect x="90" y="265" width="140" height="50" rx="4" fill="#166534"/>
+  <text x="160" y="288" text-anchor="middle" class="file-name">ProductService.js</text>
+  <text x="160" y="303" text-anchor="middle" class="description">Catálogo y filtros</text>
+
+  <rect x="250" y="265" width="140" height="50" rx="4" fill="#166534"/>
+  <text x="320" y="288" text-anchor="middle" class="file-name">CartService.js</text>
+  <text x="320" y="303" text-anchor="middle" class="description">Gestión del carrito</text>
+
+  <rect x="410" y="265" width="140" height="50" rx="4" fill="#166534"/>
+  <text x="480" y="288" text-anchor="middle" class="file-name">AuthService.js</text>
+  <text x="480" y="303" text-anchor="middle" class="description">Autenticación</text>
+
+  <rect x="570" y="265" width="140" height="50" rx="4" fill="#166534"/>
+  <text x="640" y="288" text-anchor="middle" class="file-name">StorageService.js</text>
+  <text x="640" y="303" text-anchor="middle" class="description">localStorage</text>
+
+  <!-- Arrow Services to Models -->
+  <path d="M 400 330 L 400 370" class="arrow"/>
+  <text x="415" y="355" class="arrow-label">usa</text>
+
+  <!-- Models Layer -->
+  <rect x="50" y="380" width="700" height="100" rx="8" fill="#f0db4f"/>
+  <text x="400" y="405" text-anchor="middle" class="layer-title">Models (Datos)</text>
+
+  <rect x="120" y="415" width="120" height="50" rx="4" fill="#ca8a04"/>
+  <text x="180" y="438" text-anchor="middle" class="file-name">Product.js</text>
+  <text x="180" y="453" text-anchor="middle" class="description">Entidad producto</text>
+
+  <rect x="260" y="415" width="120" height="50" rx="4" fill="#ca8a04"/>
+  <text x="320" y="438" text-anchor="middle" class="file-name">User.js</text>
+  <text x="320" y="453" text-anchor="middle" class="description">Entidad usuario</text>
+
+  <rect x="400" y="415" width="120" height="50" rx="4" fill="#ca8a04"/>
+  <text x="460" y="438" text-anchor="middle" class="file-name">Cart.js</text>
+  <text x="460" y="453" text-anchor="middle" class="description">Carrito de compras</text>
+
+  <rect x="540" y="415" width="120" height="50" rx="4" fill="#ca8a04"/>
+  <text x="600" y="438" text-anchor="middle" class="file-name">CartItem.js</text>
+  <text x="600" y="453" text-anchor="middle" class="description">Item del carrito</text>
+</svg>
