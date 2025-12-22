@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gestión de Usuarios - Week 07</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎯 Sistema de Gestión de Usuarios</h1>
+      <p>Semana 07: Sets y Maps</p>
+    </header>
+
+    <main>
+      <!-- Registro de Usuarios -->
+      <section class="card">
+        <h2>📝 Registro de Usuario</h2>
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="userName">Nombre:</label>
+            <input type="text" id="userName" placeholder="Ej: Alice" required>
+          </div>
+          <div class="form-group">
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmail" placeholder="alice@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="userPassword">Contraseña:</label>
+            <input type="password" id="userPassword" placeholder="Min. 6 caracteres" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+        </form>
+        <div id="registerMessage" class="message"></div>
+      </section>
+
+      <!-- Lista de Usuarios -->
+      <section class="card">
+        <h2>👥 Usuarios Registrados</h2>
+        <div id="usersList" class="users-list">
+          <p class="empty-state">No hay usuarios registrados</p>
+        </div>
+        <div class="stats">
+          <span>Total: <strong id="totalUsers">0</strong></span>
+          <span>Activos: <strong id="activeUsers">0</strong></span>
+        </div>
+      </section>
+
+      <!-- Gestión de Roles -->
+      <section class="card">
+        <h2>🔐 Gestión de Roles</h2>
+        <div class="form-group">
+          <label for="roleUserId">Usuario ID:</label>
+          <input type="text" id="roleUserId" placeholder="ID del usuario">
+        </div>
+        <div class="roles-checkboxes">
+          <label><input type="checkbox" value="admin"> Admin</label>
+          <label><input type="checkbox" value="editor"> Editor</label>
+          <label><input type="checkbox" value="viewer"> Viewer</label>
+        </div>
+        <button id="assignRolesBtn" class="btn btn-secondary">Asignar Roles</button>
+        <div id="rolesMessage" class="message"></div>
+      </section>
+
+      <!-- Operaciones de Conjuntos -->
+      <section class="card">
+        <h2>🔢 Operaciones de Conjuntos</h2>
+        <div class="operations-grid">
+          <button class="btn btn-outline" data-op="admins">Usuarios Admin</button>
+          <button class="btn btn-outline" data-op="editors">Usuarios Editor</button>
+          <button class="btn btn-outline" data-op="admin-and-editor">Admin Y Editor</button>
+          <button class="btn btn-outline" data-op="admin-or-editor">Admin O Editor</button>
+          <button class="btn btn-outline" data-op="only-viewers">Solo Viewers</button>
+          <button class="btn btn-outline" data-op="no-roles">Sin Roles</button>
+        </div>
+        <div id="operationResult" class="result-box">
+          <p class="empty-state">Selecciona una operación</p>
+        </div>
+      </section>
+
+      <!-- Sesiones -->
+      <section class="card">
+        <h2>🔌 Sesiones Activas</h2>
+        <div class="form-group">
+          <label for="sessionUserId">Usuario ID:</label>
+          <input type="text" id="sessionUserId" placeholder="ID del usuario">
+        </div>
+        <div class="session-buttons">
+          <button id="loginBtn" class="btn btn-success">Login</button>
+          <button id="logoutBtn" class="btn btn-danger">Logout</button>
+          <button id="checkSessionBtn" class="btn btn-outline">Verificar Sesión</button>
+        </div>
+        <div id="sessionMessage" class="message"></div>
+        <div id="activeSessions" class="active-sessions">
+          <h4>Sesiones Activas:</h4>
+          <ul id="sessionsList"></ul>
+        </div>
+      </section>
+
+      <!-- Consola -->
+      <section class="card console-card">
+        <h2>📋 Consola</h2>
+        <div id="console" class="console"></div>
+        <button id="clearConsole" class="btn btn-outline btn-small">Limpiar</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>Bootcamp JavaScript ES6+ | Semana 07</p>
+    </footer>
+  </div>
+
+  <script src="starter/script.js"></script>
+</body>
+</html>
