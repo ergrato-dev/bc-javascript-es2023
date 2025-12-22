@@ -61,5 +61,5 @@
   <text class="label" x="580" y="350" text-anchor="middle">Output: '0', '1', '2'</text>
 
   <!-- Footer -->
-  <text class="subtitle" x="400" y="400" text-anchor="middle">💡 Regla: "of" para valores, "in" para claves de objetos</text>
+  <text class="subtitle" x="400" y="400" text-anchor="middle">💡 of → valores | in → claves de objetos</text>
 </svg>
