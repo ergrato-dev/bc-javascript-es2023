@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .title { font: bold 24px system-ui, sans-serif; fill: #f0db4f; }
+      .subtitle { font: 16px system-ui, sans-serif; fill: #94a3b8; }
+      .label { font: bold 14px system-ui, sans-serif; fill: #f1f5f9; }
+      .code { font: 13px 'Fira Code', monospace; fill: #f1f5f9; }
+      .code-keyword { font: 13px 'Fira Code', monospace; fill: #f0db4f; }
+      .code-fn { font: 13px 'Fira Code', monospace; fill: #3b82f6; }
+      .code-string { font: 13px 'Fira Code', monospace; fill: #22c55e; }
+      .code-error { font: 13px 'Fira Code', monospace; fill: #ef4444; }
+      .small { font: 12px system-ui, sans-serif; fill: #94a3b8; }
+      .section-title { font: bold 14px system-ui, sans-serif; fill: #f0db4f; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" class="title">Manejo de Errores Asíncronos</text>
+  <text x="450" y="65" text-anchor="middle" class="subtitle">Promises y Async/Await</text>
+
+  <!-- Left: Promise .catch() -->
+  <rect x="30" y="90" width="410" height="180" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="235" y="115" text-anchor="middle" class="section-title" style="fill: #3b82f6;">Promise con .catch()</text>
+
+  <text x="50" y="150" class="code-fn">fetch</text>
+  <text x="85" y="150" class="code">(</text>
+  <text x="95" y="150" class="code-string">'/api/data'</text>
+  <text x="175" y="150" class="code">)</text>
+
+  <text x="60" y="175" class="code">.</text>
+  <text x="70" y="175" class="code-fn">then</text>
+  <text x="100" y="175" class="code">(res => res.json())</text>
+
+  <text x="60" y="200" class="code">.</text>
+  <text x="70" y="200" class="code-fn">then</text>
+  <text x="100" y="200" class="code">(data => process(data))</text>
+
+  <text x="60" y="225" class="code">.</text>
+  <text x="70" y="225" class="code-error">catch</text>
+  <text x="110" y="225" class="code">(error => {</text>
+  <text x="80" y="250" class="code">  console.error(error);</text>
+  <text x="60" y="265" class="code">});</text>
+
+  <!-- Right: Async/Await try/catch -->
+  <rect x="460" y="90" width="410" height="180" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="665" y="115" text-anchor="middle" class="section-title" style="fill: #22c55e;">Async/Await con try/catch</text>
+
+  <text x="480" y="150" class="code-keyword">async function</text>
+  <text x="595" y="150" class="code-fn"> loadData</text>
+  <text x="670" y="150" class="code">() {</text>
+
+  <text x="490" y="175" class="code-keyword">  try</text>
+  <text x="520" y="175" class="code"> {</text>
+
+  <text x="500" y="200" class="code-keyword">    const</text>
+  <text x="545" y="200" class="code"> res = </text>
+  <text x="595" y="200" class="code-keyword">await</text>
+  <text x="640" y="200" class="code-fn"> fetch</text>
+  <text x="680" y="200" class="code">(url);</text>
+
+  <text x="500" y="220" class="code-keyword">    return await</text>
+  <text x="605" y="220" class="code"> res.json();</text>
+
+  <text x="490" y="240" class="code">  } </text>
+  <text x="510" y="240" class="code-keyword">catch</text>
+  <text x="555" y="240" class="code"> (error) {</text>
+  <text x="500" y="257" class="code">    handleError(error);</text>
+  <text x="490" y="272" class="code">  }</text>
+  <text x="480" y="287" class="code">}</text>
+
+  <!-- Promise.all vs Promise.allSettled -->
+  <rect x="30" y="290" width="410" height="140" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="235" y="315" text-anchor="middle" class="section-title" style="fill: #ef4444;">Promise.all (falla rápido)</text>
+
+  <text x="50" y="350" class="code-keyword">await</text>
+  <text x="95" y="350" class="code"> Promise.</text>
+  <text x="165" y="350" class="code-fn">all</text>
+  <text x="185" y="350" class="code">([p1, p2, p3]);</text>
+
+  <text x="50" y="385" class="small">❌ Si UNA falla, TODAS fallan</text>
+  <text x="50" y="405" class="small">❌ No obtienes resultados parciales</text>
+  <text x="50" y="425" class="small">✓ Útil cuando todas son requeridas</text>
+
+  <rect x="460" y="290" width="410" height="140" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="665" y="315" text-anchor="middle" class="section-title" style="fill: #22c55e;">Promise.allSettled (tolerante)</text>
+
+  <text x="480" y="350" class="code-keyword">await</text>
+  <text x="525" y="350" class="code"> Promise.</text>
+  <text x="595" y="350" class="code-fn">allSettled</text>
+  <text x="675" y="350" class="code">([p1, p2, p3]);</text>
+
+  <text x="480" y="385" class="small">✓ Espera a que TODAS terminen</text>
+  <text x="480" y="405" class="small">✓ Obtienes todos los resultados</text>
+  <text x="480" y="425" class="small">✓ Cada una: {status, value/reason}</text>
+
+  <!-- Retry Pattern -->
+  <rect x="30" y="450" width="840" height="110" rx="8" fill="#1e293b" stroke="#f0db4f" stroke-width="2"/>
+  <text x="450" y="475" text-anchor="middle" class="section-title">Patrón Retry con Exponential Backoff</text>
+
+  <text x="60" y="510" class="code-keyword">const</text>
+  <text x="100" y="510" class="code-fn"> withRetry</text>
+  <text x="175" y="510" class="code"> = </text>
+  <text x="190" y="510" class="code-keyword">async</text>
+  <text x="230" y="510" class="code"> (fn, retries = 3) => {</text>
+
+  <text x="70" y="535" class="code-keyword">  for</text>
+  <text x="100" y="535" class="code"> (</text>
+  <text x="110" y="535" class="code-keyword">let</text>
+  <text x="135" y="535" class="code"> i = 0; i &lt; retries; i++) {</text>
+
+  <text x="390" y="510" class="code-keyword">try</text>
+  <text x="415" y="510" class="code"> { </text>
+  <text x="430" y="510" class="code-keyword">return await</text>
+  <text x="520" y="510" class="code"> fn(); }</text>
+
+  <text x="390" y="535" class="code-keyword">catch</text>
+  <text x="430" y="535" class="code"> { </text>
+  <text x="445" y="535" class="code-keyword">await</text>
+  <text x="485" y="535" class="code"> delay(500 * 2**i); } } };</text>
+
+  <!-- Timeline visual -->
+  <text x="700" y="505" class="small">Backoff:</text>
+  <text x="700" y="525" class="small">500ms → 1s → 2s</text>
+  <text x="700" y="545" class="small" style="fill: #22c55e;">↑ Exponencial</text>
+
+  <!-- Footer -->
+  <text x="450" y="585" text-anchor="middle" class="small">Week 11 | Manejo de Errores Moderno</text>
+</svg>

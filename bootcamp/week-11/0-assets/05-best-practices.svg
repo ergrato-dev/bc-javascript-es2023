@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .title { font: bold 24px system-ui, sans-serif; fill: #f0db4f; }
+      .subtitle { font: 16px system-ui, sans-serif; fill: #94a3b8; }
+      .label { font: bold 14px system-ui, sans-serif; fill: #f1f5f9; }
+      .practice-title { font: bold 13px system-ui, sans-serif; fill: #f0db4f; }
+      .practice-text { font: 12px system-ui, sans-serif; fill: #f1f5f9; }
+      .code { font: 11px 'Fira Code', monospace; fill: #94a3b8; }
+      .small { font: 12px system-ui, sans-serif; fill: #94a3b8; }
+      .icon { font: 20px system-ui, sans-serif; }
+      .do { fill: #22c55e; }
+      .dont { fill: #ef4444; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" class="title">Mejores Prácticas</text>
+  <text x="450" y="65" text-anchor="middle" class="subtitle">Manejo de Errores Profesional</text>
+
+  <!-- Grid of practices -->
+
+  <!-- Row 1 -->
+  <!-- Practice 1: Fail Fast -->
+  <rect x="30" y="90" width="270" height="120" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="50" y="115" class="icon do">✓</text>
+  <text x="75" y="118" class="practice-title">Fail Fast</text>
+  <text x="45" y="145" class="practice-text">Valida inputs al inicio.</text>
+  <text x="45" y="165" class="practice-text">Falla temprano con mensajes</text>
+  <text x="45" y="185" class="practice-text">claros antes de procesar.</text>
+  <text x="45" y="205" class="code">if (!data) throw new Error(...);</text>
+
+  <!-- Practice 2: User Messages -->
+  <rect x="315" y="90" width="270" height="120" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="335" y="115" class="icon do">✓</text>
+  <text x="360" y="118" class="practice-title">Mensajes para Usuarios</text>
+  <text x="330" y="145" class="practice-text">Separa mensajes técnicos</text>
+  <text x="330" y="165" class="practice-text">de mensajes al usuario.</text>
+  <text x="330" y="185" class="practice-text">Usa toUserMessage().</text>
+  <text x="330" y="205" class="code">"Por favor, verifica el email"</text>
+
+  <!-- Practice 3: Logging -->
+  <rect x="600" y="90" width="270" height="120" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="620" y="115" class="icon do">✓</text>
+  <text x="645" y="118" class="practice-title">Logging Completo</text>
+  <text x="615" y="145" class="practice-text">Registra errores con contexto:</text>
+  <text x="615" y="165" class="practice-text">timestamp, stack, datos.</text>
+  <text x="615" y="185" class="practice-text">Usa niveles: info/warn/error.</text>
+  <text x="615" y="205" class="code">logger.error(err, {userId, action})</text>
+
+  <!-- Row 2 -->
+  <!-- Practice 4: Custom Errors -->
+  <rect x="30" y="225" width="270" height="120" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="50" y="250" class="icon do">✓</text>
+  <text x="75" y="253" class="practice-title">Errores Personalizados</text>
+  <text x="45" y="280" class="practice-text">Crea jerarquía de errores.</text>
+  <text x="45" y="300" class="practice-text">Añade propiedades útiles:</text>
+  <text x="45" y="320" class="practice-text">code, field, isRetryable.</text>
+  <text x="45" y="340" class="code">class ValidationError extends AppError</text>
+
+  <!-- Practice 5: Graceful Recovery -->
+  <rect x="315" y="225" width="270" height="120" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="335" y="250" class="icon do">✓</text>
+  <text x="360" y="253" class="practice-title">Recuperación Elegante</text>
+  <text x="330" y="280" class="practice-text">Usa fallbacks y defaults.</text>
+  <text x="330" y="300" class="practice-text">Implementa retry para</text>
+  <text x="330" y="320" class="practice-text">errores transitorios.</text>
+  <text x="330" y="340" class="code">data ?? fallback ?? default</text>
+
+  <!-- Practice 6: Don't Swallow -->
+  <rect x="600" y="225" width="270" height="120" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="620" y="250" class="icon do">✓</text>
+  <text x="645" y="253" class="practice-title">No Tragues Errores</text>
+  <text x="615" y="280" class="practice-text">Siempre maneja o propaga.</text>
+  <text x="615" y="300" class="practice-text">catch vacío = bug oculto.</text>
+  <text x="615" y="320" class="practice-text">Al menos loguea el error.</text>
+  <text x="615" y="340" class="code">catch(e) { log(e); throw e; }</text>
+
+  <!-- Anti-patterns row -->
+  <text x="450" y="380" text-anchor="middle" class="label" style="fill: #ef4444;">❌ Anti-patrones a Evitar</text>
+
+  <!-- Anti-pattern 1 -->
+  <rect x="30" y="400" width="200" height="90" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+  <text x="45" y="425" class="practice-text dont">catch vacío</text>
+  <text x="45" y="450" class="code">catch(e) { }</text>
+  <text x="45" y="475" class="small">Oculta problemas</text>
+
+  <!-- Anti-pattern 2 -->
+  <rect x="245" y="400" width="200" height="90" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+  <text x="260" y="425" class="practice-text dont">throw strings</text>
+  <text x="260" y="450" class="code">throw "error"</text>
+  <text x="260" y="475" class="small">Sin stack trace</text>
+
+  <!-- Anti-pattern 3 -->
+  <rect x="460" y="400" width="200" height="90" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+  <text x="475" y="425" class="practice-text dont">catch genérico</text>
+  <text x="475" y="450" class="code">catch(e) { alert(e) }</text>
+  <text x="475" y="475" class="small">Sin diferenciar tipos</text>
+
+  <!-- Anti-pattern 4 -->
+  <rect x="675" y="400" width="200" height="90" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+  <text x="690" y="425" class="practice-text dont">console.log only</text>
+  <text x="690" y="450" class="code">console.log(err)</text>
+  <text x="690" y="475" class="small">Sin acción correctiva</text>
+
+  <!-- Summary -->
+  <rect x="30" y="510" width="840" height="50" rx="8" fill="#1e293b" stroke="#f0db4f" stroke-width="2"/>
+  <text x="450" y="540" text-anchor="middle" class="practice-text">💡 Regla de oro: Errores deben ser informativos, manejables y nunca silenciosos</text>
+
+  <!-- Footer -->
+  <text x="450" y="585" text-anchor="middle" class="small">Week 11 | Manejo de Errores Moderno</text>
+</svg>

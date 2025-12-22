@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .title { font: bold 24px system-ui, sans-serif; fill: #f0db4f; }
+      .subtitle { font: 16px system-ui, sans-serif; fill: #94a3b8; }
+      .label { font: bold 14px system-ui, sans-serif; fill: #f1f5f9; }
+      .code { font: 13px 'Fira Code', monospace; fill: #f1f5f9; }
+      .code-keyword { font: 13px 'Fira Code', monospace; fill: #f0db4f; }
+      .code-fn { font: 13px 'Fira Code', monospace; fill: #3b82f6; }
+      .small { font: 12px system-ui, sans-serif; fill: #94a3b8; }
+      .section-title { font: bold 14px system-ui, sans-serif; fill: #f0db4f; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" class="title">Error Boundaries</text>
+  <text x="450" y="65" text-anchor="middle" class="subtitle">Aislamiento y contención de errores</text>
+
+  <!-- Left side: Without boundary -->
+  <rect x="30" y="90" width="400" height="230" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <text x="230" y="115" text-anchor="middle" class="section-title" style="fill: #ef4444;">❌ Sin Error Boundary</text>
+
+  <!-- App container without boundary -->
+  <rect x="50" y="135" width="360" height="170" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="230" y="155" text-anchor="middle" class="label">App</text>
+
+  <!-- Components -->
+  <rect x="70" y="170" width="100" height="50" rx="4" fill="#22c55e" stroke="none"/>
+  <text x="120" y="200" text-anchor="middle" class="small" style="fill: #0f172a;">Header ✓</text>
+
+  <rect x="180" y="170" width="100" height="50" rx="4" fill="#ef4444" stroke="none"/>
+  <text x="230" y="195" text-anchor="middle" class="small" style="fill: #f1f5f9;">Widget</text>
+  <text x="230" y="210" text-anchor="middle" class="small" style="fill: #f1f5f9;">💥 ERROR</text>
+
+  <rect x="290" y="170" width="100" height="50" rx="4" fill="#ef4444" stroke="none" opacity="0.5"/>
+  <text x="340" y="200" text-anchor="middle" class="small" style="fill: #f1f5f9;">Footer 💀</text>
+
+  <!-- Crash effect -->
+  <text x="230" y="260" text-anchor="middle" class="small" style="fill: #ef4444;">⚠️ Toda la app crashea</text>
+  <text x="230" y="280" text-anchor="middle" class="small" style="fill: #ef4444;">El error se propaga sin control</text>
+
+  <!-- Right side: With boundary -->
+  <rect x="470" y="90" width="400" height="230" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
+  <text x="670" y="115" text-anchor="middle" class="section-title" style="fill: #22c55e;">✓ Con Error Boundary</text>
+
+  <!-- App container with boundary -->
+  <rect x="490" y="135" width="360" height="170" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="670" y="155" text-anchor="middle" class="label">App</text>
+
+  <!-- Components -->
+  <rect x="510" y="170" width="100" height="50" rx="4" fill="#22c55e" stroke="none"/>
+  <text x="560" y="200" text-anchor="middle" class="small" style="fill: #0f172a;">Header ✓</text>
+
+  <!-- Boundary wrapper -->
+  <rect x="618" y="165" width="110" height="60" rx="4" fill="none" stroke="#f0db4f" stroke-width="2" stroke-dasharray="5,3"/>
+  <rect x="625" y="175" width="95" height="40" rx="4" fill="#f59e0b" stroke="none"/>
+  <text x="672" y="195" text-anchor="middle" class="small" style="fill: #0f172a;">⚠️ Fallback</text>
+  <text x="672" y="208" text-anchor="middle" class="small" style="fill: #0f172a; font-size: 10px;">(Error aislado)</text>
+
+  <rect x="735" y="170" width="100" height="50" rx="4" fill="#22c55e" stroke="none"/>
+  <text x="785" y="200" text-anchor="middle" class="small" style="fill: #0f172a;">Footer ✓</text>
+
+  <!-- Success message -->
+  <text x="670" y="260" text-anchor="middle" class="small" style="fill: #22c55e;">✓ App sigue funcionando</text>
+  <text x="670" y="280" text-anchor="middle" class="small" style="fill: #22c55e;">Error contenido en boundary</text>
+
+  <!-- SafeExecute pattern -->
+  <rect x="30" y="340" width="840" height="130" rx="8" fill="#1e293b" stroke="#f0db4f" stroke-width="2"/>
+  <text x="450" y="365" text-anchor="middle" class="section-title">Patrón safeExecute</text>
+
+  <text x="60" y="395" class="code-keyword">const</text>
+  <text x="105" y="395" class="code-fn"> safeExecute</text>
+  <text x="195" y="395" class="code"> = fn => {</text>
+
+  <text x="80" y="420" class="code-keyword">  try</text>
+  <text x="115" y="420" class="code"> { </text>
+  <text x="135" y="420" class="code-keyword">return</text>
+  <text x="185" y="420" class="code"> { ok: </text>
+  <text x="225" y="420" class="code-keyword">true</text>
+  <text x="260" y="420" class="code">, value: fn() }; }</text>
+
+  <text x="80" y="445" class="code-keyword">  catch</text>
+  <text x="130" y="445" class="code"> (error) { </text>
+  <text x="220" y="445" class="code-keyword">return</text>
+  <text x="270" y="445" class="code"> { ok: </text>
+  <text x="310" y="445" class="code-keyword">false</text>
+  <text x="350" y="445" class="code">, error }; }</text>
+
+  <text x="60" y="465" class="code">};</text>
+
+  <!-- Usage example -->
+  <text x="550" y="395" class="small">// Uso:</text>
+  <text x="550" y="420" class="code-keyword">const</text>
+  <text x="590" y="420" class="code"> result = safeExecute(riskyFn);</text>
+  <text x="550" y="445" class="code-keyword">if</text>
+  <text x="570" y="445" class="code"> (result.ok) processValue(result.value);</text>
+  <text x="550" y="465" class="code-keyword">else</text>
+  <text x="585" y="465" class="code"> handleError(result.error);</text>
+
+  <!-- Benefits -->
+  <rect x="30" y="490" width="840" height="60" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="180" y="525" text-anchor="middle" class="small">🛡️ Aísla componentes fallidos</text>
+  <text x="450" y="525" text-anchor="middle" class="small">🔄 Permite mostrar fallback UI</text>
+  <text x="720" y="525" text-anchor="middle" class="small">📊 Facilita logging granular</text>
+
+  <!-- Footer -->
+  <text x="450" y="580" text-anchor="middle" class="small">Week 11 | Manejo de Errores Moderno</text>
+</svg>
