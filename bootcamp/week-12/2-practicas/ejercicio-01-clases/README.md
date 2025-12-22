@@ -2,7 +2,7 @@
 
 ## 🎯 Objetivo
 
-Practicar la creación de clases con campos privados, getters y métodos estáticos - los fundamentos de los modelos del proyecto.
+Practicar la creación de clases con campos privados, getters computados, métodos de instancia y métodos estáticos.
 
 ---
 
@@ -10,160 +10,91 @@ Practicar la creación de clases con campos privados, getters y métodos estáti
 
 - Campos privados con `#`
 - Getters para valores computados
-- Métodos estáticos de fábrica
+- Métodos de instancia con encadenamiento
 - Método `toJSON()` para serialización
+- Métodos estáticos (factory methods)
 
 ---
 
-## 🏋️ Ejercicio
+## 🏋️ Instrucciones
 
-Vas a crear una clase `Book` que represente un libro en una biblioteca.
-
-### Paso 1: Estructura Básica
-
-Define la clase con campos privados:
-
-```javascript
-class Book {
-  #id;
-  #title;
-  #author;
-  #price;
-  #available;
-}
-```
-
-**Abre `starter/index.js`** y descomenta la sección del Paso 1.
+1. Abre `starter/index.js`
+2. Lee cada sección y descomenta el código
+3. Ejecuta con `node index.js` después de cada paso
+4. Observa los resultados en la consola
 
 ---
 
-### Paso 2: Constructor
+## 📚 Pasos del Ejercicio
 
-Implementa el constructor usando destructuring:
+### Paso 1: Clase con Campos Privados
+- Crear clase `Book` con campos `#id`, `#title`, etc.
+- Constructor con destructuring
+- Getters básicos
 
-```javascript
-constructor({ id, title, author, price, available = true }) {
-  this.#id = id;
-  this.#title = title;
-  this.#author = author;
-  this.#price = price;
-  this.#available = available;
-}
-```
+### Paso 2: Getters Computados
+- Clase `Product` con getters calculados
+- `formattedPrice`, `totalValue`, `stockStatus`
 
-**Descomenta** la sección del Paso 2.
+### Paso 3: Métodos de Instancia
+- Clase `Counter` con métodos que modifican estado
+- Encadenamiento de métodos (method chaining)
 
----
+### Paso 4: toJSON para Serialización
+- Clase `User` con método `toJSON()`
+- Controlar qué campos se incluyen en JSON
 
-### Paso 3: Getters Básicos
+### Paso 5: Métodos Estáticos
+- Clase `Task` con factory methods
+- `static create()` y `static fromJSON()`
 
-Añade getters para acceder a los campos privados:
-
-```javascript
-get id() { return this.#id; }
-get title() { return this.#title; }
-get author() { return this.#author; }
-get price() { return this.#price; }
-get available() { return this.#available; }
-```
-
-**Descomenta** la sección del Paso 3.
-
----
-
-### Paso 4: Getter Computado
-
-Crea un getter que formatee el precio:
-
-```javascript
-get formattedPrice() {
-  return `$${this.#price.toFixed(2)}`;
-}
-```
-
-**Descomenta** la sección del Paso 4.
-
----
-
-### Paso 5: Métodos de Instancia
-
-Añade métodos para cambiar disponibilidad:
-
-```javascript
-checkout() {
-  if (!this.#available) {
-    throw new Error('Book is not available');
-  }
-  this.#available = false;
-}
-
-return() {
-  this.#available = true;
-}
-```
-
-**Descomenta** la sección del Paso 5.
-
----
-
-### Paso 6: Método toJSON()
-
-Implementa serialización:
-
-```javascript
-toJSON() {
-  return {
-    id: this.#id,
-    title: this.#title,
-    author: this.#author,
-    price: this.#price,
-    available: this.#available
-  };
-}
-```
-
-**Descomenta** la sección del Paso 6.
-
----
-
-### Paso 7: Método Estático
-
-Crea un factory method:
-
-```javascript
-static create(data) {
-  return new Book({
-    id: crypto.randomUUID(),
-    ...data
-  });
-}
-```
-
-**Descomenta** la sección del Paso 7.
+### Paso 6: Clase Completa
+- Clase `CartItem` integrando todos los conceptos
 
 ---
 
 ## ✅ Resultado Esperado
 
 ```
---- Paso 3: Getters Básicos ---
+--- Paso 1: Clase con Campos Privados ---
 Libro: Clean Code por Robert C. Martin
 Precio: 45.99
 Disponible: true
 
---- Paso 4: Getter Computado ---
-Precio formateado: $45.99
+--- Paso 2: Getters Computados ---
+Producto: MacBook Pro
+Precio: $1999.99
+Valor total inventario: $5999.97
+Estado: Pocas unidades
 
---- Paso 5: Métodos de Instancia ---
-Después de checkout: false
-Después de return: true
+--- Paso 3: Métodos de Instancia ---
+Valor inicial: 5
+Después de 3 incrementos: 8
+Después de 1 decremento: 7
+Después de reset: 0
 
---- Paso 6: toJSON ---
-JSON: {"id":"1","title":"Clean Code","author":"Robert C. Martin","price":45.99,"available":true}
+--- Paso 4: toJSON para Serialización ---
+Usuario serializado:
+{
+  "id": "u1",
+  "name": "Ana García",
+  "email": "ana@example.com"
+}
 
---- Paso 7: Método Estático ---
-Nuevo libro creado: The Pragmatic Programmer
+--- Paso 5: Métodos Estáticos ---
+Nueva tarea: Aprender clases ES6
 ID generado: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Tarea restaurada: Aprender clases ES6
+Completada: false
+
+--- Paso 6: Clase Completa ---
+Producto: Laptop
+Cantidad: 1
+Subtotal: $999.99
+Después de +2: cantidad=3, subtotal=$2999.97
+JSON: {"productId":"p1","quantity":3}
+
+✅ ¡Ejercicio completado!
 ```
 
 ---
