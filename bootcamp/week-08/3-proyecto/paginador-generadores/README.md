@@ -101,15 +101,15 @@ class Paginator {
   constructor(generator, itemsPerPage) {
     // Inicializar propiedades
   }
-  
+
   *currentPage() {
     // Generador que produce items de la página actual
   }
-  
+
   next() {
     // Ir a siguiente página
   }
-  
+
   previous() {
     // Ir a página anterior
   }
