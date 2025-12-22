@@ -52,11 +52,11 @@ Ya lo vimos en la semana 08. Permite hacer un objeto iterable:
 const range = {
   from: 1,
   to: 5,
-  
+
   [Symbol.iterator]() {
     let current = this.from;
     const last = this.to;
-    
+
     return {
       next() {
         if (current <= last) {
@@ -102,7 +102,7 @@ class Database {
   constructor(name) {
     this.name = name;
   }
-  
+
   get [Symbol.toStringTag]() {
     return 'Database';
   }
@@ -137,10 +137,10 @@ Controla cómo se convierte un objeto a primitivo:
 const user = {
   name: 'Alice',
   age: 30,
-  
+
   [Symbol.toPrimitive](hint) {
     console.log(`hint: ${hint}`);
-    
+
     switch (hint) {
       case 'number':
         return this.age;
@@ -311,16 +311,16 @@ Para iteradores asíncronos (se verá en detalle en semanas posteriores):
 const asyncRange = {
   from: 1,
   to: 3,
-  
+
   [Symbol.asyncIterator]() {
     let current = this.from;
     const last = this.to;
-    
+
     return {
       async next() {
         // Simular operación async
         await new Promise(r => setTimeout(r, 100));
-        
+
         if (current <= last) {
           return { value: current++, done: false };
         }
@@ -348,12 +348,12 @@ class Money {
     this.amount = amount;
     this.currency = currency;
   }
-  
+
   // Personalizar tipo
   get [Symbol.toStringTag]() {
     return 'Money';
   }
-  
+
   // Personalizar conversión a primitivo
   [Symbol.toPrimitive](hint) {
     switch (hint) {
@@ -365,7 +365,7 @@ class Money {
         return this.amount;
     }
   }
-  
+
   // Hacer iterable (por ejemplo, para dividir en centavos)
   *[Symbol.iterator]() {
     const cents = Math.floor(this.amount * 100);
