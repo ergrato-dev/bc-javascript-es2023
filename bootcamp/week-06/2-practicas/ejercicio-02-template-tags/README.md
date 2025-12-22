@@ -49,7 +49,7 @@ Descomenta el código en cada sección (PASO 1-9) y observa los resultados.
 ```javascript
 const myTag = (strings, ...values) => {
   return strings.reduce((result, str, i) => {
-    const value = values[i] !== undefined 
+    const value = values[i] !== undefined
       ? transform(values[i])  // Tu transformación
       : '';
     return result + str + value;

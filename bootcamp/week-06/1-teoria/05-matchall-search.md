@@ -293,7 +293,7 @@ console.log(extractVariables(template));
 const parseQueryString = url => {
   const queryRegex = /[?&]([^=]+)=([^&]*)/g;
   const query = url.includes('?') ? url.split('?')[1] : url;
-  
+
   return Object.fromEntries(
     [...('?' + query).matchAll(queryRegex)].map(m => [m[1], decodeURIComponent(m[2])])
   );

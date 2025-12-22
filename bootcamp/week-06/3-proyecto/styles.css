@@ -1,0 +1,262 @@
+/* ============================================
+   VALIDADOR DE FORMULARIOS - ESTILOS
+   Semana 06: Strings y RegExp Modernos
+   ============================================ */
+
+/* Variables CSS */
+:root {
+  --color-bg: #1a1a2e;
+  --color-surface: #16213e;
+  --color-primary: #e94560;
+  --color-success: #4ecca3;
+  --color-warning: #ffc107;
+  --color-error: #ff6b6b;
+  --color-text: #eee;
+  --color-text-muted: #aaa;
+  --color-border: #333;
+  --font-main: 'Segoe UI', system-ui, sans-serif;
+  --radius: 8px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--color-text-muted);
+}
+
+/* Form */
+form {
+  background: var(--color-surface);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
+}
+
+.form-group input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* Validation States */
+.form-group input.valid {
+  border-color: var(--color-success);
+}
+
+.form-group input.valid:focus {
+  box-shadow: 0 0 0 3px rgba(78, 204, 163, 0.2);
+}
+
+.form-group input.invalid {
+  border-color: var(--color-error);
+}
+
+.form-group input.invalid:focus {
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+/* Error Message */
+.error-message {
+  display: block;
+  min-height: 1.25rem;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-error);
+}
+
+/* Password Strength */
+.password-strength {
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.strength-bar {
+  height: 100%;
+  width: 0;
+  transition: width 0.3s, background-color 0.3s;
+  border-radius: 2px;
+}
+
+.strength-bar.weak {
+  width: 25%;
+  background: var(--color-error);
+}
+
+.strength-bar.fair {
+  width: 50%;
+  background: var(--color-warning);
+}
+
+.strength-bar.good {
+  width: 75%;
+  background: #8bc34a;
+}
+
+.strength-bar.strong {
+  width: 100%;
+  background: var(--color-success);
+}
+
+.strength-text {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: var(--color-text-muted);
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+}
+
+.btn-primary:disabled {
+  background: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-text-muted);
+}
+
+/* Result */
+.result {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--color-success);
+}
+
+.result h2 {
+  color: var(--color-success);
+  margin-bottom: 1rem;
+}
+
+.result pre {
+  background: var(--color-bg);
+  padding: 1rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* Utilities */
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  form {
+    padding: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+}
