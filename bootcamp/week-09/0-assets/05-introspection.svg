@@ -107,7 +107,7 @@
   <!-- Use Case -->
   <rect class="box-amber" x="30" y="375" width="490" height="55"/>
   <text class="label" x="275" y="398" text-anchor="middle">Caso de Uso: Copiar objeto con símbolos</text>
-  <text class="code" x="50" y="420">const clone = Object.fromEntries(Reflect.ownKeys(obj).map(k => [k, obj[k]]));</text>
+  <text class="code" x="50" y="420">Reflect.ownKeys(obj).map(k => [k, obj[k]])</text>
 
   <!-- Footer -->
   <text class="subtitle" x="400" y="445" text-anchor="middle">Week 09 | Símbolos y Metaprogramación</text>

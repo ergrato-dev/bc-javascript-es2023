@@ -1,5 +1,7 @@
 # 🌐 Symbol.for y Registro Global
 
+![Symbol Registry](../0-assets/02-symbol-registry.svg)
+
 ## 🎯 Objetivos
 
 - Entender la diferencia entre Symbol() y Symbol.for()

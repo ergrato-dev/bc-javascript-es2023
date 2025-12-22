@@ -52,8 +52,8 @@
   <text class="code" x="360" y="225">JSON.stringify(obj)</text>
   <text class="text" x="360" y="242" fill="#86efac">→ {"name":"visible"}</text>
 
-  <text class="text" x="360" y="270">Los símbolos no</text>
-  <text class="text" x="360" y="285">son enumerables</text>
+  <text class="text" x="360" y="264">Símbolos no son</text>
+  <text class="text" x="360" y="278">enumerables</text>
 
   <!-- Still accessible -->
   <rect class="box-red" x="570" y="80" width="200" height="200"/>
@@ -68,8 +68,8 @@
   <text class="code" x="590" y="225">Reflect.ownKeys(obj)</text>
   <text class="text" x="590" y="242" fill="#fca5a5">→ ['name', Symbol]</text>
 
-  <text class="text" x="590" y="270">No es privacidad</text>
-  <text class="text" x="590" y="285">real!</text>
+  <text class="text" x="590" y="264">No es privacidad</text>
+  <text class="text" x="590" y="278">real!</text>
 
   <!-- Comparison with #private -->
   <rect class="box-blue" x="30" y="300" width="740" height="120"/>

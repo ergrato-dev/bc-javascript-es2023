@@ -1,5 +1,7 @@
 # 🔎 Object.getOwnPropertySymbols
 
+![Introspection](../0-assets/05-introspection.svg)
+
 ## 🎯 Objetivos
 
 - Conocer Object.getOwnPropertySymbols()

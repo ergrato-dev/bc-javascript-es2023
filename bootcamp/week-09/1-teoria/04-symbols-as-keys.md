@@ -1,5 +1,7 @@
 # 🔒 Símbolos como Claves Privadas
 
+![Symbols as Keys](../0-assets/04-symbols-as-keys.svg)
+
 ## 🎯 Objetivos
 
 - Usar símbolos para crear propiedades "ocultas"

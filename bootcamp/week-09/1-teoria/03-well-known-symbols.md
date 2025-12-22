@@ -1,5 +1,7 @@
 # ⚡ Well-known Symbols
 
+![Well-known Symbols](../0-assets/03-well-known-symbols.svg)
+
 ## 🎯 Objetivos
 
 - Conocer los Well-known Symbols de JavaScript

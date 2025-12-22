@@ -37,15 +37,15 @@
   <!-- Registry entries -->
   <rect x="300" y="125" width="200" height="35" rx="4" fill="#374151"/>
   <text class="code" x="310" y="147">'app.id'</text>
-  <text class="text" x="420" y="147">→ Symbol(app.id)</text>
+  <text class="text" x="390" y="147">→ Sym()</text>
 
   <rect x="300" y="170" width="200" height="35" rx="4" fill="#374151"/>
   <text class="code" x="310" y="192">'user.key'</text>
-  <text class="text" x="420" y="192">→ Symbol(user.key)</text>
+  <text class="text" x="410" y="192">→ Sym()</text>
 
   <rect x="300" y="215" width="200" height="35" rx="4" fill="#374151"/>
   <text class="code" x="310" y="237">'shared'</text>
-  <text class="text" x="420" y="237">→ Symbol(shared)</text>
+  <text class="text" x="390" y="237">→ Sym()</text>
 
   <!-- Module A (left) -->
   <rect class="box-blue" x="30" y="100" width="200" height="150"/>

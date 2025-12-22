@@ -1,5 +1,7 @@
 # 🔷 Introducción a Symbols
 
+![Symbols Overview](../0-assets/01-symbols-overview.svg)
+
 ## 🎯 Objetivos
 
 - Comprender qué son los Symbols y por qué existen
