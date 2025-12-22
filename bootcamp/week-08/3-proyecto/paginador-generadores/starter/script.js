@@ -194,7 +194,7 @@ const elements = {
   totalPages: document.getElementById('totalPages'),
   stats: document.getElementById('stats'),
   itemRange: document.getElementById('itemRange'),
-  totalItemsDisplay: document.getElementById('totalItemsDisplay')
+  totalItemsDisplay: document.getElementById('totalItemsDisplay'),
 };
 
 /**
@@ -280,13 +280,13 @@ elements.btnLast.addEventListener('click', () => {
 });
 
 // Input de página
-elements.pageInput.addEventListener('change', (e) => {
+elements.pageInput.addEventListener('change', e => {
   // TODO: Llamar a paginator.goToPage() con el valor del input
   // Si es válido, renderItems()
 });
 
 // Selector de items por página
-elements.itemsPerPage.addEventListener('change', (e) => {
+elements.itemsPerPage.addEventListener('change', e => {
   // TODO: Si hay paginator, llamar a setItemsPerPage() y renderItems()
 });
 

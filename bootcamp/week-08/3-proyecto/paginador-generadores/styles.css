@@ -297,7 +297,9 @@ select:focus {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Empty State */
@@ -321,16 +323,16 @@ select:focus {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .pagination {
     gap: 5px;
   }
-  
+
   .btn-nav {
     padding: 8px 12px;
     font-size: 0.85rem;
   }
-  
+
   .page-info {
     order: -1;
     width: 100%;

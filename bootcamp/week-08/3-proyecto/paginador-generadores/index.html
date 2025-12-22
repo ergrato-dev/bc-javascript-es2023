@@ -1,90 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paginador con Generadores</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <header class="header">
-      <h1>📚 Paginador con Generadores</h1>
-      <p class="subtitle">Lazy loading de datos con ES6+ Generators</p>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Paginador con Generadores</title>
+    <link
+      rel="stylesheet"
+      href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>📚 Paginador con Generadores</h1>
+        <p class="subtitle">Lazy loading de datos con ES6+ Generators</p>
+      </header>
 
-    <main class="main">
-      <!-- Controls -->
-      <div class="controls">
-        <div class="control-group">
-          <label for="totalItems">Total de items:</label>
-          <select id="totalItems">
-            <option value="20">20 items</option>
-            <option value="50" selected>50 items</option>
-            <option value="100">100 items</option>
-            <option value="500">500 items</option>
-          </select>
+      <main class="main">
+        <!-- Controls -->
+        <div class="controls">
+          <div class="control-group">
+            <label for="totalItems">Total de items:</label>
+            <select id="totalItems">
+              <option value="20">20 items</option>
+              <option
+                value="50"
+                selected>
+                50 items
+              </option>
+              <option value="100">100 items</option>
+              <option value="500">500 items</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="itemsPerPage">Items por página:</label>
+            <select id="itemsPerPage">
+              <option
+                value="5"
+                selected>
+                5
+              </option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
+          </div>
+
+          <button
+            id="btnGenerate"
+            class="btn btn-primary">
+            🔄 Generar Datos
+          </button>
         </div>
-        
-        <div class="control-group">
-          <label for="itemsPerPage">Items por página:</label>
-          <select id="itemsPerPage">
-            <option value="5" selected>5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-          </select>
+
+        <!-- Data List -->
+        <section class="data-section">
+          <div
+            id="dataList"
+            class="data-list">
+            <p class="placeholder">Haz clic en "Generar Datos" para comenzar</p>
+          </div>
+        </section>
+
+        <!-- Pagination -->
+        <nav
+          class="pagination"
+          id="pagination"
+          style="display: none">
+          <button
+            id="btnFirst"
+            class="btn btn-nav"
+            title="Primera página">
+            ⏮️
+          </button>
+          <button
+            id="btnPrev"
+            class="btn btn-nav"
+            title="Página anterior">
+            ◀️ Anterior
+          </button>
+
+          <div class="page-info">
+            <span>Página</span>
+            <input
+              type="number"
+              id="pageInput"
+              min="1"
+              value="1" />
+            <span>de <strong id="totalPages">1</strong></span>
+          </div>
+
+          <button
+            id="btnNext"
+            class="btn btn-nav"
+            title="Página siguiente">
+            Siguiente ▶️
+          </button>
+          <button
+            id="btnLast"
+            class="btn btn-nav"
+            title="Última página">
+            ⏭️
+          </button>
+        </nav>
+
+        <!-- Stats -->
+        <div
+          class="stats"
+          id="stats"
+          style="display: none">
+          <span id="itemRange">Items 1-5</span>
+          <span>de</span>
+          <strong id="totalItemsDisplay">50</strong>
+          <span>total</span>
         </div>
-        
-        <button id="btnGenerate" class="btn btn-primary">
-          🔄 Generar Datos
-        </button>
-      </div>
+      </main>
 
-      <!-- Data List -->
-      <section class="data-section">
-        <div id="dataList" class="data-list">
-          <p class="placeholder">Haz clic en "Generar Datos" para comenzar</p>
-        </div>
-      </section>
+      <footer class="footer">
+        <p>Week 08 - Iteradores y Generadores | Bootcamp JavaScript ES6+</p>
+      </footer>
+    </div>
 
-      <!-- Pagination -->
-      <nav class="pagination" id="pagination" style="display: none;">
-        <button id="btnFirst" class="btn btn-nav" title="Primera página">
-          ⏮️
-        </button>
-        <button id="btnPrev" class="btn btn-nav" title="Página anterior">
-          ◀️ Anterior
-        </button>
-        
-        <div class="page-info">
-          <span>Página</span>
-          <input type="number" id="pageInput" min="1" value="1">
-          <span>de <strong id="totalPages">1</strong></span>
-        </div>
-        
-        <button id="btnNext" class="btn btn-nav" title="Página siguiente">
-          Siguiente ▶️
-        </button>
-        <button id="btnLast" class="btn btn-nav" title="Última página">
-          ⏭️
-        </button>
-      </nav>
-
-      <!-- Stats -->
-      <div class="stats" id="stats" style="display: none;">
-        <span id="itemRange">Items 1-5</span>
-        <span>de</span>
-        <strong id="totalItemsDisplay">50</strong>
-        <span>total</span>
-      </div>
-    </main>
-
-    <footer class="footer">
-      <p>Week 08 - Iteradores y Generadores | Bootcamp JavaScript ES6+</p>
-    </footer>
-  </div>
-
-  <!-- Usa starter/script.js para desarrollar, solution/script.js para referencia -->
-  <script src="starter/script.js"></script>
-</body>
+    <!-- Usa starter/script.js para desarrollar, solution/script.js para referencia -->
+    <script src="starter/script.js"></script>
+  </body>
 </html>
