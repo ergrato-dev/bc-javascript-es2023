@@ -176,14 +176,14 @@ function sanitizeInput(input) {
 ```javascript
 function getPasswordStrength(password) {
   let score = 0;
-  
+
   if (password.length >= 8) score++;
   if (password.length >= 12) score++;
   if (/[a-z]/.test(password)) score++;
   if (/[A-Z]/.test(password)) score++;
   if (/\d/.test(password)) score++;
   if (/[^a-zA-Z0-9]/.test(password)) score++;
-  
+
   return score; // 0-6
 }
 ```
@@ -194,7 +194,7 @@ function getPasswordStrength(password) {
 function formatPhone(value) {
   // Eliminar todo excepto dígitos y +
   const cleaned = value.replace(/[^\d+]/g, '');
-  
+
   // Aplicar formato con grupos
   // ...
 }

@@ -3,7 +3,7 @@
  * VALIDADOR DE FORMULARIOS
  * Semana 06: Strings y RegExp Modernos
  * ============================================
- * 
+ *
  * Implementa las validaciones usando RegExp y
  * métodos modernos de strings.
  */
@@ -36,7 +36,7 @@ const patterns = {
     uppercase: null, // TODO: al menos una mayúscula
     lowercase: null, // TODO: al menos una minúscula
     number: null, // TODO: al menos un número
-    special: null // TODO: al menos un carácter especial
+    special: null, // TODO: al menos un carácter especial
   },
 
   // Fecha: DD/MM/YYYY
@@ -47,7 +47,7 @@ const patterns = {
   postal: null, // TODO: Implementar patrón
 
   // URL: http o https
-  url: null // TODO: Implementar patrón
+  url: null, // TODO: Implementar patrón
 };
 
 // ============================================
@@ -72,7 +72,7 @@ const validators = {
 
     return {
       isValid: false,
-      message: 'Validación no implementada'
+      message: 'Validación no implementada',
     };
   },
 
@@ -86,7 +86,7 @@ const validators = {
 
     return {
       isValid: false,
-      message: 'Validación no implementada'
+      message: 'Validación no implementada',
     };
   },
 
@@ -104,7 +104,7 @@ const validators = {
     return {
       isValid: false,
       message: 'Validación no implementada',
-      formatted: value
+      formatted: value,
     };
   },
 
@@ -122,7 +122,7 @@ const validators = {
     return {
       isValid: false,
       message: 'Validación no implementada',
-      strength: 0
+      strength: 0,
     };
   },
 
@@ -137,7 +137,7 @@ const validators = {
 
     return {
       isValid: false,
-      message: 'Validación no implementada'
+      message: 'Validación no implementada',
     };
   },
 
@@ -156,7 +156,7 @@ const validators = {
     return {
       isValid: false,
       message: 'Validación no implementada',
-      age: 0
+      age: 0,
     };
   },
 
@@ -170,7 +170,7 @@ const validators = {
 
     return {
       isValid: false,
-      message: 'Validación no implementada'
+      message: 'Validación no implementada',
     };
   },
 
@@ -186,9 +186,9 @@ const validators = {
 
     return {
       isValid: true,
-      message: ''
+      message: '',
     };
-  }
+  },
 };
 
 // ============================================
@@ -203,7 +203,7 @@ const validators = {
 const sanitizeInput = input => {
   // TODO: Implementar sanitización
   // Escapar: < > & " '
-  
+
   return input;
 };
 
@@ -215,7 +215,7 @@ const sanitizeInput = input => {
 const getStrengthLevel = strength => {
   // TODO: Implementar
   // 0-1: weak, 2: fair, 3-4: good, 5: strong
-  
+
   return { class: '', text: '' };
 };
 
@@ -227,7 +227,7 @@ const getStrengthLevel = strength => {
 const formatPhoneNumber = phone => {
   // TODO: Implementar formateo
   // Ej: "34612345678" -> "+34 612 345 678"
-  
+
   return phone;
 };
 
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmPassword: document.getElementById('confirmPassword'),
     birthdate: document.getElementById('birthdate'),
     postal: document.getElementById('postal'),
-    website: document.getElementById('website')
+    website: document.getElementById('website'),
   };
 
   // Estado de validación
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', () => {
     confirmPassword: false,
     birthdate: false,
     postal: false,
-    website: true // Opcional, válido por defecto
+    website: true, // Opcional, válido por defecto
   };
 
   // ----------------------------------------
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
       phone: sanitizeInput(inputs.phone?.value || ''),
       birthdate: sanitizeInput(inputs.birthdate?.value || ''),
       postal: sanitizeInput(inputs.postal?.value || ''),
-      website: sanitizeInput(inputs.website?.value || '')
+      website: sanitizeInput(inputs.website?.value || ''),
     };
 
     // Mostrar resultado
@@ -486,6 +486,6 @@ if (typeof module !== 'undefined' && module.exports) {
     validators,
     sanitizeInput,
     getStrengthLevel,
-    formatPhoneNumber
+    formatPhoneNumber,
   };
 }
