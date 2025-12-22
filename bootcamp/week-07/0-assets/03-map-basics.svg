@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #9ca3af; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 12px; }
+      .box { fill: #374151; stroke: #4b5563; stroke-width: 1; rx: 8; }
+      .key-box { fill: #3b82f6; rx: 4; }
+      .value-box { fill: #10b981; rx: 4; }
+      .arrow { stroke: #f59e0b; stroke-width: 2; fill: none; }
+      .arrow-head { fill: #f59e0b; }
+      .code { fill: #e5e7eb; font-family: 'Consolas', monospace; font-size: 11px; }
+      .key-text { fill: #f9fafb; font-family: 'Consolas', monospace; font-size: 12px; text-anchor: middle; }
+      .value-text { fill: #f9fafb; font-family: 'Consolas', monospace; font-size: 12px; text-anchor: middle; }
+      .method { fill: #a78bfa; font-family: 'Consolas', monospace; font-size: 11px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="400"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Map - Pares Clave-Valor</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Claves de cualquier tipo • Mantiene orden de inserción</text>
+
+  <!-- Map Visual -->
+  <rect class="box" x="50" y="80" width="300" height="220"/>
+  <text class="label" x="200" y="105" text-anchor="middle" font-weight="bold">Map</text>
+
+  <!-- Key-Value Pairs -->
+  <!-- Pair 1 -->
+  <rect class="key-box" x="70" y="120" width="80" height="35"/>
+  <text class="key-text" x="110" y="142">"name"</text>
+  <path class="arrow" d="M 155 137 L 175 137"/>
+  <rect class="value-box" x="180" y="120" width="150" height="35"/>
+  <text class="value-text" x="255" y="142">"Alice"</text>
+
+  <!-- Pair 2 -->
+  <rect class="key-box" x="70" y="165" width="80" height="35"/>
+  <text class="key-text" x="110" y="187">{id: 1}</text>
+  <path class="arrow" d="M 155 182 L 175 182"/>
+  <rect class="value-box" x="180" y="165" width="150" height="35"/>
+  <text class="value-text" x="255" y="187">"userData"</text>
+
+  <!-- Pair 3 -->
+  <rect class="key-box" x="70" y="210" width="80" height="35"/>
+  <text class="key-text" x="110" y="232">42</text>
+  <path class="arrow" d="M 155 227 L 175 227"/>
+  <rect class="value-box" x="180" y="210" width="150" height="35"/>
+  <text class="value-text" x="255" y="232">"number key"</text>
+
+  <!-- Pair 4 -->
+  <rect class="key-box" x="70" y="255" width="80" height="35"/>
+  <text class="key-text" x="110" y="277">fn()</text>
+  <path class="arrow" d="M 155 272 L 175 272"/>
+  <rect class="value-box" x="180" y="255" width="150" height="35"/>
+  <text class="value-text" x="255" y="277">"func key"</text>
+
+  <!-- Legend -->
+  <rect class="key-box" x="70" y="305" width="15" height="15"/>
+  <text class="label" x="95" y="317">Clave (cualquier tipo)</text>
+  <rect class="value-box" x="200" y="305" width="15" height="15"/>
+  <text class="label" x="225" y="317">Valor</text>
+
+  <!-- Methods Box -->
+  <rect class="box" x="400" y="80" width="370" height="220"/>
+  <text class="label" x="585" y="105" text-anchor="middle" font-weight="bold">Métodos Principales</text>
+
+  <!-- Methods -->
+  <text class="method" x="420" y="135">map.set(key, value)</text>
+  <text class="subtitle" x="420" y="150" font-size="10">Agrega o actualiza par clave-valor</text>
+
+  <text class="method" x="420" y="175">map.get(key)</text>
+  <text class="subtitle" x="420" y="190" font-size="10">Obtiene valor por clave → value | undefined</text>
+
+  <text class="method" x="420" y="215">map.has(key)</text>
+  <text class="subtitle" x="420" y="230" font-size="10">Verifica si existe clave → true/false</text>
+
+  <text class="method" x="420" y="255">map.delete(key)</text>
+  <text class="subtitle" x="420" y="270" font-size="10">Elimina par por clave → true/false</text>
+
+  <text class="method" x="420" y="295">map.size</text>
+  <text class="subtitle" x="420" y="310" font-size="10">Cantidad de pares</text>
+
+  <!-- Return values -->
+  <text class="code" x="620" y="135" fill="#10b981">→ Map</text>
+  <text class="code" x="620" y="175" fill="#10b981">→ value</text>
+  <text class="code" x="620" y="215" fill="#10b981">→ boolean</text>
+  <text class="code" x="620" y="255" fill="#10b981">→ boolean</text>
+  <text class="code" x="620" y="295" fill="#10b981">→ number</text>
+
+  <!-- Comparison -->
+  <rect class="box" x="400" y="310" width="370" height="60"/>
+  <text class="label" x="420" y="335" font-weight="bold">Map vs Object</text>
+  <text class="subtitle" x="420" y="355" font-size="10">✓ Claves de cualquier tipo  ✓ Orden garantizado  ✓ size nativo  ✓ Iterable</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="385" text-anchor="middle">Week 07 - Sets y Maps | JavaScript ES6+</text>
+</svg>

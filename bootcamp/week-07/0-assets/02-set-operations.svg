@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #9ca3af; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 12px; }
+      .set-a { fill: #3b82f6; opacity: 0.4; }
+      .set-b { fill: #10b981; opacity: 0.4; }
+      .intersection { fill: #8b5cf6; opacity: 0.6; }
+      .stroke-a { stroke: #3b82f6; stroke-width: 3; fill: none; }
+      .stroke-b { stroke: #10b981; stroke-width: 3; fill: none; }
+      .value { fill: #f9fafb; font-family: 'Consolas', monospace; font-size: 16px; font-weight: bold; }
+      .op-label { fill: #f59e0b; font-family: system-ui, sans-serif; font-size: 11px; font-weight: bold; }
+      .result { fill: #f9fafb; font-family: 'Consolas', monospace; font-size: 11px; }
+      .box { fill: #374151; stroke: #4b5563; stroke-width: 1; rx: 6; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Operaciones de Conjuntos</text>
+
+  <!-- Venn Diagram -->
+  <!-- Set A -->
+  <ellipse class="set-a" cx="180" cy="180" rx="100" ry="80"/>
+  <ellipse class="stroke-a" cx="180" cy="180" rx="100" ry="80"/>
+
+  <!-- Set B -->
+  <ellipse class="set-b" cx="280" cy="180" rx="100" ry="80"/>
+  <ellipse class="stroke-b" cx="280" cy="180" rx="100" ry="80"/>
+
+  <!-- Labels -->
+  <text class="label" x="120" y="100" font-weight="bold" fill="#3b82f6">A = {1, 2, 3, 4}</text>
+  <text class="label" x="280" y="100" font-weight="bold" fill="#10b981">B = {3, 4, 5, 6}</text>
+
+  <!-- Values -->
+  <text class="value" x="130" y="170">1</text>
+  <text class="value" x="130" y="200">2</text>
+  <text class="value" x="215" y="170">3</text>
+  <text class="value" x="245" y="200">4</text>
+  <text class="value" x="320" y="170">5</text>
+  <text class="value" x="320" y="200">6</text>
+
+  <!-- Operations -->
+  <!-- Union -->
+  <rect class="box" x="420" y="60" width="360" height="70"/>
+  <text class="op-label" x="440" y="85">UNIÓN (A ∪ B)</text>
+  <text class="subtitle" x="440" y="100" font-size="10">Todos los elementos de ambos</text>
+  <text class="result" x="440" y="118">{1, 2, 3, 4, 5, 6}</text>
+  <text class="result" x="600" y="118" fill="#9ca3af">new Set([...a, ...b])</text>
+
+  <!-- Intersection -->
+  <rect class="box" x="420" y="140" width="360" height="70"/>
+  <text class="op-label" x="440" y="165">INTERSECCIÓN (A ∩ B)</text>
+  <text class="subtitle" x="440" y="180" font-size="10">Solo elementos en ambos</text>
+  <text class="result" x="440" y="198">{3, 4}</text>
+  <text class="result" x="600" y="198" fill="#9ca3af">[...a].filter(x => b.has(x))</text>
+
+  <!-- Difference A-B -->
+  <rect class="box" x="420" y="220" width="360" height="70"/>
+  <text class="op-label" x="440" y="245">DIFERENCIA (A - B)</text>
+  <text class="subtitle" x="440" y="260" font-size="10">En A pero no en B</text>
+  <text class="result" x="440" y="278">{1, 2}</text>
+  <text class="result" x="600" y="278" fill="#9ca3af">[...a].filter(x => !b.has(x))</text>
+
+  <!-- Symmetric Difference -->
+  <rect class="box" x="420" y="300" width="360" height="70"/>
+  <text class="op-label" x="440" y="325">DIF. SIMÉTRICA (A △ B)</text>
+  <text class="subtitle" x="440" y="340" font-size="10">En uno u otro, no en ambos</text>
+  <text class="result" x="440" y="358">{1, 2, 5, 6}</text>
+  <text class="result" x="600" y="358" fill="#9ca3af">unión - intersección</text>
+
+  <!-- Visual indicators -->
+  <!-- Union highlight -->
+  <rect x="422" y="62" width="5" height="66" fill="#3b82f6" rx="2"/>
+
+  <!-- Intersection highlight -->
+  <rect x="422" y="142" width="5" height="66" fill="#8b5cf6" rx="2"/>
+
+  <!-- Difference highlight -->
+  <rect x="422" y="222" width="5" height="66" fill="#ef4444" rx="2"/>
+
+  <!-- Symmetric highlight -->
+  <rect x="422" y="302" width="5" height="66" fill="#f59e0b" rx="2"/>
+
+  <!-- Venn colored regions indicator -->
+  <text class="subtitle" x="230" y="280" text-anchor="middle">Intersección</text>
+  <text class="subtitle" x="110" y="250" text-anchor="middle" fill="#3b82f6">Solo A</text>
+  <text class="subtitle" x="350" y="250" text-anchor="middle" fill="#10b981">Solo B</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="430" text-anchor="middle">Week 07 - Sets y Maps | JavaScript ES6+</text>
+</svg>

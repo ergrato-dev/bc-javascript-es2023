@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #9ca3af; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 12px; }
+      .box { fill: #374151; stroke: #4b5563; stroke-width: 1; rx: 8; }
+      .cache-box { fill: #1e40af; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .code { fill: #10b981; font-family: 'Consolas', monospace; font-size: 11px; }
+      .method { fill: #a78bfa; font-family: 'Consolas', monospace; font-size: 11px; }
+      .arrow { stroke: #f59e0b; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .flow-arrow { stroke: #10b981; stroke-width: 2; fill: none; marker-end: url(#greenarrow); }
+      .cache-hit { fill: #10b981; }
+      .cache-miss { fill: #ef4444; }
+      .icon { font-size: 20px; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon fill="#f59e0b" points="0 0, 10 3.5, 0 7"/>
+    </marker>
+    <marker id="greenarrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon fill="#10b981" points="0 0, 10 3.5, 0 7"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Map Avanzado - Patrones</text>
+
+  <!-- Memoization Pattern -->
+  <rect class="box" x="30" y="60" width="240" height="170"/>
+  <text class="label" x="150" y="85" text-anchor="middle" font-weight="bold">🧠 Memoization</text>
+  <text class="subtitle" x="50" y="105" font-size="10">Cachear resultados de funciones</text>
+
+  <rect class="cache-box" x="50" y="115" width="200" height="60"/>
+  <text class="label" x="150" y="135" text-anchor="middle">Cache Map</text>
+  <text class="code" x="150" y="155" text-anchor="middle">"[10]" → 55</text>
+  <text class="code" x="150" y="170" text-anchor="middle">"[20]" → 6765</text>
+
+  <text class="method" x="50" y="200">fib(10) → </text>
+  <text class="cache-hit" x="130" y="200">Cache Hit! ✓</text>
+  <text class="method" x="50" y="220">fib(30) → </text>
+  <text class="cache-miss" x="130" y="220">Computing...</text>
+
+  <!-- LRU Cache Pattern -->
+  <rect class="box" x="280" y="60" width="240" height="170"/>
+  <text class="label" x="400" y="85" text-anchor="middle" font-weight="bold">📦 LRU Cache</text>
+  <text class="subtitle" x="300" y="105" font-size="10">Elimina menos usados (Least Recently Used)</text>
+
+  <!-- LRU Visual -->
+  <rect x="300" y="115" width="40" height="30" fill="#10b981" rx="4"/>
+  <text class="label" x="320" y="135" text-anchor="middle">A</text>
+
+  <rect x="345" y="115" width="40" height="30" fill="#10b981" rx="4"/>
+  <text class="label" x="365" y="135" text-anchor="middle">B</text>
+
+  <rect x="390" y="115" width="40" height="30" fill="#10b981" rx="4"/>
+  <text class="label" x="410" y="135" text-anchor="middle">C</text>
+
+  <rect x="435" y="115" width="40" height="30" fill="#3b82f6" rx="4"/>
+  <text class="label" x="455" y="135" text-anchor="middle">D</text>
+
+  <text class="subtitle" x="300" y="165" font-size="10">← Más antiguo</text>
+  <text class="subtitle" x="440" y="165" font-size="10">Más nuevo →</text>
+
+  <text class="code" x="300" y="190">get('A') → mueve A al final</text>
+  <text class="code" x="300" y="210">set('E') → elimina B (antiguo)</text>
+
+  <!-- BiMap Pattern -->
+  <rect class="box" x="530" y="60" width="240" height="170"/>
+  <text class="label" x="650" y="85" text-anchor="middle" font-weight="bold">↔️ BiMap</text>
+  <text class="subtitle" x="550" y="105" font-size="10">Búsqueda bidireccional</text>
+
+  <rect x="550" y="115" width="80" height="25" fill="#3b82f6" rx="4"/>
+  <text class="label" x="590" y="132" text-anchor="middle">ES</text>
+  <path class="arrow" d="M 635 127 L 655 127"/>
+  <rect x="660" y="115" width="90" height="25" fill="#10b981" rx="4"/>
+  <text class="label" x="705" y="132" text-anchor="middle">España</text>
+
+  <rect x="550" y="145" width="80" height="25" fill="#3b82f6" rx="4"/>
+  <text class="label" x="590" y="162" text-anchor="middle">MX</text>
+  <path class="arrow" d="M 635 157 L 655 157"/>
+  <rect x="660" y="145" width="90" height="25" fill="#10b981" rx="4"/>
+  <text class="label" x="705" y="162" text-anchor="middle">México</text>
+
+  <text class="code" x="550" y="195">get('ES') → 'España'</text>
+  <text class="code" x="550" y="215">getKey('México') → 'MX'</text>
+
+  <!-- Grouping Pattern -->
+  <rect class="box" x="30" y="245" width="240" height="170"/>
+  <text class="label" x="150" y="270" text-anchor="middle" font-weight="bold">📊 Grouping</text>
+  <text class="subtitle" x="50" y="290" font-size="10">Agrupar por propiedad</text>
+
+  <text class="code" x="50" y="315">products.groupBy(p => p.category)</text>
+
+  <rect x="50" y="325" width="200" height="80" fill="#1e40af" stroke="#3b82f6" rx="4"/>
+  <text class="label" x="60" y="345">"Electronics" → [iPhone, Mac]</text>
+  <text class="label" x="60" y="365">"Clothing" → [Shirt, Jeans]</text>
+  <text class="label" x="60" y="385">"Books" → [Novel]</text>
+
+  <!-- Frequency Counter -->
+  <rect class="box" x="280" y="245" width="240" height="170"/>
+  <text class="label" x="400" y="270" text-anchor="middle" font-weight="bold">🔢 Frequency Counter</text>
+  <text class="subtitle" x="300" y="290" font-size="10">Contar ocurrencias</text>
+
+  <text class="code" x="300" y="315">countFrequency("javascript")</text>
+
+  <rect x="300" y="325" width="200" height="80" fill="#1e40af" stroke="#3b82f6" rx="4"/>
+  <text class="label" x="310" y="345">'a' → 2</text>
+  <text class="label" x="310" y="365">'j' → 1</text>
+  <text class="label" x="310" y="385">'v' → 1, 's' → 1, ...</text>
+  <text class="label" x="400" y="345">'c' → 1</text>
+  <text class="label" x="400" y="365">'r' → 1</text>
+  <text class="label" x="400" y="385">'i' → 1, 'p' → 1, 't' → 1</text>
+
+  <!-- TTL Cache -->
+  <rect class="box" x="530" y="245" width="240" height="170"/>
+  <text class="label" x="650" y="270" text-anchor="middle" font-weight="bold">⏱️ TTL Cache</text>
+  <text class="subtitle" x="550" y="290" font-size="10">Cache con tiempo de expiración</text>
+
+  <rect x="550" y="305" width="200" height="45" fill="#1e40af" stroke="#3b82f6" rx="4"/>
+  <text class="label" x="560" y="325">"token"</text>
+  <text class="code" x="560" y="340">expires: 1703179200000</text>
+
+  <text class="code" x="550" y="370">cache.set('token', 'abc', 5000)</text>
+  <text class="subtitle" x="550" y="390" font-size="10">↳ Expira en 5 segundos</text>
+  <text class="code" x="550" y="410">cache.get('token') // undefined (expirado)</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="440" text-anchor="middle">Week 07 - Sets y Maps | JavaScript ES6+</text>
+</svg>

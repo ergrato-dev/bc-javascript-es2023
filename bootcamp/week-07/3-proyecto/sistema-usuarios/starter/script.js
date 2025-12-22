@@ -283,7 +283,8 @@ const renderUsersList = () => {
   const allUsers = getAllUsers();
 
   if (allUsers.length === 0) {
-    container.innerHTML = '<p class="empty-state">No hay usuarios registrados</p>';
+    container.innerHTML =
+      '<p class="empty-state">No hay usuarios registrados</p>';
   } else {
     container.innerHTML = allUsers
       .map(user => {
@@ -298,7 +299,10 @@ const renderUsersList = () => {
               <div class="user-id">ID: ${user.id}</div>
               <div class="user-roles">
                 ${[...roles]
-                  .map(role => `<span class="role-badge role-${role}">${role}</span>`)
+                  .map(
+                    role =>
+                      `<span class="role-badge role-${role}">${role}</span>`
+                  )
                   .join('')}
               </div>
             </div>
@@ -360,14 +364,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const password = document.getElementById('userPassword').value;
 
     if (password.length < 6) {
-      showMessage('registerMessage', 'La contraseña debe tener al menos 6 caracteres', 'error');
+      showMessage(
+        'registerMessage',
+        'La contraseña debe tener al menos 6 caracteres',
+        'error'
+      );
       return;
     }
 
     const user = registerUser(name, email, password);
 
     if (user) {
-      showMessage('registerMessage', `Usuario ${user.name} registrado con ID: ${user.id}`, 'success');
+      showMessage(
+        'registerMessage',
+        `Usuario ${user.name} registrado con ID: ${user.id}`,
+        'success'
+      );
       logToConsole(`Usuario registrado: ${user.name} (${user.id})`, 'success');
       e.target.reset();
       renderUsersList();
@@ -380,7 +392,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Asignar roles
   document.getElementById('assignRolesBtn').addEventListener('click', () => {
     const userId = document.getElementById('roleUserId').value.trim();
-    const checkboxes = document.querySelectorAll('.roles-checkboxes input:checked');
+    const checkboxes = document.querySelectorAll(
+      '.roles-checkboxes input:checked'
+    );
     const roles = [...checkboxes].map(cb => cb.value);
 
     if (!userId) {
@@ -396,8 +410,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const success = assignRoles(userId, roles);
 
     if (success) {
-      showMessage('rolesMessage', `Roles asignados: ${roles.join(', ')}`, 'success');
-      logToConsole(`Roles [${roles.join(', ')}] asignados a ${userId}`, 'success');
+      showMessage(
+        'rolesMessage',
+        `Roles asignados: ${roles.join(', ')}`,
+        'success'
+      );
+      logToConsole(
+        `Roles [${roles.join(', ')}] asignados a ${userId}`,
+        'success'
+      );
       renderUsersList();
     } else {
       showMessage('rolesMessage', 'Usuario no encontrado', 'error');
@@ -447,11 +468,16 @@ document.addEventListener('DOMContentLoaded', () => {
         ${
           result.length === 0
             ? '<p class="empty-state">No se encontraron usuarios</p>'
-            : `<ul>${result.map(u => `<li>${u.name} (${u.id})</li>`).join('')}</ul>`
+            : `<ul>${result
+                .map(u => `<li>${u.name} (${u.id})</li>`)
+                .join('')}</ul>`
         }
       `;
 
-      logToConsole(`Operación "${title}": ${result.length} usuarios encontrados`, 'info');
+      logToConsole(
+        `Operación "${title}": ${result.length} usuarios encontrados`,
+        'info'
+      );
     });
   });
 
@@ -498,7 +524,11 @@ document.addEventListener('DOMContentLoaded', () => {
       showMessage('sessionMessage', 'Sesión cerrada', 'success');
       logToConsole(`Logout exitoso: ${userId}`, 'success');
     } else {
-      showMessage('sessionMessage', 'No tiene sesión activa o usuario no existe', 'error');
+      showMessage(
+        'sessionMessage',
+        'No tiene sesión activa o usuario no existe',
+        'error'
+      );
       logToConsole(`Error: No se pudo cerrar sesión de ${userId}`, 'error');
     }
 
@@ -520,8 +550,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!user) {
       showMessage('sessionMessage', 'Usuario no encontrado', 'error');
     } else {
-      showMessage('sessionMessage', logged ? 'Sesión activa ✅' : 'Sin sesión ❌', 'info');
-      logToConsole(`Verificación: ${userId} ${logged ? 'tiene' : 'no tiene'} sesión activa`, 'info');
+      showMessage(
+        'sessionMessage',
+        logged ? 'Sesión activa ✅' : 'Sin sesión ❌',
+        'info'
+      );
+      logToConsole(
+        `Verificación: ${userId} ${
+          logged ? 'tiene' : 'no tiene'
+        } sesión activa`,
+        'info'
+      );
     }
   });
 
