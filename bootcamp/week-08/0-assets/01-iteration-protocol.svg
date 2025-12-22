@@ -1,0 +1,90 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #9ca3af; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 13px; }
+      .code { fill: #fde047; font-family: monospace; font-size: 12px; }
+      .box { fill: #374151; stroke: #4b5563; stroke-width: 2; rx: 8; }
+      .box-blue { fill: #1e3a5f; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .box-green { fill: #14532d; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .box-purple { fill: #3b0764; stroke: #a855f7; stroke-width: 2; rx: 8; }
+      .arrow { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="40" text-anchor="middle">🔄 Protocolo de Iteración</text>
+  <text class="subtitle" x="400" y="65" text-anchor="middle">Cómo JavaScript estandariza la iteración</text>
+
+  <!-- Iterable Box -->
+  <rect class="box-blue" x="50" y="100" width="200" height="140"/>
+  <text class="label" x="150" y="125" text-anchor="middle" font-weight="bold">📦 ITERABLE</text>
+  <text class="subtitle" x="150" y="145" text-anchor="middle">Objeto iterable</text>
+
+  <rect x="70" y="160" width="160" height="60" fill="#1e40af" stroke="#3b82f6" rx="4"/>
+  <text class="code" x="150" y="182" text-anchor="middle">[Symbol.iterator]()</text>
+  <text class="subtitle" x="150" y="205" text-anchor="middle" font-size="11">Retorna un iterador</text>
+
+  <!-- Arrow 1 -->
+  <path class="arrow" d="M 260 170 L 310 170"/>
+
+  <!-- Iterator Box -->
+  <rect class="box-green" x="320" y="100" width="200" height="140"/>
+  <text class="label" x="420" y="125" text-anchor="middle" font-weight="bold">🔧 ITERADOR</text>
+  <text class="subtitle" x="420" y="145" text-anchor="middle">Objeto con next()</text>
+
+  <rect x="340" y="160" width="160" height="60" fill="#166534" stroke="#22c55e" rx="4"/>
+  <text class="code" x="420" y="182" text-anchor="middle">next()</text>
+  <text class="subtitle" x="420" y="205" text-anchor="middle" font-size="11">Retorna resultado</text>
+
+  <!-- Arrow 2 -->
+  <path class="arrow" d="M 530 170 L 580 170"/>
+
+  <!-- Result Box -->
+  <rect class="box-purple" x="590" y="100" width="180" height="140"/>
+  <text class="label" x="680" y="125" text-anchor="middle" font-weight="bold">📋 RESULTADO</text>
+  <text class="subtitle" x="680" y="145" text-anchor="middle">{ value, done }</text>
+
+  <rect x="610" y="160" width="140" height="60" fill="#581c87" stroke="#a855f7" rx="4"/>
+  <text class="code" x="680" y="180" text-anchor="middle">value: any</text>
+  <text class="code" x="680" y="200" text-anchor="middle">done: boolean</text>
+
+  <!-- Examples Section -->
+  <text class="label" x="50" y="280" font-weight="bold">Iterables Nativos:</text>
+
+  <!-- Example boxes -->
+  <rect class="box" x="50" y="295" width="100" height="45"/>
+  <text class="label" x="100" y="315" text-anchor="middle">📝 Array</text>
+  <text class="code" x="100" y="332" text-anchor="middle">[1, 2, 3]</text>
+
+  <rect class="box" x="165" y="295" width="100" height="45"/>
+  <text class="label" x="215" y="315" text-anchor="middle">📝 String</text>
+  <text class="code" x="215" y="332" text-anchor="middle">"hello"</text>
+
+  <rect class="box" x="280" y="295" width="100" height="45"/>
+  <text class="label" x="330" y="315" text-anchor="middle">📝 Map</text>
+  <text class="code" x="330" y="332" text-anchor="middle">new Map()</text>
+
+  <rect class="box" x="395" y="295" width="100" height="45"/>
+  <text class="label" x="445" y="315" text-anchor="middle">📝 Set</text>
+  <text class="code" x="445" y="332" text-anchor="middle">new Set()</text>
+
+  <!-- Code Example -->
+  <rect class="box" x="520" y="270" width="250" height="110"/>
+  <text class="label" x="540" y="295">Ejemplo:</text>
+  <text class="code" x="540" y="315">const arr = [1, 2, 3];</text>
+  <text class="code" x="540" y="335">const it = arr[Symbol.iterator]();</text>
+  <text class="code" x="540" y="355">it.next(); // {value:1, done:false}</text>
+  <text class="code" x="540" y="375">it.next(); // {value:2, done:false}</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="430" text-anchor="middle">Symbol.iterator → next() → { value, done }</text>
+</svg>

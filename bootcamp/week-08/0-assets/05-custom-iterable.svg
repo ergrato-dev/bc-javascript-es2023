@@ -1,0 +1,86 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #9ca3af; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 13px; }
+      .code { fill: #fde047; font-family: monospace; font-size: 11px; }
+      .box { fill: #374151; stroke: #4b5563; stroke-width: 2; rx: 8; }
+      .box-blue { fill: #1e3a5f; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .box-green { fill: #14532d; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .box-purple { fill: #3b0764; stroke: #a855f7; stroke-width: 2; rx: 8; }
+      .arrow { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="480"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">🛠️ Iterables Personalizados</text>
+  <text class="subtitle" x="400" y="58" text-anchor="middle">Hacer cualquier objeto iterable con Symbol.iterator</text>
+
+  <!-- Custom Iterable Object -->
+  <rect class="box-blue" x="40" y="80" width="360" height="200"/>
+  <text class="label" x="220" y="105" text-anchor="middle" font-weight="bold">📦 Objeto Iterable Personalizado</text>
+
+  <text class="code" x="60" y="130">const range = {</text>
+  <text class="code" x="80" y="150">from: 1,</text>
+  <text class="code" x="80" y="168">to: 3,</text>
+  <text class="code" x="80" y="186" fill="#3b82f6">[Symbol.iterator]() {</text>
+  <text class="code" x="100" y="204">let current = this.from;</text>
+  <text class="code" x="100" y="222">const last = this.to;</text>
+  <text class="code" x="100" y="240">return {</text>
+  <text class="code" x="120" y="258" fill="#22c55e">next() { ... }</text>
+  <text class="code" x="100" y="268">};</text>
+  <text class="code" x="80" y="273">}</text>
+  <text class="code" x="60" y="278">};</text>
+
+  <!-- Iterator Object -->
+  <rect class="box-green" x="420" y="80" width="340" height="200"/>
+  <text class="label" x="590" y="105" text-anchor="middle" font-weight="bold">🔧 Objeto Iterator</text>
+
+  <text class="code" x="440" y="135">return {</text>
+  <text class="code" x="460" y="155" fill="#22c55e">next() {</text>
+  <text class="code" x="480" y="175">if (current &lt;= last) {</text>
+  <text class="code" x="500" y="195">return {</text>
+  <text class="code" x="520" y="213">value: current++,</text>
+  <text class="code" x="520" y="231">done: false</text>
+  <text class="code" x="500" y="246">};</text>
+  <text class="code" x="480" y="261">}</text>
+  <text class="code" x="480" y="273">return { done: true };</text>
+  <text class="code" x="460" y="278">}</text>
+  <text class="code" x="440" y="280">};</text>
+
+  <!-- Arrow -->
+  <path class="arrow" d="M 400 175 L 410 175"/>
+
+  <!-- Usage Examples -->
+  <rect class="box" x="40" y="300" width="230" height="100"/>
+  <text class="label" x="155" y="325" text-anchor="middle" font-weight="bold">🔄 Uso con for...of</text>
+  <text class="code" x="60" y="350">for (const n of range) {</text>
+  <text class="code" x="80" y="368">console.log(n);</text>
+  <text class="code" x="60" y="386">}</text>
+  <text class="subtitle" x="180" y="380" font-size="10">// 1, 2, 3</text>
+
+  <!-- Spread Usage -->
+  <rect class="box" x="285" y="300" width="230" height="100"/>
+  <text class="label" x="400" y="325" text-anchor="middle" font-weight="bold">📤 Uso con Spread</text>
+  <text class="code" x="305" y="355">const arr = [...range];</text>
+  <text class="subtitle" x="305" y="380" font-size="11">// [1, 2, 3]</text>
+
+  <!-- Destructuring Usage -->
+  <rect class="box" x="530" y="300" width="230" height="100"/>
+  <text class="label" x="645" y="325" text-anchor="middle" font-weight="bold">📥 Destructuring</text>
+  <text class="code" x="550" y="355">const [a, b] = range;</text>
+  <text class="subtitle" x="550" y="380" font-size="11">// a=1, b=2</text>
+
+  <!-- Key Points -->
+  <rect x="40" y="415" width="720" height="50" fill="#374151" stroke="#4b5563" stroke-width="1" rx="4"/>
+  <text class="label" x="400" y="438" text-anchor="middle" font-size="12">💡 Cualquier objeto con [Symbol.iterator]() puede usar: for...of, spread, destructuring, Array.from()</text>
+  <text class="subtitle" x="400" y="455" text-anchor="middle" font-size="11">El método debe retornar un objeto con next() que devuelva { value, done }</text>
+</svg>

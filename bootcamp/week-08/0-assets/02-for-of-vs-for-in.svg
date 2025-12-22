@@ -1,0 +1,65 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1f2937; }
+      .title { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #9ca3af; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #f9fafb; font-family: system-ui, sans-serif; font-size: 13px; }
+      .code { fill: #fde047; font-family: monospace; font-size: 12px; }
+      .box { fill: #374151; stroke: #4b5563; stroke-width: 2; rx: 8; }
+      .box-blue { fill: #1e3a5f; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .box-green { fill: #14532d; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .box-red { fill: #450a0a; stroke: #ef4444; stroke-width: 2; rx: 8; }
+      .check { fill: #22c55e; }
+      .cross { fill: #ef4444; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="420"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="40" text-anchor="middle">🔀 for...of vs for...in</text>
+  <text class="subtitle" x="400" y="65" text-anchor="middle">Diferencias clave entre ambos loops</text>
+
+  <!-- for...of Section -->
+  <rect class="box-blue" x="50" y="90" width="340" height="280"/>
+  <text class="label" x="220" y="115" text-anchor="middle" font-weight="bold" font-size="16">for...of</text>
+  <text class="subtitle" x="220" y="135" text-anchor="middle">Itera sobre VALORES</text>
+
+  <rect x="70" y="150" width="300" height="60" fill="#1e40af" stroke="#3b82f6" rx="4"/>
+  <text class="code" x="220" y="172" text-anchor="middle">for (const value of array) {</text>
+  <text class="code" x="220" y="192" text-anchor="middle">  console.log(value);</text>
+  <text class="code" x="220" y="202" text-anchor="middle">}</text>
+
+  <text class="label" x="90" y="235">✅ Arrays → valores</text>
+  <text class="label" x="90" y="255">✅ Strings → caracteres</text>
+  <text class="label" x="90" y="275">✅ Map → [key, value]</text>
+  <text class="label" x="90" y="295">✅ Set → valores</text>
+  <text class="label" x="90" y="315">❌ Objetos → no funciona</text>
+
+  <rect x="70" y="330" width="300" height="30" fill="#166534" stroke="#22c55e" rx="4"/>
+  <text class="label" x="220" y="350" text-anchor="middle">Output: 'a', 'b', 'c'</text>
+
+  <!-- for...in Section -->
+  <rect class="box-red" x="410" y="90" width="340" height="280"/>
+  <text class="label" x="580" y="115" text-anchor="middle" font-weight="bold" font-size="16">for...in</text>
+  <text class="subtitle" x="580" y="135" text-anchor="middle">Itera sobre CLAVES</text>
+
+  <rect x="430" y="150" width="300" height="60" fill="#7f1d1d" stroke="#ef4444" rx="4"/>
+  <text class="code" x="580" y="172" text-anchor="middle">for (const key in object) {</text>
+  <text class="code" x="580" y="192" text-anchor="middle">  console.log(key);</text>
+  <text class="code" x="580" y="202" text-anchor="middle">}</text>
+
+  <text class="label" x="450" y="235">✅ Objetos → propiedades</text>
+  <text class="label" x="450" y="255">⚠️ Arrays → índices (string)</text>
+  <text class="label" x="450" y="275">⚠️ Incluye heredadas</text>
+  <text class="label" x="450" y="295">⚠️ Incluye props extra</text>
+  <text class="label" x="450" y="315">❌ No recomendado para arrays</text>
+
+  <rect x="430" y="330" width="300" height="30" fill="#7f1d1d" stroke="#ef4444" rx="4"/>
+  <text class="label" x="580" y="350" text-anchor="middle">Output: '0', '1', '2'</text>
+
+  <!-- Footer -->
+  <text class="subtitle" x="400" y="400" text-anchor="middle">💡 Regla: "of" para valores, "in" para claves de objetos</text>
+</svg>
