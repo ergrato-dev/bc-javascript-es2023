@@ -39,8 +39,8 @@
   <text class="code" x="70" y="220">}</text>
 
   <!-- Arrow to Sub -->
-  <path class="arrow-delegate" d="M 310 180 L 360 180"/>
-  <text class="subtitle" x="335" y="170" font-size="10">delega</text>
+  <path class="arrow-delegate" d="M 310 140 L 360 140"/>
+  <text class="subtitle" x="335" y="132" font-size="10">delega</text>
 
   <!-- Sub Generator -->
   <rect class="box-purple" x="370" y="85" width="200" height="150"/>
@@ -69,7 +69,7 @@
 
   <text class="code" x="70" y="310">function* withArray() {</text>
   <text class="code" x="90" y="330">yield* [1, 2, 3];</text>
-  <text class="subtitle" x="235" y="330" font-size="11">// yield 1; yield 2; yield 3;</text>
+  <text class="subtitle" x="220" y="330" font-size="10">// 1, 2, 3</text>
   <text class="code" x="70" y="350">}</text>
 
   <!-- yield* with Strings -->
@@ -78,7 +78,7 @@
 
   <text class="code" x="430" y="310">function* withString() {</text>
   <text class="code" x="450" y="330">yield* 'abc';</text>
-  <text class="subtitle" x="575" y="330" font-size="11">// yield 'a'; yield 'b'; yield 'c';</text>
+  <text class="subtitle" x="560" y="330" font-size="10">// 'a','b','c'</text>
   <text class="code" x="430" y="350">}</text>
 
   <!-- Key Points -->
