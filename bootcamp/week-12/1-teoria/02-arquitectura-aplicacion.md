@@ -36,6 +36,10 @@ ecommerce-app/
 │       └── Notifications.js
 ```
 
+### Diagrama Visual
+
+![Arquitectura de 3 Capas](../0-assets/01-architecture-overview.svg)
+
 ---
 
 ## 🧩 Capas de la Aplicación
@@ -168,16 +172,20 @@ export class ProductList {
 
 ## 🔄 Flujo de Datos
 
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│   Usuario   │────▶│     UI      │────▶│  Services   │
-│  (Events)   │     │ (Handlers)  │     │  (Logic)    │
-└─────────────┘     └─────────────┘     └─────────────┘
-                           │                   │
-                           ▼                   ▼
-                    ┌─────────────┐     ┌─────────────┐
-                    │   Render    │◀────│   Models    │
-                    │   (DOM)     │     │   (Data)    │
+![Flujo de Datos - Agregar al Carrito](../0-assets/02-data-flow.svg)
+
+El diagrama muestra el flujo completo cuando un usuario agrega un producto al carrito:
+
+1. **Usuario** hace click en "Agregar"
+2. **ProductList** captura el evento y llama al servicio
+3. **CartService** procesa la operación
+4. **CartItem** se crea/actualiza
+5. **StorageService** persiste en localStorage
+6. **Observer** notifica a los listeners
+7. **CartView** recibe la notificación
+8. **render()** actualiza la UI
+9. **DOM** refleja los cambios
+10. **Usuario** ve el carrito actualizado
                     └─────────────┘     └─────────────┘
 ```
 

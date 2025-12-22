@@ -93,8 +93,14 @@ Lee este README completo y comprende:
 
 ### 2. Planifica la arquitectura (30 min)
 
-Dibuja en papel:
-- Diagrama de clases (Product, User, Cart, CartItem)
+Estudia los diagramas de arquitectura:
+
+![Arquitectura de 3 Capas](../../0-assets/01-architecture-overview.svg)
+
+![Flujo de Datos](../../0-assets/02-data-flow.svg)
+
+Comprende:
+- Cómo se organizan las capas (Models → Services → UI)
 - Relaciones entre Services
 - Flujo de eventos en UI
 
