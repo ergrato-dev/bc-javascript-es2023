@@ -27,7 +27,7 @@ const app = () => {
   const sidebar = renderSidebar();    // Works
   const content = renderContent();    // 💥 Throws error!
   const footer = renderFooter();      // Never runs
-  
+
   return combine(header, sidebar, content, footer);
 };
 
@@ -42,7 +42,7 @@ const app = () => {
   const sidebar = safeRender(renderSidebar, defaultSidebar);
   const content = safeRender(renderContent, errorContent);  // Error contained!
   const footer = safeRender(renderFooter, defaultFooter);   // Still runs
-  
+
   return combine(header, sidebar, content, footer);
 };
 
@@ -131,7 +131,7 @@ class ErrorBoundary {
     this.onError = options.onError ?? console.error;
     this.shouldCatch = options.shouldCatch ?? (() => true);
   }
-  
+
   execute(fn) {
     try {
       return fn();
@@ -143,7 +143,7 @@ class ErrorBoundary {
       throw error; // Re-throw if shouldn't catch
     }
   }
-  
+
   async executeAsync(fn) {
     try {
       return await fn();
@@ -286,10 +286,10 @@ const fetchAllUsers = async userIds => {
   const results = await Promise.allSettled(
     userIds.map(id => fetchUser(id))
   );
-  
+
   const successful = [];
   const failed = [];
-  
+
   results.forEach((result, index) => {
     if (result.status === 'fulfilled') {
       successful.push(result.value);
@@ -297,11 +297,11 @@ const fetchAllUsers = async userIds => {
       failed.push({ id: userIds[index], error: result.reason });
     }
   });
-  
+
   if (failed.length > 0) {
     console.warn('Some users failed to load:', failed);
   }
-  
+
   return successful;
 };
 
@@ -325,10 +325,10 @@ const isolate = fn => {
       log: msg => context.warnings.push(msg),
       error: err => context.errors.push(err)
     };
-    
+
     try {
       const result = fn(...args, context);
-      
+
       return {
         success: true,
         result,
@@ -353,7 +353,7 @@ const processData = isolate((data, ctx) => {
     ctx.log('No items found, using empty array');
     data.items = [];
   }
-  
+
   return data.items.map(item => transform(item));
 });
 
@@ -370,20 +370,20 @@ const result = processData({ name: 'test' });
 ```javascript
 const withRetry = async (fn, maxRetries = 3, delay = 1000) => {
   let lastError;
-  
+
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
       return await fn();
     } catch (error) {
       lastError = error;
       console.warn(`Attempt ${attempt} failed:`, error.message);
-      
+
       if (attempt < maxRetries) {
         await new Promise(r => setTimeout(r, delay * attempt));
       }
     }
   }
-  
+
   throw lastError;
 };
 
@@ -400,7 +400,7 @@ const data = await withRetry(
 ```javascript
 const withFallbackChain = async (...fns) => {
   let lastError;
-  
+
   for (const fn of fns) {
     try {
       return await fn();
@@ -409,7 +409,7 @@ const withFallbackChain = async (...fns) => {
       console.warn('Fallback triggered:', error.message);
     }
   }
-  
+
   throw lastError;
 };
 
@@ -433,7 +433,7 @@ class UIErrorBoundary {
     this.errorTemplate = options.errorTemplate ?? this.defaultErrorTemplate;
     this.onError = options.onError ?? console.error;
   }
-  
+
   defaultErrorTemplate(error) {
     return `
       <div class="error-boundary">
@@ -443,7 +443,7 @@ class UIErrorBoundary {
       </div>
     `;
   }
-  
+
   render(renderFn) {
     try {
       const content = renderFn();
@@ -453,7 +453,7 @@ class UIErrorBoundary {
       this.container.innerHTML = this.errorTemplate(error);
     }
   }
-  
+
   async renderAsync(renderFn) {
     try {
       this.container.innerHTML = '<div class="loading">Loading...</div>';
@@ -474,7 +474,7 @@ const headerBoundary = new UIErrorBoundary(
 
 const contentBoundary = new UIErrorBoundary(
   document.getElementById('content'),
-  { 
+  {
     onError: error => trackError('content', error),
     errorTemplate: error => `
       <div class="error">

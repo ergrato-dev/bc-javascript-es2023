@@ -113,16 +113,16 @@ class AppError extends Error {
     this.code = code;
     this.details = details;
   }
-  
+
   // Static factory methods
   static validation(field, message) {
     return new AppError('VALIDATION_ERROR', message, { field });
   }
-  
+
   static notFound(resource, id) {
     return new AppError('NOT_FOUND', `${resource} not found`, { resource, id });
   }
-  
+
   static unauthorized(reason) {
     return new AppError('UNAUTHORIZED', reason);
   }
@@ -211,7 +211,7 @@ class AppError extends Error {
     this.code = code;
     this.timestamp = Date.now();
   }
-  
+
   toJSON() {
     return {
       name: this.name,
@@ -238,18 +238,18 @@ class ValidationError extends Error {
     this.field = field;
     this.value = value;
   }
-  
+
   toUserMessage() {
     const fieldLabels = {
       email: 'Email',
       password: 'Password',
       username: 'Username'
     };
-    
+
     const label = fieldLabels[this.field] || this.field;
     return `${label}: ${this.message}`;
   }
-  
+
   toDebugMessage() {
     return `[${this.name}] ${this.field}="${this.value}": ${this.message}`;
   }
@@ -280,32 +280,32 @@ class HttpError extends Error {
     this.statusText = statusText;
     this.url = url;
   }
-  
+
   get isClientError() {
     return this.status >= 400 && this.status < 500;
   }
-  
+
   get isServerError() {
     return this.status >= 500;
   }
-  
+
   get isNotFound() {
     return this.status === 404;
   }
-  
+
   get isUnauthorized() {
     return this.status === 401 || this.status === 403;
   }
-  
+
   // Factory methods for common cases
   static notFound(url) {
     return new HttpError(404, 'Not Found', url);
   }
-  
+
   static unauthorized() {
     return new HttpError(401, 'Unauthorized');
   }
-  
+
   static serverError(url) {
     return new HttpError(500, 'Internal Server Error', url);
   }
@@ -314,11 +314,11 @@ class HttpError extends Error {
 // Usage with fetch
 const fetchData = async url => {
   const response = await fetch(url);
-  
+
   if (!response.ok) {
     throw new HttpError(response.status, response.statusText, url);
   }
-  
+
   return response.json();
 };
 
@@ -352,15 +352,15 @@ class MultiValidationError extends Error {
     this.name = 'MultiValidationError';
     this.errors = errors;
   }
-  
+
   addError(error) {
     this.errors.push(error);
   }
-  
+
   get hasErrors() {
     return this.errors.length > 0;
   }
-  
+
   toUserMessages() {
     return this.errors.map(e => e.toUserMessage?.() || e.message);
   }
@@ -369,23 +369,23 @@ class MultiValidationError extends Error {
 // Usage
 const validateForm = formData => {
   const multiError = new MultiValidationError();
-  
+
   if (!formData.email?.includes('@')) {
     multiError.addError(
       new ValidationError('email', 'Invalid format')
     );
   }
-  
+
   if (!formData.password || formData.password.length < 8) {
     multiError.addError(
       new ValidationError('password', 'Must be at least 8 characters')
     );
   }
-  
+
   if (multiError.hasErrors) {
     throw multiError;
   }
-  
+
   return true;
 };
 
@@ -425,7 +425,7 @@ class MyError extends Error {
   constructor(message) {
     super(message);
     this.name = 'MyError';
-    
+
     // Capture stack trace, excluding constructor
     if (Error.captureStackTrace) {
       Error.captureStackTrace(this, MyError);
@@ -446,12 +446,12 @@ class AppError extends Error {
     this.name = 'AppError';
     this.code = code;
     this.timestamp = new Date().toISOString();
-    
+
     if (Error.captureStackTrace) {
       Error.captureStackTrace(this, this.constructor);
     }
   }
-  
+
   toJSON() {
     return {
       name: this.name,
@@ -470,7 +470,7 @@ class ValidationError extends AppError {
     this.field = field;
     this.value = value;
   }
-  
+
   toJSON() {
     return {
       ...super.toJSON(),
@@ -478,7 +478,7 @@ class ValidationError extends AppError {
       value: this.value
     };
   }
-  
+
   toUserMessage() {
     return `${this.field}: ${this.message}`;
   }
@@ -492,7 +492,7 @@ class NetworkError extends AppError {
     this.status = status;
     this.url = url;
   }
-  
+
   get isRetryable() {
     return this.status >= 500 || this.status === 429;
   }
@@ -504,9 +504,9 @@ const api = {
     if (!id) {
       throw new ValidationError('id', 'User ID is required', id);
     }
-    
+
     const response = await fetch(`/api/users/${id}`);
-    
+
     if (!response.ok) {
       throw new NetworkError(
         `Failed to fetch user ${id}`,
@@ -514,7 +514,7 @@ const api = {
         response.url
       );
     }
-    
+
     return response.json();
   }
 };
