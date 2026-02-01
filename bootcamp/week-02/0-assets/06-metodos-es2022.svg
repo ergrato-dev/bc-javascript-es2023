@@ -1,0 +1,114 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1a1a1a; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #888; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box { fill: #2a2a2a; }
+      .box-highlight { fill: #3a3a3a; }
+      .label { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 16px; font-weight: bold; }
+      .code { fill: #e0e0e0; font-family: monospace; font-size: 13px; }
+      .desc { fill: #aaa; font-family: system-ui, sans-serif; font-size: 12px; }
+      .divider { stroke: #444; stroke-width: 1; }
+      .index { fill: #f0db4f; font-family: monospace; font-size: 11px; }
+      .value { fill: #4fc3f7; font-family: monospace; font-size: 14px; }
+      .check { fill: #4caf50; }
+      .cross { fill: #f44336; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Métodos ES2022</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Array.prototype.at() y Object.hasOwn()</text>
+
+  <!-- at() Section -->
+  <rect class="box" x="30" y="75" width="360" height="170" rx="8"/>
+  <text class="label" x="210" y="100" text-anchor="middle">Array.prototype.at()</text>
+  <line class="divider" x1="40" y1="110" x2="380" y2="110"/>
+
+  <!-- Array visualization -->
+  <rect fill="#3a3a3a" x="50" y="125" width="40" height="35" rx="4"/>
+  <rect fill="#3a3a3a" x="95" y="125" width="40" height="35" rx="4"/>
+  <rect fill="#3a3a3a" x="140" y="125" width="40" height="35" rx="4"/>
+  <rect fill="#3a3a3a" x="185" y="125" width="40" height="35" rx="4"/>
+  <rect fill="#4a4a3a" x="230" y="125" width="40" height="35" rx="4"/>
+
+  <text class="value" x="70" y="148" text-anchor="middle">'a'</text>
+  <text class="value" x="115" y="148" text-anchor="middle">'b'</text>
+  <text class="value" x="160" y="148" text-anchor="middle">'c'</text>
+  <text class="value" x="205" y="148" text-anchor="middle">'d'</text>
+  <text class="value" x="250" y="148" text-anchor="middle">'e'</text>
+
+  <!-- Positive indices -->
+  <text class="index" x="70" y="175" text-anchor="middle">0</text>
+  <text class="index" x="115" y="175" text-anchor="middle">1</text>
+  <text class="index" x="160" y="175" text-anchor="middle">2</text>
+  <text class="index" x="205" y="175" text-anchor="middle">3</text>
+  <text class="index" x="250" y="175" text-anchor="middle">4</text>
+
+  <!-- Negative indices -->
+  <text class="desc" x="70" y="190" text-anchor="middle">-5</text>
+  <text class="desc" x="115" y="190" text-anchor="middle">-4</text>
+  <text class="desc" x="160" y="190" text-anchor="middle">-3</text>
+  <text class="desc" x="205" y="190" text-anchor="middle">-2</text>
+  <text class="desc" x="250" y="190" text-anchor="middle">-1</text>
+
+  <!-- at() examples -->
+  <text class="code" x="290" y="135">arr.at(-1)</text>
+  <text class="desc" x="290" y="150">→ 'e' (último)</text>
+  <text class="code" x="290" y="175">arr.at(-2)</text>
+  <text class="desc" x="290" y="190">→ 'd' (penúltimo)</text>
+
+  <!-- Comparison -->
+  <text class="code" x="50" y="225">arr[-1]</text>
+  <text class="cross" x="120" y="225">✗ undefined</text>
+  <text class="code" x="200" y="225">arr.at(-1)</text>
+  <text class="check" x="290" y="225">✓ 'e'</text>
+
+  <!-- Object.hasOwn() Section -->
+  <rect class="box" x="410" y="75" width="360" height="170" rx="8"/>
+  <text class="label" x="590" y="100" text-anchor="middle">Object.hasOwn()</text>
+  <line class="divider" x1="420" y1="110" x2="760" y2="110"/>
+
+  <!-- Object visualization -->
+  <text class="code" x="430" y="135">const obj = {</text>
+  <text class="code" x="445" y="155">name: 'Ana',</text>
+  <text class="code" x="445" y="175">age: 25</text>
+  <text class="code" x="430" y="195">};</text>
+
+  <!-- hasOwn examples -->
+  <text class="code" x="560" y="135">Object.hasOwn(obj, 'name')</text>
+  <text class="check" x="740" y="135">✓</text>
+
+  <text class="code" x="560" y="160">Object.hasOwn(obj, 'email')</text>
+  <text class="cross" x="740" y="160">✗</text>
+
+  <text class="code" x="560" y="185">Object.hasOwn(obj, 'toString')</text>
+  <text class="cross" x="740" y="185">✗</text>
+  <text class="desc" x="560" y="200">(heredada, no propia)</text>
+
+  <!-- Why hasOwn -->
+  <text class="desc" x="430" y="230">Más seguro que hasOwnProperty()</text>
+
+  <!-- Comparison Table -->
+  <rect class="box-highlight" x="30" y="260" width="740" height="80" rx="8"/>
+  <text class="label" x="400" y="285" text-anchor="middle">¿Cuándo usar cada método?</text>
+  <line class="divider" x1="40" y1="295" x2="760" y2="295"/>
+
+  <text class="code" x="50" y="320">at()</text>
+  <text class="desc" x="100" y="320">Acceso a elementos con índices negativos (último, penúltimo...)</text>
+
+  <text class="code" x="50" y="335">Object.hasOwn()</text>
+  <text class="desc" x="185" y="335">Verificar si un objeto tiene una propiedad propia (no heredada)</text>
+
+  <!-- Practical Example -->
+  <rect class="box-highlight" x="30" y="355" width="740" height="75" rx="8"/>
+  <text class="label" x="400" y="380" text-anchor="middle">Ejemplo Combinado</text>
+  <line class="divider" x1="40" y1="390" x2="760" y2="390"/>
+
+  <text class="code" x="50" y="415">const last = entries.at(-1);</text>
+  <text class="code" x="300" y="415">if (Object.hasOwn(last, 'id')) { ... }</text>
+</svg>

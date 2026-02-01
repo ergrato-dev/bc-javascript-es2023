@@ -11,6 +11,8 @@ Al finalizar esta semana, serás capaz de:
 - ✅ Usar shorthand properties y methods en objetos
 - ✅ Crear computed property names dinámicamente
 - ✅ Encadenar métodos de arrays para transformaciones complejas
+- ✅ Usar `Array.prototype.at()` para índices negativos (ES2022)
+- ✅ Aplicar `Object.hasOwn()` para verificar propiedades propias (ES2022)
 
 ---
 
@@ -34,18 +36,21 @@ week-02/
 │   ├── 02-rest-parameters.svg
 │   ├── 03-array-methods.svg
 │   ├── 04-map-filter-reduce.svg
-│   └── 05-object-enhancements.svg
+│   ├── 05-object-enhancements.svg
+│   └── 06-metodos-es2022.svg
 ├── 1-teoria/                    # Material teórico
 │   ├── 01-spread-operator.md
 │   ├── 02-rest-parameters.md
 │   ├── 03-default-parameters.md
 │   ├── 04-array-methods.md
-│   └── 05-object-enhancements.md
+│   ├── 05-object-enhancements.md
+│   └── 06-metodos-es2022.md
 ├── 2-practicas/                 # Ejercicios guiados
 │   ├── ejercicio-01-spread-rest/
 │   ├── ejercicio-02-array-methods/
 │   ├── ejercicio-03-map-filter/
-│   └── ejercicio-04-reduce/
+│   ├── ejercicio-04-reduce/
+│   └── ejercicio-05-metodos-es2022/
 ├── 3-proyecto/                  # Proyecto semanal
 │   └── gestor-tareas/
 ├── 4-recursos/                  # Material adicional
@@ -94,6 +99,12 @@ week-02/
 - Object.assign()
 - Object.keys(), values(), entries()
 
+#### [06. Métodos ES2022](1-teoria/06-metodos-es2022.md)
+- `Array.prototype.at()` para índices negativos
+- `Object.hasOwn()` vs `hasOwnProperty()`
+- Propiedades propias vs heredadas
+- Casos de uso prácticos
+
 ---
 
 ### 2️⃣ Prácticas
@@ -109,6 +120,9 @@ Transformaciones y filtrados complejos de datos.
 
 #### [Ejercicio 04: Reduce Patterns](2-practicas/ejercicio-04-reduce/)
 Resolver problemas con reduce y encadenar métodos.
+
+#### [Ejercicio 05: Métodos ES2022](2-practicas/ejercicio-05-metodos-es2022/)
+Practicar `at()` y `Object.hasOwn()` en escenarios reales.
 
 ---
 

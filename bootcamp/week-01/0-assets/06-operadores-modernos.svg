@@ -1,0 +1,86 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1a1a1a; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #888; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box { fill: #2a2a2a; }
+      .box-highlight { fill: #3a3a3a; }
+      .label { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 16px; font-weight: bold; }
+      .code { fill: #e0e0e0; font-family: monospace; font-size: 14px; }
+      .desc { fill: #aaa; font-family: system-ui, sans-serif; font-size: 12px; }
+      .arrow { stroke: #f0db4f; stroke-width: 2; fill: none; }
+      .divider { stroke: #444; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="40" text-anchor="middle">Operadores Modernos de JavaScript</text>
+  <text class="subtitle" x="400" y="60" text-anchor="middle">ES2020 - ES2021</text>
+
+  <!-- Optional Chaining -->
+  <rect class="box" x="30" y="90" width="230" height="160" rx="8"/>
+  <text class="label" x="145" y="115" text-anchor="middle">Optional Chaining ?.</text>
+  <line class="divider" x1="40" y1="125" x2="250" y2="125"/>
+  <text class="code" x="45" y="150">user?.address?.city</text>
+  <text class="desc" x="45" y="175">Acceso seguro a propiedades</text>
+  <text class="desc" x="45" y="195">anidadas sin errores</text>
+  <text class="code" x="45" y="225">→ undefined si no existe</text>
+  <text class="desc" x="45" y="240" style="fill: #666">(no TypeError)</text>
+
+  <!-- Nullish Coalescing -->
+  <rect class="box" x="285" y="90" width="230" height="160" rx="8"/>
+  <text class="label" x="400" y="115" text-anchor="middle">Nullish Coalescing ??</text>
+  <line class="divider" x1="295" y1="125" x2="505" y2="125"/>
+  <text class="code" x="300" y="150">value ?? 'default'</text>
+  <text class="desc" x="300" y="175">Solo actúa con null/undefined</text>
+  <text class="desc" x="300" y="195">(no con 0, '', false)</text>
+  <text class="code" x="300" y="225">0 ?? 100 → 0 ✓</text>
+  <text class="code" x="300" y="240">null ?? 100 → 100 ✓</text>
+
+  <!-- Logical Assignment -->
+  <rect class="box" x="540" y="90" width="230" height="160" rx="8"/>
+  <text class="label" x="655" y="115" text-anchor="middle">Logical Assignment</text>
+  <line class="divider" x1="550" y1="125" x2="760" y2="125"/>
+  <text class="code" x="555" y="150">x ??= value</text>
+  <text class="desc" x="555" y="170">Asigna si null/undefined</text>
+  <text class="code" x="555" y="195">x ||= value</text>
+  <text class="desc" x="555" y="215">Asigna si falsy</text>
+  <text class="code" x="555" y="240">x &amp;&amp;= value</text>
+  <text class="desc" x="555" y="260">Asigna si truthy</text>
+
+  <!-- Comparison Section -->
+  <rect class="box-highlight" x="30" y="270" width="485" height="110" rx="8"/>
+  <text class="label" x="272" y="295" text-anchor="middle">?? vs || - ¿Cuál usar?</text>
+  <line class="divider" x1="40" y1="305" x2="505" y2="305"/>
+
+  <!-- OR column -->
+  <text class="code" x="50" y="330">||</text>
+  <text class="desc" x="80" y="330">Considera falsy: 0, '', false, null, undefined</text>
+  <text class="code" x="50" y="355">0 || 'default'</text>
+  <text class="desc" x="180" y="355">→ 'default' ⚠️</text>
+
+  <!-- Nullish column -->
+  <text class="code" x="290" y="330">??</text>
+  <text class="desc" x="320" y="330">Solo: null, undefined</text>
+  <text class="code" x="290" y="355">0 ?? 'default'</text>
+  <text class="desc" x="420" y="355">→ 0 ✓</text>
+
+  <!-- Numeric Separators -->
+  <rect class="box" x="540" y="270" width="230" height="110" rx="8"/>
+  <text class="label" x="655" y="295" text-anchor="middle">Numeric Separators</text>
+  <line class="divider" x1="550" y1="305" x2="760" y2="305"/>
+  <text class="code" x="555" y="330">1_000_000_000</text>
+  <text class="desc" x="555" y="350">Mejor legibilidad</text>
+  <text class="code" x="555" y="370">0xFF_FF_FF</text>
+
+  <!-- Common Pattern -->
+  <rect class="box-highlight" x="30" y="400" width="740" height="80" rx="8"/>
+  <text class="label" x="400" y="425" text-anchor="middle">Patrón Común: Acceso Seguro + Default</text>
+  <line class="divider" x1="40" y1="435" x2="760" y2="435"/>
+  <text class="code" x="50" y="460">const userName = response?.user?.profile?.name ?? 'Usuario';</text>
+  <text class="desc" x="50" y="475">Combina ?. para acceso seguro y ?? para valor por defecto</text>
+</svg>
