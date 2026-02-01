@@ -88,6 +88,21 @@ console.log(error.message); // "Something went wrong"
 console.log(error.stack);   // Stack trace
 ```
 
+### Error Cause (ES2022)
+Propiedad `cause` introducida en ES2022 que permite encadenar errores, preservando el error original al crear uno nuevo.
+
+```javascript
+try {
+  JSON.parse(invalidData);
+} catch (originalError) {
+  throw new Error('Failed to parse config', { cause: originalError });
+}
+
+// Acceder a la cadena de errores
+error.cause;         // Error original
+error.cause?.message; // Mensaje del error original
+```
+
 ### Error Code
 Identificador único para categorizar errores (ej: `VALIDATION_ERROR`, `NETWORK_ERROR`).
 
@@ -177,6 +192,17 @@ const timeout = config.timeout ?? 3000;
 ---
 
 ## O
+
+### Optional Catch Binding (ES2019)
+Característica ES2019 que permite omitir el parámetro de error en el bloque `catch` cuando no se necesita.
+
+```javascript
+// Antes de ES2019 - parámetro obligatorio
+try { JSON.parse(data); } catch (error) { return null; }
+
+// ES2019+ - sin parámetro
+try { JSON.parse(data); } catch { return null; }
+```
 
 ### Optional Chaining (?.)
 Operador que accede a propiedades de forma segura, retornando `undefined` si el objeto es nullish.

@@ -5,7 +5,9 @@
 Al finalizar esta semana, serás capaz de:
 
 - ✅ Dominar `try...catch...finally` para control de flujo de errores
+- ✅ Usar **optional catch binding** (ES2019) cuando no necesitas el error
 - ✅ Crear clases de error personalizadas extendiendo `Error`
+- ✅ Aplicar **Error cause** (ES2022) para encadenar errores
 - ✅ Implementar patrones de error boundaries para aislar fallos
 - ✅ Manejar errores en código asíncrono (Promises, async/await)
 - ✅ Aplicar mejores prácticas de manejo de errores en producción
@@ -55,7 +57,7 @@ week-11/
 
 | Archivo | Tema | Duración |
 |---------|------|----------|
-| [01-try-catch-finally.md](1-teoria/01-try-catch-finally.md) | Estructura try...catch...finally | 30 min |
+| [01-try-catch-finally.md](1-teoria/01-try-catch-finally.md) | Estructura try...catch...finally + **Optional catch binding (ES2019)** + **Error cause (ES2022)** | 30 min |
 | [02-errores-personalizados.md](1-teoria/02-errores-personalizados.md) | Clases de error custom | 30 min |
 | [03-error-boundaries.md](1-teoria/03-error-boundaries.md) | Patrones de aislamiento | 30 min |
 | [04-errores-asincronos.md](1-teoria/04-errores-asincronos.md) | Errores en código async | 30 min |
