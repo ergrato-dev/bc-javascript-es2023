@@ -7,7 +7,8 @@ Al finalizar esta semana serás capaz de:
 - ✅ Usar `Set` para colecciones de valores únicos
 - ✅ Implementar `Map` con claves de cualquier tipo
 - ✅ Entender cuándo usar `WeakSet` y `WeakMap`
-- ✅ Convertir entre diferentes estructuras de datos
+- ✅ Usar Symbols como claves de WeakMap (ES2023)
+- ✅ Convertir entre estructuras con `Object.fromEntries()` (ES2019)
 - ✅ Aplicar Sets y Maps en casos de uso reales
 
 ## 📋 Contenido
