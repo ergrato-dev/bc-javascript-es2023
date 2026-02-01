@@ -305,6 +305,142 @@ console.log(parseQueryString('?name=John&age=25&city=Madrid'));
 // { name: 'John', age: '25', city: 'Madrid' }
 ```
 
+---
+
+## 11. El Flag `/d` - Índices de Grupos (ES2022)
+
+El flag `d` (**hasIndices**) es una característica de ES2022 que añade información de índices para cada grupo de captura.
+
+### El Problema
+
+Sin el flag `d`, solo obtienes el índice del match completo:
+
+```javascript
+const text = 'Hello John Smith!';
+const regex = /Hello (\w+) (\w+)/;
+
+const match = text.match(regex);
+console.log(match.index);  // 0 (índice del match completo)
+// ❌ No sabemos dónde empieza 'John' ni 'Smith'
+```
+
+### La Solución: Flag `/d`
+
+```javascript
+const text = 'Hello John Smith!';
+const regex = /Hello (\w+) (\w+)/d;  // ← Flag 'd'
+
+const match = text.match(regex);
+
+console.log(match.indices);
+// [
+//   [0, 17],    // Match completo: 'Hello John Smith!'
+//   [6, 10],    // Grupo 1: 'John' (posiciones 6-10)
+//   [11, 16]    // Grupo 2: 'Smith' (posiciones 11-16)
+// ]
+
+// Verificar
+console.log(text.slice(6, 10));   // 'John'
+console.log(text.slice(11, 16));  // 'Smith'
+```
+
+### Con Grupos Nombrados
+
+```javascript
+const logEntry = '2024-01-15 ERROR: Connection failed';
+const regex = /(?<date>\d{4}-\d{2}-\d{2})\s+(?<level>\w+):\s+(?<message>.+)/d;
+
+const match = logEntry.match(regex);
+
+console.log(match.indices.groups);
+// {
+//   date: [0, 10],
+//   level: [11, 16],
+//   message: [18, 35]
+// }
+
+// Extraer con posiciones exactas
+const { date, level, message } = match.indices.groups;
+console.log(`Date at [${date}]: ${logEntry.slice(...date)}`);
+// 'Date at [0,10]: 2024-01-15'
+```
+
+### Caso de Uso: Resaltado de Texto
+
+```javascript
+const highlightMatches = (text, pattern) => {
+  const regex = new RegExp(pattern, 'gd');
+  const matches = [...text.matchAll(regex)];
+
+  let result = '';
+  let lastIndex = 0;
+
+  for (const match of matches) {
+    const [start, end] = match.indices[0];
+    result += text.slice(lastIndex, start);
+    result += `<mark>${text.slice(start, end)}</mark>`;
+    lastIndex = end;
+  }
+
+  result += text.slice(lastIndex);
+  return result;
+};
+
+const text = 'JavaScript is great. Java is also popular.';
+console.log(highlightMatches(text, /Java\w*/));
+// '<mark>JavaScript</mark> is great. <mark>Java</mark> is also popular.'
+```
+
+### Caso de Uso: Editor de Código (Syntax Highlighting)
+
+```javascript
+const tokenize = code => {
+  const patterns = {
+    keyword: /\b(const|let|var|function|return|if|else)\b/,
+    string: /"[^"]*"|'[^']*'/,
+    number: /\b\d+\b/,
+    identifier: /\b[a-zA-Z_]\w*\b/
+  };
+
+  const combined = new RegExp(
+    Object.entries(patterns)
+      .map(([name, re]) => `(?<${name}>${re.source})`)
+      .join('|'),
+    'gd'
+  );
+
+  const tokens = [];
+  for (const match of code.matchAll(combined)) {
+    const type = Object.keys(match.groups).find(k => match.groups[k]);
+    const [start, end] = match.indices[0];
+    tokens.push({ type, value: match[0], start, end });
+  }
+
+  return tokens;
+};
+
+const code = 'const x = 42';
+console.log(tokenize(code));
+// [
+//   { type: 'keyword', value: 'const', start: 0, end: 5 },
+//   { type: 'identifier', value: 'x', start: 6, end: 7 },
+//   { type: 'number', value: '42', start: 10, end: 12 }
+// ]
+```
+
+### Verificar Soporte
+
+```javascript
+// El flag 'd' añade la propiedad hasIndices al regex
+const regex = /test/d;
+console.log(regex.hasIndices);  // true
+
+const regexWithout = /test/;
+console.log(regexWithout.hasIndices);  // false
+```
+
+---
+
 ## 💡 Cuándo Usar matchAll
 
 | Situación | Usar |
@@ -313,6 +449,7 @@ console.log(parseQueryString('?name=John&age=25&city=Madrid'));
 | Listar coincidencias simples | `match(/g/)` |
 | Una coincidencia con grupos | `match()` |
 | Múltiples coincidencias con grupos | `matchAll()` |
+| Necesitas posiciones de grupos | Flag `/d` (ES2022) |
 | Control de iteración manual | `exec()` |
 
 ## ⚠️ Consideraciones
@@ -324,6 +461,9 @@ const regex = /\d+/;  // Sin 'g'
 
 const regexG = /\d+/g;  // Con 'g'
 console.log([...'a1 b2'.matchAll(regexG)]);  // OK
+
+// Flag 'd' puede combinarse con otros flags
+const regexWithIndices = /pattern/gid;  // global + ignoreCase + indices
 ```
 
 ## ✅ Checklist de Verificación
@@ -333,10 +473,13 @@ console.log([...'a1 b2'.matchAll(regexG)]);  // OK
 - [ ] Puedo extraer grupos nombrados con matchAll
 - [ ] Uso matchAll para parsear datos estructurados
 - [ ] Conozco cuándo usar cada método de búsqueda
+- [ ] Sé usar el flag `/d` para obtener índices de grupos (ES2022)
 
 ## 🔗 Recursos
 
 - [MDN - String.prototype.matchAll()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll)
+- [MDN - RegExp hasIndices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices)
+- [TC39 - RegExp Match Indices](https://github.com/tc39/proposal-regexp-match-indices)
 
 ---
 

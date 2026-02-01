@@ -106,11 +106,12 @@ regex.exec('abc123');  // ['123', '123', index: 3]
 ## F
 
 ### Flag (Bandera)
-Modificadores que cambian el comportamiento del regex: `g`, `i`, `m`, `s`, `u`, `y`.
+Modificadores que cambian el comportamiento del regex: `g`, `i`, `m`, `s`, `u`, `y`, `d`.
 ```javascript
 /abc/i   // i = case insensitive
 /abc/g   // g = global (todas las coincidencias)
 /abc/m   // m = multiline
+/abc/d   // d = hasIndices (ES2022)
 ```
 
 ---
@@ -127,6 +128,19 @@ Modificadores que cambian el comportamiento del regex: `g`, `i`, `m`, `s`, `u`, 
 Comportamiento por defecto: cuantificadores toman lo máximo posible.
 ```javascript
 '<div>text</div>'.match(/<.*>/);  // '<div>text</div>'
+```
+
+---
+
+## H
+
+### hasIndices Flag (ES2022)
+Flag `/d` que añade la propiedad `indices` al resultado del match, con las posiciones de inicio y fin de cada grupo de captura.
+```javascript
+const match = 'Hello John'.match(/Hello (\w+)/d);
+console.log(match.indices);  // [[0, 10], [6, 10]]
+// indices[0] = match completo
+// indices[1] = grupo 1 ('John')
 ```
 
 ---

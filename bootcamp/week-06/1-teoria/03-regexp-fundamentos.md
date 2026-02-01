@@ -113,6 +113,7 @@ console.log(csv.split(/,\s*/));
 | `s` | dotAll | `.` coincide con saltos de línea |
 | `u` | unicode | Habilita soporte Unicode completo |
 | `y` | sticky | Busca solo desde lastIndex |
+| `d` | hasIndices | Genera índices de grupos (ES2022) |
 
 ```javascript
 // Combinar flags
@@ -126,6 +127,11 @@ console.log('a1b2c3'.match(/\d/g));      // ['1', '2', '3']
 const multiline = `line1
 line2`;
 console.log(multiline.match(/^line/gm)); // ['line', 'line']
+
+// Flag 'd' (ES2022) - índices de grupos
+const match = 'Hello John'.match(/Hello (\w+)/d);
+console.log(match.indices);  // [[0, 10], [6, 10]]
+// indices[0] = match completo, indices[1] = grupo 1
 ```
 
 ### 4. Caracteres Especiales

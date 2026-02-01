@@ -4,10 +4,12 @@
 
 Al finalizar esta semana, serás capaz de:
 
-- ✅ Dominar los métodos modernos de strings (includes, startsWith, endsWith, etc.)
+- ✅ Dominar los métodos modernos de strings (`includes`, `startsWith`, `endsWith`, `replaceAll`)
+- ✅ Usar `trimStart()` y `trimEnd()` para limpiar strings (ES2019)
 - ✅ Crear y usar tagged templates para casos avanzados
 - ✅ Entender y aplicar expresiones regulares básicas
 - ✅ Usar `matchAll()` para búsquedas con grupos de captura
+- ✅ Aplicar el flag `/d` (hasIndices) para obtener índices de grupos (ES2022)
 - ✅ Validar y transformar texto de forma eficiente
 
 ## 📋 Requisitos Previos
@@ -21,11 +23,11 @@ Al finalizar esta semana, serás capaz de:
 ```
 week-06/
 ├── 📖 1-teoria/
-│   ├── 01-string-methods.md      # Métodos modernos de strings
+│   ├── 01-string-methods.md      # Métodos modernos (replaceAll, trimStart/End)
 │   ├── 02-template-literals-avanzados.md  # Tagged templates
-│   ├── 03-regexp-fundamentos.md  # Introducción a RegExp
+│   ├── 03-regexp-fundamentos.md  # Introducción a RegExp (flag /d ES2022)
 │   ├── 04-regexp-patterns.md     # Patrones comunes
-│   └── 05-matchall-search.md     # matchAll y búsqueda avanzada
+│   └── 05-matchall-search.md     # matchAll y flag /d (ES2022)
 │
 ├── 💻 2-practicas/
 │   ├── ejercicio-01-string-methods/    # Métodos de string
@@ -52,9 +54,9 @@ week-06/
 |---|------|----------|---------|
 | 1 | Métodos Modernos de Strings | 30 min | [01-string-methods.md](1-teoria/01-string-methods.md) |
 | 2 | Tagged Templates | 30 min | [02-template-literals-avanzados.md](1-teoria/02-template-literals-avanzados.md) |
-| 3 | Fundamentos de RegExp | 35 min | [03-regexp-fundamentos.md](1-teoria/03-regexp-fundamentos.md) |
+| 3 | Fundamentos de RegExp + flag `/d` | 35 min | [03-regexp-fundamentos.md](1-teoria/03-regexp-fundamentos.md) |
 | 4 | Patrones Comunes | 30 min | [04-regexp-patterns.md](1-teoria/04-regexp-patterns.md) |
-| 5 | matchAll y Búsqueda | 25 min | [05-matchall-search.md](1-teoria/05-matchall-search.md) |
+| 5 | matchAll + hasIndices (ES2022) | 25 min | [05-matchall-search.md](1-teoria/05-matchall-search.md) |
 
 ### Prácticas (3 horas)
 
