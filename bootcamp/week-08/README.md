@@ -19,7 +19,7 @@ Antes de comenzar esta semana, debes dominar:
 - Sets y Maps (Week 07)
 - Spread operator y rest parameters (Week 02)
 - Arrow functions y métodos de arrays (Week 01-02)
-- Clases ES6 (Week 03)
+- Clases ES2023 (Week 03)
 
 ---
 
@@ -171,4 +171,4 @@ function* infiniteSequence() {
 
 ---
 
-*Semana 08 de 28 | Bootcamp JavaScript ES6+*
+*Semana 08 de 28 | Bootcamp JavaScript ES2023*

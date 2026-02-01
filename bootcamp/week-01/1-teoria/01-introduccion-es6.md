@@ -1,10 +1,10 @@
-# 🚀 Introducción a JavaScript Moderno (ES6+)
+# 🚀 Introducción a JavaScript Moderno (ES2023)
 
 ## 🎯 Objetivos
 
 - Comprender la evolución de JavaScript y ECMAScript
-- Conocer las características clave de ES6+
-- Entender por qué ES6+ es el estándar actual
+- Conocer las características clave de ES2023
+- Entender por qué ES2023 es el estándar actual
 - Identificar las diferencias entre JavaScript antiguo y moderno
 
 ---
@@ -28,7 +28,7 @@
 
 ---
 
-## 🌟 ¿Por qué ES6+ es tan importante?
+## 🌟 ¿Por qué ES2023 es tan importante?
 
 ![Evolución de JavaScript](../0-assets/01-evolucion-javascript.svg)
 
@@ -56,7 +56,7 @@ var nombre = persona.nombre;
 var edad = persona.edad;
 ```
 
-### Con ES6+ (JavaScript moderno)
+### Con ES2023 (JavaScript moderno)
 
 ```javascript
 // Variables con scope claro
@@ -79,7 +79,7 @@ const { name, age } = person;
 
 ---
 
-## 🎁 Características Principales de ES6+
+## 🎁 Características Principales de ES2023
 
 ### 1. **let y const** - Variables modernas
 
@@ -244,7 +244,7 @@ Este bootcamp se enfoca **exclusivamente en JavaScript moderno**, por lo que NO 
 
 - ❌ Sintaxis antigua con `var`
 - ❌ Callbacks anidados (callback hell)
-- ❌ Prototipos tradicionales (usaremos clases ES6)
+- ❌ Prototipos tradicionales (usaremos clases ES2023)
 - ❌ `function` tradicional (usaremos arrows)
 - ❌ Concatenación con `+` (usaremos template literals)
 - ❌ Frameworks (React, Vue, Angular - son otro bootcamp)
@@ -272,7 +272,7 @@ Este bootcamp se enfoca **exclusivamente en JavaScript moderno**, por lo que NO 
 Para navegadores antiguos (IE11, etc.), se usa **transpilación** con herramientas como Babel. Pero en este bootcamp nos enfocamos en desarrollo moderno.
 
 ```javascript
-// Código moderno (ES6+)
+// Código moderno (ES2023)
 const greet = name => `Hello ${name}`;
 
 // Transpilado a ES5 (para IE11)
@@ -281,7 +281,7 @@ var greet = function(name) {
 };
 ```
 
-> **💡 Nota**: Node.js 18+ soporta ES6+ nativamente, así que no necesitamos transpilación para desarrollo.
+> **💡 Nota**: Node.js 18+ soporta ES2023 nativamente, así que no necesitamos transpilación para desarrollo.
 
 ---
 
@@ -312,7 +312,7 @@ var mensaje = crearMensaje(usuario);
 console.log(mensaje);
 ```
 
-**Con ES6+:**
+**Con ES2023:**
 
 ```javascript
 const user = {
@@ -356,10 +356,10 @@ Antes de continuar, asegúrate de entender:
 
 - [ ] La diferencia entre JavaScript y ECMAScript
 - [ ] Por qué ES6 fue una revolución
-- [ ] Las características principales de ES6+
+- [ ] Las características principales de ES2023
 - [ ] Que JavaScript se actualiza anualmente desde 2015
 - [ ] Que este bootcamp usa **solo** sintaxis moderna
-- [ ] Que los navegadores modernos soportan ES6+ nativamente
+- [ ] Que los navegadores modernos soportan ES2023 nativamente
 
 ---
 
@@ -379,7 +379,7 @@ Antes de continuar, asegúrate de entender:
 
 ## 🚀 Próximo Paso
 
-Ahora que entiendes **qué es ES6+** y **por qué es importante**, es hora de empezar con las características concretas.
+Ahora que entiendes **qué es ES2023** y **por qué es importante**, es hora de empezar con las características concretas.
 
 ➡️ **Siguiente**: [let y const - Variables Modernas](02-let-const.md)
 

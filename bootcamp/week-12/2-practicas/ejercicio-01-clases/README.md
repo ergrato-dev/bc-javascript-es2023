@@ -82,9 +82,9 @@ Usuario serializado:
 }
 
 --- Paso 5: Métodos Estáticos ---
-Nueva tarea: Aprender clases ES6
+Nueva tarea: Aprender clases ES2023
 ID generado: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-Tarea restaurada: Aprender clases ES6
+Tarea restaurada: Aprender clases ES2023
 Completada: false
 
 --- Paso 6: Clase Completa ---

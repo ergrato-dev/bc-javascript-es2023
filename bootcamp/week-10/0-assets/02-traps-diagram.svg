@@ -95,5 +95,5 @@
   <text class="trap-name" x="400" y="445" text-anchor="middle">get, set, has, deleteProperty, ownKeys</text>
 
   <!-- Footer -->
-  <text class="subtitle" x="400" y="485" text-anchor="middle">Week 10 | Bootcamp JavaScript ES6+</text>
+  <text class="subtitle" x="400" y="485" text-anchor="middle">Week 10 | Bootcamp JavaScript ES2023</text>
 </svg>

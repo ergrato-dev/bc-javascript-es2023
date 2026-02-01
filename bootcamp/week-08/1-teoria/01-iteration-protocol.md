@@ -11,7 +11,7 @@
 
 ## 📖 ¿Qué es la Iteración?
 
-La **iteración** es el proceso de recorrer elementos de una colección uno por uno. En JavaScript ES6+, este proceso está estandarizado mediante el **protocolo de iteración**.
+La **iteración** es el proceso de recorrer elementos de una colección uno por uno. En JavaScript ES2023, este proceso está estandarizado mediante el **protocolo de iteración**.
 
 ```javascript
 // Iteración simple sobre un array

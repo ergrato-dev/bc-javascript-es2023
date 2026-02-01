@@ -53,7 +53,7 @@
 
 ### 📺 Playlists Recomendadas
 
-#### ES6+ Features Playlist
+#### ES2023 Features Playlist
 - Buscar playlists de ES6 en canales como:
   - Academind
   - Web Dev Simplified
@@ -70,4 +70,4 @@
 
 ---
 
-*Videografía Week 08 | Bootcamp JavaScript ES6+*
+*Videografía Week 08 | Bootcamp JavaScript ES2023*

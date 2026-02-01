@@ -9,7 +9,7 @@
 
   <!-- Subtitle -->
   <text x="400" y="70" font-family="Arial, sans-serif" font-size="16" fill="#a0a0a0" text-anchor="middle">
-    Mejoras en la sintaxis de objetos ES6+
+    Mejoras en la sintaxis de objetos ES2023
   </text>
 
   <!-- Property Shorthand -->

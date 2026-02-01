@@ -171,4 +171,4 @@ Si tienes dificultades, revisa:
 
 ---
 
-_Rúbrica Week 09 | Bootcamp JavaScript ES6+_
+_Rúbrica Week 09 | Bootcamp JavaScript ES2023_

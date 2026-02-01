@@ -77,7 +77,7 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 
 ### 📺 Object Enhancements
 
-#### **5. Objetos en JavaScript ES6+ (Property Shorthand, Computed Properties)**
+#### **5. Objetos en JavaScript ES2023 (Property Shorthand, Computed Properties)**
 **Canal**: Gentleman Programming
 **Duración**: ~18 min
 **Nivel**: Intermedio
@@ -90,7 +90,7 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 
 **Enlace**: Buscar en YouTube: "gentleman programming objetos es6"
 
-**Por qué verlo**: Tutorial completo sobre mejoras de objetos en ES6+.
+**Por qué verlo**: Tutorial completo sobre mejoras de objetos en ES2023.
 
 ---
 
@@ -152,7 +152,7 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 
 ### 📺 Object Features
 
-#### **9. JavaScript Object Shortcuts - ES6+**
+#### **9. JavaScript Object Shortcuts - ES2023**
 **Canal**: Fireship
 **Duración**: ~10 min
 **Nivel**: Intermedio
@@ -171,7 +171,7 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 
 ## 🎓 Cursos Completos (Gratuitos)
 
-### **10. JavaScript ES6+ - The Complete Course (FreeCodeCamp)**
+### **10. JavaScript ES2023 - The Complete Course (FreeCodeCamp)**
 **Plataforma**: YouTube - FreeCodeCamp
 **Duración**: ~7 horas
 **Idioma**: Inglés
@@ -194,7 +194,7 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 **Idioma**: Español
 **Nivel**: Principiante
 
-**Nota**: Buscar cursos gratuitos de JavaScript ES6+ en Udemy
+**Nota**: Buscar cursos gratuitos de JavaScript ES2023 en Udemy
 
 **Por qué verlo**: Cursos estructurados con certificado.
 

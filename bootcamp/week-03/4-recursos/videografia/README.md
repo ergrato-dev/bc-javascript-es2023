@@ -56,7 +56,7 @@
 
 ## 📺 Playlists Recomendadas
 
-### JavaScript ES6+ Completo
+### JavaScript ES2023 Completo
 - **The Net Ninja**: Modern JavaScript Tutorial
 - **Academind**: JavaScript - The Complete Guide
 

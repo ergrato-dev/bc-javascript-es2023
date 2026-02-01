@@ -129,7 +129,7 @@ import('./feature.js').then(module => { ... });
 ## E
 
 ### **ES Modules (ESM)**
-Sistema de módulos nativo de JavaScript introducido en ES6 (ES2015).
+Sistema de módulos nativo de JavaScript introducido en ES2023 (ES2015).
 
 ```javascript
 import { something } from './module.js';

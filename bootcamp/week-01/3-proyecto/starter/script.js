@@ -5,7 +5,7 @@
 
    INSTRUCTIONS:
    1. Complete all TODO sections marked below
-   2. Use ONLY ES6+ features learned this week:
+   2. Use ONLY ES2023 features learned this week:
       - const/let (never var)
       - Template literals
       - Arrow functions
@@ -233,7 +233,7 @@ init();
 // ✓ Theme toggle switches between light/dark
 // ✓ Email copy button works and shows notification
 // ✓ Show More/Less skills button works
-// ✓ All features use ES6+ syntax (no var, no old functions)
+// ✓ All features use ES2023 syntax (no var, no old functions)
 // ✓ Template literals used for all string interpolation
 // ✓ Arrow functions used throughout
 // ✓ Destructuring used where appropriate

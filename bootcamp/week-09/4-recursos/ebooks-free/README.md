@@ -75,4 +75,4 @@
 
 ---
 
-_Week 09 | Bootcamp JavaScript ES6+_
+_Week 09 | Bootcamp JavaScript ES2023_

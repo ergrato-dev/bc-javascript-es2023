@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="_assets/bootcamp-header.svg" alt="Bootcamp JavaScript ES6+" width="800">
+  <img src="_assets/bootcamp-header.svg" alt="Bootcamp JavaScript ES2023" width="800">
 </p>
 
 <p align="center">
-  <a href="https://github.com/ergrato-dev/bc-javascript-es6/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
+  <a href="https://github.com/ergrato-dev/bc-javascript-es2023/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
   <a href="#"><img src="https://img.shields.io/badge/semanas-28-yellow.svg" alt="28 Semanas"></a>
   <a href="#"><img src="https://img.shields.io/badge/horas-224-orange.svg" alt="224 Horas"></a>
-  <a href="#"><img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript" alt="JavaScript ES6+"></a>
+  <a href="#"><img src="https://img.shields.io/badge/JavaScript-ES2023-F7DF1E?logo=javascript" alt="JavaScript ES2023"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
 </p>
 
@@ -18,13 +18,13 @@
 
 ## 📋 Descripción
 
-Bootcamp intensivo de **28 semanas (7 meses)** enfocado en el dominio de JavaScript moderno (ES6+). Diseñado para llevar a estudiantes de cero a desarrollador JavaScript Junior, con énfasis en código limpio, mejores prácticas y proyectos del mundo real.
+Bootcamp intensivo de **28 semanas (7 meses)** enfocado en el dominio de JavaScript moderno (ES2023). Diseñado para llevar a estudiantes de cero a desarrollador JavaScript Junior, con énfasis en código limpio, mejores prácticas y proyectos del mundo real.
 
 ### 🎯 Objetivos
 
 Al finalizar el bootcamp, los estudiantes serán capaces de:
 
-- ✅ Dominar las características modernas de JavaScript (ES6+)
+- ✅ Dominar las características modernas de JavaScript (ES2023)
 - ✅ Trabajar con programación asincrónica (Promises, async/await)
 - ✅ Manipular el DOM y gestionar eventos de manera efectiva
 - ✅ Consumir y trabajar con APIs REST usando Fetch API
@@ -35,9 +35,9 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 
 ### 🚀 ¿Por qué JavaScript Moderno?
 
-> **JavaScript moderno desde el día 1** - Sin historia pre-ES6, solo las mejores prácticas actuales.
+> **JavaScript moderno desde el día 1** - Sin historia pre-ES2023, solo las mejores prácticas actuales.
 
-Este bootcamp se enfoca exclusivamente en JavaScript ES6+ y características modernas. No perdemos tiempo en sintaxis antigua o patrones obsoletos. Los estudiantes aprenden directamente las herramientas y técnicas que usarán en el mundo profesional.
+Este bootcamp se enfoca exclusivamente en JavaScript ES2023 y características modernas. No perdemos tiempo en sintaxis antigua o patrones obsoletos. Los estudiantes aprenden directamente las herramientas y técnicas que usarán en el mundo profesional.
 
 ---
 
@@ -45,7 +45,7 @@ Este bootcamp se enfoca exclusivamente en JavaScript ES6+ y características mod
 
 |          Etapa           | Semanas | Horas | Temas Principales                      |
 | :----------------------: | :-----: | :---: | -------------------------------------- |
-| **Fundamentos Modernos** |  1-12   |  96h  | ES6+, Módulos, Arrays/Objetos modernos |
+| **Fundamentos Modernos** |  1-12   |  96h  | ES2023, Módulos, Arrays/Objetos modernos |
 |      **Intermedio**      |  13-24  |  96h  | Async, Fetch API, DOM, Storage         |
 |       **Avanzado**       |  25-28  |  32h  | Testing, Patrones, Clean Code          |
 
@@ -85,7 +85,7 @@ bootcamp/week-XX/
 
 | Tecnología  | Versión        | Uso                         |
 | ----------- | -------------- | --------------------------- |
-| JavaScript  | ES6+ (ES2015+) | Lenguaje principal          |
+| JavaScript  | ES2023 | Lenguaje principal          |
 | Jest        | 29+            | Testing y TDD               |
 | ESLint      | 8+             | Linting y calidad de código |
 | Prettier    | 3+             | Formateo de código          |
@@ -108,8 +108,8 @@ bootcamp/week-XX/
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/epti-dev/bc-javascript-es6+.git
-cd bc-javascript-es6+
+git clone https://github.com/epti-dev/bc-javascript-es2023.git
+cd bc-javascript-es2023
 ```
 
 ### 2. Instalar Extensiones de VS Code
@@ -190,8 +190,8 @@ Cada semana incluye tres tipos de evidencias:
 ## 📞 Soporte
 
 - 📧 Email: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
-- 💬 Discussions: [GitHub Discussions](https://github.com/epti-dev/bc-javascript-es6+/discussions)
-- 🐛 Issues: [GitHub Issues](https://github.com/epti-dev/bc-javascript-es6+/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/epti-dev/bc-javascript-es2023/discussions)
+- 🐛 Issues: [GitHub Issues](https://github.com/epti-dev/bc-javascript-es2023/issues)
 
 ---
 
@@ -221,7 +221,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 ---
 
 <p align="center">
-  <strong>🎓 Bootcamp JavaScript Moderno (ES6+)</strong><br>
+  <strong>🎓 Bootcamp JavaScript Moderno (ES2023)</strong><br>
   <em>De cero a desarrollador JavaScript Junior en 7 meses</em>
 </p>
 

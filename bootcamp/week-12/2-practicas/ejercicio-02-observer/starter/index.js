@@ -2,7 +2,7 @@
  * 📘 Ejercicio 02: Patrón Observer
  *
  * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para aprender el patrón Observer en JavaScript ES6+.
+ * para aprender el patrón Observer en JavaScript ES2023.
  *
  * Ejecuta: node index.js
  */

@@ -17,7 +17,7 @@ Al finalizar esta semana, serás capaz de:
 ## 📚 Requisitos Previos
 
 - ✅ Haber completado las Semanas 1, 2 y 3
-- ✅ Dominar clases ES6 y herencia
+- ✅ Dominar clases ES2023 y herencia
 - ✅ Comprender spread operator y rest parameters
 - ✅ Conocer arrow functions y métodos de arrays
 

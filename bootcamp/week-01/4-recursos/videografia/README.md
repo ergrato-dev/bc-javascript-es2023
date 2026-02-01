@@ -1,15 +1,15 @@
 # 🎥 Videografía - Semana 01
 
-Videos recomendados para complementar el aprendizaje de ES6+ de esta semana.
+Videos recomendados para complementar el aprendizaje de ES2023 de esta semana.
 
 ---
 
-## 🎯 Videos Introductorios a ES6+
+## 🎯 Videos Introductorios a ES2023
 
 ### En Español
 
-#### **Introducción Completa a ES6+**
-- **[JavaScript Moderno - ES6+ Completo](https://www.youtube.com/watch?v=Z34BF9PCfYg)** - MoureDev
+#### **Introducción Completa a ES2023**
+- **[JavaScript Moderno - ES2023 Completo](https://www.youtube.com/watch?v=Z34BF9PCfYg)** - MoureDev
   - ⏱️ Duración: ~45 minutos
   - 📊 Nivel: Principiante
   - ✅ Cubre: let/const, arrow functions, template literals, destructuring
@@ -28,7 +28,7 @@ Videos recomendados para complementar el aprendizaje de ES6+ de esta semana.
 - **[ES6 Tutorial - Traversy Media](https://www.youtube.com/watch?v=WZQc7RUAg18)**
   - ⏱️ Duración: ~90 minutos
   - 📊 Nivel: Principiante-Intermedio
-  - ✅ Curso completo de ES6+
+  - ✅ Curso completo de ES2023
   - 💡 Uno de los mejores para comenzar
 
 #### **Modern JavaScript Crash Course**
@@ -197,7 +197,7 @@ Videos recomendados para complementar el aprendizaje de ES6+ de esta semana.
   - Desde básico hasta avanzado
 
 ### **ES6 Tutorial for Beginners**
-- 📺 [Modern JavaScript ES6+ - The Net Ninja](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gKfw25slm4CUDUcM_sXdml)
+- 📺 [Modern JavaScript ES2023 - The Net Ninja](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gKfw25slm4CUDUcM_sXdml)
   - Videos: ~30
   - Duración total: ~4 horas
   - Muy bien estructurado

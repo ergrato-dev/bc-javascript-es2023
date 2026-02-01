@@ -5,10 +5,10 @@ Esta carpeta contiene recursos complementarios cuidadosamente seleccionados para
 ## 📂 Contenido
 
 ### 📖 [eBooks Gratuitos](ebooks-free/README.md)
-Libros electrónicos gratuitos sobre JavaScript moderno, programación funcional y ES6+.
+Libros electrónicos gratuitos sobre JavaScript moderno, programación funcional y ES2023.
 
 ### 🎥 [Videografía](videografia/README.md)
-Videos, tutoriales y cursos en español e inglés sobre spread/rest, array methods y objetos ES6+.
+Videos, tutoriales y cursos en español e inglés sobre spread/rest, array methods y objetos ES2023.
 
 ### 🌐 [Webgrafía](webgrafia/README.md)
 Documentación oficial, artículos, blogs y guías interactivas sobre los temas de la semana.

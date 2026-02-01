@@ -1,7 +1,7 @@
 /**
  * Sistema de Validación Reactivo
  * ==============================
- * Week 10 | Bootcamp JavaScript ES6+
+ * Week 10 | Bootcamp JavaScript ES2023
  *
  * Implementa un sistema de validación de formularios usando
  * Proxies y Reflect para crear reactividad automática.

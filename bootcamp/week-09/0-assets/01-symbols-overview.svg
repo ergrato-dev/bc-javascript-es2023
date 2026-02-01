@@ -39,7 +39,7 @@
   <!-- Symbol highlighted -->
   <rect x="130" y="235" width="100" height="28" rx="4" class="accent-purple"/>
   <text class="label" x="180" y="254" text-anchor="middle">symbol</text>
-  <text class="text" x="180" y="273" text-anchor="middle">ES6+</text>
+  <text class="text" x="180" y="273" text-anchor="middle">ES2023</text>
 
   <!-- Symbol Creation Box -->
   <rect class="box-purple" x="290" y="80" width="230" height="200"/>

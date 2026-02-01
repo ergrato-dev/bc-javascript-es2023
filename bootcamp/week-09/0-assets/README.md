@@ -52,4 +52,4 @@ Esta carpeta contiene los recursos visuales de la semana.
 
 ---
 
-_Week 09 | Bootcamp JavaScript ES6+_
+_Week 09 | Bootcamp JavaScript ES2023_

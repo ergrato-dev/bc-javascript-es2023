@@ -1,4 +1,4 @@
-# 📘 Campos Privados en JavaScript ES6+
+# 📘 Campos Privados en JavaScript ES2023
 
 ## 🎯 Objetivos
 

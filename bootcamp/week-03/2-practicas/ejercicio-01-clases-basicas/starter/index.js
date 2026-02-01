@@ -2,7 +2,7 @@
  * 📘 Ejercicio 01: Clases Básicas
  *
  * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para aprender a crear clases en JavaScript ES6+.
+ * para aprender a crear clases en JavaScript ES2023.
  *
  * Ejecuta: node index.js
  */

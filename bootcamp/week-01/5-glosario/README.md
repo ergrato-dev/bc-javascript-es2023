@@ -13,7 +13,7 @@ Términos técnicos clave aprendidos durante la primera semana del bootcamp.
 ## A
 
 ### **Arrow Function** (Función Flecha)
-Sintaxis concisa para escribir funciones en JavaScript ES6+. Usa la sintaxis `() =>` en lugar de la palabra clave `function`.
+Sintaxis concisa para escribir funciones en JavaScript ES2023. Usa la sintaxis `() =>` en lugar de la palabra clave `function`.
 
 ```javascript
 // Función tradicional
@@ -89,7 +89,7 @@ const suma = Number('5') + 3; // 8 (conversión explícita)
 ---
 
 ### **Concatenation** (Concatenación)
-Unión de dos o más strings para formar uno nuevo. En ES6+ se prefiere usar template literals.
+Unión de dos o más strings para formar uno nuevo. En ES2023 se prefiere usar template literals.
 
 ```javascript
 // Concatenación tradicional
@@ -397,7 +397,7 @@ const html = '<div>' +
              '  <h1>Título</h1>' +
              '</div>';
 
-// Template literal (ES6+)
+// Template literal (ES2023)
 const html = `
   <div>
     <h1>Título</h1>
@@ -685,7 +685,7 @@ let variable = 20;       // Variable reasignable
 ---
 
 ### **var** (NO RECOMENDADO)
-Palabra clave antigua para declarar variables. **No se usa en ES6+** debido a problemas de scope y hoisting.
+Palabra clave antigua para declarar variables. **No se usa en ES2023** debido a problemas de scope y hoisting.
 
 ```javascript
 // ❌ NO USAR - Solo para referencia

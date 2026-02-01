@@ -129,5 +129,5 @@
   <text class="code" x="550" y="398">get('token') → undefined</text>
 
   <!-- Footer -->
-  <text class="subtitle" x="400" y="440" text-anchor="middle">Week 07 - Sets y Maps | JavaScript ES6+</text>
+  <text class="subtitle" x="400" y="440" text-anchor="middle">Week 07 - Sets y Maps | JavaScript ES2023</text>
 </svg>

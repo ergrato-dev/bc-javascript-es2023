@@ -1,10 +1,10 @@
-# 🚀 Semana 1: Introducción a JavaScript Moderno (ES6+)
+# 🚀 Semana 1: Introducción a JavaScript Moderno (ES2023)
 
 ## 🎯 Objetivos de Aprendizaje
 
 Al finalizar esta semana, serás capaz de:
 
-- ✅ Comprender la evolución de JavaScript y la importancia de ES6+
+- ✅ Comprender la evolución de JavaScript y la importancia de ES2023
 - ✅ Configurar un entorno de desarrollo moderno
 - ✅ Utilizar `let` y `const` correctamente
 - ✅ Escribir template literals para interpolación de strings
@@ -59,7 +59,7 @@ week-01/
 
 | Tema                                                        | Duración | Descripción                         |
 | ----------------------------------------------------------- | -------- | ----------------------------------- |
-| [Introducción a ES6+](1-teoria/01-introduccion-es6.md)      | 20 min   | Historia y características modernas |
+| [Introducción a ES2023](1-teoria/01-introduccion-es6.md)      | 20 min   | Historia y características modernas |
 | [let y const](1-teoria/02-let-const.md)                     | 30 min   | Variables modernas vs var           |
 | [Template Literals](1-teoria/03-template-literals.md)       | 25 min   | Interpolación y strings multilínea  |
 | [Arrow Functions](1-teoria/04-arrow-functions.md)           | 30 min   | Sintaxis moderna de funciones       |
@@ -108,13 +108,13 @@ Crear una aplicación web que muestre una tarjeta de presentación personal util
 ## 📌 Entregables
 
 ### 🧠 Conocimiento (30%)
-- [ ] Cuestionario sobre ES6+ básico (10 preguntas)
+- [ ] Cuestionario sobre ES2023 básico (10 preguntas)
 - [ ] Identificar errores en código con var vs let/const
 
 ### 💪 Desempeño (40%)
 - [ ] Completar los 4 ejercicios prácticos
 - [ ] Código funcional y siguiendo buenas prácticas
-- [ ] Uso correcto de sintaxis ES6+
+- [ ] Uso correcto de sintaxis ES2023
 
 ### 📦 Producto (30%)
 - [ ] Proyecto "Tarjeta de Presentación" funcional

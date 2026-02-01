@@ -78,7 +78,7 @@
   <!-- Symbol column -->
   <text class="label" x="150" y="355" text-anchor="middle" fill="#8b5cf6">Symbol</text>
   <text class="text" x="60" y="378">• Oculto pero accesible</text>
-  <text class="text" x="60" y="396">• Funciona en ES6+</text>
+  <text class="text" x="60" y="396">• Funciona en ES2023</text>
   <text class="text" x="60" y="414">• Convención, no enforcement</text>
 
   <!-- Divider -->

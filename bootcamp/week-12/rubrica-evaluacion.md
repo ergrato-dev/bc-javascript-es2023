@@ -8,7 +8,7 @@
 
 | Criterio | Puntos |
 |----------|--------|
-| Uso de ES6+ | 25 |
+| Uso de ES2023 | 25 |
 | Arquitectura y Módulos | 25 |
 | Funcionalidad | 30 |
 | Clean Code | 20 |
@@ -16,7 +16,7 @@
 
 ---
 
-## 1️⃣ Uso de ES6+ (25 puntos)
+## 1️⃣ Uso de ES2023 (25 puntos)
 
 ### Excelente (23-25 pts)
 - Uso consistente de `const`/`let` (nunca `var`)
@@ -27,19 +27,19 @@
 - Optional chaining y nullish coalescing
 
 ### Bueno (18-22 pts)
-- Mayoría de sintaxis ES6+ correcta
+- Mayoría de sintaxis ES2023 correcta
 - Algunos casos donde se podría mejorar
 - Uso básico de destructuring
 - Arrow functions presentes
 
 ### Suficiente (13-17 pts)
-- Mezcla de ES6+ con patrones antiguos
+- Mezcla de ES2023 con patrones antiguos
 - Uso inconsistente de const/let
 - Poco destructuring
 - Arrow functions limitadas
 
 ### Insuficiente (0-12 pts)
-- Predomina sintaxis pre-ES6
+- Predomina sintaxis pre-ES2023
 - Uso de `var`
 - No usa características modernas
 
@@ -145,7 +145,7 @@
 
 ## 🎯 Checklist de Evaluación
 
-### ES6+ Features
+### ES2023 Features
 - [ ] const/let (no var)
 - [ ] Arrow functions
 - [ ] Template literals
@@ -195,7 +195,7 @@
 
 | Puntuación | Calificación | Descripción |
 |------------|--------------|-------------|
-| 90-100 | Excelente | Dominio completo de ES6+ |
+| 90-100 | Excelente | Dominio completo de ES2023 |
 | 80-89 | Muy Bueno | Sólido conocimiento |
 | 70-79 | Bueno | Cumple requisitos |
 | 60-69 | Suficiente | Necesita mejorar |
@@ -223,7 +223,7 @@ Estudiante: _______________________
 Fecha: _______________________
 
 Puntuación:
-- ES6+: ___/25
+- ES2023: ___/25
 - Arquitectura: ___/25
 - Funcionalidad: ___/30
 - Clean Code: ___/20

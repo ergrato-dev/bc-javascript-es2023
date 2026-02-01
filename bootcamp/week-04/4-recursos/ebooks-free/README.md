@@ -24,7 +24,7 @@ Libros electrónicos gratuitos para profundizar en destructuring y módulos ES6.
 - **Capítulos relevantes**:
   - Chapter 32: Destructuring
   - Chapter 27: Modules
-- **Descripción**: Enfocado en ES6+ con explicaciones profundas y ejemplos claros.
+- **Descripción**: Enfocado en ES2023 con explicaciones profundas y ejemplos claros.
 
 ---
 
@@ -56,7 +56,7 @@ Libros electrónicos gratuitos para profundizar en destructuring y módulos ES6.
 - **Idioma**: Inglés
 - **Enlace**: [github.com/getify/You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)
 - **Libros relevantes**:
-  - Get Started - ES6+ features overview
+  - Get Started - ES2023 features overview
   - Scope & Closures - Module patterns
 - **Descripción**: Serie profunda que explora JavaScript en detalle.
 

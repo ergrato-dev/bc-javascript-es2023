@@ -2,7 +2,7 @@
 
 ## 🎯 Objetivo
 
-Dominar los métodos de string introducidos en ES6+ para búsqueda, transformación y formateo de texto.
+Dominar los métodos de string introducidos en ES2023 para búsqueda, transformación y formateo de texto.
 
 ## 📋 Descripción
 

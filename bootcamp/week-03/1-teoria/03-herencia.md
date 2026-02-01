@@ -1,4 +1,4 @@
-# 📘 Herencia en JavaScript ES6+
+# 📘 Herencia en JavaScript ES2023
 
 ## 🎯 Objetivos
 

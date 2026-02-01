@@ -2,7 +2,7 @@
 
 ## 🎯 Objetivos
 
-- Aprender la sintaxis de clases ES6
+- Aprender la sintaxis de clases ES2023
 - Crear constructores con parámetros
 - Definir métodos de instancia
 - Entender composición de clases
@@ -106,5 +106,5 @@ node index.js
 
 ## 🔗 Recursos
 
-- [Teoría: Clases ES6](../../1-teoria/01-clases-es6.md)
+- [Teoría: Clases ES2023](../../1-teoria/01-clases-es6.md)
 - [MDN: Classes](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)

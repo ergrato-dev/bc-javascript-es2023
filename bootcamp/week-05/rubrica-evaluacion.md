@@ -42,7 +42,7 @@
 | Aplanar arrays | 3 | Usa `flat()` con diferentes niveles de profundidad |
 | flatMap correcto | 3 | Aplica `flatMap()` para mapear y aplanar |
 | Casos edge | 2 | Maneja arrays vacíos y valores `null` |
-| Código limpio | 2 | Sintaxis ES6+, nombres descriptivos |
+| Código limpio | 2 | Sintaxis ES2023, nombres descriptivos |
 
 #### Ejercicio 2: Array.from y Array.of (10%)
 
@@ -104,7 +104,7 @@
 
 | Aspecto | Excelente | Bueno | Suficiente | Insuficiente |
 |---------|-----------|-------|------------|--------------|
-| **Sintaxis ES6+** | Uso consistente de ES6+ en todo el código | Mayormente ES6+ con pocas excepciones | Mezcla de sintaxis | Sintaxis antigua |
+| **Sintaxis ES2023** | Uso consistente de ES2023 en todo el código | Mayormente ES2023 con pocas excepciones | Mezcla de sintaxis | Sintaxis antigua |
 | **Inmutabilidad** | No muta arrays originales, usa métodos puros | Mayoría de operaciones inmutables | Algunas mutaciones innecesarias | Muta datos constantemente |
 | **Funciones puras** | Todas las funciones son puras y predecibles | Mayoría de funciones puras | Algunas funciones con efectos secundarios | Funciones con muchos efectos |
 | **Nombrado** | Nombres descriptivos y consistentes | Buenos nombres en general | Nombres aceptables | Nombres confusos |

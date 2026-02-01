@@ -2,7 +2,7 @@
 
 ## 🎯 Objetivo
 
-Construir una aplicación de tienda online completa aplicando todos los conceptos de ES6+ aprendidos en las semanas 1-11.
+Construir una aplicación de tienda online completa aplicando todos los conceptos de ES2023 aprendidos en las semanas 1-11.
 
 ---
 
@@ -214,7 +214,7 @@ export const CATEGORIES = ['laptops', 'phones', 'tablets', 'accessories'];
 
 ---
 
-## 🎯 Conceptos ES6+ a Aplicar
+## 🎯 Conceptos ES2023 a Aplicar
 
 | Concepto | Dónde Aplicarlo |
 |----------|-----------------|
@@ -241,7 +241,7 @@ export const CATEGORIES = ['laptops', 'phones', 'tablets', 'accessories'];
 
 | Criterio | Puntos |
 |----------|--------|
-| Uso correcto de ES6+ | 25 |
+| Uso correcto de ES2023 | 25 |
 | Arquitectura modular | 25 |
 | Funcionalidad completa | 30 |
 | Clean code | 20 |

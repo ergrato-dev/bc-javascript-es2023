@@ -2,7 +2,7 @@
  * 📘 Ejercicio 02: Métodos Estáticos
  *
  * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para aprender métodos estáticos en clases ES6.
+ * para aprender métodos estáticos en clases ES2023.
  *
  * Ejecuta: node index.js
  */

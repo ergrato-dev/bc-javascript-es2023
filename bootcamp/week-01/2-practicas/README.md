@@ -104,7 +104,7 @@ cat index.js
 Para cada ejercicio:
 
 - ✅ **Funcionalidad**: El código debe funcionar correctamente
-- ✅ **Sintaxis ES6+**: Usar características modernas
+- ✅ **Sintaxis ES2023**: Usar características modernas
 - ✅ **Código limpio**: Nombres descriptivos, indentación correcta
 - ✅ **Comentarios**: Explicar partes clave en inglés
 - ✅ **Sin errores**: No debe haber errores en consola

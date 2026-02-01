@@ -19,7 +19,7 @@
 3. **Modern JavaScript String Methods - Fireship**
    - 🔗 [YouTube](https://www.youtube.com/watch?v=rhzKDrUiJVk)
    - ⏱️ ~10 minutos
-   - 💡 Métodos ES6+ explicados rápidamente
+   - 💡 Métodos ES2023 explicados rápidamente
 
 #### Regular Expressions
 

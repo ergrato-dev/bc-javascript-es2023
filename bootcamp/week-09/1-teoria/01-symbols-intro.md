@@ -13,7 +13,7 @@
 
 ## 📖 ¿Qué es un Symbol?
 
-**Symbol** es un tipo de dato primitivo introducido en ES6 que representa un identificador **único e inmutable**.
+**Symbol** es un tipo de dato primitivo introducido en ES2023 que representa un identificador **único e inmutable**.
 
 ```javascript
 // Crear un símbolo

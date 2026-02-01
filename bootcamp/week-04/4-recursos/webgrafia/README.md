@@ -76,7 +76,7 @@ Documentación oficial, artículos y recursos web sobre destructuring y módulos
 
 ### **ES6 Console**
 - **Enlace**: [es6console.com](https://es6console.com/)
-- **Descripción**: Consola online para probar código ES6+.
+- **Descripción**: Consola online para probar código ES2023.
 
 ### **CodeSandbox**
 - **Enlace**: [codesandbox.io](https://codesandbox.io/)
@@ -97,7 +97,7 @@ Documentación oficial, artículos y recursos web sobre destructuring y módulos
 
 ### **ECMAScript Compatibility Table**
 - **Enlace**: [kangax.github.io/compat-table/es6/](https://kangax.github.io/compat-table/es6/)
-- **Descripción**: Tabla detallada de compatibilidad ES6+.
+- **Descripción**: Tabla detallada de compatibilidad ES2023.
 
 ---
 

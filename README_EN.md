@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="_assets/bootcamp-header.svg" alt="Bootcamp JavaScript ES6+" width="800">
+  <img src="_assets/bootcamp-header.svg" alt="Bootcamp JavaScript ES2023" width="800">
 </p>
 
 <p align="center">
-  <a href="https://github.com/ergrato-dev/bc-javascript-es6/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
+  <a href="https://github.com/ergrato-dev/bc-javascript-es2023/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
   <a href="#"><img src="https://img.shields.io/badge/weeks-28-yellow.svg" alt="28 Weeks"></a>
   <a href="#"><img src="https://img.shields.io/badge/hours-224-orange.svg" alt="224 Hours"></a>
-  <a href="#"><img src="https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript" alt="JavaScript ES6+"></a>
+  <a href="#"><img src="https://img.shields.io/badge/JavaScript-ES2023-F7DF1E?logo=javascript" alt="JavaScript ES2023"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
 </p>
 
@@ -18,13 +18,13 @@
 
 ## 📋 Description
 
-Intensive **28-week (7-month)** bootcamp focused on mastering modern JavaScript (ES6+). Designed to take students from zero to JavaScript Junior Developer, with emphasis on clean code, best practices, and real-world projects.
+Intensive **28-week (7-month)** bootcamp focused on mastering modern JavaScript (ES2023). Designed to take students from zero to JavaScript Junior Developer, with emphasis on clean code, best practices, and real-world projects.
 
 ### 🎯 Objectives
 
 Upon completion of the bootcamp, students will be able to:
 
-- ✅ Master modern JavaScript features (ES6+)
+- ✅ Master modern JavaScript features (ES2023)
 - ✅ Work with asynchronous programming (Promises, async/await)
 - ✅ Effectively manipulate the DOM and handle events
 - ✅ Consume and work with REST APIs using Fetch API
@@ -35,9 +35,9 @@ Upon completion of the bootcamp, students will be able to:
 
 ### 🚀 Why Modern JavaScript?
 
-> **Modern JavaScript from day 1** - No pre-ES6 history, only current best practices.
+> **Modern JavaScript from day 1** - No pre-ES2023 history, only current best practices.
 
-This bootcamp focuses exclusively on JavaScript ES6+ and modern features. We don't waste time on outdated syntax or obsolete patterns. Students learn directly the tools and techniques they'll use in the professional world.
+This bootcamp focuses exclusively on JavaScript ES2023 and modern features. We don't waste time on outdated syntax or obsolete patterns. Students learn directly the tools and techniques they'll use in the professional world.
 
 ---
 
@@ -45,7 +45,7 @@ This bootcamp focuses exclusively on JavaScript ES6+ and modern features. We don
 
 |          Stage          | Weeks | Hours | Main Topics                          |
 | :---------------------: | :---: | :---: | ------------------------------------ |
-| **Modern Fundamentals** | 1-12  |  96h  | ES6+, Modules, Modern Arrays/Objects |
+| **Modern Fundamentals** | 1-12  |  96h  | ES2023, Modules, Modern Arrays/Objects |
 |    **Intermediate**     | 13-24 |  96h  | Async, Fetch API, DOM, Storage       |
 |      **Advanced**       | 25-28 |  32h  | Testing, Patterns, Clean Code        |
 
@@ -85,7 +85,7 @@ bootcamp/week-XX/
 
 | Technology  | Version        | Use                      |
 | ----------- | -------------- | ------------------------ |
-| JavaScript  | ES6+ (ES2015+) | Main language            |
+| JavaScript  | ES2023 | Main language            |
 | Jest        | 29+            | Testing and TDD          |
 | ESLint      | 8+             | Linting and code quality |
 | Prettier    | 3+             | Code formatting          |
@@ -108,8 +108,8 @@ bootcamp/week-XX/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/ergrato-dev/bc-javascript-es6.git
-cd bc-javascript-es6
+git clone https://github.com/ergrato-dev/bc-javascript-es2023.git
+cd bc-javascript-es2023
 ```
 
 ### 2. Install VS Code Extensions
@@ -190,8 +190,8 @@ Contributions are welcome! This is an open-source educational project.
 ## 📞 Support
 
 - 📧 Email: [your-email@example.com](mailto:your-email@example.com)
-- 💬 Discussions: [GitHub Discussions](https://github.com/ergrato-dev/bc-javascript-es6/discussions)
-- 🐛 Issues: [GitHub Issues](https://github.com/ergrato-dev/bc-javascript-es6/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/ergrato-dev/bc-javascript-es2023/discussions)
+- 🐛 Issues: [GitHub Issues](https://github.com/ergrato-dev/bc-javascript-es2023/issues)
 
 ---
 
@@ -221,7 +221,7 @@ This project is under the MIT License - see the [LICENSE](LICENSE) file for deta
 ---
 
 <p align="center">
-  <strong>🎓 Modern JavaScript Bootcamp (ES6+)</strong><br>
+  <strong>🎓 Modern JavaScript Bootcamp (ES2023)</strong><br>
   <em>From zero to JavaScript Junior Developer in 7 months</em>
 </p>
 

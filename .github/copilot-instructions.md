@@ -2,7 +2,7 @@
 
 ## 📋 Contexto del Bootcamp
 
-Este es un **Bootcamp de JavaScript Moderno (ES6+)** estructurado para llevar a estudiantes de cero a héroe en desarrollo JavaScript moderno.
+Este es un **Bootcamp de JavaScript Moderno (ES2023)** estructurado para llevar a estudiantes de cero a héroe en desarrollo JavaScript moderno.
 
 ### 📊 Datos del Bootcamp
 
@@ -10,7 +10,7 @@ Este es un **Bootcamp de JavaScript Moderno (ES6+)** estructurado para llevar a 
 - **Dedicación semanal**: 8 horas
 - **Total de horas**: ~224 horas
 - **Nivel de salida**: Desarrollador JavaScript Junior
-- **Enfoque**: JavaScript moderno (ES6+) sin historia pre-ES6
+- **Enfoque**: JavaScript moderno (ES2023) sin historia pre-ES2023
 - **Stack**: JavaScript puro, sin frameworks (React/Vue/Angular van en otro bootcamp)
 
 ---
@@ -19,7 +19,7 @@ Este es un **Bootcamp de JavaScript Moderno (ES6+)** estructurado para llevar a 
 
 Al finalizar el bootcamp, los estudiantes serán capaces de:
 
-- ✅ Dominar las características modernas de JavaScript (ES6+)
+- ✅ Dominar las características modernas de JavaScript (ES2023)
 - ✅ Trabajar con programación asincrónica (Promises, async/await)
 - ✅ Manipular el DOM y gestionar eventos de manera efectiva
 - ✅ Consumir y trabajar con APIs REST usando Fetch API
@@ -36,21 +36,23 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 
 #### **Fundamentos Modernos (Semanas 1-12)** - 96 horas
 
-- ES6+ desde el inicio (let/const, arrow functions, destructuring)
+- ES2023 desde el inicio (let/const, arrow functions, destructuring)
 - Template literals, spread operator, rest parameters
-- Módulos ES6 (import/export)
-- Arrays y objetos con métodos modernos (map, filter, reduce)
-- Optional chaining, nullish coalescing
-- Clases y herencia moderna
+- Módulos ES (import/export, dynamic imports)
+- Arrays modernos (map, filter, reduce, at(), findLast(), toSorted(), toReversed(), with())
+- Optional chaining `?.`, nullish coalescing `??`, logical assignment (`??=`, `||=`, `&&=`)
+- Clases modernas con campos privados `#` y static blocks
+- Numeric separators (`1_000_000`), BigInt
 
 #### **Intermedio (Semanas 13-24)** - 96 horas
 
-- Programación asincrónica (Promises, async/await)
+- Programación asincrónica (Promises, async/await, top-level await)
+- Promise.all(), Promise.race(), Promise.allSettled(), Promise.any()
 - Fetch API y trabajo con APIs REST
-- Manejo avanzado de errores
+- Manejo avanzado de errores (Error cause, custom errors)
 - DOM moderno y eventos
-- LocalStorage y SessionStorage
-- Programación funcional básica
+- LocalStorage, SessionStorage e IndexedDB
+- Programación funcional (composición, inmutabilidad)
 
 #### **Avanzado (Semanas 25-28)** - 32 horas
 
@@ -255,6 +257,30 @@ const street = user?.address?.street;
 
 // ✅ BIEN - nullish coalescing
 const value = config.timeout ?? 3000;
+
+// ✅ BIEN - logical assignment operators (ES2021)
+config.timeout ??= 3000;
+user.name ||= 'Anonymous';
+
+// ✅ BIEN - numeric separators (ES2021)
+const billion = 1_000_000_000;
+
+// ✅ BIEN - array.at() para índices negativos (ES2022)
+const lastItem = array.at(-1);
+
+// ✅ BIEN - Object.hasOwn() en lugar de hasOwnProperty (ES2022)
+if (Object.hasOwn(obj, 'prop')) { /* ... */ }
+
+// ✅ BIEN - Error cause (ES2022)
+throw new Error('Failed to fetch', { cause: originalError });
+
+// ✅ BIEN - métodos inmutables de array (ES2023)
+const sorted = array.toSorted((a, b) => a - b);
+const reversed = array.toReversed();
+const modified = array.with(2, 'newValue');
+
+// ✅ BIEN - findLast y findLastIndex (ES2023)
+const lastEven = numbers.findLast(n => n % 2 === 0);
 ```
 
 ### Nomenclatura
@@ -481,7 +507,7 @@ Cuando trabajes en este proyecto:
 
 ### Generación de Código
 
-1. **Usa siempre sintaxis ES6+**
+1. **Usa siempre sintaxis ES2023**
 
    - const/let (nunca var)
    - Arrow functions
@@ -546,7 +572,7 @@ Cuando trabajes en este proyecto:
    - Problemas que encontrarán en el desarrollo real
 
 3. **Enfoque moderno**
-   - No mencionar características pre-ES6 a menos que sea para comparar
+   - No mencionar características pre-ES2023 a menos que sea para comparar
    - Enfocarse en mejores prácticas actuales
    - Usar herramientas y patrones modernos
 
@@ -583,7 +609,7 @@ Cuando trabajes en este proyecto:
 
 ## 🔗 Enlaces Importantes
 
-- **Repositorio**: https://github.com/epti-dev/bc-javascript-es6+
+- **Repositorio**: https://github.com/epti-dev/bc-javascript-es2023
 - **Documentación general**: [\_docs/README.md](_docs/README.md)
 - **Primera semana**: [bootcamp/week-01/README.md](bootcamp/week-01/README.md)
 

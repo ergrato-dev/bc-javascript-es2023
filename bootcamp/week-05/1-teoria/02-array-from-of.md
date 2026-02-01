@@ -131,7 +131,7 @@ function sum() {
 
 console.log(sum(1, 2, 3, 4)); // 10
 
-// Nota: En ES6+ es mejor usar rest parameters
+// Nota: En ES2023 es mejor usar rest parameters
 const sumModern = (...nums) => nums.reduce((a, b) => a + b, 0);
 ```
 

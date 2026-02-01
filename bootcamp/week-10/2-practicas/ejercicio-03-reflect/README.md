@@ -200,4 +200,4 @@ node bootcamp/week-10/2-practicas/ejercicio-03-reflect/starter/index.js
 
 ---
 
-_Week 10 | Bootcamp JavaScript ES6+_
+_Week 10 | Bootcamp JavaScript ES2023_

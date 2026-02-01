@@ -1,4 +1,4 @@
-# 📘 Destructuring de Arrays en JavaScript ES6+
+# 📘 Destructuring de Arrays en JavaScript ES2023
 
 ## 🎯 Objetivos
 
@@ -29,7 +29,7 @@ const first = colors[0];
 const second = colors[1];
 const third = colors[2];
 
-// ✅ Con destructuring (ES6+)
+// ✅ Con destructuring (ES2023)
 const colors = ['red', 'green', 'blue'];
 const [first, second, third] = colors;
 

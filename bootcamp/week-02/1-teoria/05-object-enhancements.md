@@ -1,4 +1,4 @@
-# ✨ Object Enhancements (Mejoras de Objetos ES6+)
+# ✨ Object Enhancements (Mejoras de Objetos ES2023)
 
 ![Object Enhancements Diagram](../0-assets/05-object-enhancements.svg)
 
@@ -14,7 +14,7 @@
 
 ## 📖 Introducción
 
-ES6+ introdujo mejoras significativas en la sintaxis de objetos, haciendo el código más conciso y expresivo.
+ES2023 introdujo mejoras significativas en la sintaxis de objetos, haciendo el código más conciso y expresivo.
 
 ---
 

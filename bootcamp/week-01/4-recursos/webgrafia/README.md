@@ -1,6 +1,6 @@
 # 🌐 Webgrafía - Semana 01
 
-Recursos web recomendados para profundizar en los conceptos de ES6+ vistos esta semana.
+Recursos web recomendados para profundizar en los conceptos de ES2023 vistos esta semana.
 
 ---
 
@@ -23,10 +23,10 @@ Recursos web recomendados para profundizar en los conceptos de ES6+ vistos esta 
   - Para consultas técnicas avanzadas
   - En inglés
 
-### Características Específicas ES6+
+### Características Específicas ES2023
 
 - **[ES6 Features](http://es6-features.org/)**
-  - Comparación visual entre ES5 y ES6+
+  - Comparación visual entre ES5 y ES2023
   - Ejemplos lado a lado
   - Referencia rápida
 
@@ -179,11 +179,11 @@ Recursos web recomendados para profundizar en los conceptos de ES6+ vistos esta 
 
 - **[Babel REPL](https://babeljs.io/repl)**
   - Ver cómo transpila Babel
-  - ES6+ a ES5
+  - ES2023 a ES5
   - Configuración personalizable
 
 - **[Node.green](https://node.green/)**
-  - Features de ES6+ en Node.js
+  - Features de ES2023 en Node.js
   - Por versión de Node
   - Muy útil para backend
 

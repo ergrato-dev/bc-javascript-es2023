@@ -23,7 +23,7 @@
 
   <!-- Features box for ES6 -->
   <rect x="220" y="80" width="160" height="90" fill="#2d3748" stroke="#f0db4f" stroke-width="2" rx="5"/>
-  <text x="300" y="100" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f0db4f" text-anchor="middle">Características ES6+</text>
+  <text x="300" y="100" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f0db4f" text-anchor="middle">Características ES2023</text>
   <text x="230" y="118" font-family="system-ui, sans-serif" font-size="10" fill="#e2e8f0">• let/const</text>
   <text x="230" y="133" font-family="system-ui, sans-serif" font-size="10" fill="#e2e8f0">• Arrow functions</text>
   <text x="230" y="148" font-family="system-ui, sans-serif" font-size="10" fill="#e2e8f0">• Template literals</text>
@@ -64,6 +64,6 @@
   <!-- Note about this bootcamp -->
   <rect x="200" y="350" width="400" height="35" fill="#2d3748" stroke="#f0db4f" stroke-width="2" rx="5"/>
   <text x="400" y="372" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#f0db4f" text-anchor="middle">
-    Este bootcamp enseña ES6+ (JavaScript Moderno)
+    Este bootcamp enseña ES2023 (JavaScript Moderno)
   </text>
 </svg>

@@ -32,7 +32,7 @@ Aplicación web para gestionar tareas (to-do list) con las siguientes caracterí
 
 ### Características Técnicas
 
-- **Sin frameworks**: JavaScript puro (ES6+)
+- **Sin frameworks**: JavaScript puro (ES2023)
 - **Inmutabilidad**: Nunca mutar el estado directamente
 - **Array methods**: Uso intensivo de map, filter, reduce
 - **Spread/Rest**: Para copiar y actualizar objetos/arrays

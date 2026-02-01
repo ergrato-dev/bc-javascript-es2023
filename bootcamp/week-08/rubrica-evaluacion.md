@@ -143,4 +143,4 @@ Evaluador: _________________________
 
 ---
 
-*Rúbrica Week 08 | Bootcamp JavaScript ES6+*
+*Rúbrica Week 08 | Bootcamp JavaScript ES2023*

@@ -123,9 +123,9 @@ obj[_secret];                      // 2
 | Método | Oculto de keys/for-in | Realmente privado | Soporte |
 |--------|----------------------|-------------------|---------|
 | `_underscore` | ❌ No | ❌ No | Todos |
-| `Symbol()` | ✅ Sí | ❌ No | ES6+ |
+| `Symbol()` | ✅ Sí | ❌ No | ES2023 |
 | `#privateField` | ✅ Sí | ✅ Sí | ES2022+ |
-| `WeakMap` | ✅ Sí | ✅ Sí | ES6+ |
+| `WeakMap` | ✅ Sí | ✅ Sí | ES2023 |
 | Closures | ✅ Sí | ✅ Sí | Todos |
 
 ```javascript

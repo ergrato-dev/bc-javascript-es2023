@@ -74,4 +74,4 @@ node ejercicio-01-proxy-basico/starter/index.js
 
 ---
 
-_Week 10 | Bootcamp JavaScript ES6+_
+_Week 10 | Bootcamp JavaScript ES2023_

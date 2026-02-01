@@ -2,7 +2,7 @@
  * 📘 Ejercicio 01: Spread & Rest Operators
  *
  * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para aprender spread y rest operators en JavaScript ES6.
+ * para aprender spread y rest operators en JavaScript ES2023.
  *
  * Ejecuta: node index.js
  */

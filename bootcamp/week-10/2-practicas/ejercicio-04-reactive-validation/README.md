@@ -203,4 +203,4 @@ node bootcamp/week-10/2-practicas/ejercicio-04-reactive-validation/starter/index
 
 ---
 
-_Week 10 | Bootcamp JavaScript ES6+_
+_Week 10 | Bootcamp JavaScript ES2023_

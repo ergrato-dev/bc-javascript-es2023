@@ -19,7 +19,7 @@
   <rect class="bg" width="800" height="400"/>
 
   <!-- Title -->
-  <text class="title" x="400" y="35" text-anchor="middle">String Methods Modernos ES6+</text>
+  <text class="title" x="400" y="35" text-anchor="middle">String Methods Modernos ES2023</text>
 
   <!-- String visualization -->
   <rect class="box" x="50" y="60" width="700" height="50"/>

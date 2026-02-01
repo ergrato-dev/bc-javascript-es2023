@@ -172,4 +172,4 @@ Object.getOwnPropertySymbols(user); // [Symbol(secret)]
 
 ---
 
-_Semana 9 de 28 | Bootcamp JavaScript ES6+_
+_Semana 9 de 28 | Bootcamp JavaScript ES2023_

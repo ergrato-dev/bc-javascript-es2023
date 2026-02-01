@@ -136,4 +136,4 @@ La retroalimentación se proporcionará en:
 
 ---
 
-_Rúbrica Semana 4 | Bootcamp JavaScript ES6+_
+_Rúbrica Semana 4 | Bootcamp JavaScript ES2023_

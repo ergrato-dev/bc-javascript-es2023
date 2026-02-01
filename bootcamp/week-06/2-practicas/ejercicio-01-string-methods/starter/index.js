@@ -2,7 +2,7 @@
  * 📘 Ejercicio 01: Métodos Modernos de Strings
  *
  * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para dominar los métodos de string de ES6+.
+ * para dominar los métodos de string de ES2023.
  *
  * Ejecuta: node index.js
  */

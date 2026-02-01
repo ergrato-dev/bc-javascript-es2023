@@ -7,7 +7,7 @@ Términos clave y conceptos importantes de la semana 2, ordenados alfabéticamen
 ## A
 
 ### **Arrow Function**
-Función flecha. Sintaxis concisa para definir funciones en JavaScript ES6+.
+Función flecha. Sintaxis concisa para definir funciones en JavaScript ES2023.
 
 ```javascript
 const sum = (a, b) => a + b;
@@ -193,7 +193,7 @@ const doubled = numbers.map(n => n * 2);
 ---
 
 ### **Method Shorthand**
-Sintaxis abreviada para definir métodos en objetos ES6+.
+Sintaxis abreviada para definir métodos en objetos ES2023.
 
 ```javascript
 // Antiguo

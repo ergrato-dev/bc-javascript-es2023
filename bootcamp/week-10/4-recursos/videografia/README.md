@@ -66,7 +66,7 @@ Videos y tutoriales recomendados sobre Proxies, Reflect y patrones reactivos.
 
 ### JavaScript Avanzado
 - **Canal**: Varios
-- **Contenido**: Series sobre ES6+ features
+- **Contenido**: Series sobre ES2023 features
 - **Buscar**: "JavaScript ES6 Proxy playlist"
 
 ### Metaprogramación en JavaScript
@@ -96,4 +96,4 @@ Videos y tutoriales recomendados sobre Proxies, Reflect y patrones reactivos.
 
 ---
 
-_Week 10 | Bootcamp JavaScript ES6+_
+_Week 10 | Bootcamp JavaScript ES2023_

@@ -1,7 +1,7 @@
 /**
  * Ejercicio 01: Creación y Uso de Symbols
  *
- * Aprende los fundamentos de Symbol en JavaScript ES6+
+ * Aprende los fundamentos de Symbol en JavaScript ES2023
  *
  * Instrucciones:
  * - Lee cada paso y descomenta el código

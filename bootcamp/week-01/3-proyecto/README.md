@@ -76,7 +76,7 @@ El HTML y CSS ya están completos. Tu trabajo es completar el JavaScript.
 
 Abre `starter/script.js` y completa todos los TODOs marcados.
 
-### Paso 3: Aplicar Conceptos ES6+
+### Paso 3: Aplicar Conceptos ES2023
 
 Asegúrate de usar:
 - `const` para valores que no cambian
@@ -129,7 +129,7 @@ Abre `index.html` en el navegador y verifica que todo funcione.
 - [ ] Estadísticas se calculan correctamente
 - [ ] Copiar email funciona
 
-### Código ES6+ (30%)
+### Código ES2023 (30%)
 - [ ] Usa `const` por defecto, `let` solo cuando necesario
 - [ ] Template literals en lugar de concatenación
 - [ ] Arrow functions en lugar de `function`
@@ -264,7 +264,7 @@ Al finalizar, deberías tener:
 2. ✅ Botón funcional para copiar email
 3. ✅ Toggle de tema claro/oscuro
 4. ✅ Estadísticas calculadas dinámicamente
-5. ✅ Código limpio usando ES6+
+5. ✅ Código limpio usando ES2023
 
 ---
 
@@ -305,7 +305,7 @@ apellido-nombre-tarjeta/
 ## 🛠️ Tecnologías Usadas
 - HTML5
 - CSS3
-- JavaScript ES6+
+- JavaScript ES2023
 
 ## 🚀 Cómo Ejecutar
 1. Abrir index.html en el navegador
@@ -323,7 +323,7 @@ apellido-nombre-tarjeta/
 ## ❓ Preguntas Frecuentes
 
 **P: ¿Puedo usar librerías externas?**
-R: No, este proyecto debe usar solo JavaScript ES6+ puro.
+R: No, este proyecto debe usar solo JavaScript ES2023 puro.
 
 **P: ¿Puedo cambiar el diseño CSS?**
 R: Sí, puedes personalizar los estilos a tu gusto.

@@ -198,4 +198,4 @@ const currentPageItems = page * itemsPerPage;
 
 ---
 
-*Proyecto Week 08 | Bootcamp JavaScript ES6+*
+*Proyecto Week 08 | Bootcamp JavaScript ES2023*

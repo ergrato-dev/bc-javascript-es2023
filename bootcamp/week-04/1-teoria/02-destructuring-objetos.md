@@ -1,4 +1,4 @@
-# 📘 Destructuring de Objetos en JavaScript ES6+
+# 📘 Destructuring de Objetos en JavaScript ES2023
 
 ## 🎯 Objetivos
 

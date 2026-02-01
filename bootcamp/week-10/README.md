@@ -104,7 +104,7 @@ week-10/
 Antes de comenzar esta semana, debes dominar:
 
 - ✅ Objetos y sus métodos (Week 01-02)
-- ✅ Clases ES6 (Week 03)
+- ✅ Clases ES2023 (Week 03)
 - ✅ Symbols y metaprogramación básica (Week 09)
 - ✅ Funciones y closures
 
@@ -184,4 +184,4 @@ Reflect.deleteProperty(obj, 'prop');
 
 ---
 
-_Week 10 | Bootcamp JavaScript ES6+_
+_Week 10 | Bootcamp JavaScript ES2023_

@@ -12,7 +12,7 @@
 
 ## 📖 Introducción
 
-**Arrow functions** (funciones flecha) son una forma más concisa de escribir funciones en JavaScript. Se introdujeron en ES6 y rápidamente se convirtieron en el estándar para funciones cortas.
+**Arrow functions** (funciones flecha) son una forma más concisa de escribir funciones en JavaScript. Se introdujeron en ES2023 y rápidamente se convirtieron en el estándar para funciones cortas.
 
 ### Sintaxis Básica
 

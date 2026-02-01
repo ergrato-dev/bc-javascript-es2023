@@ -9,7 +9,7 @@
 # ============================================
 
 # Configuration
-REPO_PATH="/home/epti/Documents/epti-dev/bc-channel/bc-javascript-es6+"
+REPO_PATH="/home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023"
 LOGFILE="${REPO_PATH}/_scripts/autocommit.log"
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 

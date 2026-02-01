@@ -47,4 +47,4 @@ Esta carpeta contiene recursos visuales para la semana 08.
 
 ---
 
-*Assets Week 08 | Bootcamp JavaScript ES6+*
+*Assets Week 08 | Bootcamp JavaScript ES2023*

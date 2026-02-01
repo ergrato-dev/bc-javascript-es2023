@@ -1,4 +1,4 @@
-# 📘 Clases Básicas en JavaScript ES6+
+# 📘 Clases Básicas en JavaScript ES2023
 
 ## 🎯 Objetivos
 

@@ -1,4 +1,4 @@
-# 📅 Plan de Estudios - Bootcamp JavaScript ES6+
+# 📅 Plan de Estudios - Bootcamp JavaScript ES2023
 
 **Duración Total**: 28 semanas (7 meses)
 **Horas Semanales**: 8 horas
@@ -6,10 +6,49 @@
 
 ---
 
+## 🚀 Características ES2023 Cubiertas
+
+Este bootcamp cubre todas las características modernas de JavaScript hasta ES2023:
+
+### ES2023 (lo más reciente)
+- `Array.prototype.findLast()` y `findLastIndex()`
+- `Array.prototype.toSorted()`, `toReversed()`, `toSpliced()`, `with()` (Change Array by Copy)
+- Symbols como claves de WeakMap
+
+### ES2022
+- `Array.prototype.at()` - Índices negativos
+- `Object.hasOwn()` - Reemplazo moderno de `hasOwnProperty`
+- Error cause (`new Error('msg', { cause })`)
+- Class fields: private (`#`), static blocks
+- Top-level await en módulos
+- Regex `/d` flag (indices)
+
+### ES2021
+- `String.prototype.replaceAll()`
+- `Promise.any()` y `AggregateError`
+- Logical assignment operators (`||=`, `&&=`, `??=`)
+- Numeric separators (`1_000_000`)
+
+### ES2020
+- Optional chaining (`?.`)
+- Nullish coalescing (`??`)
+- `Promise.allSettled()`
+- Dynamic `import()`
+- `BigInt`
+- `globalThis`
+
+### ES2019
+- `Array.prototype.flat()` y `flatMap()`
+- `Object.fromEntries()`
+- `String.prototype.trimStart()`, `trimEnd()`
+- Optional catch binding
+
+---
+
 ## 🎯 Distribución por Etapas
 
 ### 📘 Etapa 1: Fundamentos Modernos (Semanas 1-12)
-**96 horas totales** | JavaScript ES6+ desde cero
+**96 horas totales** | JavaScript ES2023 desde cero
 
 ### 📗 Etapa 2: Intermedio (Semanas 13-24)
 **96 horas totales** | Programación asincrónica y manipulación del DOM
@@ -32,9 +71,11 @@
 - Variables (let, const) y tipos de datos
 - Template literals
 - Arrow functions básicas
-- Operadores modernos (optional chaining, nullish coalescing)
+- Operadores modernos (optional chaining `?.`, nullish coalescing `??`)
+- Logical assignment operators (`??=`, `||=`, `&&=`)
+- Numeric separators (`1_000_000`)
 
-**Proyecto**: Calculadora moderna con ES6+
+**Proyecto**: Calculadora moderna con ES2023
 
 ---
 
@@ -47,7 +88,9 @@
 - Rest parameters
 - Default parameters
 - Array methods (map, filter, reduce, find, some, every)
+- `Array.prototype.at()` para índices negativos (ES2022)
 - Object enhancements (shorthand, computed properties)
+- `Object.hasOwn()` (ES2022)
 
 **Proyecto**: Gestor de Tareas (Task Manager)
 
@@ -57,11 +100,12 @@
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Clases ES6 (class, constructor)
+- Clases modernas (class, constructor)
 - Métodos de instancia y estáticos
 - Herencia (extends, super)
 - Getters y Setters
-- Private fields (#)
+- Private fields (`#`) y private methods (ES2022)
+- Static blocks (ES2022)
 
 **Proyecto**: Sistema de gestión de biblioteca (clases Book, Library, User)
 
@@ -73,9 +117,10 @@
 **Temas**:
 - Destructuring de arrays
 - Destructuring de objetos (alias, valores por defecto, anidado)
-- Módulos ES6 (import/export)
+- Módulos ES (import/export)
 - Named exports vs Default exports
-- Dynamic imports
+- Dynamic imports (`import()`)
+- Top-level await en módulos (ES2022)
 
 **Proyecto**: Aplicación modular de gestión de inventario
 
@@ -86,10 +131,10 @@
 
 **Temas**:
 - Métodos avanzados (flatMap, flat, from, of)
-- Array.prototype methods en profundidad
-- Chaining complejo
-- Transformaciones de datos
-- Ordenamiento personalizado (sort)
+- `findLast()` y `findLastIndex()` (ES2023)
+- Métodos inmutables: `toSorted()`, `toReversed()`, `toSpliced()`, `with()` (ES2023)
+- Chaining complejo y transformaciones de datos
+- Ordenamiento personalizado (sort vs toSorted)
 
 **Proyecto**: Dashboard de análisis de datos
 
@@ -100,10 +145,11 @@
 
 **Temas**:
 - String methods modernos (includes, startsWith, endsWith, repeat)
+- `replaceAll()` (ES2021)
+- `trimStart()`, `trimEnd()` (ES2019)
 - Template literals avanzados (tagged templates)
-- Regular Expressions básicas
-- String.prototype.matchAll()
-- Normalización y búsqueda de texto
+- Regular Expressions básicas y `matchAll()`
+- Regex `/d` flag para índices (ES2022)
 
 **Proyecto**: Validador de formularios con RegExp
 
@@ -116,8 +162,9 @@
 - Set (agregar, eliminar, verificar existencia)
 - Map (claves de cualquier tipo)
 - WeakSet y WeakMap
+- Symbols como claves de WeakMap (ES2023)
 - Casos de uso prácticos
-- Conversión entre estructuras
+- Conversión entre estructuras y `Object.fromEntries()` (ES2019)
 
 **Proyecto**: Sistema de gestión de usuarios únicos
 
@@ -169,9 +216,11 @@
 
 **Temas**:
 - try...catch...finally
+- Optional catch binding (ES2019)
 - Crear errores personalizados (extends Error)
-- Error boundaries
-- Manejo de errores asíncronos
+- Error cause (ES2022): `new Error('msg', { cause })`
+- Manejo de errores asincrónicos
+- Mejores prácticas
 - Mejores prácticas
 
 **Proyecto**: Sistema robusto con manejo de errores completo
@@ -199,7 +248,8 @@
 - Callback hell y sus problemas
 - Promises (then, catch, finally)
 - Promise chaining
-- Promise.all(), Promise.race(), Promise.allSettled()
+- `Promise.all()`, `Promise.race()`, `Promise.allSettled()` (ES2020)
+- `Promise.any()` y `AggregateError` (ES2021)
 - Error handling en promises
 
 **Proyecto**: Simulador de solicitudes HTTP con promises
@@ -214,7 +264,8 @@
 - await keyword
 - Error handling con try/catch
 - Parallel vs Sequential execution
-- Top-level await
+- Top-level await (ES2022)
+- `for await...of` para iterables asíncronos
 
 **Proyecto**: Sistema de carga de datos asíncrono
 
@@ -461,7 +512,7 @@
 
 Al completar las 28 semanas, el estudiante será capaz de:
 
-✅ **Programar con JavaScript ES6+** usando todas las características modernas
+✅ **Programar con JavaScript ES2023** usando todas las características modernas
 ✅ **Crear aplicaciones web completas** con arquitectura limpia
 ✅ **Consumir APIs REST** y manejar datos asíncronos
 ✅ **Manipular el DOM** de forma eficiente y reactiva

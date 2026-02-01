@@ -39,7 +39,7 @@ chmod +x _scripts/autocommit.sh
 crontab -e
 
 # 3. Add this line:
-*/5 * * * * /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es6+/_scripts/autocommit.sh >> /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es6+/_scripts/autocommit.log 2>&1
+*/5 * * * * /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023/_scripts/autocommit.sh >> /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023/_scripts/autocommit.log 2>&1
 
 # 4. Save and exit
 ```

@@ -2,7 +2,7 @@
  * 📘 Ejercicio 04: Map para Colecciones
  *
  * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para aprender a usar Map en JavaScript ES6+.
+ * para aprender a usar Map en JavaScript ES2023.
  *
  * Ejecuta: node index.js
  */

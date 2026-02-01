@@ -227,4 +227,4 @@ function* gen() {
 
 ---
 
-*Glosario Week 08 | Bootcamp JavaScript ES6+*
+*Glosario Week 08 | Bootcamp JavaScript ES2023*

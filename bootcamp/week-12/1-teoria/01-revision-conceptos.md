@@ -1,4 +1,4 @@
-# 📚 Revisión de Conceptos ES6+
+# 📚 Revisión de Conceptos ES2023
 
 ## 🎯 Objetivo
 

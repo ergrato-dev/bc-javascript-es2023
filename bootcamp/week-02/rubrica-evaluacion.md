@@ -76,7 +76,7 @@
 | Criterio          | Excelente<br>(9-10)                                                              | Bueno<br>(7-8)                                               | Suficiente<br>(5-6)                                     | Insuficiente<br>(0-4)                       |
 | ----------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------- |
 | **Funcionalidad** | Todas las features funcionan perfectamente (agregar, eliminar, filtrar, ordenar) | La mayoría de features funcionan, bugs menores               | Funcionalidad básica presente pero con errores          | No funciona o features incompletas          |
-| **Uso de ES6+**   | Usa spread, rest, array methods naturalmente en todo el código                   | Usa ES6+ en la mayoría del código, algunos patrones antiguos | Mezcla ES6+ con código antiguo inconsistentemente       | Código principalmente ES5 o mal uso de ES6+ |
+| **Uso de ES2023**   | Usa spread, rest, array methods naturalmente en todo el código                   | Usa ES2023 en la mayoría del código, algunos patrones antiguos | Mezcla ES2023 con código antiguo inconsistentemente       | Código principalmente ES5 o mal uso de ES2023 |
 | **Código Limpio** | Código muy legible, bien organizado, nombres descriptivos, comentarios útiles    | Código legible en general, organización adecuada             | Código funciona pero difícil de leer, mala organización | Código difícil de entender, sin estructura  |
 
 **Desglose Detallado del Proyecto:**
@@ -98,7 +98,7 @@
 
 ## 🎯 Criterios Generales de Calidad
 
-### Código ES6+ (Todos los ejercicios)
+### Código ES2023 (Todos los ejercicios)
 
 - ✅ **Obligatorio usar**:
   - `const` por defecto, `let` solo si se reasigna
@@ -150,12 +150,12 @@ week-02-entregas/
 
 - [ ] Todos los ejercicios ejecutan sin errores
 - [ ] Proyecto funciona en navegador
-- [ ] Código usa solo ES6+
+- [ ] Código usa solo ES2023
 - [ ] README del proyecto incluye:
   - [ ] Descripción de features
   - [ ] Instrucciones de uso
   - [ ] Tecnologías utilizadas
-  - [ ] Conceptos ES6+ aplicados
+  - [ ] Conceptos ES2023 aplicados
 - [ ] Comentarios explicando lógica compleja
 - [ ] Nombres de variables/funciones descriptivos
 

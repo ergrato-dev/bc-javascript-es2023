@@ -62,7 +62,7 @@ Artículos, documentación y recursos web sobre Proxies y Reflect.
 
 | Herramienta | Descripción | Enlace |
 |-------------|-------------|--------|
-| **CodeSandbox** | Editor online con ES6+ | [codesandbox.io](https://codesandbox.io/) |
+| **CodeSandbox** | Editor online con ES2023 | [codesandbox.io](https://codesandbox.io/) |
 | **JSFiddle** | Playground JavaScript | [jsfiddle.net](https://jsfiddle.net/) |
 | **Repl.it** | REPL online Node.js | [replit.com](https://replit.com/) |
 | **RunJS** | App de escritorio | [runjs.app](https://runjs.app/) |
@@ -118,4 +118,4 @@ Can I Use:      https://caniuse.com/proxy
 
 ---
 
-_Week 10 | Bootcamp JavaScript ES6+_
+_Week 10 | Bootcamp JavaScript ES2023_

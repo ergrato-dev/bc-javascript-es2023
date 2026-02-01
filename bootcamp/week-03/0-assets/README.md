@@ -10,7 +10,7 @@ Esta carpeta contiene los diagramas SVG para la **Semana 3: Clases y Programaci�
 
 | # | Archivo | Descripción | Tema |
 |---|---------|-------------|------|
-| 1 | `01-clases-basicas.svg` | Anatomía de una clase ES6+ | Constructor, propiedades, métodos |
+| 1 | `01-clases-basicas.svg` | Anatomía de una clase ES2023 | Constructor, propiedades, métodos |
 | 2 | `02-metodos-estaticos.svg` | Comparativa static vs instancia | Cuándo usar cada tipo |
 | 3 | `03-herencia.svg` | Cadena de herencia | extends, super |
 | 4 | `04-getters-setters.svg` | Propiedades computadas | get, set, validación |

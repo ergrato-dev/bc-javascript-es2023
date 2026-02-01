@@ -708,7 +708,7 @@ Antes de continuar, asegúrate de:
 
 Felicitaciones, has completado toda la teoría de la Semana 1:
 
-1. ✅ Introducción a ES6+
+1. ✅ Introducción a ES2023
 2. ✅ let y const
 3. ✅ Template Literals
 4. ✅ Arrow Functions

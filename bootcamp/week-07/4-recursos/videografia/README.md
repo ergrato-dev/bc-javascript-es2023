@@ -25,7 +25,7 @@
 
 | Playlist | Canal | Videos | Enlace |
 |----------|-------|--------|--------|
-| JavaScript ES6+ | The Net Ninja | 20+ | [YouTube Playlist](https://www.youtube.com/results?search_query=net+ninja+es6+playlist) |
+| JavaScript ES2023 | The Net Ninja | 20+ | [YouTube Playlist](https://www.youtube.com/results?search_query=net+ninja+es6+playlist) |
 | Modern JavaScript | Academind | 30+ | [YouTube Playlist](https://www.youtube.com/results?search_query=academind+modern+javascript) |
 
 ### Cursos Gratuitos

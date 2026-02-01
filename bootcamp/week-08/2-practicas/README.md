@@ -112,4 +112,4 @@ Una vez completados los ejercicios, continúa con el **Proyecto Integrador**:
 
 ---
 
-*Prácticas Week 08 | Bootcamp JavaScript ES6+*
+*Prácticas Week 08 | Bootcamp JavaScript ES2023*

@@ -231,7 +231,7 @@ Recursos web, documentación oficial y artículos seleccionados para profundizar
 **Sitio**: GitHub Gists
 **Tipo**: Documento de referencia
 
-**Uso**: Resumen de todas las características de ES6+.
+**Uso**: Resumen de todas las características de ES2023.
 
 ---
 

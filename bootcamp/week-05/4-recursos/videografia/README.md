@@ -17,7 +17,7 @@ Videos y tutoriales para complementar el aprendizaje de Arrays Avanzados.
 ### 2. JavaScript Moderno - Arrays
 
 - **Canal**: midudev
-- **Tema**: Métodos modernos de arrays ES6+
+- **Tema**: Métodos modernos de arrays ES2023
 - **Duración**: ~15-25 min
 - **Nivel**: Intermedio
 - **Buscar**: "Arrays JavaScript midudev"

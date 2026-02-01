@@ -1,6 +1,6 @@
 # Guía de Contribución
 
-¡Gracias por tu interés en contribuir al Bootcamp JavaScript ES6+! 🎉
+¡Gracias por tu interés en contribuir al Bootcamp JavaScript ES2023! 🎉
 
 Este documento proporciona las directrices para contribuir al proyecto.
 
@@ -90,11 +90,11 @@ La documentación es crucial para un proyecto educativo:
 ```bash
 # Fork el repositorio en GitHub
 # Luego clona tu fork
-git clone https://github.com/TU-USUARIO/bc-javascript-es6+.git
-cd bc-javascript-es6+
+git clone https://github.com/TU-USUARIO/bc-javascript-es2023.git
+cd bc-javascript-es2023
 
 # Agrega el repositorio original como upstream
-git remote add upstream https://github.com/epti-dev/bc-javascript-es6+.git
+git remote add upstream https://github.com/epti-dev/bc-javascript-es2023.git
 ```
 
 ### 2. Instalar Dependencias
@@ -309,8 +309,8 @@ Tu PR será revisado por los mantenedores. Esperamos:
 
 Si tienes dudas:
 
-- 💬 [GitHub Discussions](https://github.com/epti-dev/bc-javascript-es6+/discussions)
-- 🐛 [GitHub Issues](https://github.com/epti-dev/bc-javascript-es6+/issues)
+- 💬 [GitHub Discussions](https://github.com/epti-dev/bc-javascript-es2023/discussions)
+- 🐛 [GitHub Issues](https://github.com/epti-dev/bc-javascript-es2023/issues)
 - 📧 Email: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
 
 ---

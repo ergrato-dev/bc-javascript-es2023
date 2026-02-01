@@ -89,7 +89,7 @@ console.log(42 instanceof MyClass); // true
 
 ### Primitive Type
 
-Tipo de dato básico en JavaScript. Symbol es el **7° tipo primitivo**, añadido en ES6.
+Tipo de dato básico en JavaScript. Symbol es el **7° tipo primitivo**, añadido en ES2023.
 
 ```javascript
 // Los 7 tipos primitivos
@@ -303,4 +303,4 @@ Symbol.hasInstance       // instanceof
 
 ---
 
-_Week 09 | Bootcamp JavaScript ES6+_
+_Week 09 | Bootcamp JavaScript ES2023_

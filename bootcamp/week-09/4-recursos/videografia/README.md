@@ -64,7 +64,7 @@
 
 ## 🎓 Playlists Recomendadas
 
-### ES6+ Features Complete Course
+### ES2023 Features Complete Course
 
 **Canal**: The Net Ninja
 **Videos**: Serie completa de ES6
@@ -105,4 +105,4 @@
 
 ---
 
-_Week 09 | Bootcamp JavaScript ES6+_
+_Week 09 | Bootcamp JavaScript ES2023_

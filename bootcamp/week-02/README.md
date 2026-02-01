@@ -151,7 +151,7 @@ Aplicación de gestión de tareas que utiliza:
 
 ### Evidencia de Producto (30%)
 - [ ] Proyecto gestor de tareas funcional
-- [ ] Código usando ES6+ correctamente
+- [ ] Código usando ES2023 correctamente
 - [ ] README del proyecto documentado
 - [ ] Código limpio y bien comentado
 
@@ -199,7 +199,7 @@ Para completar exitosamente esta semana:
 
 ## 🔗 Navegación
 
-- [← Semana 01: Introducción a ES6+](../week-01/README.md)
+- [← Semana 01: Introducción a ES2023](../week-01/README.md)
 - [→ Semana 03: Próximamente](#)
 - [↑ Volver al inicio del bootcamp](../../README.md)
 

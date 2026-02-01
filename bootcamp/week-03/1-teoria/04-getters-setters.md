@@ -1,4 +1,4 @@
-# 📘 Getters y Setters en JavaScript ES6+
+# 📘 Getters y Setters en JavaScript ES2023
 
 ## 🎯 Objetivos
 

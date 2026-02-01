@@ -4,7 +4,7 @@
 
 Al finalizar esta semana, serás capaz de:
 
-- ✅ Aplicar todos los conceptos de ES6+ aprendidos en semanas 1-11
+- ✅ Aplicar todos los conceptos de ES2023 aprendidos en semanas 1-11
 - ✅ Diseñar la arquitectura de una aplicación modular
 - ✅ Implementar un sistema completo con múltiples componentes
 - ✅ Aplicar principios de clean code y buenas prácticas
@@ -67,7 +67,7 @@ week-12/
 
 | # | Tema | Archivo | Duración |
 |---|------|---------|----------|
-| 01 | Revisión de Conceptos ES6+ | [01-revision-conceptos.md](./1-teoria/01-revision-conceptos.md) | 15 min |
+| 01 | Revisión de Conceptos ES2023 | [01-revision-conceptos.md](./1-teoria/01-revision-conceptos.md) | 15 min |
 | 02 | Arquitectura de Aplicación | [02-arquitectura-aplicacion.md](./1-teoria/02-arquitectura-aplicacion.md) | 10 min |
 | 03 | Clean Code y Refactoring | [03-clean-code.md](./1-teoria/03-clean-code.md) | 5 min |
 
@@ -204,7 +204,7 @@ Para aprobar, debes demostrar dominio de:
 
 | Área | Peso |
 |------|------|
-| Uso correcto de ES6+ | 25% |
+| Uso correcto de ES2023 | 25% |
 | Arquitectura modular | 25% |
 | Funcionalidad completa | 30% |
 | Clean code | 20% |

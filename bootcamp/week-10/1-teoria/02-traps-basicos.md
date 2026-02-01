@@ -535,4 +535,4 @@ const user2 = new ValidatedUser('Bob', -5);   // ❌ Error
 
 ---
 
-_Week 10 | Bootcamp JavaScript ES6+_
+_Week 10 | Bootcamp JavaScript ES2023_

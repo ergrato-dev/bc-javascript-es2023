@@ -13,7 +13,7 @@ Diagramas y recursos visuales para complementar el material teórico de la prime
 
 **Conceptos visualizados**:
 - Timeline de versiones de ECMAScript
-- Características clave de ES6+
+- Características clave de ES2023
 - Diferencia entre JavaScript legacy y moderno
 
 ---

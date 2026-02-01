@@ -205,4 +205,4 @@ Para obtener la máxima calificación:
 
 ---
 
-*Week 11 - Manejo de Errores Moderno | Bootcamp JavaScript ES6+*
+*Week 11 - Manejo de Errores Moderno | Bootcamp JavaScript ES2023*

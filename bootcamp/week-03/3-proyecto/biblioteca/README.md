@@ -2,7 +2,7 @@
 
 ## 🎯 Objetivo
 
-Crear un sistema completo de gestión de biblioteca usando clases ES6+, herencia, encapsulación y todos los conceptos de POO aprendidos durante la semana.
+Crear un sistema completo de gestión de biblioteca usando clases ES2023, herencia, encapsulación y todos los conceptos de POO aprendidos durante la semana.
 
 ---
 

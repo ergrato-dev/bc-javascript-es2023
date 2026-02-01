@@ -57,4 +57,4 @@
 
 ---
 
-*eBooks Week 08 | Bootcamp JavaScript ES6+*
+*eBooks Week 08 | Bootcamp JavaScript ES2023*

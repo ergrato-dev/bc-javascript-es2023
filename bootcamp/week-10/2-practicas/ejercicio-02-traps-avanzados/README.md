@@ -210,4 +210,4 @@ node bootcamp/week-10/2-practicas/ejercicio-02-traps-avanzados/starter/index.js
 
 ---
 
-_Week 10 | Bootcamp JavaScript ES6+_
+_Week 10 | Bootcamp JavaScript ES2023_

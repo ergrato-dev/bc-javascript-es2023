@@ -2,7 +2,7 @@
 
 ## 🎯 Proyecto Integrador - Fundamentos
 
-Recursos adicionales para completar el proyecto E-commerce aplicando todos los conceptos de ES6+ aprendidos.
+Recursos adicionales para completar el proyecto E-commerce aplicando todos los conceptos de ES2023 aprendidos.
 
 ---
 

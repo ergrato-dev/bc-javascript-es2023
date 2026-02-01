@@ -2,7 +2,7 @@
  * 📘 Ejercicio 04: Encapsulación
  *
  * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para aprender encapsulación con campos privados en ES6.
+ * para aprender encapsulación con campos privados en ES2023.
  *
  * Ejecuta: node index.js
  */

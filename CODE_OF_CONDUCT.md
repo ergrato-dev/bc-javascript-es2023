@@ -129,7 +129,7 @@ Para respuestas a preguntas comunes sobre este código de conducta, consulta las
 Para reportar violaciones al Código de Conducta:
 
 - 📧 Email: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
-- 💬 Discussions (para temas generales): [GitHub Discussions](https://github.com/epti-dev/bc-javascript-es6+/discussions)
+- 💬 Discussions (para temas generales): [GitHub Discussions](https://github.com/epti-dev/bc-javascript-es2023/discussions)
 
 **Todas las comunicaciones serán tratadas con confidencialidad.**
 

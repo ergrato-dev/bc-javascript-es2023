@@ -102,4 +102,4 @@
 
 ---
 
-*Webgrafía Week 08 | Bootcamp JavaScript ES6+*
+*Webgrafía Week 08 | Bootcamp JavaScript ES2023*

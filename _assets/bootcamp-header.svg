@@ -12,10 +12,10 @@
   <rect x="1095" y="115" width="50" height="50" fill="#f0db4f" opacity="0.2" transform="rotate(45 1120 140)"/>
   <rect x="1110" y="130" width="20" height="20" fill="#f0db4f" transform="rotate(45 1120 140)"/>
 
-  <!-- ES6+ Badge -->
+  <!-- ES2023 Badge -->
   <g transform="translate(150, 80)">
     <rect x="0" y="0" width="100" height="40" rx="20" fill="#f0db4f"/>
-    <text x="50" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#1a1a1a">ES6+</text>
+    <text x="50" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#1a1a1a">ES2023</text>
   </g>
 
   <!-- Main Title -->

@@ -4,7 +4,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 
 ---
 
-## 📘 JavaScript Moderno y ES6+
+## 📘 JavaScript Moderno y ES2023
 
 ### 1. **Eloquent JavaScript (3rd Edition)**
 **Autor**: Marijn Haverbeke
@@ -35,7 +35,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 
 **Enlace**: [https://exploringjs.com/impatient-js/](https://exploringjs.com/impatient-js/)
 
-**Por qué leerlo**: Cobertura exhaustiva de ES6+ con enfoque en parámetros, spread/rest y arrays modernos.
+**Por qué leerlo**: Cobertura exhaustiva de ES2023 con enfoque en parámetros, spread/rest y arrays modernos.
 
 ---
 
@@ -50,7 +50,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 
 **Enlace**: [https://github.com/getify/You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)
 
-**Por qué leerlo**: Profundiza en los detalles de ES6+ con explicaciones técnicas detalladas.
+**Por qué leerlo**: Profundiza en los detalles de ES2023 con explicaciones técnicas detalladas.
 
 ---
 
@@ -64,7 +64,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 **Temas Relevantes**:
 - Array methods y programación funcional
 - Objetos y prototipos
-- ES6+ features
+- ES2023 features
 
 **Por qué consultarlo**: Referencia completa y autoritativa sobre JavaScript moderno.
 

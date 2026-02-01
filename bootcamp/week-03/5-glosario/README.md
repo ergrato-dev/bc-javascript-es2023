@@ -34,7 +34,7 @@ class Circle {
 ## C
 
 ### Class (Clase)
-Plantilla para crear objetos que encapsula datos (propiedades) y comportamiento (métodos). Introducida en ES6.
+Plantilla para crear objetos que encapsula datos (propiedades) y comportamiento (métodos). Introducida en ES2023.
 
 ```javascript
 class Person {
@@ -270,7 +270,7 @@ class Secret {
 ```
 
 ### Prototype
-Objeto del cual una clase/objeto hereda propiedades y métodos. Las clases ES6 son "azúcar sintáctico" sobre el sistema de prototipos.
+Objeto del cual una clase/objeto hereda propiedades y métodos. Las clases ES2023 son "azúcar sintáctico" sobre el sistema de prototipos.
 
 ```javascript
 class Person { }

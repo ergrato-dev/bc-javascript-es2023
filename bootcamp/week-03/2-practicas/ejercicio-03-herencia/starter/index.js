@@ -2,7 +2,7 @@
  * 📘 Ejercicio 03: Herencia
  *
  * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para aprender herencia de clases en JavaScript ES6.
+ * para aprender herencia de clases en JavaScript ES2023.
  *
  * Ejecuta: node index.js
  */

@@ -12,7 +12,7 @@
 - **Autor**: Ilya Kantor
 - **Enlace**: https://javascript.info/classes
 - **Idioma**: Inglés/Español
-- **Descripción**: Tutorial completo y moderno sobre clases ES6+
+- **Descripción**: Tutorial completo y moderno sobre clases ES2023
 
 ### 3. You Don't Know JS: this & Object Prototypes
 - **Autor**: Kyle Simpson

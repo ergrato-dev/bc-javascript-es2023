@@ -1,4 +1,4 @@
-# 📘 Métodos Estáticos en JavaScript ES6+
+# 📘 Métodos Estáticos en JavaScript ES2023
 
 ## 🎯 Objetivos
 

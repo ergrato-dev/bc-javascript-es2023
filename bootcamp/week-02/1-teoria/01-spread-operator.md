@@ -14,7 +14,7 @@
 
 ## 📖 Introducción
 
-El **spread operator** (`...`) es uno de los operadores más útiles de ES6+. Permite "expandir" o "desempaquetar" elementos de un iterable (array, objeto, string) en lugares donde se esperan múltiples elementos.
+El **spread operator** (`...`) es uno de los operadores más útiles de ES2023. Permite "expandir" o "desempaquetar" elementos de un iterable (array, objeto, string) en lugares donde se esperan múltiples elementos.
 
 ### Sintaxis Básica
 

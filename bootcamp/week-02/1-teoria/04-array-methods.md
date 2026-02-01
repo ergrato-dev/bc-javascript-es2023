@@ -1,4 +1,4 @@
-# 🔄 Array Methods (Métodos de Arrays ES6+)
+# 🔄 Array Methods (Métodos de Arrays ES2023)
 
 ![Array Methods Diagram](../0-assets/04-array-methods.svg)
 

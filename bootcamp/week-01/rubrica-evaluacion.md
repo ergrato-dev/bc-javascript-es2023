@@ -5,7 +5,7 @@
 - **Calificación mínima**: 70% en cada tipo de evidencia
 - **Entrega puntual**: Penalización del 10% por día de retraso
 - **Código funcional**: El código debe ejecutarse sin errores críticos
-- **Buenas prácticas**: Seguir convenciones de ES6+ establecidas
+- **Buenas prácticas**: Seguir convenciones de ES2023 establecidas
 
 ---
 
@@ -25,11 +25,11 @@
 
 1. **Cuestionario Teórico** (20%)
    - 10 preguntas de opción múltiple
-   - Temas: ES6+, let/const, template literals, arrow functions, destructuring
+   - Temas: ES2023, let/const, template literals, arrow functions, destructuring
 
 2. **Análisis de Código** (10%)
    - Identificar errores en código
-   - Proponer mejoras usando ES6+
+   - Proponer mejoras usando ES2023
 
 ### Criterios de Evaluación
 
@@ -92,7 +92,7 @@
 | Criterio          | Excelente (100%)                               | Satisfactorio (80%)                       | Aceptable (70%)                    | Insuficiente (<70%)            |
 | ----------------- | ---------------------------------------------- | ----------------------------------------- | ---------------------------------- | ------------------------------ |
 | **Funcionalidad** | Funciona perfectamente                         | Funciona con bugs menores                 | Funciona parcialmente              | No funciona                    |
-| **Sintaxis ES6+** | Usa todas las características modernas         | Usa la mayoría correctamente              | Usa algunas características        | No usa ES6+                    |
+| **Sintaxis ES2023** | Usa todas las características modernas         | Usa la mayoría correctamente              | Usa algunas características        | No usa ES2023                    |
 | **Código limpio** | Código impecable y bien estructurado           | Código ordenado con mejoras menores       | Código funcional pero desordenado  | Código difícil de leer         |
 | **Nomenclatura**  | Nombres en inglés, descriptivos y consistentes | Nombres descriptivos con pequeños errores | Nombres básicos pero comprensibles | Nombres pobres o en español    |
 | **Comentarios**   | Comentarios educativos en inglés               | Comentarios básicos correctos             | Pocos comentarios pero útiles      | Sin comentarios o irrelevantes |
@@ -265,7 +265,7 @@ El instructor proporcionará:
 ## ❓ Preguntas Frecuentes
 
 **¿Puedo usar bibliotecas externas?**
-❌ No. Esta semana se enfoca en JavaScript puro ES6+.
+❌ No. Esta semana se enfoca en JavaScript puro ES2023.
 
 **¿Qué pasa si no alcanzo el 70%?**
 Tendrás una oportunidad de reentrega con feedback específico.

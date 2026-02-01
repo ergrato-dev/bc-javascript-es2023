@@ -4,7 +4,7 @@
 
 Al finalizar esta semana, serás capaz de:
 
-- ✅ Crear clases ES6 con constructores y propiedades
+- ✅ Crear clases ES2023 con constructores y propiedades
 - ✅ Definir métodos de instancia y métodos estáticos
 - ✅ Implementar herencia con `extends` y `super`
 - ✅ Utilizar getters y setters para encapsulación

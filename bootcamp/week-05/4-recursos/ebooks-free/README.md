@@ -44,7 +44,7 @@ Recursos bibliográficos gratuitos para profundizar en Arrays Avanzados de JavaS
 - **Capítulo relevante**: 7.10 New Array methods
 - **Enlace**: [exploringjs.com/es6](https://exploringjs.com/es6/ch_arrays.html)
 - **Idioma**: Inglés
-- **Por qué leerlo**: Detalle técnico de los nuevos métodos introducidos en ES6+
+- **Por qué leerlo**: Detalle técnico de los nuevos métodos introducidos en ES2023
 
 ---
 
@@ -52,7 +52,7 @@ Recursos bibliográficos gratuitos para profundizar en Arrays Avanzados de JavaS
 
 1. **JavaScript.info** - Para empezar (ejemplos prácticos)
 2. **Eloquent JavaScript** - Fundamentos sólidos
-3. **Exploring ES6** - Detalles de ES6+
+3. **Exploring ES6** - Detalles de ES2023
 4. **You Don't Know JS** - Profundización avanzada
 
 ---

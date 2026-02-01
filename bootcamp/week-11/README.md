@@ -15,7 +15,7 @@ Al finalizar esta semana, serás capaz de:
 ## 📚 Requisitos Previos
 
 - ✅ Week 10: Proxies y Reflect
-- ✅ Conocimiento de clases y herencia ES6
+- ✅ Conocimiento de clases y herencia ES2023
 - ✅ Comprensión básica de programación asíncrona
 
 ---

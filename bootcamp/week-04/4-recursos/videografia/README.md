@@ -86,7 +86,7 @@ Videos y tutoriales recomendados sobre destructuring y módulos ES6.
 
 ## 📺 Playlists Recomendadas
 
-### **JavaScript ES6+ Full Course**
+### **JavaScript ES2023 Full Course**
 - **Canal**: freeCodeCamp
 - **Duración**: 4+ horas
 - **Descripción**: Curso completo que cubre destructuring y módulos entre otros temas.

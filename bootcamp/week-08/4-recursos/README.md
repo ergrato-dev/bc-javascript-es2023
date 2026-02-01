@@ -34,4 +34,4 @@ Esta carpeta contiene recursos adicionales para profundizar en los temas de la s
 
 ---
 
-*Recursos Week 08 | Bootcamp JavaScript ES6+*
+*Recursos Week 08 | Bootcamp JavaScript ES2023*

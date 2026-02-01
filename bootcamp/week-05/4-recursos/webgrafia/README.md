@@ -50,7 +50,7 @@ Tutoriales interactivos y claros.
 
 2. **Creating Arrays in ES6**
    - [2ality.com](https://2ality.com/)
-   - Dr. Axel Rauschmayer - experto en ES6
+   - Dr. Axel Rauschmayer - experto en ES2023
 
 ### Encadenamiento (Chaining)
 
@@ -108,7 +108,7 @@ Tutoriales interactivos y claros.
 
 1. **2ality** - Dr. Axel Rauschmayer
    - [2ality.com](https://2ality.com/)
-   - Artículos técnicos profundos sobre ES6+
+   - Artículos técnicos profundos sobre ES2023
 
 2. **Dmitri Pavlutin Blog**
    - [dmitripavlutin.com](https://dmitripavlutin.com/)

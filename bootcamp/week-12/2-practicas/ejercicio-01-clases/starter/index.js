@@ -2,7 +2,7 @@
  * 📘 Ejercicio 01: Clases y Encapsulación
  *
  * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para aprender clases con campos privados en JavaScript ES6+.
+ * para aprender clases con campos privados en JavaScript ES2023.
  *
  * Ejecuta: node index.js
  */
@@ -277,7 +277,7 @@ console.log('--- Paso 5: Métodos Estáticos ---');
 // }
 //
 // // Crear nueva tarea con factory
-// const task1 = Task.create('Aprender clases ES6');
+// const task1 = Task.create('Aprender clases ES2023');
 // console.log(`Nueva tarea: ${task1.title}`);
 // console.log(`ID generado: ${task1.id}`);
 //

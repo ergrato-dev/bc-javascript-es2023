@@ -1,6 +1,6 @@
 # 📚 eBooks Gratuitos - Semana 01
 
-Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno y ES6+.
+Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno y ES2023.
 
 ---
 
@@ -24,7 +24,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 **Por qué leerlo:**
 - Profundiza en los "porqués" de JavaScript
 - Explicaciones detalladas de conceptos complejos
-- Actualizado con ES6+
+- Actualizado con ES2023
 
 ---
 
@@ -82,13 +82,13 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 - Destructuring
 
 **Por qué leerlo:**
-- Deep dive en ES6+
+- Deep dive en ES2023
 - Explicaciones técnicas profundas
 - Del autor de 2ality.com
 
 ---
 
-## 📘 Libros Enfocados en ES6+
+## 📘 Libros Enfocados en ES2023
 
 ### **Understanding ECMAScript 6 - Nicholas C. Zakas**
 - 🔗 [leanpub.com/understandinges6](https://leanpub.com/understandinges6/read)
@@ -106,7 +106,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 
 **Por qué leerlo:**
 - Nicholas C. Zakas es una autoridad en JavaScript
-- Enfoque en ES6 específicamente
+- Enfoque en ES2023 específicamente
 - Ejemplos comparativos ES5 vs ES6
 
 ---
@@ -195,7 +195,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 - Module pattern
 - Observer pattern
 - MVC patterns
-- Modern patterns con ES6+
+- Modern patterns con ES2023
 
 **Por qué leerlo:**
 - Aprende a escribir mejor código

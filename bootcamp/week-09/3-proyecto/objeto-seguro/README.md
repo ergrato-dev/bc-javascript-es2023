@@ -242,4 +242,4 @@ config.useSecret('apiKey', key => {
 
 ---
 
-_Proyecto Week 09 | Bootcamp JavaScript ES6+_
+_Proyecto Week 09 | Bootcamp JavaScript ES2023_
