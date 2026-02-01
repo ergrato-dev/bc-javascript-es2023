@@ -386,6 +386,30 @@ function funcion() {
 
 ---
 
+### **Logical Assignment** (Asignación Lógica)
+Operadores que combinan operadores lógicos con asignación. Introducidos en ES2021.
+
+```javascript
+// ??= asigna si es null/undefined
+let a = undefined;
+a ??= 'default';    // 'default'
+
+let b = 0;
+b ??= 100;          // 0 (no asigna, 0 no es null/undefined)
+
+// ||= asigna si es falsy
+let c = '';
+c ||= 'default';    // 'default'
+
+// &&= asigna si es truthy
+let d = { name: 'Ana' };
+d &&= { ...d, active: true };  // { name: 'Ana', active: true }
+```
+
+**Ver también**: [Nullish Coalescing](#nullish-coalescing)
+
+---
+
 ## M
 
 ### **Multi-line String** (String Multi-línea)
@@ -446,7 +470,65 @@ console.log(city); // 'NYC'
 
 ---
 
+### **Nullish Coalescing** (`??`)
+Operador que retorna el operando derecho cuando el izquierdo es `null` o `undefined`. A diferencia de `||`, no considera otros valores falsy como `0` o `''`.
+
+```javascript
+// ?? solo actúa con null/undefined
+const value = null ?? 'default';     // 'default'
+const zero = 0 ?? 100;               // 0 (no 100)
+const empty = '' ?? 'default';       // '' (no 'default')
+
+// Comparación con ||
+const withOr = 0 || 100;             // 100 (¡incorrecto si 0 es válido!)
+const withNullish = 0 ?? 100;        // 0 (✓ correcto)
+```
+
+**Ver también**: [Optional Chaining](#optional-chaining), [Logical Assignment](#logical-assignment)
+
+---
+
+### **Numeric Separators** (Separadores Numéricos)
+Caracter guion bajo (`_`) usado para mejorar la legibilidad de números grandes. No afecta el valor del número.
+
+```javascript
+// Sin separadores (difícil de leer)
+const billion = 1000000000;
+
+// Con separadores (mismo valor, más claro)
+const billion2 = 1_000_000_000;
+const price = 9_999.99;
+const hex = 0xFF_FF_FF;
+```
+
+**Ver también**: [Literal](#literal)
+
+---
+
 ## O
+
+### **Optional Chaining** (`?.`)
+Operador que permite acceder a propiedades anidadas de objetos sin verificar manualmente si cada nivel existe. Retorna `undefined` si alguna propiedad es `null` o `undefined`.
+
+```javascript
+const user = {
+  name: 'Ana',
+  contact: { email: 'ana@email.com' }
+};
+
+// Acceso seguro con ?.
+const email = user?.contact?.email;   // 'ana@email.com'
+const phone = user?.contact?.phone;   // undefined (no error)
+const street = user?.address?.street; // undefined (no error)
+
+// También funciona con arrays y métodos
+const first = users?.[0]?.name;
+const result = obj?.method?.();
+```
+
+**Ver también**: [Nullish Coalescing](#nullish-coalescing)
+
+---
 
 ### **Object Literal** (Objeto Literal)
 Sintaxis para crear objetos usando llaves `{}` con pares clave-valor.

@@ -33,6 +33,18 @@ const doubled = numbers.map(n => n * 2);
 
 ---
 
+### **at() (ES2022)**
+Método que permite acceder a elementos de un array usando índices positivos o negativos.
+
+```javascript
+const colors = ['rojo', 'verde', 'azul'];
+colors.at(0);   // 'rojo'
+colors.at(-1);  // 'azul' (último)
+colors.at(-2);  // 'verde' (penúltimo)
+```
+
+---
+
 ## C
 
 ### **Callback**
@@ -242,6 +254,23 @@ Método que retorna un array con los valores de un objeto.
 ```javascript
 const values = Object.values({ name: 'Ana', age: 25 });
 // ['Ana', 25]
+```
+
+---
+
+### **Object.hasOwn() (ES2022)**
+Método estático que verifica si un objeto tiene una propiedad propia (no heredada). Reemplaza a `hasOwnProperty()`.
+
+```javascript
+const user = { name: 'Ana' };
+
+Object.hasOwn(user, 'name');      // true
+Object.hasOwn(user, 'toString');  // false (heredada)
+
+// Más seguro que hasOwnProperty para objetos sin prototype
+const config = Object.create(null);
+config.debug = true;
+Object.hasOwn(config, 'debug');   // true ✅
 ```
 
 ---

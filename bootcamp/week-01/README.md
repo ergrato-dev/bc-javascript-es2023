@@ -10,7 +10,9 @@ Al finalizar esta semana, serás capaz de:
 - ✅ Escribir template literals para interpolación de strings
 - ✅ Crear arrow functions y comprender su sintaxis
 - ✅ Aplicar destructuring básico en arrays y objetos
-- ✅ Diferenciar entre declaraciones modernas y patrones obsoletos
+- ✅ Usar optional chaining (`?.`) y nullish coalescing (`??`)
+- ✅ Aplicar logical assignment operators (`??=`, `||=`, `&&=`)
+- ✅ Mejorar la legibilidad de números con numeric separators
 
 ---
 
@@ -35,12 +37,14 @@ week-01/
 │   ├── 02-let-const.md
 │   ├── 03-template-literals.md
 │   ├── 04-arrow-functions.md
-│   └── 05-destructuring-basico.md
+│   ├── 05-destructuring-basico.md
+│   └── 06-operadores-modernos.md
 ├── 2-practicas/                 # Ejercicios guiados
 │   ├── ejercicio-01-variables/
 │   ├── ejercicio-02-templates/
 │   ├── ejercicio-03-arrows/
-│   └── ejercicio-04-destructuring/
+│   ├── ejercicio-04-destructuring/
+│   └── ejercicio-05-operadores/
 ├── 3-proyecto/                  # Proyecto semanal
 │   └── tarjeta-presentacion/
 ├── 4-recursos/                  # Material adicional
@@ -55,24 +59,26 @@ week-01/
 
 ## 📝 Contenidos
 
-### 1️⃣ Teoría (2 horas)
+### 1️⃣ Teoría (2.5 horas)
 
 | Tema                                                        | Duración | Descripción                         |
 | ----------------------------------------------------------- | -------- | ----------------------------------- |
 | [Introducción a ES2023](1-teoria/01-introduccion-es6.md)      | 20 min   | Historia y características modernas |
-| [let y const](1-teoria/02-let-const.md)                     | 30 min   | Variables modernas vs var           |
-| [Template Literals](1-teoria/03-template-literals.md)       | 25 min   | Interpolación y strings multilínea  |
-| [Arrow Functions](1-teoria/04-arrow-functions.md)           | 30 min   | Sintaxis moderna de funciones       |
+| [let y const](1-teoria/02-let-const.md)                     | 25 min   | Variables modernas vs var           |
+| [Template Literals](1-teoria/03-template-literals.md)       | 20 min   | Interpolación y strings multilínea  |
+| [Arrow Functions](1-teoria/04-arrow-functions.md)           | 25 min   | Sintaxis moderna de funciones       |
 | [Destructuring Básico](1-teoria/05-destructuring-basico.md) | 15 min   | Extraer valores de arrays y objetos |
+| [Operadores Modernos](1-teoria/06-operadores-modernos.md)   | 30 min   | `?.`, `??`, `??=`, `\|\|=`, `&&=`    |
 
 ### 2️⃣ Prácticas (3 horas)
 
-| Ejercicio          | Duración | Nivel      | Objetivo                             |
-| ------------------ | -------- | ---------- | ------------------------------------ |
-| Variables Modernas | 45 min   | Básico     | Dominar let/const y scope            |
-| Template Literals  | 45 min   | Básico     | Crear strings dinámicos              |
-| Arrow Functions    | 45 min   | Básico     | Refactorizar funciones tradicionales |
-| Destructuring      | 45 min   | Intermedio | Simplificar acceso a datos           |
+| Ejercicio            | Duración | Nivel      | Objetivo                             |
+| -------------------- | -------- | ---------- | ------------------------------------ |
+| Variables Modernas   | 35 min   | Básico     | Dominar let/const y scope            |
+| Template Literals    | 35 min   | Básico     | Crear strings dinámicos              |
+| Arrow Functions      | 35 min   | Básico     | Refactorizar funciones tradicionales |
+| Destructuring        | 35 min   | Intermedio | Simplificar acceso a datos           |
+| Operadores Modernos  | 45 min   | Intermedio | `?.`, `??` y logical assignment      |
 
 ### 3️⃣ Proyecto (3 horas)
 
