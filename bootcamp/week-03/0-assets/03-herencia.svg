@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
   <!-- Background -->
-  <rect width="800" height="500" fill="#1a202c"/>
+  <rect width="800" height="550" fill="#1a202c"/>
 
   <!-- Title -->
   <text x="400" y="40" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#f0db4f" text-anchor="middle">
@@ -61,8 +61,8 @@
   <text x="490" y="435" font-family="Courier, monospace" font-size="12" fill="#f0db4f">}</text>
 
   <!-- super annotation -->
-  <rect x="200" y="455" width="400" height="35" fill="#1e293b" stroke="#ed8936" stroke-width="2" rx="5"/>
-  <text x="400" y="478" font-family="system-ui, sans-serif" font-size="13" fill="#ed8936" text-anchor="middle">
+  <rect x="200" y="450" width="400" height="30" fill="#1e293b" stroke="#ed8936" stroke-width="2" rx="5"/>
+  <text x="400" y="470" font-family="system-ui, sans-serif" font-size="12" fill="#ed8936" text-anchor="middle">
     super() → Llama al constructor padre  |  super.method() → Llama método padre
   </text>
 </svg>

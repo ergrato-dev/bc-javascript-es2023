@@ -9,6 +9,7 @@ Al finalizar esta semana, serás capaz de:
 - ✅ Implementar herencia con `extends` y `super`
 - ✅ Utilizar getters y setters para encapsulación
 - ✅ Trabajar con campos privados (`#`) para datos protegidos
+- ✅ Usar static blocks para inicialización compleja (ES2022)
 - ✅ Aplicar patrones de POO en aplicaciones reales
 - ✅ Diferenciar entre clases y funciones constructoras
 
@@ -30,18 +31,25 @@ week-03/
 ├── README.md                    # Este archivo
 ├── rubrica-evaluacion.md        # Criterios de evaluación
 ├── 0-assets/                    # Diagramas y recursos visuales
-│   └── README.md
+│   ├── 01-clases-basicas.svg
+│   ├── 02-metodos-estaticos.svg
+│   ├── 03-herencia.svg
+│   ├── 04-getters-setters.svg
+│   ├── 05-campos-privados.svg
+│   └── 06-static-blocks.svg
 ├── 1-teoria/                    # Material teórico
 │   ├── 01-clases-basicas.md
 │   ├── 02-metodos-estaticos.md
 │   ├── 03-herencia.md
 │   ├── 04-getters-setters.md
-│   └── 05-campos-privados.md
+│   ├── 05-campos-privados.md
+│   └── 06-static-blocks.md
 ├── 2-practicas/                 # Ejercicios guiados
 │   ├── ejercicio-01-clases-basicas/
 │   ├── ejercicio-02-metodos-estaticos/
 │   ├── ejercicio-03-herencia/
-│   └── ejercicio-04-encapsulacion/
+│   ├── ejercicio-04-encapsulacion/
+│   └── ejercicio-05-static-blocks/
 ├── 3-proyecto/                  # Proyecto semanal
 │   └── biblioteca/
 ├── 4-recursos/                  # Material adicional
@@ -60,20 +68,22 @@ week-03/
 
 | Tema | Duración | Descripción |
 |------|----------|-------------|
-| [Clases Básicas](1-teoria/01-clases-basicas.md) | 30 min | Sintaxis class, constructor y métodos |
+| [Clases Básicas](1-teoria/01-clases-basicas.md) | 25 min | Sintaxis class, constructor y métodos |
 | [Métodos Estáticos](1-teoria/02-metodos-estaticos.md) | 25 min | Métodos de clase vs instancia |
-| [Herencia](1-teoria/03-herencia.md) | 35 min | extends, super y polimorfismo |
-| [Getters y Setters](1-teoria/04-getters-setters.md) | 30 min | Propiedades computadas |
-| [Campos Privados](1-teoria/05-campos-privados.md) | 30 min | Encapsulación con # |
+| [Herencia](1-teoria/03-herencia.md) | 30 min | extends, super y polimorfismo |
+| [Getters y Setters](1-teoria/04-getters-setters.md) | 25 min | Propiedades computadas |
+| [Campos Privados](1-teoria/05-campos-privados.md) | 25 min | Encapsulación con # |
+| [Static Blocks](1-teoria/06-static-blocks.md) | 25 min | Bloques de inicialización (ES2022) |
 
 ### 2️⃣ Prácticas (3 horas)
 
 | Ejercicio | Duración | Nivel | Objetivo |
-|-----------|----------|-------|----------|
-| Clases Básicas | 45 min | Básico | Crear clases con constructor y métodos |
-| Métodos Estáticos | 40 min | Básico | Factory methods y utilidades |
-| Herencia | 50 min | Intermedio | Extender clases y usar super |
-| Encapsulación | 45 min | Intermedio | Getters, setters y campos privados |
+|-----------|----------|-------|---------|
+| Clases Básicas | 35 min | Básico | Crear clases con constructor y métodos |
+| Métodos Estáticos | 35 min | Básico | Factory methods y utilidades |
+| Herencia | 40 min | Intermedio | Extender clases y usar super |
+| Encapsulación | 35 min | Intermedio | Getters, setters y campos privados |
+| Static Blocks | 35 min | Intermedio | Inicialización estática avanzada |
 
 ### 3️⃣ Proyecto (2 horas)
 

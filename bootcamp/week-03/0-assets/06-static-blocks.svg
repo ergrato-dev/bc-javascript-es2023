@@ -1,0 +1,101 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg { fill: #1a1a1a; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #888; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box { fill: #2a2a2a; }
+      .box-highlight { fill: #3a3a3a; }
+      .label { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 16px; font-weight: bold; }
+      .code { fill: #e0e0e0; font-family: monospace; font-size: 13px; }
+      .code-keyword { fill: #c792ea; font-family: monospace; font-size: 13px; }
+      .code-comment { fill: #666; font-family: monospace; font-size: 12px; font-style: italic; }
+      .desc { fill: #aaa; font-family: system-ui, sans-serif; font-size: 12px; }
+      .divider { stroke: #444; stroke-width: 1; }
+      .arrow { stroke: #f0db4f; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .number { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 14px; font-weight: bold; }
+      .check { fill: #4caf50; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f0db4f"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="480"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Static Blocks (ES2022)</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Bloques de inicialización estáticos en clases</text>
+
+  <!-- Syntax Box -->
+  <rect class="box" x="30" y="75" width="340" height="150" rx="8"/>
+  <text class="label" x="200" y="100" text-anchor="middle">Sintaxis</text>
+  <line class="divider" x1="40" y1="110" x2="360" y2="110"/>
+
+  <text class="code-keyword" x="50" y="135">class</text>
+  <text class="code" x="95" y="135">Config {</text>
+  <text class="code-keyword" x="60" y="155">static</text>
+  <text class="code" x="105" y="155">apiUrl;</text>
+  <text class="code" x="60" y="180">static {</text>
+  <text class="code-comment" x="140" y="180">// Se ejecuta al definir</text>
+  <text class="code" x="70" y="200">this.apiUrl = '...';</text>
+  <text class="code" x="60" y="220">}</text>
+  <text class="code" x="50" y="240">}</text>
+
+  <!-- When Box -->
+  <rect class="box" x="390" y="75" width="380" height="150" rx="8"/>
+  <text class="label" x="580" y="100" text-anchor="middle">¿Cuándo se ejecuta?</text>
+  <line class="divider" x1="400" y1="110" x2="760" y2="110"/>
+
+  <circle fill="#f0db4f" cx="420" cy="140" r="15"/>
+  <text class="number" x="420" y="145" text-anchor="middle">1</text>
+  <text class="desc" x="445" y="145">Clase se define (load time)</text>
+
+  <circle fill="#f0db4f" cx="420" cy="175" r="15"/>
+  <text class="number" x="420" y="180" text-anchor="middle">2</text>
+  <text class="desc" x="445" y="180">Static block se ejecuta automáticamente</text>
+
+  <circle fill="#f0db4f" cx="420" cy="210" r="15"/>
+  <text class="number" x="420" y="215" text-anchor="middle">3</text>
+  <text class="desc" x="445" y="215">Campos estáticos inicializados</text>
+
+  <!-- Features Box -->
+  <rect class="box-highlight" x="30" y="240" width="340" height="115" rx="8"/>
+  <text class="label" x="200" y="265" text-anchor="middle">Características</text>
+  <line class="divider" x1="40" y1="275" x2="360" y2="275"/>
+
+  <text class="check" x="50" y="300">✓</text>
+  <text class="desc" x="70" y="300">Acceso a campos privados estáticos (#)</text>
+
+  <text class="check" x="50" y="320">✓</text>
+  <text class="desc" x="70" y="320">this = la clase (no una instancia)</text>
+
+  <text class="check" x="50" y="340">✓</text>
+  <text class="desc" x="70" y="340">Múltiples bloques se ejecutan en orden</text>
+
+  <!-- Use Cases Box -->
+  <rect class="box-highlight" x="390" y="240" width="380" height="115" rx="8"/>
+  <text class="label" x="580" y="265" text-anchor="middle">Casos de Uso</text>
+  <line class="divider" x1="400" y1="275" x2="760" y2="275"/>
+
+  <text class="desc" x="410" y="300">• Configuración compleja basada en entorno</text>
+  <text class="desc" x="410" y="320">• Inicializar campos privados estáticos</text>
+  <text class="desc" x="410" y="340">• Validación de dependencias al cargar</text>
+
+  <!-- Example Box -->
+  <rect class="box" x="30" y="370" width="740" height="95" rx="8"/>
+  <text class="label" x="400" y="395" text-anchor="middle">Ejemplo Práctico</text>
+  <line class="divider" x1="40" y1="405" x2="760" y2="405"/>
+
+  <text class="code-keyword" x="50" y="430">class</text>
+  <text class="code" x="95" y="430">Database {</text>
+  <text class="code-keyword" x="195" y="430">static</text>
+  <text class="code" x="240" y="430">#connection;</text>
+  <text class="code-keyword" x="355" y="430">static</text>
+  <text class="code" x="400" y="430">{</text>
+  <text class="code" x="420" y="430">this.#connection = connect();</text>
+  <text class="code" x="620" y="430">} }</text>
+
+  <text class="code-comment" x="50" y="455">// El static block inicializa #connection cuando la clase se carga, antes de cualquier uso</text>
+</svg>

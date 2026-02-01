@@ -112,6 +112,28 @@ words.flatMap(str => str.split(' '));
 // ['hello', 'world', 'hi']
 ```
 
+### findLast() (ES2023)
+
+Método que retorna el **último elemento** del array que cumple la condición del callback. Busca desde el final hacia el inicio.
+
+```javascript
+const numbers = [5, 12, 8, 130, 8, 22];
+numbers.findLast(n => n === 8);  // 8 (el último)
+numbers.findLast(n => n > 100);  // 130
+numbers.findLast(n => n > 200);  // undefined
+```
+
+### findLastIndex() (ES2023)
+
+Método que retorna el **índice del último elemento** que cumple la condición. Retorna `-1` si ninguno cumple.
+
+```javascript
+const numbers = [5, 12, 8, 130, 8, 22];
+numbers.findLastIndex(n => n === 8);  // 4
+numbers.findLastIndex(n => n > 100);  // 3
+numbers.findLastIndex(n => n > 200);  // -1
+```
+
 ---
 
 ## I
@@ -271,6 +293,8 @@ Estándar de codificación de caracteres. `sort()` por defecto ordena según val
 | `Array.of(...items)` | Crea array con items | N/A |
 | `sort(compareFn)` | Ordena elementos | ✅ Sí |
 | `toSorted(compareFn)` | Ordena sin modificar | ❌ No (ES2023) |
+| `findLast(fn)` | Último elemento que cumple | ❌ No (ES2023) |
+| `findLastIndex(fn)` | Índice del último que cumple | ❌ No (ES2023) |
 
 ---
 

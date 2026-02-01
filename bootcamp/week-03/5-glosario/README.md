@@ -311,6 +311,28 @@ console.log(MathUtils.PI);        // 3.14159
 console.log(MathUtils.square(4)); // 16
 ```
 
+### Static Block (ES2022)
+Bloque de código que se ejecuta automáticamente cuando la clase se define. Útil para inicialización compleja de campos estáticos.
+
+```javascript
+class Config {
+  static #apiKey;
+  static environment;
+
+  static {
+    // Se ejecuta al definir la clase
+    this.environment = process.env.NODE_ENV || 'development';
+    this.#apiKey = generateKey();
+    console.log('Config initialized');
+  }
+
+  static getApiKey() {
+    return this.#apiKey;
+  }
+}
+// "Config initialized" se imprime al cargar la clase
+```
+
 ### super
 Palabra clave para:
 1. Llamar al constructor de la clase padre

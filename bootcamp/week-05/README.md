@@ -5,10 +5,11 @@
 Al finalizar esta semana, serás capaz de:
 
 - ✅ Usar métodos avanzados como `flatMap()`, `flat()`, `Array.from()` y `Array.of()`
-- ✅ Dominar `Array.prototype` methods en profundidad
+- ✅ Dominar `findLast()` y `findLastIndex()` para buscar desde el final (ES2023)
+- ✅ Aplicar métodos inmutables: `toSorted()`, `toReversed()`, `toSpliced()`, `with()` (ES2023)
 - ✅ Aplicar chaining complejo para transformaciones de datos
 - ✅ Realizar transformaciones de datos complejas
-- ✅ Implementar ordenamiento personalizado con `sort()`
+- ✅ Implementar ordenamiento personalizado con `sort()` vs `toSorted()`
 - ✅ Combinar múltiples métodos para resolver problemas reales
 
 ---
@@ -30,22 +31,25 @@ week-05/
 ├── rubrica-evaluacion.md        # Criterios de evaluación
 ├── 0-assets/                    # Diagramas y recursos visuales
 │   ├── 01-flat-flatmap.svg
-│   ├── 02-array-from-of.svg
-│   ├── 03-chaining.svg
-│   ├── 04-transformaciones.svg
-│   ├── 05-sort-personalizado.svg
+│   ├── 02-flatmap.svg
+│   ├── 03-array-from-of.svg
+│   ├── 04-chaining-pipeline.svg
+│   ├── 05-sort-compare.svg
+│   ├── 06-findlast-findlastindex.svg
 │   └── README.md
 ├── 1-teoria/                    # Material teórico
 │   ├── 01-flat-flatmap.md
 │   ├── 02-array-from-of.md
 │   ├── 03-chaining-avanzado.md
 │   ├── 04-transformaciones-datos.md
-│   └── 05-sort-personalizado.md
+│   ├── 05-sort-personalizado.md
+│   └── 06-findLast-findLastIndex.md    # ES2023
 ├── 2-practicas/                 # Ejercicios guiados
 │   ├── ejercicio-01-flat-flatmap/
 │   ├── ejercicio-02-array-from-of/
 │   ├── ejercicio-03-chaining/
-│   └── ejercicio-04-sort-transform/
+│   ├── ejercicio-04-sort-transform/
+│   └── ejercicio-05-findlast/          # ES2023
 ├── 3-proyecto/                  # Proyecto semanal
 │   └── dashboard-datos/
 ├── 4-recursos/                  # Material adicional
@@ -64,20 +68,22 @@ week-05/
 
 | Tema | Duración | Descripción |
 |------|----------|-------------|
-| [flat() y flatMap()](1-teoria/01-flat-flatmap.md) | 30 min | Aplanar arrays anidados |
+| [flat() y flatMap()](1-teoria/01-flat-flatmap.md) | 25 min | Aplanar arrays anidados |
 | [Array.from() y Array.of()](1-teoria/02-array-from-of.md) | 25 min | Crear arrays desde iterables |
-| [Chaining Avanzado](1-teoria/03-chaining-avanzado.md) | 35 min | Encadenar métodos eficientemente |
-| [Transformaciones de Datos](1-teoria/04-transformaciones-datos.md) | 30 min | Patrones de transformación |
-| [Sort Personalizado](1-teoria/05-sort-personalizado.md) | 30 min | Ordenamiento con comparadores |
+| [Chaining Avanzado](1-teoria/03-chaining-avanzado.md) | 30 min | Encadenar métodos eficientemente |
+| [Transformaciones de Datos](1-teoria/04-transformaciones-datos.md) | 25 min | Patrones de transformación |
+| [Sort Personalizado + toSorted()](1-teoria/05-sort-personalizado.md) | 30 min | Ordenamiento mutable vs inmutable (ES2023) |
+| [findLast() y findLastIndex()](1-teoria/06-findLast-findLastIndex.md) | 25 min | Buscar desde el final (ES2023) |
 
 ### 2️⃣ Prácticas (3 horas)
 
 | Ejercicio | Duración | Nivel | Objetivo |
 |-----------|----------|-------|----------|
-| flat y flatMap | 40 min | Básico | Aplanar estructuras anidadas |
-| Array.from y Array.of | 40 min | Básico | Crear arrays desde diferentes fuentes |
-| Chaining Complejo | 50 min | Intermedio | Transformaciones encadenadas |
-| Sort y Transformaciones | 50 min | Intermedio | Ordenamiento y procesamiento avanzado |
+| flat y flatMap | 35 min | Básico | Aplanar estructuras anidadas |
+| Array.from y Array.of | 35 min | Básico | Crear arrays desde diferentes fuentes |
+| Chaining Complejo | 40 min | Intermedio | Transformaciones encadenadas |
+| Sort y Transformaciones | 35 min | Intermedio | Ordenamiento y procesamiento avanzado |
+| findLast (ES2023) | 35 min | Intermedio | Buscar desde el final del array |
 
 ### 3️⃣ Proyecto (2 horas)
 
@@ -87,7 +93,7 @@ Aplicación de análisis que incluye:
 - Procesamiento de datasets con chaining
 - Transformaciones complejas de datos
 - Ordenamiento personalizado multi-criterio
-- Agregaciones y estadísticas
+- Búsqueda del último registro con `findLast()` (ES2023)
 - Visualización de resultados en tabla HTML
 
 ---
@@ -105,7 +111,7 @@ Aplicación de análisis que incluye:
 
 ## 📌 Entregables
 
-1. **Ejercicios prácticos** completados (4 ejercicios)
+1. **Ejercicios prácticos** completados (5 ejercicios)
 2. **Proyecto**: Dashboard de Análisis de Datos funcional
 3. **Auto-evaluación** de conceptos aprendidos
 
