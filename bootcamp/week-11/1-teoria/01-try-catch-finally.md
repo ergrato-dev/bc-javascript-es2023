@@ -454,6 +454,251 @@ const riskyFn = withErrorLogging(data => {
 
 ---
 
+## 1️⃣1️⃣ Optional Catch Binding (ES2019)
+
+Desde ES2019, puedes omitir el parámetro `error` si no lo necesitas:
+
+```javascript
+// Antes de ES2019 - obligatorio declarar error aunque no se use
+try {
+  JSON.parse(data);
+} catch (error) {  // 'error' declarado pero no usado
+  return defaultValue;
+}
+
+// ES2019+ - Optional catch binding
+try {
+  JSON.parse(data);
+} catch {  // Sin parámetro
+  return defaultValue;
+}
+```
+
+### Casos de Uso
+
+```javascript
+// 1. Cuando solo te importa si falló, no por qué
+const isValidJSON = str => {
+  try {
+    JSON.parse(str);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+// 2. Cleanup silencioso
+const safeDelete = key => {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    // localStorage might not be available (SSR, private mode)
+  }
+};
+
+// 3. Feature detection
+const supportsWebGL = () => {
+  try {
+    return !!document.createElement('canvas').getContext('webgl');
+  } catch {
+    return false;
+  }
+};
+```
+
+### ⚠️ Cuándo NO Usarlo
+
+```javascript
+// ❌ Cuando necesitas información del error
+try {
+  await fetch(url);
+} catch {
+  // No sabemos qué falló - ¿red? ¿servidor? ¿CORS?
+}
+
+// ✅ Mejor: captura y usa el error
+try {
+  await fetch(url);
+} catch (error) {
+  if (error.name === 'AbortError') {
+    console.log('Request cancelled');
+  } else {
+    console.error('Network error:', error.message);
+  }
+}
+```
+
+---
+
+## 1️⃣2️⃣ Error Cause (ES2022)
+
+ES2022 introduce la opción `cause` para **encadenar errores**, preservando el error original:
+
+```javascript
+// Sintaxis
+throw new Error('High-level message', { cause: originalError });
+```
+
+### El Problema que Resuelve
+
+```javascript
+// ❌ Antes de ES2022 - Se pierde el error original
+const loadUserData = async userId => {
+  try {
+    const response = await fetch(`/api/users/${userId}`);
+    return await response.json();
+  } catch (error) {
+    // El error original (network, parse, etc.) se pierde
+    throw new Error('Failed to load user data');
+  }
+};
+```
+
+### La Solución con cause
+
+```javascript
+// ✅ ES2022 - Preserva la cadena de errores
+const loadUserData = async userId => {
+  try {
+    const response = await fetch(`/api/users/${userId}`);
+    return await response.json();
+  } catch (error) {
+    throw new Error('Failed to load user data', { cause: error });
+  }
+};
+
+// Uso
+try {
+  await loadUserData(123);
+} catch (error) {
+  console.log(error.message);       // "Failed to load user data"
+  console.log(error.cause);         // Error original (TypeError, SyntaxError, etc.)
+  console.log(error.cause?.message); // Mensaje del error original
+}
+```
+
+### Cadena de Errores Múltiples
+
+```javascript
+const fetchData = async url => {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    return response;
+  } catch (error) {
+    throw new Error(`Network request failed: ${url}`, { cause: error });
+  }
+};
+
+const parseUserData = async url => {
+  try {
+    const response = await fetchData(url);
+    return await response.json();
+  } catch (error) {
+    throw new Error('Failed to parse user data', { cause: error });
+  }
+};
+
+const loadUser = async id => {
+  try {
+    return await parseUserData(`/api/users/${id}`);
+  } catch (error) {
+    throw new Error(`Cannot load user ${id}`, { cause: error });
+  }
+};
+
+// Función helper para mostrar toda la cadena
+const getErrorChain = error => {
+  const chain = [];
+  let current = error;
+
+  while (current) {
+    chain.push({
+      name: current.name,
+      message: current.message
+    });
+    current = current.cause;
+  }
+
+  return chain;
+};
+
+// Uso
+try {
+  await loadUser(123);
+} catch (error) {
+  console.log(getErrorChain(error));
+  // [
+  //   { name: 'Error', message: 'Cannot load user 123' },
+  //   { name: 'Error', message: 'Failed to parse user data' },
+  //   { name: 'Error', message: 'Network request failed: /api/users/123' },
+  //   { name: 'TypeError', message: 'Failed to fetch' }
+  // ]
+}
+```
+
+### Con Errores Personalizados
+
+```javascript
+class AppError extends Error {
+  constructor(message, options = {}) {
+    super(message, { cause: options.cause });
+    this.name = 'AppError';
+    this.code = options.code ?? 'UNKNOWN';
+  }
+}
+
+class DatabaseError extends AppError {
+  constructor(operation, originalError) {
+    super(`Database ${operation} failed`, {
+      code: 'DB_ERROR',
+      cause: originalError
+    });
+    this.name = 'DatabaseError';
+    this.operation = operation;
+  }
+}
+
+// Uso
+try {
+  await db.query('SELECT * FROM users');
+} catch (error) {
+  throw new DatabaseError('query', error);
+}
+```
+
+### Logging con cause
+
+```javascript
+const logError = error => {
+  const entry = {
+    timestamp: new Date().toISOString(),
+    error: {
+      name: error.name,
+      message: error.message,
+      stack: error.stack
+    }
+  };
+
+  // Include cause chain if present
+  if (error.cause) {
+    entry.cause = logError(error.cause); // Recursive
+  }
+
+  return entry;
+};
+
+try {
+  await someOperation();
+} catch (error) {
+  console.log(JSON.stringify(logError(error), null, 2));
+}
+```
+
+---
+
 ## ✅ Checklist de Verificación
 
 - [ ] Entiendo el flujo try → catch → finally
@@ -463,6 +708,8 @@ const riskyFn = withErrorLogging(data => {
 - [ ] Comprendo cuándo re-lanzar un error
 - [ ] Nunca dejo catch blocks vacíos
 - [ ] Uso finally para cleanup de recursos
+- [ ] Uso optional catch binding (ES2019) cuando no necesito el error
+- [ ] Uso Error cause (ES2022) para preservar errores originales
 
 ---
 
