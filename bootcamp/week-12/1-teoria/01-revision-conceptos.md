@@ -208,6 +208,97 @@ try {
 
 ---
 
+## 📋 Características ES2019-ES2023 Específicas
+
+### Métodos de Array Modernos (ES2022-ES2023)
+
+```javascript
+// at() - índices negativos (ES2022)
+const lastProduct = products.at(-1);
+const secondToLast = products.at(-2);
+
+// findLast() y findLastIndex() (ES2023)
+const lastExpensive = products.findLast(p => p.price > 100);
+const lastExpensiveIndex = products.findLastIndex(p => p.price > 100);
+
+// toSorted(), toReversed(), with() - inmutables (ES2023)
+const sorted = products.toSorted((a, b) => a.price - b.price);
+const reversed = products.toReversed();
+const updated = products.with(0, newProduct);
+```
+
+### Object.hasOwn() (ES2022)
+
+```javascript
+// Mejor que hasOwnProperty
+if (Object.hasOwn(product, 'discount')) {
+  applyDiscount(product);
+}
+
+// Funciona con objetos sin prototipo
+const config = Object.create(null);
+config.theme = 'dark';
+Object.hasOwn(config, 'theme'); // true
+```
+
+### Static Blocks en Clases (ES2022)
+
+```javascript
+class ProductService {
+  static #instance;
+  static #config;
+
+  // Static initialization block
+  static {
+    this.#config = loadConfig();
+    console.log('ProductService initialized');
+  }
+
+  static getInstance() {
+    this.#instance ??= new ProductService();
+    return this.#instance;
+  }
+}
+```
+
+### Error Cause (ES2022)
+
+```javascript
+// Encadenar errores preservando el original
+const fetchProducts = async () => {
+  try {
+    const response = await fetch('/api/products');
+    return await response.json();
+  } catch (error) {
+    throw new Error('Failed to load products', { cause: error });
+  }
+};
+
+// Acceder a la cadena de errores
+try {
+  await fetchProducts();
+} catch (error) {
+  console.log(error.message);       // "Failed to load products"
+  console.log(error.cause?.message); // Error original de red/JSON
+}
+```
+
+### Optional Catch Binding (ES2019)
+
+```javascript
+// Cuando no necesitas el error
+const isValidJSON = str => {
+  try {
+    JSON.parse(str);
+    return true;
+  } catch {  // Sin parámetro
+    return false;
+  }
+};
+```
+
+---
+
 ## 🎯 Aplicación en el Proyecto
 
 | Concepto | Uso en E-commerce |
@@ -225,14 +316,27 @@ try {
 
 Antes de empezar el proyecto, asegúrate de entender:
 
-- [ ] Crear clases con campos privados
+### Fundamentos
+- [ ] Crear clases con campos privados (`#`)
 - [ ] Usar herencia cuando es apropiado
-- [ ] Exportar/importar módulos
+- [ ] Exportar/importar módulos ES6
 - [ ] Manipular arrays con map/filter/reduce
+
+### Estructuras de Datos
 - [ ] Usar Set para valores únicos
 - [ ] Usar Map para key-value pairs
+- [ ] Aplicar optional chaining (`?.`) y nullish coalescing (`??`)
+
+### ES2022-ES2023
+- [ ] Usar `at(-1)` para acceso a índices negativos
+- [ ] Usar `findLast()` para buscar desde el final
+- [ ] Usar `Object.hasOwn()` en lugar de `hasOwnProperty`
+- [ ] Implementar static blocks en clases cuando sea apropiado
+
+### Robustez
 - [ ] Implementar validación con errores personalizados
-- [ ] Aplicar optional chaining y nullish coalescing
+- [ ] Usar Error cause para encadenar errores
+- [ ] Aplicar optional catch binding cuando no necesites el error
 
 ---
 
