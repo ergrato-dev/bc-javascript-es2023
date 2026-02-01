@@ -123,10 +123,12 @@ obj[_secret];                      // 2
 | Método | Oculto de keys/for-in | Realmente privado | Soporte |
 |--------|----------------------|-------------------|---------|
 | `_underscore` | ❌ No | ❌ No | Todos |
-| `Symbol()` | ✅ Sí | ❌ No | ES2023 |
+| `Symbol()` | ✅ Sí | ❌ No | ES6 |
 | `#privateField` | ✅ Sí | ✅ Sí | ES2022+ |
-| `WeakMap` | ✅ Sí | ✅ Sí | ES2023 |
+| `WeakMap` | ✅ Sí | ✅ Sí | ES6* |
 | Closures | ✅ Sí | ✅ Sí | Todos |
+
+> *Nota: WeakMap es ES6, pero usar **Symbols como claves de WeakMap** es ES2023.
 
 ```javascript
 // 1. Convención underscore
