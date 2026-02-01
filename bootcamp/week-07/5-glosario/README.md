@@ -285,12 +285,30 @@ const map = new Map([['a', 1], ['b', 2]]);
 ### W
 
 #### WeakMap
-Map con referencias débiles a las claves (que deben ser objetos). No es iterable.
+Map con referencias débiles a las claves. Las claves deben ser objetos o Symbols (ES2023). No es iterable.
 ```javascript
 const weakMap = new WeakMap();
 let obj = {};
 weakMap.set(obj, 'data');
+
+// ES2023: Symbols como claves
+const sym = Symbol('key');
+weakMap.set(sym, 'symbol data');
+
 obj = null; // Ahora puede ser recolectado
+```
+
+#### WeakMap con Symbols (ES2023)
+Desde ES2023, los Symbols no globales pueden usarse como claves en WeakMap.
+```javascript
+const weakMap = new WeakMap();
+
+// ✅ Symbols locales permitidos
+weakMap.set(Symbol('local'), 'value');
+weakMap.set(Symbol.iterator, 'well-known');
+
+// ❌ Symbols globales NO permitidos
+// weakMap.set(Symbol.for('global'), 'value'); // TypeError
 ```
 
 #### WeakSet
@@ -310,6 +328,7 @@ if (visited.has(node)) { /* ya visitado */ }
 - [MDN: WeakMap](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 - [MDN: WeakSet](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)
 - [JavaScript.info: Map and Set](https://javascript.info/map-set)
+- [TC39: Symbols as WeakMap Keys](https://github.com/tc39/proposal-symbols-as-weakmap-keys)
 
 ---
 

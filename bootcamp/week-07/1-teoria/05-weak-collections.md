@@ -33,7 +33,7 @@ obj2 = null; // El objeto PUEDE ser recolectado, WeakMap no lo impide
 ### 2. WeakMap
 
 Un **WeakMap** es como Map pero:
-- Las claves **deben ser objetos** (no primitivos)
+- Las claves **deben ser objetos o Symbols** (no primitivos como strings o números)
 - Las claves son **referencias débiles**
 - **No es iterable** (no tiene `keys()`, `values()`, `entries()`)
 - **No tiene `size`**
@@ -48,10 +48,9 @@ const element = document.createElement('div');
 weakMap.set(user, 'user data');
 weakMap.set(element, { clicks: 0 });
 
-// ❌ Primitivos NO permitidos como claves
+// ❌ Primitivos string/number NO permitidos como claves
 // weakMap.set('string', 'value'); // TypeError
 // weakMap.set(123, 'value');      // TypeError
-// weakMap.set(Symbol(), 'value'); // TypeError (en la mayoría de engines)
 
 // Métodos disponibles (solo 4)
 weakMap.get(user);     // 'user data'
@@ -67,6 +66,93 @@ weakMap.set(user, 'new data');
 // weakMap.size
 // weakMap.clear()
 ```
+
+---
+
+### 2.1. Symbols como Claves en WeakMap (ES2023)
+
+Desde **ES2023**, los **Symbols** también pueden usarse como claves en WeakMap:
+
+```javascript
+const weakMap = new WeakMap();
+
+// ✅ ES2023: Symbols permitidos como claves
+const secretKey = Symbol('secret');
+const configKey = Symbol('config');
+
+weakMap.set(secretKey, 'valor secreto');
+weakMap.set(configKey, { debug: true });
+
+console.log(weakMap.get(secretKey));  // 'valor secreto'
+console.log(weakMap.has(configKey));  // true
+
+// ⚠️ Nota: Solo Symbols NO registrados funcionan
+// Symbols creados con Symbol.for() NO son válidos porque son globales
+const globalSymbol = Symbol.for('global');
+// weakMap.set(globalSymbol, 'value'); // TypeError - símbolos globales no permitidos
+```
+
+#### ¿Por Qué Symbols en WeakMap?
+
+```javascript
+// Caso de uso: Claves privadas sin riesgo de colisión
+const privateDataKey = Symbol('privateData');
+const metadataKey = Symbol('metadata');
+
+const registry = new WeakMap();
+
+class SecureStorage {
+  constructor(data) {
+    // Usar Symbol como clave garantiza unicidad
+    registry.set(privateDataKey, new Map());
+    registry.get(privateDataKey).set(this, data);
+  }
+
+  getData() {
+    return registry.get(privateDataKey).get(this);
+  }
+}
+
+// Otro caso: Metadatos sin exponer la referencia del objeto
+const addMetadata = (symbolKey, value) => {
+  if (typeof symbolKey !== 'symbol') {
+    throw new TypeError('Key must be a Symbol');
+  }
+  registry.set(symbolKey, value);
+};
+
+const mySymbol = Symbol('myData');
+addMetadata(mySymbol, { timestamp: Date.now() });
+console.log(registry.get(mySymbol));  // { timestamp: ... }
+```
+
+#### Comparación de Claves Válidas
+
+```javascript
+const weakMap = new WeakMap();
+
+// ✅ Objetos - siempre válidos
+weakMap.set({}, 'object');
+weakMap.set([], 'array');
+weakMap.set(function() {}, 'function');
+weakMap.set(new Date(), 'date');
+
+// ✅ Symbols (ES2023) - válidos si no son globales
+weakMap.set(Symbol('local'), 'local symbol');
+weakMap.set(Symbol.iterator, 'well-known symbol'); // ✅ Well-known symbols OK
+
+// ❌ Symbols globales - NO válidos
+// weakMap.set(Symbol.for('global'), 'value'); // TypeError
+
+// ❌ Primitivos - nunca válidos
+// weakMap.set('string', 'value');   // TypeError
+// weakMap.set(123, 'value');        // TypeError
+// weakMap.set(true, 'value');       // TypeError
+// weakMap.set(null, 'value');       // TypeError
+// weakMap.set(undefined, 'value');  // TypeError
+```
+
+---
 
 ### 3. Caso de Uso: Datos Privados
 
