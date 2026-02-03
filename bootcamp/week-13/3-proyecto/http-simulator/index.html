@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>HTTP Simulator - Week 13</title>
+    <link
+      rel="stylesheet"
+      href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🌐 HTTP Request Simulator</h1>
+        <p>Simula peticiones HTTP usando Promises</p>
+      </header>
+
+      <main>
+        <!-- Single Requests -->
+        <section class="actions">
+          <h2>📡 Peticiones Individuales</h2>
+          <div class="button-group">
+            <button
+              id="btn-get"
+              class="btn btn-get">
+              GET Request
+            </button>
+            <button
+              id="btn-post"
+              class="btn btn-post">
+              POST Request
+            </button>
+            <button
+              id="btn-put"
+              class="btn btn-put">
+              PUT Request
+            </button>
+            <button
+              id="btn-delete"
+              class="btn btn-delete">
+              DELETE Request
+            </button>
+          </div>
+        </section>
+
+        <!-- Multiple Requests -->
+        <section class="actions">
+          <h2>🔀 Peticiones Múltiples</h2>
+          <div class="button-group">
+            <button
+              id="btn-all"
+              class="btn btn-primary">
+              Promise.all()
+            </button>
+            <button
+              id="btn-race"
+              class="btn btn-secondary">
+              Promise.race()
+            </button>
+            <button
+              id="btn-allSettled"
+              class="btn btn-secondary">
+              Promise.allSettled()
+            </button>
+          </div>
+        </section>
+
+        <!-- Results Area -->
+        <section class="results">
+          <div class="results-header">
+            <h2>📊 Resultados</h2>
+            <button
+              id="btn-clear"
+              class="btn btn-small">
+              Limpiar
+            </button>
+          </div>
+          <div
+            id="results-container"
+            class="results-container">
+            <p class="placeholder">Los resultados aparecerán aquí...</p>
+          </div>
+        </section>
+
+        <!-- Stats (Optional) -->
+        <section class="stats">
+          <h3>📈 Estadísticas</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Total Requests:</span>
+              <span
+                id="stat-total"
+                class="stat-value"
+                >0</span
+              >
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Exitosos:</span>
+              <span
+                id="stat-success"
+                class="stat-value"
+                >0</span
+              >
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Errores:</span>
+              <span
+                id="stat-errors"
+                class="stat-value"
+                >0</span
+              >
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Tiempo Promedio:</span>
+              <span
+                id="stat-avg"
+                class="stat-value"
+                >0ms</span
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Week 13 - Programación Asincrónica con Promises</p>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="starter/js/http.js"></script>
+    <script src="starter/js/ui.js"></script>
+    <script src="starter/js/app.js"></script>
+  </body>
+</html>
