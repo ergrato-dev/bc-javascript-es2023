@@ -15,6 +15,10 @@ Al finalizar este tema, comprenderás:
 
 ## 📋 Contenido
 
+![Promise States](../0-assets/03-promise-states.svg)
+
+---
+
 ### 1. ¿Qué es una Promise?
 
 Una **Promise** (promesa) es un objeto que representa el **resultado eventual** de una operación asíncrona. Es como un "pagaré" que promete un valor en el futuro.
@@ -259,6 +263,10 @@ loadData()
 ---
 
 ### 7. Promise Chaining (Encadenamiento)
+
+![Promise Chaining](../0-assets/04-promise-chaining.svg)
+
+---
 
 Puedes encadenar múltiples `.then()` para ejecutar operaciones secuenciales:
 

@@ -14,6 +14,10 @@ Al finalizar este tema, comprenderás:
 
 ## 📋 Contenido
 
+![Callback Hell](../0-assets/02-callback-hell.svg)
+
+---
+
 ### 1. ¿Qué es un Callback?
 
 Un **callback** es simplemente una **función que se pasa como argumento** a otra función para ser ejecutada más tarde.

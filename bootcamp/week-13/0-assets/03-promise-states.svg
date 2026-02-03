@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 950">
+  <!-- Dark Background -->
+  <rect width="1200" height="950" fill="#0f172a"/>
+
+  <!-- Definitions -->
+  <defs>
+    <marker id="arrow-success" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22c55e"/>
+    </marker>
+    <marker id="arrow-error" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="#f0db4f" text-anchor="middle">
+    Promise States &amp; Lifecycle
+  </text>
+
+  <!-- States -->
+
+  <!-- Pending State -->
+  <g id="pending">
+    <rect x="100" y="150" width="300" height="200" fill="#1e293b" stroke="#f59e0b" stroke-width="4" rx="10"/>
+    <text x="250" y="190" font-family="system-ui" font-size="24" font-weight="600" fill="#f59e0b" text-anchor="middle">
+      ⏳ PENDING
+    </text>
+    <text x="250" y="225" font-family="system-ui" font-size="16" fill="#f1f5f9" text-anchor="middle">
+      Estado Inicial
+    </text>
+
+    <g transform="translate(120, 250)">
+      <text x="0" y="0" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Operación en progreso
+      </text>
+      <text x="0" y="25" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Aún no se ha resuelto
+      </text>
+      <text x="0" y="50" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Esperando resultado
+      </text>
+      <text x="0" y="75" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Puede transicionar a otros estados
+      </text>
+    </g>
+  </g>
+
+  <!-- Fulfilled State -->
+  <g id="fulfilled">
+    <rect x="100" y="530" width="300" height="250" fill="#1e293b" stroke="#22c55e" stroke-width="4" rx="10"/>
+    <text x="250" y="570" font-family="system-ui" font-size="24" font-weight="600" fill="#22c55e" text-anchor="middle">
+      ✅ FULFILLED
+    </text>
+    <text x="250" y="605" font-family="system-ui" font-size="16" fill="#f1f5f9" text-anchor="middle">
+      Éxito
+    </text>
+
+    <g transform="translate(120, 630)">
+      <text x="0" y="0" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Operación exitosa
+      </text>
+      <text x="0" y="25" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Tiene un valor resuelto
+      </text>
+      <text x="0" y="50" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Los handlers .then() se ejecutan
+      </text>
+      <text x="0" y="75" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Estado final (settled)
+      </text>
+      <text x="0" y="100" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • No puede cambiar más
+      </text>
+    </g>
+
+    <!-- Example -->
+    <rect x="120" y="745" width="240" height="25" fill="#0f172a" rx="3"/>
+    <text x="240" y="763" font-family="monospace" font-size="12" fill="#22c55e" text-anchor="middle">
+      resolve(value)
+    </text>
+  </g>
+
+  <!-- Rejected State -->
+  <g id="rejected">
+    <rect x="800" y="530" width="300" height="250" fill="#1e293b" stroke="#ef4444" stroke-width="4" rx="10"/>
+    <text x="950" y="570" font-family="system-ui" font-size="24" font-weight="600" fill="#ef4444" text-anchor="middle">
+      ❌ REJECTED
+    </text>
+    <text x="950" y="605" font-family="system-ui" font-size="16" fill="#f1f5f9" text-anchor="middle">
+      Fallo
+    </text>
+
+    <g transform="translate(820, 630)">
+      <text x="0" y="0" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Operación fallida
+      </text>
+      <text x="0" y="25" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Tiene una razón de rechazo
+      </text>
+      <text x="0" y="50" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Los handlers .catch() se ejecutan
+      </text>
+      <text x="0" y="75" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Estado final (settled)
+      </text>
+      <text x="0" y="100" font-family="system-ui" font-size="14" fill="#f1f5f9">
+        • Cannot change anymore
+      </text>
+    </g>
+
+    <!-- Example -->
+    <rect x="820" y="745" width="240" height="25" fill="#0f172a" rx="3"/>
+    <text x="940" y="763" font-family="monospace" font-size="12" fill="#ef4444" text-anchor="middle">
+      reject(error)
+    </text>
+  </g>
+
+  <!-- Pending to Fulfilled -->
+  <path d="M 250 350 L 250 530" stroke="#22c55e" stroke-width="4" fill="none" marker-end="url(#arrow-success)"/>
+  <text x="270" y="440" font-family="system-ui" font-size="14" font-weight="600" fill="#22c55e">
+    Éxito
+  </text>
+
+  <!-- Pending to Rejected -->
+  <path d="M 400 250 Q 700 330 950 530" stroke="#ef4444" stroke-width="4" fill="none" marker-end="url(#arrow-error)" stroke-dasharray="10,5"/>
+  <text x="700" y="350" font-family="system-ui" font-size="14" font-weight="600" fill="#ef4444">
+    Error
+  </text>
+
+  <!-- Code Example -->
+  <g id="code-example">
+    <rect x="500" y="100" width="600" height="380" fill="#1e293b" stroke="#f0db4f" stroke-width="3" rx="10"/>
+    <text x="800" y="140" font-family="system-ui" font-size="20" font-weight="600" fill="#f0db4f" text-anchor="middle">
+      Ejemplo de Ciclo de Vida
+    </text>
+
+    <g font-family="monospace" font-size="14" fill="#f1f5f9">
+      <text x="520" y="180">const promise = new Promise((resolve, reject) => {</text>
+      <text x="540" y="205" fill="#94a3b8">  // ⏳ State: PENDING</text>
+      <text x="540" y="230">  setTimeout(() =&gt; {</text>
+      <text x="560" y="255">    const success = Math.random() &gt; 0.5;</text>
+      <text x="560" y="280"></text>
+      <text x="560" y="305">    if (success) {</text>
+      <text x="580" y="330" fill="#22c55e">      resolve('Success!'); // ✅ FULFILLED</text>
+      <text x="560" y="355">    } else {</text>
+      <text x="580" y="380" fill="#ef4444">      reject('Error!');    // ❌ REJECTED</text>
+      <text x="560" y="405">    }</text>
+      <text x="540" y="430">  }, 1000);</text>
+      <text x="520" y="455">});</text>
+    </g>
+  </g>
+
+  <!-- Key Points -->
+  <g id="key-points">
+    <rect x="500" y="510" width="250" height="180" fill="#1e293b" stroke="#3b82f6" stroke-width="2" rx="5"/>
+    <text x="625" y="545" font-family="system-ui" font-size="18" font-weight="600" fill="#3b82f6" text-anchor="middle">
+      📌 Puntos Clave
+    </text>
+
+    <g transform="translate(520, 565)">
+      <text x="0" y="0" font-family="system-ui" font-size="13" fill="#f1f5f9">
+        • Promise comienza como PENDING
+      </text>
+      <text x="0" y="25" font-family="system-ui" font-size="13" fill="#f1f5f9">
+        • Solo puede resolverse UNA vez
+      </text>
+      <text x="0" y="50" font-family="system-ui" font-size="13" fill="#f1f5f9">
+        • El estado no puede revertirse
+      </text>
+      <text x="0" y="75" font-family="system-ui" font-size="13" fill="#f1f5f9">
+        • Settled = fulfilled O rejected
+      </text>
+      <text x="0" y="100" font-family="system-ui" font-size="13" fill="#f1f5f9">
+        • Inmutable una vez settled
+      </text>
+    </g>
+  </g>
+</svg>

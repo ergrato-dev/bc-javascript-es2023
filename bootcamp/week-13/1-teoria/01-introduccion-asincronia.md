@@ -14,6 +14,10 @@ Al finalizar este tema, comprenderás:
 
 ## 📋 Contenido
 
+![Event Loop](../0-assets/01-event-loop.svg)
+
+---
+
 ### 1. ¿Qué es la Programación Asincrónica?
 
 La **programación asincrónica** permite que tu código ejecute operaciones que toman tiempo (como leer archivos, hacer peticiones HTTP, consultar bases de datos) **sin bloquear** la ejecución del resto del programa.
