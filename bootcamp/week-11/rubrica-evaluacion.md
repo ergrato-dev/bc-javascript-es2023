@@ -37,7 +37,9 @@
 
 ---
 
-## 💪 Evidencia de Desempeño (40 pts)
+## 💪 Ejercicios de Práctica (No se entregan)
+
+> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
 
 ### Ejercicios Prácticos
 

@@ -4,7 +4,14 @@
 
 ---
 
-## 🎯 Competencias a Evaluar
+## 🎯 Distribución de Evidencias
+
+| Tipo de Evidencia | Peso     | Puntaje Mínimo |
+| ----------------- | -------- | -------------- |
+| 📦 Producto       | 100%     | 70/100 (70%)   |
+| **TOTAL**         | **100%** | **70/100**     |
+
+> **Nota**: Ejercicios prácticos no se entregan de forma separada.
 
 | Competencia | Descripción |
 |-------------|-------------|

@@ -102,31 +102,28 @@ Crear una aplicación web que muestre una tarjeta de presentación personal util
 
 ### Cronograma Sugerido
 
-| Día         | Actividad       | Tiempo |
-| ----------- | --------------- | ------ |
-| **Día 1**   | Teoría completa | 2h     |
-| **Día 2**   | Ejercicios 1-2  | 1.5h   |
-| **Día 3**   | Ejercicios 3-4  | 1.5h   |
-| **Día 4-5** | Proyecto final  | 3h     |
+| Día         | Actividad                            | Tiempo |
+| ----------- | ------------------------------------ | ------ |
+| **Día 1**   | Teoría completa                      | 2h     |
+| **Día 2**   | Prácticas guiadas (no se entregan)   | 1.5h   |
+| **Día 3**   | Prácticas guiadas (no se entregan)   | 1.5h   |
+| **Día 4-5** | **Proyecto final** (único entregable)| 3h     |
 
 ---
 
 ## 📌 Entregables
 
-### 🧠 Conocimiento (30%)
-- [ ] Cuestionario sobre ES2023 básico (10 preguntas)
-- [ ] Identificar errores en código con var vs let/const
+### 📦 Proyecto (100%)
 
-### 💪 Desempeño (40%)
-- [ ] Completar los 4 ejercicios prácticos
-- [ ] Código funcional y siguiendo buenas prácticas
-- [ ] Uso correcto de sintaxis ES2023
+El **único entregable** para esta semana es el proyecto:
 
-### 📦 Producto (30%)
-- [ ] Proyecto "Tarjeta de Presentación" funcional
+- [ ] **Proyecto "Tarjeta de Presentación" funcional**
 - [ ] Código limpio y comentado en inglés
 - [ ] README del proyecto con instrucciones
+- [ ] Uso correcto de sintaxis ES2023
 - [ ] Despliegue en GitHub Pages (opcional)
+
+> **Nota**: Los ejercicios prácticos y la teoría son materiales de aprendizaje para prepararte para el proyecto, pero no se entregan de forma separada. El proyecto debe demostrar tu dominio de todos los conceptos aprendidos.
 
 ---
 
@@ -167,10 +164,10 @@ Antes de pasar a la Semana 2, asegúrate de:
 - [ ] Poder escribir template literals sin ayuda
 - [ ] Convertir funciones tradicionales a arrow functions
 - [ ] Aplicar destructuring en casos simples
-- [ ] Completar todos los ejercicios prácticos
-- [ ] Entregar el proyecto funcional
+- [ ] Practicar con los ejercicios guiados (no se entregan)
+- [ ] **Entregar el proyecto funcional** ✨ (único entregable)
 - [ ] Revisar y comprender los errores cometidos
-- [ ] Alcanzar mínimo 70% en cada tipo de evidencia
+- [ ] Alcanzar mínimo 70% en la evaluación del proyecto
 
 ---
 

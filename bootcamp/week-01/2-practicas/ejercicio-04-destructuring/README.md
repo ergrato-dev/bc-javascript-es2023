@@ -1,5 +1,7 @@
 # 📦 Ejercicio 04: Destructuring
 
+> **📝 Este ejercicio NO se entrega**. Es material de práctica para prepararte para el [Proyecto Final](../../3-proyecto/README.md), que es el único entregable obligatorio.
+
 ## 🎯 Objetivo
 
 Dominar el destructuring de objetos y arrays para extraer datos de forma concisa y elegante.

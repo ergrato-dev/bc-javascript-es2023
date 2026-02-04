@@ -1,5 +1,5 @@
 # ➡️ Ejercicio 03: Arrow Functions
-
+> **📝 Este ejercicio NO se entrega**. Es material de práctica para prepararte para el [Proyecto Final](../../3-proyecto/README.md), que es el único entregable obligatorio.
 ## 🎯 Objetivo
 
 Dominar la sintaxis de arrow functions y su uso con métodos de array como `map`, `filter`, `find` y `reduce`.

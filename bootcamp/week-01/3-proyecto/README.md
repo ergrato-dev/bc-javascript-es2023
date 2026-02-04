@@ -1,5 +1,7 @@
 # 🎨 Proyecto: Tarjeta de Presentación Interactiva
 
+> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la Semana 1. Debe demostrar tu dominio de todos los conceptos aprendidos.
+
 ## 🎯 Objetivos del Proyecto
 
 Crear una aplicación web interactiva que muestre una tarjeta de presentación personal, aplicando todos los conceptos aprendidos en la Semana 1:
@@ -14,6 +16,8 @@ Crear una aplicación web interactiva que muestre una tarjeta de presentación p
 ## 📋 Descripción
 
 Desarrollarás una tarjeta de presentación digital que muestra información personal y profesional de forma atractiva e interactiva. Los usuarios podrán editar la información en tiempo real y ver estadísticas básicas.
+
+**Calificación Mínima para Aprobar**: 70%
 
 ---
 
@@ -122,6 +126,8 @@ Abre `index.html` en el navegador y verifica que todo funcione.
 
 ## ✅ Criterios de Evaluación
 
+> **Importante**: Esta evaluación representa el 100% de tu calificación para la Semana 1. Los ejercicios prácticos y la teoría son materiales de estudio que te preparan para este proyecto.
+
 ### Funcionalidad (40%)
 - [ ] Muestra correctamente toda la información
 - [ ] Los botones son interactivos
@@ -147,6 +153,9 @@ Abre `index.html` en el navegador y verifica que todo funcione.
 - [ ] Personalización de datos
 - [ ] Mejoras visuales o funcionales
 - [ ] Características adicionales
+
+**Calificación Total**: 100%
+**Mínimo para Aprobar**: 70%
 
 ---
 
@@ -270,6 +279,8 @@ Al finalizar, deberías tener:
 
 ## 🚀 Entrega
 
+> **Este es el único entregable para aprobar la Semana 1**
+
 ### Formato
 
 Crea una carpeta con tu apellido y nombre:
@@ -294,6 +305,7 @@ apellido-nombre-tarjeta/
 - **Nombre**: [Tu nombre completo]
 - **Fecha**: [DD/MM/YYYY]
 - **Proyecto**: Week 01 - Tarjeta de Presentación
+- **Entregable**: Único proyecto de la semana
 
 ## 🎯 Características Implementadas
 - [ ] Información personal dinámica
@@ -307,6 +319,14 @@ apellido-nombre-tarjeta/
 - CSS3
 - JavaScript ES2023
 
+## 📚 Conceptos ES2023 Aplicados
+- [ ] Variables con let/const
+- [ ] Template literals
+- [ ] Arrow functions
+- [ ] Destructuring
+- [ ] Optional chaining (?.）
+- [ ] Nullish coalescing (??)
+
 ## 🚀 Cómo Ejecutar
 1. Abrir index.html en el navegador
 2. [Otros pasos si aplicable]
@@ -316,7 +336,26 @@ apellido-nombre-tarjeta/
 
 ## ✨ Características Extra
 [Describe cualquier funcionalidad adicional que hayas agregado]
+
+## 🎯 Autoevaluación
+- Funcionalidad: [X]%
+- Código ES2023: [X]%
+- Código Limpio: [X]%
+- Creatividad: [X]%
+- **Total Estimado**: [X]%
 ```
+
+### Plazos de Entrega
+
+- **Entrega**: Viernes de la semana correspondiente
+- **Retroalimentación**: Dentro de 3 días hábiles
+- **Reentrega** (si aplica): Dentro de 5 días de recibir feedback
+
+### Método de Entrega
+
+- GitHub repository (recomendado)
+- Zip file (alternativo)
+- Link a live demo (opcional, GitHub Pages/Netlify)
 
 ---
 

@@ -4,9 +4,22 @@
 
 ---
 
-## 🎯 Criterios de Evaluación
+## 🎯 Distribución de Evidencias
 
-### 1. Conocimiento (30%) 🧠
+| Tipo de Evidencia | Peso     | Puntaje Mínimo |
+| ----------------- | -------- | -------------- |
+| 📦 Producto       | 100%     | 70/100 (70%)   |
+| **TOTAL**         | **100%** | **70/100**     |
+
+> **Nota Importante**: Los ejercicios prácticos y la teoría son materiales de aprendizaje que te preparan para el proyecto, pero **no se entregan de forma separada**. El proyecto debe demostrar tu dominio de todos los conceptos aprendidos.
+
+---
+
+## 🧠 Material de Conocimiento (No se entrega)
+
+> **Importante**: Esta sección describe criterios de autoevaluación. Tu comprensión se evalúa a través del proyecto final.
+
+### Criterios de Autoevaluación
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|
@@ -14,7 +27,11 @@
 | **Herencia** | Domina extends, super y comprende la cadena de prototipos | Usa herencia correctamente con dudas menores | Implementa herencia básica | No logra implementar herencia |
 | **Encapsulación** | Entiende y aplica getters, setters y campos privados correctamente | Usa encapsulación con pequeños errores | Conocimiento parcial de encapsulación | No comprende encapsulación |
 
-### 2. Desempeño (40%) 💪
+## 💪 Ejercicios de Práctica (No se entregan)
+
+> **Importante**: Los ejercicios prácticos son materiales de aprendizaje guiados. **No se entregan de forma separada**.
+
+### Criterios para Autoevaluación de Prácticas
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|
@@ -23,7 +40,11 @@
 | **Ejercicio 3: Herencia** | Extiende clases correctamente usando super y sobrescribiendo métodos | Herencia funcional con dudas | Herencia básica sin sobrescritura | No logra implementar herencia |
 | **Ejercicio 4: Encapsulación** | Usa getters, setters y # fields de forma profesional | Encapsulación correcta con errores menores | Implementación parcial | No aplica encapsulación |
 
-### 3. Producto (30%) 📦
+## 📦 Proyecto: Sistema de Biblioteca (100%)
+
+> **Único Entregable**: Este proyecto es la única entrega requerida para aprobar la semana. Debe demostrar tu dominio de todos los conceptos de POO aprendidos.
+
+### Evaluación General del Proyecto
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|

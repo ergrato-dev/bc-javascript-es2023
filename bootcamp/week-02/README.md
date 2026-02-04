@@ -152,22 +152,18 @@ Aplicación de gestión de tareas que utiliza:
 
 ## 📌 Entregables
 
-### Evidencias de Conocimiento (30%)
-- [ ] Cuestionario teórico sobre spread/rest
-- [ ] Quiz sobre métodos de arrays
-- [ ] Evaluación de object enhancements
+### 📦 Proyecto (100%)
 
-### Evidencias de Desempeño (40%)
-- [ ] Ejercicio 01 completado y funcional
-- [ ] Ejercicio 02 completado y funcional
-- [ ] Ejercicio 03 completado y funcional
-- [ ] Ejercicio 04 completado y funcional
+El **único entregable** para esta semana es el proyecto:
 
-### Evidencia de Producto (30%)
-- [ ] Proyecto gestor de tareas funcional
-- [ ] Código usando ES2023 correctamente
+- [ ] **Proyecto "Gestor de Tareas" funcional**
+- [ ] Código usando ES2023 correctamente (spread, rest, array methods)
 - [ ] README del proyecto documentado
-- [ ] Código limpio y bien comentado
+- [ ] Código limpio y bien comentado en inglés
+- [ ] Uso correcto de map, filter, reduce
+- [ ] Despliegue funcional (opcional)
+
+> **Nota**: Los ejercicios prácticos y la teoría son materiales de aprendizaje para prepararte para el proyecto, pero no se entregan de forma separada. El proyecto debe demostrar tu dominio de todos los conceptos aprendidos.
 
 ---
 
@@ -206,8 +202,9 @@ Para completar exitosamente esta semana:
 - [ ] Usar array methods con confianza
 - [ ] Dominar map, filter, reduce
 - [ ] Aplicar object enhancements naturalmente
-- [ ] Completar todos los ejercicios prácticos
-- [ ] Proyecto funcional con todas las características
+- [ ] Practicar con los ejercicios guiados (no se entregan)
+- [ ] **Entregar el proyecto funcional** ⭐ (único entregable)
+- [ ] Alcanzar mínimo 70% en la evaluación del proyecto
 
 ---
 

@@ -115,24 +115,18 @@ week-13/
 
 ## 📌 Entregables
 
-Al finalizar la semana, debes completar:
+### 📦 Proyecto (100%)
 
-### 1. Prácticas Completadas (40% - Desempeño)
-- [ ] Práctica 01: Callbacks ✅
-- [ ] Práctica 02: Promises Básicas ✅
-- [ ] Práctica 03: Promise Chaining ✅
-- [ ] Práctica 04: Promise Combinators ✅
+El **único entregable** para esta semana es el proyecto:
 
-### 2. Proyecto HTTP Simulator (30% - Producto)
+- [ ] **Proyecto "HTTP Simulator" funcional**
 - [ ] Código funcional y completo
 - [ ] Manejo correcto de Promises
 - [ ] UI interactiva implementada
 - [ ] Sistema de errores robusto
+- [ ] Uso de Promise methods (all, race, allSettled, any)
 
-### 3. Evaluación Teórica (30% - Conocimiento)
-- [ ] Cuestionario sobre asincronía
-- [ ] Explicar diferencias callback vs Promise
-- [ ] Casos de uso de cada Promise method
+> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
 
 ### 4. Reto Semanal (Opcional - Bonus)
 - [ ] Completar el desafío en [RETO-SEMANAL.md](./RETO-SEMANAL.md)

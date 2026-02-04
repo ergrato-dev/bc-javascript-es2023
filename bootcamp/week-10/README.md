@@ -152,9 +152,16 @@ Reflect.deleteProperty(obj, 'prop');
 
 ## 📌 Entregables
 
-1. **Ejercicios completados** (4 ejercicios)
-2. **Proyecto funcional** (Sistema de validación reactivo)
-3. **Quiz de conceptos** (en clase)
+### 📦 Proyecto (100%)
+
+El **único entregable** para esta semana es el proyecto:
+
+- [ ] **Proyecto "Sistema de Validación Reactivo" funcional**
+- [ ] Uso correcto de Proxies para validación
+- [ ] Implementación de Reflect API
+- [ ] Código limpio y documentado
+
+> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
 
 ---
 

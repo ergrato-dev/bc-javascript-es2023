@@ -4,11 +4,22 @@
 
 ---
 
-## 🎯 Competencias a Evaluar
+## 🎯 Distribución de Evidencias
 
-### 1. 🧠 Conocimiento (30%)
+| Tipo de Evidencia | Peso     | Puntaje Mínimo |
+| ----------------- | -------- | -------------- |
+| 📦 Producto       | 100%     | 70/100 (70%)   |
+| **TOTAL**         | **100%** | **70/100**     |
 
-Evaluación teórica sobre los conceptos de la semana.
+> **Nota**: Ejercicios prácticos no se entregan de forma separada.
+
+---
+
+## 🧠 Material de Conocimiento (No se entrega)
+
+> **Importante**: Autoevaluación. Tu comprensión se evalúa en el proyecto.
+
+### Autoevaluación Teórica (No se entrega)
 
 | Nivel | Descripción | Puntos |
 |-------|-------------|--------|
@@ -27,9 +38,11 @@ Evaluación teórica sobre los conceptos de la semana.
 
 ---
 
-### 2. 💪 Desempeño (40%)
+## 💪 Ejercicios de Práctica (No se entregan)
 
-Evaluación de los ejercicios prácticos realizados.
+> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
+
+Evaluación de los ejercicios prácticos realizados (para autoevaluación).
 
 | Nivel | Descripción | Puntos |
 |-------|-------------|--------|

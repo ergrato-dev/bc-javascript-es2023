@@ -118,17 +118,21 @@ Antes de codificar:
 
 ## 📌 Entregables
 
-### Obligatorios
+### 📦 Proyecto (100%)
 
-1. **Proyecto E-commerce funcional** con:
-   - [ ] Módulos ES6 correctamente estructurados
-   - [ ] Clases para Product, User y Cart
-   - [ ] Catálogo con filtros y búsqueda
-   - [ ] Carrito de compras operativo
-   - [ ] Persistencia en localStorage
-   - [ ] Manejo de errores implementado
+El **único entregable** para esta semana es el proyecto:
 
-### Opcionales (Bonus)
+- [ ] **Proyecto E-commerce funcional** con:
+  - [ ] Módulos ES6 correctamente estructurados
+  - [ ] Clases para Product, User y Cart
+  - [ ] Catálogo con filtros y búsqueda
+  - [ ] Carrito de compras operativo
+  - [ ] Persistencia en localStorage
+  - [ ] Manejo de errores implementado
+
+> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
+
+### Extras Opcionales (Bonus)
 
 - [ ] Sistema de favoritos/wishlist
 - [ ] Historial de compras

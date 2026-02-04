@@ -1,5 +1,7 @@
 # Ejercicio 05: Operadores Modernos
 
+> **📝 Este ejercicio NO se entrega**. Es material de práctica para prepararte para el [Proyecto Final](../../3-proyecto/README.md), que es el único entregable obligatorio.
+
 ## 🎯 Objetivos
 
 - Practicar optional chaining (`?.`)

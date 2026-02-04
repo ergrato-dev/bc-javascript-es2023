@@ -85,13 +85,19 @@ week-06/
 
 ## 📌 Entregables
 
-1. **Ejercicios completados** (4 ejercicios)
-2. **Proyecto funcional**: Validador de formularios con:
-   - Validación de email
-   - Validación de teléfono
-   - Validación de contraseña (con requisitos)
-   - Validación de URL
-   - Mensajes de error descriptivos
+### 📦 Proyecto (100%)
+
+El **único entregable** para esta semana es el proyecto:
+
+- [ ] **Proyecto "Validador de Formularios" funcional**
+- [ ] Validación de email con RegExp
+- [ ] Validación de teléfono
+- [ ] Validación de contraseña con requisitos
+- [ ] Validación de URL
+- [ ] Mensajes de error descriptivos
+- [ ] Código limpio y documentado
+
+> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
 
 ## 💡 Tips de la Semana
 

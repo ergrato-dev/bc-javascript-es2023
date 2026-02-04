@@ -46,13 +46,16 @@ presentarUsuario(usuario);
 
 ## ✅ Requisitos de Entrega
 
-### Paso 1: Resuelve el reto
+> **Nota Importante**: Este reto es parte opcional del aprendizaje. El **único entregable obligatorio** para aprobar la semana es el [Proyecto de Tarjeta de Presentación](./3-proyecto/README.md).
+
+### Paso 1: Resuelve el reto (Opcional)
 - Implementa la función usando SOLO sintaxis ES2023
 - No uses `var`, `function` keyword, ni concatenación con `+`
+- Este reto te ayudará a prepararte mejor para el proyecto
 
-### Paso 2: Comenta en YouTube (REQUERIDO)
+### Paso 2: Comenta en YouTube (Opcional)
 
-Deja un comentario en el video de esta semana con el siguiente formato:
+Si resolviste el reto, deja un comentario en el video de esta semana con el siguiente formato:
 
 ```
 ✅ RETO WEEK-01 COMPLETADO
@@ -62,13 +65,12 @@ Mi función usa: [lista las características ES2023 que usaste]
 💡 Lo que más me gustó de la sintaxis moderna es: [tu opinión]
 ```
 
-### Paso 3: Autoevaluación
+### Paso 3: Enfócate en el Proyecto (OBLIGATORIO)
 
-Completa el [formulario de autoevaluación](https://forms.gle/PLACEHOLDER_WEEK01):
-
-- Código de verificación del video
-- **Link a tu comentario en YouTube** (click derecho → copiar enlace del comentario)
-- Link a tu código (GitHub/CodePen/Replit)
+El **único entregable obligatorio** es el proyecto:
+- **Proyecto**: [Tarjeta de Presentación Interactiva](./3-proyecto/README.md)
+- Debe demostrar dominio de todos los conceptos de la semana
+- Calificación mínima para aprobar: 70%
 
 ---
 

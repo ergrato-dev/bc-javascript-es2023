@@ -4,9 +4,22 @@
 
 ---
 
-## 🎯 Criterios de Evaluación
+## 🎯 Distribución de Evidencias
 
-### 1. Conocimiento Teórico (30%)
+| Tipo de Evidencia | Peso     | Puntaje Mínimo |
+| ----------------- | -------- | -------------- |
+| 📦 Producto       | 100%     | 70/100 (70%)   |
+| **TOTAL**         | **100%** | **70/100**     |
+
+> **Nota Importante**: Los ejercicios prácticos y la teoría son materiales de aprendizaje que te preparan para el proyecto, pero **no se entregan de forma separada**.
+
+---
+
+## 🧠 Material de Conocimiento (No se entrega)
+
+> **Importante**: Esta sección describe criterios de autoevaluación. Tu comprensión se evalúa a través del proyecto final.
+
+### Criterios de Autoevaluación Teórica
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|
@@ -16,7 +29,11 @@
 | **Named vs Default** | Sabe cuándo usar cada uno y combinarlos | Usa correctamente ambos tipos | Conoce la diferencia | Confunde sintaxis |
 | **Dynamic Imports** | Implementa lazy loading y code splitting | Usa import() con async/await | Entiende el concepto | No sabe aplicarlo |
 
-### 2. Desempeño Práctico (40%)
+## 💪 Ejercicios de Práctica (No se entregan)
+
+> **Importante**: Los ejercicios prácticos son materiales de aprendizaje guiados. **No se entregan de forma separada**.
+
+### Criterios para Autoevaluación de Prácticas
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|
@@ -25,7 +42,11 @@
 | **Ejercicio 3: Módulos** | Arquitectura limpia y bien organizada | Módulos funcionales y reutilizables | Separa código en archivos | Imports/exports incorrectos |
 | **Ejercicio 4: Avanzado** | Implementa dynamic imports y re-exports | Usa imports avanzados correctamente | Aplica conceptos básicos | No completa el ejercicio |
 
-### 3. Proyecto Final (30%)
+## 📦 Proyecto: Sistema de Inventario (100%)
+
+> **Único Entregable**: Este proyecto es la única entrega requerida para aprobar la semana.
+
+### Evaluación del Proyecto
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|
