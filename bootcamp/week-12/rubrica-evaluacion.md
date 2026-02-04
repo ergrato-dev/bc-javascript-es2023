@@ -4,7 +4,18 @@
 
 ---
 
-## 📊 Distribución de Puntos
+## 🎯 Distribución de Evidencias
+
+| Tipo de Evidencia | Peso     | Puntaje Mínimo |
+| ----------------- | -------- | -------------- |
+| 📦 Producto       | 100%     | 70/100 (70%)   |
+| **TOTAL**         | **100%** | **70/100**     |
+
+> **Nota Importante**: Este es un proyecto integrador. Los ejercicios prácticos son materiales de aprendizaje. **No se entregan de forma separada**.
+
+---
+
+## 📊 Distribución de Puntos del Proyecto
 
 | Criterio | Puntos |
 |----------|--------|

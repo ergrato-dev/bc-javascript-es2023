@@ -2,36 +2,41 @@
 
 ## 🎯 Criterios Generales de Aprobación
 
-- **Calificación mínima**: 70% en cada tipo de evidencia
+- **Calificación mínima**: 70% en el proyecto
 - **Entrega puntual**: Penalización del 10% por día de retraso
 - **Código funcional**: El código debe ejecutarse sin errores críticos
 - **Buenas prácticas**: Seguir convenciones de ES2023 establecidas
+- **Único entregable**: Solo se entrega el proyecto final
 
 ---
 
 ## 📋 Distribución de Evidencias
 
-| Tipo de Evidencia | Ponderación | Descripción           |
-| ----------------- | ----------- | --------------------- |
-| 🧠 Conocimiento    | 30%         | Evaluaciones teóricas |
-| 💪 Desempeño       | 40%         | Ejercicios prácticos  |
-| 📦 Producto        | 30%         | Proyecto final        |
+| Tipo de Evidencia | Ponderación | Descripción                                      |
+| ----------------- | ----------- | ------------------------------------------------ |
+| 📦 Producto       | 100%        | Proyecto final (único entregable)                |
+
+> **Nota Importante**: Los ejercicios prácticos y la teoría son materiales de aprendizaje que te preparan para el proyecto, pero **no se entregan de forma separada**. El proyecto debe demostrar tu dominio de todos los conceptos aprendidos en teoría y practicados en los ejercicios.
 
 ---
 
-## 🧠 Evidencia de Conocimiento (30%)
+## 🧠 Material de Conocimiento (No se entrega)
 
-### Componentes
+> **Importante**: Esta sección describe material de estudio y autoevaluación. No se entrega de forma separada. Tu comprensión de estos conceptos se evalúa a través del proyecto final.
 
-1. **Cuestionario Teórico** (20%)
+### Componentes de Estudio
+
+1. **Cuestionario de Autoevaluación** (Opcional)
    - 10 preguntas de opción múltiple
    - Temas: ES2023, let/const, template literals, arrow functions, destructuring
+   - Para verificar tu comprensión antes del proyecto
 
-2. **Análisis de Código** (10%)
+2. **Análisis de Código** (Opcional)
    - Identificar errores en código
    - Proponer mejoras usando ES2023
+   - Práctica para mejorar tu código
 
-### Criterios de Evaluación
+### Criterios de Comprensión
 
 | Criterio                      | Excelente (100%)                                  | Satisfactorio (80%)               | Aceptable (70%)                    | Insuficiente (<70%)          |
 | ----------------------------- | ------------------------------------------------- | --------------------------------- | ---------------------------------- | ---------------------------- |
@@ -59,9 +64,11 @@
 
 ---
 
-## 💪 Evidencia de Desempeño (40%)
+## 💪 Ejercicios de Práctica (No se entregan)
 
-### Ejercicios Prácticos (10% cada uno)
+> **Importante**: Los ejercicios prácticos son materiales de aprendizaje guiados que te preparan para el proyecto. **No se entregan de forma separada**. Úsalos para practicar antes de hacer el proyecto.
+
+### Ejercicios Guiados (Práctica)
 
 #### Ejercicio 1: Variables Modernas
 - [ ] Usa `const` por defecto
@@ -99,9 +106,11 @@
 
 ---
 
-## 📦 Evidencia de Producto (30%)
+## 📦 Proyecto: Tarjeta de Presentación Interactiva (100%)
 
-### Proyecto: Tarjeta de Presentación Interactiva
+> **Único Entregable**: Este proyecto es la única entrega requerida para aprobar la semana. Debe demostrar tu dominio de todos los conceptos aprendidos.
+
+### Descripción del Proyecto
 
 #### Requisitos Funcionales (60% del producto)
 
@@ -139,20 +148,20 @@
 ### Fórmula
 
 ```
-Calificación Final = (Conocimiento × 0.30) + (Desempeño × 0.40) + (Producto × 0.30)
+Calificación Final = Proyecto × 100%
 ```
 
 ### Ejemplo
 
 ```
-Conocimiento: 85%
-Desempeño:    90%
-Producto:     80%
+Proyecto: 85%
 
-Calificación = (85 × 0.30) + (90 × 0.40) + (80 × 0.30)
-             = 25.5 + 36 + 24
-             = 85.5% ✅ APROBADO
+Calificación = 85% ✅ APROBADO
+
+Nota mínima para aprobar: 70%
 ```
+
+> **Nota**: El proyecto debe demostrar tu dominio de todos los conceptos aprendidos en teoría y practicados en los ejercicios guiados.
 
 ---
 
@@ -188,16 +197,17 @@ Antes de entregar, verifica:
 
 ### Para Aprobar la Semana
 
-- ✅ Mínimo **70%** en Conocimiento
-- ✅ Mínimo **70%** en Desempeño
-- ✅ Mínimo **70%** en Producto
+- ✅ Mínimo **70%** en el Proyecto
 - ✅ Entrega puntual o con penalización máxima del 20%
+- ✅ Código funcional sin errores críticos
+- ✅ Demostrar dominio de los conceptos aprendidos
 
 ### Para Excelencia
 
-- 🌟 Mínimo **90%** en todas las evidencias
+- 🌟 Mínimo **90%** en el proyecto
 - 🌟 Código sin errores ni warnings
-- 🌟 Implementación creativa del proyecto
+- 🌟 Implementación creativa y original
+- 🌟 Documentación completa y profesional
 - 🌟 Documentación completa y profesional
 
 ---
@@ -209,36 +219,38 @@ Antes de entregar, verifica:
 ```
 apellido-nombre-week01/
 ├── README.md
-├── ejercicios/
-│   ├── ejercicio-01/
-│   ├── ejercicio-02/
-│   ├── ejercicio-03/
-│   └── ejercicio-04/
-└── proyecto/
-    ├── index.html
-    ├── script.js
-    ├── style.css
-    └── README.md
+├── index.html
+├── script.js
+├── style.css
+└── assets/ (si aplica)
 ```
 
-### Información del README Principal
+### Información del README
 
 ```markdown
-# Semana 1 - [Tu Nombre]
+# Semana 1 - Tarjeta de Presentación - [Tu Nombre]
 
 ## 📋 Información del Estudiante
 - **Nombre**: [Tu nombre completo]
 - **Fecha de entrega**: [DD/MM/YYYY]
 - **Semana**: 01 - Introducción a JavaScript Moderno
 
-## 📚 Contenido
-- [Enlace a ejercicios](./ejercicios/)
-- [Enlace a proyecto](./proyecto/)
+## 🎯 Descripción del Proyecto
+[Breve descripción de tu tarjeta de presentación]
+
+## 🚀 Características Implementadas
+- [ ] Variables con let/const
+- [ ] Template literals
+- [ ] Arrow functions
+- [ ] Destructuring
+- [ ] Operadores modernos (?.  ??)
+
+## 📦 Cómo ejecutar
+1. Clonar el repositorio
+2. Abrir index.html en el navegador
 
 ## 🎯 Autoevaluación
-- Conocimiento: [X]%
-- Desempeño: [X]%
-- Producto: [X]%
+- Proyecto: [X]%
 ```
 
 ---

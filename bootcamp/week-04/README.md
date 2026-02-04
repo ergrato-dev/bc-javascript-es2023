@@ -106,14 +106,22 @@ Aplicación completa con arquitectura modular que incluye:
 
 ## 📌 Entregables
 
-### Obligatorios
-1. **Ejercicios completados** (4 ejercicios en `2-practicas/`)
-2. **Proyecto funcional** (Sistema de inventario modular)
-3. **Cuestionario teórico** (evaluación de conceptos)
+### 📦 Proyecto (100%)
 
-### Opcionales
+El **único entregable** para esta semana es el proyecto:
+
+- [ ] **Proyecto "Sistema de Inventario Modular" funcional**
+- [ ] Uso avanzado de destructuring en arrays y objetos
+- [ ] Arquitectura modular con import/export correctos
+- [ ] Implementación de dynamic imports (lazy loading)
+- [ ] Código limpio y bien comentado en inglés
+- [ ] README del proyecto documentado
+
+> **Nota**: Los ejercicios prácticos y la teoría son materiales de aprendizaje para prepararte para el proyecto, pero no se entregan de forma separada. El proyecto debe demostrar tu dominio de destructuring y módulos ES6.
+
+### Extras Opcionales
 - Extender el proyecto con localStorage
-- Implementar lazy loading de módulos
+- Implementar lazy loading de módulos adicionales
 - Crear documentación de módulos con JSDoc
 
 ---

@@ -38,7 +38,9 @@
 
 ---
 
-## 💪 Evidencia de Desempeño (40%)
+## 💪 Ejercicios de Práctica (No se entregan)
+
+> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
 
 ### Ejercicio 01: Iteradores Básicos
 

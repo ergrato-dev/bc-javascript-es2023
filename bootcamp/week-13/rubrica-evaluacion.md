@@ -38,7 +38,9 @@
 
 ---
 
-## 💪 2. Evidencia de Desempeño (40%)
+## 💪 Ejercicios de Práctica (No se entregan)
+
+> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
 
 ### Práctica 1: Callbacks y Event Loop (10 puntos)
 

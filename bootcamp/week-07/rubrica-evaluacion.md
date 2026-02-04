@@ -2,19 +2,28 @@
 
 ## Sets y Maps
 
+## 🎯 Distribución de Evidencias
+
+| Tipo de Evidencia | Peso     | Puntaje Mínimo |
+| ----------------- | -------- | -------------- |
+| 📦 Producto       | 100%     | 70/100 (70%)   |
+| **TOTAL**         | **100%** | **70/100**     |
+
+> **Nota**: Ejercicios prácticos no se entregan de forma separada.
+
 ### 🎯 Competencias a Evaluar
 
 | Competencia | Descripción |
 |-------------|-------------|
-| **Conocimiento** | Comprensión teórica de Sets, Maps y colecciones débiles |
-| **Desempeño** | Aplicación práctica en ejercicios guiados |
 | **Producto** | Implementación del proyecto de gestión de usuarios |
 
 ---
 
-## 📝 Evidencia de Conocimiento (30%)
+## 🧠 Material de Conocimiento (No se entrega)
 
-### Cuestionario Teórico
+> **Importante**: Autoevaluación. Tu comprensión se evalúa en el proyecto.
+
+### Cuestionario Teórico (Autoevaluación)
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|
@@ -25,9 +34,11 @@
 
 ---
 
-## 💪 Evidencia de Desempeño (40%)
+## 💪 Ejercicios de Práctica (No se entregan)
 
-### Ejercicios Prácticos
+> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
+
+### Ejercicios Guiados
 
 | Ejercicio | Criterios de Evaluación | Puntos |
 |-----------|------------------------|--------|

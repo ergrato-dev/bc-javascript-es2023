@@ -13,11 +13,22 @@
 | **Duración** | 8 horas |
 | **Fecha límite** | Final de la semana 5 |
 
+## 🎯 Distribución de Evidencias
+
+| Tipo de Evidencia | Peso     | Puntaje Mínimo |
+| ----------------- | -------- | -------------- |
+| 📦 Producto       | 100%     | 70/100 (70%)   |
+| **TOTAL**         | **100%** | **70/100**     |
+
+> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
+
 ---
 
-## 🧠 Evidencia de Conocimiento (30%)
+## 🧠 Material de Conocimiento (No se entrega)
 
-### Evaluación Teórica
+> **Importante**: Criterios de autoevaluación. Tu comprensión se evalúa en el proyecto.
+
+### Autoevaluación Teórica
 
 | Criterio | Excelente (100%) | Bueno (75%) | Suficiente (50%) | Insuficiente (0%) |
 |----------|------------------|-------------|------------------|-------------------|
@@ -31,11 +42,13 @@
 
 ---
 
-## 💪 Evidencia de Desempeño (40%)
+## 💪 Ejercicios de Práctica (No se entregan)
 
-### Ejercicios Prácticos
+> **Importante**: Materiales de aprendizaje guiados. **No se entregan de forma separada**.
 
-#### Ejercicio 1: flat y flatMap (10%)
+### Ejercicios Guiados
+
+#### Ejercicio 1: flat y flatMap (Práctica)
 
 | Criterio | Puntos | Descripción |
 |----------|--------|-------------|

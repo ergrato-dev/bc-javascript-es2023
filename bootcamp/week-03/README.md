@@ -124,9 +124,18 @@ Crear un sistema completo de biblioteca utilizando:
 
 ## 📌 Entregables
 
-1. **Ejercicios completados** - Los 4 ejercicios prácticos funcionando
-2. **Proyecto de biblioteca** - Sistema completo con todas las clases
-3. **Autoevaluación** - Reflexión sobre conceptos de POO
+### 📦 Proyecto (100%)
+
+El **único entregable** para esta semana es el proyecto:
+
+- [ ] **Proyecto "Sistema de Gestión de Biblioteca" funcional**
+- [ ] Clases con constructor, métodos y propiedades
+- [ ] Implementación de herencia con extends y super
+- [ ] Uso de getters, setters y campos privados (#)
+- [ ] Código limpio y bien comentado en inglés
+- [ ] README del proyecto documentado
+
+> **Nota**: Los ejercicios prácticos y la teoría son materiales de aprendizaje para prepararte para el proyecto, pero no se entregan de forma separada. El proyecto debe demostrar tu dominio de todos los conceptos de POO aprendidos.
 
 ---
 

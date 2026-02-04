@@ -180,23 +180,25 @@ const result = safeExecute(
 
 ## 📌 Entregables
 
-1. **Ejercicios completados** (4 ejercicios)
-   - Código funcional con manejo de errores
-   - Errores personalizados implementados
-   - Casos async cubiertos
+### 📦 Proyecto (100%)
 
-2. **Proyecto: Sistema Robusto**
-   - Jerarquía de errores personalizados
-   - Manejo completo de errores de red
-   - UI con mensajes de error amigables
-   - Logging de errores para debugging
+El **único entregable** para esta semana es el proyecto:
 
-3. **Checklist de verificación**
-   - [ ] try...catch...finally dominado
-   - [ ] Errores personalizados creados
-   - [ ] Errores async manejados correctamente
-   - [ ] Patrones de error boundaries aplicados
-   - [ ] Mejores prácticas implementadas
+- [ ] **Proyecto "Sistema Robusto" funcional**
+- [ ] Jerarquía de errores personalizados implementada
+- [ ] Manejo completo de errores de red
+- [ ] UI con mensajes de error amigables
+- [ ] Logging de errores para debugging
+- [ ] Patrones de error boundaries aplicados
+
+> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
+
+### Checklist de verificación
+- [ ] try...catch...finally dominado
+- [ ] Errores personalizados creados
+- [ ] Errores async manejados correctamente
+- [ ] Patrones de error boundaries aplicados
+- [ ] Mejores prácticas implementadas
 
 ---
 

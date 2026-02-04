@@ -1,5 +1,7 @@
 # 📦 Ejercicio 01: Variables Modernas (const y let)
 
+> **📝 Este ejercicio NO se entrega**. Es material de práctica para prepararte para el [Proyecto Final](../../3-proyecto/README.md), que es el único entregable obligatorio.
+
 ## 🎯 Objetivo
 
 Dominar el uso de `const` y `let`, entender block scope y aplicar las mejores prácticas de declaración de variables en JavaScript moderno.

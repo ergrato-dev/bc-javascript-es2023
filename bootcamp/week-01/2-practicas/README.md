@@ -1,8 +1,10 @@
 # 💻 Ejercicios Prácticos - Semana 1
 
+> **📝 Nota Importante**: Estos ejercicios son **material de aprendizaje guiado** y **NO se entregan**. Su propósito es prepararte para el proyecto final, que es el único entregable obligatorio de esta semana.
+
 ## 📋 Descripción
 
-Esta carpeta contiene ejercicios guiados para practicar los conceptos aprendidos en la teoría de la Semana 1.
+Esta carpeta contiene ejercicios guiados para practicar los conceptos aprendidos en la teoría de la Semana 1. Completa estos ejercicios para estar preparado para el [Proyecto Final](../3-proyecto/README.md), que es el único entregable que debes entregar.
 
 ---
 
@@ -99,15 +101,19 @@ cat index.js
 
 ---
 
-## 📊 Criterios de Evaluación
+## 📊 Propósito de los Ejercicios
 
-Para cada ejercicio:
+> **Estos ejercicios NO se entregan**. Son herramientas de aprendizaje para prepararte para el proyecto final.
 
-- ✅ **Funcionalidad**: El código debe funcionar correctamente
-- ✅ **Sintaxis ES2023**: Usar características modernas
-- ✅ **Código limpio**: Nombres descriptivos, indentación correcta
-- ✅ **Comentarios**: Explicar partes clave en inglés
-- ✅ **Sin errores**: No debe haber errores en consola
+Los ejercicios te ayudan a:
+
+- ✅ **Practicar** conceptos de forma guiada y estructurada
+- ✅ **Experimentar** con código sin presión de evaluación
+- ✅ **Prepararte** para aplicar los conceptos en el proyecto final
+- ✅ **Identificar** áreas donde necesitas más estudio
+- ✅ **Desarrollar** confianza antes del proyecto entregable
+
+**El único entregable**: [Proyecto de Tarjeta de Presentación](../3-proyecto/README.md)
 
 ---
 
@@ -137,12 +143,15 @@ Si encuentras errores o tienes dudas:
 
 ## ✅ Checklist de Progreso
 
+> **Recuerda**: Completar estos ejercicios te prepara para el proyecto final (único entregable).
+
 - [ ] Ejercicio 01: Variables Modernas
 - [ ] Ejercicio 02: Template Literals
 - [ ] Ejercicio 03: Arrow Functions
 - [ ] Ejercicio 04: Destructuring
-- [ ] Todos los tests pasan
-- [ ] Código revisado y limpio
+- [ ] Todos los tests pasan (opcional)
+- [ ] Código revisado y comprendido
+- [ ] **Listo para comenzar el [Proyecto Final](../3-proyecto/README.md)** ⭐
 
 ---
 

@@ -96,9 +96,16 @@ Material complementario para profundizar en los temas.
 
 ## 📌 Entregables
 
-1. **Ejercicios completados** en `2-practicas/`
-2. **Proyecto funcional** del paginador con generadores
-3. **Cuestionario** de comprensión teórica
+### 📦 Proyecto (100%)
+
+El **único entregable** para esta semana es el proyecto:
+
+- [ ] **Proyecto "Paginador con Generadores" funcional**
+- [ ] Implementación correcta de iteradores y generadores
+- [ ] Uso de Symbol.iterator
+- [ ] Código limpio y documentado
+
+> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
 
 ---
 

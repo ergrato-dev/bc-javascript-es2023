@@ -111,9 +111,17 @@ Aplicación de análisis que incluye:
 
 ## 📌 Entregables
 
-1. **Ejercicios prácticos** completados (5 ejercicios)
-2. **Proyecto**: Dashboard de Análisis de Datos funcional
-3. **Auto-evaluación** de conceptos aprendidos
+### 📦 Proyecto (100%)
+
+El **único entregable** para esta semana es el proyecto:
+
+- [ ] **Proyecto "Dashboard de Análisis de Datos" funcional**
+- [ ] Uso correcto de métodos avanzados de arrays (flatMap, at, findLast, etc.)
+- [ ] Implementación de sorting y slicing inmutables (toSorted, toReversed, with)
+- [ ] Código limpio y bien comentado en inglés
+- [ ] README del proyecto documentado
+
+> **Nota**: Los ejercicios prácticos son materiales de aprendizaje para prepararte para el proyecto, pero no se entregan de forma separada.
 
 ---
 
@@ -121,9 +129,9 @@ Aplicación de análisis que incluye:
 
 | Criterio | Peso | Descripción |
 |----------|------|-------------|
-| Conocimiento | 30% | Comprensión de métodos avanzados |
-| Desempeño | 40% | Ejecución correcta de ejercicios |
-| Producto | 30% | Calidad del proyecto final |
+| Proyecto | 100% | Calidad del proyecto final (mínimo 70% para aprobar) |
+
+> **Nota**: Los ejercicios prácticos y teoría no se evalúan por separado. Son material de preparación.
 
 Ver [rúbrica completa](rubrica-evaluacion.md) para más detalles.
 

@@ -1,5 +1,7 @@
 # 📝 Ejercicio 02: Template Literals
 
+> **📝 Este ejercicio NO se entrega**. Es material de práctica para prepararte para el [Proyecto Final](../../3-proyecto/README.md), que es el único entregable obligatorio.
+
 ## 🎯 Objetivo
 
 Dominar los template literals para crear strings dinámicos, multilínea y con interpolación de variables y expresiones.

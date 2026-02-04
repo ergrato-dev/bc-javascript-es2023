@@ -4,16 +4,18 @@
 
 | Tipo de Evidencia | Peso     | Puntaje Mínimo |
 | ----------------- | -------- | -------------- |
-| 🧠 Conocimiento    | 30%      | 21/30 (70%)    |
-| 💪 Desempeño       | 40%      | 28/40 (70%)    |
-| 📦 Producto        | 30%      | 21/30 (70%)    |
+| 📦 Producto       | 100%     | 70/100 (70%)   |
 | **TOTAL**         | **100%** | **70/100**     |
+
+> **Nota Importante**: Los ejercicios prácticos y la teoría son materiales de aprendizaje que te preparan para el proyecto, pero **no se entregan de forma separada**. El proyecto debe demostrar tu dominio de todos los conceptos aprendidos en teoría y practicados en los ejercicios.
 
 ---
 
-## 🧠 Evidencia de Conocimiento (30 puntos)
+## 🧠 Material de Conocimiento (No se entrega)
 
-### Evaluación Teórica
+> **Importante**: Esta sección describe material de estudio y autoevaluación. No se entrega de forma separada. Tu comprensión de estos conceptos se evalúa a través del proyecto final.
+
+### Componentes de Estudio
 
 | Criterio            | Excelente<br>(9-10)                                                  | Bueno<br>(7-8)                                                   | Suficiente<br>(5-6)                                           | Insuficiente<br>(0-4)       |
 | ------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------- |
@@ -21,15 +23,17 @@
 | **Rest Parameters** | Diferencia claramente rest de spread, explica casos de uso           | Entiende rest parameters pero confunde ocasionalmente con spread | Conoce la sintaxis pero no domina aplicaciones                | No distingue rest de spread |
 | **Array Methods**   | Domina map, filter, reduce y explica cuándo usar cada uno            | Usa correctamente map y filter, tiene dudas con reduce           | Conoce los métodos básicamente pero no sabe cuándo aplicarlos | No comprende los métodos    |
 
-**Total Conocimiento: ___ / 30 puntos**
+> Usa estos criterios para autoevaluación antes de comenzar el proyecto.
 
 ---
 
-## 💪 Evidencia de Desempeño (40 puntos)
+## 💪 Ejercicios de Práctica (No se entregan)
 
-### Ejercicios Prácticos
+> **Importante**: Los ejercicios prácticos son materiales de aprendizaje guiados que te preparan para el proyecto. **No se entregan de forma separada**. Úsalos para practicar antes de hacer el proyecto.
 
-#### Ejercicio 01: Spread y Rest (10 puntos)
+### Ejercicios Guiados (Práctica)
+
+#### Ejercicio 01: Spread y Rest (Práctica)
 
 | Criterio            | Puntos | Descripción                                             |
 | ------------------- | ------ | ------------------------------------------------------- |
@@ -69,9 +73,11 @@
 
 ---
 
-## 📦 Evidencia de Producto (30 puntos)
+## 📦 Proyecto: Gestor de Tareas (100%)
 
-### Proyecto: Gestor de Tareas
+> **Único Entregable**: Este proyecto es la única entrega requerida para aprobar la semana. Debe demostrar tu dominio de todos los conceptos aprendidos.
+
+### Evaluación del Proyecto
 
 | Criterio          | Excelente<br>(9-10)                                                              | Bueno<br>(7-8)                                               | Suficiente<br>(5-6)                                     | Insuficiente<br>(0-4)                       |
 | ----------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------- |

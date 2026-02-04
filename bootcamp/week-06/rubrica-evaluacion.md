@@ -1,8 +1,21 @@
 # 📊 Rúbrica de Evaluación - Week 06: Strings y RegExp Modernos
 
-## 🎯 Competencias a Evaluar
+## 🎯 Distribución de Evidencias
 
-### 1. Conocimiento (30%) 🧠
+| Tipo de Evidencia | Peso     | Puntaje Mínimo |
+| ----------------- | -------- | -------------- |
+| 📦 Producto       | 100%     | 70/100 (70%)   |
+| **TOTAL**         | **100%** | **70/100**     |
+
+> **Nota**: Ejercicios prácticos no se entregan de forma separada.
+
+---
+
+## 🧠 Material de Conocimiento (No se entrega)
+
+> **Importante**: Autoevaluación. Tu comprensión se evalúa en el proyecto.
+
+### Autoevaluación de Conocimiento
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|
@@ -11,7 +24,11 @@
 | **RegExp Sintaxis** | Domina sintaxis completa y flags | Conoce sintaxis básica y principales flags | Crea patrones simples | No comprende la sintaxis |
 | **Patrones Comunes** | Conoce y aplica patrones de validación | Aplica patrones con ayuda de referencias | Reconoce patrones básicos | No puede crear patrones |
 
-### 2. Desempeño (40%) 💪
+## 💪 Ejercicios de Práctica (No se entregan)
+
+> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
+
+### Autoevaluación de Prácticas
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|
@@ -20,7 +37,11 @@
 | **Ejercicio 03** | Crea RegExp complejos correctamente | Crea RegExp con patrones múltiples | Crea RegExp simples | No puede crear RegExp |
 | **Ejercicio 04** | Usa matchAll con grupos eficientemente | Usa matchAll correctamente | Extrae datos básicos | No extrae datos |
 
-### 3. Producto (30%) 📦
+## 📦 Proyecto: Validador de Formularios (100%)
+
+> **Único Entregable**: Este proyecto es la única entrega requerida.
+
+### Evaluación del Proyecto
 
 | Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
 |----------|------------------|-------------|------------------|---------------------|
