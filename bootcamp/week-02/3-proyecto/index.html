@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- TODO: Cambia el título según tu dominio -->
+  <title>Gestor de Colección | Tu Dominio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!--
+      ============================================
+      NOTA PARA EL APRENDIZ:
+      ============================================
+      Este HTML es una plantilla genérica.
+      Debes adaptarlo a tu dominio asignado:
+
+      1. Cambia todos los textos de "Elemento" a tu entidad
+      2. Cambia las categorías por las de tu dominio
+      3. Agrega campos adicionales si tu dominio lo requiere
+      4. Cambia emojis para que sean coherentes con tu dominio
+
+      EJEMPLO (Planetario - NO es un dominio asignable):
+      - "Elementos" → "Cuerpos Celestes"
+      - Categorías: Planeta, Estrella, Asteroide, etc.
+      ============================================
+    -->
+
+    <!-- Header -->
+    <header class="header">
+      <!-- TODO: Cambia el título y emoji según tu dominio -->
+      <h1>📦 Gestor de Colección</h1>
+      <p class="subtitle">Adaptado a tu dominio asignado</p>
+      <div class="stats-summary" id="stats-summary">
+        <span class="stat">Total: <strong id="stat-total">0</strong></span>
+        <!-- TODO: Cambia "Activos/Inactivos" por términos de tu dominio -->
+        <span class="stat">Activos: <strong id="stat-active">0</strong></span>
+        <span class="stat">Inactivos: <strong id="stat-inactive">0</strong></span>
+      </div>
+    </header>
+
+    <!-- Item Form -->
+    <section class="form-section">
+      <!-- TODO: Cambia "Elemento" por tu entidad -->
+      <h2 id="form-title">➕ Nuevo Elemento</h2>
+      <form id="item-form" class="item-form">
+        <input type="hidden" id="item-id" value="">
+
+        <div class="form-group">
+          <!-- TODO: Cambia el label y placeholder -->
+          <label for="item-name">Nombre *</label>
+          <input
+            type="text"
+            id="item-name"
+            placeholder="Nombre del elemento"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="item-description">Descripción</label>
+          <textarea
+            id="item-description"
+            rows="3"
+            placeholder="Detalles adicionales (opcional)"
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <!-- TODO: Cambia las categorías según tu dominio -->
+            <label for="item-category">Categoría</label>
+            <select id="item-category">
+              <!--
+                EJEMPLO Planetario:
+                <option value="planet">🪐 Planeta</option>
+                <option value="star">⭐ Estrella</option>
+                <option value="asteroid">☄️ Asteroide</option>
+              -->
+              <option value="category1">🔹 Categoría 1</option>
+              <option value="category2">🔸 Categoría 2</option>
+              <option value="category3">🔷 Categoría 3</option>
+              <option value="other">📌 Otro</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <!-- TODO: Opcionalmente renombra "Prioridad" según tu dominio -->
+            <label for="item-priority">Prioridad/Nivel</label>
+            <select id="item-priority">
+              <option value="low">🟢 Baja</option>
+              <option value="medium" selected>🟡 Media</option>
+              <option value="high">🔴 Alta</option>
+            </select>
+          </div>
+        </div>
+
+        <!--
+          TODO: Agrega campos adicionales específicos de tu dominio
+          EJEMPLO Planetario:
+          <div class="form-group">
+            <label for="item-magnitude">Magnitud</label>
+            <input type="number" id="item-magnitude" step="0.1">
+          </div>
+        -->
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submit-btn">
+            Crear
+          </button>
+          <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Filters & Search -->
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="filter-status">Estado:</label>
+          <select id="filter-status">
+            <option value="all">Todos</option>
+            <!-- TODO: Cambia los términos según tu dominio -->
+            <option value="active">Activos</option>
+            <option value="inactive">Inactivos</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-category">Categoría:</label>
+          <select id="filter-category">
+            <option value="all">Todas</option>
+            <!-- TODO: Repite las mismas categorías del formulario -->
+            <option value="category1">Categoría 1</option>
+            <option value="category2">Categoría 2</option>
+            <option value="category3">Categoría 3</option>
+            <option value="other">Otro</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-priority">Prioridad:</label>
+          <select id="filter-priority">
+            <option value="all">Todas</option>
+            <option value="high">Alta</option>
+            <option value="medium">Media</option>
+            <option value="low">Baja</option>
+          </select>
+        </div>
+
+        <div class="filter-group search-group">
+          <label for="search-input">Buscar:</label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar elementos..."
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Item List -->
+    <section class="items-section">
+      <div class="items-header">
+        <!-- TODO: Cambia el título -->
+        <h2>📝 Lista de Elementos</h2>
+        <button class="btn btn-outline" id="clear-inactive">
+          🗑️ Limpiar Inactivos
+        </button>
+      </div>
+
+      <div id="item-list" class="item-list">
+        <!-- Los elementos se renderizarán aquí con JavaScript -->
+      </div>
+
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay elementos que mostrar</p>
+        <p class="empty-state-hint">Crea tu primer elemento usando el formulario arriba</p>
+      </div>
+    </section>
+
+    <!-- Detailed Stats -->
+    <section class="detailed-stats">
+      <h3>📊 Estadísticas Detalladas</h3>
+      <div id="stats-details" class="stats-grid">
+        <!-- Las estadísticas se renderizarán aquí con JavaScript -->
+      </div>
+    </section>
+  </div>
+
+  <!-- Script principal -->
+  <script src="starter/script.js"></script>
+</body>
+</html>
