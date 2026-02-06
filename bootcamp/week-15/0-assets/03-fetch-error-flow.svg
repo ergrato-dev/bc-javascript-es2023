@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 500">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 18px; font-weight: 600; }
+      .label { fill: #f0f6fc; font-family: system-ui, sans-serif; font-size: 13px; }
+      .sublabel { fill: #8b949e; font-family: system-ui, sans-serif; font-size: 11px; }
+      .code { fill: #79c0ff; font-family: monospace; font-size: 11px; }
+      .box-start { fill: #238636; stroke: #3fb950; stroke-width: 2; }
+      .box-decision { fill: #9e6a03; stroke: #d29922; stroke-width: 2; }
+      .box-error { fill: #da3633; stroke: #f85149; stroke-width: 2; }
+      .box-success { fill: #1f6feb; stroke: #58a6ff; stroke-width: 2; }
+      .arrow { fill: none; stroke: #8b949e; stroke-width: 2; }
+      .arrow-head { fill: #8b949e; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="750" height="500"/>
+
+  <!-- Title -->
+  <text class="title" x="375" y="30" text-anchor="middle">Flujo de Manejo de Errores en Fetch</text>
+
+  <!-- Start: fetch() -->
+  <rect class="box-start" x="300" y="50" width="150" height="40" rx="20"/>
+  <text class="label" x="375" y="75" text-anchor="middle" font-weight="600">fetch(url)</text>
+
+  <!-- Arrow down -->
+  <line class="arrow" x1="375" y1="90" x2="375" y2="120"/>
+  <polygon class="arrow-head" points="375,120 370,110 380,110"/>
+
+  <!-- Decision 1: Network Error? -->
+  <polygon class="box-decision" points="375,125 475,165 375,205 275,165"/>
+  <text class="label" x="375" y="162" text-anchor="middle" font-size="11">Error de</text>
+  <text class="label" x="375" y="175" text-anchor="middle" font-size="11">red?</text>
+
+  <!-- YES: Network Error -->
+  <line class="arrow" x1="275" y1="165" x2="150" y2="165"/>
+  <polygon class="arrow-head" points="150,165 160,160 160,170"/>
+  <text class="sublabel" x="210" y="155">Sí</text>
+
+  <rect class="box-error" x="50" y="140" width="100" height="50" rx="6"/>
+  <text class="label" x="100" y="162" text-anchor="middle" font-size="11">TypeError:</text>
+  <text class="label" x="100" y="178" text-anchor="middle" font-size="11">Failed to fetch</text>
+
+  <!-- Arrow to catch -->
+  <line class="arrow" x1="100" y1="190" x2="100" y2="420"/>
+  <polygon class="arrow-head" points="100,420 95,410 105,410"/>
+
+  <!-- NO: Got Response -->
+  <line class="arrow" x1="375" y1="205" x2="375" y2="240"/>
+  <polygon class="arrow-head" points="375,240 370,230 380,230"/>
+  <text class="sublabel" x="385" y="222">No</text>
+
+  <!-- Response received -->
+  <rect class="box-success" x="300" y="240" width="150" height="40" rx="6"/>
+  <text class="label" x="375" y="265" text-anchor="middle">Response recibido</text>
+
+  <!-- Arrow down -->
+  <line class="arrow" x1="375" y1="280" x2="375" y2="310"/>
+  <polygon class="arrow-head" points="375,310 370,300 380,300"/>
+
+  <!-- Decision 2: response.ok? -->
+  <polygon class="box-decision" points="375,315 475,355 375,395 275,355"/>
+  <text class="label" x="375" y="352" text-anchor="middle" font-size="11">response.ok?</text>
+  <text class="sublabel" x="375" y="367" text-anchor="middle" font-size="10">(status 200-299)</text>
+
+  <!-- NO: HTTP Error -->
+  <line class="arrow" x1="475" y1="355" x2="600" y2="355"/>
+  <polygon class="arrow-head" points="600,355 590,350 590,360"/>
+  <text class="sublabel" x="535" y="345">No</text>
+
+  <rect class="box-error" x="600" y="320" width="130" height="70" rx="6"/>
+  <text class="label" x="665" y="345" text-anchor="middle" font-size="11">HTTP Error</text>
+  <text class="sublabel" x="665" y="362" text-anchor="middle">status: 404, 500...</text>
+  <text class="code" x="665" y="380" text-anchor="middle" font-size="10">throw new Error()</text>
+
+  <!-- Arrow to catch -->
+  <line class="arrow" x1="665" y1="390" x2="665" y2="430"/>
+  <line class="arrow" x1="665" y1="430" x2="150" y2="430"/>
+  <polygon class="arrow-head" points="150,430 160,425 160,435"/>
+
+  <!-- YES: Success -->
+  <line class="arrow" x1="375" y1="395" x2="375" y2="440"/>
+  <polygon class="arrow-head" points="375,440 370,430 380,430"/>
+  <text class="sublabel" x="385" y="415">Sí</text>
+
+  <!-- Success box -->
+  <rect class="box-success" x="300" y="440" width="150" height="40" rx="6"/>
+  <text class="label" x="375" y="460" text-anchor="middle" font-size="11">Procesar datos</text>
+  <text class="code" x="375" y="475" text-anchor="middle" font-size="10">await response.json()</text>
+
+  <!-- Catch block -->
+  <rect class="box-error" x="50" y="420" width="100" height="60" rx="6"/>
+  <text class="label" x="100" y="442" text-anchor="middle" font-size="11">catch (error)</text>
+  <text class="sublabel" x="100" y="458" text-anchor="middle" font-size="10">Manejar error</text>
+  <text class="sublabel" x="100" y="472" text-anchor="middle" font-size="10">Mostrar mensaje</text>
+
+  <!-- Legend -->
+  <rect fill="#238636" x="520" y="60" width="12" height="12" rx="2"/>
+  <text class="sublabel" x="538" y="70">Inicio</text>
+
+  <rect fill="#9e6a03" x="520" y="80" width="12" height="12" rx="2"/>
+  <text class="sublabel" x="538" y="90">Decisión</text>
+
+  <rect fill="#da3633" x="520" y="100" width="12" height="12" rx="2"/>
+  <text class="sublabel" x="538" y="110">Error</text>
+
+  <rect fill="#1f6feb" x="520" y="120" width="12" height="12" rx="2"/>
+  <text class="sublabel" x="538" y="130">Éxito</text>
+
+  <!-- Important note -->
+  <rect fill="#21262d" x="520" y="150" width="200" height="60" rx="6"/>
+  <text class="sublabel" x="620" y="170" text-anchor="middle">⚠️ IMPORTANTE:</text>
+  <text class="sublabel" x="620" y="185" text-anchor="middle">fetch() solo rechaza</text>
+  <text class="sublabel" x="620" y="200" text-anchor="middle">por errores de RED</text>
+</svg>
