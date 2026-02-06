@@ -16,13 +16,13 @@ console.log('--- Paso 1: const Básico ---');
 // Usa const por defecto para todo
 // Descomenta las siguientes líneas:
 
-// const appName = 'Mi Aplicación';
-// const version = '1.0.0';
-// const maxUsers = 100;
+const appName = 'Mi Aplicación';
+const version = '1.0.0';
+const maxUsers = 100;
 //
-// console.log('Nombre:', appName);
-// console.log('Versión:', version);
-// console.log('Máximo usuarios:', maxUsers);
+console.log('Nombre:', appName);
+console.log('Versión:', version);
+console.log('Máximo usuarios:', maxUsers);
 //
 // // Esto daría error (descomenta para probar):
 // // appName = 'Otro Nombre'; // TypeError: Assignment to constant variable
