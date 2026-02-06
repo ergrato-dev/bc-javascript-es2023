@@ -11,7 +11,13 @@ Al finalizar este tema, serás capaz de:
 
 ---
 
-## 📋 Contenido
+## � Diagrama: Flujo de try/catch/finally
+
+![Flujo try/catch/finally](../0-assets/03-try-catch-finally.svg)
+
+---
+
+## �📋 Contenido
 
 ### 1. try/catch en funciones async
 

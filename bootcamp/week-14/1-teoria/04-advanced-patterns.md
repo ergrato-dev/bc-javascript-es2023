@@ -17,6 +17,10 @@ Al finalizar este tema, serás capaz de:
 
 Entender cuándo usar cada enfoque es crucial para el rendimiento:
 
+#### 📊 Diagrama: Comparación de tiempos
+
+![Secuencial vs Paralelo](../0-assets/02-sequential-vs-parallel.svg)
+
 ```javascript
 // ============================================
 // ❌ SECUENCIAL - Una operación espera a la otra

@@ -127,6 +127,10 @@ async function noReturn() {
 noReturn().then(value => console.log(value)); // undefined
 ```
 
+#### 📊 Diagrama: Cómo async envuelve valores en Promise
+
+![Retorno de función async](../0-assets/01-async-function-return.svg)
+
 ---
 
 ### 4. Comparación: Promises vs Async
