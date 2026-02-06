@@ -259,6 +259,12 @@ const getPost = async (id) => {
 
 ---
 
+## 📊 Diagrama: Flujo Request → Response
+
+![Fetch Request Response](../0-assets/01-fetch-request-response.svg)
+
+---
+
 ## ✅ Checklist de Aprendizaje
 
 - [ ] Entiendo que fetch() retorna una Promise
