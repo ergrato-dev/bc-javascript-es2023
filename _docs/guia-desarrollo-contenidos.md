@@ -157,36 +157,159 @@ const result = null; // TODO: Implementar
 
 ---
 
-### 6️⃣ Proyecto (opcional, según semana)
+### 6️⃣ Proyecto (ÚNICO ENTREGABLE OBLIGATORIO)
 
 **Carpeta**: `bootcamp/week-XX/3-proyecto/`
 
+> **🎯 ÚNICO ENTREGABLE**: El proyecto es el **único entregable obligatorio** de cada semana. Las prácticas y teoría son materiales de estudio que preparan para este proyecto.
+
 **Estructura**:
 ```
-proyecto-nombre/
-├── README.md          # Instrucciones del proyecto
+3-proyecto/
+├── README.md          # Instrucciones genéricas del proyecto
+├── index.html         # Estructura HTML (si aplica)
+├── styles.css         # Estilos CSS (si aplica)
 ├── starter/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js     # Con TODOs para implementar
+│   └── script.js      # Con TODOs para implementar
 └── solution/
-    └── ...           # Solución completa
+    └── script.js      # Solución completa (excluida de GitHub)
 ```
 
-**Formato con TODOs** (solo en proyectos):
+#### 🏛️ Política de Dominios Únicos (Anticopia)
+
+**Cada aprendiz recibe un dominio único asignado por el instructor al inicio del trimestre:**
+
+- 📖 Biblioteca
+- 💊 Farmacia
+- 🏋️ Gimnasio
+- 🏫 Escuela
+- 🏬 Tienda de mascotas
+- 🏪 Restaurante
+- 🏭 Banco
+- 🚕 Agencia de taxis
+- 🏥 Hospital
+- 🎥 Cine
+- 🏞️ Hotel
+- ✈️ Agencia de viajes
+- 🏎️ Concesionario de autos
+- 👗 Tienda de ropa
+- 🛠️ Taller mecánico
+- Y otros dominios únicos según cantidad de aprendices
+
+**Objetivo**:
+
+- Prevenir copia entre estudiantes
+- Fomentar implementaciones originales
+- Aplicar conceptos generales a contextos específicos
+- Desarrollar capacidad de abstracción y adaptación
+
+**El instructor debe:**
+
+1. Asignar un dominio único a cada aprendiz al inicio del bootcamp
+2. Mantener un registro de dominios asignados
+3. No repetir dominios en el mismo grupo
+4. Validar que las implementaciones sean coherentes con el dominio
+
+**⚠️ IMPORTANTE para desarrollo de contenidos:**
+
+- Los ejemplos en los proyectos **NO deben usar dominios de la lista anterior**
+- Usar ejemplos genéricos o dominios diferentes (ej: Museo, Planetario, Acuario)
+- Esto evita "regalar" soluciones a aprendices con esos dominios asignados
+
+#### 📋 Formato de Proyecto (con TODOs)
+
+A diferencia de los ejercicios, el proyecto SÍ usa TODOs para que el estudiante implemente desde cero.
+
+**Las instrucciones de los proyectos deben ser genéricas y adaptables a cualquier dominio.**
+
+**Ejemplo - starter/script.js:**
 ```javascript
+// ============================================
+// COMPONENTE: ItemCard
+// Muestra información de un elemento del dominio
+// ============================================
+
+// NOTA PARA EL APRENDIZ:
+// Adapta este componente a tu dominio asignado.
+// Ejemplos:
+// - Biblioteca: BookCard (libro)
+// - Farmacia: MedicineCard (medicamento)
+// - Gimnasio: MemberCard (miembro)
+// - Restaurante: DishCard (platillo)
+
 /**
- * Descripción de la función
- * @param {tipo} param - Descripción
- * @returns {tipo} Descripción
+ * Objeto que representa un elemento del dominio
+ * @typedef {Object} Item
+ * @property {number} id - Identificador único
+ * @property {string} name - Nombre del elemento
+ * @property {string} description - Descripción del elemento
  */
-const nombreFuncion = param => {
-  // TODO: Implementar lógica
-  return null;
+
+// TODO: Agregar propiedades específicas de tu dominio
+// Ejemplo (Biblioteca): author, isbn, available
+// Ejemplo (Farmacia): price, stock, laboratory
+
+const itemData = {
+  // TODO: Definir las propiedades de tu elemento
+};
+
+/**
+ * Renderiza la información de un elemento del dominio
+ * @param {Item} item - Datos del elemento
+ * @returns {string} HTML del elemento
+ */
+const renderItem = item => {
+  // TODO: Implementar usando template literals
+  // 1. Mostrar información relevante del elemento
+  // 2. Aplicar destructuring para extraer propiedades
+  // 3. Retornar HTML generado con template literals
+  return '';
 };
 ```
 
-**Propósito**: Integrar todos los conocimientos de la semana en un proyecto funcional.
+**El README.md del proyecto debe incluir:**
+```markdown
+## 🏛️ Proyecto Semanal: [Título Genérico]
+
+> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+
+### 🎯 Objetivo
+
+Implementar [concepto aprendido] aplicado a tu dominio asignado.
+
+### 📋 Tu Dominio Asignado
+
+**Dominio**: [El instructor te asignará tu dominio al inicio del trimestre]
+
+### ✅ Requisitos Funcionales (Adaptables a tu dominio)
+
+1. Crear estructura de datos para tu dominio
+2. Implementar funciones de renderizado
+3. Agregar interactividad básica
+4. etc.
+
+### 💡 Ejemplos de Adaptación por Dominio
+
+- **Biblioteca**: Gestionar libros, autores, préstamos
+- **Farmacia**: Gestionar medicamentos, ventas, inventario
+- **Gimnasio**: Gestionar miembros, rutinas, asistencias
+- **Restaurante**: Gestionar platillos, mesas, pedidos
+
+### 🛠️ Entregables
+
+1. Código funcional adaptado a tu dominio
+2. Documentación README con descripción de tu dominio
+3. Screenshots de la aplicación funcionando
+```
+
+El estudiante debe:
+
+1. Leer las instrucciones en README.md
+2. Adaptar los conceptos genéricos a su dominio específico
+3. Completar cada TODO con implementación contextualizada
+4. Usar lo aprendido en teoría y prácticas guiadas
+
+**Propósito**: Integrar todos los conocimientos de la semana en un proyecto funcional adaptado al dominio personal.
 
 ---
 

@@ -1,239 +1,370 @@
 /* ============================================
-   WEEK 01 PROJECT - INTERACTIVE BUSINESS CARD
-   Student Starter File
+   PROYECTO SEMANA 01 - FICHA DE INFORMACIÓN INTERACTIVA
+   Archivo inicial para el aprendiz
    ============================================
 
-   INSTRUCTIONS:
-   1. Complete all TODO sections marked below
-   2. Use ONLY ES2023 features learned this week:
-      - const/let (never var)
+   INSTRUCCIONES:
+   1. Lee el README.md del proyecto para entender los requisitos
+   2. Adapta TODOS los TODOs a tu dominio asignado por el instructor
+   3. Usa SOLO características ES2023 aprendidas esta semana:
+      - const/let (nunca var)
       - Template literals
       - Arrow functions
       - Destructuring
-   3. Test your code frequently in the browser
-   4. Compare with solution only after trying yourself
+   4. Prueba tu código frecuentemente en el navegador
+   5. Los comentarios deben estar en español
+   6. La nomenclatura técnica (variables, funciones) en inglés
+
+   NOTA IMPORTANTE:
+   Este archivo es una PLANTILLA GENÉRICA.
+   Debes adaptarlo completamente a tu dominio asignado.
+   NO copies la implementación de otro compañero.
 
    ============================================ */
 
 // ============================================
-// TODO 1: Create the user data object
+// TODO 1: Crear el objeto de datos de tu dominio
 // ============================================
-// Create a constant object called 'userData' with the following properties:
-// - name (string): Your full name
-// - title (string): Your job title or role
-// - location (string): Your city and country
-// - email (string): Your email address
-// - phone (string): Your phone number
-// - bio (string): A short description about yourself (2-3 sentences)
-// - avatar (string): URL to your profile image (you can use https://i.pravatar.cc/150?img=X where X is 1-70)
-// - skills (array): Array of skill objects, each with:
-//   - name (string): Skill name
-//   - level (number): 1-100
-//   - category (string): 'frontend', 'backend', 'tools', etc.
-// - social (array): Array of social media objects, each with:
-//   - platform (string): Platform name
-//   - url (string): Your profile URL
-//   - icon (string): Emoji icon
-// - stats (object): Statistics with:
-//   - projects (number): Number of projects completed
-//   - experience (number): Years of experience
-//   - clients (number): Number of clients
-//   - coffee (number): Cups of coffee consumed
+// Crea un objeto constante con los datos de la entidad principal de tu dominio.
+// Consulta con tu instructor cuál es tu dominio asignado.
+//
+// Tu objeto debe incluir:
+// - Propiedades básicas (strings, numbers, booleans)
+// - Un array de elementos relacionados (cada uno con name/level o similar)
+// - Un objeto de estadísticas o contadores
+//
+// EJEMPLO (Planetario - NO es un dominio asignable):
+// const exhibitData = {
+//   name: 'Sistema Solar Interactivo',
+//   description: 'Exhibición inmersiva del sistema solar',
+//   code: 'EXH-001',
+//   location: { room: 'Sala Principal', floor: 2 },
+//   features: [
+//     { name: 'Proyección 360°', level: 95 },
+//     { name: 'Audio envolvente', level: 88 }
+//   ],
+//   stats: { visitors: 15000, rating: 4.8, duration: 45 }
+// };
 
-const userData = {
-  // TODO: Add your data here
+const entityData = {
+  // TODO: Reemplaza 'entity' con el nombre de tu entidad en inglés
+  // TODO: Agrega las propiedades específicas de tu dominio
+
+  // Propiedades básicas (adapta a tu dominio)
+  // name: '',
+  // description: '',
+  // identifier: '', // código, id, número, etc.
+
+  // Propiedad de contacto o ubicación (si aplica)
+  // contact: {
+  //   email: '',
+  //   phone: '',
+  //   location: ''
+  // },
+
+  // Array de elementos relacionados (adapta a tu dominio)
+  // Ejemplos: skills, ingredients, services, features, amenities
+  // items: [
+  //   { name: '', level: 0, category: '' },
+  //   { name: '', level: 0, category: '' }
+  // ],
+
+  // Array de enlaces o referencias (si aplica)
+  // links: [
+  //   { platform: '', url: '', icon: '' }
+  // ],
+
+  // Estadísticas o contadores (adapta a tu dominio)
+  // stats: {
+  //   total: 0,
+  //   active: 0,
+  //   rating: 0,
+  //   custom: 0  // renombra según tu dominio
+  // }
 };
 
 // ============================================
-// TODO 2: DOM Element References
+// TODO 2: Referencias a elementos del DOM
 // ============================================
-// Get references to all necessary DOM elements using const
-// Hint: Use document.getElementById() or document.querySelector()
-// You'll need references for:
-// - userName, userTitle, userLocation, userEmail, userPhone
-// - userBio, avatarImg, skillsList, socialLinks, stats
-// - themeToggle, copyEmailBtn, toggleSkills, toast, toastMessage
+// Obtén referencias a todos los elementos del DOM necesarios usando const.
+// Usa document.getElementById() o document.querySelector()
+//
+// Necesitarás referencias para:
+// - Elementos de información principal (nombre, descripción, etc.)
+// - Contenedor de la lista de items
+// - Contenedor de estadísticas
+// - Botones de interacción (tema, copiar, mostrar/ocultar)
+// - Elementos de notificación (toast)
 
-// TODO: Add your DOM references here
+// TODO: Agrega tus referencias al DOM aquí
+// const entityName = document.getElementById('entity-name');
+// const entityDescription = document.getElementById('entity-description');
+// const itemsList = document.getElementById('items-list');
+// const statsContainer = document.getElementById('stats');
+// const themeToggle = document.getElementById('theme-toggle');
+// const copyBtn = document.getElementById('copy-btn');
+// const toggleItemsBtn = document.getElementById('toggle-items');
+// const toast = document.getElementById('toast');
+// const toastMessage = document.getElementById('toast-message');
 
 // ============================================
-// TODO 3: Render Basic Information
+// TODO 3: Renderizar información básica
 // ============================================
-// Create an arrow function called 'renderBasicInfo' that:
-// 1. Destructures name, title, location, email, phone, bio, avatar from userData
-// 2. Updates the corresponding DOM elements with template literals
-// 3. Sets the avatar image src
+// Crea una arrow function llamada 'renderBasicInfo' que:
+// 1. Use destructuring para extraer propiedades de entityData
+// 2. Actualice los elementos del DOM con template literals
+// 3. Muestre la información principal de tu entidad
 
 const renderBasicInfo = () => {
-  // TODO: Destructure userData properties
-  // TODO: Update DOM elements with the data
+  // TODO: Usa destructuring para extraer las propiedades
+  // const { name, description, contact: { email, phone } } = entityData;
+
+  // TODO: Actualiza los elementos del DOM usando template literals
+  // entityName.textContent = name;
+  // entityDescription.innerHTML = `<p>${description}</p>`;
 };
 
 // ============================================
-// TODO 4: Render Skills
+// TODO 4: Renderizar lista de elementos
 // ============================================
-// Create an arrow function called 'renderSkills' that:
-// 1. Takes a parameter 'showAll' (default false)
-// 2. Filters skills to show only first 4 if showAll is false
-// 3. Uses map() to create HTML for each skill
-// 4. Uses template literals to generate the HTML structure
-// 5. Updates skillsList.innerHTML with the generated HTML
+// Crea una arrow function llamada 'renderItems' que:
+// 1. Reciba un parámetro 'showAll' (por defecto false)
+// 2. Filtre los items para mostrar solo los primeros 4 si showAll es false
+// 3. Use map() para crear el HTML de cada item
+// 4. Use template literals para generar la estructura HTML
+// 5. Actualice el innerHTML del contenedor de items
 //
-// HTML structure for each skill:
-// <div class="skill-item">
-//   <div class="skill-name">{name}</div>
-//   <div class="skill-level">
+// Estructura HTML sugerida para cada item:
+// <div class="item">
+//   <div class="item-name">{name}</div>
+//   <div class="item-level">
 //     <span>{level}%</span>
-//     <div class="skill-bar">
-//       <div class="skill-bar-fill" style="width: {level}%"></div>
+//     <div class="level-bar">
+//       <div class="level-fill" style="width: {level}%"></div>
 //     </div>
 //   </div>
 // </div>
 
-const renderSkills = (showAll = false) => {
-  // TODO: Implement skill rendering logic
+const renderItems = (showAll = false) => {
+  // TODO: Extrae el array de items de entityData
+  // const { items } = entityData;
+
+  // TODO: Filtra los items si showAll es false
+  // const itemsToShow = showAll ? items : items.slice(0, 4);
+
+  // TODO: Usa map() para generar el HTML de cada item
+  // const itemsHtml = itemsToShow.map(item => {
+  //   const { name, level } = item;
+  //   return `
+  //     <div class="item">
+  //       <div class="item-name">${name}</div>
+  //       <div class="item-level">
+  //         <span>${level}%</span>
+  //         <div class="level-bar">
+  //           <div class="level-fill" style="width: ${level}%"></div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   `;
+  // }).join('');
+
+  // TODO: Actualiza el contenedor de items
+  // itemsList.innerHTML = itemsHtml;
 };
 
 // ============================================
-// TODO 5: Render Social Links
+// TODO 5: Renderizar enlaces/referencias
 // ============================================
-// Create an arrow function called 'renderSocialLinks' that:
-// 1. Destructures the social array from userData
-// 2. Uses map() to create HTML for each social link
-// 3. Uses template literals to generate anchor tags
-// 4. Updates socialLinks.innerHTML
-//
-// HTML structure for each link:
-// <a href="{url}" class="social-link" target="_blank" rel="noopener noreferrer">
-//   <span>{icon}</span>
-//   <span>{platform}</span>
-// </a>
+// Crea una arrow function llamada 'renderLinks' que:
+// 1. Use destructuring para extraer el array de links de entityData
+// 2. Use map() para crear HTML de cada enlace
+// 3. Use template literals para generar etiquetas anchor
+// 4. Actualice el contenedor de links
 
-const renderSocialLinks = () => {
-  // TODO: Implement social links rendering
+const renderLinks = () => {
+  // TODO: Implementa el renderizado de enlaces
+  // Si tu dominio no tiene enlaces, adapta esta función para
+  // mostrar otra información relevante (categorías, tags, etc.)
 };
 
 // ============================================
-// TODO 6: Calculate and Render Statistics
+// TODO 6: Calcular y renderizar estadísticas
 // ============================================
-// Create an arrow function called 'renderStats' that:
-// 1. Destructures the stats object from userData
-// 2. Creates an array of stat objects with label and value
-// 3. Uses map() to generate HTML for each stat
-// 4. Uses template literals for the HTML structure
-// 5. Updates stats.innerHTML
+// Crea una arrow function llamada 'renderStats' que:
+// 1. Use destructuring para extraer el objeto stats de entityData
+// 2. Crea un array de objetos con label y value para cada estadística
+// 3. Use map() para generar HTML de cada estadística
+// 4. Use template literals para la estructura HTML
+// 5. Actualice el contenedor de stats
 //
-// HTML structure for each stat:
+// Estructura HTML sugerida para cada stat:
 // <div class="stat-item">
 //   <span class="stat-value">{value}</span>
 //   <span class="stat-label">{label}</span>
 // </div>
 
 const renderStats = () => {
-  // TODO: Implement statistics rendering
+  // TODO: Extrae las estadísticas de entityData
+  // const { stats } = entityData;
+
+  // TODO: Crea array con labels descriptivos en español
+  // const statsArray = [
+  //   { label: 'Total', value: stats.total },
+  //   { label: 'Activos', value: stats.active },
+  //   { label: 'Rating', value: stats.rating },
+  //   { label: 'Otro', value: stats.custom }
+  // ];
+
+  // TODO: Genera el HTML usando map()
+  // const statsHtml = statsArray.map(stat => `
+  //   <div class="stat-item">
+  //     <span class="stat-value">${stat.value}</span>
+  //     <span class="stat-label">${stat.label}</span>
+  //   </div>
+  // `).join('');
+
+  // TODO: Actualiza el contenedor
+  // statsContainer.innerHTML = statsHtml;
 };
 
 // ============================================
-// TODO 7: Theme Toggle Functionality
+// TODO 7: Funcionalidad de cambio de tema
 // ============================================
-// Create an arrow function called 'toggleTheme' that:
-// 1. Gets the current theme from document.documentElement.dataset.theme
-// 2. Calculates the new theme (if current is 'dark', new is 'light' and vice versa)
-// 3. Updates document.documentElement.dataset.theme
-// 4. Updates the theme icon (🌙 for light mode, ☀️ for dark mode)
-// 5. Saves the preference to localStorage
+// Crea una arrow function llamada 'toggleTheme' que:
+// 1. Obtenga el tema actual de document.documentElement.dataset.theme
+// 2. Calcule el nuevo tema (si es 'dark' cambia a 'light' y viceversa)
+// 3. Actualice document.documentElement.dataset.theme
+// 4. Actualice el ícono del botón (🌙 para modo claro, ☀️ para modo oscuro)
+// 5. (Opcional) Guarde la preferencia en localStorage
 //
-// Also create 'loadTheme' function to:
-// 1. Get saved theme from localStorage
-// 2. Apply it if it exists
+// También crea 'loadTheme' para:
+// 1. Obtener el tema guardado de localStorage
+// 2. Aplicarlo si existe
 
 const toggleTheme = () => {
-  // TODO: Implement theme toggle logic
+  // TODO: Implementa el cambio de tema
+  // const currentTheme = document.documentElement.dataset.theme;
+  // const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  // document.documentElement.dataset.theme = newTheme;
+
+  // TODO: Actualiza el ícono del botón
+  // themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+  // TODO: (Opcional) Guarda en localStorage
+  // localStorage.setItem('theme', newTheme);
 };
 
 const loadTheme = () => {
-  // TODO: Implement theme loading from localStorage
+  // TODO: Carga el tema desde localStorage
+  // const savedTheme = localStorage.getItem('theme') ?? 'light';
+  // document.documentElement.dataset.theme = savedTheme;
+  // themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 };
 
 // ============================================
-// TODO 8: Copy Email Functionality
+// TODO 8: Funcionalidad de copiar información
 // ============================================
-// Create an arrow function called 'copyEmail' that:
-// 1. Uses navigator.clipboard.writeText() to copy the email
-// 2. Shows a success toast notification
-// 3. Uses the showToast helper function
-//
-// Helper function to show toast (already implemented below)
+// Crea una arrow function llamada 'copyInfo' que:
+// 1. Construya un string con la información principal usando template literals
+// 2. Use navigator.clipboard.writeText() para copiar al portapapeles
+// 3. Muestre una notificación toast de éxito
+// 4. Use la función auxiliar showToast
 
-const copyEmail = () => {
-  // TODO: Implement email copy functionality
+const copyInfo = () => {
+  // TODO: Construye el texto a copiar
+  // const { name, description, contact } = entityData;
+  // const infoText = `
+  //   ${name}
+  //   ${description}
+  //   Contacto: ${contact?.email ?? 'No disponible'}
+  // `.trim();
+
+  // TODO: Copia al portapapeles
+  // navigator.clipboard.writeText(infoText);
+
+  // TODO: Muestra notificación
+  // showToast('¡Información copiada al portapapeles!');
 };
 
-// Helper function to show toast notifications
+// Función auxiliar para mostrar notificaciones toast
 const showToast = message => {
-  toastMessage.textContent = message;
-  toast.classList.add('show');
+  // toastMessage.textContent = message;
+  // toast.classList.add('show');
 
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 3000);
+  // setTimeout(() => {
+  //   toast.classList.remove('show');
+  // }, 3000);
 };
 
 // ============================================
-// TODO 9: Toggle Skills Visibility
+// TODO 9: Funcionalidad de mostrar/ocultar items
 // ============================================
-// Create an arrow function called 'handleToggleSkills' that:
-// 1. Keeps track of whether all skills are shown (use a variable)
-// 2. Toggles the visibility
-// 3. Calls renderSkills with the appropriate parameter
-// 4. Updates button text ("Show More" / "Show Less")
+// Crea una arrow function llamada 'handleToggleItems' que:
+// 1. Use una variable para rastrear si todos los items están visibles
+// 2. Alterne la visibilidad
+// 3. Llame a renderItems con el parámetro apropiado
+// 4. Actualice el texto del botón ("Mostrar más" / "Mostrar menos")
 
-let showingAllSkills = false;
+let showingAllItems = false;
 
-const handleToggleSkills = () => {
-  // TODO: Implement skills toggle logic
+const handleToggleItems = () => {
+  // TODO: Implementa la lógica de toggle
+  // showingAllItems = !showingAllItems;
+  // renderItems(showingAllItems);
+  // toggleItemsBtn.textContent = showingAllItems ? 'Mostrar menos' : 'Mostrar más';
 };
 
 // ============================================
 // TODO 10: Event Listeners
 // ============================================
-// Add event listeners for:
-// 1. Theme toggle button click -> toggleTheme
-// 2. Copy email button click -> copyEmail
-// 3. Toggle skills button click -> handleToggleSkills
+// Agrega event listeners para:
+// 1. Click en botón de tema -> toggleTheme
+// 2. Click en botón de copiar -> copyInfo
+// 3. Click en botón de toggle items -> handleToggleItems
 
-// TODO: Add event listeners here
+// TODO: Agrega los event listeners aquí
+// themeToggle.addEventListener('click', toggleTheme);
+// copyBtn.addEventListener('click', copyInfo);
+// toggleItemsBtn.addEventListener('click', handleToggleItems);
 
 // ============================================
-// TODO 11: Initialize the Application
+// TODO 11: Inicializar la aplicación
 // ============================================
-// Create an arrow function called 'init' that:
-// 1. Calls loadTheme()
-// 2. Calls renderBasicInfo()
-// 3. Calls renderSkills()
-// 4. Calls renderSocialLinks()
-// 5. Calls renderStats()
-// 6. Logs a success message to console
+// Crea una arrow function llamada 'init' que:
+// 1. Llame a loadTheme()
+// 2. Llame a renderBasicInfo()
+// 3. Llame a renderItems()
+// 4. Llame a renderLinks()
+// 5. Llame a renderStats()
+// 6. Muestre un mensaje de éxito en la consola
 
 const init = () => {
-  // TODO: Initialize all components
+  // TODO: Inicializa todos los componentes
+  // loadTheme();
+  // renderBasicInfo();
+  // renderItems();
+  // renderLinks();
+  // renderStats();
+  // console.log('✅ Aplicación inicializada correctamente');
 };
 
-// Call init when DOM is ready
+// Ejecuta init cuando el DOM esté listo
 init();
 
 // ============================================
-// TESTING CHECKLIST
+// CHECKLIST DE VERIFICACIÓN
 // ============================================
-// After completing all TODOs, verify:
-// ✓ All personal information displays correctly
-// ✓ Skills show with proper levels and bars
-// ✓ Social links work and open in new tabs
-// ✓ Statistics display correctly
-// ✓ Theme toggle switches between light/dark
-// ✓ Email copy button works and shows notification
-// ✓ Show More/Less skills button works
-// ✓ All features use ES2023 syntax (no var, no old functions)
-// ✓ Template literals used for all string interpolation
-// ✓ Arrow functions used throughout
-// ✓ Destructuring used where appropriate
+// Después de completar todos los TODOs, verifica:
+// ✓ La información de tu dominio se muestra correctamente
+// ✓ Los items muestran niveles/porcentajes con barras
+// ✓ Los enlaces/referencias funcionan y abren en nueva pestaña
+// ✓ Las estadísticas se muestran correctamente
+// ✓ El cambio de tema funciona (claro/oscuro)
+// ✓ El botón de copiar funciona y muestra notificación
+// ✓ El botón de mostrar más/menos funciona
+// ✓ Todo usa sintaxis ES2023 (sin var, sin funciones tradicionales)
+// ✓ Template literals para toda interpolación de strings
+// ✓ Arrow functions en todo el código
+// ✓ Destructuring usado donde corresponde
+// ✓ Comentarios en español
+// ✓ Nomenclatura técnica en inglés

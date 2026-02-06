@@ -178,35 +178,144 @@ const result = null; // TODO: Implementar
 - README.md con instrucciones claras
 - Código inicial o plantillas cuando sea apropiado
 - Criterios de evaluación específicos
+- **Política de Dominios Únicos**: Cada aprendiz trabaja sobre un dominio diferente
+- **Único entregable obligatorio** de cada semana
+
+#### 🏛️ Política de Dominios Únicos (Anticopia)
+
+**Cada aprendiz recibe un dominio único asignado por el instructor al inicio del trimestre:**
+
+- 📖 Biblioteca
+- 💊 Farmacia
+- 🏋️ Gimnasio
+- 🏫 Escuela
+- 🏬 Tienda de mascotas
+- 🏪 Restaurante
+- 🏭 Banco
+- 🚕 Agencia de taxis
+- 🏥 Hospital
+- 🎥 Cine
+- 🏞️ Hotel
+- ✈️ Agencia de viajes
+- 🏎️ Concesionario de autos
+- 👗 Tienda de ropa
+- 🛠️ Taller mecánico
+- Y otros dominios únicos según cantidad de aprendices
+
+**Objetivo**:
+
+- Prevenir copia entre estudiantes
+- Fomentar implementaciones originales
+- Aplicar conceptos generales a contextos específicos
+- Desarrollar capacidad de abstracción y adaptación
+
+**El instructor debe:**
+
+1. Asignar un dominio único a cada aprendiz al inicio del bootcamp
+2. Mantener un registro de dominios asignados
+3. No repetir dominios en el mismo grupo
+4. Validar que las implementaciones sean coherentes con el dominio
+
+**⚠️ IMPORTANTE para desarrollo de contenidos:**
+
+- Los ejemplos en los proyectos NO deben usar dominios de la lista anterior
+- Usar ejemplos genéricos o dominios diferentes (ej: Museo, Planetario, Acuario)
+- Esto evita "regalar" soluciones a aprendices con esos dominios asignados
 
 #### 📋 Formato de Proyecto (con TODOs)
 
-A diferencia de los ejercicios, el proyecto SÍ usa TODOs para que el estudiante implemente desde cero:
+A diferencia de los ejercicios, el proyecto SÍ usa TODOs para que el estudiante implemente desde cero.
 
-**starter/script.js:**
+**Las instrucciones de los proyectos deben ser genéricas y adaptables a cualquier dominio.**
+
+**Ejemplo - starter/script.js:**
 
 ```javascript
 // ============================================
-// FUNCIÓN: nombreFuncion
-// Descripción de lo que debe hacer
+// COMPONENTE: ItemCard
+// Muestra información de un elemento del dominio
 // ============================================
 
+// NOTA PARA EL APRENDIZ:
+// Adapta este componente a tu dominio asignado.
+// Ejemplos:
+// - Biblioteca: BookCard (libro)
+// - Farmacia: MedicineCard (medicamento)
+// - Gimnasio: MemberCard (miembro)
+// - Restaurante: DishCard (platillo)
+
 /**
- * Descripción de la función
- * @param {tipo} param - Descripción
- * @returns {tipo} Descripción
+ * Objeto que representa un elemento del dominio
+ * @typedef {Object} Item
+ * @property {number} id - Identificador único
+ * @property {string} name - Nombre del elemento
+ * @property {string} description - Descripción del elemento
  */
-const nombreFuncion = param => {
-  // TODO: Implementar lógica
-  return null;
+
+// TODO: Agregar propiedades específicas de tu dominio
+// Ejemplo (Biblioteca): author, isbn, available
+// Ejemplo (Farmacia): price, stock, laboratory
+
+const itemData = {
+  // TODO: Definir las propiedades de tu elemento
 };
+
+/**
+ * Renderiza la información de un elemento del dominio
+ * @param {Item} item - Datos del elemento
+ * @returns {string} HTML del elemento
+ */
+const renderItem = item => {
+  // TODO: Implementar usando template literals
+  // 1. Mostrar información relevante del elemento
+  // 2. Aplicar destructuring para extraer propiedades
+  // 3. Retornar HTML generado con template literals
+  return '';
+};
+```
+
+**El README.md del proyecto debe incluir:**
+
+```markdown
+## 🏛️ Proyecto Semanal: [Título Genérico]
+
+> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+
+### 🎯 Objetivo
+
+Implementar [concepto aprendido] aplicado a tu dominio asignado.
+
+### 📋 Tu Dominio Asignado
+
+**Dominio**: [El instructor te asignará tu dominio al inicio del trimestre]
+
+### ✅ Requisitos Funcionales (Adaptables a tu dominio)
+
+1. Crear estructura de datos para tu dominio
+2. Implementar funciones de renderizado
+3. Agregar interactividad básica
+4. etc.
+
+### 💡 Ejemplos de Adaptación por Dominio
+
+- **Biblioteca**: Gestionar libros, autores, préstamos
+- **Farmacia**: Gestionar medicamentos, ventas, inventario
+- **Gimnasio**: Gestionar miembros, rutinas, asistencias
+- **Restaurante**: Gestionar platillos, mesas, pedidos
+
+### 🛠️ Entregables
+
+1. Código funcional adaptado a tu dominio
+2. Documentación README con descripción de tu dominio
+3. Screenshots de la aplicación funcionando
 ```
 
 El estudiante debe:
 
 1. Leer las instrucciones en README.md
-2. Completar cada TODO con su propia implementación
-3. Usar lo aprendido en las prácticas guiadas
+2. Adaptar los conceptos genéricos a su dominio específico
+3. Completar cada TODO con implementación contextualizada
+4. Usar lo aprendido en teoría y prácticas guiadas
 
 ### 4. **Recursos** (4-recursos/)
 
@@ -386,33 +495,53 @@ Debe incluir:
 
 ## 🌐 Idioma y Nomenclatura
 
-### Código y Comentarios Técnicos
+### ⚠️ REGLA CRÍTICA: Inglés Técnico + Español Educativo
 
-- ✅ **Nomenclatura en inglés** (variables, funciones, clases)
-- ✅ **Comentarios de código en inglés**
-- ✅ Usar términos técnicos estándar de la industria
+**NOMENCLATURA TÉCNICA: SIEMPRE EN INGLÉS**
+
+- ✅ Variables, constantes, funciones
+- ✅ Clases y constructores
+- ✅ Nombres de archivos (.js, .css)
+- ✅ Propiedades de objetos
+- ✅ Clases CSS y IDs
+
+**COMENTARIOS Y DOCUMENTACIÓN: SIEMPRE EN ESPAÑOL**
+
+- ✅ Comentarios de código (`// comentario`)
+- ✅ Comentarios JSDoc (`/** @param */`)
+- ✅ READMEs y documentación
+- ✅ Mensajes de error y validación
+- ✅ Textos de interfaz (UI)
+- ✅ Explicaciones educativas
+
+### Ejemplos Correctos
 
 ```javascript
-// ✅ CORRECTO - inglés
+// ✅ CORRECTO - Nomenclatura en inglés, comentarios en español
 const getUserData = async userId => {
-  // Fetch user data from API
+  // Obtener datos del usuario desde la API
   const response = await fetch(`/api/users/${userId}`);
   return response.json();
 };
 
-// ❌ INCORRECTO - español en código
+// ❌ INCORRECTO - Nomenclatura en español
 const obtenerDatosUsuario = async idUsuario => {
-  // Obtener datos del usuario desde la API
+  // Fetch user data from API  <-- comentario en inglés también está mal
   const respuesta = await fetch(`/api/usuarios/${idUsuario}`);
   return respuesta.json();
 };
 ```
 
-### Documentación
+### Razón de Esta Convención
 
-- ✅ **Documentación en español** (READMEs, teoría, guías)
-- ✅ Explicaciones y tutoriales en español
-- ✅ Comentarios educativos en español cuando expliquen conceptos
+1. **Estándar de la industria**: El código profesional se escribe en inglés
+2. **Colaboración internacional**: Facilita trabajo con equipos globales
+3. **Librerías y frameworks**: JavaScript, React, etc. están en inglés
+4. **Búsquedas y documentación**: Stack Overflow, GitHub, docs oficiales
+5. **Educación bilingüe**: Aprender sintaxis en inglés + conceptos en español
+6. **Preparación laboral**: 99% de empresas requieren código en inglés
+
+### Ejemplos Adicionales
 
 ```javascript
 // ✅ CORRECTO - código en inglés, explicación en español
@@ -464,6 +593,8 @@ Cada semana incluye **tres tipos de evidencias**:
 - Mínimo **70%** en cada tipo de evidencia
 - Entrega puntual de proyectos
 - Código funcional y bien documentado
+- **Implementación coherente con el dominio asignado**
+- **Originalidad**: Sin copia de implementaciones de otros aprendices
 
 ---
 
@@ -472,6 +603,7 @@ Cada semana incluye **tres tipos de evidencias**:
 ### Estrategias Didácticas
 
 - **Aprendizaje Basado en Proyectos (ABP)**: Proyectos semanales integradores
+- **Dominios Únicos**: Cada aprendiz aplica conceptos a su dominio asignado
 - **Práctica Deliberada**: Ejercicios incrementales
 - **Coding Challenges**: Problemas del mundo real
 - **Code Review**: Revisión de código entre estudiantes

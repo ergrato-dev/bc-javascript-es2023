@@ -1,10 +1,10 @@
-# 🎨 Proyecto: Tarjeta de Presentación Interactiva
+# 🏛️ Proyecto Semanal: Ficha de Información Interactiva
 
 > **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la Semana 1. Debe demostrar tu dominio de todos los conceptos aprendidos.
 
 ## 🎯 Objetivos del Proyecto
 
-Crear una aplicación web interactiva que muestre una tarjeta de presentación personal, aplicando todos los conceptos aprendidos en la Semana 1:
+Crear una aplicación web interactiva que muestre una ficha de información de tu dominio asignado, aplicando todos los conceptos aprendidos en la Semana 1:
 
 - ✅ Variables modernas (`const` y `let`)
 - ✅ Template literals para contenido dinámico
@@ -13,43 +13,72 @@ Crear una aplicación web interactiva que muestre una tarjeta de presentación p
 
 ---
 
-## 📋 Descripción
+## 📋 Tu Dominio Asignado
 
-Desarrollarás una tarjeta de presentación digital que muestra información personal y profesional de forma atractiva e interactiva. Los usuarios podrán editar la información en tiempo real y ver estadísticas básicas.
+**Dominio**: [El instructor te asignará tu dominio al inicio del trimestre]
 
-**Calificación Mínima para Aprobar**: 70%
+> **IMPORTANTE**: Cada aprendiz tiene un dominio único asignado por el instructor. NO copies la implementación de otro compañero. Tu código debe reflejar tu dominio específico.
 
 ---
 
-## 🎨 Características
+## 💡 Estructura de Datos Esperada
 
-### Funcionalidades Requeridas
+Independientemente de tu dominio, tu ficha debe incluir:
 
-1. **Información Personal**
-   - Nombre completo
-   - Profesión/Título
-   - Email y teléfono
-   - Ubicación
-   - Biografía breve
+### Datos Requeridos
 
-2. **Redes Sociales**
-   - Enlaces a GitHub, LinkedIn, Twitter
-   - Contador de seguidores/conexiones
+| Tipo | Descripción | Ejemplo (Planetario - NO asignable) |
+|------|-------------|-------------------------------------|
+| **Información básica** | Nombre, descripción, identificador | nombre: "Sistema Solar Interactivo", código: "EXH-001" |
+| **Propiedades específicas** | Datos propios del dominio | ubicación, capacidad, estado |
+| **Array de elementos** | Lista de items relacionados con nivel/valor | características, servicios, componentes |
+| **Estadísticas** | Contadores y métricas numéricas | visitantes, rating, duración |
 
-3. **Habilidades**
-   - Lista de skills técnicos
-   - Nivel de experiencia (porcentaje o años)
+### Ejemplo de Estructura (Planetario)
+
+```javascript
+const exhibitData = {
+  name: 'Sistema Solar Interactivo',
+  description: 'Exhibición inmersiva del sistema solar',
+  code: 'EXH-001',
+  location: { room: 'Sala Principal', floor: 2 },
+  features: [
+    { name: 'Proyección 360°', level: 95 },
+    { name: 'Audio envolvente', level: 88 }
+  ],
+  stats: { visitors: 15000, rating: 4.8, duration: 45 }
+};
+```
+
+> **Nota**: El ejemplo usa "Planetario" porque NO es un dominio asignable. Adapta esta estructura a tu dominio asignado.
+
+---
+
+## 🎨 Características Requeridas
+
+### Funcionalidades Obligatorias
+
+1. **Información Principal de tu Dominio**
+   - Datos básicos de la entidad (nombre, identificador, etc.)
+   - Descripción o detalles relevantes
+   - Propiedades específicas del dominio
+
+2. **Lista de Elementos Relacionados**
+   - Array de elementos (ej: habilidades, características, servicios)
+   - Nivel o porcentaje cuando aplique
+   - Categorías o tipos
+
+3. **Estadísticas**
+   - Contadores relevantes al dominio
+   - Cálculos usando métodos de array
 
 4. **Interactividad**
-   - Botón para editar información
-   - Modo claro/oscuro
-   - Copiar email al portapapeles
-   - Mostrar/ocultar secciones
+   - Botón para cambiar tema (claro/oscuro)
+   - Botón para copiar información al portapapeles
+   - Botón para mostrar/ocultar sección
 
-5. **Estadísticas**
-   - Total de habilidades
-   - Promedio de años de experiencia
-   - Redes sociales activas
+5. **Notificaciones**
+   - Toast/mensaje de confirmación para acciones
 
 ---
 
@@ -63,24 +92,32 @@ Desarrollarás una tarjeta de presentación digital que muestra información per
 ├── starter/
 │   └── script.js       # Archivo inicial con TODOs
 └── solution/
-    └── script.js       # Solución completa (excluida de GitHub)
+    └── script.js       # Solución de referencia
 ```
 
-> **📌 Nota Pedagógica**: Las carpetas `solution/` están **excluidas del repositorio de GitHub** (`.gitignore`). Esto es intencional para fomentar el aprendizaje activo. Debes completar los ejercicios por ti mismo sin depender de soluciones pre-hechas. Las soluciones solo están disponibles localmente para tu instructor/mentor.
+> **📌 Nota Pedagógica**: La carpeta `solution/` está **excluida del repositorio de GitHub** (`.gitignore`). Debes completar los ejercicios por ti mismo.
 
 ---
 
 ## 🚀 Instrucciones
 
-### Paso 1: Revisar el HTML y CSS
+### Paso 1: Identificar tu Dominio
 
-El HTML y CSS ya están completos. Tu trabajo es completar el JavaScript.
+Revisa con tu instructor cuál es tu dominio asignado para el trimestre.
 
-### Paso 2: Completar los TODOs en script.js
+### Paso 2: Planificar tu Estructura de Datos
 
-Abre `starter/script.js` y completa todos los TODOs marcados.
+Basándote en tu dominio, define:
+- ¿Qué entidad principal representarás?
+- ¿Qué propiedades tiene esa entidad?
+- ¿Qué elementos relacionados tiene (array)?
+- ¿Qué estadísticas son relevantes?
 
-### Paso 3: Aplicar Conceptos ES2023
+### Paso 3: Completar los TODOs en script.js
+
+Abre `starter/script.js` y completa todos los TODOs marcados, adaptándolos a tu dominio.
+
+### Paso 4: Aplicar Conceptos ES2023
 
 Asegúrate de usar:
 - `const` para valores que no cambian
@@ -89,7 +126,7 @@ Asegúrate de usar:
 - Arrow functions para todas las funciones
 - Destructuring para extraer datos
 
-### Paso 4: Probar la Funcionalidad
+### Paso 5: Probar la Funcionalidad
 
 Abre `index.html` en el navegador y verifica que todo funcione.
 
@@ -97,9 +134,10 @@ Abre `index.html` en el navegador y verifica que todo funcione.
 
 ## 📝 TODOs a Completar
 
-### 1. Datos de Usuario (Destructuring)
+### 1. Datos de tu Dominio (Destructuring)
 ```javascript
-// TODO: Extraer datos del objeto userData usando destructuring
+// TODO: Crear objeto con datos de tu dominio
+// TODO: Extraer datos usando destructuring
 ```
 
 ### 2. Renderizar Información (Template Literals)
@@ -126,14 +164,12 @@ Abre `index.html` en el navegador y verifica que todo funcione.
 
 ## ✅ Criterios de Evaluación
 
-> **Importante**: Esta evaluación representa el 100% de tu calificación para la Semana 1. Los ejercicios prácticos y la teoría son materiales de estudio que te preparan para este proyecto.
-
 ### Funcionalidad (40%)
-- [ ] Muestra correctamente toda la información
+- [ ] Muestra correctamente toda la información del dominio
 - [ ] Los botones son interactivos
 - [ ] Cambio de tema funciona
 - [ ] Estadísticas se calculan correctamente
-- [ ] Copiar email funciona
+- [ ] Copiar información funciona
 
 ### Código ES2023 (30%)
 - [ ] Usa `const` por defecto, `let` solo cuando necesario
@@ -145,14 +181,14 @@ Abre `index.html` en el navegador y verifica que todo funcione.
 ### Código Limpio (20%)
 - [ ] Código bien indentado
 - [ ] Nombres de variables descriptivos en inglés
-- [ ] Comentarios explicativos en inglés
+- [ ] Comentarios explicativos en español
 - [ ] Sin código duplicado
 - [ ] Estructura lógica y organizada
 
-### Creatividad (10%)
-- [ ] Personalización de datos
-- [ ] Mejoras visuales o funcionales
-- [ ] Características adicionales
+### Adaptación al Dominio (10%)
+- [ ] Datos coherentes con el dominio asignado
+- [ ] Propiedades específicas del dominio
+- [ ] Implementación original (no copiada)
 
 **Calificación Total**: 100%
 **Mínimo para Aprobar**: 70%
@@ -164,20 +200,16 @@ Abre `index.html` en el navegador y verifica que todo funcione.
 Si terminas antes y quieres un desafío extra:
 
 1. **Validación de Datos**
-   - Validar email antes de copiar
-   - Validar URLs de redes sociales
+   - Validar información antes de copiar
 
 2. **Persistencia**
    - Guardar tema preferido en localStorage
-   - Guardar cambios de información
 
 3. **Animaciones**
    - Transiciones suaves al cambiar tema
-   - Animación al copiar email
 
 4. **Responsive**
    - Mejorar diseño mobile
-   - Agregar breakpoints
 
 ---
 
@@ -202,17 +234,17 @@ Abre las DevTools (F12) y verifica que no haya errores.
 
 ### 3. Probar Funcionalidades
 
-- ✅ Click en "Copy Email"
-- ✅ Click en "Toggle Theme"
-- ✅ Click en "Show More" / "Show Less"
+- ✅ Click en "Copiar Información"
+- ✅ Click en cambio de tema
+- ✅ Click en "Mostrar más" / "Mostrar menos"
 - ✅ Verificar estadísticas correctas
 
 ---
 
 ## 📚 Recursos de Ayuda
 
-- [Teoría Week-01](../../1-teoria/)
-- [Ejercicios Prácticos](../../2-practicas/)
+- [Teoría Week-01](../1-teoria/)
+- [Ejercicios Prácticos](../2-practicas/)
 - [MDN: JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
 
 ---
@@ -220,15 +252,15 @@ Abre las DevTools (F12) y verifica que no haya errores.
 ## 💡 Pistas
 
 <details>
-<summary>Pista 1: Destructuring de userData</summary>
+<summary>Pista 1: Destructuring de objeto</summary>
 
 ```javascript
 const {
   name,
-  title,
-  contact: { email, phone },
-  skills
-} = userData;
+  description,
+  details: { property1, property2 },
+  items
+} = entityData;
 ```
 </details>
 
@@ -239,7 +271,7 @@ const {
 const html = `
   <div class="card">
     <h2>${name}</h2>
-    <p>${title}</p>
+    <p>${description}</p>
   </div>
 `;
 ```
@@ -259,7 +291,7 @@ button.addEventListener('click', () => {
 <summary>Pista 4: Calcular Promedio</summary>
 
 ```javascript
-const average = skills.reduce((sum, skill) => sum + skill.years, 0) / skills.length;
+const average = items.reduce((sum, item) => sum + item.value, 0) / items.length;
 ```
 </details>
 
@@ -269,8 +301,8 @@ const average = skills.reduce((sum, skill) => sum + skill.years, 0) / skills.len
 
 Al finalizar, deberías tener:
 
-1. ✅ Tarjeta mostrando toda tu información
-2. ✅ Botón funcional para copiar email
+1. ✅ Ficha mostrando información de tu dominio
+2. ✅ Botón funcional para copiar información
 3. ✅ Toggle de tema claro/oscuro
 4. ✅ Estadísticas calculadas dinámicamente
 5. ✅ Código limpio usando ES2023
@@ -286,7 +318,7 @@ Al finalizar, deberías tener:
 Crea una carpeta con tu apellido y nombre:
 
 ```
-apellido-nombre-tarjeta/
+apellido-nombre-proyecto/
 ├── index.html
 ├── styles.css
 ├── script.js
@@ -299,49 +331,36 @@ apellido-nombre-tarjeta/
 ### README de Entrega
 
 ```markdown
-# Tarjeta de Presentación - [Tu Nombre]
+# Ficha de [Tu Dominio] - [Tu Nombre]
 
 ## 📋 Información
 - **Nombre**: [Tu nombre completo]
 - **Fecha**: [DD/MM/YYYY]
-- **Proyecto**: Week 01 - Tarjeta de Presentación
-- **Entregable**: Único proyecto de la semana
+- **Dominio Asignado**: [Tu dominio]
+- **Entidad Principal**: [Qué representa tu ficha]
 
-## 🎯 Características Implementadas
-- [ ] Información personal dinámica
-- [ ] Copiar email
-- [ ] Tema claro/oscuro
-- [ ] Estadísticas
-- [ ] [Otras características]
-
-## 🛠️ Tecnologías Usadas
-- HTML5
-- CSS3
-- JavaScript ES2023
+## 🎯 Descripción
+[Breve descripción de lo que muestra tu ficha]
 
 ## 📚 Conceptos ES2023 Aplicados
 - [ ] Variables con let/const
 - [ ] Template literals
 - [ ] Arrow functions
 - [ ] Destructuring
-- [ ] Optional chaining (?.）
+- [ ] Optional chaining (?.)
 - [ ] Nullish coalescing (??)
 
 ## 🚀 Cómo Ejecutar
 1. Abrir index.html en el navegador
-2. [Otros pasos si aplicable]
 
 ## 📸 Screenshots
 [Agregar capturas de pantalla]
-
-## ✨ Características Extra
-[Describe cualquier funcionalidad adicional que hayas agregado]
 
 ## 🎯 Autoevaluación
 - Funcionalidad: [X]%
 - Código ES2023: [X]%
 - Código Limpio: [X]%
-- Creatividad: [X]%
+- Adaptación al Dominio: [X]%
 - **Total Estimado**: [X]%
 ```
 
@@ -350,12 +369,6 @@ apellido-nombre-tarjeta/
 - **Entrega**: Viernes de la semana correspondiente
 - **Retroalimentación**: Dentro de 3 días hábiles
 - **Reentrega** (si aplica): Dentro de 5 días de recibir feedback
-
-### Método de Entrega
-
-- GitHub repository (recomendado)
-- Zip file (alternativo)
-- Link a live demo (opcional, GitHub Pages/Netlify)
 
 ---
 
@@ -367,15 +380,15 @@ R: No, este proyecto debe usar solo JavaScript ES2023 puro.
 **P: ¿Puedo cambiar el diseño CSS?**
 R: Sí, puedes personalizar los estilos a tu gusto.
 
-**P: ¿Debo usar mis datos reales?**
-R: Puedes usar datos ficticios o reales, como prefieras.
+**P: ¿Qué pasa si mi dominio no está en la lista de ejemplos?**
+R: Pregunta a tu instructor. Él puede asignar dominios adicionales.
 
-**P: ¿Qué pasa si no sé hacer algo?**
-R: Revisa la teoría, los ejercicios, y usa las pistas. Si aún tienes dudas, pregunta.
+**P: ¿Puedo ver la solución de otro compañero?**
+R: No. Cada dominio es único, tu implementación debe ser original.
 
 ---
 
 <p align="center">
-  <strong>🎨 ¡Crea tu tarjeta de presentación profesional!</strong><br>
-  <em>Aplica todo lo aprendido en un proyecto real</em>
+  <strong>🏛️ ¡Crea tu ficha de información profesional!</strong><br>
+  <em>Aplica todo lo aprendido en un proyecto real adaptado a tu dominio</em>
 </p>
