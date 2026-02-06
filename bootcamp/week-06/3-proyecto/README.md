@@ -1,8 +1,36 @@
 # 🎯 Proyecto Semana 06: Validador de Formularios
 
+> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+
+## 🏛️ Política de Dominios Únicos
+
+**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto debe implementarse como un formulario de registro o gestión específico de tu dominio.
+
+### ¿Por qué dominios únicos?
+
+- Previene copia entre compañeros
+- Fomenta implementaciones originales
+- Los campos del formulario deben ser específicos de tu dominio
+- Los patrones de validación se adaptan a datos reales de tu contexto
+
+---
+
 ## 📋 Descripción
 
-Construye un **validador de formularios completo** usando expresiones regulares y métodos modernos de strings. El proyecto incluye validación en tiempo real, mensajes de error personalizados y formateo automático de datos.
+Construye un **validador de formularios completo** usando expresiones regulares y métodos modernos de strings. El formulario debe ser de **registro o gestión de datos** específico de tu dominio asignado.
+
+---
+
+## 💡 Ejemplos de Adaptación por Dominio
+
+| Dominio | Tipo de Formulario | Campos Específicos |
+|---------|-------------------|-------------------|
+| **Planetario 🔭** | Registro de Observación | coordenadas (RA/Dec), magnitud, constelación |
+| **Acuario 🐠** | Registro de Especie | nombre científico (latín), temperatura, pH |
+| **Museo 🏛️** | Registro de Obra | año (formato histórico), código catalogación |
+| **Clínica 🏥** | Registro de Paciente | número de seguro social, grupo sanguíneo |
+
+---
 
 ## 🎯 Objetivos de Aprendizaje
 
@@ -16,7 +44,7 @@ Al completar este proyecto serás capaz de:
 
 ## 🚀 Funcionalidades
 
-### Validaciones Requeridas
+### Validaciones Obligatorias (Comunes)
 
 | Campo | Reglas de Validación |
 |-------|---------------------|
@@ -25,9 +53,19 @@ Al completar este proyecto serás capaz de:
 | **Teléfono** | Formato: +XX XXX XXX XXX o similar |
 | **Contraseña** | Mín 8 chars, mayúscula, minúscula, número, especial |
 | **Confirmar** | Debe coincidir con contraseña |
-| **Fecha Nacimiento** | Formato DD/MM/YYYY, edad 18-120 años |
-| **Código Postal** | 5 dígitos |
-| **URL** | Formato válido http/https |
+
+### Validaciones Específicas de tu Dominio (mínimo 3)
+
+Agrega al menos 3 campos con validación específica de tu dominio.
+
+**EJEMPLO (Planetario - NO asignable):**
+
+| Campo | Reglas de Validación | Patrón |
+|-------|---------------------|--------|
+| **Coordenada RA** | Formato HH:MM:SS.ss | `/^\d{2}:\d{2}:\d{2}\.\d{2}$/` |
+| **Coordenada Dec** | Formato ±DD:MM:SS | `/^[+-]\d{2}:\d{2}:\d{2}$/` |
+| **Magnitud** | Número decimal -26.7 a +30 | `/^-?\d{1,2}(\.\d{1,2})?$/` |
+| **Constelación** | 3 letras mayúsculas (abreviación IAU) | `/^[A-Z]{3}$/` |
 
 ### Características Adicionales
 
