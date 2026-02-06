@@ -1,16 +1,32 @@
-# 🏗️ Proyecto: Sistema Robusto
+# 🏗️ Proyecto Semana 11: Sistema Robusto con Manejo de Errores
+
+> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+
+## 🏛️ Política de Dominios Únicos
+
+**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto debe implementarse usando entidades de tu dominio para demostrar manejo profesional de errores.
+
+### Ejemplos de Adaptación
+
+| Dominio | Sistema | Errores personalizados |
+|---------|---------|----------------------|
+| **Planetario 🔭** | Gestor de Observaciones | ObservationError, WeatherError, EquipmentError |
+| **Acuario 🐠** | Gestor de Alimentación | FeedingError, TankError, SpeciesError |
+| **Museo 🏛️** | Gestor de Préstamos | LoanError, ExhibitError, TransportError |
+
+---
 
 ## 🎯 Objetivo
 
-Construir una aplicación de gestión de tareas con manejo de errores completo y profesional.
+Construir una aplicación de gestión de tu dominio con manejo de errores completo y profesional.
 
 ---
 
 ## 📋 Descripción
 
-Crearás un **Task Manager** que demuestra todas las técnicas de manejo de errores aprendidas:
+Crearás un **Sistema de Gestión** que demuestra todas las técnicas de manejo de errores aprendidas:
 
-- Clases de error personalizadas
+- Clases de error personalizadas para tu dominio
 - Validación con mensajes descriptivos
 - Manejo de errores de "red" (simulados)
 - Retry y fallback patterns
@@ -19,37 +35,10 @@ Crearás un **Task Manager** que demuestra todas las técnicas de manejo de erro
 
 ---
 
-## 🎨 Preview
+## 📁 Estructura
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  📋 Task Manager Robusto                            │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│  [_______Nueva tarea_______] [Agregar]              │
-│                                                     │
-│  ┌─────────────────────────────────────────────┐    │
-│  │ ✅ Completar ejercicios de errores         │ 🗑️ │
-│  └─────────────────────────────────────────────┘    │
-│  ┌─────────────────────────────────────────────┐    │
-│  │ ⬜ Revisar código del proyecto             │ 🗑️ │
-│  └─────────────────────────────────────────────┘    │
-│                                                     │
-│  ┌─────────────────────────────────────────────┐    │
-│  │ ⚠️ Error: Debe tener al menos 3 caracteres │    │
-│  └─────────────────────────────────────────────┘    │
-│                                                     │
-│  📊 Stats: 2 tareas | 1 completada                  │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
-
----
-
-## 🗂️ Estructura
-
-```
-sistema-robusto/
+3-proyecto/
 ├── index.html          # Estructura HTML
 ├── styles.css          # Estilos
 ├── README.md           # Este archivo
@@ -58,6 +47,59 @@ sistema-robusto/
 └── solution/
     └── script.js       # Solución completa
 ```
+
+---
+
+## 💡 Adaptación por Dominio
+
+### Ejemplo: Planetario 🔭
+
+```javascript
+// Clases de error específicas del dominio
+class ObservationError extends AppError {
+  constructor(message, { target, date, condition }) {
+    super(message, 'OBSERVATION_ERROR');
+    this.target = target;
+    this.date = date;
+    this.condition = condition;
+  }
+}
+
+class WeatherError extends AppError {
+  constructor(message, { cloudCoverage, canRetry }) {
+    super(message, 'WEATHER_ERROR');
+    this.cloudCoverage = cloudCoverage;
+    this.canRetry = canRetry;
+  }
+}
+
+// Validación específica del dominio
+const validateObservation = (observation) => {
+  if (!observation.target || observation.target.length < 2) {
+    throw new ValidationError(
+      'El objetivo debe tener al menos 2 caracteres',
+      'target',
+      observation.target
+    );
+  }
+
+  if (observation.magnitude < -30 || observation.magnitude > 30) {
+    throw new ValidationError(
+      'La magnitud debe estar entre -30 y 30',
+      'magnitude',
+      observation.magnitude
+    );
+  }
+};
+```
+
+### Tu Dominio
+
+Adapta el sistema para tu dominio:
+- Crea 3-4 clases de error específicas
+- Implementa validaciones propias del dominio
+- Define qué errores permiten reintento (retry)
+- Diseña mensajes de error amigables para el usuario
 
 ---
 
@@ -76,16 +118,15 @@ En `starter/script.js`, completa los TODOs:
 ```javascript
 // TODO 1: Crear clase base AppError
 // TODO 2: Crear ValidationError con campo y valor
-// TODO 3: Crear NetworkError con status y retry
+// TODO 3: Crear DomainError específico de tu dominio
 // TODO 4: Crear StorageError para localStorage
 ```
 
 #### Validación (15 min)
 
 ```javascript
-// TODO 5: Implementar validateTask()
-// - Título: 3-100 caracteres
-// - No puede estar vacío
+// TODO 5: Implementar validateEntity()
+// - Adapta las reglas a tu dominio
 // - Lanzar ValidationError si falla
 ```
 

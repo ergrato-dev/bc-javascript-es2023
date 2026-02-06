@@ -1,4 +1,20 @@
-# 🛡️ Proyecto: Sistema de Validación Reactivo
+# 🛡️ Proyecto Semana 10: Sistema de Validación Reactivo
+
+> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+
+## 🏛️ Política de Dominios Únicos
+
+**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto debe implementarse usando formularios de registro/edición de entidades de tu dominio.
+
+### Ejemplos de Adaptación
+
+| Dominio | Formulario | Campos a validar |
+|---------|-----------|------------------|
+| **Planetario 🔭** | Registro de observación | fecha, coordenadas, magnitud, constelación |
+| **Acuario 🐠** | Registro de especie | nombre científico, pH, temperatura, hábitat |
+| **Museo 🏛️** | Catálogo de obra | título, autor, año, técnica, dimensiones |
+
+---
 
 ## 📋 Descripción
 
@@ -16,22 +32,10 @@ Construye un **sistema de validación de formularios reactivo** usando Proxies y
 
 ---
 
-## 🖼️ Vista Previa
-
-El proyecto incluye un formulario de registro con:
-
-- **Campos**: nombre, email, edad, contraseña
-- **Validación en tiempo real**: errores mostrados al escribir
-- **Indicadores visuales**: bordes rojos/verdes según validez
-- **Botón submit**: deshabilitado hasta que todo sea válido
-- **Resumen**: muestra los datos validados
-
----
-
 ## 📁 Estructura
 
 ```
-sistema-validacion/
+3-proyecto/
 ├── index.html      # Estructura del formulario
 ├── styles.css      # Estilos con estados válido/inválido
 ├── starter/
@@ -39,6 +43,34 @@ sistema-validacion/
 └── solution/
     └── script.js   # Solución de referencia
 ```
+
+---
+
+## 💡 Adaptación por Dominio
+
+### Ejemplo: Planetario 🔭
+
+```javascript
+// Schema de validación para observación astronómica
+const observationSchema = {
+  targetName: validators.string(2, 100),
+  date: validators.date(),
+  rightAscension: validators.range(0, 24),    // Horas
+  declination: validators.range(-90, 90),      // Grados
+  magnitude: validators.range(-30, 30),
+  constellation: validators.enum(CONSTELLATIONS),
+  notes: validators.string(0, 500)
+};
+
+const observationForm = createReactiveForm(observationSchema);
+```
+
+### Tu Dominio
+
+Adapta el formulario reactivo para tu dominio:
+- Define un schema con 5-7 campos relevantes
+- Incluye diferentes tipos de validación (string, number, date, enum)
+- Implementa reglas de negocio específicas del dominio
 
 ---
 
@@ -50,8 +82,9 @@ sistema-validacion/
 const validators = {
   string: (min, max) => (value, prop) => { /* ... */ },
   number: (min, max) => (value, prop) => { /* ... */ },
-  email: () => (value, prop) => { /* ... */ },
-  password: (minLength) => (value, prop) => { /* ... */ }
+  date: () => (value, prop) => { /* ... */ },
+  enum: (options) => (value, prop) => { /* ... */ },
+  // TODO: Agrega validadores específicos de tu dominio
 };
 ```
 

@@ -1,4 +1,20 @@
-# 🚀 Proyecto: Paginador con Generadores
+# 🚀 Proyecto Semana 08: Sistema de Paginación con Generadores
+
+> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+
+## 🏛️ Política de Dominios Únicos
+
+**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto debe implementarse usando entidades de tu dominio para demostrar el uso de generadores e iterables.
+
+### Ejemplos de Adaptación
+
+| Dominio | Datos a paginar | Uso de generadores |
+|---------|-----------------|-------------------|
+| **Planetario 🔭** | Catálogo de cuerpos celestes | Generar páginas de estrellas/planetas |
+| **Acuario 🐠** | Lista de especies marinas | Generar páginas de especies por tanque |
+| **Museo 🏛️** | Colección de obras | Generar páginas de obras por sala |
+
+---
 
 ## 📋 Descripción
 
@@ -15,34 +31,10 @@ Construye un sistema de paginación que utiliza **generadores** para manejar gra
 
 ---
 
-## 🖼️ Vista Previa
-
-```
-┌─────────────────────────────────────────────────────────┐
-│           📚 PAGINADOR CON GENERADORES                  │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│   ┌─────────────────────────────────────────────────┐   │
-│   │  • Item 1 - Descripción del elemento            │   │
-│   │  • Item 2 - Descripción del elemento            │   │
-│   │  • Item 3 - Descripción del elemento            │   │
-│   │  • Item 4 - Descripción del elemento            │   │
-│   │  • Item 5 - Descripción del elemento            │   │
-│   └─────────────────────────────────────────────────┘   │
-│                                                         │
-│        [◀ Anterior]  Página 1 de 10  [Siguiente ▶]      │
-│                                                         │
-│   Items por página: [5 ▼]    Total: 50 items            │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-```
-
----
-
 ## 📁 Estructura del Proyecto
 
 ```
-paginador-generadores/
+3-proyecto/
 ├── index.html          # Estructura HTML
 ├── styles.css          # Estilos
 ├── README.md           # Este archivo
@@ -58,7 +50,7 @@ paginador-generadores/
 
 ### Requeridas
 
-1. **Generador de datos**: Simular una fuente de datos grande
+1. **Generador de datos**: Simular una fuente de datos de tu dominio
 2. **Paginación lazy**: Cargar solo la página actual
 3. **Navegación**: Botones anterior/siguiente
 4. **Indicador de página**: Mostrar página actual y total
@@ -67,9 +59,36 @@ paginador-generadores/
 ### Opcionales (Bonus)
 
 - Ir a página específica
-- Búsqueda/filtrado
+- Búsqueda/filtrado por atributos del dominio
 - Animaciones de transición
 - Persistir preferencias en localStorage
+
+---
+
+## 💡 Adaptación por Dominio
+
+### Ejemplo: Planetario 🔭
+
+```javascript
+// Generador de cuerpos celestes
+function* celestialBodyGenerator(totalBodies) {
+  for (let i = 1; i <= totalBodies; i++) {
+    yield {
+      id: i,
+      name: `Cuerpo Celeste ${i}`,
+      type: ['Estrella', 'Planeta', 'Asteroide', 'Satélite'][i % 4],
+      constellation: `Constelación ${Math.ceil(i / 10)}`
+    };
+  }
+}
+```
+
+### Tu Dominio
+
+Adapta el generador para producir entidades de tu dominio asignado:
+- Define las propiedades relevantes para tu dominio
+- Simula un catálogo extenso (50-100 elementos)
+- Incluye categorías o clasificaciones propias del dominio
 
 ---
 
@@ -87,8 +106,9 @@ function* dataGenerator(totalItems) {
   for (let i = 1; i <= totalItems; i++) {
     yield {
       id: i,
-      title: `Item ${i}`,
-      description: `Descripción del elemento ${i}`
+      // TODO: Adapta las propiedades a tu dominio
+      name: `Entidad ${i}`,
+      category: `Categoría ${Math.ceil(i / 10)}`
     };
   }
 }

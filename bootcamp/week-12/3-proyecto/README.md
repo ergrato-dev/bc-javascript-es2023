@@ -1,56 +1,92 @@
-# 🛒 E-commerce App
+# 🎯 Proyecto Semana 12: Aplicación de Gestión Integral
+
+> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+
+## 🏛️ Política de Dominios Únicos
+
+**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto INTEGRADOR debe implementarse completamente usando tu dominio asignado, aplicando todos los conceptos de ES2023 de las semanas 1-11.
+
+### Ejemplos de Adaptación
+
+| Dominio | Aplicación | Catálogo | Operaciones |
+|---------|-----------|----------|-------------|
+| **Planetario 🔭** | SkyManager | Cuerpos celestes | Reserva de sesiones de observación |
+| **Acuario 🐠** | AquaLife | Especies marinas | Reserva de tours/alimentaciones |
+| **Museo 🏛️** | ArtGallery | Obras de arte | Reserva de visitas guiadas |
+
+---
 
 ## 🎯 Objetivo
 
-Construir una aplicación de tienda online completa aplicando todos los conceptos de ES2023 aprendidos en las semanas 1-11.
+Construir una aplicación de gestión integral aplicando todos los conceptos de ES2023 aprendidos en las semanas 1-11.
 
 ---
 
 ## 📋 Descripción
 
-Esta aplicación simula una tienda online con las siguientes funcionalidades:
+Esta aplicación simula un sistema de gestión con las siguientes funcionalidades:
 
-- **Catálogo de productos** con filtros, búsqueda y ordenamiento
-- **Carrito de compras** con operaciones CRUD
+- **Catálogo de entidades** con filtros, búsqueda y ordenamiento
+- **Sistema de reservas/operaciones** con CRUD completo
 - **Sistema de usuarios** con autenticación simulada
 - **Persistencia** en localStorage
 
 ---
 
-## 🎨 Preview
+## 💡 Adaptación por Dominio
 
+### Ejemplo: Planetario 🔭
+
+**SkyManager** - Gestión de observaciones astronómicas:
+
+- **Catálogo**: Cuerpos celestes (estrellas, planetas, galaxias, nebulosas)
+- **Reservas**: Sesiones de observación con telescopio
+- **Usuarios**: Observadores (amateur, avanzado, profesional)
+- **Operaciones**: Agendar, cancelar, reprogramar observaciones
+
+```javascript
+// Modelo adaptado al dominio
+class CelestialBody {
+  #internalData;  // Campos privados (semana 3)
+
+  constructor({ name, type, constellation, magnitude, coordinates }) {
+    this.id = crypto.randomUUID();
+    this.name = name;
+    this.type = type;  // 'star' | 'planet' | 'galaxy' | 'nebula'
+    this.constellation = constellation;
+    this.magnitude = magnitude;
+    this.coordinates = coordinates;
+    this.#internalData = { discoveryDate: new Date() };
+  }
+}
+
+class ObservationSession {
+  constructor({ userId, targetId, date, duration, telescope }) {
+    this.id = crypto.randomUUID();
+    this.userId = userId;
+    this.targetId = targetId;
+    this.date = date;
+    this.duration = duration;  // minutos
+    this.telescope = telescope;
+    this.status = 'scheduled';
+  }
+}
 ```
-┌──────────────────────────────────────────────────────────────────┐
-│  🛒 TechStore                              [🔍 Buscar...]  👤 Login │
-├──────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  Categorías: [Todos] [Laptops] [Phones] [Accessories]            │
-│  Ordenar: [Precio ▼] [Nombre] [Más vendidos]                     │
-│                                                                  │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐               │
-│  │   📱        │  │   💻        │  │   🎧        │               │
-│  │  iPhone 15  │  │  MacBook    │  │  AirPods    │               │
-│  │  $999       │  │  $1,299     │  │  $249       │               │
-│  │ [Agregar 🛒]│  │ [Agregar 🛒]│  │ [Agregar 🛒]│               │
-│  └─────────────┘  └─────────────┘  └─────────────┘               │
-│                                                                  │
-├──────────────────────────────────────────────────────────────────┤
-│  🛒 Carrito (3)                                    Total: $2,547 │
-│  ┌────────────────────────────────────────────────────────────┐  │
-│  │ iPhone 15     $999  [-] 1 [+]  $999                   [🗑️] │  │
-│  │ MacBook      $1,299 [-] 1 [+]  $1,299                 [🗑️] │  │
-│  │ AirPods       $249  [-] 1 [+]  $249                   [🗑️] │  │
-│  └────────────────────────────────────────────────────────────┘  │
-│                                        [Vaciar] [Checkout 💳]    │
-└──────────────────────────────────────────────────────────────────┘
-```
+
+### Tu Dominio
+
+Adapta TODA la aplicación a tu dominio:
+- Renombra clases y servicios según tu contexto
+- Define las entidades principales de tu catálogo
+- Implementa operaciones propias del dominio
+- Crea validaciones específicas
 
 ---
 
-## 🗂️ Estructura
+## 📁 Estructura
 
 ```
-ecommerce-app/
+3-proyecto/
 ├── index.html              # Estructura HTML
 ├── styles.css              # Estilos globales
 ├── README.md               # Este archivo
@@ -60,20 +96,9 @@ ecommerce-app/
 │       ├── main.js         # Entry point
 │       ├── app.js          # Aplicación principal
 │       ├── config.js       # Configuración
-│       ├── models/
-│       │   ├── Product.js
-│       │   ├── User.js
-│       │   ├── Cart.js
-│       │   └── CartItem.js
-│       ├── services/
-│       │   ├── ProductService.js
-│       │   ├── CartService.js
-│       │   ├── AuthService.js
-│       │   └── StorageService.js
-│       └── ui/
-│           ├── ProductList.js
-│           ├── CartView.js
-│           └── Notifications.js
+│       ├── models/         # Modelos adaptados a tu dominio
+│       ├── services/       # Servicios de negocio
+│       └── ui/             # Componentes de interfaz
 │
 └── solution/               # Solución completa
     └── js/
@@ -87,7 +112,7 @@ ecommerce-app/
 ### 1. Analiza los requisitos (30 min)
 
 Lee este README completo y comprende:
-- Qué debe hacer cada módulo
+- Qué debe hacer cada módulo adaptado a tu dominio
 - Cómo se relacionan las clases
 - El flujo de datos
 

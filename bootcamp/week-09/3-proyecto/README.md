@@ -1,4 +1,20 @@
-# 🚀 Proyecto: Objeto Seguro con Propiedades Privadas
+# 🚀 Proyecto Semana 09: Objeto Seguro con Propiedades Privadas
+
+> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+
+## 🏛️ Política de Dominios Únicos
+
+**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto debe implementarse usando entidades de tu dominio para demostrar el uso de Symbols y propiedades privadas.
+
+### Ejemplos de Adaptación
+
+| Dominio | Entidad Segura | Datos ocultos con Symbol |
+|---------|----------------|--------------------------|
+| **Planetario 🔭** | SecureMission | Códigos de acceso, datos clasificados |
+| **Acuario 🐠** | SecureTank | Fórmulas químicas, datos de salud |
+| **Museo 🏛️** | SecureExhibit | Valores de seguro, ubicación exacta |
+
+---
 
 ## 📋 Descripción
 
@@ -23,22 +39,10 @@ Al completar este proyecto serás capaz de:
 
 ---
 
-## 🖥️ Vista Previa
-
-La aplicación es una demo interactiva que muestra:
-
-1. **SecureUser**: Usuario con datos sensibles ocultos
-2. **SecureWallet**: Billetera con balance protegido
-3. **SecureConfig**: Configuración con claves API ocultas
-
-Cada objeto demuestra diferentes usos de Symbols.
-
----
-
 ## 📁 Estructura del Proyecto
 
 ```
-objeto-seguro/
+3-proyecto/
 ├── index.html      # Interfaz de demostración
 ├── styles.css      # Estilos de la aplicación
 ├── starter/
@@ -49,39 +53,75 @@ objeto-seguro/
 
 ---
 
-## 🔧 Requisitos Técnicos
+## 💡 Adaptación por Dominio
 
-### 1. SecureUser (40%)
+### Ejemplo: Planetario 🔭
 
 ```javascript
 // Propiedades privadas con Symbol
-const _password = Symbol('password');
-const _ssn = Symbol('ssn');
+const _accessCode = Symbol('accessCode');
+const _classifiedData = Symbol('classifiedData');
 
-class SecureUser {
-  // - Almacenar password y SSN en símbolos
-  // - Método para verificar password
-  // - Symbol.toStringTag = 'SecureUser'
+class SecureMission {
+  constructor(name, accessCode, classifiedData) {
+    this.name = name;                    // Público
+    this[_accessCode] = accessCode;      // Oculto
+    this[_classifiedData] = classifiedData; // Oculto
+  }
+
+  // Verificar código de acceso sin exponer el valor
+  verifyAccess(code) {
+    return this[_accessCode] === code;
+  }
+
+  get [Symbol.toStringTag]() {
+    return 'SecureMission';
+  }
+}
+```
+
+### Tu Dominio
+
+Adapta las clases seguras para tu dominio:
+- Define qué datos deben ser privados (contraseñas, valores, códigos)
+- Implementa métodos de verificación sin exponer datos
+- Usa Well-known Symbols para comportamiento personalizado
+
+---
+
+## 🔧 Requisitos Técnicos
+
+### 1. SecureEntity (40%) - Entidad Principal
+
+```javascript
+// Adapta a tu dominio
+const _sensitiveData = Symbol('sensitiveData');
+const _internalId = Symbol('internalId');
+
+class SecureEntity {
+  // - Almacenar datos sensibles en símbolos
+  // - Método para verificar sin exponer
+  // - Symbol.toStringTag = 'SecureEntity'
   // - No exponer datos en JSON
 }
 ```
 
-### 2. SecureWallet (35%)
+### 2. SecureCollection (35%) - Colección con Historial
 
 ```javascript
-// Billetera con balance protegido
-const _balance = Symbol('balance');
-const _transactions = Symbol('transactions');
+// Colección con datos protegidos
+const _items = Symbol('items');
+const _history = Symbol('history');
 
-class SecureWallet {
-  // - Balance solo accesible via getBalance()
-  // - Historial de transacciones oculto
-  // - Symbol.toPrimitive retorna balance
-  // - Symbol.iterator itera transacciones
+class SecureCollection {
+  // - Items solo accesibles via getItems()
+  // - Historial de cambios oculto
+  // - Symbol.toPrimitive retorna cantidad
+  // - Symbol.iterator itera items públicos
 }
 ```
 
-### 3. SecureConfig (25%)
+### 3. SecureConfig (25%) - Configuración del Sistema
 
 ```javascript
 // Configuración con claves sensibles
