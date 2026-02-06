@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .title { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 20px; font-weight: bold; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .code { fill: #e2e8f0; font-family: 'Fira Code', monospace; font-size: 12px; }
+      .keyword { fill: #c084fc; }
+      .function { fill: #60a5fa; }
+      .string { fill: #4ade80; }
+      .comment { fill: #64748b; }
+      .box { fill: #1e293b; stroke: #334155; stroke-width: 2; rx: 8; }
+      .box-async { fill: #1e293b; stroke: #c084fc; stroke-width: 2; rx: 8; }
+      .box-promise { fill: #1e293b; stroke: #f59e0b; stroke-width: 2; rx: 8; }
+      .arrow { fill: none; stroke: #60a5fa; stroke-width: 2; marker-end: url(#arrowhead); }
+      .label { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 11px; }
+      .highlight { fill: #fbbf24; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="400"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Async Function: Siempre retorna una Promise</text>
+
+  <!-- Left side: async function -->
+  <rect class="box-async" x="30" y="70" width="340" height="140"/>
+  <text class="subtitle" x="200" y="95" text-anchor="middle">Función Async</text>
+
+  <text class="code" x="50" y="125">
+    <tspan class="keyword">async function</tspan>
+    <tspan class="function"> getData</tspan>
+    <tspan>() {</tspan>
+  </text>
+  <text class="code" x="70" y="145">
+    <tspan class="keyword">return</tspan>
+    <tspan class="string"> 'datos'</tspan>
+    <tspan>;</tspan>
+  </text>
+  <text class="code" x="50" y="165">}</text>
+
+  <text class="comment code" x="50" y="195">// El valor se envuelve automáticamente</text>
+
+  <!-- Arrow -->
+  <path class="arrow" d="M 380 140 L 430 140"/>
+  <text class="label" x="405" y="130" text-anchor="middle">retorna</text>
+
+  <!-- Right side: Promise -->
+  <rect class="box-promise" x="440" y="70" width="330" height="140"/>
+  <text class="subtitle" x="605" y="95" text-anchor="middle">Promise Resuelta</text>
+
+  <text class="code" x="460" y="130">Promise {</text>
+  <text class="code" x="480" y="150">
+    <tspan>[[PromiseState]]: </tspan>
+    <tspan class="string">'fulfilled'</tspan>
+  </text>
+  <text class="code" x="480" y="170">
+    <tspan>[[PromiseResult]]: </tspan>
+    <tspan class="string">'datos'</tspan>
+  </text>
+  <text class="code" x="460" y="190">}</text>
+
+  <!-- Bottom: Usage examples -->
+  <rect class="box" x="30" y="240" width="740" height="140"/>
+  <text class="subtitle" x="400" y="265" text-anchor="middle">Cómo obtener el valor</text>
+
+  <!-- Option 1: .then() -->
+  <text class="code" x="60" y="295">
+    <tspan class="comment">// Opción 1: .then()</tspan>
+  </text>
+  <text class="code" x="60" y="315">
+    <tspan class="function">getData</tspan>
+    <tspan>().</tspan>
+    <tspan class="function">then</tspan>
+    <tspan>(</tspan>
+    <tspan class="keyword">data</tspan>
+    <tspan> => console.log(data));</tspan>
+  </text>
+
+  <!-- Option 2: await -->
+  <text class="code" x="450" y="295">
+    <tspan class="comment">// Opción 2: await</tspan>
+  </text>
+  <text class="code" x="450" y="315">
+    <tspan class="keyword">const</tspan>
+    <tspan> data = </tspan>
+    <tspan class="keyword">await</tspan>
+    <tspan class="function"> getData</tspan>
+    <tspan>();</tspan>
+  </text>
+
+  <text class="code" x="60" y="355">
+    <tspan class="comment">// Salida: 'datos'</tspan>
+  </text>
+  <text class="code" x="450" y="355">
+    <tspan class="comment">// data = 'datos'</tspan>
+  </text>
+</svg>

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .title { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 20px; font-weight: bold; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .code { fill: #e2e8f0; font-family: 'Fira Code', monospace; font-size: 11px; }
+      .keyword { fill: #c084fc; }
+      .function { fill: #60a5fa; }
+      .string { fill: #4ade80; }
+      .number { fill: #fbbf24; }
+      .comment { fill: #64748b; }
+      .box { fill: #1e293b; stroke: #334155; stroke-width: 2; rx: 8; }
+      .box-bad { fill: #1e293b; stroke: #ef4444; stroke-width: 2; rx: 8; }
+      .box-good { fill: #1e293b; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .timeline { fill: none; stroke: #475569; stroke-width: 2; }
+      .time-marker { fill: #60a5fa; }
+      .time-label { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 10px; }
+      .badge-bad { fill: #ef4444; }
+      .badge-good { fill: #22c55e; }
+      .badge-text { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 11px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Ejecución Secuencial vs Paralela</text>
+
+  <!-- SEQUENTIAL SECTION -->
+  <rect class="box-bad" x="30" y="60" width="740" height="190"/>
+
+  <!-- Badge -->
+  <rect class="badge-bad" x="40" y="70" width="100" height="24" rx="4"/>
+  <text class="badge-text" x="90" y="87" text-anchor="middle">❌ SECUENCIAL</text>
+
+  <text class="subtitle" x="200" y="87">~3 segundos totales</text>
+
+  <!-- Sequential code -->
+  <text class="code" x="50" y="115">
+    <tspan class="keyword">const</tspan>
+    <tspan> user = </tspan>
+    <tspan class="keyword">await</tspan>
+    <tspan class="function"> fetchUser</tspan>
+    <tspan>();</tspan>
+    <tspan class="comment">      // 1s</tspan>
+  </text>
+  <text class="code" x="50" y="135">
+    <tspan class="keyword">const</tspan>
+    <tspan> posts = </tspan>
+    <tspan class="keyword">await</tspan>
+    <tspan class="function"> fetchPosts</tspan>
+    <tspan>();</tspan>
+    <tspan class="comment">    // 1s (espera)</tspan>
+  </text>
+  <text class="code" x="50" y="155">
+    <tspan class="keyword">const</tspan>
+    <tspan> comments = </tspan>
+    <tspan class="keyword">await</tspan>
+    <tspan class="function"> fetchComments</tspan>
+    <tspan>();</tspan>
+    <tspan class="comment"> // 1s (espera)</tspan>
+  </text>
+
+  <!-- Sequential timeline -->
+  <line class="timeline" x1="400" y1="180" x2="750" y2="180"/>
+
+  <!-- User block -->
+  <rect fill="#60a5fa" x="400" y="170" width="100" height="20" rx="4"/>
+  <text class="badge-text" x="450" y="184" text-anchor="middle">fetchUser</text>
+
+  <!-- Posts block (after user) -->
+  <rect fill="#a78bfa" x="510" y="170" width="100" height="20" rx="4"/>
+  <text class="badge-text" x="560" y="184" text-anchor="middle">fetchPosts</text>
+
+  <!-- Comments block (after posts) -->
+  <rect fill="#34d399" x="620" y="170" width="100" height="20" rx="4"/>
+  <text class="badge-text" x="670" y="184" text-anchor="middle">fetchComments</text>
+
+  <!-- Time markers -->
+  <text class="time-label" x="400" y="210">0s</text>
+  <text class="time-label" x="500" y="210">1s</text>
+  <text class="time-label" x="610" y="210">2s</text>
+  <text class="time-label" x="720" y="210">3s</text>
+
+  <!-- PARALLEL SECTION -->
+  <rect class="box-good" x="30" y="270" width="740" height="210"/>
+
+  <!-- Badge -->
+  <rect class="badge-good" x="40" y="280" width="100" height="24" rx="4"/>
+  <text class="badge-text" x="90" y="297" text-anchor="middle">✅ PARALELO</text>
+
+  <text class="subtitle" x="200" y="297">~1 segundo total</text>
+
+  <!-- Parallel code -->
+  <text class="code" x="50" y="325">
+    <tspan class="keyword">const</tspan>
+    <tspan> [user, posts, comments] = </tspan>
+    <tspan class="keyword">await</tspan>
+    <tspan> Promise.</tspan>
+    <tspan class="function">all</tspan>
+    <tspan>([</tspan>
+  </text>
+  <text class="code" x="70" y="345">
+    <tspan class="function">fetchUser</tspan>
+    <tspan>(),</tspan>
+    <tspan class="comment">      // Inicia inmediatamente</tspan>
+  </text>
+  <text class="code" x="70" y="365">
+    <tspan class="function">fetchPosts</tspan>
+    <tspan>(),</tspan>
+    <tspan class="comment">     // Inicia inmediatamente</tspan>
+  </text>
+  <text class="code" x="70" y="385">
+    <tspan class="function">fetchComments</tspan>
+    <tspan>()</tspan>
+    <tspan class="comment">  // Inicia inmediatamente</tspan>
+  </text>
+  <text class="code" x="50" y="405">]);</text>
+
+  <!-- Parallel timeline -->
+  <line class="timeline" x1="400" y1="430" x2="750" y2="430"/>
+
+  <!-- All blocks start at same time -->
+  <rect fill="#60a5fa" x="400" y="410" width="100" height="16" rx="4"/>
+  <text class="badge-text" x="450" y="422" text-anchor="middle" font-size="9">fetchUser</text>
+
+  <rect fill="#a78bfa" x="400" y="428" width="100" height="16" rx="4"/>
+  <text class="badge-text" x="450" y="440" text-anchor="middle" font-size="9">fetchPosts</text>
+
+  <rect fill="#34d399" x="400" y="446" width="100" height="16" rx="4"/>
+  <text class="badge-text" x="450" y="458" text-anchor="middle" font-size="9">fetchComments</text>
+
+  <!-- Time markers -->
+  <text class="time-label" x="400" y="478">0s</text>
+  <text class="time-label" x="500" y="478">1s ✓</text>
+</svg>

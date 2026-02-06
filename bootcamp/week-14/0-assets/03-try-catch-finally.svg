@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .title { fill: #f8fafc; font-family: system-ui, sans-serif; font-size: 20px; font-weight: bold; }
+      .subtitle { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 14px; }
+      .code { fill: #e2e8f0; font-family: monospace; font-size: 11px; }
+      .keyword { fill: #c084fc; }
+      .function { fill: #60a5fa; }
+      .comment { fill: #64748b; }
+      .box { fill: #1e293b; stroke: #334155; stroke-width: 2; rx: 8; }
+      .box-try { fill: #1e293b; stroke: #22c55e; stroke-width: 2; rx: 8; }
+      .box-catch { fill: #1e293b; stroke: #ef4444; stroke-width: 2; rx: 8; }
+      .box-finally { fill: #1e293b; stroke: #f59e0b; stroke-width: 2; rx: 8; }
+      .arrow { fill: none; stroke: #60a5fa; stroke-width: 2; }
+      .arrow-error { fill: none; stroke: #ef4444; stroke-width: 2; stroke-dasharray: 5,5; }
+      .label { fill: #94a3b8; font-family: system-ui, sans-serif; font-size: 11px; }
+      .badge { fill: #22c55e; }
+      .badge-error { fill: #ef4444; }
+      .badge-warn { fill: #f59e0b; }
+      .badge-text { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 10px; font-weight: bold; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowhead-error" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="800" height="450"/>
+
+  <text class="title" x="400" y="35" text-anchor="middle">Manejo de Errores con try/catch/finally</text>
+
+  <rect class="box-try" x="30" y="60" width="230" height="160"/>
+  <rect class="badge" x="40" y="70" width="40" height="20" rx="4"/>
+  <text class="badge-text" x="60" y="84" text-anchor="middle">try</text>
+
+  <text class="code" x="50" y="110">
+    <tspan class="keyword">try</tspan>
+    <tspan> {</tspan>
+  </text>
+  <text class="code" x="70" y="130">
+    <tspan class="keyword">const</tspan>
+    <tspan> data = </tspan>
+  </text>
+  <text class="code" x="90" y="150">
+    <tspan class="keyword">await</tspan>
+    <tspan class="function"> fetch</tspan>
+    <tspan>(url);</tspan>
+  </text>
+  <text class="code" x="70" y="170">
+    <tspan class="keyword">return</tspan>
+    <tspan> data;</tspan>
+  </text>
+  <text class="code" x="50" y="190">}</text>
+
+  <rect class="box-catch" x="290" y="60" width="230" height="160"/>
+  <rect class="badge-error" x="300" y="70" width="50" height="20" rx="4"/>
+  <text class="badge-text" x="325" y="84" text-anchor="middle">catch</text>
+
+  <text class="code" x="310" y="110">
+    <tspan class="keyword">catch</tspan>
+    <tspan> (error) {</tspan>
+  </text>
+  <text class="code" x="330" y="130">console.error(</text>
+  <text class="code" x="350" y="150">error.message</text>
+  <text class="code" x="330" y="170">);</text>
+  <text class="code" x="330" y="190">
+    <tspan class="keyword">return null</tspan>
+    <tspan>;</tspan>
+  </text>
+  <text class="code" x="310" y="210">}</text>
+
+  <rect class="box-finally" x="550" y="60" width="220" height="160"/>
+  <rect class="badge-warn" x="560" y="70" width="55" height="20" rx="4"/>
+  <text class="badge-text" x="587" y="84" text-anchor="middle">finally</text>
+
+  <text class="code" x="570" y="110">
+    <tspan class="keyword">finally</tspan>
+    <tspan> {</tspan>
+  </text>
+  <text class="code" x="590" y="130">
+    <tspan class="comment">// Siempre ejecuta</tspan>
+  </text>
+  <text class="code" x="590" y="150">hideLoading();</text>
+  <text class="code" x="590" y="170">cleanup();</text>
+  <text class="code" x="570" y="190">}</text>
+
+  <path class="arrow" d="M 260 140 L 285 140" marker-end="url(#arrowhead)"/>
+  <text class="label" x="270" y="130" text-anchor="middle">OK</text>
+
+  <path class="arrow-error" d="M 145 220 Q 145 260 290 260 L 400 260 L 400 220" marker-end="url(#arrowhead-error)"/>
+  <text class="label" x="270" y="275" text-anchor="middle">Error</text>
+
+  <path class="arrow" d="M 520 140 L 545 140" marker-end="url(#arrowhead)"/>
+
+  <rect class="box" x="30" y="300" width="740" height="130"/>
+  <text class="subtitle" x="400" y="325" text-anchor="middle">Tipos de errores capturados</text>
+
+  <text class="code" x="60" y="355">
+    <tspan class="comment">// Errores sincronos</tspan>
+  </text>
+  <text class="code" x="60" y="375">
+    <tspan class="keyword">throw new</tspan>
+    <tspan> Error();</tspan>
+  </text>
+
+  <text class="code" x="280" y="355">
+    <tspan class="comment">// Promises rechazadas</tspan>
+  </text>
+  <text class="code" x="280" y="375">
+    <tspan class="keyword">await</tspan>
+    <tspan> Promise.reject();</tspan>
+  </text>
+
+  <text class="code" x="530" y="355">
+    <tspan class="comment">// Errores en await</tspan>
+  </text>
+  <text class="code" x="530" y="375">
+    <tspan class="keyword">await</tspan>
+    <tspan class="function"> failingFetch</tspan>
+    <tspan>();</tspan>
+  </text>
+
+  <text class="label" x="400" y="415" text-anchor="middle">Todos son capturados por el mismo bloque catch</text>
+</svg>

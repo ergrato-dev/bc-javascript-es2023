@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Datos Asíncrono</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="header__title">
+        <span class="header__icon">🔭</span>
+        Dashboard de Datos Asíncrono
+      </h1>
+      <p class="header__subtitle">Sistema de Carga con Async/Await</p>
+    </header>
+
+    <!-- Controles -->
+    <section class="controls">
+      <button id="btnLoadAll" class="btn btn--primary">
+        <span class="btn__icon">⚡</span>
+        Cargar Todo
+      </button>
+      <button id="btnReset" class="btn btn--secondary">
+        <span class="btn__icon">🔄</span>
+        Reiniciar
+      </button>
+    </section>
+
+    <!-- Panel de Fuentes de Datos -->
+    <section class="data-sources">
+      <h2 class="section-title">Fuentes de Datos</h2>
+      <div id="sourcesContainer" class="sources-grid">
+        <!-- Las fuentes se generan dinámicamente -->
+      </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="statistics">
+      <h2 class="section-title">📊 Estadísticas</h2>
+      <div id="statsContainer" class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-card__label">Tiempo Total</span>
+          <span id="statTotalTime" class="stat-card__value">--</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Ahorro Paralelo</span>
+          <span id="statSavings" class="stat-card__value">--</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Éxitos</span>
+          <span id="statSuccess" class="stat-card__value stat-card__value--success">--</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-card__label">Fallos</span>
+          <span id="statFailed" class="stat-card__value stat-card__value--error">--</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Datos Cargados -->
+    <section class="loaded-data">
+      <h2 class="section-title">📦 Datos Cargados</h2>
+      <div id="dataContainer" class="data-grid">
+        <p class="placeholder">Los datos aparecerán aquí después de cargar...</p>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="starter/script.js"></script>
+</body>
+</html>
