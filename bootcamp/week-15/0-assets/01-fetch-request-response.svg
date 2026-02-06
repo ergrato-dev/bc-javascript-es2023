@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 20px; font-weight: 600; }
+      .label { fill: #f0f6fc; font-family: system-ui, sans-serif; font-size: 14px; }
+      .sublabel { fill: #8b949e; font-family: system-ui, sans-serif; font-size: 12px; }
+      .code { fill: #79c0ff; font-family: monospace; font-size: 11px; }
+      .box-client { fill: #1f6feb; stroke: #58a6ff; stroke-width: 2; }
+      .box-server { fill: #238636; stroke: #3fb950; stroke-width: 2; }
+      .box-request { fill: #6e40c9; stroke: #a371f7; stroke-width: 2; }
+      .box-response { fill: #9e6a03; stroke: #d29922; stroke-width: 2; }
+      .arrow { fill: none; stroke: #8b949e; stroke-width: 2; }
+      .arrow-head { fill: #8b949e; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="400"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Flujo Request → Response en Fetch API</text>
+
+  <!-- Client Box -->
+  <rect class="box-client" x="50" y="80" width="150" height="260" rx="8"/>
+  <text class="label" x="125" y="105" text-anchor="middle" font-weight="600">🖥️ Cliente</text>
+  <text class="sublabel" x="125" y="125" text-anchor="middle">(Navegador)</text>
+
+  <!-- fetch() call -->
+  <rect fill="#21262d" x="65" y="145" width="120" height="50" rx="4"/>
+  <text class="code" x="125" y="168" text-anchor="middle">fetch(url, opts)</text>
+  <text class="sublabel" x="125" y="185" text-anchor="middle">Inicia petición</text>
+
+  <!-- await response -->
+  <rect fill="#21262d" x="65" y="215" width="120" height="50" rx="4"/>
+  <text class="code" x="125" y="238" text-anchor="middle">await response</text>
+  <text class="sublabel" x="125" y="255" text-anchor="middle">Espera headers</text>
+
+  <!-- await json -->
+  <rect fill="#21262d" x="65" y="285" width="120" height="40" rx="4"/>
+  <text class="code" x="125" y="308" text-anchor="middle">.json() / .text()</text>
+
+  <!-- Request Object -->
+  <rect class="box-request" x="270" y="100" width="130" height="130" rx="8"/>
+  <text class="label" x="335" y="125" text-anchor="middle" font-weight="600">📤 Request</text>
+  <text class="sublabel" x="335" y="150" text-anchor="middle">• method: GET</text>
+  <text class="sublabel" x="335" y="170" text-anchor="middle">• headers</text>
+  <text class="sublabel" x="335" y="190" text-anchor="middle">• body (opcional)</text>
+  <text class="sublabel" x="335" y="210" text-anchor="middle">• credentials</text>
+
+  <!-- Response Object -->
+  <rect class="box-response" x="270" y="260" width="130" height="130" rx="8"/>
+  <text class="label" x="335" y="285" text-anchor="middle" font-weight="600">📥 Response</text>
+  <text class="sublabel" x="335" y="310" text-anchor="middle">• status: 200</text>
+  <text class="sublabel" x="335" y="330" text-anchor="middle">• ok: true</text>
+  <text class="sublabel" x="335" y="350" text-anchor="middle">• headers</text>
+  <text class="sublabel" x="335" y="370" text-anchor="middle">• body (stream)</text>
+
+  <!-- Server Box -->
+  <rect class="box-server" x="600" y="80" width="150" height="260" rx="8"/>
+  <text class="label" x="675" y="105" text-anchor="middle" font-weight="600">🌐 Servidor</text>
+  <text class="sublabel" x="675" y="125" text-anchor="middle">(API REST)</text>
+
+  <!-- Server processing -->
+  <rect fill="#21262d" x="615" y="155" width="120" height="50" rx="4"/>
+  <text class="sublabel" x="675" y="175" text-anchor="middle">Recibe request</text>
+  <text class="sublabel" x="675" y="192" text-anchor="middle">Procesa datos</text>
+
+  <rect fill="#21262d" x="615" y="225" width="120" height="70" rx="4"/>
+  <text class="sublabel" x="675" y="250" text-anchor="middle">Construye response</text>
+  <text class="code" x="675" y="272" text-anchor="middle">Content-Type:</text>
+  <text class="code" x="675" y="287" text-anchor="middle">application/json</text>
+
+  <!-- Arrows -->
+  <!-- Client to Request -->
+  <path class="arrow" d="M185,170 L260,165"/>
+  <polygon class="arrow-head" points="260,165 250,160 250,170"/>
+
+  <!-- Request to Server -->
+  <path class="arrow" d="M400,165 L590,180"/>
+  <polygon class="arrow-head" points="590,180 580,175 580,185"/>
+
+  <!-- Server to Response -->
+  <path class="arrow" d="M590,260 L410,305"/>
+  <polygon class="arrow-head" points="410,305 422,310 420,300"/>
+
+  <!-- Response to Client -->
+  <path class="arrow" d="M260,325 L195,305"/>
+  <polygon class="arrow-head" points="195,305 205,300 205,310"/>
+
+  <!-- Step numbers -->
+  <circle fill="#f0db4f" cx="230" cy="155" r="12"/>
+  <text fill="#0d1117" x="230" y="159" text-anchor="middle" font-size="12" font-weight="600">1</text>
+
+  <circle fill="#f0db4f" cx="500" cy="165" r="12"/>
+  <text fill="#0d1117" x="500" y="169" text-anchor="middle" font-size="12" font-weight="600">2</text>
+
+  <circle fill="#f0db4f" cx="500" cy="290" r="12"/>
+  <text fill="#0d1117" x="500" y="294" text-anchor="middle" font-size="12" font-weight="600">3</text>
+
+  <circle fill="#f0db4f" cx="230" cy="310" r="12"/>
+  <text fill="#0d1117" x="230" y="314" text-anchor="middle" font-size="12" font-weight="600">4</text>
+</svg>

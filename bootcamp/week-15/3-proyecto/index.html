@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorador de API REST</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="header__title">
+        <span class="header__icon">🌐</span>
+        Explorador de API REST
+      </h1>
+      <p class="header__subtitle">CRUD con Fetch API</p>
+    </header>
+
+    <!-- Navegación de Secciones -->
+    <nav class="tabs">
+      <button class="tab tab--active" data-section="list">
+        <span class="tab__icon">📋</span> Listado
+      </button>
+      <button class="tab" data-section="create">
+        <span class="tab__icon">➕</span> Crear
+      </button>
+    </nav>
+
+    <!-- Sección: Listado -->
+    <section id="sectionList" class="section section--active">
+      <div class="list-controls">
+        <div class="search-box">
+          <span class="search-box__icon">🔍</span>
+          <input type="text" id="searchInput" class="search-box__input" placeholder="Buscar...">
+        </div>
+        <button id="btnRefresh" class="btn btn--secondary">
+          <span class="btn__icon">🔄</span> Refrescar
+        </button>
+      </div>
+
+      <!-- Contenedor de tarjetas -->
+      <div id="cardsContainer" class="cards-grid">
+        <p class="placeholder">Cargando datos...</p>
+      </div>
+
+      <!-- Paginación -->
+      <div class="pagination">
+        <button id="btnPrev" class="btn btn--small" disabled>◀ Anterior</button>
+        <span id="pageInfo" class="pagination__info">Página 1</span>
+        <button id="btnNext" class="btn btn--small">Siguiente ▶</button>
+      </div>
+    </section>
+
+    <!-- Sección: Crear / Editar -->
+    <section id="sectionCreate" class="section">
+      <h2 class="section-title" id="formTitle">➕ Crear Registro</h2>
+      <form id="itemForm" class="form">
+        <input type="hidden" id="formId" value="">
+
+        <div class="form-group">
+          <label for="formName" class="form-group__label">Título</label>
+          <input type="text" id="formName" class="form-group__input" placeholder="Ingresa el título" required>
+        </div>
+
+        <div class="form-group">
+          <label for="formDescription" class="form-group__label">Descripción</label>
+          <textarea id="formDescription" class="form-group__textarea" rows="4" placeholder="Ingresa la descripción" required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="btnSubmit" class="btn btn--primary">
+            <span class="btn__icon">💾</span> Guardar
+          </button>
+          <button type="button" id="btnCancel" class="btn btn--secondary">
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Barra de Estado -->
+    <footer class="status-bar">
+      <div id="statusMessage" class="status-bar__message">
+        <span class="status-bar__dot status-bar__dot--idle"></span>
+        Listo
+      </div>
+      <div id="responseTime" class="status-bar__time"></div>
+    </footer>
+
+    <!-- Modal de Confirmación -->
+    <div id="confirmModal" class="modal" hidden>
+      <div class="modal__backdrop"></div>
+      <div class="modal__content">
+        <h3 class="modal__title">⚠️ Confirmar Eliminación</h3>
+        <p id="confirmMessage" class="modal__message">¿Estás seguro de que deseas eliminar este registro?</p>
+        <div class="modal__actions">
+          <button id="btnConfirmYes" class="btn btn--danger">Eliminar</button>
+          <button id="btnConfirmNo" class="btn btn--secondary">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="starter/script.js"></script>
+</body>
+</html>

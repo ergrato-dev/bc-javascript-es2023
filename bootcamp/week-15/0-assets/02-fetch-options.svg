@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #0d1117; }
+      .title { fill: #f0db4f; font-family: system-ui, sans-serif; font-size: 18px; font-weight: 600; }
+      .label { fill: #f0f6fc; font-family: system-ui, sans-serif; font-size: 13px; }
+      .sublabel { fill: #8b949e; font-family: system-ui, sans-serif; font-size: 11px; }
+      .code { fill: #79c0ff; font-family: monospace; font-size: 11px; }
+      .box-main { fill: #21262d; stroke: #30363d; stroke-width: 2; }
+      .box-section { fill: #161b22; stroke: #f0db4f; stroke-width: 1; }
+      .highlight { fill: #f0db4f; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="30" text-anchor="middle">Opciones de Configuración de fetch()</text>
+
+  <!-- Main box -->
+  <rect class="box-main" x="50" y="50" width="700" height="380" rx="10"/>
+
+  <!-- fetch signature -->
+  <text class="code" x="400" y="80" text-anchor="middle" font-size="14">fetch(url, options)</text>
+
+  <!-- Method Section -->
+  <rect class="box-section" x="70" y="100" width="200" height="80" rx="6"/>
+  <text class="label" x="170" y="120" text-anchor="middle" font-weight="600">method</text>
+  <text class="sublabel" x="170" y="140" text-anchor="middle">GET (default)</text>
+  <text class="sublabel" x="170" y="155" text-anchor="middle">POST, PUT, DELETE, PATCH</text>
+  <text class="code" x="170" y="172" text-anchor="middle">method: 'POST'</text>
+
+  <!-- Headers Section -->
+  <rect class="box-section" x="290" y="100" width="220" height="80" rx="6"/>
+  <text class="label" x="400" y="120" text-anchor="middle" font-weight="600">headers</text>
+  <text class="sublabel" x="400" y="140" text-anchor="middle">Content-Type, Authorization</text>
+  <text class="sublabel" x="400" y="155" text-anchor="middle">Accept, X-Custom-Header</text>
+  <text class="code" x="400" y="172" text-anchor="middle">headers: new Headers()</text>
+
+  <!-- Body Section -->
+  <rect class="box-section" x="530" y="100" width="200" height="80" rx="6"/>
+  <text class="label" x="630" y="120" text-anchor="middle" font-weight="600">body</text>
+  <text class="sublabel" x="630" y="140" text-anchor="middle">JSON.stringify(data)</text>
+  <text class="sublabel" x="630" y="155" text-anchor="middle">FormData, Blob, string</text>
+  <text class="code" x="630" y="172" text-anchor="middle">body: JSON.stringify()</text>
+
+  <!-- Mode Section -->
+  <rect class="box-section" x="70" y="200" width="200" height="80" rx="6"/>
+  <text class="label" x="170" y="220" text-anchor="middle" font-weight="600">mode</text>
+  <text class="sublabel" x="170" y="240" text-anchor="middle">cors (default)</text>
+  <text class="sublabel" x="170" y="255" text-anchor="middle">same-origin, no-cors</text>
+  <text class="code" x="170" y="272" text-anchor="middle">mode: 'cors'</text>
+
+  <!-- Credentials Section -->
+  <rect class="box-section" x="290" y="200" width="220" height="80" rx="6"/>
+  <text class="label" x="400" y="220" text-anchor="middle" font-weight="600">credentials</text>
+  <text class="sublabel" x="400" y="240" text-anchor="middle">same-origin (default)</text>
+  <text class="sublabel" x="400" y="255" text-anchor="middle">include, omit</text>
+  <text class="code" x="400" y="272" text-anchor="middle">credentials: 'include'</text>
+
+  <!-- Cache Section -->
+  <rect class="box-section" x="530" y="200" width="200" height="80" rx="6"/>
+  <text class="label" x="630" y="220" text-anchor="middle" font-weight="600">cache</text>
+  <text class="sublabel" x="630" y="240" text-anchor="middle">default, no-store</text>
+  <text class="sublabel" x="630" y="255" text-anchor="middle">reload, no-cache</text>
+  <text class="code" x="630" y="272" text-anchor="middle">cache: 'no-store'</text>
+
+  <!-- Redirect Section -->
+  <rect class="box-section" x="70" y="300" width="200" height="70" rx="6"/>
+  <text class="label" x="170" y="320" text-anchor="middle" font-weight="600">redirect</text>
+  <text class="sublabel" x="170" y="340" text-anchor="middle">follow (default)</text>
+  <text class="sublabel" x="170" y="355" text-anchor="middle">error, manual</text>
+
+  <!-- Signal Section -->
+  <rect class="box-section" x="290" y="300" width="220" height="70" rx="6"/>
+  <text class="label" x="400" y="320" text-anchor="middle" font-weight="600">signal</text>
+  <text class="sublabel" x="400" y="340" text-anchor="middle">AbortController.signal</text>
+  <text class="sublabel" x="400" y="355" text-anchor="middle">Para cancelar peticiones</text>
+
+  <!-- Referrer Section -->
+  <rect class="box-section" x="530" y="300" width="200" height="70" rx="6"/>
+  <text class="label" x="630" y="320" text-anchor="middle" font-weight="600">referrer</text>
+  <text class="sublabel" x="630" y="340" text-anchor="middle">referrerPolicy</text>
+  <text class="sublabel" x="630" y="355" text-anchor="middle">no-referrer, origin</text>
+
+  <!-- Legend -->
+  <rect fill="#f0db4f" x="70" y="400" width="12" height="12" rx="2"/>
+  <text class="sublabel" x="90" y="410">Requeridos para POST/PUT</text>
+
+  <rect fill="#3fb950" x="250" y="400" width="12" height="12" rx="2"/>
+  <text class="sublabel" x="270" y="410">Opcionales comunes</text>
+
+  <rect fill="#6e7681" x="430" y="400" width="12" height="12" rx="2"/>
+  <text class="sublabel" x="450" y="410">Avanzados</text>
+</svg>
