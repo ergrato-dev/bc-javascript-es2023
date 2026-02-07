@@ -299,8 +299,8 @@ const byCategory = items.reduce((acc, item) => {
 ## 📚 Recursos
 
 - [MDN - LocalStorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)
-- [MDN - Array Methods](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)
-- [JavaScript.info - Array methods](https://javascript.info/array-methods)
+- [MDN - Métodos de Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [JavaScript.info - Métodos de Array](https://javascript.info/array-methods)
 
 ---
 

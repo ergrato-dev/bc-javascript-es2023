@@ -240,9 +240,9 @@ function formatPhone(value) {
 
 ## 🔗 Recursos
 
-- [MDN - Regular Expressions](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions)
+- [MDN - Expresiones Regulares](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions)
 - [regex101.com](https://regex101.com/) - Tester de RegExp
-- [HTML5 Pattern Attribute](https://developer.mozilla.org/es/docs/Web/HTML/Attributes/pattern)
+- [MDN - Atributo pattern en HTML5](https://developer.mozilla.org/es/docs/Web/HTML/Attributes/pattern)
 
 ## ⏱️ Tiempo Estimado
 

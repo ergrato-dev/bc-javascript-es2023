@@ -229,7 +229,7 @@ input.classList.toggle('invalid', !isValid);
 
 - [MDN: Proxy](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 - [MDN: Reflect](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
-- [Form Validation UX](https://www.smashingmagazine.com/2022/09/inline-validation-web-forms-ux/)
+- [UX en Validación de Formularios (Smashing Magazine)](https://www.smashingmagazine.com/2022/09/inline-validation-web-forms-ux/)
 
 ---
 
