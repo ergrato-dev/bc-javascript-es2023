@@ -203,5 +203,5 @@ Para ilustrar el proyecto, usamos el dominio "Planetario":
 - [Teoría: Request y Response](../1-teoria/02-request-response.md)
 - [Teoría: Headers y Configuración](../1-teoria/03-headers-config.md)
 - [Teoría: Manejo de Errores](../1-teoria/04-error-handling.md)
-- [JSONPlaceholder Guide](https://jsonplaceholder.typicode.com/guide/)
+- [Guía de JSONPlaceholder](https://jsonplaceholder.typicode.com/guide/)
 - [MDN: Fetch API](https://developer.mozilla.org/es/docs/Web/API/Fetch_API)

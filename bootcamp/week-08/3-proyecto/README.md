@@ -160,7 +160,7 @@ Verifica que todas las funcionalidades trabajen correctamente.
 
 ---
 
-## 💡 Hints
+## 💡 Pistas
 
 ### Cómo funciona el paginador con generadores
 
@@ -213,7 +213,7 @@ const currentPageItems = page * itemsPerPage;
 
 ## 📚 Recursos
 
-- [MDN: Generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+- [MDN: Generators](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Generator)
 - [JavaScript.info: Generators](https://javascript.info/generators)
 
 ---
