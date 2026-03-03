@@ -18,7 +18,7 @@
 |--------|-------|--------|
 | Map and Set | JavaScript.info | [javascript.info/map-set](https://javascript.info/map-set) |
 | WeakMap and WeakSet | JavaScript.info | [javascript.info/weakmap-weakset](https://javascript.info/weakmap-weakset) |
-| ES6 Collections | 2ality | [2ality.com](https://2ality.com/2015/01/es6-maps-sets.html) |
+| ES2023 Collections | 2ality | [2ality.com](https://2ality.com/2015/01/es6-maps-sets.html) |
 | When to use Map vs Object | Stack Overflow | [stackoverflow.com](https://stackoverflow.com/questions/18541940/map-vs-object-in-javascript) |
 
 ### Artículos Recomendados
@@ -51,7 +51,7 @@
 
 - **TC39 Proposals**: [github.com/tc39/proposals](https://github.com/tc39/proposals)
 - **JavaScript Weekly**: [javascriptweekly.com](https://javascriptweekly.com/)
-- **ES6 Features**: [es6-features.org](http://es6-features.org/)
+- **ES2023 Features**: [es6-features.org](http://es6-features.org/)
 
 ---
 

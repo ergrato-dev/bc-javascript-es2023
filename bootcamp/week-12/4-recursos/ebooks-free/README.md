@@ -36,7 +36,7 @@ Libros recomendados para profundizar en arquitectura de aplicaciones y patrones 
 ## 💡 Capítulos Relevantes
 
 ### De "JavaScript.info"
-- [Modules](https://javascript.info/modules) - Sistema de módulos ES6
+- [Modules](https://javascript.info/modules) - Sistema de módulos ES2023
 - [Classes](https://javascript.info/classes) - Clases modernas
 - [Error handling](https://javascript.info/error-handling) - Manejo de errores
 - [Storing data in the browser](https://javascript.info/data-storage) - localStorage

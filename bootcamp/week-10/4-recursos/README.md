@@ -26,9 +26,9 @@ Recursos adicionales para profundizar en Proxies, Reflect y patrones reactivos.
 
 ### Para Profundizar
 
-1. **You Don't Know JS: ES6 & Beyond** - Capítulo de metaprogramación
+1. **You Don't Know JS: ES2023 & Beyond** - Capítulo de metaprogramación
 2. **Vue.js Reactivity Deep Dive** - Cómo Vue usa Proxies
-3. **Exploring ES6** - Dr. Axel Rauschmayer
+3. **Exploring ES2023** - Dr. Axel Rauschmayer
 
 ---
 

@@ -646,7 +646,7 @@ Cuando trabajes en este proyecto:
    - Template literals
    - Destructuring
    - Spread operator
-   - Módulos ES6
+   - Módulos ES2023
 
 2. **Gestión de Paquetes**
 

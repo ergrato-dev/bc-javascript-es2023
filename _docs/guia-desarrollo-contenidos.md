@@ -360,7 +360,7 @@ Términos técnicos clave de esta semana, ordenados alfabéticamente.
 ## A
 
 ### Arrow Function
-**Definición**: Sintaxis concisa para escribir funciones en JavaScript ES6+.
+**Definición**: Sintaxis concisa para escribir funciones en JavaScript ES2023.
 
 **Ejemplo**:
 \`\`\`javascript

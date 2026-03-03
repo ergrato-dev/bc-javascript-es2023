@@ -95,7 +95,7 @@ const [first = 0, second = 0] = numbers;
 ---
 
 ### **Destructuring**
-Sintaxis ES6 que permite extraer valores de arrays u objetos en variables separadas.
+Sintaxis ES2023 que permite extraer valores de arrays u objetos en variables separadas.
 
 ```javascript
 const { name, age } = user;      // Object destructuring

@@ -1,4 +1,4 @@
-# 🚀 Semana 4: Destructuring y Módulos ES6
+# 🚀 Semana 4: Destructuring y Módulos ES2023
 
 ## 🎯 Objetivos de Aprendizaje
 
@@ -7,7 +7,7 @@ Al finalizar esta semana, serás capaz de:
 - ✅ Aplicar destructuring en arrays para extraer valores
 - ✅ Usar destructuring en objetos con alias y valores por defecto
 - ✅ Trabajar con destructuring anidado en estructuras complejas
-- ✅ Crear módulos ES6 con `import` y `export`
+- ✅ Crear módulos ES2023 con `import` y `export`
 - ✅ Diferenciar entre named exports y default exports
 - ✅ Implementar dynamic imports para carga bajo demanda
 - ✅ Organizar proyectos con arquitectura modular
@@ -67,7 +67,7 @@ week-04/
 |------|----------|-------------|
 | [Destructuring de Arrays](1-teoria/01-destructuring-arrays.md) | 25 min | Extracción de valores, skip, rest |
 | [Destructuring de Objetos](1-teoria/02-destructuring-objetos.md) | 30 min | Alias, defaults, anidado |
-| [Módulos ES6](1-teoria/03-modulos-es6.md) | 35 min | import/export, organización |
+| [Módulos ES2023](1-teoria/03-modulos-es6.md) | 35 min | import/export, organización |
 | [Named vs Default Exports](1-teoria/04-named-default-exports.md) | 25 min | Cuándo usar cada tipo |
 | [Dynamic Imports](1-teoria/05-dynamic-imports.md) | 25 min | Carga bajo demanda, code splitting |
 
@@ -117,7 +117,7 @@ El **único entregable** para esta semana es el proyecto:
 - [ ] Código limpio y bien comentado en inglés
 - [ ] README del proyecto documentado
 
-> **Nota**: Los ejercicios prácticos y la teoría son materiales de aprendizaje para prepararte para el proyecto, pero no se entregan de forma separada. El proyecto debe demostrar tu dominio de destructuring y módulos ES6.
+> **Nota**: Los ejercicios prácticos y la teoría son materiales de aprendizaje para prepararte para el proyecto, pero no se entregan de forma separada. El proyecto debe demostrar tu dominio de destructuring y módulos ES2023.
 
 ### Extras Opcionales
 - Extender el proyecto con localStorage
@@ -141,7 +141,7 @@ El **único entregable** para esta semana es el proyecto:
 
 1. **Practica destructuring** en cada oportunidad - parámetros de funciones, retornos, etc.
 2. **Planifica la estructura de módulos** antes de codificar
-3. **Usa un servidor local** para probar módulos ES6 (no funcionan con `file://`)
+3. **Usa un servidor local** para probar módulos ES2023 (no funcionan con `file://`)
 4. **Nombra exports de forma descriptiva** para mejor legibilidad
 
 ---

@@ -158,7 +158,7 @@ Recursos web, documentación oficial y artículos seleccionados para profundizar
 
 ### Object Enhancements
 
-#### **9. Object Literals in ES6**
+#### **9. Object Literals in ES2023**
 **Sitio**: 2ality (Dr. Axel Rauschmayer)
 **Idioma**: Inglés
 **Enlace**: [https://2ality.com/](https://2ality.com/)
@@ -227,7 +227,7 @@ Recursos web, documentación oficial y artículos seleccionados para profundizar
 
 ---
 
-### **16. ES6 Features Cheat Sheet**
+### **16. ES2023 Features Cheat Sheet**
 **Sitio**: GitHub Gists
 **Tipo**: Documento de referencia
 

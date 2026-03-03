@@ -67,7 +67,7 @@ Videos y tutoriales recomendados sobre Proxies, Reflect y patrones reactivos.
 ### JavaScript Avanzado
 - **Canal**: Varios
 - **Contenido**: Series sobre ES2023 features
-- **Buscar**: "JavaScript ES6 Proxy playlist"
+- **Buscar**: "JavaScript ES2023 Proxy playlist"
 
 ### Metaprogramación en JavaScript
 - **Canal**: Varios

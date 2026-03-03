@@ -56,12 +56,12 @@
 
 ---
 
-#### 2. ES6 Symbols: A New Type of Primitive
+#### 2. ES2023 Symbols: A New Type of Primitive
 
 **Fuente**: 2ality (Dr. Axel Rauschmayer)
 **Enlace**: [2ality.com](https://2ality.com/2014/12/es6-symbols.html)
 
-> Análisis profundo del autor de "Exploring ES6".
+> Análisis profundo del autor de "Exploring ES2023".
 
 ---
 
@@ -74,7 +74,7 @@
 
 ---
 
-#### 4. Metaprogramming in ES6: Symbols and Why They're Awesome
+#### 4. Metaprogramming in ES2023: Symbols and Why They're Awesome
 
 **Fuente**: Keith Cirkel
 **Enlace**: [keithcirkel.co.uk](https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/)
@@ -90,7 +90,7 @@
 | Herramienta | Enlace |
 |-------------|--------|
 | Can I Use - Symbol | [caniuse.com](https://caniuse.com/?search=Symbol) |
-| ES6 Compatibility Table | [kangax.github.io](https://kangax.github.io/compat-table/es6/) |
+| ES2023 Compatibility Table | [kangax.github.io](https://kangax.github.io/compat-table/es6/) |
 
 ### Especificación ECMAScript
 
@@ -113,7 +113,7 @@
 
 1. JavaScript.info - Iterables
 2. MDN - Well-known Symbols
-3. 2ality - ES6 Symbols
+3. 2ality - ES2023 Symbols
 
 ### Avanzado
 

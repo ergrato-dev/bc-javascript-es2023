@@ -1,4 +1,4 @@
-# 🏗️ Proyecto Semana 04: Sistema Modular con ES6 Modules
+# 🏗️ Proyecto Semana 04: Sistema Modular con ES2023 Modules
 
 > **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
 
@@ -11,13 +11,13 @@
 - Previene copia entre compañeros
 - Fomenta implementaciones originales
 - Desarrolla capacidad de organizar código modular
-- Aplica módulos ES6 a contextos específicos
+- Aplica módulos ES2023 a contextos específicos
 
 ---
 
 ## 🎯 Objetivo
 
-Crear una aplicación de gestión utilizando arquitectura modular ES6, destructuring avanzado y dynamic imports, aplicada a tu dominio asignado.
+Crear una aplicación de gestión utilizando arquitectura modular ES2023, destructuring avanzado y dynamic imports, aplicada a tu dominio asignado.
 
 ---
 
@@ -125,7 +125,7 @@ items.forEach(({ id, name }) => console.log(id, name));
 const { quantity = 0, active = true } = entity;
 ```
 
-### Módulos ES6 (Obligatorio)
+### Módulos ES2023 (Obligatorio)
 
 ```javascript
 // Named exports para utilidades
@@ -173,7 +173,7 @@ try {
 - [ ] En iteraciones de arrays (6pts)
 - [ ] Con valores por defecto (6pts)
 
-### Módulos ES6 (40 puntos)
+### Módulos ES2023 (40 puntos)
 
 - [ ] Named exports correctos (10pts)
 - [ ] Default exports apropiados (10pts)
@@ -292,13 +292,13 @@ document.getElementById('reports-btn').addEventListener('click', async () => {
 ## 📋 Entregables
 
 1. **Código modular** con estructura de carpetas correcta
-2. **Todos los archivos** usando import/export ES6
+2. **Todos los archivos** usando import/export ES2023
 3. **README personal** documentando tu implementación
 4. **Todo el código debe usar**:
    - Nomenclatura técnica en inglés
    - Comentarios en español
    - Destructuring en todo el código
-   - Módulos ES6 (nunca CommonJS)
+   - Módulos ES2023 (nunca CommonJS)
 
 ---
 

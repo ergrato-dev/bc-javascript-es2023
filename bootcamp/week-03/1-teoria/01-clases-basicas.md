@@ -339,12 +339,12 @@ class Task {
 }
 
 // Uso
-const task1 = new Task('Learn ES6 Classes', 'Study the basics', 'high');
+const task1 = new Task('Learn ES2023 Classes', 'Study the basics', 'high');
 const task2 = new Task('Practice coding');
 
-console.log(task1.getInfo()); // "⏳ [HIGH] Learn ES6 Classes"
+console.log(task1.getInfo()); // "⏳ [HIGH] Learn ES2023 Classes"
 task1.complete();
-console.log(task1.getInfo()); // "✅ [HIGH] Learn ES6 Classes"
+console.log(task1.getInfo()); // "✅ [HIGH] Learn ES2023 Classes"
 
 console.log(Task.taskCount); // 2
 ```
@@ -430,7 +430,7 @@ Crea una clase `TodoList` con:
 
 - [MDN: Classes](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)
 - [JavaScript.info: Class basic syntax](https://javascript.info/class)
-- [ES6 Classes in Depth](https://exploringjs.com/es6/ch_classes.html)
+- [ES2023 Classes in Depth](https://exploringjs.com/es6/ch_classes.html)
 
 ---
 

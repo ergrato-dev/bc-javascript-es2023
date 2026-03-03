@@ -93,7 +93,7 @@ Interactúa con el cache de módulos.
 
 ## ▶️ Ejecución
 
-Necesitas un servidor local (módulos ES6 requieren HTTP):
+Necesitas un servidor local (módulos ES2023 requieren HTTP):
 
 ```bash
 # Opción 1: Python

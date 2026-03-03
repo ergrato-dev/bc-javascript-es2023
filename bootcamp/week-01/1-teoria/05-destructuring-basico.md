@@ -415,7 +415,7 @@ const UserCard = ({ name, email, avatar, isActive = true }) => {
 ### 6. Import de Módulos
 
 ```javascript
-// ✅ Destructuring en imports (ES6 modules)
+// ✅ Destructuring en imports (ES2023 modules)
 import { useState, useEffect } from 'react';
 import { formatDate, capitalize } from './utils';
 

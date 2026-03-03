@@ -1,6 +1,6 @@
 # 📋 Rúbrica de Evaluación - Semana 4
 
-## Destructuring y Módulos ES6
+## Destructuring y Módulos ES2023
 
 ---
 
@@ -25,7 +25,7 @@
 |----------|------------------|-------------|------------------|---------------------|
 | **Destructuring Arrays** | Domina extracción, skip, rest y valores por defecto | Aplica correctamente en casos comunes | Entiende lo básico con ayuda | No comprende el concepto |
 | **Destructuring Objetos** | Usa alias, defaults, anidado y en parámetros | Aplica en objetos simples y anidados | Extrae propiedades básicas | Confunde sintaxis |
-| **Módulos ES6** | Comprende import/export, re-exports y organización | Crea módulos funcionales | Importa y exporta básico | No diferencia tipos |
+| **Módulos ES2023** | Comprende import/export, re-exports y organización | Crea módulos funcionales | Importa y exporta básico | No diferencia tipos |
 | **Named vs Default** | Sabe cuándo usar cada uno y combinarlos | Usa correctamente ambos tipos | Conoce la diferencia | Confunde sintaxis |
 | **Dynamic Imports** | Implementa lazy loading y code splitting | Usa import() con async/await | Entiende el concepto | No sabe aplicarlo |
 
@@ -111,7 +111,7 @@
 
 ### Conocimiento (30%)
 1. Cuestionario teórico (15 preguntas)
-2. Explicación escrita de módulos ES6
+2. Explicación escrita de módulos ES2023
 
 ### Desempeño (40%)
 1. Código de ejercicios en repositorio
@@ -131,7 +131,7 @@ Para aprobar esta semana, el estudiante debe:
 1. ✅ Obtener mínimo **70%** en cada tipo de evidencia
 2. ✅ Completar **todos** los ejercicios prácticos
 3. ✅ Entregar el proyecto con funcionalidad básica
-4. ✅ Demostrar comprensión de módulos ES6
+4. ✅ Demostrar comprensión de módulos ES2023
 5. ✅ Usar destructuring correctamente en al menos 5 casos
 
 ---

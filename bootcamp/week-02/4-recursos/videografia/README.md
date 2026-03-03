@@ -8,7 +8,7 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 
 ### 📺 Spread Operator & Rest Parameters
 
-#### **1. Spread Operator y Rest Parameters - JavaScript ES6**
+#### **1. Spread Operator y Rest Parameters - JavaScript ES2023**
 **Canal**: midudev
 **Duración**: ~15 min
 **Nivel**: Principiante-Intermedio
@@ -98,7 +98,7 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 
 ### 📺 Spread & Rest Comprehensive
 
-#### **6. JavaScript ES6 Arrow Functions, Spread & Rest**
+#### **6. JavaScript ES2023 Arrow Functions, Spread & Rest**
 **Canal**: Traversy Media
 **Duración**: ~30 min
 **Nivel**: Principiante-Intermedio
@@ -109,7 +109,7 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 - Default parameters
 - Ejemplos prácticos
 
-**Enlace**: [YouTube - Traversy Media ES6 Tutorial](https://www.youtube.com/c/TraversyMedia)
+**Enlace**: [YouTube - Traversy Media ES2023 Tutorial](https://www.youtube.com/c/TraversyMedia)
 
 **Por qué verlo**: Tutorial completo y bien estructurado.
 
@@ -232,7 +232,7 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 **Términos de búsqueda efectivos**:
 - "javascript spread operator tutorial español"
 - "map filter reduce javascript explained"
-- "ES6 array methods complete guide"
+- "ES2023 array methods complete guide"
 - "javascript object enhancements"
 
 **Filtros recomendados en YouTube**:

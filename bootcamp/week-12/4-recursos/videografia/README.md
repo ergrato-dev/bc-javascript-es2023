@@ -21,7 +21,7 @@ Videos recomendados para aprender a construir aplicaciones JavaScript completas.
 | Video | Canal | Duración | Descripción |
 |-------|-------|----------|-------------|
 | [JavaScript Modules in 100 Seconds](https://www.youtube.com/watch?v=qgRUr-YUk1Q) | Fireship | 2:00 | Intro rápida a módulos |
-| [ES6 Modules](https://www.youtube.com/watch?v=cRHQNNcYf6s) | Web Dev Simplified | 12:00 | Módulos ES6 explicados |
+| [ES2023 Modules](https://www.youtube.com/watch?v=cRHQNNcYf6s) | Web Dev Simplified | 12:00 | Módulos ES2023 explicados |
 | [JavaScript Design Patterns](https://www.youtube.com/watch?v=kuirGzhGhyw) | Traversy Media | 35:00 | Patrones comunes |
 
 ### Clean Code

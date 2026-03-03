@@ -38,7 +38,7 @@ JavaScript tiene 7 tipos primitivos:
 | `number` | `42`, `3.14` | ES1 |
 | `string` | `'hello'` | ES1 |
 | `bigint` | `9007199254740991n` | ES2020 |
-| **`symbol`** | `Symbol('id')` | **ES6** |
+| **`symbol`** | `Symbol('id')` | **ES2023** |
 
 ---
 

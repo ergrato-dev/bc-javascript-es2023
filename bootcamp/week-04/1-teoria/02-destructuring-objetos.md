@@ -472,4 +472,4 @@ const data = {
 
 | ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
 |-------------|-----------|--------------|
-| [Destructuring Arrays](./01-destructuring-arrays.md) | [Semana 4](../README.md) | [Módulos ES6](./03-modulos-es6.md) |
+| [Destructuring Arrays](./01-destructuring-arrays.md) | [Semana 4](../README.md) | [Módulos ES2023](./03-modulos-es6.md) |

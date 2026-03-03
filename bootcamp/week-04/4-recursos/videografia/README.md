@@ -1,6 +1,6 @@
 # 🎥 Videografía - Week 04
 
-Videos y tutoriales recomendados sobre destructuring y módulos ES6.
+Videos y tutoriales recomendados sobre destructuring y módulos ES2023.
 
 ---
 
@@ -22,13 +22,13 @@ Videos y tutoriales recomendados sobre destructuring y módulos ES6.
 
 ---
 
-### Módulos ES6
+### Módulos ES2023
 
-#### **Módulos en JavaScript ES6 - Import/Export**
+#### **Módulos en JavaScript ES2023 - Import/Export**
 - **Canal**: Bluuweb
 - **Duración**: ~25 min
 - **Enlace**: [YouTube - Bluuweb](https://www.youtube.com/c/Bluuweb)
-- **Descripción**: Tutorial completo sobre el sistema de módulos ES6.
+- **Descripción**: Tutorial completo sobre el sistema de módulos ES2023.
 
 #### **JavaScript Modules Explicados**
 - **Canal**: Carlos Azaustre
@@ -54,7 +54,7 @@ Videos y tutoriales recomendados sobre destructuring y módulos ES6.
 - **Enlace**: [YouTube - Web Dev Simplified](https://www.youtube.com/c/WebDevSimplified)
 - **Descripción**: Tutorial detallado con casos de uso reales.
 
-#### **Array & Object Destructuring - ES6**
+#### **Array & Object Destructuring - ES2023**
 - **Canal**: Traversy Media
 - **Duración**: ~20 min
 - **Enlace**: [YouTube - Traversy Media](https://www.youtube.com/c/TraversyMedia)
@@ -62,7 +62,7 @@ Videos y tutoriales recomendados sobre destructuring y módulos ES6.
 
 ---
 
-### Módulos ES6
+### Módulos ES2023
 
 #### **JavaScript Modules in 100 Seconds**
 - **Canal**: Fireship
@@ -70,7 +70,7 @@ Videos y tutoriales recomendados sobre destructuring y módulos ES6.
 - **Enlace**: [YouTube - Fireship](https://www.youtube.com/c/Fireship)
 - **Descripción**: Introducción rápida al sistema de módulos.
 
-#### **ES6 Modules - Import & Export**
+#### **ES2023 Modules - Import & Export**
 - **Canal**: The Net Ninja
 - **Duración**: ~12 min
 - **Enlace**: [YouTube - The Net Ninja](https://www.youtube.com/c/TheNetNinja)

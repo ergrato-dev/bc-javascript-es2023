@@ -43,7 +43,7 @@
 ### Clases y POO
 - **Understanding Classes in JavaScript** (DigitalOcean): https://www.digitalocean.com/community/tutorials/understanding-classes-in-javascript
 - **JavaScript Classes Under The Hood** (Medium): Buscar en Medium
-- **ES6 Classes in Depth** (PonyFoo): https://ponyfoo.com/articles/es6-classes-in-depth
+- **ES2023 Classes in Depth** (PonyFoo): https://ponyfoo.com/articles/es6-classes-in-depth
 
 ### Encapsulación
 - **Private Class Fields in JavaScript** (V8 Blog): https://v8.dev/features/class-fields
@@ -66,7 +66,7 @@
 
 ### Compatibilidad
 - **Can I Use**: https://caniuse.com/?search=class
-- **ES6 Compatibility Table**: https://kangax.github.io/compat-table/es6/
+- **ES2023 Compatibility Table**: https://kangax.github.io/compat-table/es6/
 
 ## Blogs de Referencia
 

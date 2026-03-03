@@ -12,7 +12,7 @@
 
 ### Contexto
 
-Dominas destructuring avanzado, módulos ES6, import/export, y top-level await.
+Dominas destructuring avanzado, módulos ES2023, import/export, y top-level await.
 
 ### Tu Misión
 

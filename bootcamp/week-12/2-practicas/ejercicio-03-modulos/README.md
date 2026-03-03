@@ -1,4 +1,4 @@
-# Ejercicio 03: Módulos ES6
+# Ejercicio 03: Módulos ES2023
 
 ## 🎯 Objetivo
 

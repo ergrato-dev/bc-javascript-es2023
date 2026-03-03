@@ -19,12 +19,12 @@
 1995  → JavaScript creado por Brendan Eich (Netscape)
 1997  → ECMAScript 1 (ES1) - Primera estandarización
 2009  → ECMAScript 5 (ES5) - Mejoras importantes
-2015  → ECMAScript 6 (ES6/ES2015) - 🎉 REVOLUCIÓN
+2015  → ECMAScript 6 (ES2023/ES2015) - 🎉 REVOLUCIÓN
 2016+ → ES2016, ES2017, ES2018... (actualizaciones anuales)
 2024  → ECMAScript 2024 (ES15) - Última versión
 ```
 
-> **💡 Nota**: ES6 también se conoce como ES2015. Fue la actualización más grande en la historia de JavaScript.
+> **💡 Nota**: ES2023 también se conoce como ES2015. Fue la actualización más grande en la historia de JavaScript.
 
 ---
 
@@ -32,7 +32,7 @@
 
 ![Evolución de JavaScript](../0-assets/01-evolucion-javascript.svg)
 
-### Antes de ES6 (JavaScript antiguo)
+### Antes de ES2023 (JavaScript antiguo)
 
 ```javascript
 // Variables sin control de scope
@@ -147,7 +147,7 @@ const newUser = { ...user, active: true };
 var moreNumbers = numbers.concat([4, 5]);
 ```
 
-### 6. **Módulos ES6** - Organización de código
+### 6. **Módulos ES2023** - Organización de código
 
 ```javascript
 // ✅ MODERNO
@@ -191,13 +191,13 @@ function fetchData(callback) {
 
 ---
 
-## 🔄 Versionamiento Anual desde ES6
+## 🔄 Versionamiento Anual desde ES2023
 
 Desde 2015, JavaScript recibe actualizaciones **anuales**:
 
 | Versión    | Año  | Características Destacadas                      |
 | ---------- | ---- | ----------------------------------------------- |
-| **ES6**    | 2015 | let/const, arrows, classes, promises, modules   |
+| **ES2023**    | 2015 | let/const, arrows, classes, promises, modules   |
 | **ES2016** | 2016 | Array.includes(), exponente (**)                |
 | **ES2017** | 2017 | async/await, Object.entries()                   |
 | **ES2018** | 2018 | Rest/spread para objetos, async iteration       |
@@ -218,7 +218,7 @@ Desde 2015, JavaScript recibe actualizaciones **anuales**:
 - ✅ Arrow functions
 - ✅ Destructuring
 - ✅ Spread/rest operators
-- ✅ Módulos ES6
+- ✅ Módulos ES2023
 - ✅ Clases modernas
 - ✅ Array methods: map, filter, reduce
 
@@ -255,7 +255,7 @@ Este bootcamp se enfoca **exclusivamente en JavaScript moderno**, por lo que NO 
 
 ## 🌐 Compatibilidad de Navegadores
 
-### ¿ES6+ funciona en todos los navegadores?
+### ¿ES2023 funciona en todos los navegadores?
 
 **Respuesta corta**: Sí, en navegadores modernos (2015+).
 
@@ -289,7 +289,7 @@ var greet = function(name) {
 
 ### Ejemplo Completo
 
-**Antes de ES6:**
+**Antes de ES2023:**
 
 ```javascript
 var usuario = {
@@ -342,7 +342,7 @@ console.log(message);
 | Término            | Definición                                                |
 | ------------------ | --------------------------------------------------------- |
 | **ECMAScript**     | Estándar que define JavaScript                            |
-| **ES6/ES2015**     | Versión que revolucionó JavaScript en 2015                |
+| **ES2023/ES2015**     | Versión que revolucionó JavaScript en 2015                |
 | **Transpilación**  | Convertir código moderno a versiones antiguas             |
 | **Babel**          | Herramienta popular para transpilar JavaScript            |
 | **Polyfill**       | Código que añade funcionalidades faltantes en navegadores |
@@ -355,7 +355,7 @@ console.log(message);
 Antes de continuar, asegúrate de entender:
 
 - [ ] La diferencia entre JavaScript y ECMAScript
-- [ ] Por qué ES6 fue una revolución
+- [ ] Por qué ES2023 fue una revolución
 - [ ] Las características principales de ES2023
 - [ ] Que JavaScript se actualiza anualmente desde 2015
 - [ ] Que este bootcamp usa **solo** sintaxis moderna
@@ -371,9 +371,9 @@ Antes de continuar, asegúrate de entender:
 - [Can I Use](https://caniuse.com/) - Compatibilidad de navegadores
 
 ### Lecturas Recomendadas
-- [ES6 Features](http://es6-features.org/)
+- [ES2023 Features](http://es6-features.org/)
 - [JavaScript.info: Modern JavaScript](https://javascript.info/)
-- [Exploring ES6 (libro gratuito)](https://exploringjs.com/es6/)
+- [Exploring ES2023 (libro gratuito)](https://exploringjs.com/es6/)
 
 ---
 

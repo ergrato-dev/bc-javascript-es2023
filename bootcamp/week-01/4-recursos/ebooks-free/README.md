@@ -19,7 +19,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 3. **this & Object Prototypes** - Contexto y prototipos
 4. **Types & Grammar** - Tipos y gramática
 5. **Async & Performance** - Asincronía y rendimiento
-6. **ES6 & Beyond** - ⭐ **Esencial para esta semana**
+6. **ES2023 & Beyond** - ⭐ **Esencial para esta semana**
 
 **Por qué leerlo:**
 - Profundiza en los "porqués" de JavaScript
@@ -68,7 +68,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 
 ---
 
-### **Exploring ES6 - Dr. Axel Rauschmayer**
+### **Exploring ES2023 - Dr. Axel Rauschmayer**
 - 🔗 [exploringjs.com/es6](https://exploringjs.com/es6/)
 - 📊 Nivel: Intermedio a Avanzado
 - 📄 Formato: HTML, PDF (de pago)
@@ -107,11 +107,11 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 **Por qué leerlo:**
 - Nicholas C. Zakas es una autoridad en JavaScript
 - Enfoque en ES2023 específicamente
-- Ejemplos comparativos ES5 vs ES6
+- Ejemplos comparativos ES5 vs ES2023
 
 ---
 
-### **ES6 in Depth - Mozilla Hacks**
+### **ES2023 in Depth - Mozilla Hacks**
 - 🔗 [hacks.mozilla.org/category/es6-in-depth](https://hacks.mozilla.org/category/es6-in-depth/)
 - 📊 Nivel: Intermedio
 - 📄 Formato: Artículos de blog
@@ -236,7 +236,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 **Contenido:**
 - Functional programming
 - Functions in depth
-- ES6 features
+- ES2023 features
 - Composing software
 
 **Por qué leerlo:**
@@ -273,11 +273,11 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 **Lectura Prioritaria:**
 1. **JavaScript.info** - Secciones de variables, functions
 2. **Eloquent JavaScript** - Capítulos 1-4
-3. **Exploring ES6** - Capítulos de let/const, arrows, destructuring
+3. **Exploring ES2023** - Capítulos de let/const, arrows, destructuring
 
 **Lectura Complementaria:**
 - MDN Guide como referencia
-- YDKJS ES6 & Beyond para profundizar
+- YDKJS ES2023 & Beyond para profundizar
 
 ### Estrategia de Lectura
 
@@ -293,7 +293,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 Semana 01:
 ├── JavaScript.info (Variables y Functions)
 ├── Eloquent JavaScript (Capítulos 1-4)
-└── Exploring ES6 (Capítulos relevantes)
+└── Exploring ES2023 (Capítulos relevantes)
 
 Semana 02+:
 ├── YDKJS (toda la serie)
@@ -344,7 +344,7 @@ Respeta los derechos de autor. Si un libro te resulta muy útil, considera:
 
 - Comienza con **JavaScript.info** para conceptos básicos
 - Usa **MDN** como referencia rápida
-- Profundiza con **Exploring ES6** cuando domines lo básico
+- Profundiza con **Exploring ES2023** cuando domines lo básico
 
 ---
 

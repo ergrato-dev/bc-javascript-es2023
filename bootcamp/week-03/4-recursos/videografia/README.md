@@ -4,7 +4,7 @@
 
 ### Español
 
-#### 1. Clases en JavaScript ES6 - Fazt
+#### 1. Clases en JavaScript ES2023 - Fazt
 - **Canal**: Fazt
 - **Duración**: ~20 min
 - **Enlace**: https://www.youtube.com/watch?v=1-m7xtwvH1E
@@ -31,7 +31,7 @@
 - **Duración**: ~25 min
 - **Enlace**: https://www.youtube.com/watch?v=RBLIm5LMrmc
 - **Nivel**: Principiante
-- **Temas**: ES6 classes, constructor, methods
+- **Temas**: ES2023 classes, constructor, methods
 
 #### 5. Object Oriented JavaScript - The Net Ninja
 - **Canal**: The Net Ninja

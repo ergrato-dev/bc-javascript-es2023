@@ -18,7 +18,7 @@
 
 ---
 
-#### 2. ES6 Symbols - What Are They Good For?
+#### 2. ES2023 Symbols - What Are They Good For?
 
 **Canal**: Fun Fun Function
 **Duración**: ~15 min
@@ -67,7 +67,7 @@
 ### ES2023 Features Complete Course
 
 **Canal**: The Net Ninja
-**Videos**: Serie completa de ES6
+**Videos**: Serie completa de ES2023
 **Enlace**: [YouTube](https://www.youtube.com/results?search_query=es6+complete+course+net+ninja)
 
 > Incluye videos sobre Symbols y características relacionadas.
@@ -89,7 +89,7 @@
 | Orden | Video | Tema |
 |-------|-------|------|
 | 1 | JavaScript Symbols Explained | Fundamentos |
-| 2 | ES6 Symbols - What Are They Good For? | Casos de uso |
+| 2 | ES2023 Symbols - What Are They Good For? | Casos de uso |
 | 3 | Symbol.iterator and Iterables | Well-known Symbols |
 | 4 | JavaScript Iterators and Generators | Profundización |
 | 5 | JavaScript Metaprogramming | Avanzado |

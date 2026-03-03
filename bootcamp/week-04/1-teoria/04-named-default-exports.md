@@ -471,4 +471,4 @@ export const method2 = () => {};
 
 | ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
 |-------------|-----------|--------------|
-| [Módulos ES6](./03-modulos-es6.md) | [Semana 4](../README.md) | [Dynamic Imports](./05-dynamic-imports.md) |
+| [Módulos ES2023](./03-modulos-es6.md) | [Semana 4](../README.md) | [Dynamic Imports](./05-dynamic-imports.md) |

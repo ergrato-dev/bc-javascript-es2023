@@ -19,7 +19,7 @@ Al finalizar esta semana, serás capaz de:
 - ✅ Haber completado las Semanas 1-4
 - ✅ Dominar destructuring de arrays y objetos
 - ✅ Conocer métodos básicos: `map()`, `filter()`, `reduce()`
-- ✅ Comprender módulos ES6 (import/export)
+- ✅ Comprender módulos ES2023 (import/export)
 
 ---
 

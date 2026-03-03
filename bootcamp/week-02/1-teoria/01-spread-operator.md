@@ -419,7 +419,7 @@ const newNumbers = [1, ...numbers];
 
 - [MDN - Spread syntax](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 - [JavaScript.info - Spread operator](https://javascript.info/rest-parameters-spread)
-- [ES6 Features - Spread](http://es6-features.org/#SpreadOperator)
+- [ES2023 Features - Spread](http://es6-features.org/#SpreadOperator)
 
 ---
 

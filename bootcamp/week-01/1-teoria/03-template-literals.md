@@ -673,7 +673,7 @@ Antes de continuar, asegúrate de:
 
 ## 🚀 Próximo Paso
 
-Ahora que dominas los strings modernos, aprenderás la sintaxis más revolucionaria de ES6: arrow functions.
+Ahora que dominas los strings modernos, aprenderás la sintaxis más revolucionaria de ES2023: arrow functions.
 
 ➡️ **Siguiente**: [Arrow Functions](04-arrow-functions.md)
 

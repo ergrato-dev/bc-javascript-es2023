@@ -62,7 +62,7 @@ Usa for...in para iterar propiedades de objetos.
 
 ### Paso 5: for...of con Map y Set
 
-Itera sobre colecciones ES6.
+Itera sobre colecciones ES2023.
 
 ### Paso 6: Object.entries() con for...of
 
@@ -103,7 +103,7 @@ Propiedad: city = NYC
 --- Paso 5: for...of con Map y Set ---
 Map entry: name → JavaScript
 Map entry: year → 1995
-Set value: ES6
+Set value: ES2023
 Set value: ES7
 Set value: ES8
 

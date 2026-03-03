@@ -33,12 +33,12 @@
 - **Idioma**: Inglés
 - **Enlace**: [github.com/getify/You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)
 - **Capítulos relevantes**:
-  - ES6 & Beyond: Iterators
-  - ES6 & Beyond: Generators
+  - ES2023 & Beyond: Iterators
+  - ES2023 & Beyond: Generators
 
 ---
 
-### 📕 Exploring ES6
+### 📕 Exploring ES2023
 
 - **Autor**: Dr. Axel Rauschmayer
 - **Idioma**: Inglés
@@ -53,7 +53,7 @@
 
 1. **Principiante**: JavaScript.info (explicaciones claras y ejemplos)
 2. **Intermedio**: Eloquent JavaScript (contexto amplio)
-3. **Avanzado**: Exploring ES6 (detalles técnicos profundos)
+3. **Avanzado**: Exploring ES2023 (detalles técnicos profundos)
 
 ---
 

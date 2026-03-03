@@ -1,6 +1,6 @@
 # 🌐 Webgrafía - Week 04
 
-Documentación oficial, artículos y recursos web sobre destructuring y módulos ES6.
+Documentación oficial, artículos y recursos web sobre destructuring y módulos ES2023.
 
 ---
 
@@ -33,7 +33,7 @@ Documentación oficial, artículos y recursos web sobre destructuring y módulos
 
 ### Destructuring
 
-#### **ES6 Destructuring: The Complete Guide**
+#### **ES2023 Destructuring: The Complete Guide**
 - **Fuente**: freeCodeCamp
 - **Enlace**: [freecodecamp.org](https://www.freecodecamp.org/news/array-and-object-destructuring-in-javascript/)
 - **Descripción**: Guía completa con todos los casos de uso.
@@ -49,14 +49,14 @@ Documentación oficial, artículos y recursos web sobre destructuring y módulos
 
 ---
 
-### Módulos ES6
+### Módulos ES2023
 
 #### **ES modules: A cartoon deep-dive**
 - **Fuente**: Mozilla Hacks
 - **Enlace**: [hacks.mozilla.org](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
-- **Descripción**: Explicación visual del sistema de módulos ES6.
+- **Descripción**: Explicación visual del sistema de módulos ES2023.
 
-#### **JavaScript Modules: From IIFEs to CommonJS to ES6 Modules**
+#### **JavaScript Modules: From IIFEs to CommonJS to ES2023 Modules**
 - **Fuente**: ui.dev
 - **Enlace**: [ui.dev](https://ui.dev/javascript-modules-iifes-commonjs-esmodules)
 - **Descripción**: Historia y evolución de los módulos en JavaScript.
@@ -74,13 +74,13 @@ Documentación oficial, artículos y recursos web sobre destructuring y módulos
 - **Enlace**: [jsv9000.app](https://www.jsv9000.app/)
 - **Descripción**: Visualiza la ejecución de código JavaScript paso a paso.
 
-### **ES6 Console**
+### **ES2023 Console**
 - **Enlace**: [es6console.com](https://es6console.com/)
 - **Descripción**: Consola online para probar código ES2023.
 
 ### **CodeSandbox**
 - **Enlace**: [codesandbox.io](https://codesandbox.io/)
-- **Descripción**: IDE online con soporte completo de módulos ES6.
+- **Descripción**: IDE online con soporte completo de módulos ES2023.
 
 ### **StackBlitz**
 - **Enlace**: [stackblitz.com](https://stackblitz.com/)
@@ -91,7 +91,7 @@ Documentación oficial, artículos y recursos web sobre destructuring y módulos
 ## 📊 Compatibilidad
 
 ### **Can I Use**
-- [ES6 Modules](https://caniuse.com/es6-module)
+- [ES2023 Modules](https://caniuse.com/es6-module)
 - [Dynamic Import](https://caniuse.com/es6-module-dynamic-import)
 - **Descripción**: Verifica compatibilidad con navegadores.
 

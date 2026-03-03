@@ -12,7 +12,7 @@ Antes de comenzar el proyecto integrador, estos ejercicios de warm-up te ayudar�
 |---|-----------|------|----------|
 | 01 | [Clases y Encapsulación](./ejercicio-01-clases/README.md) | Classes con #private fields | 20 min |
 | 02 | [Patrón Observer](./ejercicio-02-observer/README.md) | Set, callbacks, subscribe | 25 min |
-| 03 | [Módulos ES6](./ejercicio-03-modulos/README.md) | import/export, arquitectura | 20 min |
+| 03 | [Módulos ES2023](./ejercicio-03-modulos/README.md) | import/export, arquitectura | 20 min |
 | 04 | [Map y Operaciones](./ejercicio-04-map/README.md) | Map para colecciones | 25 min |
 
 ---

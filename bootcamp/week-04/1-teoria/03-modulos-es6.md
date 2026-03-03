@@ -1,8 +1,8 @@
-# 📘 Módulos ES6 en JavaScript
+# 📘 Módulos ES2023 en JavaScript
 
 ## 🎯 Objetivos
 
-- Comprender el sistema de módulos ES6
+- Comprender el sistema de módulos ES2023
 - Crear módulos con `export` e `import`
 - Organizar código en archivos separados
 - Entender el scope de módulos
@@ -12,7 +12,7 @@
 
 ## 🖼️ Diagrama
 
-![Sistema de Módulos ES6](../0-assets/03-modulos-es6.svg)
+![Sistema de Módulos ES2023](../0-assets/03-modulos-es6.svg)
 
 ---
 
@@ -20,7 +20,7 @@
 
 ### 1. ¿Qué son los Módulos?
 
-Los **módulos ES6** permiten dividir el código en archivos separados, cada uno con su propio scope. Esto facilita:
+Los **módulos ES2023** permiten dividir el código en archivos separados, cada uno con su propio scope. Esto facilita:
 
 - **Organización**: Código separado por responsabilidades
 - **Reutilización**: Importar funcionalidad donde se necesite
@@ -36,7 +36,7 @@ function addUser() { /* ... */ }
 function addProduct() { /* ... */ }
 // Todo contamina el scope global
 
-// ✅ Con módulos ES6 - separado y organizado
+// ✅ Con módulos ES2023 - separado y organizado
 // users.js
 export const users = [];
 export const addUser = (user) => { /* ... */ };
@@ -158,7 +158,7 @@ project/
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>App con Módulos ES6</title>
+  <title>App con Módulos ES2023</title>
 </head>
 <body>
   <div id="app"></div>
@@ -253,7 +253,7 @@ import './fileB.js';
 
 ### 10. Strict Mode Automático
 
-Los módulos ES6 siempre están en strict mode:
+Los módulos ES2023 siempre están en strict mode:
 
 ```javascript
 // module.js
@@ -348,7 +348,7 @@ init();
 
 ### CORS y Servidor Local
 
-Los módulos ES6 **no funcionan** con `file://`. Necesitas un servidor:
+Los módulos ES2023 **no funcionan** con `file://`. Necesitas un servidor:
 
 ```bash
 # Opciones para servidor local

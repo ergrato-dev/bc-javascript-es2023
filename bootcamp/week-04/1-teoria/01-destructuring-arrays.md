@@ -361,7 +361,7 @@ const numbers = [1, 2, 3, 4, 5];
 
 - [MDN - Destructuring Assignment](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 - [JavaScript.info - Destructuring](https://javascript.info/destructuring-assignment)
-- [ES6 Features - Destructuring](https://es6-features.org/#ArrayMatching)
+- [ES2023 Features - Destructuring](https://es6-features.org/#ArrayMatching)
 
 ---
 

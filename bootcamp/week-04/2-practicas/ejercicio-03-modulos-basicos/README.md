@@ -2,7 +2,7 @@
 
 ## 🎯 Objetivos
 
-- Comprender la sintaxis de import/export ES6
+- Comprender la sintaxis de import/export ES2023
 - Practicar named exports y default exports
 - Aprender el patrón barrel export
 - Organizar código en múltiples archivos
@@ -11,7 +11,7 @@
 
 ## 📋 Descripción
 
-Este es un **ejercicio guiado paso a paso** con múltiples archivos. Aprenderás módulos ES6 descomentando código progresivamente.
+Este es un **ejercicio guiado paso a paso** con múltiples archivos. Aprenderás módulos ES2023 descomentando código progresivamente.
 
 ---
 
@@ -91,7 +91,7 @@ import config from './config.js';
 
 ## ▶️ Ejecución
 
-Necesitas un servidor local porque los módulos ES6 requieren HTTP:
+Necesitas un servidor local porque los módulos ES2023 requieren HTTP:
 
 ```bash
 # Opción 1: Python
@@ -128,7 +128,7 @@ Abre `http://localhost:8000` y usa los botones para probar.
 
 ## 🔗 Recursos
 
-- [Teoría: Módulos ES6](../../1-teoria/03-modulos-es6.md)
+- [Teoría: Módulos ES2023](../../1-teoria/03-modulos-es6.md)
 - [Teoría: Named vs Default](../../1-teoria/04-named-default-exports.md)
 - [MDN: import](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import)
 - [MDN: export](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export)

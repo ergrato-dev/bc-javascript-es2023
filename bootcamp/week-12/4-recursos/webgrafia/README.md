@@ -14,7 +14,7 @@ Documentación oficial y artículos de referencia para el proyecto E-commerce.
 |---------|-------------|
 | [JavaScript Guide](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide) | Guía completa de JavaScript |
 | [Classes](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes) | Clases en JavaScript |
-| [Modules](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Modules) | Sistema de módulos ES6 |
+| [Modules](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Modules) | Sistema de módulos ES2023 |
 | [Map](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Map) | Estructura Map |
 | [Set](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set) | Estructura Set |
 | [Private class fields](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes/Private_class_fields) | Campos privados # |

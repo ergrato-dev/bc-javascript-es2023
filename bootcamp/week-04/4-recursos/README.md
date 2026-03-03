@@ -5,7 +5,7 @@ Esta carpeta contiene recursos complementarios cuidadosamente seleccionados para
 ## 📂 Contenido
 
 ### 📖 [eBooks Gratuitos](ebooks-free/README.md)
-Libros electrónicos gratuitos sobre destructuring avanzado y módulos ES6.
+Libros electrónicos gratuitos sobre destructuring avanzado y módulos ES2023.
 
 ### 🎥 [Videografía](videografia/README.md)
 Videos, tutoriales y cursos en español e inglés sobre módulos JavaScript y patrones de importación.
@@ -21,7 +21,7 @@ Los recursos están organizados para complementar los siguientes temas:
 
 1. **Destructuring de Arrays** - Extracción avanzada de elementos
 2. **Destructuring de Objetos** - Alias, valores por defecto, anidado
-3. **Módulos ES6** - Sistema de módulos nativo de JavaScript
+3. **Módulos ES2023** - Sistema de módulos nativo de JavaScript
 4. **Named vs Default Exports** - Diferentes tipos de exportación
 5. **Dynamic Imports** - Importación bajo demanda y lazy loading
 

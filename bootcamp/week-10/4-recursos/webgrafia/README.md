@@ -42,12 +42,12 @@ Artículos, documentación y recursos web sobre Proxies y Reflect.
 - **Enlace**: [DigitalOcean - Proxies](https://www.digitalocean.com/community/tutorials/js-proxy-traps)
 - **Descripción**: Introducción clara con ejemplos prácticos
 
-#### 2. A Practical Guide to ES6 Proxy
+#### 2. A Practical Guide to ES2023 Proxy
 - **Autor**: Varios
 - **Enlace**: [Smashing Magazine](https://www.smashingmagazine.com/)
 - **Descripción**: Casos de uso del mundo real
 
-#### 3. Metaprogramming in ES6: Symbols and why they're awesome
+#### 3. Metaprogramming in ES2023: Symbols and why they're awesome
 - **Autor**: Keith Cirkel
 - **Enlace**: [keithcirkel.co.uk](https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/)
 - **Descripción**: Símbolos y su relación con Proxies
