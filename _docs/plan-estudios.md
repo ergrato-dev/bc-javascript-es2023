@@ -111,7 +111,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 04: Destructuring y Módulos ES6**
+#### **Week 04: Destructuring y Módulos ES2023**
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
@@ -475,7 +475,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 - Strings y RegExp (Week 6)
 
 ### JavaScript Avanzado
-- Módulos ES6 (Week 4)
+- Módulos ES2023 (Week 4)
 - Destructuring (Week 4)
 - Sets/Maps (Week 7)
 - Iteradores/Generadores (Week 8)

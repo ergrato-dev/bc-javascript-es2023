@@ -11,7 +11,7 @@
 
 ## 📖 Introducción
 
-JavaScript ES6 introdujo dos métodos estáticos muy útiles para crear arrays:
+JavaScript ES2023 introdujo dos métodos estáticos muy útiles para crear arrays:
 
 - **`Array.from()`**: Crea arrays desde iterables o array-like objects
 - **`Array.of()`**: Crea arrays con los argumentos como elementos

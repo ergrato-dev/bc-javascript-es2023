@@ -39,7 +39,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 
 ---
 
-### 3. **You Don't Know JS: ES6 & Beyond**
+### 3. **You Don't Know JS: ES2023 & Beyond**
 **Autor**: Kyle Simpson
 **Idioma**: Inglés
 **Nivel**: Intermedio-Avanzado

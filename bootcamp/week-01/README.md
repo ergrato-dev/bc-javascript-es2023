@@ -129,7 +129,7 @@ El **único entregable** para esta semana es el proyecto:
 
 ## 🎓 Conceptos Clave
 
-- **ES6 (ECMAScript 2015)**: Versión que modernizó JavaScript
+- **ES2023 (ECMAScript 2015)**: Versión que modernizó JavaScript
 - **Block Scope**: Alcance de variables limitado a bloques `{}`
 - **Immutability**: Variables constantes que no se pueden reasignar
 - **String Interpolation**: Insertar variables en strings
@@ -144,7 +144,7 @@ El **único entregable** para esta semana es el proyecto:
 
 - [MDN: JavaScript Guide](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide)
 - [javascript.info: Modern JavaScript](https://javascript.info/)
-- [ES6 Features](http://es6-features.org/)
+- [ES2023 Features](http://es6-features.org/)
 
 ### 🎥 Videos
 

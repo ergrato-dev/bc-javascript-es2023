@@ -123,7 +123,7 @@ Antes de codificar:
 El **único entregable** para esta semana es el proyecto:
 
 - [ ] **Proyecto E-commerce funcional** con:
-  - [ ] Módulos ES6 correctamente estructurados
+  - [ ] Módulos ES2023 correctamente estructurados
   - [ ] Clases para Product, User y Cart
   - [ ] Catálogo con filtros y búsqueda
   - [ ] Carrito de compras operativo

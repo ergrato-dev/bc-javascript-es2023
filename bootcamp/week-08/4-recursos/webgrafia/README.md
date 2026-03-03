@@ -37,7 +37,7 @@
 
 ### Iteradores y Protocolo de Iteración
 
-1. **A Simple Guide to ES6 Iterators**
+1. **A Simple Guide to ES2023 Iterators**
    - Autor: Brandon Morelli
    - Enlace: [codeburst.io](https://codeburst.io/a-simple-guide-to-es6-iterators-in-javascript-with-examples-189d052c3d8e)
 
@@ -47,11 +47,11 @@
 
 ### Generadores
 
-3. **The Basics of ES6 Generators**
+3. **The Basics of ES2023 Generators**
    - Autor: Kyle Simpson
    - Enlace: [davidwalsh.name](https://davidwalsh.name/es6-generators)
 
-4. **ES6 Generators in Depth**
+4. **ES2023 Generators in Depth**
    - Autor: Nicolás Bevacqua
    - Enlace: [ponyfoo.com](https://ponyfoo.com/articles/es6-generators-in-depth)
 
@@ -93,7 +93,7 @@
 2. MDN - for...of statement
 
 ### Para Nivel Intermedio
-3. Ponyfoo - ES6 Generators in Depth
+3. Ponyfoo - ES2023 Generators in Depth
 4. Kyle Simpson articles
 
 ### Para Nivel Avanzado

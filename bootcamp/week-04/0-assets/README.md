@@ -2,7 +2,7 @@
 
 ## 📊 Recursos Visuales
 
-Esta carpeta contiene los diagramas SVG para la **Semana 4: Destructuring y Módulos ES6**.
+Esta carpeta contiene los diagramas SVG para la **Semana 4: Destructuring y Módulos ES2023**.
 
 ---
 
@@ -12,7 +12,7 @@ Esta carpeta contiene los diagramas SVG para la **Semana 4: Destructuring y Mód
 |---|---------|-------------|------|
 | 1 | `01-destructuring-arrays.svg` | Extracción de valores en arrays | Skip, rest, defaults |
 | 2 | `02-destructuring-objetos.svg` | Destructuring en objetos | Alias, anidado, params |
-| 3 | `03-modulos-es6.svg` | Sistema de módulos ES6 | import/export básico |
+| 3 | `03-modulos-es6.svg` | Sistema de módulos ES2023 | import/export básico |
 | 4 | `04-named-default-exports.svg` | Comparativa de exports | Named vs Default |
 | 5 | `05-dynamic-imports.svg` | Carga dinámica de módulos | import(), lazy loading |
 
@@ -64,7 +64,7 @@ Esta carpeta contiene los diagramas SVG para la **Semana 4: Destructuring y Mód
 ### Insertar en HTML
 
 ```html
-<img src="0-assets/03-modulos-es6.svg" alt="Módulos ES6" class="diagram">
+<img src="0-assets/03-modulos-es6.svg" alt="Módulos ES2023" class="diagram">
 
 <object data="0-assets/04-named-default-exports.svg" type="image/svg+xml"></object>
 ```
@@ -89,4 +89,4 @@ Esta carpeta contiene los diagramas SVG para la **Semana 4: Destructuring y Mód
 
 ---
 
-_Última actualización: Semana 4 - Destructuring y Módulos ES6_
+_Última actualización: Semana 4 - Destructuring y Módulos ES2023_

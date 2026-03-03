@@ -73,7 +73,7 @@ class DigitalProduct extends Product {
 const { name, price, category = 'General' } = product;
 const [first, second, ...rest] = items;
 
-// Módulos ES6
+// Módulos ES2023
 // models/Product.js
 export class Product { ... }
 export default Product;
@@ -319,7 +319,7 @@ Antes de empezar el proyecto, asegúrate de entender:
 ### Fundamentos
 - [ ] Crear clases con campos privados (`#`)
 - [ ] Usar herencia cuando es apropiado
-- [ ] Exportar/importar módulos ES6
+- [ ] Exportar/importar módulos ES2023
 - [ ] Manipular arrays con map/filter/reduce
 
 ### Estructuras de Datos

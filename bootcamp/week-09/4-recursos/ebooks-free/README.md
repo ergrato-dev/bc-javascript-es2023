@@ -26,13 +26,13 @@
 
 ---
 
-### 3. Exploring ES6
+### 3. Exploring ES2023
 
 **Autor**: Dr. Axel Rauschmayer
 **Capítulos relevantes**: Symbols, Iterators, Metaprogramming
 **Enlace**: [exploringjs.com/es6](https://exploringjs.com/es6/)
 
-> Cobertura exhaustiva de ES6 incluyendo todos los aspectos de Symbols.
+> Cobertura exhaustiva de ES2023 incluyendo todos los aspectos de Symbols.
 
 ---
 
@@ -61,8 +61,8 @@
 | Tema | Recurso Recomendado |
 |------|---------------------|
 | Symbol basics | JavaScript.info - Symbols |
-| Well-known Symbols | Exploring ES6 - Cap. 7 |
-| Symbol.iterator | Exploring ES6 - Cap. 21 |
+| Well-known Symbols | Exploring ES2023 - Cap. 7 |
+| Symbol.iterator | Exploring ES2023 - Cap. 21 |
 | Metaprogramming | Deep JavaScript |
 
 ---
@@ -70,7 +70,7 @@
 ## 💡 Orden de Lectura Sugerido
 
 1. **Principiante**: JavaScript.info → Symbols
-2. **Intermedio**: Exploring ES6 → Capítulo de Symbols
+2. **Intermedio**: Exploring ES2023 → Capítulo de Symbols
 3. **Avanzado**: Deep JavaScript → Metaprogramming
 
 ---

@@ -24,7 +24,7 @@
 
 ---
 
-#### 3. JavaScript ES6 Iterators and Iterables - Traversy Media
+#### 3. JavaScript ES2023 Iterators and Iterables - Traversy Media
 - **Canal**: Traversy Media
 - **Duración**: ~20 min
 - **Idioma**: Inglés
@@ -54,7 +54,7 @@
 ### 📺 Playlists Recomendadas
 
 #### ES2023 Features Playlist
-- Buscar playlists de ES6 en canales como:
+- Buscar playlists de ES2023 en canales como:
   - Academind
   - Web Dev Simplified
   - The Net Ninja

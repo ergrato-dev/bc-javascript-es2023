@@ -1,6 +1,6 @@
 # 📖 eBooks Gratuitos - Week 04
 
-Libros electrónicos gratuitos para profundizar en destructuring y módulos ES6.
+Libros electrónicos gratuitos para profundizar en destructuring y módulos ES2023.
 
 ---
 
@@ -28,14 +28,14 @@ Libros electrónicos gratuitos para profundizar en destructuring y módulos ES6.
 
 ---
 
-### 3. **Exploring ES6**
+### 3. **Exploring ES2023**
 - **Autor**: Dr. Axel Rauschmayer
 - **Idioma**: Inglés
 - **Enlace**: [exploringjs.com/es6](https://exploringjs.com/es6/)
 - **Capítulos relevantes**:
   - Chapter 10: Destructuring
   - Chapter 16: Modules
-- **Descripción**: Referencia completa de todas las características de ES6.
+- **Descripción**: Referencia completa de todas las características de ES2023.
 
 ---
 

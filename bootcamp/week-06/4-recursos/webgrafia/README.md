@@ -48,7 +48,7 @@
 1. **"JavaScript String Methods You Should Know"**
    - 🔗 [dev.to](https://dev.to/frugencefidel/10-javascript-string-methods-you-should-know-4l76)
 
-2. **"Template Literals in ES6"**
+2. **"Template Literals in ES2023"**
    - 🔗 [css-tricks.com](https://css-tricks.com/template-literals/)
 
 3. **"Tagged Template Literals"**

@@ -196,24 +196,24 @@ console.log(age);  // 25
 
 ## E
 
-### **ES6** (ECMAScript 2015)
+### **ES2023** (ECMAScript 2015)
 Sexta versión importante de ECMAScript, publicada en 2015. Introdujo muchas características modernas como `let`, `const`, arrow functions, template literals, etc.
 
 **Ver también**: [ECMAScript](#ecmascript)
 
 ---
 
-### **ES6+**
-Término que engloba ES6 y todas las versiones posteriores (ES2016, ES2017, ES2018, etc.). Representa JavaScript moderno.
+### **ES2023**
+Término que engloba ES2023 y todas las versiones posteriores (ES2016, ES2017, ES2018, etc.). Representa JavaScript moderno.
 
-**Ver también**: [ES6](#es6), [ECMAScript](#ecmascript)
+**Ver también**: [ES2023](#es2023), [ECMAScript](#ecmascript)
 
 ---
 
 ### **ECMAScript**
 Especificación estándar en la que se basa JavaScript. Define la sintaxis y semántica del lenguaje.
 
-**Ver también**: [ES6](#es6), [JavaScript](#javascript)
+**Ver también**: [ES2023](#es2023), [JavaScript](#javascript)
 
 ---
 
@@ -347,7 +347,7 @@ const mensaje = `Me llamo ${nombre} y tengo ${edad} años.`;
 ### **JavaScript**
 Lenguaje de programación interpretado, de alto nivel, basado en el estándar ECMAScript.
 
-**Ver también**: [ECMAScript](#ecmascript), [ES6](#es6)
+**Ver también**: [ECMAScript](#ecmascript), [ES2023](#es2023)
 
 ---
 

@@ -60,7 +60,7 @@
 
 ### Excelente (23-25 pts)
 - Estructura de carpetas clara y lógica
-- Módulos ES6 bien organizados (import/export)
+- Módulos ES2023 bien organizados (import/export)
 - Separación de responsabilidades (models, services, UI)
 - Clases bien diseñadas con encapsulación
 - Uso apropiado de campos privados (#)
@@ -80,7 +80,7 @@
 
 ### Insuficiente (0-12 pts)
 - Todo en un solo archivo
-- No usa módulos ES6
+- No usa módulos ES2023
 - Sin estructura clara
 - Sin clases o mal implementadas
 

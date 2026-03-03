@@ -48,7 +48,7 @@ Tutoriales interactivos y claros.
    - [samanthaming.com](https://www.samanthaming.com/)
    - Buscar: "Array.from samantha ming"
 
-2. **Creating Arrays in ES6**
+2. **Creating Arrays in ES2023**
    - [2ality.com](https://2ality.com/)
    - Dr. Axel Rauschmayer - experto en ES2023
 

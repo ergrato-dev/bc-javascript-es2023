@@ -8,7 +8,7 @@ Libros electrónicos gratuitos sobre metaprogramación en JavaScript.
 
 ## 📚 Libros Recomendados
 
-### 1. You Don't Know JS: ES6 & Beyond
+### 1. You Don't Know JS: ES2023 & Beyond
 
 - **Autor**: Kyle Simpson
 - **Capítulo relevante**: Chapter 7: Meta Programming
@@ -16,11 +16,11 @@ Libros electrónicos gratuitos sobre metaprogramación en JavaScript.
 - **Idioma**: Inglés
 - **Descripción**: Cobertura profunda de Proxy, Reflect y Symbol con ejemplos prácticos.
 
-### 2. Exploring ES6
+### 2. Exploring ES2023
 
 - **Autor**: Dr. Axel Rauschmayer
 - **Capítulo relevante**: Chapter 28: Metaprogramming with proxies
-- **Enlace**: [Exploring ES6 - Proxies](https://exploringjs.com/es6/ch_proxies.html)
+- **Enlace**: [Exploring ES2023 - Proxies](https://exploringjs.com/es6/ch_proxies.html)
 - **Idioma**: Inglés
 - **Descripción**: Análisis detallado de todas las traps disponibles y sus invariantes.
 
@@ -54,8 +54,8 @@ Libros electrónicos gratuitos sobre metaprogramación en JavaScript.
 
 | Libro | Proxy Básico | Traps | Reflect | Patrones |
 |-------|--------------|-------|---------|----------|
-| YDKJS ES6 & Beyond | ✅ | ✅ | ✅ | ✅ |
-| Exploring ES6 | ✅ | ✅ | ✅ | ✅ |
+| YDKJS ES2023 & Beyond | ✅ | ✅ | ✅ | ✅ |
+| Exploring ES2023 | ✅ | ✅ | ✅ | ✅ |
 | JS for Impatient | ✅ | ✅ | ✅ | ⚪ |
 | Deep JavaScript | ✅ | ✅ | ✅ | ✅ |
 | javascript.info | ✅ | ✅ | ✅ | ✅ |
@@ -65,8 +65,8 @@ Libros electrónicos gratuitos sobre metaprogramación en JavaScript.
 ## 💡 Orden de Lectura Sugerido
 
 1. **javascript.info** - Para empezar con ejemplos prácticos
-2. **YDKJS ES6 & Beyond** - Para entender el "por qué"
-3. **Exploring ES6** - Para referencia completa de traps
+2. **YDKJS ES2023 & Beyond** - Para entender el "por qué"
+3. **Exploring ES2023** - Para referencia completa de traps
 4. **Deep JavaScript** - Para casos avanzados
 
 ---

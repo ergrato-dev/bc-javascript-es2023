@@ -9,7 +9,7 @@ Diagramas y recursos visuales para complementar el material teórico de la prime
 ### 01. Evolución de JavaScript
 **Archivo**: `01-evolucion-javascript.svg`
 **Usado en**: [01-introduccion-es6.md](../1-teoria/01-introduccion-es6.md)
-**Descripción**: Línea de tiempo mostrando la evolución de ECMAScript desde ES5 (2009) hasta ES2024+, destacando ES6/ES2015 como el punto de inflexión más importante.
+**Descripción**: Línea de tiempo mostrando la evolución de ECMAScript desde ES5 (2009) hasta ES2024+, destacando ES2023/ES2015 como el punto de inflexión más importante.
 
 **Conceptos visualizados**:
 - Timeline de versiones de ECMAScript

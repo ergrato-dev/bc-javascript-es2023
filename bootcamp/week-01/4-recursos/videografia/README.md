@@ -24,8 +24,8 @@ Videos recomendados para complementar el aprendizaje de ES2023 de esta semana.
 
 ### En Inglés
 
-#### **ES6 Tutorial for Beginners**
-- **[ES6 Tutorial - Traversy Media](https://www.youtube.com/watch?v=WZQc7RUAg18)**
+#### **ES2023 Tutorial for Beginners**
+- **[ES2023 Tutorial - Traversy Media](https://www.youtube.com/watch?v=WZQc7RUAg18)**
   - ⏱️ Duración: ~90 minutos
   - 📊 Nivel: Principiante-Intermedio
   - ✅ Curso completo de ES2023
@@ -111,7 +111,7 @@ Videos recomendados para complementar el aprendizaje de ES2023 de esta semana.
   - 💡 Ejemplos prácticos
 
 ### **Object & Array Destructuring**
-- **[ES6 Destructuring Assignment](https://www.youtube.com/watch?v=-vR3a11Wzt0)** - Web Dev Simplified
+- **[ES2023 Destructuring Assignment](https://www.youtube.com/watch?v=-vR3a11Wzt0)** - Web Dev Simplified
   - ⏱️ Duración: ~10 minutos
   - 📊 Nivel: Principiante-Intermedio
   - ✅ Objetos, arrays, nested
@@ -196,7 +196,7 @@ Videos recomendados para complementar el aprendizaje de ES2023 de esta semana.
   - Duración total: ~20 horas
   - Desde básico hasta avanzado
 
-### **ES6 Tutorial for Beginners**
+### **ES2023 Tutorial for Beginners**
 - 📺 [Modern JavaScript ES2023 - The Net Ninja](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gKfw25slm4CUDUcM_sXdml)
   - Videos: ~30
   - Duración total: ~4 horas
