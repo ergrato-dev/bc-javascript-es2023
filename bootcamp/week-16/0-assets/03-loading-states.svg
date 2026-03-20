@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Estados de UI para operaciones CRUD</title>
+  <desc id="desc">Recurso pedagógico sobre estados de carga, transiciones y acciones recomendadas ante éxito o error.</desc>
+  <rect width="1200" height="680" fill="#0F0F0F"/>
+
+  <text x="42" y="56" fill="#F0DB4F" font-size="33" font-family="Inter, Roboto, sans-serif" font-weight="700">Modelo de estados en UI asíncrona</text>
+  <text x="42" y="84" fill="#D6D6D6" font-size="16" font-family="Inter, Roboto, sans-serif">Objetivo: evitar interfaces ambiguas durante operaciones GET, POST, PUT/PATCH y DELETE.</text>
+
+  <rect x="42" y="114" width="240" height="268" rx="14" fill="#1B1B1B" stroke="#8E8E8E" stroke-width="2"/>
+  <text x="62" y="146" fill="#BDBDBD" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">idle</text>
+  <text x="62" y="176" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Vista estable</text>
+  <text x="62" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Botones habilitados</text>
+  <text x="62" y="224" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Sin petición activa</text>
+  <text x="62" y="258" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Entrada: inicio o fin de ciclo</text>
+  <text x="62" y="286" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Salida: acción del usuario</text>
+
+  <rect x="330" y="114" width="240" height="268" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="3"/>
+  <text x="350" y="146" fill="#F0DB4F" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">loading</text>
+  <text x="350" y="176" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Spinner o skeleton</text>
+  <text x="350" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Acciones bloqueadas</text>
+  <text x="350" y="224" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Mensaje: "Procesando..."</text>
+  <text x="350" y="258" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Entrada: fetch iniciado</text>
+  <text x="350" y="286" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Salida: success o error</text>
+
+  <rect x="618" y="114" width="240" height="268" rx="14" fill="#1B1B1B" stroke="#4CAF50" stroke-width="3"/>
+  <text x="638" y="146" fill="#4CAF50" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">success</text>
+  <text x="638" y="176" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Datos actualizados</text>
+  <text x="638" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Confirmación visible</text>
+  <text x="638" y="224" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Feedback breve y claro</text>
+  <text x="638" y="258" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Entrada: status 2xx</text>
+  <text x="638" y="286" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Salida: regresar a idle</text>
+
+  <rect x="906" y="114" width="252" height="268" rx="14" fill="#1B1B1B" stroke="#E53935" stroke-width="3"/>
+  <text x="926" y="146" fill="#E53935" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">error</text>
+  <text x="926" y="176" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Mensaje con causa real</text>
+  <text x="926" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Botón reintentar</text>
+  <text x="926" y="224" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Conservar contexto</text>
+  <text x="926" y="258" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Entrada: red/HTTP/validación</text>
+  <text x="926" y="286" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Salida: retry o idle</text>
+
+  <path d="M282 248 L330 248" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M570 248 L618 248" stroke="#4CAF50" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M570 278 L906 278" stroke="#E53935" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M744 382 L744 418" stroke="#8E8E8E" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="42" y="414" width="1116" height="226" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
+  <text x="62" y="446" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Guía práctica de implementación</text>
+  <text x="62" y="478" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">1. Antes de fetch: setState('loading') y deshabilita botones de envío.</text>
+  <text x="62" y="504" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">2. Si response.ok: renderiza datos, muestra success y vuelve a idle tras breve delay.</text>
+  <text x="62" y="530" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">3. Si falla: captura error.message, conserva formulario y ofrece reintento.</text>
+  <text x="62" y="556" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Anti-patrón: dejar loading activo cuando hay excepción no controlada.</text>
+  <text x="62" y="602" fill="#8A8A8A" font-size="14" font-family="Inter, Roboto, sans-serif">Usa este esquema para revisar tu proyecto: cada botón debe tener transición de estado explícita.</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
+    </marker>
+  </defs>
+</svg>

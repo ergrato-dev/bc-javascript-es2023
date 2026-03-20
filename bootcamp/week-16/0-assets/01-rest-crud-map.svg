@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa pedagógico REST y CRUD</title>
+  <desc id="desc">Diagrama educativo que mapea CRUD con métodos HTTP, códigos de respuesta, errores comunes y mini actividad de comprensión.</desc>
+  <rect width="1200" height="680" fill="#0F0F0F"/>
+
+  <text x="44" y="58" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Week 16 · REST + CRUD</text>
+  <text x="44" y="88" fill="#DCDCDC" font-size="17" font-family="Inter, Roboto, sans-serif">Objetivo: decidir correctamente método, endpoint y status esperado en cada operación.</text>
+
+  <rect x="36" y="112" width="360" height="246" rx="14" fill="#1A1A1A" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="56" y="142" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">1) Mapa CRUD</text>
+  <text x="56" y="176" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Create  → POST   /items</text>
+  <text x="56" y="206" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Read    → GET    /items, /items/:id</text>
+  <text x="56" y="236" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Update  → PUT/PATCH /items/:id</text>
+  <text x="56" y="266" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Delete  → DELETE /items/:id</text>
+  <text x="56" y="312" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Regla: verbo HTTP en el método, no en la URL.</text>
+  <text x="56" y="336" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Ejemplo correcto: /items/42</text>
+
+  <rect x="418" y="112" width="360" height="246" rx="14" fill="#1A1A1A" stroke="#4CAF50" stroke-width="2"/>
+  <text x="438" y="142" fill="#4CAF50" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">2) Status esperados</text>
+  <text x="438" y="176" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">200 OK        → Lectura o update exitoso</text>
+  <text x="438" y="206" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">201 Created   → Recurso creado</text>
+  <text x="438" y="236" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">204 No Content → Delete exitoso sin body</text>
+  <text x="438" y="266" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">400/401/404/500 → Error que debe mostrarse</text>
+  <text x="438" y="312" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Tip docente: response.ok solo cubre 2xx.</text>
+  <text x="438" y="336" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Siempre incluir status y statusText en el mensaje.</text>
+
+  <rect x="800" y="112" width="364" height="246" rx="14" fill="#1A1A1A" stroke="#E53935" stroke-width="2"/>
+  <text x="820" y="142" fill="#E53935" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">3) Errores comunes</text>
+  <text x="820" y="176" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Usar POST para todo</text>
+  <text x="820" y="204" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Escribir URLs tipo /createItem</text>
+  <text x="820" y="232" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• No diferenciar PUT y PATCH</text>
+  <text x="820" y="260" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Ignorar 401 por token faltante</text>
+  <text x="820" y="288" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• No validar response.ok</text>
+  <text x="820" y="326" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Actividad: corrige 2 errores primero.</text>
+
+  <rect x="36" y="382" width="1128" height="256" rx="14" fill="#171717" stroke="#3A3A3A" stroke-width="2"/>
+  <text x="56" y="416" fill="#F0DB4F" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">Mini laboratorio guiado (10 min)</text>
+  <text x="56" y="452" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Paso A: Elige una entidad del dominio y define su recurso base (ej: /books, /events).</text>
+  <text x="56" y="482" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Paso B: Completa la tabla mental: Create=?, Read=?, Update=?, Delete=?</text>
+  <text x="56" y="512" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Paso C: Predice status en cada caso y compáralo con la respuesta real de la API.</text>
+  <text x="56" y="542" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Paso D: Si falla, clasifica el error: red, autenticación, validación o recurso inexistente.</text>
+  <text x="56" y="586" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Pregunta de cierre: ¿Cuándo usarías PATCH en lugar de PUT en tu proyecto de semana?</text>
+  <text x="36" y="664" fill="#848484" font-size="14" font-family="Inter, Roboto, sans-serif">Bootcamp JavaScript ES2023 · Recurso pedagógico para clase y práctica autónoma</text>
+</svg>

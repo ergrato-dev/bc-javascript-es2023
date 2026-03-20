@@ -1,0 +1,130 @@
+:root {
+  --bg: #111111;
+  --panel: #1b1b1b;
+  --text: #f5f5f5;
+  --muted: #bdbdbd;
+  --accent: #f0db4f;
+  --ok: #4caf50;
+  --error: #e53935;
+  --border: #2b2b2b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.app__header h1 {
+  margin: 0;
+  color: var(--accent);
+}
+
+.app__header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.panel--actions {
+  display: flex;
+  gap: 10px;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  background: #232323;
+  border: 1px solid #3a3a3a;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+.items {
+  display: grid;
+  gap: 12px;
+}
+
+.item-card {
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.item-card h3 {
+  margin: 0 0 6px;
+}
+
+.item-card p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.item-card__actions {
+  display: flex;
+  gap: 8px;
+}
+
+form {
+  display: grid;
+  gap: 8px;
+}
+
+input,
+textarea {
+  background: #121212;
+  border: 1px solid #2f2f2f;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.status-success {
+  color: var(--ok);
+}
+
+.status-error {
+  color: var(--error);
+}
+
+@media (max-width: 640px) {
+  .panel--actions,
+  .form-actions,
+  .item-card__actions {
+    flex-direction: column;
+  }
+}
