@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 16 - Panel CRUD REST</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1 id="appTitle">🔌 Panel CRUD REST</h1>
+      <p id="appSubtitle">Adapta esta interfaz a tu dominio asignado</p>
+    </header>
+
+    <section class="panel panel--status">
+      <p id="statusMessage">Estado: idle</p>
+    </section>
+
+    <section class="panel panel--actions">
+      <button id="btnLoad" type="button">Cargar</button>
+      <button id="btnCreate" type="button">Crear</button>
+    </section>
+
+    <section class="panel panel--list">
+      <h2>Listado</h2>
+      <div id="itemsContainer" class="items"></div>
+    </section>
+
+    <section class="panel panel--form">
+      <h2 id="formTitle">Crear recurso</h2>
+      <form id="itemForm">
+        <input id="itemId" type="hidden" />
+
+        <label for="itemName">Nombre</label>
+        <input id="itemName" name="name" type="text" required />
+
+        <label for="itemDescription">Descripción</label>
+        <textarea id="itemDescription" name="description" rows="4" required></textarea>
+
+        <div class="form-actions">
+          <button id="btnSubmit" type="submit">Guardar</button>
+          <button id="btnCancel" type="button">Cancelar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="starter/script.js"></script>
+</body>
+
+</html>
