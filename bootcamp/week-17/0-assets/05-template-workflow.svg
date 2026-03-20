@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo de render con template</title>
+  <desc id="desc">Secuencia para renderizar componentes reutilizables usando template y cloneNode.</desc>
+  <rect width="1200" height="680" fill="#101010"/>
+  <text x="40" y="60" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Workflow con template</text>
+
+  <rect x="60" y="130" width="210" height="110" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="82" y="170" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">1. Definir</text>
+  <text x="82" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">&lt;template&gt;</text>
+
+  <rect x="310" y="130" width="210" height="110" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="332" y="170" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">2. Clonar</text>
+  <text x="332" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">cloneNode(true)</text>
+
+  <rect x="560" y="130" width="210" height="110" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="582" y="170" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">3. Mapear</text>
+  <text x="582" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">datos a campos</text>
+
+  <rect x="810" y="130" width="210" height="110" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="832" y="170" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">4. Insertar</text>
+  <text x="832" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">append(fragment)</text>
+
+  <path d="M270 185 L310 185" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M520 185 L560 185" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M770 185 L810 185" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="300" width="1080" height="320" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
+  <text x="84" y="338" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Checklist de render reusable</text>
+  <text x="84" y="370" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• El template no se muestra hasta clonar e insertar.</text>
+  <text x="84" y="396" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Usa data-attributes internos para mapear campos.</text>
+  <text x="84" y="422" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Renderiza dentro de un loop limpio y predecible.</text>
+  <text x="84" y="448" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Limpia contenedor cuando aplique para evitar duplicados.</text>
+  <text x="84" y="474" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Usa textContent para valores dinámicos de usuario/API.</text>
+  <text x="84" y="514" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Ejercicio: renderiza 5 ítems con template y agrega clase is-featured al primero.</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
+    </marker>
+  </defs>
+</svg>

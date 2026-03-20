@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Estados visuales con classList</title>
+  <desc id="desc">Diagrama pedagógico de transición de estados UI usando classList.</desc>
+  <rect width="1200" height="680" fill="#101010"/>
+  <text x="40" y="60" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">classList para estados UI</text>
+
+  <rect x="80" y="130" width="220" height="220" rx="14" fill="#1B1B1B" stroke="#8E8E8E" stroke-width="2"/>
+  <text x="104" y="170" fill="#BDBDBD" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">is-idle</text>
+  <text x="104" y="202" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Estado base</text>
+
+  <rect x="350" y="130" width="220" height="220" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="3"/>
+  <text x="374" y="170" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">is-loading</text>
+  <text x="374" y="202" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Bloquear acciones</text>
+
+  <rect x="620" y="130" width="220" height="220" rx="14" fill="#1B1B1B" stroke="#4CAF50" stroke-width="3"/>
+  <text x="644" y="170" fill="#4CAF50" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">is-success</text>
+  <text x="644" y="202" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Mostrar confirmación</text>
+
+  <rect x="890" y="130" width="220" height="220" rx="14" fill="#1B1B1B" stroke="#E53935" stroke-width="3"/>
+  <text x="914" y="170" fill="#E53935" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">is-error</text>
+  <text x="914" y="202" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Habilitar retry</text>
+
+  <path d="M300 240 L350 240" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M570 240 L620 240" stroke="#4CAF50" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M570 270 L890 270" stroke="#E53935" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="80" y="390" width="1030" height="230" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
+  <text x="104" y="428" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Patrón recomendado</text>
+  <text x="104" y="460" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">1. Elimina clases de estado previas.</text>
+  <text x="104" y="486" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">2. Agrega solo la clase del estado actual.</text>
+  <text x="104" y="512" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">3. Mantén estados mutuamente excluyentes.</text>
+  <text x="104" y="548" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Evita: className = '...' recreando string completo sin control de coexistencia.</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
+    </marker>
+  </defs>
+</svg>

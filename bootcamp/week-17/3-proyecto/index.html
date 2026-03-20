@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 17 - Constructor de UI Dinámico</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="app__header">
+      <h1>🧱 Constructor de UI Dinámico</h1>
+      <p>Adapta esta base a tu dominio asignado</p>
+    </header>
+
+    <section class="panel panel--status">
+      <p id="statusMessage">Estado: idle</p>
+    </section>
+
+    <section class="panel panel--form">
+      <h2>Nuevo elemento</h2>
+      <form id="itemForm">
+        <label for="itemTitle">Título</label>
+        <input id="itemTitle" name="title" type="text" required />
+
+        <label for="itemDescription">Descripción</label>
+        <textarea id="itemDescription" name="description" rows="3" required></textarea>
+
+        <button id="btnAdd" type="submit">Agregar</button>
+      </form>
+    </section>
+
+    <section class="panel panel--list">
+      <h2>Listado dinámico</h2>
+      <div id="itemsContainer" class="items"></div>
+    </section>
+
+    <template id="itemTemplate">
+      <article class="item-card">
+        <h3 data-field="title"></h3>
+        <p data-field="description"></p>
+        <div class="item-card__actions">
+          <button type="button" data-action="toggle-featured">Destacar</button>
+          <button type="button" data-action="remove">Eliminar</button>
+        </div>
+      </article>
+    </template>
+  </main>
+
+  <script type="module" src="starter/script.js"></script>
+</body>
+
+</html>
