@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo de serialización JSON</title>
+  <desc id="desc">Conversión objeto a string y recuperación segura desde storage.</desc>
+  <rect width="1200" height="760" fill="#0f172a"/>
+  <text x="40" y="58" fill="#f0db4f" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">JSON Serialization Flow</text>
+
+  <rect x="40" y="98" width="1120" height="74" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="60" y="128" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo</text>
+  <text x="60" y="152" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Persistir estructuras complejas minimizando errores de parseo.</text>
+
+  <rect x="120" y="240" width="240" height="140" rx="12" fill="#111827" stroke="#4ade80"/>
+  <text x="170" y="315" fill="#e5e7eb" font-size="20" font-family="Inter, Roboto, sans-serif">Objeto JS</text>
+
+  <rect x="480" y="240" width="240" height="140" rx="12" fill="#111827" stroke="#f0db4f"/>
+  <text x="532" y="315" fill="#e5e7eb" font-size="20" font-family="Inter, Roboto, sans-serif">String JSON</text>
+
+  <rect x="840" y="240" width="240" height="140" rx="12" fill="#111827" stroke="#60a5fa"/>
+  <text x="893" y="315" fill="#e5e7eb" font-size="20" font-family="Inter, Roboto, sans-serif">Storage</text>
+
+  <path d="M360 310 L480 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="380" y="288" fill="#f0db4f" font-size="14" font-family="Inter, Roboto, sans-serif">JSON.stringify</text>
+
+  <path d="M720 310 L840 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="760" y="288" fill="#f0db4f" font-size="14" font-family="Inter, Roboto, sans-serif">setItem</text>
+
+  <path d="M840 450 L720 450" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M480 450 L360 450" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <text x="760" y="430" fill="#60a5fa" font-size="14" font-family="Inter, Roboto, sans-serif">getItem</text>
+  <text x="390" y="430" fill="#60a5fa" font-size="14" font-family="Inter, Roboto, sans-serif">JSON.parse + try/catch</text>
+
+  <rect x="40" y="584" width="1120" height="132" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="60" y="620" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Verificación</text>
+  <text x="60" y="648" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué error aparece si parseas un JSON inválido?</text>
+  <text x="60" y="676" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">2) Implementa fallback cuando `getItem` devuelva null o datos corruptos.</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f0db4f"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#60a5fa"/>
+    </marker>
+  </defs>
+</svg>

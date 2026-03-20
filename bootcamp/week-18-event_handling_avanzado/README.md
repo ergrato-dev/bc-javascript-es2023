@@ -124,7 +124,7 @@ Construirás un sistema de notificaciones con delegación de eventos, control de
 
 | ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
 |-------------|-----------|--------------|
-| [Semana 17: DOM Manipulation Moderna](../week-17-dom_manipulation_moderna/README.md) | [Índice](../../README.md) | [Semana 19: Web Storage APIs](../week-19/README.md) |
+| [Semana 17: DOM Manipulation Moderna](../week-17-dom_manipulation_moderna/README.md) | [Índice](../../README.md) | [Semana 19: Web Storage APIs](../week-19-web_storage_apis/README.md) |
 
 ---
 

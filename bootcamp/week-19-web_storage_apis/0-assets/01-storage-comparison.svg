@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Comparación localStorage vs sessionStorage</title>
+  <desc id="desc">Diferencias de alcance y duración entre storages del navegador.</desc>
+  <rect width="1200" height="760" fill="#0f172a"/>
+  <text x="40" y="58" fill="#f0db4f" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">localStorage vs sessionStorage</text>
+
+  <rect x="40" y="98" width="1120" height="74" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="60" y="128" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo</text>
+  <text x="60" y="152" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Elegir el almacenamiento correcto según duración y contexto de uso.</text>
+
+  <rect x="80" y="210" width="500" height="320" rx="12" fill="#111827" stroke="#4ade80"/>
+  <text x="110" y="252" fill="#4ade80" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">localStorage</text>
+  <text x="110" y="292" fill="#e5e7eb" font-size="17" font-family="Inter, Roboto, sans-serif">• Persiste después de cerrar navegador</text>
+  <text x="110" y="324" fill="#e5e7eb" font-size="17" font-family="Inter, Roboto, sans-serif">• Compartido por pestañas del mismo origen</text>
+  <text x="110" y="356" fill="#e5e7eb" font-size="17" font-family="Inter, Roboto, sans-serif">• Ideal para preferencias de usuario</text>
+
+  <rect x="620" y="210" width="500" height="320" rx="12" fill="#111827" stroke="#60a5fa"/>
+  <text x="650" y="252" fill="#60a5fa" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">sessionStorage</text>
+  <text x="650" y="292" fill="#e5e7eb" font-size="17" font-family="Inter, Roboto, sans-serif">• Se limpia al cerrar la pestaña</text>
+  <text x="650" y="324" fill="#e5e7eb" font-size="17" font-family="Inter, Roboto, sans-serif">• Aislado por pestaña/sesión</text>
+  <text x="650" y="356" fill="#e5e7eb" font-size="17" font-family="Inter, Roboto, sans-serif">• Ideal para estados temporales</text>
+
+  <rect x="40" y="584" width="1120" height="132" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="60" y="620" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Verificación</text>
+  <text x="60" y="648" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Dónde guardarías tema de UI? 2) ¿Dónde guardarías paso actual de un formulario?</text>
+  <text x="60" y="676" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">3) Justifica cada decisión en función de persistencia y aislamiento.</text>
+</svg>

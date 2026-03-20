@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Ciclo básico de IndexedDB</title>
+  <desc id="desc">Apertura de DB, upgrade, transacción y operación CRUD.</desc>
+  <rect width="1200" height="760" fill="#0f172a"/>
+  <text x="40" y="58" fill="#f0db4f" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">IndexedDB Lifecycle</text>
+
+  <rect x="40" y="98" width="1120" height="74" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="60" y="128" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo</text>
+  <text x="60" y="152" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Comprender el flujo asíncrono mínimo para usar IndexedDB sin bloqueos.</text>
+
+  <rect x="90" y="250" width="210" height="120" rx="10" fill="#111827" stroke="#4ade80"/>
+  <text x="135" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">open(name, v)</text>
+
+  <rect x="350" y="250" width="210" height="120" rx="10" fill="#111827" stroke="#f0db4f"/>
+  <text x="384" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">onupgradeneeded</text>
+
+  <rect x="610" y="250" width="210" height="120" rx="10" fill="#111827" stroke="#60a5fa"/>
+  <text x="662" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">transaction</text>
+
+  <rect x="870" y="250" width="210" height="120" rx="10" fill="#111827" stroke="#f97316"/>
+  <text x="934" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">put/get</text>
+
+  <path d="M300 310 L350 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M560 310 L610 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M820 310 L870 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="584" width="1120" height="132" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="60" y="620" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Verificación</text>
+  <text x="60" y="648" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué pasa si subes versión y no defines `onupgradeneeded`?</text>
+  <text x="60" y="676" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">2) Explica por qué IndexedDB no se usa como API síncrona.</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f0db4f"/>
+    </marker>
+  </defs>
+</svg>
