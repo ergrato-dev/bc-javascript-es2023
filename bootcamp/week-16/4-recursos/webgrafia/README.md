@@ -8,7 +8,24 @@
 - JavaScript.info Fetch: https://javascript.info/fetch
 - RFC HTTP Semantics: https://www.rfc-editor.org/rfc/rfc9110
 
+## Lectura recomendada por objetivo
+
+1. **Comprender métodos HTTP**
+: MDN HTTP + RFC 9110.
+
+2. **Implementar fetch correctamente**
+: MDN Fetch + JavaScript.info.
+
+3. **Practicar sin backend propio**
+: JSONPlaceholder.
+
 ## Herramientas de prueba
 
 - Hoppscotch: https://hoppscotch.io/
 - Postman: https://www.postman.com/
+
+## Mini checklist técnico
+
+- [ ] Probé GET y POST con tool externa
+- [ ] Verifiqué headers request/response
+- [ ] Confirmé códigos 2xx, 4xx y 5xx en ejemplos

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Matriz de manejo de errores en CRUD</title>
+  <desc id="desc">Matriz pedagógica que clasifica errores por tipo, señal y acción recomendada en interfaz.</desc>
+  <rect width="1200" height="680" fill="#101010"/>
+
+  <text x="40" y="56" fill="#F0DB4F" font-size="33" font-family="Inter, Roboto, sans-serif" font-weight="700">Matriz de errores para operaciones REST</text>
+  <text x="40" y="84" fill="#D8D8D8" font-size="16" font-family="Inter, Roboto, sans-serif">Objetivo: responder de forma diferente según tipo de error y no mostrar mensajes genéricos.</text>
+
+  <rect x="40" y="116" width="1120" height="66" rx="10" fill="#1A1A1A" stroke="#3A3A3A" stroke-width="2"/>
+  <text x="70" y="156" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Tipo de error</text>
+  <text x="330" y="156" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Señal técnica</text>
+  <text x="620" y="156" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Acción UX recomendada</text>
+  <text x="980" y="156" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Retry</text>
+
+  <rect x="40" y="194" width="1120" height="74" rx="10" fill="#181818" stroke="#2E7D32"/>
+  <text x="70" y="238" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Error de red</text>
+  <text x="330" y="238" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">TypeError / fetch rechazado</text>
+  <text x="620" y="238" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Mostrar "Sin conexión" + botón reintentar</text>
+  <text x="980" y="238" fill="#4CAF50" font-size="17" font-family="Inter, Roboto, sans-serif" font-weight="700">Sí</text>
+
+  <rect x="40" y="276" width="1120" height="74" rx="10" fill="#181818" stroke="#2E7D32"/>
+  <text x="70" y="320" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">401 Unauthorized</text>
+  <text x="330" y="320" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">response.status === 401</text>
+  <text x="620" y="320" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Pedir login nuevamente / refrescar token</text>
+  <text x="980" y="320" fill="#E53935" font-size="17" font-family="Inter, Roboto, sans-serif" font-weight="700">No directo</text>
+
+  <rect x="40" y="358" width="1120" height="74" rx="10" fill="#181818" stroke="#2E7D32"/>
+  <text x="70" y="402" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">404 Not Found</text>
+  <text x="330" y="402" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">response.status === 404</text>
+  <text x="620" y="402" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Actualizar lista y notificar recurso ausente</text>
+  <text x="980" y="402" fill="#F0DB4F" font-size="17" font-family="Inter, Roboto, sans-serif" font-weight="700">Depende</text>
+
+  <rect x="40" y="440" width="1120" height="74" rx="10" fill="#181818" stroke="#2E7D32"/>
+  <text x="70" y="484" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">500 Server Error</text>
+  <text x="330" y="484" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">response.status >= 500</text>
+  <text x="620" y="484" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Mensaje genérico + reintento diferido</text>
+  <text x="980" y="484" fill="#4CAF50" font-size="17" font-family="Inter, Roboto, sans-serif" font-weight="700">Sí</text>
+
+  <rect x="40" y="522" width="1120" height="118" rx="12" fill="#171717" stroke="#3A3A3A" stroke-width="2"/>
+  <text x="60" y="554" fill="#F0DB4F" font-size="21" font-family="Inter, Roboto, sans-serif" font-weight="700">Regla de oro de week-16</text>
+  <text x="60" y="584" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">No todos los errores se resuelven igual: clasifica primero, luego define feedback y retry.</text>
+  <text x="60" y="610" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Pregunta de reflexión: ¿qué casos merecen retry automático y cuáles requieren intervención del usuario?</text>
+</svg>
