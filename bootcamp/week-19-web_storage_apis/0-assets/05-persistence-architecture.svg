@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Arquitectura de persistencia local</title>
+  <desc id="desc">Capas de estado en memoria, web storage e indexeddb con estrategia de respaldo.</desc>
+  <rect width="1200" height="760" fill="#0f172a"/>
+  <text x="40" y="58" fill="#f0db4f" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Persistence Architecture</text>
+
+  <rect x="40" y="98" width="1120" height="74" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="60" y="128" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo</text>
+  <text x="60" y="152" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Diseñar persistencia por capas para robustez y recuperación.</text>
+
+  <rect x="120" y="250" width="280" height="280" rx="12" fill="#111827" stroke="#4ade80"/>
+  <text x="190" y="300" fill="#4ade80" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">State Layer</text>
+  <text x="150" y="340" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Memoria activa</text>
+  <text x="150" y="370" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Validación de entrada</text>
+
+  <rect x="460" y="250" width="280" height="280" rx="12" fill="#111827" stroke="#60a5fa"/>
+  <text x="518" y="300" fill="#60a5fa" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Storage Layer</text>
+  <text x="490" y="340" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">local/session storage</text>
+  <text x="490" y="370" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Snapshot rápido</text>
+
+  <rect x="800" y="250" width="280" height="280" rx="12" fill="#111827" stroke="#f97316"/>
+  <text x="855" y="300" fill="#f97316" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Backup Layer</text>
+  <text x="830" y="340" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">IndexedDB histórico</text>
+  <text x="830" y="370" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Recuperación ante fallos</text>
+
+  <path d="M400 390 L460 390" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M740 390 L800 390" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="584" width="1120" height="132" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="60" y="620" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Verificación</text>
+  <text x="60" y="648" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué capa consulta primero tu app al iniciar?</text>
+  <text x="60" y="676" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">2) ¿Cómo recuperas estado si localStorage está corrupto?</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f0db4f"/>
+    </marker>
+  </defs>
+</svg>

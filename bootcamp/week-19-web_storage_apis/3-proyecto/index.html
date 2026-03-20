@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 19 - Web Storage APIs</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Gestor Local con Persistencia</h1>
+      <p>Semana 19 · Web Storage APIs</p>
+    </header>
+
+    <section class="panel">
+      <form id="item-form" class="item-form">
+        <label>
+          Nombre
+          <input id="name" name="name" type="text" required />
+        </label>
+        <label>
+          Categoría
+          <input id="category" name="category" type="text" required />
+        </label>
+        <button type="submit">Agregar</button>
+      </form>
+
+      <div class="toolbar">
+        <button id="save-state" type="button">Guardar estado</button>
+        <button id="restore-state" type="button">Restaurar estado</button>
+        <button id="clear-state" type="button">Limpiar</button>
+      </div>
+
+      <p id="status" class="status">Estado: listo</p>
+
+      <ul id="items-list" class="items-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="starter/script.js"></script>
+</body>
+
+</html>
