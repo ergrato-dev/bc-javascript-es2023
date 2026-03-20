@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 18 - Notificaciones Interactivas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header class="app-header">
+      <h1>Sistema de Notificaciones Interactivas</h1>
+      <p>Week 18 · Eventos avanzados en JavaScript</p>
+    </header>
+
+    <section class="metrics" aria-label="Métricas">
+      <article>
+        <h2>Total</h2>
+        <p id="metric-total">0</p>
+      </article>
+      <article>
+        <h2>Leídas</h2>
+        <p id="metric-read">0</p>
+      </article>
+      <article>
+        <h2>Pendientes</h2>
+        <p id="metric-pending">0</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <form id="notification-form" class="notification-form">
+        <label>
+          Título
+          <input id="title" name="title" type="text" required />
+        </label>
+        <label>
+          Tipo
+          <select id="type" name="type">
+            <option value="info">Info</option>
+            <option value="warning">Warning</option>
+            <option value="success">Success</option>
+          </select>
+        </label>
+        <button type="submit">Crear notificación</button>
+      </form>
+
+      <ul id="notification-list" class="notification-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <script type="module" src="starter/script.js"></script>
+</body>
+
+</html>

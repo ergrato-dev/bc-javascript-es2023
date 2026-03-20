@@ -58,7 +58,7 @@ Este bootcamp se enfoca exclusivamente en JavaScript ES2023 y características m
 Cada semana incluye:
 
 ```
-bootcamp/week-XX/
+bootcamp/week-xx-tema_principal/
 ├── README.md                 # Descripción y objetivos
 ├── rubrica-evaluacion.md     # Criterios de evaluación
 ├── 0-assets/                 # Imágenes y diagramas
@@ -125,7 +125,7 @@ code .
 ### 3. Navegar a la Semana Actual
 
 ```bash
-cd bootcamp/week-01
+cd bootcamp/week-01-introduccion_javascript_moderno_es2023
 ```
 
 ### 4. Seguir las Instrucciones
@@ -226,7 +226,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 </p>
 
 <p align="center">
-  <a href="bootcamp/week-01">Comenzar Semana 1</a> •
+  <a href="bootcamp/week-01-introduccion_javascript_moderno_es2023">Comenzar Semana 1</a> •
   <a href="_docs">Ver Documentación</a> •
   <a href="../../issues">Reportar Issue</a> •
   <a href="CONTRIBUTING.md">Contribuir</a>

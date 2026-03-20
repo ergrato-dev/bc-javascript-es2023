@@ -4,9 +4,9 @@
 # Convierte los archivos Markdown de una semana del bootcamp a PDF
 #
 # Uso:
-#   ./export-pdf.sh                  → convierte week-01 (por defecto)
-#   ./export-pdf.sh week-02          → convierte week-02
-#   ./export-pdf.sh week-01 --merge  → convierte y genera un PDF combinado
+#   ./export-pdf.sh                  → convierte week-01-introduccion_javascript_moderno_es2023 (por defecto)
+#   ./export-pdf.sh week-02-operadores_metodos_modernos_arrays          → convierte esa semana
+#   ./export-pdf.sh week-01-introduccion_javascript_moderno_es2023 --merge  → convierte y genera un PDF combinado
 #
 # Dependencias:
 #   - Node.js >= 18
@@ -25,7 +25,7 @@ BOLD='\033[1m'
 NC='\033[0m' # No Color
 
 # ── Argumentos ───────────────────────────────────────────────────────────────
-WEEK="${1:-week-01}"
+WEEK="${1:-week-01-introduccion_javascript_moderno_es2023}"
 MERGE="${2:-}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

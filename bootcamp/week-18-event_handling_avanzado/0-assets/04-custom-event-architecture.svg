@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Arquitectura con CustomEvent</title>
+  <desc id="desc">Comunicación desacoplada entre productor y consumidor usando eventos de dominio.</desc>
+  <rect width="1200" height="760" fill="#101010"/>
+  <text x="40" y="56" fill="#F0DB4F" font-size="32" font-family="Inter, Roboto, sans-serif" font-weight="700">CustomEvent Architecture</text>
+  <text x="40" y="88" fill="#D0D0D0" font-size="18" font-family="Inter, Roboto, sans-serif">Producer -> Event Bus -> Consumer</text>
+
+  <rect x="40" y="116" width="1120" height="78" rx="10" fill="#1A1A1A" stroke="#333"/>
+  <text x="60" y="148" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo de aprendizaje</text>
+  <text x="60" y="172" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">Diseñar comunicación entre módulos sin acoplamiento directo.</text>
+
+  <rect x="100" y="240" width="280" height="220" rx="14" fill="#1B1B1B" stroke="#F0DB4F"/>
+  <text x="185" y="300" fill="#FFF" font-size="22" font-family="Inter, Roboto, sans-serif">Producer</text>
+  <text x="130" y="340" fill="#BDBDBD" font-size="16" font-family="Inter, Roboto, sans-serif">dispatchEvent(new CustomEvent)</text>
+
+  <rect x="460" y="240" width="280" height="220" rx="14" fill="#1B1B1B" stroke="#4CAF50"/>
+  <text x="545" y="300" fill="#FFF" font-size="22" font-family="Inter, Roboto, sans-serif">Event Bus</text>
+  <text x="536" y="340" fill="#BDBDBD" font-size="16" font-family="Inter, Roboto, sans-serif">document/window</text>
+
+  <rect x="820" y="240" width="280" height="220" rx="14" fill="#1B1B1B" stroke="#E53935"/>
+  <text x="900" y="300" fill="#FFF" font-size="22" font-family="Inter, Roboto, sans-serif">Consumer</text>
+  <text x="850" y="340" fill="#BDBDBD" font-size="16" font-family="Inter, Roboto, sans-serif">addEventListener(name)</text>
+
+  <path d="M380 350 L460 350" stroke="#F0DB4F" stroke-width="4" marker-end="url(#arrow1)"/>
+  <path d="M740 350 L820 350" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrow2)"/>
+
+  <rect x="40" y="610" width="1120" height="120" rx="10" fill="#1A1A1A" stroke="#333"/>
+  <text x="60" y="642" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Lectura guiada y verificación</text>
+  <text x="60" y="668" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">1) Propón nombre y payload para un evento de dominio (detail).</text>
+  <text x="60" y="692" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">2) Comprueba que consumidor funciona sin importar quién emite.</text>
+
+  <defs>
+    <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#F0DB4F"/>
+    </marker>
+    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4CAF50"/>
+    </marker>
+  </defs>
+</svg>
