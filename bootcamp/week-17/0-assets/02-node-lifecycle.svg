@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Ciclo de vida del nodo DOM</title>
+  <desc id="desc">Secuencia pedagógica para crear, insertar, actualizar y remover nodos.</desc>
+  <rect width="1200" height="680" fill="#0F0F0F"/>
+  <text x="40" y="60" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Ciclo de vida de un nodo</text>
+
+  <rect x="60" y="130" width="220" height="120" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="82" y="170" fill="#F0DB4F" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">1. Crear</text>
+  <text x="82" y="202" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">createElement()</text>
+
+  <rect x="340" y="130" width="220" height="120" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="362" y="170" fill="#F0DB4F" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">2. Configurar</text>
+  <text x="362" y="202" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">text, attrs, classes</text>
+
+  <rect x="620" y="130" width="220" height="120" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="642" y="170" fill="#F0DB4F" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">3. Insertar</text>
+  <text x="642" y="202" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">append/prepend</text>
+
+  <rect x="900" y="130" width="220" height="120" rx="14" fill="#1B1B1B" stroke="#E53935" stroke-width="2"/>
+  <text x="922" y="170" fill="#E53935" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">4. Remover</text>
+  <text x="922" y="202" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">remove()</text>
+
+  <path d="M280 190 L340 190" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M560 190 L620 190" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M840 190 L900 190" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="300" width="1060" height="300" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
+  <text x="84" y="338" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Puntos de control técnicos</text>
+  <text x="84" y="370" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Un nodo no se duplica al insertar en otro lugar: se mueve.</text>
+  <text x="84" y="396" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Para duplicar estructura, usa cloneNode(true).</text>
+  <text x="84" y="422" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Si remueves nodos, actualiza también el estado en memoria.</text>
+  <text x="84" y="448" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Reemplazar todo el contenedor en cada interacción suele ser costoso.</text>
+  <text x="84" y="488" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Ejercicio: crea 3 tarjetas, inserta al inicio y elimina la segunda sin reconstruir toda la lista.</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
+    </marker>
+  </defs>
+</svg>

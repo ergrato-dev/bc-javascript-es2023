@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Comparativa textContent vs innerHTML</title>
+  <desc id="desc">Guía visual para elegir entre textContent e innerHTML según seguridad y necesidad.</desc>
+  <rect width="1200" height="680" fill="#0F0F0F"/>
+  <text x="40" y="60" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">textContent vs innerHTML</text>
+
+  <rect x="50" y="120" width="520" height="250" rx="14" fill="#1A1A1A" stroke="#4CAF50" stroke-width="2"/>
+  <text x="74" y="156" fill="#4CAF50" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">textContent</text>
+  <text x="74" y="190" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Inserta texto literal</text>
+  <text x="74" y="218" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• No interpreta etiquetas HTML</text>
+  <text x="74" y="246" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Más seguro para datos externos</text>
+  <text x="74" y="286" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Uso recomendado: datos de usuario/API</text>
+
+  <rect x="630" y="120" width="520" height="250" rx="14" fill="#1A1A1A" stroke="#E53935" stroke-width="2"/>
+  <text x="654" y="156" fill="#E53935" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">innerHTML</text>
+  <text x="654" y="190" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Interpreta HTML</text>
+  <text x="654" y="218" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Flexible para markup controlado</text>
+  <text x="654" y="246" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Riesgo si hay contenido no sanitizado</text>
+  <text x="654" y="286" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Uso recomendado: fragmentos controlados</text>
+
+  <rect x="50" y="400" width="1100" height="230" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
+  <text x="74" y="438" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Decisión rápida</text>
+  <text x="74" y="470" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">¿Dato externo o ingresado por usuario? → textContent</text>
+  <text x="74" y="496" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">¿HTML fijo y controlado por tu código? → innerHTML</text>
+  <text x="74" y="522" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">¿Lista repetible de componentes? → mejor template + cloneNode</text>
+  <text x="74" y="562" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Nunca interpolar directamente input del usuario en innerHTML sin sanitizar.</text>
+</svg>

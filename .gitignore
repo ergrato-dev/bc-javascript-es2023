@@ -258,6 +258,17 @@ TODO_PERSONAL.md
 .rts2_cache_es/
 .rts2_cache_umd/
 
+# ============================================
+# Excepciones para soluciones por tipo
+# ============================================
+# Publicar soluciones de prácticas guiadas
+!**/2-practicas/**/solution/
+!**/2-practicas/**/solution/**
+
+# Mantener ocultas soluciones de proyecto
+**/3-proyecto/solution/
+**/3-proyecto/solution/**
+
 # Optional stylelint cache
 .stylelintcache
 

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa de selección DOM</title>
+  <desc id="desc">Diagrama pedagógico para elegir entre querySelector y querySelectorAll.</desc>
+  <rect width="1200" height="680" fill="#101010"/>
+  <text x="40" y="60" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Mapa de selección DOM</text>
+  <text x="40" y="88" fill="#D7D7D7" font-size="16" font-family="Inter, Roboto, sans-serif">Decide qué selector usar según cardinalidad y estabilidad del nodo.</text>
+
+  <rect x="40" y="120" width="540" height="220" rx="14" fill="#1A1A1A" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="60" y="154" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">querySelector</text>
+  <text x="60" y="186" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Retorna el primer match</text>
+  <text x="60" y="214" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Ideal para un solo elemento esperado</text>
+  <text x="60" y="242" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Ejemplo: panel principal, botón guardar</text>
+  <text x="60" y="286" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">const submit = document.querySelector('[data-action="save"]');</text>
+
+  <rect x="620" y="120" width="540" height="220" rx="14" fill="#1A1A1A" stroke="#4CAF50" stroke-width="2"/>
+  <text x="640" y="154" fill="#4CAF50" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">querySelectorAll</text>
+  <text x="640" y="186" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Retorna NodeList estático</text>
+  <text x="640" y="214" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Ideal para lotes de elementos</text>
+  <text x="640" y="242" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Ejemplo: cards, filas, badges</text>
+  <text x="640" y="286" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">const cards = document.querySelectorAll('.card');</text>
+
+  <rect x="40" y="368" width="1120" height="250" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
+  <text x="60" y="402" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Reglas de selección robusta</text>
+  <text x="60" y="434" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">1. Prefiere selectores por data-attribute para lógica JS.</text>
+  <text x="60" y="460" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">2. Evita selectores acoplados a estructura visual temporal.</text>
+  <text x="60" y="486" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">3. Centraliza referencias frecuentes en un objeto `elements`.</text>
+  <text x="60" y="512" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">4. Reconsulta NodeList si el DOM cambió tras un render dinámico.</text>
+  <text x="60" y="552" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Pregunta guía: ¿este selector seguirá funcionando si cambia el CSS?</text>
+</svg>
