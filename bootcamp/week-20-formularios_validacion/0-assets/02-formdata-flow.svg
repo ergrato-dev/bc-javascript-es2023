@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo de FormData</title>
+  <desc id="desc">Transformación de controles de formulario a pares clave-valor.</desc>
+  <rect width="800" height="500" fill="#1a202c"/>
+  <text x="30" y="40" fill="#f0db4f" font-size="28" font-family="system-ui, sans-serif" font-weight="700">FormData Flow</text>
+
+  <rect x="60" y="90" width="300" height="180" rx="12" fill="#2d3748" stroke="#4299e1"/>
+  <text x="80" y="125" fill="#e2e8f0" font-size="18" font-family="system-ui, sans-serif">Formulario</text>
+  <text x="80" y="160" fill="#a0aec0" font-size="15" font-family="Courier, monospace">name="email" value="ana@mail.com"</text>
+  <text x="80" y="190" fill="#a0aec0" font-size="15" font-family="Courier, monospace">name="password" value="******"</text>
+  <text x="80" y="220" fill="#a0aec0" font-size="15" font-family="Courier, monospace">name="role" value="admin"</text>
+
+  <rect x="440" y="90" width="300" height="180" rx="12" fill="#2d3748" stroke="#48bb78"/>
+  <text x="460" y="125" fill="#e2e8f0" font-size="18" font-family="system-ui, sans-serif">Object.fromEntries</text>
+  <text x="460" y="160" fill="#a0aec0" font-size="15" font-family="Courier, monospace">{</text>
+  <text x="475" y="188" fill="#a0aec0" font-size="15" font-family="Courier, monospace">email: "ana@mail.com",</text>
+  <text x="475" y="216" fill="#a0aec0" font-size="15" font-family="Courier, monospace">password: "******",</text>
+  <text x="475" y="244" fill="#a0aec0" font-size="15" font-family="Courier, monospace">role: "admin"</text>
+
+  <path d="M360 180 H440" stroke="#f0db4f" stroke-width="4"/>
+  <text x="368" y="168" fill="#f0db4f" font-size="13" font-family="system-ui, sans-serif">new FormData(form)</text>
+
+  <rect x="60" y="310" width="680" height="150" rx="12" fill="#111827" stroke="#334155"/>
+  <text x="80" y="350" fill="#f0db4f" font-size="20" font-family="system-ui, sans-serif" font-weight="700">Reglas clave</text>
+  <text x="80" y="382" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">• Todo input debe tener atributo name</text>
+  <text x="80" y="410" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">• Normaliza strings antes de validar</text>
+  <text x="80" y="438" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">• Separa captura, validación y envío</text>
+</svg>
