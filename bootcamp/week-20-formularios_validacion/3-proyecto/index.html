@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Week 20 - Formularios y Validación</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="app">
+    <header>
+      <h1>Registro y Login</h1>
+      <p>Semana 20 · Formularios y Validación</p>
+    </header>
+
+    <section class="grid">
+      <form id="register-form" novalidate>
+        <h2>Registro</h2>
+        <label>Email<input name="email" type="email" required /></label>
+        <label>Usuario<input name="username" type="text" minlength="6" required /></label>
+        <label>Password<input name="password" type="password" minlength="8" required /></label>
+        <button type="submit">Crear cuenta</button>
+      </form>
+
+      <form id="login-form" novalidate>
+        <h2>Login</h2>
+        <label>Email<input name="email" type="email" required /></label>
+        <label>Password<input name="password" type="password" required /></label>
+        <button type="submit">Ingresar</button>
+      </form>
+    </section>
+
+    <p id="status">Estado: listo</p>
+  </main>
+
+  <script type="module" src="starter/script.js"></script>
+</body>
+
+</html>
