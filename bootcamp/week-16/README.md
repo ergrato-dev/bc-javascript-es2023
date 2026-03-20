@@ -35,7 +35,9 @@ week-16/
 │   ├── README.md
 │   ├── 01-rest-crud-map.svg
 │   ├── 02-http-methods-flow.svg
-│   └── 03-loading-states.svg
+│   ├── 03-loading-states.svg
+│   ├── 04-auth-token-flow.svg
+│   └── 05-error-handling-matrix.svg
 ├── 1-teoria/                              # Material teórico
 │   ├── 01-rest-foundations.md
 │   ├── 02-http-methods-crud.md

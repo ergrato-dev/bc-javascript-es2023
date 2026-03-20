@@ -14,6 +14,10 @@
 
 Este recurso te ayuda a modelar transiciones entre estados y evitar interfaces que se quedan bloqueadas en `loading`.
 
+![Matriz de manejo de errores en CRUD](../0-assets/05-error-handling-matrix.svg)
+
+Este segundo diagrama complementa el primero: no solo muestra estado visual, también sugiere respuesta UX según tipo de error HTTP o de red.
+
 ```javascript
 const uiState = {
   status: 'idle', // idle | loading | success | error

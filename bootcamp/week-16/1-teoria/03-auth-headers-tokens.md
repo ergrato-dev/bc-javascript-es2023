@@ -10,6 +10,10 @@
 
 ## 🧾 Headers más usados
 
+![Flujo pedagógico de autenticación con token](../0-assets/04-auth-token-flow.svg)
+
+Apóyate en este diagrama para revisar el ciclo completo: login, almacenamiento seguro, envío de token y respuesta ante `401 Unauthorized`.
+
 - `Accept`: formato esperado de respuesta
 - `Content-Type`: formato del body enviado
 - `Authorization`: token o credencial

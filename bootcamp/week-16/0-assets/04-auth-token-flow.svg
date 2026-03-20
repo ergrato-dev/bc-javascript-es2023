@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo pedagógico de autenticación con token</title>
+  <desc id="desc">Diagrama educativo del ciclo login, almacenamiento de token, uso en Authorization y manejo de 401.</desc>
+  <rect width="1200" height="680" fill="#101010"/>
+
+  <text x="40" y="56" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Autenticación con token en cliente REST</text>
+  <text x="40" y="84" fill="#DADADA" font-size="16" font-family="Inter, Roboto, sans-serif">Objetivo: usar Authorization de forma consistente y reaccionar correctamente ante 401.</text>
+
+  <rect x="40" y="118" width="250" height="96" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="62" y="152" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Paso 1: Login</text>
+  <text x="62" y="182" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">POST /auth/login</text>
+
+  <rect x="320" y="118" width="250" height="96" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="342" y="152" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Paso 2: Guardar token</text>
+  <text x="342" y="182" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">memory/localStorage</text>
+
+  <rect x="600" y="118" width="250" height="96" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="622" y="152" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Paso 3: Consumir API</text>
+  <text x="622" y="182" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Authorization: Bearer ...</text>
+
+  <rect x="880" y="118" width="280" height="96" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
+  <text x="902" y="152" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Paso 4: Validar respuesta</text>
+  <text x="902" y="182" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">200 éxito / 401 renovar sesión</text>
+
+  <path d="M290 166 L320 166" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M570 166 L600 166" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M850 166 L880 166" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="244" width="540" height="180" rx="14" fill="#181818" stroke="#4CAF50" stroke-width="2"/>
+  <text x="60" y="276" fill="#4CAF50" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Template de headers recomendado</text>
+  <text x="60" y="306" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Accept: application/json</text>
+  <text x="60" y="332" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Content-Type: application/json (si hay body)</text>
+  <text x="60" y="358" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Authorization: Bearer ${token}</text>
+  <text x="60" y="398" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Nota: centraliza esta lógica en un apiClient para evitar duplicidad.</text>
+
+  <rect x="600" y="244" width="560" height="180" rx="14" fill="#181818" stroke="#E53935" stroke-width="2"/>
+  <text x="620" y="276" fill="#E53935" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Errores frecuentes</text>
+  <text x="620" y="306" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Token hardcodeado en repositorio</text>
+  <text x="620" y="332" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Olvidar prefijo Bearer</text>
+  <text x="620" y="358" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• No manejar 401 con flujo de relogin</text>
+  <text x="620" y="384" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Logging de token en consola</text>
+
+  <rect x="40" y="448" width="1120" height="192" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
+  <text x="60" y="480" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Actividad sugerida (8 min)</text>
+  <text x="60" y="510" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">1. Simula petición protegida sin token y observa 401.</text>
+  <text x="60" y="536" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">2. Agrega Authorization correctamente y repite.</text>
+  <text x="60" y="562" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">3. Diseña mensaje de UX: "Sesión expirada, inicia sesión nuevamente".</text>
+  <text x="60" y="604" fill="#8A8A8A" font-size="14" font-family="Inter, Roboto, sans-serif">Recurso pensado para reforzar 1-teoria/03-auth-headers-tokens.md</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
+    </marker>
+  </defs>
+</svg>
