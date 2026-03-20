@@ -1,0 +1,175 @@
+:root {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-alt: #262626;
+  --text: #f5f5f5;
+  --muted: #b0b0b0;
+  --accent: #f0db4f;
+  --danger: #ff6b6b;
+  --success: #6bcf63;
+  --warning: #ffc857;
+  --info: #4dabf7;
+  --border: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.app-header h1 {
+  margin: 0;
+  color: var(--accent);
+}
+
+.app-header p {
+  margin: 8px 0 24px;
+  color: var(--muted);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.metrics article {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.metrics h2 {
+  font-size: 0.9rem;
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.metrics p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.panel {
+  display: grid;
+  gap: 16px;
+}
+
+.notification-form {
+  display: grid;
+  grid-template-columns: 1fr 220px auto;
+  gap: 10px;
+  align-items: end;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input,
+select,
+button {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  padding: 10px;
+}
+
+button {
+  cursor: pointer;
+  border-color: #555;
+}
+
+.notification-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.notification {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.notification[data-read='true'] {
+  opacity: 0.75;
+}
+
+.notification .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.badge.info {
+  background: color-mix(in srgb, var(--info), transparent 70%);
+  color: var(--info);
+}
+
+.badge.warning {
+  background: color-mix(in srgb, var(--warning), transparent 70%);
+  color: var(--warning);
+}
+
+.badge.success {
+  background: color-mix(in srgb, var(--success), transparent 70%);
+  color: var(--success);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions button[data-action='close'] {
+  border-color: color-mix(in srgb, var(--danger), #444 50%);
+}
+
+@media (max-width: 820px) {
+  .notification-form {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+}

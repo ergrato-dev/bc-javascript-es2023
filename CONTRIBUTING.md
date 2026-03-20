@@ -130,8 +130,8 @@ git merge upstream/main
 ```bash
 # Usar nomenclatura descriptiva
 git checkout -b feature/nueva-practica-arrays
-git checkout -b fix/corregir-typo-semana-05
-git checkout -b docs/mejorar-readme-semana-10
+git checkout -b fix/corregir-typo-week-05-arrays_avanzados
+git checkout -b docs/mejorar-readme-week-10-proxies_reflect
 ```
 
 ### 3. Hacer cambios
@@ -146,7 +146,7 @@ git checkout -b docs/mejorar-readme-semana-10
 ```bash
 # Usar Conventional Commits
 git add .
-git commit -m "feat(week-03): add array methods practice"
+git commit -m "feat(week-03-clases_programacion_orientada_objetos): add oop practice"
 ```
 
 ### 5. Push y Pull Request

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Flujo del evento: capturing, target y bubbling</title>
+  <desc id="desc">Diagrama pedagógico del flujo de propagación con lectura guiada y verificación.</desc>
+  <rect width="1200" height="760" fill="#101010"/>
+  <text x="40" y="56" fill="#F0DB4F" font-size="32" font-family="Inter, Roboto, sans-serif" font-weight="700">Flujo del Evento</text>
+  <text x="40" y="88" fill="#D0D0D0" font-size="18" font-family="Inter, Roboto, sans-serif">Capturing -> Target -> Bubbling</text>
+
+  <rect x="40" y="116" width="1120" height="78" rx="10" fill="#1A1A1A" stroke="#333"/>
+  <text x="60" y="148" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo de aprendizaje</text>
+  <text x="60" y="172" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">Identificar el orden real de ejecución de handlers en nodos anidados.</text>
+
+  <rect x="120" y="220" width="960" height="360" rx="14" fill="#171717" stroke="#2F2F2F"/>
+  <rect x="200" y="280" width="800" height="260" rx="12" fill="#1D1D1D" stroke="#F0DB4F"/>
+  <rect x="320" y="340" width="560" height="170" rx="12" fill="#1D1D1D" stroke="#4CAF50"/>
+  <rect x="470" y="390" width="260" height="90" rx="10" fill="#1D1D1D" stroke="#E53935"/>
+
+  <text x="220" y="314" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif">document / body</text>
+  <text x="340" y="374" fill="#4CAF50" font-size="18" font-family="Inter, Roboto, sans-serif">container</text>
+  <text x="543" y="444" fill="#FFFFFF" font-size="22" font-family="Inter, Roboto, sans-serif">target</text>
+
+  <path d="M600 250 L600 390" stroke="#F0DB4F" stroke-width="4" marker-end="url(#arrowYellow)"/>
+  <text x="620" y="300" fill="#F0DB4F" font-size="16" font-family="Inter, Roboto, sans-serif">capturing</text>
+
+  <path d="M640 480 L640 560" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrowGreen)"/>
+  <text x="660" y="535" fill="#4CAF50" font-size="16" font-family="Inter, Roboto, sans-serif">bubbling</text>
+
+  <rect x="40" y="610" width="1120" height="120" rx="10" fill="#1A1A1A" stroke="#333"/>
+  <text x="60" y="642" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Lectura guiada y verificación</text>
+  <text x="60" y="668" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué handler corre primero si tiene { capture: true }?</text>
+  <text x="60" y="692" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">2) Predice el orden de logs en tres nodos y compruébalo en consola.</text>
+
+  <defs>
+    <marker id="arrowYellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#F0DB4F"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#4CAF50"/>
+    </marker>
+  </defs>
+</svg>

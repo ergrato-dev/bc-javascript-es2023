@@ -6,6 +6,39 @@ Este documento establece el orden y metodología para desarrollar contenidos de 
 
 ---
 
+## 🧭 Decisión de Nomenclatura Semanal
+
+### Decisión
+
+Desde marzo de 2026, las carpetas semanales usan el formato:
+
+`week-xx-tema_principal`
+
+Ejemplo:
+
+- `week-01-introduccion_javascript_moderno_es2023`
+- `week-15-fetch_api`
+
+### Motivo
+
+- Mejor legibilidad del contenido al navegar el repositorio.
+- Menor ambigüedad frente a `week-xx` genérico.
+- Facilita búsqueda y automatizaciones por tema.
+
+### Regla operativa
+
+- El prefijo `week-xx` se mantiene obligatorio para preservar orden cronológico.
+- El sufijo `tema_principal` debe estar en minúsculas y usar guiones bajos (`_`).
+- Toda nueva semana debe crearse directamente con este formato.
+- Cualquier script o documentación que referencie semanas debe usar la ruta completa.
+
+### Impacto
+
+- Scripts de utilidades y documentación principal deben mantener rutas actualizadas.
+- En cambios de nombre futuros, se debe actualizar navegación en README y referencias cruzadas.
+
+---
+
 ## 📝 Orden de Desarrollo
 
 El desarrollo de contenidos para cada semana **DEBE** seguir este orden estricto:
@@ -99,7 +132,7 @@ El desarrollo de contenidos para cada semana **DEBE** seguir este orden estricto
    ### 1. Sección del Contenido
    ```
 
-**Referencia**: Ver `bootcamp/week-11/0-assets/` y `bootcamp/week-13/0-assets/` como ejemplos.
+**Referencia**: Ver `bootcamp/week-11-manejo_errores_moderno/0-assets/` y `bootcamp/week-13-programacion_asincronica_callbacks_promises/0-assets/` como ejemplos.
 
 **Propósito**: Enriquecer el contenido teórico con visualizaciones que faciliten el aprendizaje.
 

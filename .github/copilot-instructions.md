@@ -743,7 +743,7 @@ Cuando trabajes en este proyecto:
 
 - **Repositorio**: https://github.com/epti-dev/bc-javascript-es2023
 - **Documentación general**: [\_docs/README.md](_docs/README.md)
-- **Primera semana**: [bootcamp/week-01/README.md](bootcamp/week-01/README.md)
+- **Primera semana**: [bootcamp/week-01-introduccion_javascript_moderno_es2023/README.md](bootcamp/week-01-introduccion_javascript_moderno_es2023/README.md)
 
 ---
 
