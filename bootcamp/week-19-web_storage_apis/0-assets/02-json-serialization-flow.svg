@@ -1,44 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Flujo de serialización JSON</title>
-  <desc id="desc">Conversión objeto a string y recuperación segura desde storage.</desc>
-  <rect width="1200" height="760" fill="#0f172a"/>
-  <text x="40" y="58" fill="#f0db4f" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">JSON Serialization Flow</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">JSON.stringify y JSON.parse: flujo completo</text>
 
-  <rect x="40" y="98" width="1120" height="74" rx="10" fill="#111827" stroke="#334155"/>
-  <text x="60" y="128" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo</text>
-  <text x="60" y="152" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Persistir estructuras complejas minimizando errores de parseo.</text>
+  <!-- Flow arrows -->
+  <!-- JS Object -->
+  <rect x="30" y="56" width="160" height="70" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="110" y="78" font-family="Courier,monospace" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Objeto JS</text>
+  <text x="110" y="100" font-family="Courier,monospace" font-size="12" fill="#e2e8f0" text-anchor="middle">{ id: 1, ok: true }</text>
 
-  <rect x="120" y="240" width="240" height="140" rx="12" fill="#111827" stroke="#4ade80"/>
-  <text x="170" y="315" fill="#e5e7eb" font-size="20" font-family="Inter, Roboto, sans-serif">Objeto JS</text>
+  <!-- stringify -->
+  <line x1="190" y1="91" x2="290" y2="91" stroke="#f0db4f" stroke-width="2"/>
+  <polygon points="288,86 298,91 288,96" fill="#f0db4f"/>
+  <text x="244" y="82" font-family="Courier,monospace" font-size="10" fill="#f0db4f" text-anchor="middle">stringify</text>
 
-  <rect x="480" y="240" width="240" height="140" rx="12" fill="#111827" stroke="#f0db4f"/>
-  <text x="532" y="315" fill="#e5e7eb" font-size="20" font-family="Inter, Roboto, sans-serif">String JSON</text>
+  <!-- String -->
+  <rect x="300" y="56" width="200" height="70" fill="#451a03" stroke="#f0db4f" stroke-width="2" rx="8"/>
+  <text x="400" y="78" font-family="Courier,monospace" font-size="13" font-weight="bold" fill="#f0db4f" text-anchor="middle">String JSON</text>
+  <text x="400" y="100" font-family="Courier,monospace" font-size="11" fill="#fed7aa" text-anchor="middle">'{"id":1,"ok":true}'</text>
 
-  <rect x="840" y="240" width="240" height="140" rx="12" fill="#111827" stroke="#60a5fa"/>
-  <text x="893" y="315" fill="#e5e7eb" font-size="20" font-family="Inter, Roboto, sans-serif">Storage</text>
+  <!-- setItem -->
+  <line x1="500" y1="91" x2="590" y2="91" stroke="#48bb78" stroke-width="2"/>
+  <polygon points="588,86 598,91 588,96" fill="#48bb78"/>
+  <text x="544" y="82" font-family="Courier,monospace" font-size="10" fill="#48bb78" text-anchor="middle">setItem</text>
 
-  <path d="M360 310 L480 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="380" y="288" fill="#f0db4f" font-size="14" font-family="Inter, Roboto, sans-serif">JSON.stringify</text>
+  <!-- Storage -->
+  <rect x="600" y="56" width="170" height="70" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="685" y="78" font-family="Courier,monospace" font-size="13" font-weight="bold" fill="#86efac" text-anchor="middle">localStorage</text>
+  <text x="685" y="100" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">persistido</text>
 
-  <path d="M720 310 L840 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-  <text x="760" y="288" fill="#f0db4f" font-size="14" font-family="Inter, Roboto, sans-serif">setItem</text>
+  <!-- Reverse flow -->
+  <text x="400" y="144" font-family="system-ui,sans-serif" font-size="12" fill="#a0aec0" text-anchor="middle">— recuperar y deserializar —</text>
 
-  <path d="M840 450 L720 450" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrowBlue)"/>
-  <path d="M480 450 L360 450" stroke="#60a5fa" stroke-width="4" marker-end="url(#arrowBlue)"/>
-  <text x="760" y="430" fill="#60a5fa" font-size="14" font-family="Inter, Roboto, sans-serif">getItem</text>
-  <text x="390" y="430" fill="#60a5fa" font-size="14" font-family="Inter, Roboto, sans-serif">JSON.parse + try/catch</text>
+  <line x1="600" y1="160" x2="500" y2="160" stroke="#48bb78" stroke-width="2"/>
+  <polygon points="502,155 492,160 502,165" fill="#48bb78"/>
+  <text x="550" y="152" font-family="Courier,monospace" font-size="10" fill="#48bb78" text-anchor="middle">getItem</text>
 
-  <rect x="40" y="584" width="1120" height="132" rx="10" fill="#111827" stroke="#334155"/>
-  <text x="60" y="620" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Verificación</text>
-  <text x="60" y="648" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué error aparece si parseas un JSON inválido?</text>
-  <text x="60" y="676" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">2) Implementa fallback cuando `getItem` devuelva null o datos corruptos.</text>
+  <line x1="300" y1="160" x2="190" y2="160" stroke="#f0db4f" stroke-width="2"/>
+  <polygon points="192,155 182,160 192,165" fill="#f0db4f"/>
+  <text x="244" y="152" font-family="Courier,monospace" font-size="10" fill="#f0db4f" text-anchor="middle">parse</text>
 
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#f0db4f"/>
-    </marker>
-    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#60a5fa"/>
-    </marker>
-  </defs>
+  <line x1="30" y1="196" x2="770" y2="196" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Code column 1 -->
+  <text x="20" y="216" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Guardar con stringify()</text>
+  <rect x="20" y="228" width="370" height="120" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="248" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Guardar datos complejos siempre serializando</text>
+  <text x="34" y="266" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const cart = [</text>
+  <text x="34" y="284" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  { id: 1, qty: 2 },</text>
+  <text x="34" y="302" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  { id: 3, qty: 1 },</text>
+  <text x="34" y="320" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">];</text>
+  <text x="34" y="338" font-family="Courier,monospace" font-size="11" fill="#f0db4f">localStorage.setItem('cart', JSON.stringify(cart));</text>
+
+  <!-- Code column 2 -->
+  <text x="410" y="216" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Recuperar con parse() + fallback seguro</text>
+  <rect x="410" y="228" width="370" height="120" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="248" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Siempre con fallback y try/catch</text>
+  <text x="424" y="266" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const loadCart = () =&gt; {</text>
+  <text x="424" y="284" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  try {</text>
+  <text x="424" y="302" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    const raw = localStorage.getItem('cart');</text>
+  <text x="424" y="320" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    return raw ? JSON.parse(raw) : [];</text>
+  <text x="424" y="338" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  } catch { return []; }</text>
+
+  <line x1="20" y1="366" x2="780" y2="366" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Pitfalls -->
+  <text x="20" y="386" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Tipos que no sobreviven JSON.stringify</text>
+  <rect x="20" y="398" width="760" height="62" fill="#1f2937" rx="6" stroke="#ef4444" stroke-width="1"/>
+  <text x="34" y="418" font-family="Courier,monospace" font-size="11" fill="#fca5a5">undefined      → omitido</text>
+  <text x="200" y="418" font-family="Courier,monospace" font-size="11" fill="#fca5a5">Date           → string ISO</text>
+  <text x="380" y="418" font-family="Courier,monospace" font-size="11" fill="#fca5a5">function       → omitida</text>
+  <text x="560" y="418" font-family="Courier,monospace" font-size="11" fill="#fca5a5">Map / Set      → {}</text>
+  <text x="34" y="438" font-family="Courier,monospace" font-size="11" fill="#fca5a5">Infinity / NaN → null</text>
+  <text x="200" y="438" font-family="Courier,monospace" font-size="11" fill="#fca5a5">RegExp         → {}</text>
+  <text x="380" y="438" font-family="Courier,monospace" font-size="11" fill="#fca5a5">BigInt         → lanza TypeError</text>
+  <text x="560" y="438" font-family="Courier,monospace" font-size="11" fill="#fca5a5">Symbol         → omitido</text>
+  <text x="34" y="456" font-family="Courier,monospace" font-size="11" fill="#fca5a5">circular ref   → lanza TypeError</text>
+
+  <text x="400" y="476" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 19</text>
 </svg>

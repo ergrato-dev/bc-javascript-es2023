@@ -1,59 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Estados de UI para operaciones CRUD</title>
-  <desc id="desc">Recurso pedagógico sobre estados de carga, transiciones y acciones recomendadas ante éxito o error.</desc>
-  <rect width="1200" height="680" fill="#0F0F0F"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">Estados de carga: idle → loading → success / error</text>
 
-  <text x="42" y="56" fill="#F0DB4F" font-size="33" font-family="Inter, Roboto, sans-serif" font-weight="700">Modelo de estados en UI asíncrona</text>
-  <text x="42" y="84" fill="#D6D6D6" font-size="16" font-family="Inter, Roboto, sans-serif">Objetivo: evitar interfaces ambiguas durante operaciones GET, POST, PUT/PATCH y DELETE.</text>
+  <!-- State machine -->
+  <!-- IDLE -->
+  <rect x="30" y="56" width="140" height="70" fill="#2d3748" stroke="#718096" stroke-width="2" rx="10"/>
+  <text x="100" y="84" font-family="system-ui,sans-serif" font-size="14" font-weight="bold" fill="#a0aec0" text-anchor="middle">idle</text>
+  <text x="100" y="104" font-family="system-ui,sans-serif" font-size="11" fill="#718096" text-anchor="middle">esperando</text>
 
-  <rect x="42" y="114" width="240" height="268" rx="14" fill="#1B1B1B" stroke="#8E8E8E" stroke-width="2"/>
-  <text x="62" y="146" fill="#BDBDBD" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">idle</text>
-  <text x="62" y="176" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Vista estable</text>
-  <text x="62" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Botones habilitados</text>
-  <text x="62" y="224" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Sin petición activa</text>
-  <text x="62" y="258" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Entrada: inicio o fin de ciclo</text>
-  <text x="62" y="286" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Salida: acción del usuario</text>
+  <line x1="170" y1="91" x2="236" y2="91" stroke="#4299e1" stroke-width="2"/>
+  <polygon points="234,86 244,91 234,96" fill="#4299e1"/>
+  <text x="200" y="84" font-family="system-ui,sans-serif" font-size="10" fill="#4299e1" text-anchor="middle">fetch()</text>
 
-  <rect x="330" y="114" width="240" height="268" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="3"/>
-  <text x="350" y="146" fill="#F0DB4F" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">loading</text>
-  <text x="350" y="176" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Spinner o skeleton</text>
-  <text x="350" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Acciones bloqueadas</text>
-  <text x="350" y="224" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Mensaje: "Procesando..."</text>
-  <text x="350" y="258" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Entrada: fetch iniciado</text>
-  <text x="350" y="286" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Salida: success o error</text>
+  <!-- LOADING -->
+  <rect x="246" y="56" width="140" height="70" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="10"/>
+  <text x="316" y="84" font-family="system-ui,sans-serif" font-size="14" font-weight="bold" fill="#93c5fd" text-anchor="middle">loading</text>
+  <text x="316" y="104" font-family="system-ui,sans-serif" font-size="11" fill="#60a5fa" text-anchor="middle">en vuelo</text>
 
-  <rect x="618" y="114" width="240" height="268" rx="14" fill="#1B1B1B" stroke="#4CAF50" stroke-width="3"/>
-  <text x="638" y="146" fill="#4CAF50" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">success</text>
-  <text x="638" y="176" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Datos actualizados</text>
-  <text x="638" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Confirmación visible</text>
-  <text x="638" y="224" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Feedback breve y claro</text>
-  <text x="638" y="258" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Entrada: status 2xx</text>
-  <text x="638" y="286" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Salida: regresar a idle</text>
+  <!-- loading → success -->
+  <line x1="386" y1="72" x2="472" y2="52" stroke="#48bb78" stroke-width="2"/>
+  <polygon points="468,47 478,52 470,59" fill="#48bb78"/>
+  <text x="434" y="58" font-family="system-ui,sans-serif" font-size="10" fill="#48bb78">res.ok</text>
 
-  <rect x="906" y="114" width="252" height="268" rx="14" fill="#1B1B1B" stroke="#E53935" stroke-width="3"/>
-  <text x="926" y="146" fill="#E53935" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">error</text>
-  <text x="926" y="176" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Mensaje con causa real</text>
-  <text x="926" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Botón reintentar</text>
-  <text x="926" y="224" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">• Conservar contexto</text>
-  <text x="926" y="258" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Entrada: red/HTTP/validación</text>
-  <text x="926" y="286" fill="#BDBDBD" font-size="14" font-family="Inter, Roboto, sans-serif">Salida: retry o idle</text>
+  <!-- loading → error -->
+  <line x1="386" y1="110" x2="472" y2="130" stroke="#ef4444" stroke-width="2"/>
+  <polygon points="468,125 478,130 470,138" fill="#ef4444"/>
+  <text x="434" y="132" font-family="system-ui,sans-serif" font-size="10" fill="#ef4444">!res.ok / throw</text>
 
-  <path d="M282 248 L330 248" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M570 248 L618 248" stroke="#4CAF50" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M570 278 L906 278" stroke="#E53935" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M744 382 L744 418" stroke="#8E8E8E" stroke-width="3" marker-end="url(#arrow)"/>
+  <!-- SUCCESS -->
+  <rect x="482" y="32" width="140" height="70" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="10"/>
+  <text x="552" y="60" font-family="system-ui,sans-serif" font-size="14" font-weight="bold" fill="#86efac" text-anchor="middle">success</text>
+  <text x="552" y="80" font-family="system-ui,sans-serif" font-size="11" fill="#4ade80" text-anchor="middle">datos listos</text>
 
-  <rect x="42" y="414" width="1116" height="226" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
-  <text x="62" y="446" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Guía práctica de implementación</text>
-  <text x="62" y="478" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">1. Antes de fetch: setState('loading') y deshabilita botones de envío.</text>
-  <text x="62" y="504" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">2. Si response.ok: renderiza datos, muestra success y vuelve a idle tras breve delay.</text>
-  <text x="62" y="530" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">3. Si falla: captura error.message, conserva formulario y ofrece reintento.</text>
-  <text x="62" y="556" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Anti-patrón: dejar loading activo cuando hay excepción no controlada.</text>
-  <text x="62" y="602" fill="#8A8A8A" font-size="14" font-family="Inter, Roboto, sans-serif">Usa este esquema para revisar tu proyecto: cada botón debe tener transición de estado explícita.</text>
+  <!-- ERROR -->
+  <rect x="482" y="116" width="140" height="70" fill="#450a0a" stroke="#ef4444" stroke-width="2" rx="10"/>
+  <text x="552" y="144" font-family="system-ui,sans-serif" font-size="14" font-weight="bold" fill="#fca5a5" text-anchor="middle">error</text>
+  <text x="552" y="164" font-family="system-ui,sans-serif" font-size="11" fill="#f87171" text-anchor="middle">mostrar mensaje</text>
 
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
-    </marker>
-  </defs>
+  <!-- reset arrow -->
+  <path d="M 622 67 Q 720 67 720 210 Q 720 240 652 240" stroke="#4a5568" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+  <polygon points="648,235 658,240 648,245" fill="#4a5568"/>
+  <text x="730" y="215" font-family="system-ui,sans-serif" font-size="10" fill="#718096">reset</text>
+
+  <line x1="30" y1="202" x2="770" y2="202" stroke="#4a5568" stroke-width="1"/>
+
+  <text x="30" y="224" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Implementación: setState unificado</text>
+
+  <rect x="30" y="236" width="360" height="228" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="44" y="256" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Referencias DOM centralizadas</text>
+  <text x="44" y="274" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const UI = {</text>
+  <text x="44" y="292" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  btn: document.querySelector('#btn'),</text>
+  <text x="44" y="310" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  msg: document.querySelector('#msg'),</text>
+  <text x="44" y="328" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  list: document.querySelector('#list')</text>
+  <text x="44" y="346" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+  <text x="44" y="366" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const setState = (state, msg = '') =&gt; {</text>
+  <text x="44" y="384" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  UI.btn.disabled = state === 'loading';</text>
+  <text x="44" y="402" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  UI.msg.textContent = msg;</text>
+  <text x="44" y="420" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  UI.msg.className = `status ${state}`;</text>
+  <text x="44" y="438" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+  <text x="44" y="458" font-family="Courier,monospace" font-size="11" fill="#86efac">// setState('loading', 'Cargando...')</text>
+  <text x="44" y="474" font-family="Courier,monospace" font-size="11" fill="#86efac">// setState('error', 'Red failure')</text>
+
+  <rect x="410" y="236" width="360" height="228" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="256" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// fetch con ciclo completo de estados</text>
+  <text x="424" y="274" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const loadData = async () =&gt; {</text>
+  <text x="424" y="292" font-family="Courier,monospace" font-size="11" fill="#93c5fd">  setState('loading', 'Cargando...');</text>
+  <text x="424" y="310" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  try {</text>
+  <text x="424" y="328" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    const res = await fetch('/api/items');</text>
+  <text x="424" y="346" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    if (!res.ok)</text>
+  <text x="424" y="364" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">      throw new Error(`${res.status}`);</text>
+  <text x="424" y="382" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    const data = await res.json();</text>
+  <text x="424" y="400" font-family="Courier,monospace" font-size="11" fill="#86efac">    setState('success', 'Datos listos');</text>
+  <text x="424" y="418" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    renderList(data);</text>
+  <text x="424" y="436" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  } catch (err) {</text>
+  <text x="424" y="454" font-family="Courier,monospace" font-size="11" fill="#fca5a5">    setState('error', err.message);</text>
+  <text x="424" y="472" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  }</text>
+  <text x="424" y="490" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+
+  <text x="400" y="498" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 16</text>
 </svg>

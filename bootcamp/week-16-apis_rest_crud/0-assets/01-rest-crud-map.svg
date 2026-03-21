@@ -1,44 +1,92 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Mapa pedagógico REST y CRUD</title>
-  <desc id="desc">Diagrama educativo que mapea CRUD con métodos HTTP, códigos de respuesta, errores comunes y mini actividad de comprensión.</desc>
-  <rect width="1200" height="680" fill="#0F0F0F"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 540">
+  <rect width="800" height="540" fill="#1a202c"/>
+  <text x="400" y="36" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">CRUD → HTTP: Mapa de Operaciones REST</text>
 
-  <text x="44" y="58" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Week 16 · REST + CRUD</text>
-  <text x="44" y="88" fill="#DCDCDC" font-size="17" font-family="Inter, Roboto, sans-serif">Objetivo: decidir correctamente método, endpoint y status esperado en cada operación.</text>
+  <!-- Header row -->
+  <rect x="30" y="52" width="740" height="28" fill="#2d3748" rx="4"/>
+  <text x="80" y="70" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Operación</text>
+  <text x="210" y="70" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Método</text>
+  <text x="340" y="70" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Endpoint</text>
+  <text x="490" y="70" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Status</text>
+  <text x="600" y="70" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Body resp.</text>
 
-  <rect x="36" y="112" width="360" height="246" rx="14" fill="#1A1A1A" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="56" y="142" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">1) Mapa CRUD</text>
-  <text x="56" y="176" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Create  → POST   /items</text>
-  <text x="56" y="206" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Read    → GET    /items, /items/:id</text>
-  <text x="56" y="236" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Update  → PUT/PATCH /items/:id</text>
-  <text x="56" y="266" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Delete  → DELETE /items/:id</text>
-  <text x="56" y="312" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Regla: verbo HTTP en el método, no en la URL.</text>
-  <text x="56" y="336" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Ejemplo correcto: /items/42</text>
+  <!-- CREATE -->
+  <rect x="30" y="84" width="740" height="44" fill="#1f2937" rx="3"/>
+  <text x="80" y="103" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#48bb78">Create</text>
+  <rect x="202" y="90" width="80" height="20" fill="#065f46" rx="4"/>
+  <text x="242" y="104" font-family="Courier,monospace" font-size="12" fill="#86efac" text-anchor="middle">POST</text>
+  <text x="340" y="103" font-family="Courier,monospace" font-size="12" fill="#e2e8f0">/items</text>
+  <rect x="482" y="90" width="50" height="20" fill="#065f46" rx="4"/>
+  <text x="507" y="104" font-family="Courier,monospace" font-size="12" fill="#86efac" text-anchor="middle">201</text>
+  <text x="600" y="103" font-family="system-ui,sans-serif" font-size="12" fill="#a0aec0">{ item creado }</text>
+  <text x="80" y="119" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0">Crea un recurso nuevo en el servidor</text>
 
-  <rect x="418" y="112" width="360" height="246" rx="14" fill="#1A1A1A" stroke="#4CAF50" stroke-width="2"/>
-  <text x="438" y="142" fill="#4CAF50" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">2) Status esperados</text>
-  <text x="438" y="176" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">200 OK        → Lectura o update exitoso</text>
-  <text x="438" y="206" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">201 Created   → Recurso creado</text>
-  <text x="438" y="236" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">204 No Content → Delete exitoso sin body</text>
-  <text x="438" y="266" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">400/401/404/500 → Error que debe mostrarse</text>
-  <text x="438" y="312" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Tip docente: response.ok solo cubre 2xx.</text>
-  <text x="438" y="336" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Siempre incluir status y statusText en el mensaje.</text>
+  <!-- READ ALL -->
+  <rect x="30" y="132" width="740" height="44" fill="#2d3748" rx="3"/>
+  <text x="80" y="151" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#4299e1">Read All</text>
+  <rect x="202" y="138" width="80" height="20" fill="#1e3a5f" rx="4"/>
+  <text x="242" y="152" font-family="Courier,monospace" font-size="12" fill="#93c5fd" text-anchor="middle">GET</text>
+  <text x="340" y="151" font-family="Courier,monospace" font-size="12" fill="#e2e8f0">/items</text>
+  <rect x="482" y="138" width="50" height="20" fill="#1e3a5f" rx="4"/>
+  <text x="507" y="152" font-family="Courier,monospace" font-size="12" fill="#93c5fd" text-anchor="middle">200</text>
+  <text x="600" y="151" font-family="system-ui,sans-serif" font-size="12" fill="#a0aec0">[ array ]</text>
+  <text x="80" y="167" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0">Lista todos los recursos disponibles</text>
 
-  <rect x="800" y="112" width="364" height="246" rx="14" fill="#1A1A1A" stroke="#E53935" stroke-width="2"/>
-  <text x="820" y="142" fill="#E53935" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">3) Errores comunes</text>
-  <text x="820" y="176" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Usar POST para todo</text>
-  <text x="820" y="204" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Escribir URLs tipo /createItem</text>
-  <text x="820" y="232" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• No diferenciar PUT y PATCH</text>
-  <text x="820" y="260" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Ignorar 401 por token faltante</text>
-  <text x="820" y="288" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• No validar response.ok</text>
-  <text x="820" y="326" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Actividad: corrige 2 errores primero.</text>
+  <!-- READ ONE -->
+  <rect x="30" y="180" width="740" height="44" fill="#1f2937" rx="3"/>
+  <text x="80" y="199" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#4299e1">Read One</text>
+  <rect x="202" y="186" width="80" height="20" fill="#1e3a5f" rx="4"/>
+  <text x="242" y="200" font-family="Courier,monospace" font-size="12" fill="#93c5fd" text-anchor="middle">GET</text>
+  <text x="340" y="199" font-family="Courier,monospace" font-size="12" fill="#e2e8f0">/items/:id</text>
+  <rect x="482" y="186" width="50" height="20" fill="#1e3a5f" rx="4"/>
+  <text x="507" y="200" font-family="Courier,monospace" font-size="12" fill="#93c5fd" text-anchor="middle">200</text>
+  <text x="600" y="199" font-family="system-ui,sans-serif" font-size="12" fill="#a0aec0">{ un item }</text>
+  <text x="80" y="215" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0">Obtiene recurso específico por su ID</text>
 
-  <rect x="36" y="382" width="1128" height="256" rx="14" fill="#171717" stroke="#3A3A3A" stroke-width="2"/>
-  <text x="56" y="416" fill="#F0DB4F" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">Mini laboratorio guiado (10 min)</text>
-  <text x="56" y="452" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Paso A: Elige una entidad del dominio y define su recurso base (ej: /books, /events).</text>
-  <text x="56" y="482" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Paso B: Completa la tabla mental: Create=?, Read=?, Update=?, Delete=?</text>
-  <text x="56" y="512" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Paso C: Predice status en cada caso y compáralo con la respuesta real de la API.</text>
-  <text x="56" y="542" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Paso D: Si falla, clasifica el error: red, autenticación, validación o recurso inexistente.</text>
-  <text x="56" y="586" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Pregunta de cierre: ¿Cuándo usarías PATCH en lugar de PUT en tu proyecto de semana?</text>
-  <text x="36" y="664" fill="#848484" font-size="14" font-family="Inter, Roboto, sans-serif">Bootcamp JavaScript ES2023 · Recurso pedagógico para clase y práctica autónoma</text>
+  <!-- UPDATE -->
+  <rect x="30" y="228" width="740" height="44" fill="#2d3748" rx="3"/>
+  <text x="80" y="247" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#ed8936">Update</text>
+  <rect x="202" y="234" width="80" height="20" fill="#451a03" rx="4"/>
+  <text x="242" y="248" font-family="Courier,monospace" font-size="11" fill="#fed7aa" text-anchor="middle">PUT/PATCH</text>
+  <text x="340" y="247" font-family="Courier,monospace" font-size="12" fill="#e2e8f0">/items/:id</text>
+  <rect x="482" y="234" width="50" height="20" fill="#451a03" rx="4"/>
+  <text x="507" y="248" font-family="Courier,monospace" font-size="12" fill="#fed7aa" text-anchor="middle">200</text>
+  <text x="600" y="247" font-family="system-ui,sans-serif" font-size="12" fill="#a0aec0">{ actualizado }</text>
+  <text x="80" y="263" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0">PUT reemplaza todo · PATCH actualiza solo campos enviados</text>
+
+  <!-- DELETE -->
+  <rect x="30" y="276" width="740" height="44" fill="#1f2937" rx="3"/>
+  <text x="80" y="295" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#ef4444">Delete</text>
+  <rect x="202" y="282" width="80" height="20" fill="#450a0a" rx="4"/>
+  <text x="242" y="296" font-family="Courier,monospace" font-size="12" fill="#fca5a5" text-anchor="middle">DELETE</text>
+  <text x="340" y="295" font-family="Courier,monospace" font-size="12" fill="#e2e8f0">/items/:id</text>
+  <rect x="482" y="282" width="50" height="20" fill="#450a0a" rx="4"/>
+  <text x="507" y="296" font-family="Courier,monospace" font-size="12" fill="#fca5a5" text-anchor="middle">204</text>
+  <text x="600" y="295" font-family="system-ui,sans-serif" font-size="12" fill="#a0aec0">(sin body)</text>
+  <text x="80" y="311" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0">204 = operación exitosa sin contenido de respuesta</text>
+
+  <line x1="30" y1="336" x2="770" y2="336" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Code side by side -->
+  <text x="30" y="356" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Ejemplo: DELETE + regla de nomenclatura</text>
+  <rect x="30" y="366" width="360" height="144" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="44" y="386" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Eliminar item por id</text>
+  <text x="44" y="403" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const deleteItem = async (id) =&gt; {</text>
+  <text x="44" y="420" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const res = await fetch(</text>
+  <text x="44" y="437" font-family="Courier,monospace" font-size="11" fill="#93c5fd">    `/api/items/${id}`,</text>
+  <text x="44" y="454" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    { method: 'DELETE' }</text>
+  <text x="44" y="471" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  );</text>
+  <text x="44" y="488" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  if (!res.ok) throw new Error(res.status);</text>
+  <text x="44" y="505" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+
+  <rect x="410" y="366" width="360" height="144" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="386" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Regla: verbo en método, no en URL</text>
+  <text x="424" y="410" font-family="Courier,monospace" font-size="11" fill="#ef4444">❌  /createItem</text>
+  <text x="424" y="428" font-family="Courier,monospace" font-size="11" fill="#ef4444">❌  /deleteItem/5</text>
+  <text x="424" y="448" font-family="Courier,monospace" font-size="11" fill="#48bb78">✅  POST /items</text>
+  <text x="424" y="466" font-family="Courier,monospace" font-size="11" fill="#48bb78">✅  DELETE /items/5</text>
+  <text x="424" y="488" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">Los recursos son sustantivos en plural.</text>
+  <text x="424" y="505" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">response.ok solo cubre 2xx — validar siempre</text>
+
+  <text x="400" y="534" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 16</text>
 </svg>

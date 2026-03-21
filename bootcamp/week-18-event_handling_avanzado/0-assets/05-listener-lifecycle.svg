@@ -1,40 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Ciclo de vida de listeners</title>
-  <desc id="desc">Registro, uso y limpieza de listeners para evitar duplicados y fugas.</desc>
-  <rect width="1200" height="760" fill="#101010"/>
-  <text x="40" y="56" fill="#F0DB4F" font-size="32" font-family="Inter, Roboto, sans-serif" font-weight="700">Listener Lifecycle</text>
-  <text x="40" y="88" fill="#D0D0D0" font-size="18" font-family="Inter, Roboto, sans-serif">mount -> active -> cleanup</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">Ciclo de vida de listeners: add, once, remove y cleanup</text>
 
-  <rect x="40" y="116" width="1120" height="78" rx="10" fill="#1A1A1A" stroke="#333"/>
-  <text x="60" y="148" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo de aprendizaje</text>
-  <text x="60" y="172" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">Definir registro y limpieza explícita para evitar listeners duplicados.</text>
+  <!-- addEventListener -->
+  <rect x="20" y="54" width="365" height="180" fill="#1f2937" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="36" y="76" font-family="Courier,monospace" font-size="13" font-weight="bold" fill="#86efac">addEventListener</text>
+  <text x="36" y="96" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Registra listener que persiste</text>
+  <text x="36" y="118" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const handler = (e) =&gt; handleClick(e);</text>
+  <text x="36" y="136" font-family="Courier,monospace" font-size="11" fill="#86efac">btn.addEventListener('click', handler);</text>
+  <text x="36" y="156" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">// Para usarlo con once:</text>
+  <text x="36" y="174" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">btn.addEventListener('click', handler,</text>
+  <text x="36" y="192" font-family="Courier,monospace" font-size="11" fill="#f0db4f">  { once: true }  // se autoeliminina</text>
+  <text x="36" y="210" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">);</text>
+  <text x="36" y="228" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">once: útil para confirmaciones de un solo uso</text>
 
-  <rect x="100" y="250" width="280" height="180" rx="14" fill="#1B1B1B" stroke="#F0DB4F"/>
-  <text x="190" y="318" fill="#FFF" font-size="24" font-family="Inter, Roboto, sans-serif">Mount</text>
-  <text x="125" y="356" fill="#BDBDBD" font-size="16" font-family="Inter, Roboto, sans-serif">addEventListener(...)</text>
+  <!-- removeEventListener -->
+  <rect x="415" y="54" width="365" height="180" fill="#1f2937" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="431" y="76" font-family="Courier,monospace" font-size="13" font-weight="bold" fill="#fca5a5">removeEventListener</text>
+  <text x="431" y="96" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Elimina listener registrado</text>
+  <text x="431" y="118" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// ⚠️  Debe ser la MISMA referencia de función</text>
+  <text x="431" y="136" font-family="Courier,monospace" font-size="11" fill="#fca5a5">btn.removeEventListener('click', handler);</text>
+  <text x="431" y="156" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// ❌ Esto NO funciona — función anónima nueva</text>
+  <text x="431" y="174" font-family="Courier,monospace" font-size="11" fill="#ef4444">btn.removeEventListener('click', (e) =&gt; {});</text>
+  <text x="431" y="196" font-family="system-ui,sans-serif" font-size="11" fill="#fca5a5">⚠️  Conservar referencia de la función</text>
+  <text x="431" y="216" font-family="system-ui,sans-serif" font-size="11" fill="#fca5a5">⚠️  Mismas opciones (capture) que al registrar</text>
 
-  <rect x="460" y="250" width="280" height="180" rx="14" fill="#1B1B1B" stroke="#4CAF50"/>
-  <text x="553" y="318" fill="#FFF" font-size="24" font-family="Inter, Roboto, sans-serif">Active</text>
-  <text x="520" y="356" fill="#BDBDBD" font-size="16" font-family="Inter, Roboto, sans-serif">interacción normal</text>
+  <line x1="20" y1="252" x2="780" y2="252" stroke="#4a5568" stroke-width="1"/>
 
-  <rect x="820" y="250" width="280" height="180" rx="14" fill="#1B1B1B" stroke="#E53935"/>
-  <text x="890" y="318" fill="#FFF" font-size="24" font-family="Inter, Roboto, sans-serif">Cleanup</text>
-  <text x="840" y="356" fill="#BDBDBD" font-size="16" font-family="Inter, Roboto, sans-serif">removeEventListener(...)</text>
+  <!-- Cleanup pattern -->
+  <text x="20" y="272" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Patrón de cleanup (evitar memory leaks)</text>
 
-  <path d="M380 340 L460 340" stroke="#F0DB4F" stroke-width="4" marker-end="url(#arrowA)"/>
-  <path d="M740 340 L820 340" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrowB)"/>
+  <rect x="20" y="284" width="365" height="170" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="304" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Cleanup cuando el componente se desmonta</text>
+  <text x="34" y="322" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const setup = () =&gt; {</text>
+  <text x="34" y="340" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const handler = (e) =&gt; handleClick(e);</text>
+  <text x="34" y="358" font-family="Courier,monospace" font-size="11" fill="#86efac">  btn.addEventListener('click', handler);</text>
+  <text x="34" y="376" font-family="Courier,monospace" font-size="11" fill="#a0aec0">  // Retorna función de cleanup</text>
+  <text x="34" y="394" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  return () =&gt; {</text>
+  <text x="34" y="412" font-family="Courier,monospace" font-size="11" fill="#fca5a5">    btn.removeEventListener('click', handler);</text>
+  <text x="34" y="430" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  };</text>
+  <text x="34" y="448" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
 
-  <rect x="40" y="610" width="1120" height="120" rx="10" fill="#1A1A1A" stroke="#333"/>
-  <text x="60" y="642" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Lectura guiada y verificación</text>
-  <text x="60" y="668" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué síntoma indica que faltó cleanup? (ej. logs duplicados)</text>
-  <text x="60" y="692" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">2) ¿Por qué conviene callback con referencia estable?</text>
+  <rect x="415" y="284" width="365" height="170" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="429" y="304" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// AbortController para cleanup masivo</text>
+  <text x="429" y="322" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const ctrl = new AbortController();</text>
+  <text x="429" y="340" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const sig = ctrl.signal;</text>
+  <text x="429" y="358" font-family="Courier,monospace" font-size="11" fill="#86efac">btn.addEventListener('click', h1, { signal: sig });</text>
+  <text x="429" y="376" font-family="Courier,monospace" font-size="11" fill="#86efac">doc.addEventListener('keydown', h2, { signal: sig });</text>
+  <text x="429" y="396" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Eliminar todos de una vez</text>
+  <text x="429" y="414" font-family="Courier,monospace" font-size="11" fill="#fca5a5">ctrl.abort();</text>
+  <text x="429" y="434" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">✅ Solución moderna para cleanup múltiple</text>
 
-  <defs>
-    <marker id="arrowA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#F0DB4F"/>
-    </marker>
-    <marker id="arrowB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#4CAF50"/>
-    </marker>
-  </defs>
+  <text x="400" y="474" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 18</text>
 </svg>

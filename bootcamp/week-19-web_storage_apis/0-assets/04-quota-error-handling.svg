@@ -1,42 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Manejo de cuota y errores de storage</title>
-  <desc id="desc">Flujo de manejo cuando falla escritura por límite de almacenamiento.</desc>
-  <rect width="1200" height="760" fill="#0f172a"/>
-  <text x="40" y="58" fill="#f0db4f" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Quota Error Handling</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460">
+  <rect width="800" height="460" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">Cuotas, límites y manejo de errores en storage</text>
 
-  <rect x="40" y="98" width="1120" height="74" rx="10" fill="#111827" stroke="#334155"/>
-  <text x="60" y="128" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo</text>
-  <text x="60" y="152" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Responder ante `QuotaExceededError` sin perder continuidad funcional.</text>
+  <!-- localStorage limits -->
+  <rect x="20" y="54" width="360" height="180" fill="#1f2937" stroke="#ed8936" stroke-width="2" rx="8"/>
+  <text x="36" y="76" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#fed7aa">localStorage / sessionStorage</text>
+  <text x="36" y="98" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// ❌ Sin manejo de errores</text>
+  <text x="36" y="116" font-family="Courier,monospace" font-size="11" fill="#ef4444">localStorage.setItem('data', bigString);</text>
+  <text x="36" y="136" font-family="system-ui,sans-serif" font-size="11" fill="#fca5a5">→ Lanza DOMException: QuotaExceededError</text>
+  <text x="36" y="158" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// ✅ Con manejo correcto</text>
+  <text x="36" y="176" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const saveData = (key, value) =&gt; {</text>
+  <text x="36" y="194" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  try {</text>
+  <text x="36" y="212" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    localStorage.setItem(key, JSON.stringify(value));</text>
+  <text x="36" y="230" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  } catch (e) {</text>
 
-  <rect x="110" y="250" width="220" height="120" rx="10" fill="#111827" stroke="#4ade80"/>
-  <text x="180" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">Intentar guardar</text>
+  <!-- IndexedDB limits -->
+  <rect x="420" y="54" width="360" height="180" fill="#1f2937" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="436" y="76" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#fca5a5">IndexedDB</text>
+  <text x="436" y="98" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Errores en transacciones IDB</text>
+  <text x="436" y="116" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const addItem = (db, item) =&gt; {</text>
+  <text x="436" y="134" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  return new Promise((resolve, reject) =&gt; {</text>
+  <text x="436" y="152" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    const tx = db.transaction('items', 'readwrite');</text>
+  <text x="436" y="170" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    const req = tx.objectStore('items').add(item);</text>
+  <text x="436" y="188" font-family="Courier,monospace" font-size="11" fill="#86efac">    req.onsuccess = () =&gt; resolve(req.result);</text>
+  <text x="436" y="206" font-family="Courier,monospace" font-size="11" fill="#fca5a5">    req.onerror = () =&gt; reject(req.error);</text>
+  <text x="436" y="224" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  });</text>
+  <text x="436" y="242" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
 
-  <rect x="390" y="250" width="220" height="120" rx="10" fill="#111827" stroke="#f97316"/>
-  <text x="450" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">try/catch</text>
+  <line x1="20" y1="252" x2="780" y2="252" stroke="#4a5568" stroke-width="1"/>
 
-  <rect x="670" y="220" width="220" height="120" rx="10" fill="#111827" stroke="#60a5fa"/>
-  <text x="718" y="292" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">Limpiar cache</text>
+  <!-- Full error handler -->
+  <text x="20" y="272" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Manejador con identificación de tipo de error</text>
+  <rect x="20" y="284" width="370" height="150" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="304" font-family="Courier,monospace" font-size="11" fill="#a0aec0">  // Continuar del catch anterior...</text>
+  <text x="34" y="322" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    const name = e.name;</text>
+  <text x="34" y="340" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    if (name === 'QuotaExceededError') {</text>
+  <text x="34" y="358" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">      evictOldData();  // liberar espacio</text>
+  <text x="34" y="376" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    } else if (name === 'SecurityError') {</text>
+  <text x="34" y="394" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">      console.warn('Storage bloqueado en modo privado');</text>
+  <text x="34" y="412" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    } else throw e;</text>
+  <text x="34" y="430" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  }</text>
 
-  <rect x="670" y="380" width="220" height="120" rx="10" fill="#111827" stroke="#ef4444"/>
-  <text x="705" y="452" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">Fallback memoria</text>
+  <!-- Limits table -->
+  <rect x="410" y="284" width="370" height="150" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="304" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Límites aproximados por storage</text>
+  <text x="424" y="326" font-family="Courier,monospace" font-size="11" fill="#93c5fd">localStorage     </text>
+  <text x="570" y="326" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">~5 MB (varía según browser)</text>
+  <text x="424" y="346" font-family="Courier,monospace" font-size="11" fill="#86efac">sessionStorage   </text>
+  <text x="570" y="346" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">~5 MB (varía según browser)</text>
+  <text x="424" y="366" font-family="Courier,monospace" font-size="11" fill="#f0db4f">IndexedDB        </text>
+  <text x="570" y="366" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">~50% del espacio disponible</text>
+  <text x="424" y="388" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">navigator.storage.estimate() para consultar:</text>
+  <text x="424" y="408" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const { quota, usage } =</text>
+  <text x="424" y="426" font-family="Courier,monospace" font-size="11" fill="#f0db4f">  await navigator.storage.estimate();</text>
 
-  <rect x="950" y="300" width="160" height="120" rx="10" fill="#111827" stroke="#f0db4f"/>
-  <text x="985" y="370" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">Notificar UX</text>
-
-  <path d="M330 310 L390 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M610 290 L670 280" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M610 330 L670 440" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M890 280 L950 340" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M890 440 L950 370" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-
-  <rect x="40" y="584" width="1120" height="132" rx="10" fill="#111827" stroke="#334155"/>
-  <text x="60" y="620" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Verificación</text>
-  <text x="60" y="648" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué datos eliminar primero para recuperar espacio?</text>
-  <text x="60" y="676" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">2) Define mensaje claro al usuario cuando no sea posible persistir.</text>
-
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#f0db4f"/>
-    </marker>
-  </defs>
+  <text x="400" y="454" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 19</text>
 </svg>

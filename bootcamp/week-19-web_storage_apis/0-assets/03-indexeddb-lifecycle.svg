@@ -1,37 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Ciclo básico de IndexedDB</title>
-  <desc id="desc">Apertura de DB, upgrade, transacción y operación CRUD.</desc>
-  <rect width="1200" height="760" fill="#0f172a"/>
-  <text x="40" y="58" fill="#f0db4f" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">IndexedDB Lifecycle</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 490">
+  <rect width="800" height="490" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">IndexedDB: ciclo de vida básico</text>
 
-  <rect x="40" y="98" width="1120" height="74" rx="10" fill="#111827" stroke="#334155"/>
-  <text x="60" y="128" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo</text>
-  <text x="60" y="152" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Comprender el flujo asíncrono mínimo para usar IndexedDB sin bloqueos.</text>
+  <!-- Flow -->
+  <rect x="20" y="54" width="120" height="50" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="80" y="84" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#93c5fd" text-anchor="middle">indexedDB.open()</text>
 
-  <rect x="90" y="250" width="210" height="120" rx="10" fill="#111827" stroke="#4ade80"/>
-  <text x="135" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">open(name, v)</text>
+  <line x1="140" y1="79" x2="185" y2="79" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="183,74 193,79 183,84" fill="#4a5568"/>
 
-  <rect x="350" y="250" width="210" height="120" rx="10" fill="#111827" stroke="#f0db4f"/>
-  <text x="384" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">onupgradeneeded</text>
+  <!-- Upgrade box -->
+  <rect x="195" y="54" width="160" height="50" fill="#1f2937" stroke="#ed8936" stroke-width="2" rx="8"/>
+  <text x="275" y="74" font-family="Courier,monospace" font-size="11" fill="#fed7aa" text-anchor="middle">onupgradeneeded</text>
+  <text x="275" y="92" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">crear objectStores</text>
 
-  <rect x="610" y="250" width="210" height="120" rx="10" fill="#111827" stroke="#60a5fa"/>
-  <text x="662" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">transaction</text>
+  <line x1="355" y1="79" x2="405" y2="79" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="403,74 413,79 403,84" fill="#4a5568"/>
 
-  <rect x="870" y="250" width="210" height="120" rx="10" fill="#111827" stroke="#f97316"/>
-  <text x="934" y="318" fill="#e5e7eb" font-size="18" font-family="Inter, Roboto, sans-serif">put/get</text>
+  <!-- Success DB -->
+  <rect x="415" y="54" width="120" height="50" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="475" y="74" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">onsuccess</text>
+  <text x="475" y="92" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">db = e.target.result</text>
 
-  <path d="M300 310 L350 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M560 310 L610 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M820 310 L870 310" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="535" y1="79" x2="585" y2="79" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="583,74 593,79 583,84" fill="#4a5568"/>
 
-  <rect x="40" y="584" width="1120" height="132" rx="10" fill="#111827" stroke="#334155"/>
-  <text x="60" y="620" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Verificación</text>
-  <text x="60" y="648" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué pasa si subes versión y no defines `onupgradeneeded`?</text>
-  <text x="60" y="676" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">2) Explica por qué IndexedDB no se usa como API síncrona.</text>
+  <!-- Transaction -->
+  <rect x="595" y="54" width="160" height="50" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="675" y="74" font-family="Courier,monospace" font-size="12" fill="#93c5fd" text-anchor="middle">transaction</text>
+  <text x="675" y="92" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">objectStore()</text>
 
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#f0db4f"/>
-    </marker>
-  </defs>
+  <line x1="30" y1="124" x2="770" y2="124" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Code: open + upgrade -->
+  <text x="20" y="144" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Abrir base de datos y crear store</text>
+  <rect x="20" y="156" width="370" height="160" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="176" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Abrir db versión 1; oncreate si no existe</text>
+  <text x="34" y="194" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const request = indexedDB.open('myDB', 1);</text>
+  <text x="34" y="214" font-family="Courier,monospace" font-size="11" fill="#fed7aa">request.onupgradeneeded = (e) =&gt; {</text>
+  <text x="34" y="232" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const db = e.target.result;</text>
+  <text x="34" y="250" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  db.createObjectStore('items',</text>
+  <text x="34" y="268" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    { keyPath: 'id', autoIncrement: true }</text>
+  <text x="34" y="286" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  );</text>
+  <text x="34" y="304" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+
+  <!-- Code: add + get -->
+  <text x="410" y="144" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Agregar y leer con transacciones</text>
+  <rect x="410" y="156" width="370" height="160" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="176" font-family="Courier,monospace" font-size="11" fill="#86efac">request.onsuccess = (e) =&gt; {</text>
+  <text x="424" y="194" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const db = e.target.result;</text>
+  <text x="424" y="212" font-family="Courier,monospace" font-size="11" fill="#a0aec0">  // Agregar un item (transacción escritura)</text>
+  <text x="424" y="230" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const tx = db.transaction('items', 'readwrite');</text>
+  <text x="424" y="248" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const store = tx.objectStore('items');</text>
+  <text x="424" y="266" font-family="Courier,monospace" font-size="11" fill="#f0db4f">  store.add({ name: 'Product A', price: 9.99 });</text>
+  <text x="424" y="284" font-family="Courier,monospace" font-size="11" fill="#86efac">  tx.oncomplete = () =&gt; console.log('guardado');</text>
+  <text x="424" y="302" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+
+  <line x1="20" y1="336" x2="780" y2="336" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- CRUD summary -->
+  <text x="20" y="356" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Operaciones CRUD en objectStore</text>
+
+  <rect x="20" y="368" width="760" height="100" fill="#1f2937" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="390" font-family="Courier,monospace" font-size="11" fill="#4299e1">store.add(item)        </text>
+  <text x="200" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ agrega, falla si ya existe la clave</text>
+  <text x="34" y="410" font-family="Courier,monospace" font-size="11" fill="#4299e1">store.put(item)        </text>
+  <text x="200" y="410" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ agrega o actualiza (upsert)</text>
+  <text x="34" y="430" font-family="Courier,monospace" font-size="11" fill="#4299e1">store.get(key)         </text>
+  <text x="200" y="430" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ recupera uno por clave</text>
+  <text x="34" y="450" font-family="Courier,monospace" font-size="11" fill="#4299e1">store.getAll()         </text>
+  <text x="200" y="450" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ todos los registros</text>
+  <text x="450" y="390" font-family="Courier,monospace" font-size="11" fill="#4299e1">store.delete(key)      </text>
+  <text x="618" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ elimina por clave</text>
+  <text x="450" y="410" font-family="Courier,monospace" font-size="11" fill="#4299e1">store.clear()          </text>
+  <text x="618" y="410" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ borra todos los registros</text>
+  <text x="450" y="430" font-family="Courier,monospace" font-size="11" fill="#4299e1">store.count()          </text>
+  <text x="618" y="430" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ número de registros</text>
+  <text x="450" y="450" font-family="Courier,monospace" font-size="11" fill="#4299e1">db.transaction(mode)   </text>
+  <text x="618" y="450" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">'readonly' | 'readwrite'</text>
+
+  <text x="400" y="480" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 19</text>
 </svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">Operaciones con fechas: aritmética con ms</text>
+
+  <!-- Timeline concept -->
+  <text x="400" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#a0aec0" text-anchor="middle">Los objetos Date son milisegundos desde epoch — operar con getTime()</text>
+
+  <!-- Timeline visual -->
+  <line x1="60" y1="90" x2="740" y2="90" stroke="#4a5568" stroke-width="3"/>
+  <polygon points="738,85 748,90 738,95" fill="#4a5568"/>
+
+  <circle cx="120" cy="90" r="8" fill="#4299e1"/>
+  <text x="120" y="115" font-family="system-ui,sans-serif" font-size="11" fill="#93c5fd" text-anchor="middle">epoch</text>
+  <text x="120" y="130" font-family="Courier,monospace" font-size="10" fill="#4a5568" text-anchor="middle">0 ms</text>
+
+  <circle cx="350" cy="90" r="8" fill="#f0db4f"/>
+  <text x="350" y="115" font-family="system-ui,sans-serif" font-size="11" fill="#f0db4f" text-anchor="middle">fecha A</text>
+
+  <circle cx="580" cy="90" r="8" fill="#48bb78"/>
+  <text x="580" y="115" font-family="system-ui,sans-serif" font-size="11" fill="#86efac" text-anchor="middle">fecha B</text>
+
+  <line x1="350" y1="90" x2="580" y2="90" stroke="#f0db4f" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="465" y="82" font-family="system-ui,sans-serif" font-size="11" fill="#fed7aa" text-anchor="middle">diferencia (ms)</text>
+
+  <line x1="20" y1="148" x2="780" y2="148" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Code: difference -->
+  <text x="20" y="168" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Diferencia entre fechas</text>
+  <rect x="20" y="180" width="365" height="160" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="200" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Constantes de tiempo en ms</text>
+  <text x="34" y="218" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const MS = {</text>
+  <text x="34" y="236" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  second: 1_000,</text>
+  <text x="34" y="254" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  minute: 60_000,</text>
+  <text x="34" y="272" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  hour:   3_600_000,</text>
+  <text x="34" y="290" font-family="Courier,monospace" font-size="11" fill="#f0db4f">  day:    86_400_000,</text>
+  <text x="34" y="308" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+  <text x="34" y="328" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const diffDays = (a, b) =&gt;</text>
+  <text x="34" y="346" font-family="Courier,monospace" font-size="11" fill="#86efac">  Math.abs(b - a) / MS.day;</text>
+
+  <!-- Code: add -->
+  <text x="415" y="168" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Sumar días / horas</text>
+  <rect x="415" y="180" width="365" height="160" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="429" y="200" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Agregar N días a una fecha</text>
+  <text x="429" y="218" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const addDays = (date, n) =&gt;</text>
+  <text x="429" y="236" font-family="Courier,monospace" font-size="11" fill="#f0db4f">  new Date(date.getTime() + n * MS.day);</text>
+  <text x="429" y="258" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Uso</text>
+  <text x="429" y="276" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const today = new Date();</text>
+  <text x="429" y="294" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const next7 = addDays(today, 7);</text>
+  <text x="429" y="314" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Fecha de vencimiento</text>
+  <text x="429" y="332" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const expires = addDays(today, 30);</text>
+
+  <line x1="20" y1="362" x2="780" y2="362" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Practical examples -->
+  <text x="20" y="382" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Casos prácticos frecuentes</text>
+  <rect x="20" y="394" width="760" height="76" fill="#1f2937" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="414" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">// ¿Ya pasó la fecha?</text>
+  <text x="34" y="432" font-family="Courier,monospace" font-size="11" fill="#f0db4f">const isPast = (d) =&gt; d &lt; new Date();</text>
+  <text x="34" y="452" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">// Las fechas se comparan por valor timestamp</text>
+  <text x="280" y="414" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">// ¿Misma fecha (sin hora)?</text>
+  <text x="280" y="432" font-family="Courier,monospace" font-size="11" fill="#f0db4f">const sameDay = (a, b) =&gt;</text>
+  <text x="280" y="452" font-family="Courier,monospace" font-size="11" fill="#f0db4f">  a.toDateString() === b.toDateString();</text>
+  <text x="560" y="414" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">// Ordenar array de fechas</text>
+  <text x="560" y="432" font-family="Courier,monospace" font-size="11" fill="#f0db4f">dates.toSorted((a, b) =&gt; a - b);</text>
+  <text x="560" y="452" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// la resta devuelve ms</text>
+
+  <text x="400" y="480" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 21</text>
+</svg>

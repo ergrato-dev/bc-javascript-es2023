@@ -1,26 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
-  <title id="title">Constraint Validation API</title>
-  <desc id="desc">Flujo de validación programática con checkValidity y setCustomValidity.</desc>
-  <rect width="800" height="500" fill="#1a202c"/>
-  <text x="30" y="40" fill="#f0db4f" font-size="28" font-family="system-ui, sans-serif" font-weight="700">Constraint Validation API</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="21" font-weight="bold" fill="#f0db4f" text-anchor="middle">Constraint Validation API: mensajes y control nativo</text>
 
-  <rect x="70" y="105" width="190" height="90" rx="10" fill="#2d3748" stroke="#4299e1"/>
-  <text x="98" y="157" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">checkValidity()</text>
+  <!-- Left: setCustomValidity -->
+  <rect x="20" y="54" width="370" height="190" fill="#1f2937" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="36" y="76" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd">setCustomValidity()</text>
+  <text x="36" y="98" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Fuerza un campo como inválido con un mensaje</text>
+  <text x="36" y="120" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const validateUsername = (input) =&gt; {</text>
+  <text x="36" y="138" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const val = input.value.trim();</text>
+  <text x="36" y="156" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  if (val.length &lt; 3) {</text>
+  <text x="36" y="174" font-family="Courier,monospace" font-size="11" fill="#fca5a5">    input.setCustomValidity('Mínimo 3 caracteres');</text>
+  <text x="36" y="192" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  } else {</text>
+  <text x="36" y="210" font-family="Courier,monospace" font-size="11" fill="#86efac">    input.setCustomValidity(''); // restablecer</text>
+  <text x="36" y="228" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  }</text>
+  <text x="36" y="234" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
 
-  <rect x="305" y="105" width="190" height="90" rx="10" fill="#2d3748" stroke="#48bb78"/>
-  <text x="334" y="157" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">setCustomValidity()</text>
+  <!-- Right: validationMessage -->
+  <rect x="410" y="54" width="370" height="190" fill="#1f2937" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="426" y="76" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#86efac">validationMessage y reportValidity()</text>
+  <text x="426" y="98" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Leer el mensaje de error del navegador</text>
+  <text x="426" y="120" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">input.addEventListener('invalid', (e) =&gt; {</text>
+  <text x="426" y="138" font-family="Courier,monospace" font-size="11" fill="#fed7aa">  e.preventDefault(); // no mostrar tooltip nativo</text>
+  <text x="426" y="156" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const msg = e.target.validationMessage;</text>
+  <text x="426" y="174" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  showCustomError(e.target, msg);</text>
+  <text x="426" y="192" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">});</text>
+  <text x="426" y="214" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Forzar tooltip nativo:</text>
+  <text x="426" y="232" font-family="Courier,monospace" font-size="11" fill="#86efac">input.reportValidity();</text>
 
-  <rect x="540" y="105" width="190" height="90" rx="10" fill="#2d3748" stroke="#f0db4f"/>
-  <text x="573" y="157" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">reportValidity()</text>
+  <line x1="20" y1="264" x2="780" y2="264" stroke="#4a5568" stroke-width="1"/>
 
-  <path d="M260 150 H305" stroke="#a0aec0" stroke-width="3"/>
-  <path d="M495 150 H540" stroke="#a0aec0" stroke-width="3"/>
+  <!-- Full example -->
+  <text x="20" y="284" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Validación en tiempo real con CSS integrado</text>
 
-  <rect x="70" y="245" width="660" height="210" rx="12" fill="#111827" stroke="#334155"/>
-  <text x="90" y="285" fill="#f0db4f" font-size="20" font-family="system-ui, sans-serif" font-weight="700">Escenario práctico</text>
-  <text x="90" y="318" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">Usuario: "ab"</text>
-  <text x="90" y="346" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">Regla de negocio: username >= 6 caracteres</text>
-  <text x="90" y="374" fill="#a0aec0" font-size="15" font-family="Courier, monospace">input.setCustomValidity('Minimo 6 caracteres')</text>
-  <text x="90" y="402" fill="#a0aec0" font-size="15" font-family="Courier, monospace">input.reportValidity()</text>
-  <text x="90" y="430" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">Al corregir: limpiar mensaje con setCustomValidity('')</text>
+  <rect x="20" y="296" width="370" height="172" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="314" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Integrar con pseudo-clases CSS</text>
+  <text x="34" y="332" font-family="Courier,monospace" font-size="11" fill="#a0aec0">/* input:valid  { border-color: #48bb78; } */</text>
+  <text x="34" y="350" font-family="Courier,monospace" font-size="11" fill="#a0aec0">/* input:invalid{ border-color: #ef4444; } */</text>
+  <text x="34" y="370" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">input.addEventListener('input', () =&gt; {</text>
+  <text x="34" y="388" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  validateUsername(input);</text>
+  <text x="34" y="406" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  input.classList.toggle('touched', true);</text>
+  <text x="34" y="424" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">});</text>
+  <text x="34" y="444" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">.touched:invalid → mostrar error</text>
+  <text x="34" y="462" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">.touched:valid   → mostrar ok</text>
+
+  <rect x="410" y="296" width="370" height="172" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="314" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">willValidate y checkValidity()</text>
+  <text x="424" y="334" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Verifica si un campo puede ser validado</text>
+  <text x="424" y="352" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">if (input.willValidate) {</text>
+  <text x="424" y="370" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const valid = input.checkValidity();</text>
+  <text x="424" y="388" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  console.log(valid); // true / false</text>
+  <text x="424" y="406" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">}</text>
+  <text x="424" y="426" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">willValidate = false si:</text>
+  <text x="424" y="444" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">campo disabled, type=hidden, output</text>
+
+  <text x="400" y="476" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 20</text>
 </svg>

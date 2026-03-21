@@ -1,28 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
-  <title id="title">Flujo de FormData</title>
-  <desc id="desc">Transformación de controles de formulario a pares clave-valor.</desc>
-  <rect width="800" height="500" fill="#1a202c"/>
-  <text x="30" y="40" fill="#f0db4f" font-size="28" font-family="system-ui, sans-serif" font-weight="700">FormData Flow</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">FormData API: leer y enviar datos de formulario</text>
 
-  <rect x="60" y="90" width="300" height="180" rx="12" fill="#2d3748" stroke="#4299e1"/>
-  <text x="80" y="125" fill="#e2e8f0" font-size="18" font-family="system-ui, sans-serif">Formulario</text>
-  <text x="80" y="160" fill="#a0aec0" font-size="15" font-family="Courier, monospace">name="email" value="ana@mail.com"</text>
-  <text x="80" y="190" fill="#a0aec0" font-size="15" font-family="Courier, monospace">name="password" value="******"</text>
-  <text x="80" y="220" fill="#a0aec0" font-size="15" font-family="Courier, monospace">name="role" value="admin"</text>
+  <!-- Construct FormData -->
+  <rect x="20" y="54" width="360" height="190" fill="#1f2937" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="36" y="76" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd">Crear FormData</text>
+  <text x="36" y="98" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// 1. Desde el elemento &lt;form&gt;</text>
+  <text x="36" y="116" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const fd = new FormData(formElement);</text>
+  <text x="36" y="136" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// 2. Construir manualmente</text>
+  <text x="36" y="154" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const fd = new FormData();</text>
+  <text x="36" y="172" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">fd.append('name', 'Ana');</text>
+  <text x="36" y="190" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">fd.append('age', 28);</text>
+  <text x="36" y="210" font-family="Courier,monospace" font-size="11" fill="#f0db4f">fd.append('avatar', fileInput.files[0]);</text>
+  <text x="36" y="230" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">Automáticamente multipart/form-data</text>
 
-  <rect x="440" y="90" width="300" height="180" rx="12" fill="#2d3748" stroke="#48bb78"/>
-  <text x="460" y="125" fill="#e2e8f0" font-size="18" font-family="system-ui, sans-serif">Object.fromEntries</text>
-  <text x="460" y="160" fill="#a0aec0" font-size="15" font-family="Courier, monospace">{</text>
-  <text x="475" y="188" fill="#a0aec0" font-size="15" font-family="Courier, monospace">email: "ana@mail.com",</text>
-  <text x="475" y="216" fill="#a0aec0" font-size="15" font-family="Courier, monospace">password: "******",</text>
-  <text x="475" y="244" fill="#a0aec0" font-size="15" font-family="Courier, monospace">role: "admin"</text>
+  <!-- Read FormData -->
+  <rect x="420" y="54" width="360" height="190" fill="#1f2937" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="436" y="76" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#86efac">Leer valores</text>
+  <text x="436" y="98" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Obtener un campo</text>
+  <text x="436" y="116" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const name = fd.get('name'); // 'Ana'</text>
+  <text x="436" y="136" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Múltiples valores (checkboxes)</text>
+  <text x="436" y="154" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const items = fd.getAll('item');</text>
+  <text x="436" y="174" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Convertir a objeto JS</text>
+  <text x="436" y="192" font-family="Courier,monospace" font-size="11" fill="#f0db4f">const data = Object.fromEntries(fd);</text>
+  <text x="436" y="212" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Iterar todas las entradas</text>
+  <text x="436" y="230" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">for (const [key, val] of fd.entries()) {}</text>
 
-  <path d="M360 180 H440" stroke="#f0db4f" stroke-width="4"/>
-  <text x="368" y="168" fill="#f0db4f" font-size="13" font-family="system-ui, sans-serif">new FormData(form)</text>
+  <line x1="20" y1="264" x2="780" y2="264" stroke="#4a5568" stroke-width="1"/>
 
-  <rect x="60" y="310" width="680" height="150" rx="12" fill="#111827" stroke="#334155"/>
-  <text x="80" y="350" fill="#f0db4f" font-size="20" font-family="system-ui, sans-serif" font-weight="700">Reglas clave</text>
-  <text x="80" y="382" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">• Todo input debe tener atributo name</text>
-  <text x="80" y="410" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">• Normaliza strings antes de validar</text>
-  <text x="80" y="438" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">• Separa captura, validación y envío</text>
+  <!-- Send with fetch -->
+  <text x="20" y="284" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Enviar con fetch — JSON vs FormData</text>
+
+  <rect x="20" y="296" width="360" height="160" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="316" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Enviar como JSON (sin archivos)</text>
+  <text x="34" y="334" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const sendJSON = async (fd) =&gt; {</text>
+  <text x="34" y="352" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  await fetch('/api/data', {</text>
+  <text x="34" y="370" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    method: 'POST',</text>
+  <text x="34" y="388" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    headers: { 'Content-Type': 'application/json' },</text>
+  <text x="34" y="406" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    body: JSON.stringify(Object.fromEntries(fd)),</text>
+  <text x="34" y="424" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  });</text>
+  <text x="34" y="442" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+
+  <rect x="410" y="296" width="370" height="160" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="316" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Enviar como FormData (con archivos)</text>
+  <text x="424" y="334" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const sendFile = async (fd) =&gt; {</text>
+  <text x="424" y="352" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  await fetch('/api/upload', {</text>
+  <text x="424" y="370" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    method: 'POST',</text>
+  <text x="424" y="388" font-family="Courier,monospace" font-size="11" fill="#a0aec0">    // Sin Content-Type — el browser lo pone</text>
+  <text x="424" y="406" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    body: fd,   // FormData directamente</text>
+  <text x="424" y="424" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  });</text>
+  <text x="424" y="442" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+  <text x="424" y="458" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">multipart/form-data con boundary automático</text>
+
+  <text x="400" y="476" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 20</text>
 </svg>

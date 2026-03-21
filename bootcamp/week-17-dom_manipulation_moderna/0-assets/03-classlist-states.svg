@@ -1,39 +1,78 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Estados visuales con classList</title>
-  <desc id="desc">Diagrama pedagógico de transición de estados UI usando classList.</desc>
-  <rect width="1200" height="680" fill="#101010"/>
-  <text x="40" y="60" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">classList para estados UI</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">classList: gestión de clases CSS desde JavaScript</text>
 
-  <rect x="80" y="130" width="220" height="220" rx="14" fill="#1B1B1B" stroke="#8E8E8E" stroke-width="2"/>
-  <text x="104" y="170" fill="#BDBDBD" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">is-idle</text>
-  <text x="104" y="202" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Estado base</text>
+  <!-- 4 methods side by side -->
+  <!-- add -->
+  <rect x="20" y="54" width="180" height="170" fill="#1f2937" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="110" y="78" font-family="Courier,monospace" font-size="14" font-weight="bold" fill="#86efac" text-anchor="middle">.add()</text>
+  <text x="110" y="100" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">Agrega una clase</text>
+  <text x="30" y="124" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">el.classList.add('active');</text>
+  <text x="30" y="144" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">// múltiples</text>
+  <text x="30" y="162" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">el.classList.add(</text>
+  <text x="30" y="180" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  'visible','open'</text>
+  <text x="30" y="198" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">);</text>
+  <text x="30" y="216" font-family="system-ui,sans-serif" font-size="10" fill="#4ade80">No duplica clases</text>
 
-  <rect x="350" y="130" width="220" height="220" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="3"/>
-  <text x="374" y="170" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">is-loading</text>
-  <text x="374" y="202" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Bloquear acciones</text>
+  <!-- remove -->
+  <rect x="212" y="54" width="180" height="170" fill="#1f2937" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="302" y="78" font-family="Courier,monospace" font-size="14" font-weight="bold" fill="#fca5a5" text-anchor="middle">.remove()</text>
+  <text x="302" y="100" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">Elimina una clase</text>
+  <text x="222" y="124" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">el.classList.remove('active');</text>
+  <text x="222" y="144" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">// múltiples</text>
+  <text x="222" y="162" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">el.classList.remove(</text>
+  <text x="222" y="180" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  'open','hidden'</text>
+  <text x="222" y="198" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">);</text>
+  <text x="222" y="216" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0">No lanza error si no existe</text>
 
-  <rect x="620" y="130" width="220" height="220" rx="14" fill="#1B1B1B" stroke="#4CAF50" stroke-width="3"/>
-  <text x="644" y="170" fill="#4CAF50" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">is-success</text>
-  <text x="644" y="202" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Mostrar confirmación</text>
+  <!-- toggle -->
+  <rect x="404" y="54" width="180" height="170" fill="#1f2937" stroke="#f0db4f" stroke-width="2" rx="8"/>
+  <text x="494" y="78" font-family="Courier,monospace" font-size="14" font-weight="bold" fill="#f0db4f" text-anchor="middle">.toggle()</text>
+  <text x="494" y="100" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">Alternar on/off</text>
+  <text x="414" y="124" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">el.classList.toggle('open');</text>
+  <text x="414" y="144" font-family="Courier,monospace" font-size="10" fill="#a0aec0">// forzar estado</text>
+  <text x="414" y="162" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">el.classList.toggle(</text>
+  <text x="414" y="180" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  'active', isActive</text>
+  <text x="414" y="198" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">);</text>
+  <text x="414" y="216" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0">Retorna true si añadió</text>
 
-  <rect x="890" y="130" width="220" height="220" rx="14" fill="#1B1B1B" stroke="#E53935" stroke-width="3"/>
-  <text x="914" y="170" fill="#E53935" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">is-error</text>
-  <text x="914" y="202" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">Habilitar retry</text>
+  <!-- contains -->
+  <rect x="596" y="54" width="184" height="170" fill="#1f2937" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="688" y="78" font-family="Courier,monospace" font-size="14" font-weight="bold" fill="#93c5fd" text-anchor="middle">.contains()</text>
+  <text x="688" y="100" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">Verificar presencia</text>
+  <text x="606" y="124" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">if (el.classList.contains(</text>
+  <text x="606" y="142" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  'active'</text>
+  <text x="606" y="160" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">)) {</text>
+  <text x="606" y="178" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  // hacer algo</text>
+  <text x="606" y="196" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">}</text>
+  <text x="606" y="216" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0">Retorna boolean</text>
 
-  <path d="M300 240 L350 240" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M570 240 L620 240" stroke="#4CAF50" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M570 270 L890 270" stroke="#E53935" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="20" y1="244" x2="780" y2="244" stroke="#4a5568" stroke-width="1"/>
 
-  <rect x="80" y="390" width="1030" height="230" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
-  <text x="104" y="428" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Patrón recomendado</text>
-  <text x="104" y="460" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">1. Elimina clases de estado previas.</text>
-  <text x="104" y="486" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">2. Agrega solo la clase del estado actual.</text>
-  <text x="104" y="512" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">3. Mantén estados mutuamente excluyentes.</text>
-  <text x="104" y="548" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Evita: className = '...' recreando string completo sin control de coexistencia.</text>
+  <!-- Practical example -->
+  <text x="20" y="264" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Patrón: menú/accordion con toggle</text>
 
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
-    </marker>
-  </defs>
+  <rect x="20" y="276" width="380" height="180" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="296" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Toggle menú mobile</text>
+  <text x="34" y="314" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const btn = document.querySelector('#hamburger');</text>
+  <text x="34" y="332" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const nav = document.querySelector('#nav');</text>
+  <text x="34" y="350" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">btn.addEventListener('click', () =&gt; {</text>
+  <text x="34" y="368" font-family="Courier,monospace" font-size="11" fill="#f0db4f">  nav.classList.toggle('open');</text>
+  <text x="34" y="386" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const isOpen = nav.classList.contains('open');</text>
+  <text x="34" y="404" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  btn.setAttribute('aria-expanded', isOpen);</text>
+  <text x="34" y="422" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">});</text>
+  <text x="34" y="444" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">✅ Maneja aria para accesibilidad</text>
+
+  <rect x="415" y="276" width="365" height="180" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="429" y="296" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Comparación con manipulación directa</text>
+  <text x="429" y="318" font-family="Courier,monospace" font-size="11" fill="#ef4444">❌  el.className = 'card active'</text>
+  <text x="429" y="336" font-family="system-ui,sans-serif" font-size="11" fill="#fca5a5">Sobreescribe TODAS las clases existentes</text>
+  <text x="429" y="358" font-family="Courier,monospace" font-size="11" fill="#48bb78">✅  el.classList.add('active')</text>
+  <text x="429" y="376" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">Solo agrega, conserva las demás clases</text>
+  <text x="429" y="398" font-family="Courier,monospace" font-size="11" fill="#ef4444">❌  el.className += ' active'</text>
+  <text x="429" y="416" font-family="system-ui,sans-serif" font-size="11" fill="#fca5a5">Puede duplicar si ya existe</text>
+  <text x="429" y="438" font-family="Courier,monospace" font-size="11" fill="#48bb78">✅  el.classList.toggle('active', bool)</text>
+  <text x="429" y="456" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">Idempotente: seguro llamarlo múltiples veces</text>
+
+  <text x="400" y="474" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 17</text>
 </svg>
