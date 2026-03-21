@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470">
+  <rect width="800" height="470" fill="#1a202c"/>
+  <text x="400" y="30" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#f0db4f" text-anchor="middle">Drag &amp; Drop: Secuencia de Eventos</text>
+  <rect x="20" y="48" width="185" height="205" rx="6" fill="#2d3748"/>
+  <text x="112" y="67" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac" text-anchor="middle">Secuencia de Eventos</text>
+  <rect x="35" y="76" width="155" height="32" rx="4" fill="#171e2e" stroke="#93c5fd" stroke-width="1"/>
+  <text x="112" y="90" font-family="Courier,monospace" font-size="11" fill="#93c5fd" text-anchor="middle">dragenter</text>
+  <text x="112" y="103" font-family="system-ui,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">elemento entra a zona drop</text>
+  <line x1="112" y1="108" x2="112" y2="120" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="35" y="122" width="155" height="32" rx="4" fill="#171e2e" stroke="#f0db4f" stroke-width="1"/>
+  <text x="112" y="136" font-family="Courier,monospace" font-size="11" fill="#f0db4f" text-anchor="middle">dragover</text>
+  <text x="112" y="149" font-family="system-ui,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">durante el arrastre (continuo)</text>
+  <line x1="112" y1="154" x2="112" y2="166" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="35" y="168" width="155" height="32" rx="4" fill="#171e2e" stroke="#fed7aa" stroke-width="1"/>
+  <text x="112" y="182" font-family="Courier,monospace" font-size="11" fill="#fed7aa" text-anchor="middle">dragleave</text>
+  <text x="112" y="195" font-family="system-ui,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">sale de la zona drop</text>
+  <line x1="112" y1="200" x2="112" y2="212" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="35" y="214" width="155" height="32" rx="4" fill="#171e2e" stroke="#86efac" stroke-width="1.5"/>
+  <text x="112" y="228" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">drop</text>
+  <text x="112" y="241" font-family="system-ui,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">archivos soltados</text>
+  <rect x="220" y="48" width="365" height="205" rx="6" fill="#2d3748"/>
+  <text x="230" y="67" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">Implementacion</text>
+  <rect x="228" y="75" width="349" height="170" rx="4" fill="#171e2e"/>
+  <text x="236" y="92" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">const zone = document.querySelector(".drop-zone");</text>
+  <text x="236" y="108" font-family="Courier,monospace" font-size="10" fill="#93c5fd">zone.addEventListener("dragenter", (e) =&gt; {</text>
+  <text x="236" y="122" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  e.preventDefault();</text>
+  <text x="236" y="135" font-family="Courier,monospace" font-size="10" fill="#f0db4f">  zone.classList.add("drag-active"); });</text>
+  <text x="236" y="152" font-family="Courier,monospace" font-size="10" fill="#f0db4f">zone.addEventListener("dragover", (e) =&gt; {</text>
+  <text x="236" y="166" font-family="Courier,monospace" font-size="10" fill="#fca5a5">  e.preventDefault(); });</text>
+  <text x="236" y="183" font-family="Courier,monospace" font-size="10" fill="#fed7aa">zone.addEventListener("dragleave", () =&gt; {</text>
+  <text x="236" y="197" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  zone.classList.remove("drag-active"); });</text>
+  <text x="236" y="214" font-family="Courier,monospace" font-size="10" fill="#86efac">zone.addEventListener("drop", (e) =&gt; {</text>
+  <text x="236" y="228" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  e.preventDefault();</text>
+  <text x="236" y="238" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  const files = [...e.dataTransfer.files]; });</text>
+  <rect x="598" y="48" width="182" height="205" rx="6" fill="#2d3748"/>
+  <text x="608" y="67" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">CSS Visual States</text>
+  <rect x="606" y="75" width="166" height="75" rx="4" fill="#171e2e" stroke="#4a5568" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="689" y="102" font-family="system-ui,sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Zona drop</text>
+  <text x="689" y="118" font-family="system-ui,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Suelta archivos aqui</text>
+  <text x="689" y="141" font-family="system-ui,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">border: dashed #4a5568</text>
+  <rect x="606" y="160" width="166" height="75" rx="4" fill="#1e3a5f" stroke="#93c5fd" stroke-width="2"/>
+  <text x="689" y="187" font-family="system-ui,sans-serif" font-size="11" fill="#93c5fd" text-anchor="middle">Zona drop</text>
+  <text x="689" y="203" font-family="system-ui,sans-serif" font-size="10" fill="#93c5fd" text-anchor="middle">Suelta aqui!</text>
+  <text x="689" y="227" font-family="system-ui,sans-serif" font-size="9" fill="#64748b" text-anchor="middle">.drag-active: solid #93c5fd</text>
+  <rect x="20" y="268" width="760" height="100" rx="6" fill="#2d3748" stroke="#fca5a5" stroke-width="1"/>
+  <text x="30" y="286" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fca5a5">IMPORTANTE: Por que dragover necesita preventDefault()</text>
+  <rect x="28" y="293" width="744" height="67" rx="4" fill="#171e2e"/>
+  <text x="36" y="310" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">Sin preventDefault() en dragover, el navegador abre el archivo directamente (comportamiento por defecto).</text>
+  <text x="36" y="328" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">dataTransfer.files solo esta disponible en el evento drop, no antes.</text>
+  <text x="36" y="346" font-family="Courier,monospace" font-size="10" fill="#f0db4f">e.dataTransfer.files  // FileList con los archivos</text>
+  <text x="36" y="358" font-family="Courier,monospace" font-size="10" fill="#86efac">Array.from(e.dataTransfer.files)  // convertir a array</text>
+  <rect x="20" y="382" width="760" height="70" rx="6" fill="#2d3748"/>
+  <text x="30" y="400" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">Filtrar por tipo MIME</text>
+  <rect x="28" y="407" width="744" height="37" rx="4" fill="#171e2e"/>
+  <text x="36" y="423" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">const images = Array.from(e.dataTransfer.files).filter(f =&gt; f.type.startsWith("image/"));</text>
+  <text x="36" y="438" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">const texts = Array.from(e.dataTransfer.files).filter(f =&gt; f.type === "text/plain");</text>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

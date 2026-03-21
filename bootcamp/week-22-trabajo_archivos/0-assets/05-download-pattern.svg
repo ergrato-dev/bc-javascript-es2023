@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460">
+  <rect width="800" height="460" fill="#1a202c"/>
+  <text x="400" y="30" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#f0db4f" text-anchor="middle">Patron de Descarga: Flujo Completo</text>
+  <rect x="10" y="48" width="138" height="60" rx="6" fill="#2d3748" stroke="#4a5568" stroke-width="1"/>
+  <text x="79" y="67" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#94a3b8" text-anchor="middle">1. Contenido</text>
+  <text x="79" y="84" font-family="Courier,monospace" font-size="10" fill="#f0db4f" text-anchor="middle">string | JSON</text>
+  <text x="79" y="98" font-family="Courier,monospace" font-size="10" fill="#f0db4f" text-anchor="middle">ArrayBuffer</text>
+  <line x1="148" y1="78" x2="168" y2="78" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="170" y="48" width="138" height="60" rx="6" fill="#2d3748" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="239" y="67" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#93c5fd" text-anchor="middle">2. new Blob()</text>
+  <text x="239" y="84" font-family="Courier,monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">new Blob([data],</text>
+  <text x="239" y="98" font-family="Courier,monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">{ type: mime })</text>
+  <line x1="308" y1="78" x2="328" y2="78" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="330" y="48" width="138" height="60" rx="6" fill="#2d3748" stroke="#86efac" stroke-width="1.5"/>
+  <text x="399" y="67" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#86efac" text-anchor="middle">3. createObjectURL</text>
+  <text x="399" y="84" font-family="Courier,monospace" font-size="9" fill="#e2e8f0" text-anchor="middle">URL.createObjectURL</text>
+  <text x="399" y="98" font-family="Courier,monospace" font-size="10" fill="#86efac" text-anchor="middle">"blob:http://..."</text>
+  <line x1="468" y1="78" x2="488" y2="78" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="490" y="48" width="138" height="60" rx="6" fill="#2d3748" stroke="#fed7aa" stroke-width="1.5"/>
+  <text x="559" y="67" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fed7aa" text-anchor="middle">4. link[download]</text>
+  <text x="559" y="84" font-family="Courier,monospace" font-size="9" fill="#e2e8f0" text-anchor="middle">a.href = url</text>
+  <text x="559" y="98" font-family="Courier,monospace" font-size="9" fill="#e2e8f0" text-anchor="middle">a.download = name</text>
+  <line x1="628" y1="78" x2="648" y2="78" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="650" y="48" width="140" height="60" rx="6" fill="#2d3748" stroke="#fca5a5" stroke-width="2"/>
+  <text x="720" y="67" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fca5a5" text-anchor="middle">5. Revocar</text>
+  <text x="720" y="84" font-family="Courier,monospace" font-size="9" fill="#fca5a5" text-anchor="middle">URL.revokeObjectURL</text>
+  <text x="720" y="98" font-family="system-ui,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Libera memoria</text>
+  <rect x="20" y="125" width="760" height="155" rx="6" fill="#2d3748"/>
+  <text x="30" y="143" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">Funcion downloadBlob(content, filename, mimeType)</text>
+  <rect x="28" y="150" width="744" height="122" rx="4" fill="#171e2e"/>
+  <text x="36" y="167" font-family="Courier,monospace" font-size="10" fill="#94a3b8">const downloadBlob = (content, filename, mimeType = "text/plain") =&gt; {</text>
+  <text x="36" y="183" font-family="Courier,monospace" font-size="10" fill="#93c5fd">  const blob = new Blob([content], { type: mimeType });</text>
+  <text x="36" y="199" font-family="Courier,monospace" font-size="10" fill="#86efac">  const url = URL.createObjectURL(blob);</text>
+  <text x="36" y="215" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  const link = document.createElement("a");</text>
+  <text x="36" y="231" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  link.href = url;</text>
+  <text x="36" y="247" font-family="Courier,monospace" font-size="10" fill="#f0db4f">  link.download = filename;</text>
+  <text x="36" y="255" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  link.click();</text>
+  <text x="36" y="263" font-family="Courier,monospace" font-size="10" fill="#fca5a5">  URL.revokeObjectURL(url);</text>
+  <text x="380" y="263" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">};</text>
+  <rect x="20" y="295" width="375" height="145" rx="6" fill="#2d3748"/>
+  <text x="30" y="313" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">Ejemplo 1: Descargar texto</text>
+  <rect x="28" y="320" width="359" height="112" rx="4" fill="#171e2e"/>
+  <text x="36" y="337" font-family="Courier,monospace" font-size="10" fill="#94a3b8">const notes = "Mis notas del dia";</text>
+  <text x="36" y="353" font-family="Courier,monospace" font-size="10" fill="#f0db4f">downloadBlob(</text>
+  <text x="36" y="369" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  notes,</text>
+  <text x="36" y="385" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  "notas.txt",</text>
+  <text x="36" y="401" font-family="Courier,monospace" font-size="10" fill="#93c5fd">  "text/plain"</text>
+  <text x="36" y="417" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">);</text>
+  <rect x="405" y="295" width="375" height="145" rx="6" fill="#2d3748"/>
+  <text x="415" y="313" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">Ejemplo 2: Descargar JSON</text>
+  <rect x="413" y="320" width="359" height="112" rx="4" fill="#171e2e"/>
+  <text x="421" y="337" font-family="Courier,monospace" font-size="10" fill="#94a3b8">const data = { name: "Ana", age: 30 };</text>
+  <text x="421" y="353" font-family="Courier,monospace" font-size="10" fill="#f0db4f">downloadBlob(</text>
+  <text x="421" y="369" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  JSON.stringify(data, null, 2),</text>
+  <text x="421" y="385" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  "usuario.json",</text>
+  <text x="421" y="401" font-family="Courier,monospace" font-size="10" fill="#93c5fd">  "application/json"</text>
+  <text x="421" y="417" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">);</text>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
