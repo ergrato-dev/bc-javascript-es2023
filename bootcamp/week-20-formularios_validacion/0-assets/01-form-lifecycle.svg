@@ -1,29 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
-  <title id="title">Ciclo de vida de formulario</title>
-  <desc id="desc">Flujo desde entrada de datos hasta submit y respuesta.</desc>
-  <rect width="800" height="500" fill="#1a202c"/>
-  <text x="30" y="40" fill="#f0db4f" font-size="28" font-family="system-ui, sans-serif" font-weight="700">Ciclo de Vida del Formulario</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 490">
+  <rect width="800" height="490" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">Ciclo de vida del formulario HTML</text>
 
-  <rect x="40" y="110" width="150" height="80" rx="10" fill="#2d3748" stroke="#4299e1"/>
-  <text x="65" y="155" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">Input usuario</text>
+  <!-- Flow -->
+  <!-- 1: User fills inputs -->
+  <rect x="20" y="56" width="130" height="56" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="85" y="81" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#93c5fd" text-anchor="middle">Usuario llena</text>
+  <text x="85" y="99" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">campos del form</text>
 
-  <rect x="230" y="110" width="150" height="80" rx="10" fill="#2d3748" stroke="#f0db4f"/>
-  <text x="256" y="155" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">FormData</text>
+  <line x1="150" y1="84" x2="190" y2="84" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="188,79 198,84 188,89" fill="#4a5568"/>
 
-  <rect x="420" y="110" width="150" height="80" rx="10" fill="#2d3748" stroke="#48bb78"/>
-  <text x="435" y="155" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">Validación</text>
+  <!-- 2: submit event -->
+  <rect x="200" y="56" width="130" height="56" fill="#1f2937" stroke="#f0db4f" stroke-width="2" rx="8"/>
+  <text x="265" y="78" font-family="Courier,monospace" font-size="12" font-weight="bold" fill="#f0db4f" text-anchor="middle">submit</text>
+  <text x="265" y="96" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">evento disparado</text>
 
-  <rect x="610" y="110" width="150" height="80" rx="10" fill="#2d3748" stroke="#4299e1"/>
-  <text x="652" y="155" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">Submit</text>
+  <line x1="330" y1="84" x2="370" y2="84" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="368,79 378,84 368,89" fill="#4a5568"/>
 
-  <path d="M190 150 H230" stroke="#a0aec0" stroke-width="3"/>
-  <path d="M380 150 H420" stroke="#a0aec0" stroke-width="3"/>
-  <path d="M570 150 H610" stroke="#a0aec0" stroke-width="3"/>
+  <!-- 3: preventDefault -->
+  <rect x="380" y="56" width="130" height="56" fill="#1f2937" stroke="#ed8936" stroke-width="2" rx="8"/>
+  <text x="445" y="75" font-family="Courier,monospace" font-size="11" font-weight="bold" fill="#fed7aa" text-anchor="middle">preventDefault()</text>
+  <text x="445" y="93" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">evita recarga HTTP</text>
 
-  <rect x="40" y="250" width="720" height="200" rx="12" fill="#111827" stroke="#334155"/>
-  <text x="60" y="290" fill="#f0db4f" font-size="20" font-family="system-ui, sans-serif" font-weight="700">Puntos de control</text>
-  <text x="60" y="325" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">1. Campos completos y coherentes</text>
-  <text x="60" y="355" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">2. Validación nativa + personalizada</text>
-  <text x="60" y="385" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">3. Feedback claro antes de enviar</text>
-  <text x="60" y="415" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">4. Prevención de doble submit</text>
+  <line x1="510" y1="84" x2="550" y2="84" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="548,79 558,84 548,89" fill="#4a5568"/>
+
+  <!-- 4: validate -->
+  <rect x="560" y="56" width="130" height="56" fill="#1f2937" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="625" y="78" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#fca5a5" text-anchor="middle">Validar</text>
+  <text x="625" y="96" font-family="system-ui,sans-serif" font-size="10" fill="#a0aec0" text-anchor="middle">checkValidity()</text>
+
+  <!-- 5: process (branch ok) -->
+  <line x1="625" y1="112" x2="625" y2="142" stroke="#48bb78" stroke-width="2"/>
+  <polygon points="620,140 625,150 630,140" fill="#48bb78"/>
+  <rect x="560" y="150" width="130" height="50" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="625" y="178" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#86efac" text-anchor="middle">✅ Procesar</text>
+  <text x="625" y="143" font-family="system-ui,sans-serif" font-size="10" fill="#48bb78" text-anchor="middle">válido</text>
+
+  <!-- branch error -->
+  <line x1="445" y1="112" x2="445" y2="142" stroke="#ef4444" stroke-width="2"/>
+  <polygon points="440,140 445,150 450,140" fill="#ef4444"/>
+  <rect x="380" y="150" width="130" height="50" fill="#1f2937" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="445" y="178" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#fca5a5" text-anchor="middle">❌ Mostrar errores</text>
+  <text x="445" y="143" font-family="system-ui,sans-serif" font-size="10" fill="#ef4444" text-anchor="middle">inválido</text>
+
+  <line x1="30" y1="218" x2="770" y2="218" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Code -->
+  <text x="20" y="238" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Patrón completo de manejo de submit</text>
+
+  <rect x="20" y="250" width="370" height="200" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="270" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const form = document.querySelector('#myForm');</text>
+  <text x="34" y="288" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">form.addEventListener('submit', (e) =&gt; {</text>
+  <text x="34" y="306" font-family="Courier,monospace" font-size="11" fill="#fed7aa">  e.preventDefault();</text>
+  <text x="34" y="324" font-family="Courier,monospace" font-size="11" fill="#a0aec0">  // Validar con la API nativa de HTML5</text>
+  <text x="34" y="342" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  if (!form.checkValidity()) {</text>
+  <text x="34" y="360" font-family="Courier,monospace" font-size="11" fill="#fca5a5">    form.reportValidity();</text>
+  <text x="34" y="378" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    return;</text>
+  <text x="34" y="396" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  }</text>
+  <text x="34" y="414" font-family="Courier,monospace" font-size="11" fill="#a0aec0">  // Formulario válido: procesar</text>
+  <text x="34" y="432" font-family="Courier,monospace" font-size="11" fill="#86efac">  handleSubmit(new FormData(form));</text>
+  <text x="34" y="444" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">});</text>
+
+  <rect x="410" y="250" width="370" height="200" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="270" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Eventos adicionales del formulario</text>
+  <text x="424" y="292" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Validar en tiempo real mientras escribe</text>
+  <text x="424" y="310" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">input.addEventListener('input', (e) =&gt; {</text>
+  <text x="424" y="328" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  validateField(e.target);</text>
+  <text x="424" y="346" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">});</text>
+  <text x="424" y="366" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Validar al salir del campo</text>
+  <text x="424" y="384" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">input.addEventListener('blur', (e) =&gt; {</text>
+  <text x="424" y="402" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  markIfInvalid(e.target);</text>
+  <text x="424" y="420" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">});</text>
+  <text x="424" y="442" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// blur es mejor que change para UX</text>
+
+  <text x="400" y="486" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 20</text>
 </svg>

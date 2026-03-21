@@ -1,41 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Flujo de render con template</title>
-  <desc id="desc">Secuencia para renderizar componentes reutilizables usando template y cloneNode.</desc>
-  <rect width="1200" height="680" fill="#101010"/>
-  <text x="40" y="60" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Workflow con template</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">Patrón template + cloneNode para render eficiente</text>
 
-  <rect x="60" y="130" width="210" height="110" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="82" y="170" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">1. Definir</text>
-  <text x="82" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">&lt;template&gt;</text>
+  <!-- HTML template element explanation -->
+  <text x="30" y="62" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">1. Definir template en HTML (inerte, no renderiza)</text>
+  <rect x="30" y="74" width="370" height="110" fill="#1f2937" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="44" y="96" font-family="Courier,monospace" font-size="11" fill="#a0aec0">&lt;!-- En el HTML --&gt;</text>
+  <text x="44" y="114" font-family="Courier,monospace" font-size="11" fill="#93c5fd">&lt;template id="card-tpl"&gt;</text>
+  <text x="44" y="132" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  &lt;article class="card"&gt;</text>
+  <text x="44" y="150" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    &lt;h3 class="card-title"&gt;&lt;/h3&gt;</text>
+  <text x="44" y="168" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  &lt;/article&gt;</text>
+  <text x="44" y="178" font-family="Courier,monospace" font-size="11" fill="#93c5fd">&lt;/template&gt;</text>
 
-  <rect x="310" y="130" width="210" height="110" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="332" y="170" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">2. Clonar</text>
-  <text x="332" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">cloneNode(true)</text>
+  <!-- Alternative: template literal -->
+  <text x="420" y="62" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Alternativa: template literal con innerHTML</text>
+  <rect x="420" y="74" width="360" height="110" fill="#1f2937" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="434" y="96" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Función de render (template string)</text>
+  <text x="434" y="114" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const cardTemplate = (item) =&gt; `</text>
+  <text x="434" y="132" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  &lt;article class="card"&gt;</text>
+  <text x="434" y="150" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    &lt;h3&gt;${item.name}&lt;/h3&gt;</text>
+  <text x="434" y="168" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  &lt;/article&gt;</text>
+  <text x="434" y="178" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">`;</text>
 
-  <rect x="560" y="130" width="210" height="110" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="582" y="170" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">3. Mapear</text>
-  <text x="582" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">datos a campos</text>
+  <line x1="30" y1="204" x2="770" y2="204" stroke="#4a5568" stroke-width="1"/>
 
-  <rect x="810" y="130" width="210" height="110" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="832" y="170" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">4. Insertar</text>
-  <text x="832" y="200" fill="#F8F8F8" font-size="16" font-family="Inter, Roboto, sans-serif">append(fragment)</text>
+  <!-- cloneNode workflow -->
+  <text x="30" y="226" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">2. Clonar + poblar + insertar (cloneNode)</text>
+  <rect x="30" y="238" width="370" height="210" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="44" y="258" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Obtener template y contenedor</text>
+  <text x="44" y="276" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const tpl = document.querySelector('#card-tpl');</text>
+  <text x="44" y="294" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const list = document.querySelector('#list');</text>
+  <text x="44" y="314" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Clonar e inyectar datos</text>
+  <text x="44" y="332" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const renderCard = (item) =&gt; {</text>
+  <text x="44" y="350" font-family="Courier,monospace" font-size="11" fill="#93c5fd">  const clone = tpl.content.cloneNode(true);</text>
+  <text x="44" y="368" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  clone.querySelector('.card-title')</text>
+  <text x="44" y="386" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    .textContent = item.name;</text>
+  <text x="44" y="404" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  list.append(clone);</text>
+  <text x="44" y="422" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+  <text x="44" y="442" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">items.forEach(renderCard);</text>
 
-  <path d="M270 185 L310 185" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M520 185 L560 185" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M770 185 L810 185" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <!-- Template literal approach -->
+  <rect x="420" y="238" width="360" height="210" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="434" y="258" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Con template literal: render masivo</text>
+  <text x="434" y="276" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const renderAll = (items) =&gt; {</text>
+  <text x="434" y="294" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  container.innerHTML = items</text>
+  <text x="434" y="312" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    .map(cardTemplate)</text>
+  <text x="434" y="330" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    .join('');</text>
+  <text x="434" y="348" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+  <text x="434" y="370" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#ed8936">Ventajas / Desventajas</text>
+  <text x="434" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">✅ template: conserva event listeners</text>
+  <text x="434" y="410" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">✅ template: más semántico</text>
+  <text x="434" y="430" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">✅ literal: más simple para listas</text>
+  <text x="434" y="450" font-family="system-ui,sans-serif" font-size="11" fill="#fca5a5">⚠️  literal: no sanitiza datos usuario</text>
 
-  <rect x="60" y="300" width="1080" height="320" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
-  <text x="84" y="338" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Checklist de render reusable</text>
-  <text x="84" y="370" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• El template no se muestra hasta clonar e insertar.</text>
-  <text x="84" y="396" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Usa data-attributes internos para mapear campos.</text>
-  <text x="84" y="422" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Renderiza dentro de un loop limpio y predecible.</text>
-  <text x="84" y="448" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Limpia contenedor cuando aplique para evitar duplicados.</text>
-  <text x="84" y="474" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Usa textContent para valores dinámicos de usuario/API.</text>
-  <text x="84" y="514" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Ejercicio: renderiza 5 ítems con template y agrega clase is-featured al primero.</text>
-
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
-    </marker>
-  </defs>
+  <text x="400" y="474" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 17</text>
 </svg>

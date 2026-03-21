@@ -1,40 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Arquitectura con CustomEvent</title>
-  <desc id="desc">Comunicación desacoplada entre productor y consumidor usando eventos de dominio.</desc>
-  <rect width="1200" height="760" fill="#101010"/>
-  <text x="40" y="56" fill="#F0DB4F" font-size="32" font-family="Inter, Roboto, sans-serif" font-weight="700">CustomEvent Architecture</text>
-  <text x="40" y="88" fill="#D0D0D0" font-size="18" font-family="Inter, Roboto, sans-serif">Producer -> Event Bus -> Consumer</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">CustomEvent: comunicación entre componentes</text>
 
-  <rect x="40" y="116" width="1120" height="78" rx="10" fill="#1A1A1A" stroke="#333"/>
-  <text x="60" y="148" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo de aprendizaje</text>
-  <text x="60" y="172" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">Diseñar comunicación entre módulos sin acoplamiento directo.</text>
+  <!-- Flow diagram -->
+  <!-- Emitter -->
+  <rect x="30" y="60" width="160" height="70" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="10"/>
+  <text x="110" y="88" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">Componente A</text>
+  <text x="110" y="108" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">emite evento</text>
 
-  <rect x="100" y="240" width="280" height="220" rx="14" fill="#1B1B1B" stroke="#F0DB4F"/>
-  <text x="185" y="300" fill="#FFF" font-size="22" font-family="Inter, Roboto, sans-serif">Producer</text>
-  <text x="130" y="340" fill="#BDBDBD" font-size="16" font-family="Inter, Roboto, sans-serif">dispatchEvent(new CustomEvent)</text>
+  <!-- Arrow emit -->
+  <line x1="190" y1="95" x2="320" y2="95" stroke="#f0db4f" stroke-width="2"/>
+  <polygon points="318,90 328,95 318,100" fill="#f0db4f"/>
+  <text x="255" y="86" font-family="system-ui,sans-serif" font-size="10" fill="#f0db4f" text-anchor="middle">dispatchEvent()</text>
 
-  <rect x="460" y="240" width="280" height="220" rx="14" fill="#1B1B1B" stroke="#4CAF50"/>
-  <text x="545" y="300" fill="#FFF" font-size="22" font-family="Inter, Roboto, sans-serif">Event Bus</text>
-  <text x="536" y="340" fill="#BDBDBD" font-size="16" font-family="Inter, Roboto, sans-serif">document/window</text>
+  <!-- Event -->
+  <rect x="330" y="60" width="140" height="70" fill="#451a03" stroke="#f0db4f" stroke-width="2" rx="10"/>
+  <text x="400" y="84" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f" text-anchor="middle">CustomEvent</text>
+  <text x="400" y="104" font-family="Courier,monospace" font-size="11" fill="#fed7aa" text-anchor="middle">'item-added'</text>
 
-  <rect x="820" y="240" width="280" height="220" rx="14" fill="#1B1B1B" stroke="#E53935"/>
-  <text x="900" y="300" fill="#FFF" font-size="22" font-family="Inter, Roboto, sans-serif">Consumer</text>
-  <text x="850" y="340" fill="#BDBDBD" font-size="16" font-family="Inter, Roboto, sans-serif">addEventListener(name)</text>
+  <!-- Arrow received -->
+  <line x1="470" y1="95" x2="600" y2="95" stroke="#48bb78" stroke-width="2"/>
+  <polygon points="598,90 608,95 598,100" fill="#48bb78"/>
+  <text x="535" y="86" font-family="system-ui,sans-serif" font-size="10" fill="#48bb78" text-anchor="middle">addEventListener()</text>
 
-  <path d="M380 350 L460 350" stroke="#F0DB4F" stroke-width="4" marker-end="url(#arrow1)"/>
-  <path d="M740 350 L820 350" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrow2)"/>
+  <!-- Receiver -->
+  <rect x="610" y="60" width="160" height="70" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="10"/>
+  <text x="690" y="88" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#86efac" text-anchor="middle">Componente B</text>
+  <text x="690" y="108" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">escucha evento</text>
 
-  <rect x="40" y="610" width="1120" height="120" rx="10" fill="#1A1A1A" stroke="#333"/>
-  <text x="60" y="642" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Lectura guiada y verificación</text>
-  <text x="60" y="668" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">1) Propón nombre y payload para un evento de dominio (detail).</text>
-  <text x="60" y="692" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">2) Comprueba que consumidor funciona sin importar quién emite.</text>
+  <line x1="30" y1="152" x2="770" y2="152" stroke="#4a5568" stroke-width="1"/>
 
-  <defs>
-    <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#F0DB4F"/>
-    </marker>
-    <marker id="arrow2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#4CAF50"/>
-    </marker>
-  </defs>
+  <!-- Code: dispatch -->
+  <text x="30" y="172" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Emitir CustomEvent con datos (detail)</text>
+  <rect x="30" y="184" width="370" height="160" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="44" y="204" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// En el componente emisor</text>
+  <text x="44" y="222" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const notifyItemAdded = (item) =&gt; {</text>
+  <text x="44" y="240" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const event = new CustomEvent(</text>
+  <text x="44" y="258" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    'item-added',</text>
+  <text x="44" y="276" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    {</text>
+  <text x="44" y="294" font-family="Courier,monospace" font-size="11" fill="#86efac">      detail: { item },</text>
+  <text x="44" y="312" font-family="Courier,monospace" font-size="11" fill="#93c5fd">      bubbles: true</text>
+  <text x="44" y="330" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    }</text>
+  <text x="44" y="348" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  );</text>
+
+  <!-- Code: listen -->
+  <text x="420" y="172" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Escuchar y reaccionar</text>
+  <rect x="420" y="184" width="360" height="160" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="434" y="204" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// En el componente receptor</text>
+  <text x="434" y="222" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">document.addEventListener(</text>
+  <text x="434" y="240" font-family="Courier,monospace" font-size="11" fill="#f0db4f">  'item-added',</text>
+  <text x="434" y="258" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  (e) =&gt; {</text>
+  <text x="434" y="276" font-family="Courier,monospace" font-size="11" fill="#86efac">    const { item } = e.detail;</text>
+  <text x="434" y="294" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    updateCounter(item);</text>
+  <text x="434" y="312" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    renderItem(item);</text>
+  <text x="434" y="330" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  }</text>
+  <text x="434" y="348" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">);</text>
+
+  <line x1="30" y1="364" x2="770" y2="364" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- dispatch call and use cases -->
+  <rect x="30" y="376" width="370" height="90" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="44" y="396" font-family="Courier,monospace" font-size="11" fill="#a0aec0">  // Disparar el evento</text>
+  <text x="44" y="414" font-family="Courier,monospace" font-size="11" fill="#f0db4f">  document.dispatchEvent(event);</text>
+  <text x="44" y="432" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+  <text x="44" y="452" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">bubbles: true → sube por el DOM</text>
+
+  <rect x="420" y="376" width="360" height="90" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="434" y="396" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Cuándo usar CustomEvent</text>
+  <text x="434" y="416" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">Comunicar componentes sin acoplarlos directamente</text>
+  <text x="434" y="434" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">Reemplaza callbacks complejos entre módulos</text>
+  <text x="434" y="452" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">Notificar cambios de estado globalmente</text>
+
+  <text x="400" y="474" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 18</text>
 </svg>

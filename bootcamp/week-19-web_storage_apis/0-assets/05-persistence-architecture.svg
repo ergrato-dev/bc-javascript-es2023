@@ -1,39 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Arquitectura de persistencia local</title>
-  <desc id="desc">Capas de estado en memoria, web storage e indexeddb con estrategia de respaldo.</desc>
-  <rect width="1200" height="760" fill="#0f172a"/>
-  <text x="40" y="58" fill="#f0db4f" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Persistence Architecture</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">¿Qué storage usar? — Guía de decisión</text>
 
-  <rect x="40" y="98" width="1120" height="74" rx="10" fill="#111827" stroke="#334155"/>
-  <text x="60" y="128" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo</text>
-  <text x="60" y="152" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Diseñar persistencia por capas para robustez y recuperación.</text>
+  <!-- Decision header -->
+  <text x="400" y="62" font-family="system-ui,sans-serif" font-size="13" fill="#a0aec0" text-anchor="middle">tipo de dato → storage adecuado</text>
 
-  <rect x="120" y="250" width="280" height="280" rx="12" fill="#111827" stroke="#4ade80"/>
-  <text x="190" y="300" fill="#4ade80" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">State Layer</text>
-  <text x="150" y="340" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Memoria activa</text>
-  <text x="150" y="370" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Validación de entrada</text>
+  <!-- Row: Preferences -->
+  <rect x="20" y="76" width="760" height="56" fill="#1e3a5f" rx="6"/>
+  <text x="36" y="100" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">📋 Preferencias de usuario</text>
+  <text x="36" y="120" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Tema, idioma, tamaño de fuente</text>
+  <text x="320" y="100" font-family="Courier,monospace" font-size="12" fill="#93c5fd" text-anchor="middle">localStorage</text>
+  <text x="320" y="120" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">persistente, compartida entre tabs</text>
+  <text x="490" y="100" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">localStorage.setItem('theme', 'dark');</text>
 
-  <rect x="460" y="250" width="280" height="280" rx="12" fill="#111827" stroke="#60a5fa"/>
-  <text x="518" y="300" fill="#60a5fa" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Storage Layer</text>
-  <text x="490" y="340" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">local/session storage</text>
-  <text x="490" y="370" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Snapshot rápido</text>
+  <!-- Row: Session state -->
+  <rect x="20" y="140" width="760" height="56" fill="#1f2937" rx="6"/>
+  <text x="36" y="164" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">🔄 Estado de sesión actual</text>
+  <text x="36" y="184" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Filtros activos, paso wizard, búsqueda</text>
+  <text x="320" y="164" font-family="Courier,monospace" font-size="12" fill="#86efac" text-anchor="middle">sessionStorage</text>
+  <text x="320" y="184" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">solo esta pestaña, se borra al cerrar</text>
+  <text x="490" y="164" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">sessionStorage.setItem('step', '3');</text>
 
-  <rect x="800" y="250" width="280" height="280" rx="12" fill="#111827" stroke="#f97316"/>
-  <text x="855" y="300" fill="#f97316" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Backup Layer</text>
-  <text x="830" y="340" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">IndexedDB histórico</text>
-  <text x="830" y="370" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">Recuperación ante fallos</text>
+  <!-- Row: Large data -->
+  <rect x="20" y="204" width="760" height="56" fill="#1e3a5f" rx="6"/>
+  <text x="36" y="228" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">🗄️  Datos estructurados y grandes</text>
+  <text x="36" y="248" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Catálogo offline, historial, archivos</text>
+  <text x="320" y="228" font-family="Courier,monospace" font-size="12" fill="#f0db4f" text-anchor="middle">IndexedDB</text>
+  <text x="320" y="248" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">estructurado, indexado, &gt;50 MB</text>
+  <text x="490" y="228" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">store.put({ id, name, price, img });</text>
 
-  <path d="M400 390 L460 390" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
-  <path d="M740 390 L800 390" stroke="#f0db4f" stroke-width="4" marker-end="url(#arrow)"/>
+  <!-- Row: Sensitive data -->
+  <rect x="20" y="268" width="760" height="56" fill="#1f2937" rx="6" stroke="#ef4444" stroke-width="1"/>
+  <text x="36" y="292" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#fca5a5">🔐 Datos sensibles</text>
+  <text x="36" y="312" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Contraseñas, tokens de acceso, datos PII</text>
+  <text x="320" y="292" font-family="Courier,monospace" font-size="12" fill="#ef4444" text-anchor="middle">⚠️  Ninguno</text>
+  <text x="320" y="312" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">usar cookies httpOnly o servidor</text>
+  <text x="490" y="292" font-family="system-ui,sans-serif" font-size="11" fill="#fca5a5" text-anchor="middle">localStorage es XSS-vulnerable para tokens</text>
 
-  <rect x="40" y="584" width="1120" height="132" rx="10" fill="#111827" stroke="#334155"/>
-  <text x="60" y="620" fill="#f0db4f" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Verificación</text>
-  <text x="60" y="648" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué capa consulta primero tu app al iniciar?</text>
-  <text x="60" y="676" fill="#e5e7eb" font-size="16" font-family="Inter, Roboto, sans-serif">2) ¿Cómo recuperas estado si localStorage está corrupto?</text>
+  <line x1="20" y1="340" x2="780" y2="340" stroke="#4a5568" stroke-width="1"/>
 
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#f0db4f"/>
-    </marker>
-  </defs>
+  <!-- Helper code -->
+  <text x="20" y="360" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Wrapper genérico para storage seguro</text>
+
+  <rect x="20" y="372" width="370" height="95" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="392" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const storage = {</text>
+  <text x="34" y="410" font-family="Courier,monospace" font-size="11" fill="#86efac">  get: (k) =&gt; JSON.parse(localStorage.getItem(k) ?? 'null'),</text>
+  <text x="34" y="428" font-family="Courier,monospace" font-size="11" fill="#86efac">  set: (k, v) =&gt; { try {</text>
+  <text x="34" y="446" font-family="Courier,monospace" font-size="11" fill="#86efac">      localStorage.setItem(k, JSON.stringify(v));</text>
+  <text x="34" y="464" font-family="Courier,monospace" font-size="11" fill="#86efac">    } catch {} },</text>
+
+  <rect x="410" y="372" width="370" height="95" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="392" font-family="Courier,monospace" font-size="11" fill="#86efac">  remove: (k) =&gt; localStorage.removeItem(k),</text>
+  <text x="424" y="410" font-family="Courier,monospace" font-size="11" fill="#86efac">  has: (k) =&gt; localStorage.getItem(k) !== null,</text>
+  <text x="424" y="428" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+  <text x="424" y="450" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// uso:</text>
+  <text x="424" y="468" font-family="Courier,monospace" font-size="11" fill="#f0db4f">storage.set('theme', { mode: 'dark', size: 16 });</text>
+
+  <text x="400" y="478" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 19</text>
 </svg>

@@ -1,40 +1,79 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
-  <title id="title">Flujo del evento: capturing, target y bubbling</title>
-  <desc id="desc">Diagrama pedagógico del flujo de propagación con lectura guiada y verificación.</desc>
-  <rect width="1200" height="760" fill="#101010"/>
-  <text x="40" y="56" fill="#F0DB4F" font-size="32" font-family="Inter, Roboto, sans-serif" font-weight="700">Flujo del Evento</text>
-  <text x="40" y="88" fill="#D0D0D0" font-size="18" font-family="Inter, Roboto, sans-serif">Capturing -> Target -> Bubbling</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">Event Flow: Bubbling y Capturing</text>
 
-  <rect x="40" y="116" width="1120" height="78" rx="10" fill="#1A1A1A" stroke="#333"/>
-  <text x="60" y="148" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Objetivo de aprendizaje</text>
-  <text x="60" y="172" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">Identificar el orden real de ejecución de handlers en nodos anidados.</text>
+  <!-- CAPTURING side (left) -->
+  <text x="150" y="64" font-family="system-ui,sans-serif" font-size="15" font-weight="bold" fill="#4299e1" text-anchor="middle">Capturing (↓ hacia el target)</text>
 
-  <rect x="120" y="220" width="960" height="360" rx="14" fill="#171717" stroke="#2F2F2F"/>
-  <rect x="200" y="280" width="800" height="260" rx="12" fill="#1D1D1D" stroke="#F0DB4F"/>
-  <rect x="320" y="340" width="560" height="170" rx="12" fill="#1D1D1D" stroke="#4CAF50"/>
-  <rect x="470" y="390" width="260" height="90" rx="10" fill="#1D1D1D" stroke="#E53935"/>
+  <!-- DOM tree capturing -->
+  <rect x="60" y="80" width="180" height="38" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="6"/>
+  <text x="150" y="104" font-family="Courier,monospace" font-size="12" fill="#93c5fd" text-anchor="middle">document</text>
 
-  <text x="220" y="314" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif">document / body</text>
-  <text x="340" y="374" fill="#4CAF50" font-size="18" font-family="Inter, Roboto, sans-serif">container</text>
-  <text x="543" y="444" fill="#FFFFFF" font-size="22" font-family="Inter, Roboto, sans-serif">target</text>
+  <line x1="150" y1="118" x2="150" y2="136" stroke="#4299e1" stroke-width="2"/>
+  <polygon points="145,134 150,144 155,134" fill="#4299e1"/>
 
-  <path d="M600 250 L600 390" stroke="#F0DB4F" stroke-width="4" marker-end="url(#arrowYellow)"/>
-  <text x="620" y="300" fill="#F0DB4F" font-size="16" font-family="Inter, Roboto, sans-serif">capturing</text>
+  <rect x="80" y="144" width="140" height="38" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="6"/>
+  <text x="150" y="168" font-family="Courier,monospace" font-size="12" fill="#93c5fd" text-anchor="middle">html &gt; body</text>
 
-  <path d="M640 480 L640 560" stroke="#4CAF50" stroke-width="4" marker-end="url(#arrowGreen)"/>
-  <text x="660" y="535" fill="#4CAF50" font-size="16" font-family="Inter, Roboto, sans-serif">bubbling</text>
+  <line x1="150" y1="182" x2="150" y2="200" stroke="#4299e1" stroke-width="2"/>
+  <polygon points="145,198 150,208 155,198" fill="#4299e1"/>
 
-  <rect x="40" y="610" width="1120" height="120" rx="10" fill="#1A1A1A" stroke="#333"/>
-  <text x="60" y="642" fill="#F0DB4F" font-size="18" font-family="Inter, Roboto, sans-serif" font-weight="700">Lectura guiada y verificación</text>
-  <text x="60" y="668" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">1) ¿Qué handler corre primero si tiene { capture: true }?</text>
-  <text x="60" y="692" fill="#EFEFEF" font-size="16" font-family="Inter, Roboto, sans-serif">2) Predice el orden de logs en tres nodos y compruébalo en consola.</text>
+  <rect x="90" y="208" width="120" height="38" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="6"/>
+  <text x="150" y="232" font-family="Courier,monospace" font-size="12" fill="#93c5fd" text-anchor="middle">div#list</text>
 
-  <defs>
-    <marker id="arrowYellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#F0DB4F"/>
-    </marker>
-    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M0 0 L10 5 L0 10 z" fill="#4CAF50"/>
-    </marker>
-  </defs>
+  <line x1="150" y1="246" x2="150" y2="264" stroke="#4299e1" stroke-width="2"/>
+  <polygon points="145,262 150,272 155,262" fill="#4299e1"/>
+
+  <rect x="95" y="272" width="110" height="38" fill="#1e3a5f" stroke="#f0db4f" stroke-width="2" rx="6"/>
+  <text x="150" y="296" font-family="Courier,monospace" font-size="12" fill="#f0db4f" text-anchor="middle">button 🎯</text>
+
+  <!-- BUBBLING side (right) -->
+  <text x="620" y="64" font-family="system-ui,sans-serif" font-size="15" font-weight="bold" fill="#48bb78" text-anchor="middle">Bubbling (↑ sube desde el target)</text>
+
+  <rect x="530" y="272" width="110" height="38" fill="#065f46" stroke="#f0db4f" stroke-width="2" rx="6"/>
+  <text x="585" y="296" font-family="Courier,monospace" font-size="12" fill="#f0db4f" text-anchor="middle">button 🎯</text>
+
+  <line x1="585" y1="264" x2="585" y2="246" stroke="#48bb78" stroke-width="2"/>
+  <polygon points="580,248 585,238 590,248" fill="#48bb78"/>
+
+  <rect x="520" y="208" width="130" height="38" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="6"/>
+  <text x="585" y="232" font-family="Courier,monospace" font-size="12" fill="#86efac" text-anchor="middle">div#list</text>
+
+  <line x1="585" y1="200" x2="585" y2="182" stroke="#48bb78" stroke-width="2"/>
+  <polygon points="580,184 585,174 590,184" fill="#48bb78"/>
+
+  <rect x="520" y="144" width="130" height="38" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="6"/>
+  <text x="585" y="168" font-family="Courier,monospace" font-size="12" fill="#86efac" text-anchor="middle">html &gt; body</text>
+
+  <line x1="585" y1="136" x2="585" y2="118" stroke="#48bb78" stroke-width="2"/>
+  <polygon points="580,120 585,110 590,120" fill="#48bb78"/>
+
+  <rect x="520" y="80" width="130" height="38" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="6"/>
+  <text x="585" y="104" font-family="Courier,monospace" font-size="12" fill="#86efac" text-anchor="middle">document</text>
+
+  <!-- Center divider -->
+  <line x1="400" y1="56" x2="400" y2="330" stroke="#4a5568" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="400" y="185" font-family="system-ui,sans-serif" font-size="11" fill="#718096" text-anchor="middle" transform="rotate(-90, 400, 185)">click event</text>
+
+  <line x1="30" y1="336" x2="770" y2="336" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Code -->
+  <text x="30" y="356" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Registrar en cada fase: tercer argumento de addEventListener</text>
+
+  <rect x="30" y="368" width="360" height="110" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="44" y="388" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Bubbling (default) — useCapture = false</text>
+  <text x="44" y="406" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">el.addEventListener('click', handler);</text>
+  <text x="44" y="424" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">el.addEventListener('click', handler, false);</text>
+  <text x="44" y="444" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Capturing — useCapture = true</text>
+  <text x="44" y="462" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">el.addEventListener('click', handler, true);</text>
+  <text x="44" y="472" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">el.addEventListener('click', handler, { capture: true });</text>
+
+  <rect x="410" y="368" width="360" height="110" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="388" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Regla práctica</text>
+  <text x="424" y="408" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">Bubbling: el más común — los eventos</text>
+  <text x="424" y="426" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">suben por el árbol DOM automáticamente.</text>
+  <text x="424" y="448" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">Capturing: útil cuando necesitas interceptar</text>
+  <text x="424" y="466" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">antes de que llegue al target.</text>
+
+  <text x="400" y="494" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 18</text>
 </svg>

@@ -1,62 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Flujo didáctico de petición HTTP</title>
-  <desc id="desc">Secuencia pedagógica para implementar operaciones CRUD con puntos de decisión, validación y manejo de errores.</desc>
-  <rect width="1200" height="680" fill="#101010"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">GET vs POST/PUT/PATCH: estructura de la petición</text>
 
-  <text x="38" y="56" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Flujo completo de una operación CRUD</text>
-  <text x="38" y="86" fill="#D6D6D6" font-size="16" font-family="Inter, Roboto, sans-serif">Meta pedagógica: traducir una acción de UI en una petición REST correcta y trazable.</text>
+  <!-- GET -->
+  <text x="190" y="65" font-family="system-ui,sans-serif" font-size="16" font-weight="bold" fill="#4299e1" text-anchor="middle">GET — sin body</text>
+  <rect x="20" y="76" width="360" height="210" fill="#1f2937" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="36" y="100" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Leer lista (parámetros en URL)</text>
+  <text x="36" y="118" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const getItems = async () =&gt; {</text>
+  <text x="36" y="136" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const res = await fetch(</text>
+  <text x="36" y="154" font-family="Courier,monospace" font-size="11" fill="#93c5fd">    '/api/items?page=1&amp;limit=10'</text>
+  <text x="36" y="172" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  );</text>
+  <text x="36" y="190" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  if (!res.ok) throw new Error(res.status);</text>
+  <text x="36" y="208" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  return res.json();</text>
+  <text x="36" y="226" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
+  <text x="36" y="255" font-family="system-ui,sans-serif" font-size="11" fill="#93c5fd">• Parámetros van en la URL (query string)</text>
+  <text x="36" y="273" font-family="system-ui,sans-serif" font-size="11" fill="#93c5fd">• No tiene body — el servidor ignora body en GET</text>
 
-  <rect x="40" y="118" width="190" height="90" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="62" y="150" fill="#F0DB4F" font-size="17" font-family="Inter, Roboto, sans-serif" font-weight="700">Paso 1</text>
-  <text x="62" y="178" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Acción de UI</text>
+  <!-- POST with body -->
+  <text x="610" y="65" font-family="system-ui,sans-serif" font-size="16" font-weight="bold" fill="#48bb78" text-anchor="middle">POST/PUT — con body JSON</text>
+  <rect x="420" y="76" width="360" height="210" fill="#1f2937" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="436" y="100" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Crear item (datos en body)</text>
+  <text x="436" y="118" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const createItem = async (data) =&gt; {</text>
+  <text x="436" y="136" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  const res = await fetch('/api/items', {</text>
+  <text x="436" y="154" font-family="Courier,monospace" font-size="11" fill="#86efac">    method: 'POST',</text>
+  <text x="436" y="172" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    headers: {</text>
+  <text x="436" y="190" font-family="Courier,monospace" font-size="11" fill="#fed7aa">      'Content-Type': 'application/json'</text>
+  <text x="436" y="208" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">    },</text>
+  <text x="436" y="226" font-family="Courier,monospace" font-size="11" fill="#f0db4f">    body: JSON.stringify(data)</text>
+  <text x="436" y="244" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  });</text>
+  <text x="436" y="262" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  return res.json();</text>
+  <text x="436" y="280" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">};</text>
 
-  <rect x="260" y="118" width="220" height="90" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="282" y="150" fill="#F0DB4F" font-size="17" font-family="Inter, Roboto, sans-serif" font-weight="700">Paso 2</text>
-  <text x="282" y="178" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Elegir método HTTP</text>
+  <line x1="30" y1="308" x2="770" y2="308" stroke="#4a5568" stroke-width="1"/>
 
-  <rect x="510" y="118" width="220" height="90" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="532" y="150" fill="#F0DB4F" font-size="17" font-family="Inter, Roboto, sans-serif" font-weight="700">Paso 3</text>
-  <text x="532" y="178" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Construir request</text>
+  <!-- PUT vs PATCH -->
+  <text x="30" y="330" font-family="system-ui,sans-serif" font-size="14" font-weight="bold" fill="#f0db4f">PUT vs PATCH: distinción importante</text>
+  <rect x="30" y="342" width="360" height="120" fill="#1f2937" stroke="#ed8936" stroke-width="1.5" rx="6"/>
+  <text x="46" y="362" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#fed7aa">PUT — reemplaza el recurso completo</text>
+  <text x="46" y="382" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">body: { name: 'nuevo', price: 10, stock: 5 }</text>
+  <text x="46" y="400" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Si omites un campo, se pierde en el servidor.</text>
+  <text x="46" y="422" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#fed7aa">PATCH — modifica solo los campos enviados</text>
+  <text x="46" y="442" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">body: { price: 15 }   // solo price cambia</text>
 
-  <rect x="760" y="118" width="185" height="90" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="782" y="150" fill="#F0DB4F" font-size="17" font-family="Inter, Roboto, sans-serif" font-weight="700">Paso 4</text>
-  <text x="782" y="178" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">fetch()</text>
+  <!-- Error frecuente -->
+  <rect x="410" y="342" width="360" height="120" fill="#1f2937" stroke="#ef4444" stroke-width="1.5" rx="6"/>
+  <text x="426" y="362" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#ef4444">❌ Error frecuente en body</text>
+  <text x="426" y="384" font-family="Courier,monospace" font-size="11" fill="#fca5a5">body: data          // objeto JS directo</text>
+  <text x="426" y="402" font-family="system-ui,sans-serif" font-size="11" fill="#fca5a5">El server recibe "[object Object]" como string</text>
+  <text x="426" y="424" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#48bb78">✅ Correcto</text>
+  <text x="426" y="444" font-family="Courier,monospace" font-size="11" fill="#86efac">body: JSON.stringify(data)</text>
 
-  <rect x="975" y="118" width="185" height="90" rx="12" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="997" y="150" fill="#F0DB4F" font-size="17" font-family="Inter, Roboto, sans-serif" font-weight="700">Paso 5</text>
-  <text x="997" y="178" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">Procesar respuesta</text>
+  <!-- Content-Type reminder -->
+  <rect x="30" y="478" width="740" height="30" fill="#2d3748" rx="6"/>
+  <text x="400" y="498" font-family="system-ui,sans-serif" font-size="12" fill="#f0db4f" text-anchor="middle">⚠️  Content-Type: application/json es obligatorio cuando envías body JSON — sin él el servidor no deserializa</text>
 
-  <path d="M230 163 L260 163" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M480 163 L510 163" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M730 163 L760 163" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M945 163 L975 163" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-
-  <rect x="40" y="236" width="560" height="192" rx="14" fill="#181818" stroke="#4CAF50" stroke-width="2"/>
-  <text x="60" y="268" fill="#4CAF50" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Decisión clave: ¿qué método usar?</text>
-  <text x="60" y="300" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Si quiero listar o ver detalle → GET</text>
-  <text x="60" y="326" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Si quiero crear recurso nuevo → POST</text>
-  <text x="60" y="352" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Si quiero reemplazar todo el recurso → PUT</text>
-  <text x="60" y="378" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Si solo cambio algunos campos → PATCH</text>
-  <text x="60" y="404" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Si quiero eliminar un recurso → DELETE</text>
-
-  <rect x="620" y="236" width="540" height="192" rx="14" fill="#181818" stroke="#E53935" stroke-width="2"/>
-  <text x="640" y="268" fill="#E53935" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Checklist antes de enviar fetch</text>
-  <text x="640" y="300" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">1. URL correcta: colección o /:id</text>
-  <text x="640" y="326" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">2. Headers: Accept + Content-Type + Authorization</text>
-  <text x="640" y="352" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">3. Body en JSON solo si aplica</text>
-  <text x="640" y="378" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">4. Verificar response.ok y status</text>
-  <text x="640" y="404" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">5. Actualizar estado UI: loading/success/error</text>
-
-  <rect x="40" y="448" width="1120" height="192" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
-  <text x="60" y="480" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Práctica guiada rápida</text>
-  <text x="60" y="512" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Escenario: editar título de recurso #12. Decide método, endpoint, headers y payload.</text>
-  <text x="60" y="538" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">Respuesta esperada: PATCH /items/12 con body parcial y validación de response.ok.</text>
-  <text x="60" y="564" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Discusión: si reemplazas todos los campos, ¿por qué PUT sería más semántico?</text>
-  <text x="60" y="608" fill="#8A8A8A" font-size="14" font-family="Inter, Roboto, sans-serif">Usa este diagrama durante la práctica 03 para justificar cada decisión técnica.</text>
-
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
-    </marker>
-  </defs>
+  <text x="400" y="516" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 16</text>
 </svg>

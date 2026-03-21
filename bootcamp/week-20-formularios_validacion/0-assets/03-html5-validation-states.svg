@@ -1,22 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
-  <title id="title">Estados de validación HTML5</title>
-  <desc id="desc">Representación de campos validos e invalidos con atributos nativos.</desc>
-  <rect width="800" height="500" fill="#1a202c"/>
-  <text x="30" y="40" fill="#f0db4f" font-size="28" font-family="system-ui, sans-serif" font-weight="700">HTML5 Validation States</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">ValidityState: objeto de estado de validación</text>
 
-  <rect x="60" y="95" width="320" height="165" rx="12" fill="#2d3748" stroke="#48bb78"/>
-  <text x="85" y="130" fill="#48bb78" font-size="20" font-family="system-ui, sans-serif" font-weight="700">:valid</text>
-  <text x="85" y="165" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">email="ana@mail.com"</text>
-  <text x="85" y="194" fill="#a0aec0" font-size="15" font-family="system-ui, sans-serif">required + type="email" cumplido</text>
+  <!-- Table header -->
+  <rect x="20" y="52" width="760" height="34" fill="#1e3a5f" rx="6"/>
+  <text x="200" y="74" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#93c5fd" text-anchor="middle">Propiedad</text>
+  <text x="460" y="74" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#93c5fd" text-anchor="middle">Cuando es true...</text>
+  <text x="680" y="74" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#93c5fd" text-anchor="middle">Atributo HTML</text>
 
-  <rect x="420" y="95" width="320" height="165" rx="12" fill="#2d3748" stroke="#ef4444"/>
-  <text x="445" y="130" fill="#ef4444" font-size="20" font-family="system-ui, sans-serif" font-weight="700">:invalid</text>
-  <text x="445" y="165" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">email="ana-mail"</text>
-  <text x="445" y="194" fill="#a0aec0" font-size="15" font-family="system-ui, sans-serif">formato incorrecto</text>
+  <!-- Rows -->
+  <rect x="20" y="88" width="760" height="28" fill="#1f2937" rx="3"/>
+  <text x="200" y="107" font-family="Courier,monospace" font-size="11" fill="#f0db4f" text-anchor="middle">valueMissing</text>
+  <text x="460" y="107" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0" text-anchor="middle">El campo obligatorio está vacío</text>
+  <text x="680" y="107" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">required</text>
 
-  <rect x="60" y="300" width="680" height="160" rx="12" fill="#111827" stroke="#334155"/>
-  <text x="80" y="338" fill="#f0db4f" font-size="20" font-family="system-ui, sans-serif" font-weight="700">Atributos más usados</text>
-  <text x="80" y="370" fill="#e2e8f0" font-size="16" font-family="Courier, monospace">required, minlength, maxlength, type, pattern, min, max</text>
-  <text x="80" y="400" fill="#e2e8f0" font-size="16" font-family="system-ui, sans-serif">Combina validación nativa con mensajes personalizados.</text>
-  <text x="80" y="430" fill="#a0aec0" font-size="15" font-family="system-ui, sans-serif">Evita depender solo de validación visual.</text>
+  <rect x="20" y="118" width="760" height="28" fill="#1e3a5f" rx="3"/>
+  <text x="200" y="137" font-family="Courier,monospace" font-size="11" fill="#f0db4f" text-anchor="middle">typeMismatch</text>
+  <text x="460" y="137" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0" text-anchor="middle">Formato incorrecto para el type</text>
+  <text x="680" y="137" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">type="email|url|..."</text>
+
+  <rect x="20" y="148" width="760" height="28" fill="#1f2937" rx="3"/>
+  <text x="200" y="167" font-family="Courier,monospace" font-size="11" fill="#f0db4f" text-anchor="middle">patternMismatch</text>
+  <text x="460" y="167" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0" text-anchor="middle">No coincide con la regex del patrón</text>
+  <text x="680" y="167" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">pattern="[A-Z]{3}"</text>
+
+  <rect x="20" y="178" width="760" height="28" fill="#1e3a5f" rx="3"/>
+  <text x="200" y="197" font-family="Courier,monospace" font-size="11" fill="#f0db4f" text-anchor="middle">tooShort</text>
+  <text x="460" y="197" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0" text-anchor="middle">Texto más corto que el mínimo</text>
+  <text x="680" y="197" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">minlength="8"</text>
+
+  <rect x="20" y="208" width="760" height="28" fill="#1f2937" rx="3"/>
+  <text x="200" y="227" font-family="Courier,monospace" font-size="11" fill="#f0db4f" text-anchor="middle">tooLong</text>
+  <text x="460" y="227" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0" text-anchor="middle">Texto más largo que el máximo</text>
+  <text x="680" y="227" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">maxlength="50"</text>
+
+  <rect x="20" y="238" width="760" height="28" fill="#1e3a5f" rx="3"/>
+  <text x="200" y="257" font-family="Courier,monospace" font-size="11" fill="#f0db4f" text-anchor="middle">rangeUnderflow</text>
+  <text x="460" y="257" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0" text-anchor="middle">Número menor al mínimo permitido</text>
+  <text x="680" y="257" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">min="0"</text>
+
+  <rect x="20" y="268" width="760" height="28" fill="#1f2937" rx="3"/>
+  <text x="200" y="287" font-family="Courier,monospace" font-size="11" fill="#f0db4f" text-anchor="middle">rangeOverflow</text>
+  <text x="460" y="287" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0" text-anchor="middle">Número mayor al máximo permitido</text>
+  <text x="680" y="287" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">max="100"</text>
+
+  <rect x="20" y="298" width="760" height="28" fill="#1e3a5f" rx="3"/>
+  <text x="200" y="317" font-family="Courier,monospace" font-size="11" fill="#f0db4f" text-anchor="middle">customError</text>
+  <text x="460" y="317" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0" text-anchor="middle">Error personalizado con setCustomValidity</text>
+  <text x="680" y="317" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">JS API</text>
+
+  <rect x="20" y="328" width="760" height="28" fill="#1f2937" rx="3"/>
+  <text x="200" y="347" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">valid</text>
+  <text x="460" y="347" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0" text-anchor="middle">El campo cumple TODAS las restricciones</text>
+  <text x="680" y="347" font-family="Courier,monospace" font-size="11" fill="#86efac" text-anchor="middle">—</text>
+
+  <line x1="20" y1="374" x2="780" y2="374" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Code usage -->
+  <text x="20" y="394" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Acceder al objeto ValidityState</text>
+  <rect x="20" y="406" width="370" height="64" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="34" y="424" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const input = document.querySelector('#email');</text>
+  <text x="34" y="442" font-family="Courier,monospace" font-size="11" fill="#f0db4f">const v = input.validity;</text>
+  <text x="34" y="462" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">if (v.typeMismatch) showError('Email inválido');</text>
+
+  <rect x="410" y="406" width="370" height="64" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="424" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Verificar todo el formulario</text>
+  <text x="424" y="442" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">if (form.checkValidity()) submitData();</text>
+  <text x="424" y="462" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">else form.reportValidity(); // muestra tooltips</text>
+
+  <text x="400" y="478" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 20</text>
 </svg>

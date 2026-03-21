@@ -1,27 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Comparativa textContent vs innerHTML</title>
-  <desc id="desc">Guía visual para elegir entre textContent e innerHTML según seguridad y necesidad.</desc>
-  <rect width="1200" height="680" fill="#0F0F0F"/>
-  <text x="40" y="60" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">textContent vs innerHTML</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480">
+  <rect width="800" height="480" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">textContent vs innerHTML vs insertAdjacentHTML</text>
 
-  <rect x="50" y="120" width="520" height="250" rx="14" fill="#1A1A1A" stroke="#4CAF50" stroke-width="2"/>
-  <text x="74" y="156" fill="#4CAF50" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">textContent</text>
-  <text x="74" y="190" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Inserta texto literal</text>
-  <text x="74" y="218" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• No interpreta etiquetas HTML</text>
-  <text x="74" y="246" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Más seguro para datos externos</text>
-  <text x="74" y="286" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Uso recomendado: datos de usuario/API</text>
+  <!-- textContent -->
+  <rect x="20" y="54" width="370" height="160" fill="#1f2937" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="36" y="76" font-family="Courier,monospace" font-size="14" font-weight="bold" fill="#86efac">.textContent</text>
+  <text x="36" y="96" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Solo texto plano — nunca interpreta HTML</text>
+  <text x="36" y="116" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">el.textContent = userInput;</text>
+  <text x="36" y="136" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Si userInput = '&lt;script&gt;..&lt;/script&gt;'</text>
+  <text x="36" y="156" font-family="Courier,monospace" font-size="11" fill="#86efac">// Se muestra como texto literal — SEGURO</text>
+  <text x="36" y="178" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">✅ Para cualquier contenido del usuario</text>
+  <text x="36" y="198" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">✅ Lee/escribe solo el texto visible</text>
 
-  <rect x="630" y="120" width="520" height="250" rx="14" fill="#1A1A1A" stroke="#E53935" stroke-width="2"/>
-  <text x="654" y="156" fill="#E53935" font-size="24" font-family="Inter, Roboto, sans-serif" font-weight="700">innerHTML</text>
-  <text x="654" y="190" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Interpreta HTML</text>
-  <text x="654" y="218" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Flexible para markup controlado</text>
-  <text x="654" y="246" fill="#F8F8F8" font-size="18" font-family="Inter, Roboto, sans-serif">• Riesgo si hay contenido no sanitizado</text>
-  <text x="654" y="286" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Uso recomendado: fragmentos controlados</text>
+  <!-- innerHTML -->
+  <rect x="410" y="54" width="370" height="160" fill="#1f2937" stroke="#ef4444" stroke-width="2" rx="8"/>
+  <text x="426" y="76" font-family="Courier,monospace" font-size="14" font-weight="bold" fill="#fca5a5">.innerHTML — ⚠️ peligro con user input</text>
+  <text x="426" y="96" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">Interpreta y ejecuta HTML — riesgo XSS</text>
+  <text x="426" y="116" font-family="Courier,monospace" font-size="11" fill="#fca5a5">el.innerHTML = userInput;</text>
+  <text x="426" y="136" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// Si userInput = '&lt;img onerror="steal()"&gt;'</text>
+  <text x="426" y="156" font-family="Courier,monospace" font-size="11" fill="#ef4444">// ← EJECUTA el handler — INSEGURO</text>
+  <text x="426" y="178" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">✅ Solo con HTML de templates propios</text>
+  <text x="426" y="198" font-family="system-ui,sans-serif" font-size="11" fill="#fca5a5">❌ NUNCA con datos del servidor/usuario</text>
 
-  <rect x="50" y="400" width="1100" height="230" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
-  <text x="74" y="438" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Decisión rápida</text>
-  <text x="74" y="470" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">¿Dato externo o ingresado por usuario? → textContent</text>
-  <text x="74" y="496" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">¿HTML fijo y controlado por tu código? → innerHTML</text>
-  <text x="74" y="522" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">¿Lista repetible de componentes? → mejor template + cloneNode</text>
-  <text x="74" y="562" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Nunca interpolar directamente input del usuario en innerHTML sin sanitizar.</text>
+  <line x1="20" y1="232" x2="780" y2="232" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- insertAdjacentHTML -->
+  <text x="20" y="254" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">insertAdjacentHTML — insertar sin destruir el DOM existente</text>
+
+  <rect x="20" y="266" width="370" height="180" fill="#171e2e" rx="6" stroke="#4299e1" stroke-width="1"/>
+  <text x="34" y="286" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// 4 posiciones disponibles:</text>
+  <text x="34" y="304" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">el.insertAdjacentHTML(</text>
+  <text x="34" y="322" font-family="Courier,monospace" font-size="11" fill="#93c5fd">  'beforebegin',  // antes del elemento</text>
+  <text x="34" y="340" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">  '&lt;p&gt;...&lt;/p&gt;'</text>
+  <text x="34" y="358" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">);</text>
+  <text x="34" y="378" font-family="Courier,monospace" font-size="11" fill="#93c5fd">// 'afterbegin'   — primer hijo</text>
+  <text x="34" y="396" font-family="Courier,monospace" font-size="11" fill="#93c5fd">// 'beforeend'    — último hijo (más común)</text>
+  <text x="34" y="414" font-family="Courier,monospace" font-size="11" fill="#93c5fd">// 'afterend'     — después del elemento</text>
+  <text x="34" y="434" font-family="system-ui,sans-serif" font-size="11" fill="#86efac">✅ No destruye listeners del DOM existente</text>
+
+  <!-- Comparison table -->
+  <rect x="410" y="266" width="370" height="180" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="286" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Cuándo usar cada uno</text>
+  <text x="424" y="308" font-family="Courier,monospace" font-size="11" fill="#86efac">textContent</text>
+  <text x="524" y="308" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ datos del usuario, texto puro</text>
+  <text x="424" y="330" font-family="Courier,monospace" font-size="11" fill="#fed7aa">innerHTML</text>
+  <text x="524" y="330" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ template strings propios</text>
+  <text x="424" y="352" font-family="Courier,monospace" font-size="11" fill="#93c5fd">insertAdjacentHTML</text>
+  <text x="424" y="370" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0">→ agregar sin borrar el DOM</text>
+  <text x="424" y="394" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#ef4444">Regla de oro (seguridad)</text>
+  <text x="424" y="414" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">Si el dato viene del usuario, API externa</text>
+  <text x="424" y="432" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">o de localStorage: usa textContent.</text>
+  <text x="424" y="450" font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">innerHTML solo con templates controlados.</text>
+
+  <text x="400" y="474" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 17</text>
 </svg>

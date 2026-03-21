@@ -1,40 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
-  <title id="title">Ciclo de vida del nodo DOM</title>
-  <desc id="desc">Secuencia pedagógica para crear, insertar, actualizar y remover nodos.</desc>
-  <rect width="1200" height="680" fill="#0F0F0F"/>
-  <text x="40" y="60" fill="#F0DB4F" font-size="34" font-family="Inter, Roboto, sans-serif" font-weight="700">Ciclo de vida de un nodo</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#1a202c"/>
+  <text x="400" y="34" font-family="system-ui,sans-serif" font-size="22" font-weight="bold" fill="#f0db4f" text-anchor="middle">Ciclo de vida de un nodo: crear → insertar → remover</text>
 
-  <rect x="60" y="130" width="220" height="120" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="82" y="170" fill="#F0DB4F" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">1. Crear</text>
-  <text x="82" y="202" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">createElement()</text>
+  <!-- Step 1: Create -->
+  <rect x="30" y="60" width="160" height="80" fill="#1e3a5f" stroke="#4299e1" stroke-width="2" rx="8"/>
+  <text x="110" y="84" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#93c5fd" text-anchor="middle">1. Crear</text>
+  <text x="110" y="104" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">createElement()</text>
+  <text x="110" y="122" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">En memoria, NO en DOM</text>
 
-  <rect x="340" y="130" width="220" height="120" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="362" y="170" fill="#F0DB4F" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">2. Configurar</text>
-  <text x="362" y="202" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">text, attrs, classes</text>
+  <!-- Arrow 1→2 -->
+  <line x1="190" y1="100" x2="248" y2="100" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="246,95 256,100 246,105" fill="#4a5568"/>
+  <text x="218" y="92" font-family="system-ui,sans-serif" font-size="9" fill="#a0aec0" text-anchor="middle">configurar</text>
 
-  <rect x="620" y="130" width="220" height="120" rx="14" fill="#1B1B1B" stroke="#F0DB4F" stroke-width="2"/>
-  <text x="642" y="170" fill="#F0DB4F" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">3. Insertar</text>
-  <text x="642" y="202" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">append/prepend</text>
+  <!-- Step 2: Configure -->
+  <rect x="258" y="60" width="160" height="80" fill="#065f46" stroke="#48bb78" stroke-width="2" rx="8"/>
+  <text x="338" y="84" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#86efac" text-anchor="middle">2. Configurar</text>
+  <text x="338" y="104" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">.textContent</text>
+  <text x="338" y="122" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">.classList · .dataset</text>
 
-  <rect x="900" y="130" width="220" height="120" rx="14" fill="#1B1B1B" stroke="#E53935" stroke-width="2"/>
-  <text x="922" y="170" fill="#E53935" font-size="20" font-family="Inter, Roboto, sans-serif" font-weight="700">4. Remover</text>
-  <text x="922" y="202" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">remove()</text>
+  <!-- Arrow 2→3 -->
+  <line x1="418" y1="100" x2="476" y2="100" stroke="#4a5568" stroke-width="2"/>
+  <polygon points="474,95 484,100 474,105" fill="#4a5568"/>
+  <text x="447" y="92" font-family="system-ui,sans-serif" font-size="9" fill="#a0aec0" text-anchor="middle">insertar</text>
 
-  <path d="M280 190 L340 190" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M560 190 L620 190" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
-  <path d="M840 190 L900 190" stroke="#F0DB4F" stroke-width="3" marker-end="url(#arrow)"/>
+  <!-- Step 3: Insert -->
+  <rect x="486" y="60" width="160" height="80" fill="#451a03" stroke="#ed8936" stroke-width="2" rx="8"/>
+  <text x="566" y="84" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#fed7aa" text-anchor="middle">3. Insertar</text>
+  <text x="566" y="104" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">append() · prepend()</text>
+  <text x="566" y="122" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">before() · after()</text>
 
-  <rect x="60" y="300" width="1060" height="300" rx="14" fill="#171717" stroke="#2F2F2F" stroke-width="2"/>
-  <text x="84" y="338" fill="#F0DB4F" font-size="22" font-family="Inter, Roboto, sans-serif" font-weight="700">Puntos de control técnicos</text>
-  <text x="84" y="370" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Un nodo no se duplica al insertar en otro lugar: se mueve.</text>
-  <text x="84" y="396" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Para duplicar estructura, usa cloneNode(true).</text>
-  <text x="84" y="422" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Si remueves nodos, actualiza también el estado en memoria.</text>
-  <text x="84" y="448" fill="#F8F8F8" font-size="17" font-family="Inter, Roboto, sans-serif">• Reemplazar todo el contenedor en cada interacción suele ser costoso.</text>
-  <text x="84" y="488" fill="#BDBDBD" font-size="15" font-family="Inter, Roboto, sans-serif">Ejercicio: crea 3 tarjetas, inserta al inicio y elimina la segunda sin reconstruir toda la lista.</text>
+  <!-- Arrow 3→4 (remove) down -->
+  <line x1="566" y1="140" x2="566" y2="178" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <polygon points="561,176 566,186 571,176" fill="#ef4444"/>
+  <text x="584" y="168" font-family="system-ui,sans-serif" font-size="9" fill="#ef4444">remove()</text>
 
-  <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#F0DB4F"/>
-    </marker>
-  </defs>
+  <!-- Step 4: Removed -->
+  <rect x="486" y="188" width="160" height="60" fill="#450a0a" stroke="#ef4444" stroke-width="1.5" rx="8"/>
+  <text x="566" y="212" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#fca5a5" text-anchor="middle">Removido</text>
+  <text x="566" y="232" font-family="system-ui,sans-serif" font-size="11" fill="#a0aec0" text-anchor="middle">en memoria (GC)</text>
+
+  <line x1="30" y1="270" x2="770" y2="270" stroke="#4a5568" stroke-width="1"/>
+
+  <!-- Code examples -->
+  <text x="30" y="292" font-family="system-ui,sans-serif" font-size="13" font-weight="bold" fill="#f0db4f">Patrón completo con código</text>
+
+  <rect x="30" y="304" width="360" height="190" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="44" y="324" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// 1. Crear elemento</text>
+  <text x="44" y="342" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">const card = document.createElement('article');</text>
+  <text x="44" y="360" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// 2. Configurar</text>
+  <text x="44" y="378" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">card.className = 'card';</text>
+  <text x="44" y="396" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">card.dataset.id = item.id;</text>
+  <text x="44" y="414" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">card.textContent = item.name;</text>
+  <text x="44" y="432" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// 3. Insertar en el DOM</text>
+  <text x="44" y="450" font-family="Courier,monospace" font-size="11" fill="#86efac">container.append(card);</text>
+  <text x="44" y="470" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// 4. Remover</text>
+  <text x="44" y="488" font-family="Courier,monospace" font-size="11" fill="#fca5a5">card.remove();</text>
+
+  <rect x="410" y="304" width="360" height="190" fill="#171e2e" rx="6" stroke="#4a5568" stroke-width="1"/>
+  <text x="424" y="324" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Métodos de inserción disponibles</text>
+  <text x="424" y="346" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">parent.append(el)      // al final</text>
+  <text x="424" y="364" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">parent.prepend(el)     // al inicio</text>
+  <text x="424" y="382" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">ref.before(el)         // antes del ref</text>
+  <text x="424" y="400" font-family="Courier,monospace" font-size="11" fill="#e2e8f0">ref.after(el)          // después del ref</text>
+  <text x="424" y="420" font-family="system-ui,sans-serif" font-size="12" font-weight="bold" fill="#f0db4f">Limpiar un contenedor</text>
+  <text x="424" y="442" font-family="Courier,monospace" font-size="11" fill="#fca5a5">container.innerHTML = ''  // ⚠️ lento</text>
+  <text x="424" y="460" font-family="Courier,monospace" font-size="11" fill="#86efac">container.replaceChildren()  // ✅ moderno</text>
+  <text x="424" y="480" font-family="Courier,monospace" font-size="11" fill="#a0aec0">// o al re-renderizar: append todos de nuevo</text>
+
+  <text x="400" y="514" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 17</text>
 </svg>
