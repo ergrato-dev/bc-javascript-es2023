@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procesador de Archivos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>📁 Procesador de Archivos</h1>
+    <p>Carga, procesa y descarga archivos de tu dominio</p>
+  </header>
+
+  <main>
+    <!-- Sección de carga -->
+    <section class="upload-section">
+      <h2>1. Cargar archivo</h2>
+      <div id="dropZone" class="drop-zone">
+        <p>Arrastra un archivo aquí</p>
+        <p>o</p>
+        <label class="file-label">
+          Seleccionar archivo
+          <input type="file" id="fileInput" accept=".txt,.json,.csv">
+        </label>
+      </div>
+      <p id="fileInfo" class="file-info"></p>
+    </section>
+
+    <!-- Sección de contenido original -->
+    <section class="content-section">
+      <h2>2. Contenido original</h2>
+      <pre id="originalContent" class="content-box">El contenido del archivo aparecerá aquí...</pre>
+    </section>
+
+    <!-- Sección de procesamiento -->
+    <section class="process-section">
+      <h2>3. Resultado procesado</h2>
+      <button id="processBtn" disabled>Procesar</button>
+      <pre id="processedContent" class="content-box"></pre>
+    </section>
+
+    <!-- Sección de descarga -->
+    <section class="download-section">
+      <h2>4. Descargar resultado</h2>
+      <button id="downloadBtn" disabled>Descargar resultado</button>
+      <p id="downloadStatus"></p>
+    </section>
+
+    <!-- Mensajes de error -->
+    <p id="errorMsg" class="error-msg" role="alert"></p>
+  </main>
+
+  <script src="starter/script.js"></script>
+</body>
+
+</html>

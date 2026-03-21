@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460">
+  <rect width="800" height="460" fill="#1a202c"/>
+  <text x="400" y="30" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#f0db4f" text-anchor="middle">Blob + URL.createObjectURL: Flujo Completo</text>
+  <rect x="20" y="48" width="165" height="90" rx="6" fill="#2d3748" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="102" y="66" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#93c5fd" text-anchor="middle">Paso 1</text>
+  <text x="102" y="82" font-family="Courier,monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">new Blob(</text>
+  <text x="102" y="96" font-family="Courier,monospace" font-size="10" fill="#f0db4f" text-anchor="middle">  [content],</text>
+  <text x="102" y="110" font-family="Courier,monospace" font-size="10" fill="#f0db4f" text-anchor="middle">  {type}</text>
+  <text x="102" y="124" font-family="Courier,monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">)</text>
+  <line x1="185" y1="93" x2="218" y2="93" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="220" y="48" width="175" height="90" rx="6" fill="#2d3748" stroke="#86efac" stroke-width="1.5"/>
+  <text x="307" y="66" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#86efac" text-anchor="middle">Paso 2</text>
+  <text x="307" y="82" font-family="Courier,monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">URL.createObjectURL(</text>
+  <text x="307" y="96" font-family="Courier,monospace" font-size="10" fill="#f0db4f" text-anchor="middle">  blob</text>
+  <text x="307" y="110" font-family="Courier,monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">)</text>
+  <text x="307" y="128" font-family="Courier,monospace" font-size="9" fill="#94a3b8" text-anchor="middle">"blob:http://..."</text>
+  <line x1="395" y1="93" x2="428" y2="93" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="430" y="48" width="165" height="90" rx="6" fill="#2d3748" stroke="#fed7aa" stroke-width="1.5"/>
+  <text x="512" y="66" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fed7aa" text-anchor="middle">Paso 3</text>
+  <text x="512" y="82" font-family="Courier,monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">Usar la URL</text>
+  <text x="512" y="98" font-family="Courier,monospace" font-size="10" fill="#f0db4f" text-anchor="middle">img.src = url</text>
+  <text x="512" y="112" font-family="Courier,monospace" font-size="10" fill="#94a3b8" text-anchor="middle">link.href = url</text>
+  <text x="512" y="126" font-family="Courier,monospace" font-size="10" fill="#94a3b8" text-anchor="middle">video.src = url</text>
+  <line x1="595" y1="93" x2="628" y2="93" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="630" y="48" width="150" height="90" rx="6" fill="#2d3748" stroke="#fca5a5" stroke-width="2"/>
+  <text x="705" y="66" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fca5a5" text-anchor="middle">Paso 4 (CRITICO)</text>
+  <text x="705" y="82" font-family="Courier,monospace" font-size="10" fill="#fca5a5" text-anchor="middle">URL.revokeObjectURL(</text>
+  <text x="705" y="96" font-family="Courier,monospace" font-size="10" fill="#fca5a5" text-anchor="middle">  url</text>
+  <text x="705" y="110" font-family="Courier,monospace" font-size="10" fill="#fca5a5" text-anchor="middle">)</text>
+  <text x="705" y="128" font-family="system-ui,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Libera memoria</text>
+  <text x="40" y="165" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">Propiedades del Blob:</text>
+  <rect x="20" y="172" width="250" height="72" rx="6" fill="#2d3748"/>
+  <rect x="28" y="180" width="234" height="56" rx="4" fill="#171e2e"/>
+  <text x="36" y="196" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">blob.size   // bytes del contenido</text>
+  <text x="36" y="212" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">blob.type   // "text/plain"</text>
+  <text x="36" y="228" font-family="Courier,monospace" font-size="10" fill="#86efac">blob.slice(start, end, type)</text>
+  <text x="285" y="165" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">Tipos MIME comunes:</text>
+  <rect x="280" y="172" width="230" height="72" rx="6" fill="#2d3748"/>
+  <rect x="288" y="180" width="214" height="56" rx="4" fill="#171e2e"/>
+  <text x="296" y="196" font-family="Courier,monospace" font-size="10" fill="#93c5fd">"text/plain"</text>
+  <text x="296" y="212" font-family="Courier,monospace" font-size="10" fill="#93c5fd">"application/json"</text>
+  <text x="296" y="228" font-family="Courier,monospace" font-size="10" fill="#93c5fd">"text/csv"  "image/png"</text>
+  <rect x="20" y="262" width="760" height="175" rx="6" fill="#2d3748"/>
+  <text x="30" y="280" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">Funcion downloadBlob reutilizable</text>
+  <rect x="28" y="287" width="744" height="142" rx="4" fill="#171e2e"/>
+  <text x="36" y="304" font-family="Courier,monospace" font-size="10" fill="#94a3b8">const downloadBlob = (content, filename, mimeType = "text/plain") =&gt; {</text>
+  <text x="36" y="320" font-family="Courier,monospace" font-size="10" fill="#f0db4f">  const blob = new Blob([content], { type: mimeType });</text>
+  <text x="36" y="336" font-family="Courier,monospace" font-size="10" fill="#f0db4f">  const url = URL.createObjectURL(blob);</text>
+  <text x="36" y="352" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  const link = document.createElement("a");</text>
+  <text x="36" y="368" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  link.href = url;</text>
+  <text x="36" y="384" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  link.download = filename;</text>
+  <text x="36" y="400" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  link.click();</text>
+  <text x="36" y="416" font-family="Courier,monospace" font-size="10" fill="#fca5a5">  URL.revokeObjectURL(url);</text>
+  <text x="36" y="428" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">};</text>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>

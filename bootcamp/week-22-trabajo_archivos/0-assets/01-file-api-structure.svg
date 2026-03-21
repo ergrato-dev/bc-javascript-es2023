@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460">
+  <rect width="800" height="460" fill="#1a202c"/>
+  <text x="400" y="32" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#f0db4f" text-anchor="middle">File API: Estructura y Propiedades</text>
+  <rect x="20" y="50" width="230" height="110" rx="6" fill="#2d3748"/>
+  <text x="30" y="70" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">HTML: input type=file</text>
+  <rect x="28" y="78" width="214" height="72" rx="4" fill="#171e2e"/>
+  <text x="36" y="96" font-family="Courier,monospace" font-size="10" fill="#93c5fd">&lt;input</text>
+  <text x="36" y="110" font-family="Courier,monospace" font-size="10" fill="#f0db4f">  type="file"</text>
+  <text x="36" y="124" font-family="Courier,monospace" font-size="10" fill="#f0db4f">  accept=".txt,.json"</text>
+  <text x="36" y="138" font-family="Courier,monospace" font-size="10" fill="#f0db4f">  multiple&gt;</text>
+  <line x1="252" y1="105" x2="285" y2="105" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="287" y="50" width="200" height="110" rx="6" fill="#2d3748"/>
+  <text x="297" y="70" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#f0db4f">FileList</text>
+  <rect x="295" y="78" width="184" height="72" rx="4" fill="#171e2e"/>
+  <text x="303" y="95" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">const files = input.files;</text>
+  <text x="303" y="110" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">const arr = Array.from(files);</text>
+  <text x="303" y="125" font-family="Courier,monospace" font-size="10" fill="#86efac">files.length  // 2</text>
+  <text x="303" y="140" font-family="Courier,monospace" font-size="10" fill="#86efac">files[0]      // File obj</text>
+  <line x1="489" y1="105" x2="520" y2="105" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="522" y="50" width="258" height="110" rx="6" fill="#2d3748"/>
+  <text x="532" y="70" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#f0db4f">File (propiedades)</text>
+  <rect x="530" y="78" width="242" height="72" rx="4" fill="#171e2e"/>
+  <text x="538" y="96" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">file.name         // "datos.json"</text>
+  <text x="538" y="110" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">file.size         // 2048</text>
+  <text x="538" y="124" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">file.type         // "application/json"</text>
+  <text x="538" y="138" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">file.lastModified // 1700000000000</text>
+  <rect x="20" y="175" width="280" height="200" rx="6" fill="#2d3748"/>
+  <text x="30" y="195" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">Valores de accept</text>
+  <rect x="28" y="202" width="264" height="165" rx="4" fill="#171e2e"/>
+  <text x="36" y="220" font-family="Courier,monospace" font-size="10" fill="#f0db4f">accept</text>
+  <text x="140" y="220" font-family="Courier,monospace" font-size="10" fill="#94a3b8">Descripcion</text>
+  <line x1="28" y1="225" x2="292" y2="225" stroke="#4a5568" stroke-width="1"/>
+  <text x="36" y="240" font-family="Courier,monospace" font-size="10" fill="#93c5fd">.txt</text>
+  <text x="140" y="240" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">Texto plano</text>
+  <text x="36" y="256" font-family="Courier,monospace" font-size="10" fill="#93c5fd">.json</text>
+  <text x="140" y="256" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">JSON</text>
+  <text x="36" y="272" font-family="Courier,monospace" font-size="10" fill="#93c5fd">.csv</text>
+  <text x="140" y="272" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">Valores separados por coma</text>
+  <text x="36" y="288" font-family="Courier,monospace" font-size="10" fill="#93c5fd">image/*</text>
+  <text x="140" y="288" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">Cualquier imagen</text>
+  <text x="36" y="304" font-family="Courier,monospace" font-size="10" fill="#93c5fd">application/pdf</text>
+  <text x="140" y="304" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">PDF</text>
+  <text x="36" y="320" font-family="Courier,monospace" font-size="10" fill="#93c5fd">multiple</text>
+  <text x="140" y="320" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">Permite varios archivos</text>
+  <text x="36" y="355" font-family="system-ui,sans-serif" font-size="10" fill="#64748b">Combinables: accept=".jpg,.png,image/*"</text>
+  <rect x="315" y="175" width="465" height="200" rx="6" fill="#2d3748"/>
+  <text x="325" y="195" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#86efac">Leer archivos al seleccionar</text>
+  <rect x="323" y="202" width="449" height="165" rx="4" fill="#171e2e"/>
+  <text x="331" y="218" font-family="Courier,monospace" font-size="10" fill="#94a3b8">const input = document.querySelector("input[type=file]");</text>
+  <text x="331" y="233" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">input.addEventListener("change", (e) =&gt; {</text>
+  <text x="331" y="248" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  const files = Array.from(e.target.files);</text>
+  <text x="331" y="263" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  files.forEach(file =&gt; {</text>
+  <text x="331" y="278" font-family="Courier,monospace" font-size="10" fill="#86efac">    console.log(file.name, file.size);</text>
+  <text x="331" y="293" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">    const reader = new FileReader();</text>
+  <text x="331" y="308" font-family="Courier,monospace" font-size="10" fill="#f0db4f">    reader.readAsText(file);</text>
+  <text x="331" y="323" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">    reader.onload = ev =&gt; console.log(ev.target.result);</text>
+  <text x="331" y="338" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">  });</text>
+  <text x="331" y="353" font-family="Courier,monospace" font-size="10" fill="#e2e8f0">});</text>
+  <text x="400" y="400" font-family="system-ui,sans-serif" font-size="11" fill="#64748b" text-anchor="middle">File extiende Blob: tiene las mismas propiedades mas name y lastModified</text>
+  <text x="400" y="418" font-family="system-ui,sans-serif" font-size="11" fill="#64748b" text-anchor="middle">input.files es de solo lectura (FileList); usar Array.from() para operaciones de array</text>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
