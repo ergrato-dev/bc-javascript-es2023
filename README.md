@@ -220,6 +220,26 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 
 ---
 
+## ⚠️ Exención de Responsabilidad
+
+> **AVISO LEGAL**: Este proyecto es material educativo de código abierto distribuido **"tal como está"** sin garantía de ningún tipo.
+
+Al utilizar este repositorio y sus contenidos, aceptas las siguientes condiciones:
+
+1. **Propósito educativo**: Este bootcamp es exclusivamente material de aprendizaje. No garantiza, explícita ni implícitamente, la obtención de empleo, certificación oficial o nivel de competencia específico al finalizarlo.
+
+2. **Sin garantía de resultados**: Los resultados del aprendizaje dependen del esfuerzo, dedicación y circunstancias individuales de cada estudiante. Los autores y contribuidores no son responsables del progreso o resultados obtenidos.
+
+3. **Exactitud del contenido**: Aunque se realiza un esfuerzo razonable para mantener el contenido actualizado y preciso, el ecosistema JavaScript evoluciona constantemente. Los autores no garantizan que todos los ejemplos, prácticas o referencias estén libres de errores o sean aplicables a versiones futuras.
+
+4. **Recursos de terceros**: Los enlaces, libros, videos y herramientas externas referenciados pertenecen a sus respectivos propietarios. Los autores de este repositorio no se responsabilizan por la disponibilidad, exactitud o contenido de dichos recursos.
+
+5. **Uso del código**: Los ejemplos de código se proporcionan con fines pedagógicos. Su uso en entornos de producción es responsabilidad exclusiva del usuario. Los autores no asumen responsabilidad por daños directos, indirectos o consecuentes derivados del uso de estos materiales.
+
+6. **Propiedad intelectual**: El contenido original de este repositorio está bajo licencia [MIT](LICENSE). Los estudiantes son responsables de respetar los derechos de autor de los recursos externos utilizados.
+
+---
+
 <p align="center">
   <strong>🎓 Bootcamp JavaScript Moderno (ES2023)</strong><br>
   <em>De cero a desarrollador JavaScript Junior en 7 meses</em>
