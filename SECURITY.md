@@ -182,27 +182,86 @@ Los contribuidores de seguridad serán listados en:
 
 ### Herramientas
 
-- [npm audit](https://docs.npmjs.com/cli/v8/commands/npm-audit) - Auditar dependencias
+- [pnpm audit](https://pnpm.io/cli/audit) - Auditar dependencias (gestor oficial)
 - [Snyk](https://snyk.io/) - Escaneo de vulnerabilidades
 - [ESLint Security Plugin](https://github.com/nodesecurity/eslint-plugin-security)
+- [StepSecurity Harden Runner](https://github.com/step-security/harden-runner) - Hardening GitHub Actions
 
 ---
 
-## 🔐 Dependencias
+## 📌 Regla de Oro: Versiones Pinadas (Zero Floating Versions)
 
-Mantenemos actualizadas las dependencias del proyecto:
+> **⚠️ PROHIBIDO usar rangos de versión flotantes. Toda dependencia debe estar pinada a una versión exacta.**
 
-```bash
-# Auditar dependencias (usar pnpm o yarn)
-pnpm audit
-yarn audit
+### ❌ Prohibido
 
-# Actualizar dependencias con vulnerabilidades
-pnpm update
-yarn upgrade
+```json
+// package.json — NUNCA usar rangos flotantes
+{
+  "dependencies": {
+    "express": "^4.18.0",    // ❌ ^ acepta minor/patch sin control
+    "lodash": ">=4.0.0",     // ❌ >= acepta cualquier versión futura
+    "axios": "~1.4.0",       // ❌ ~ acepta patch sin control
+    "react": "*"             // ❌ * acepta todo, inaceptable
+  }
+}
 ```
 
-**Frecuencia de Revisión**: Mensual o cuando se descubra una vulnerabilidad crítica
+```yaml
+# GitHub Actions — NUNCA usar tags mutables
+uses: actions/checkout@v4          # ❌ tag mutable, puede ser modificado
+uses: actions/setup-node@main      # ❌ rama flotante
+```
+
+### ✅ Obligatorio
+
+```json
+// package.json — versiones exactas siempre
+{
+  "dependencies": {
+    "express": "4.18.2",     // ✅ versión exacta
+    "lodash": "4.17.21",    // ✅ versión exacta
+    "axios": "1.4.0"        // ✅ versión exacta
+  }
+}
+```
+
+```yaml
+# GitHub Actions — SHA de commit inmutable
+# actions/checkout@v4.1.1
+uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11   # ✅ SHA pinado
+# actions/github-script@v7.1.0
+uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # ✅ SHA pinado
+```
+
+### Por qué esto importa
+
+| Vector | Riesgo con versión flotante | Mitigación con SHA pinado |
+|---|---|---|
+| `npm install` con `^` | Instala versión comprometida automáticamente | Instala solo la versión auditada |
+| GitHub Action con tag `@v4` | El tag puede ser movido a un commit malicioso | SHA inmutable, imposible redirigir |
+| Supply chain attack | Un paquete popular comprometido compromete tu CI/CD | El SHA solo coincide si el código es exactamente el auditado |
+
+### Flujo de Actualización Segura
+
+```bash
+# 1. Auditar dependencias actuales
+pnpm audit
+
+# 2. Ver qué paquetes tienen CVEs
+pnpm audit --audit-level=moderate
+
+# 3. Actualizar solo el paquete afectado a versión exacta
+pnpm add nombre-paquete@X.Y.Z
+
+# 4. Volver a auditar para confirmar
+pnpm audit
+
+# 5. Para GitHub Actions: obtener SHA del nuevo tag
+# gh api repos/OWNER/ACTION/git/refs/tags/vX.Y.Z --jq '.object.sha'
+```
+
+**Frecuencia de Revisión**: Mensual o cuando se publique un CVE de severidad ≥ CVSS 7.0
 
 ---
 
@@ -252,7 +311,7 @@ Agradecemos a todos los investigadores de seguridad y contribuidores que nos ayu
 
 ---
 
-*Última actualización: Diciembre 2025*
-*Versión: 1.0*
+*Última actualización: Abril 2026*
+*Versión: 1.1*
 
 **Para consultas urgentes de seguridad, contacta: [security@ejemplo.com](mailto:security@ejemplo.com)**

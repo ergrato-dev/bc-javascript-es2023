@@ -3,11 +3,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ergrato-dev/bc-javascript-es2023/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
+  <a href="https://github.com/ergrato-dev/bc-javascript-es2023/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--SA--4.0-lightgrey.svg" alt="License CC BY-NC-SA 4.0"></a>
   <a href="#"><img src="https://img.shields.io/badge/weeks-28-yellow.svg" alt="28 Weeks"></a>
   <a href="#"><img src="https://img.shields.io/badge/hours-224-orange.svg" alt="224 Hours"></a>
   <a href="#"><img src="https://img.shields.io/badge/JavaScript-ES2023-F7DF1E?logo=javascript" alt="JavaScript ES2023"></a>
-  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
 </p>
 
 <p align="center">
@@ -162,29 +161,6 @@ Each week includes three types of evidence:
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! This is an open-source educational project.
-
-### How to Contribute
-
-1. Read the [Contributing Guide](CONTRIBUTING.md)
-2. Review the [Code of Conduct](CODE_OF_CONDUCT.md)
-3. Fork the repository
-4. Create your branch (`git checkout -b feature/new-feature`)
-5. Commit with [Conventional Commits](https://www.conventionalcommits.org/) (`git commit -m 'feat: add new exercise'`)
-6. Push to the branch (`git push origin feature/new-feature`)
-7. Open a Pull Request
-
-### 📋 Contribution Areas
-
-- ✨ Additional exercises
-- 📚 Documentation improvements
-- 🐛 Bug fixes
-- 🎨 Visual resources (SVG diagrams)
-- 🌐 Translations
-- 📹 Video tutorials
-
 ---
 
 ## 📞 Support
@@ -197,7 +173,9 @@ Contributions are welcome! This is an open-source educational project.
 
 ## 📄 License
 
-This project is under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under [CC BY-NC-SA 4.0](LICENSE) (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International).
+
+You may share and adapt the material for educational purposes, provided you give credit, do not use it commercially, and distribute under the same license.
 
 ---
 
@@ -207,15 +185,12 @@ This project is under the MIT License - see the [LICENSE](LICENSE) file for deta
 - [JavaScript.info](https://javascript.info/) - For excellent tutorials
 - [TC39](https://tc39.es/) - For evolving JavaScript
 - JavaScript Community - For resources and examples
-- All contributors
 
 ---
 
 ## 📚 Additional Documentation
 
 - [🤖 Copilot Instructions](.github/copilot-instructions.md)
-- [🤝 Contributing Guide](CONTRIBUTING.md)
-- [📜 Code of Conduct](CODE_OF_CONDUCT.md)
 - [🔒 Security Policy](SECURITY.md)
 
 ---
@@ -236,7 +211,7 @@ By using this repository and its contents, you agree to the following terms:
 
 5. **Use of code**: Code examples are provided for pedagogical purposes. Their use in production environments is solely the responsibility of the user. The authors assume no liability for direct, indirect, or consequential damages arising from the use of these materials.
 
-6. **Intellectual property**: The original content of this repository is licensed under [MIT](LICENSE). Students are responsible for respecting the copyright of any external resources used.
+6. **Intellectual property**: The original content of this repository is licensed under [CC BY-NC-SA 4.0](LICENSE). Students are responsible for respecting the copyright of any external resources used.
 
 ---
 
@@ -248,8 +223,7 @@ By using this repository and its contents, you agree to the following terms:
 <p align="center">
   <a href="bootcamp/week-01-introduccion_javascript_moderno_es2023">Start Week 1</a> •
   <a href="_docs">View Documentation</a> •
-  <a href="../../issues">Report Issue</a> •
-  <a href="CONTRIBUTING.md">Contribute</a>
+  <a href="../../issues">Report Issue</a>
 </p>
 
 <p align="center">
