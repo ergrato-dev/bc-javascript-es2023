@@ -184,6 +184,7 @@ pids/
 *.seed
 *.pid.lock
 lib-cov/
+*_pdf
 
 # Runtime data
 pids

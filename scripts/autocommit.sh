@@ -10,7 +10,7 @@
 
 # Configuration
 REPO_PATH="/home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023"
-LOGFILE="${REPO_PATH}/_scripts/autocommit.log"
+LOGFILE="${REPO_PATH}/scripts/autocommit.log"
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
 # Colors for output
@@ -53,7 +53,7 @@ detect_commit_type() {
     fi
 
     # Check for asset files
-    if echo "$changes" | grep -qi "\.svg\|\.png\|\.jpg\|_assets/"; then
+    if echo "$changes" | grep -qi "\.svg\|\.png\|\.jpg\|assets/"; then
         echo "style"
         return
     fi
@@ -74,13 +74,13 @@ detect_scope() {
     fi
 
     # Check for scripts
-    if echo "$changes" | grep -q "_scripts/"; then
+    if echo "$changes" | grep -q "scripts/"; then
         echo "scripts"
         return
     fi
 
     # Check for docs
-    if echo "$changes" | grep -q "_docs/"; then
+    if echo "$changes" | grep -q "docs/"; then
         echo "docs"
         return
     fi

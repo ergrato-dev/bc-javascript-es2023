@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="_assets/bootcamp-header.svg" alt="Bootcamp JavaScript ES2023" width="800">
+  <img src="assets/bootcamp-header.svg" alt="Bootcamp JavaScript ES2023" width="800">
 </p>
 
 <p align="center">
@@ -222,7 +222,7 @@ By using this repository and its contents, you agree to the following terms:
 
 <p align="center">
   <a href="bootcamp/week-01-introduccion_javascript_moderno_es2023">Start Week 1</a> •
-  <a href="_docs">View Documentation</a> •
+  <a href="docs">View Documentation</a> •
   <a href="../../issues">Report Issue</a>
 </p>
 
