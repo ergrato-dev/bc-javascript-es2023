@@ -26,20 +26,20 @@ Automated commit system using Conventional Commits that runs every 5 minutes on 
 
 ```bash
 # Run the installer
-./_scripts/install-cron.sh
+./scripts/install-cron.sh
 ```
 
 ### Option 2: Manual Installation
 
 ```bash
 # 1. Make script executable
-chmod +x _scripts/autocommit.sh
+chmod +x scripts/autocommit.sh
 
 # 2. Edit crontab
 crontab -e
 
 # 3. Add this line:
-*/5 * * * * /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023/_scripts/autocommit.sh >> /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023/_scripts/autocommit.log 2>&1
+*/5 * * * * /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023/scripts/autocommit.sh >> /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023/scripts/autocommit.log 2>&1
 
 # 4. Save and exit
 ```
@@ -71,8 +71,8 @@ Impact: Ensures continuous backup and detailed history
 ### Scopes
 
 - `week-XX`: Week-specific changes
-- `scripts`: Changes in _scripts/
-- `docs`: Changes in _docs/
+- `scripts`: Changes in scripts/
+- `docs`: Changes in docs/
 - `config`: Root configuration files
 - `general`: Other changes
 
@@ -168,19 +168,19 @@ crontab -l
 
 ```bash
 # Real-time log viewing
-tail -f _scripts/autocommit.log
+tail -f scripts/autocommit.log
 
 # View last 50 lines
-tail -n 50 _scripts/autocommit.log
+tail -n 50 scripts/autocommit.log
 
 # Search for errors
-grep ERROR _scripts/autocommit.log
+grep ERROR scripts/autocommit.log
 ```
 
 ### Test script manually
 
 ```bash
-./_scripts/autocommit.sh
+./scripts/autocommit.sh
 ```
 
 ### Remove cron job
@@ -194,17 +194,17 @@ crontab -e
 
 **Issue**: Script doesn't run
 - Check if crond service is running: `sudo systemctl status crond`
-- Verify script is executable: `ls -l _scripts/autocommit.sh`
+- Verify script is executable: `ls -l scripts/autocommit.sh`
 - Check cron logs: `sudo journalctl -u crond`
 
 **Issue**: No commits being made
 - Check if there are actual changes: `git status`
-- Run script manually to see errors: `./_scripts/autocommit.sh`
-- Check log file: `cat _scripts/autocommit.log`
+- Run script manually to see errors: `./scripts/autocommit.sh`
+- Check log file: `cat scripts/autocommit.log`
 
 **Issue**: Permission denied
-- Make script executable: `chmod +x _scripts/autocommit.sh`
-- Check file permissions: `ls -l _scripts/`
+- Make script executable: `chmod +x scripts/autocommit.sh`
+- Check file permissions: `ls -l scripts/`
 
 ---
 

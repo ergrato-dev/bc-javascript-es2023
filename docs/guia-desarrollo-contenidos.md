@@ -510,7 +510,7 @@ Antes de considerar una semana completa:
 ## 🔗 Referencias
 
 - [Instrucciones para GitHub Copilot](/.github/copilot-instructions.md)
-- [Plan de Estudios](_docs/plan-estudios.md)
+- [Plan de Estudios](docs/plan-estudios.md)
 - [README Principal](../README.md)
 
 ---
