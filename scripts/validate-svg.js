@@ -74,7 +74,8 @@ const parseTextElements = svgContent => {
   while ((match = textRegex.exec(svgContent)) !== null) {
     const [fullMatch, attributes, content] = match;
     const text = {
-      content: content.trim(),
+      // Decode XML entities so &lt; counts as one character, not four
+      content: content.trim().replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&'),
       x: extractAttr(attributes, 'x', 0),
       y: extractAttr(attributes, 'y', 0),
       fontSize: extractFontSize(attributes),

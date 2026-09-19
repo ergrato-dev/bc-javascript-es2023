@@ -87,7 +87,7 @@
 
   <!-- Listeners Set visualization -->
   <rect x="540" y="100" width="140" height="80" rx="6" fill="#0f172a"/>
-  <text x="610" y="120" text-anchor="middle" class="box-subtitle">#listeners (Set)</text>
+  <text x="610" y="120" text-anchor="middle" class="box-subtitle">#listeners</text>
   <text x="555" y="140" class="code-comment">// Callbacks</text>
   <text x="555" y="155" class="code">fn1 → CartView</text>
   <text x="555" y="170" class="code">fn2 → Badge</text>

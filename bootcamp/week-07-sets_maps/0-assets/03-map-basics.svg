@@ -93,7 +93,7 @@
   <!-- Comparison -->
   <rect class="box" x="400" y="310" width="370" height="60"/>
   <text class="label" x="420" y="335" font-weight="bold">Map vs Object</text>
-  <text class="subtitle" x="420" y="355" font-size="10">✓ Claves de cualquier tipo  ✓ Orden garantizado  ✓ size nativo  ✓ Iterable</text>
+  <text class="subtitle" x="420" y="355" font-size="10">✓ Cualquier tipo de clave ✓ Ordenado ✓ size ✓ Iterable</text>
 
   <!-- Footer -->
   <text class="subtitle" x="400" y="385" text-anchor="middle">Week 07 - Sets y Maps | JavaScript ES2023</text>

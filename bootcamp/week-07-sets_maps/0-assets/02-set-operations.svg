@@ -57,14 +57,14 @@
   <text class="op-label" x="440" y="165">INTERSECCIÓN (A ∩ B)</text>
   <text class="subtitle" x="440" y="180" font-size="10">Solo elementos en ambos</text>
   <text class="result" x="440" y="198">{3, 4}</text>
-  <text class="result" x="600" y="198" fill="#9ca3af">[...a].filter(x => b.has(x))</text>
+  <text class="result" x="540" y="198" fill="#9ca3af">[...a].filter(x => b.has(x))</text>
 
   <!-- Difference A-B -->
   <rect class="box" x="420" y="220" width="360" height="70"/>
   <text class="op-label" x="440" y="245">DIFERENCIA (A - B)</text>
   <text class="subtitle" x="440" y="260" font-size="10">En A pero no en B</text>
   <text class="result" x="440" y="278">{1, 2}</text>
-  <text class="result" x="600" y="278" fill="#9ca3af">[...a].filter(x => !b.has(x))</text>
+  <text class="result" x="540" y="278" fill="#9ca3af">[...a].filter(x => !b.has(x))</text>
 
   <!-- Symmetric Difference -->
   <rect class="box" x="420" y="300" width="360" height="70"/>

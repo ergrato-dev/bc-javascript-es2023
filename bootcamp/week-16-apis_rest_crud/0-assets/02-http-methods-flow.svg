@@ -52,7 +52,7 @@
 
   <!-- Content-Type reminder -->
   <rect x="30" y="478" width="740" height="30" fill="#2d3748" rx="6"/>
-  <text x="400" y="498" font-family="system-ui,sans-serif" font-size="12" fill="#f0db4f" text-anchor="middle">⚠️  Content-Type: application/json es obligatorio cuando envías body JSON — sin él el servidor no deserializa</text>
+  <text x="400" y="498" font-family="system-ui,sans-serif" font-size="12" fill="#f0db4f" text-anchor="middle">⚠️ Content-Type: application/json es obligatorio con body JSON; sin él el servidor no lo deserializa</text>
 
   <text x="400" y="516" font-family="system-ui,sans-serif" font-size="10" fill="#4a5568" text-anchor="middle">Bootcamp JavaScript ES2023 — Semana 16</text>
 </svg>

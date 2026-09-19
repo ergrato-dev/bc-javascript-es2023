@@ -104,7 +104,7 @@
   <rect x="470" y="290" width="120" height="30" fill="#1e3a5f" stroke="#3b82f6" rx="4"/>
   <text class="label" x="530" y="310" text-anchor="middle">Limpiado ✓</text>
 
-  <text class="subtitle" x="650" y="310">Sin memory leak</text>
+  <text class="subtitle" x="790" y="310" text-anchor="end">Sin memory leak</text>
 
   <!-- Use Cases -->
   <rect class="box" x="30" y="345" width="235" height="80"/>

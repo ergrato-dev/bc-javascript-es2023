@@ -73,7 +73,7 @@
   <!-- Practice 6: Don't Swallow -->
   <rect x="600" y="225" width="270" height="120" rx="8" fill="#1e293b" stroke="#22c55e" stroke-width="2"/>
   <text x="620" y="250" class="icon do">✓</text>
-  <text x="645" y="253" class="practice-title">No Tragues Errores</text>
+  <text x="645" y="253" class="practice-title">No Silenciar</text>
   <text x="615" y="280" class="practice-text">Siempre maneja o propaga.</text>
   <text x="615" y="300" class="practice-text">catch vacío = bug oculto.</text>
   <text x="615" y="320" class="practice-text">Al menos loguea el error.</text>
