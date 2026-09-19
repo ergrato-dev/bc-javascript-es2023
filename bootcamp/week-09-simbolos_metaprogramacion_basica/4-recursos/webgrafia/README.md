@@ -90,7 +90,7 @@
 | Herramienta | Enlace |
 |-------------|--------|
 | Can I Use - Symbol | [caniuse.com](https://caniuse.com/?search=Symbol) |
-| ES2023 Compatibility Table | [kangax.github.io](https://kangax.github.io/compat-table/es6/) |
+| ES6 Compatibility Table | [kangax.github.io](https://kangax.github.io/compat-table/es6/) |
 
 ### Especificación ECMAScript
 

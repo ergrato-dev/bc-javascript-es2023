@@ -1,13 +1,13 @@
 /**
  * ============================================
- * PROYECTO SEMANA 04 - SISTEMA MODULAR ES6
+ * PROYECTO SEMANA 04 - SISTEMA MODULAR ES
  * Punto de entrada principal de la aplicación
  * ============================================
  *
  * INSTRUCCIONES:
  * 1. Lee el README.md del proyecto para entender la estructura
  * 2. Adapta TODOS los módulos a tu dominio asignado
- * 3. Usa import/export ES6 en todos los archivos
+ * 3. Usa import/export (módulos ES) en todos los archivos
  * 4. Implementa dynamic imports para features
  * 5. Comentarios en español, nomenclatura en inglés
  *

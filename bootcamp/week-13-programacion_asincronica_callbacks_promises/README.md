@@ -90,7 +90,7 @@ week-13-programacion_asincronica_callbacks_promises/
 
 | Proyecto | Descripción | Enlace |
 |----------|-------------|--------|
-| 🌐 HTTP Simulator | Simulador de solicitudes HTTP con Promises | [3-proyecto/http-simulator](./3-proyecto/http-simulator/) |
+| 🌐 HTTP Simulator | Simulador de solicitudes HTTP con Promises | [3-proyecto](./3-proyecto/) |
 
 **Características del proyecto**:
 - Simulación realista de peticiones HTTP

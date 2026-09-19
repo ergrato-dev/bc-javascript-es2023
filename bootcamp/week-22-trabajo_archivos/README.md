@@ -125,7 +125,7 @@ Construirás una aplicación que permita cargar archivos (txt, json, csv), visua
 
 | ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
 |-------------|-----------|--------------|
-| [Semana 21: Fechas y Tiempos](../week-21-fechas_tiempos_date_api/README.md) | [Índice](../../README.md) | [Semana 23: Performance y Optimización](../week-23-performance_optimizacion/README.md) |
+| [Semana 21: Fechas y Tiempos](../week-21-fechas_tiempos_date_api/README.md) | [Índice](../../README.md) | Semana 23: Performance y Optimización (pendiente) |
 
 ---
 

@@ -120,9 +120,9 @@ Lee este README completo y comprende:
 
 Estudia los diagramas de arquitectura:
 
-![Arquitectura de 3 Capas](../../0-assets/01-architecture-overview.svg)
+![Arquitectura de 3 Capas](../0-assets/01-architecture-overview.svg)
 
-![Flujo de Datos](../../0-assets/02-data-flow.svg)
+![Flujo de Datos](../0-assets/02-data-flow.svg)
 
 Comprende:
 - Cómo se organizan las capas (Models → Services → UI)
@@ -289,4 +289,4 @@ export const CATEGORIES = ['laptops', 'phones', 'tablets', 'accessories'];
 
 | ⬅️ Teoría | 🏠 Semana |
 |:----------|:---------:|
-| [1-teoria](../../1-teoria/) | [README](../../README.md) |
+| [1-teoria](../1-teoria/) | [README](../README.md) |

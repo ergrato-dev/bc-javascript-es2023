@@ -46,7 +46,7 @@ week-21-fechas_tiempos_date_api/
 │   ├── practica-01-date-basics/
 │   ├── practica-02-date-formatting/
 │   ├── practica-03-date-operations/
-│   └── practica-04-timezones-temporal-intro/
+│   └── practica-04-timezone-intro/
 ├── 3-proyecto/
 │   ├── README.md
 │   ├── index.html
@@ -83,7 +83,7 @@ week-21-fechas_tiempos_date_api/
 | 1 | Date básico | [practica-01](2-practicas/practica-01-date-basics/) | 45 min |
 | 2 | Formateo | [practica-02](2-practicas/practica-02-date-formatting/) | 45 min |
 | 3 | Operaciones de tiempo | [practica-03](2-practicas/practica-03-date-operations/) | 45 min |
-| 4 | Timezones y Temporal intro | [practica-04](2-practicas/practica-04-timezones-temporal-intro/) | 45 min |
+| 4 | Timezones y Temporal intro | [practica-04](2-practicas/practica-04-timezone-intro/) | 45 min |
 
 ### 3️⃣ Proyecto (2 horas)
 

@@ -241,8 +241,8 @@ console.log(Object.getOwnPropertySymbols(user)); // Con símbolos
 
 ## 🔗 Recursos
 
-- [Teoría: Símbolos como Claves Privadas](../../1-teoria/04-symbols-as-keys.md)
-- [Teoría: Well-known Symbols](../../1-teoria/03-well-known-symbols.md)
+- [Teoría: Símbolos como Claves Privadas](../1-teoria/04-symbols-as-keys.md)
+- [Teoría: Well-known Symbols](../1-teoria/03-well-known-symbols.md)
 - [MDN: Symbol](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 
 ---

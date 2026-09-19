@@ -50,6 +50,9 @@ Este bootcamp se enfoca exclusivamente en JavaScript ES2023 y características m
 
 **Total: 28 semanas** | **224 horas** de formación intensiva
 
+> 📌 **Estado**: semanas 1-22 publicadas; semanas 23-28 en desarrollo.
+| **224 horas** de formación intensiva
+
 ---
 
 ## 📚 Contenido por Semana
@@ -85,8 +88,8 @@ bootcamp/week-xx-tema_principal/
 | Tecnología  | Versión        | Uso                         |
 | ----------- | -------------- | --------------------------- |
 | JavaScript  | ES2023 | Lenguaje principal          |
-| Jest        | 29+            | Testing y TDD               |
-| ESLint      | 8+             | Linting y calidad de código |
+| Jest        | 30+            | Testing y TDD               |
+| ESLint      | 9+             | Linting y calidad de código |
 | Prettier    | 3+             | Formateo de código          |
 | Live Server | -              | Desarrollo local            |
 | Git         | 2.30+          | Control de versiones        |
@@ -107,7 +110,7 @@ bootcamp/week-xx-tema_principal/
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/epti-dev/bc-javascript-es2023.git
+git clone https://github.com/ergrato-dev/bc-javascript-es2023.git
 cd bc-javascript-es2023
 ```
 
@@ -161,13 +164,10 @@ Cada semana incluye tres tipos de evidencias:
 
 ---
 
----
-
 ## 📞 Soporte
 
-- 📧 Email: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
-- 💬 Discussions: [GitHub Discussions](https://github.com/epti-dev/bc-javascript-es2023/discussions)
-- 🐛 Issues: [GitHub Issues](https://github.com/epti-dev/bc-javascript-es2023/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/ergrato-dev/bc-javascript-es2023/discussions)
+- 🐛 Issues: [GitHub Issues](https://github.com/ergrato-dev/bc-javascript-es2023/issues)
 
 ---
 
@@ -223,7 +223,7 @@ Al utilizar este repositorio y sus contenidos, aceptas las siguientes condicione
 <p align="center">
   <a href="bootcamp/week-01-introduccion_javascript_moderno_es2023">Comenzar Semana 1</a> •
   <a href="docs">Ver Documentación</a> •
-  <a href="../../issues">Reportar Issue</a>
+  <a href="https://github.com/ergrato-dev/bc-javascript-es2023/issues">Reportar Issue</a>
 </p>
 
 <p align="center">

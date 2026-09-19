@@ -40,7 +40,7 @@ Al finalizar esta semana, serás capaz de:
 
 Crear un sistema de objetos que use símbolos para implementar propiedades verdaderamente privadas, con control de acceso y metaprogramación.
 
-📁 [Ver proyecto](3-proyecto/objeto-seguro/)
+📁 [Ver proyecto](3-proyecto/)
 
 ### 📖 Recursos (0.5 horas)
 
@@ -159,7 +159,7 @@ Object.getOwnPropertySymbols(user); // [Symbol(secret)]
 
 | ← Anterior | Inicio | Siguiente → |
 |------------|--------|-------------|
-| [Week 08: Iteradores y Generadores](../week-08-iteradores_generadores/README.md) | [Bootcamp](../README.md) | [Week 10: Proxy y Reflect](../week-10-proxies_reflect/README.md) |
+| [Week 08: Iteradores y Generadores](../week-08-iteradores_generadores/README.md) | [Bootcamp](../../README.md) | [Week 10: Proxy y Reflect](../week-10-proxies_reflect/README.md) |
 
 ---
 

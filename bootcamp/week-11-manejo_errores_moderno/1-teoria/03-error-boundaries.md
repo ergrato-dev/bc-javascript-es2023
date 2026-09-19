@@ -514,4 +514,4 @@ contentBoundary.renderAsync(() => fetchAndRenderContent());
 
 | ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
 |:------------|:--------:|-------------:|
-| [02 - Errores Personalizados](./02-errores-personalizados.md) | [Teoría](./README.md) | [04 - Errores Asíncronos](./04-errores-asincronos.md) |
+| [02 - Errores Personalizados](./02-errores-personalizados.md) | [Teoría](../README.md) | [04 - Errores Asíncronos](./04-errores-asincronos.md) |

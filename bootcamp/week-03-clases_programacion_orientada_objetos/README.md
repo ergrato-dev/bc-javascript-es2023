@@ -182,7 +182,7 @@ class BankAccount {
 
 | ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
 |-------------|-----------|--------------|
-| [Semana 2: Operadores y Arrays](../week-02-operadores_metodos_modernos_arrays/README.md) | [Bootcamp](../README.md) | [Semana 4: Destructuring y Módulos](../week-04-destructuring_modulos_es2023/README.md) |
+| [Semana 2: Operadores y Arrays](../week-02-operadores_metodos_modernos_arrays/README.md) | [Bootcamp](../../README.md) | [Semana 4: Destructuring y Módulos](../week-04-destructuring_modulos_es2023/README.md) |
 
 ---
 

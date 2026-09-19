@@ -150,7 +150,7 @@ El **único entregable** para esta semana es el proyecto:
 
 | ⬅️ Anterior | 🏠 Inicio | ➡️ Siguiente |
 |-------------|-----------|--------------|
-| [Semana 3: Clases y POO](../week-03-clases_programacion_orientada_objetos/README.md) | [Bootcamp](../README.md) | [Semana 5: Arrays Avanzados](../week-05-arrays_avanzados/README.md) |
+| [Semana 3: Clases y POO](../week-03-clases_programacion_orientada_objetos/README.md) | [Bootcamp](../../README.md) | [Semana 5: Arrays Avanzados](../week-05-arrays_avanzados/README.md) |
 
 ---
 

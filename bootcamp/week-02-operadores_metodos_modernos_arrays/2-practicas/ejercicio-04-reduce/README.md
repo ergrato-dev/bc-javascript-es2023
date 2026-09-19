@@ -105,4 +105,4 @@ const bad = [].reduce((acc, n) => acc + n); // TypeError!
 
 ---
 
-⬅️ [Ejercicio Anterior](../ejercicio-03-map-filter/README.md) | [Volver a Prácticas](../README.md) ➡️
+⬅️ [Ejercicio Anterior](../ejercicio-03-map-filter/README.md) | [Volver a la Semana](../../README.md) ➡️

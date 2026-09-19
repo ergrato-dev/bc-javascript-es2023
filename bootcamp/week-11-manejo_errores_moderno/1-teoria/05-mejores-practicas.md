@@ -682,4 +682,4 @@ throw new AuthError('Invalid credentials');
 
 | ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
 |:------------|:--------:|-------------:|
-| [04 - Errores Asíncronos](./04-errores-asincronos.md) | [Teoría](./README.md) | [Prácticas](../2-practicas/) |
+| [04 - Errores Asíncronos](./04-errores-asincronos.md) | [Teoría](../README.md) | [Prácticas](../2-practicas/) |

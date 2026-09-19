@@ -667,4 +667,4 @@ try {
 
 | ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
 |:------------|:--------:|-------------:|
-| [03 - Error Boundaries](./03-error-boundaries.md) | [Teoría](./README.md) | [05 - Mejores Prácticas](./05-mejores-practicas.md) |
+| [03 - Error Boundaries](./03-error-boundaries.md) | [Teoría](../README.md) | [05 - Mejores Prácticas](./05-mejores-practicas.md) |

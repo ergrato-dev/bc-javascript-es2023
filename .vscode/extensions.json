@@ -40,7 +40,7 @@
     "yzhang.markdown-all-in-one",          // Markdown All in One (Verified)
     "davidanson.vscode-markdownlint",      // Markdown Lint (Verified)
     
-    // === PEACOCK (YA CONFIGURADO) ===
+    // === PEACOCK (configurar colores en .vscode/settings.json local, no versionado) ===
     "johnpapa.vscode-peacock"              // Peacock - Colorear workspaces (Verified)
   ],
   "unwantedRecommendations": [

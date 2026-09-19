@@ -4,7 +4,7 @@
 
 - Comprender impacto de zonas horarias
 - Evitar errores comunes en conversión temporal
-- Conocer propuesta `Temporal` a nivel introductorio
+- Conocer `Temporal` (TC39 Stage 3) a nivel introductorio
 
 ---
 
@@ -19,7 +19,7 @@ date.toLocaleString('es-CO', { timeZone: 'America/Bogota' });
 date.toLocaleString('es-ES', { timeZone: 'Europe/Madrid' });
 ```
 
-`Temporal` (en etapa de adopción) busca resolver limitaciones de `Date` con tipos más explícitos.
+`Temporal` (propuesta TC39 en Stage 3; ya disponible en Firefox y vía `@js-temporal/polyfill` en el resto) busca resolver limitaciones de `Date` con tipos más explícitos.
 
 ---
 

@@ -3,6 +3,7 @@
 **Duración Total**: 28 semanas (7 meses)
 **Horas Semanales**: 8 horas
 **Horas Totales**: 224 horas
+**Estado**: semanas 1-22 publicadas; semanas 23-28 pendientes de desarrollo
 
 ---
 
@@ -50,10 +51,10 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ### 📘 Etapa 1: Fundamentos Modernos (Semanas 1-12)
 **96 horas totales** | JavaScript ES2023 desde cero
 
-### 📗 Etapa 2: Intermedio (Semanas 13-24)
+### 📗 Etapa 2: Intermedio (Semanas 13-24) — semanas 23-24 ⏳ pendientes
 **96 horas totales** | Programación asincrónica y manipulación del DOM
 
-### 📕 Etapa 3: Avanzado (Semanas 25-28)
+### 📕 Etapa 3: Avanzado (Semanas 25-28) — ⏳ pendiente
 **32 horas totales** | Testing, patrones y mejores prácticas
 
 ---
@@ -383,7 +384,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 23: Performance y Optimización**
+#### **Week 23: Performance y Optimización** ⏳ _pendiente_
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
@@ -397,7 +398,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 24: Proyecto Integrador - Intermedio**
+#### **Week 24: Proyecto Integrador - Intermedio** ⏳ _pendiente_
 **Horas**: 8h (0.5h teoría + 1.5h planning + 5.5h desarrollo + 0.5h recursos)
 
 **Temas**:
@@ -411,7 +412,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ### 🟥 ETAPA 3: AVANZADO (Semanas 25-28)
 
-#### **Week 25: Testing con Jest - Parte 1**
+#### **Week 25: Testing con Jest - Parte 1** ⏳ _pendiente_
 **Horas**: 8h (2.5h teoría + 3.5h práctica + 1.5h proyecto + 0.5h recursos)
 
 **Temas**:
@@ -425,7 +426,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 26: Testing con Jest - Parte 2**
+#### **Week 26: Testing con Jest - Parte 2** ⏳ _pendiente_
 **Horas**: 8h (2.5h teoría + 3.5h práctica + 1.5h proyecto + 0.5h recursos)
 
 **Temas**:
@@ -439,7 +440,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 27: Patrones de Diseño y Clean Code**
+#### **Week 27: Patrones de Diseño y Clean Code** ⏳ _pendiente_
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
@@ -453,7 +454,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 28: Proyecto Final - Bootcamp**
+#### **Week 28: Proyecto Final - Bootcamp** ⏳ _pendiente_
 **Horas**: 8h (0h teoría + 2h planning + 5.5h desarrollo + 0.5h presentación)
 
 **Temas**:
@@ -547,5 +548,5 @@ Al completar las 28 semanas, el estudiante será capaz de:
 
 ---
 
-**Última actualización**: Diciembre 2024
-**Versión**: 1.0
+**Última actualización**: Septiembre 2026
+**Versión**: 1.1

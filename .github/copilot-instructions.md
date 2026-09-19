@@ -36,7 +36,7 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 
 #### **Fundamentos Modernos (Semanas 1-12)** - 96 horas
 
-- ES2023 desde el inicio (let/const, arrow functions, destructuring)
+- ES2015+ desde el inicio (let/const, arrow functions, destructuring)
 - Template literals, spread operator, rest parameters
 - Módulos ES (import/export, dynamic imports)
 - Arrays modernos (map, filter, reduce, at(), findLast(), toSorted(), toReversed(), with())
@@ -646,7 +646,7 @@ Cuando trabajes en este proyecto:
    - Template literals
    - Destructuring
    - Spread operator
-   - Módulos ES2023
+   - Módulos ES (import/export)
 
 2. **Gestión de Paquetes**
 
@@ -741,9 +741,9 @@ Cuando trabajes en este proyecto:
 
 ## 🔗 Enlaces Importantes
 
-- **Repositorio**: https://github.com/epti-dev/bc-javascript-es2023
-- **Documentación general**: [\docs/README.md](docs/README.md)
-- **Primera semana**: [bootcamp/week-01-introduccion_javascript_moderno_es2023/README.md](bootcamp/week-01-introduccion_javascript_moderno_es2023/README.md)
+- **Repositorio**: https://github.com/ergrato-dev/bc-javascript-es2023
+- **Documentación general**: [docs/plan-estudios.md](../docs/plan-estudios.md)
+- **Primera semana**: [bootcamp/week-01-introduccion_javascript_moderno_es2023/README.md](../bootcamp/week-01-introduccion_javascript_moderno_es2023/README.md)
 
 ---
 
@@ -774,5 +774,5 @@ Cuando crees contenido para una nueva semana:
 
 ---
 
-_Última actualización: Diciembre 2025_
+_Última actualización: Septiembre 2026_
 _Versión: 1.0_

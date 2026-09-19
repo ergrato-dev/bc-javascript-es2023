@@ -9,7 +9,7 @@
 #   ./export-pdf.sh week-01-introduccion_javascript_moderno_es2023 --merge  → convierte y genera un PDF combinado
 #
 # Dependencias:
-#   - Node.js >= 18
+#   - Node.js >= 20
 #   - pnpm
 #   - md-to-pdf (se descarga automáticamente con pnpm dlx)
 # =============================================================================
@@ -74,7 +74,7 @@ LAUNCH_OPTIONS="{\"executablePath\":\"$CHROMIUM_EXEC\",\"args\":[\"--no-sandbox\
 mkdir -p "$OUTPUT_DIR"
 
 echo -e "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${BOLD}${BLUE}  📄 Exportador PDF - Bootcamp Arquitectura Software${NC}"
+echo -e "${BOLD}${BLUE}  📄 Exportador PDF - Bootcamp JavaScript ES2023${NC}"
 echo -e "${BOLD}${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "  Semana   : ${BOLD}$WEEK${NC}"
 echo -e "  Origen   : ${WEEK_DIR/$SCRIPT_DIR\//}"
@@ -147,7 +147,7 @@ if [[ "$MERGE" == "--merge" ]]; then
 
   {
     echo "---"
-    echo "title: Bootcamp Arquitectura de Software - $(echo "$WEEK" | sed 's/-/ /g' | tr '[:lower:]' '[:upper:]')"
+    echo "title: Bootcamp JavaScript ES2023 - $(echo "$WEEK" | sed 's/-/ /g' | tr '[:lower:]' '[:upper:]')"
     echo "date: $(date '+%B %Y')"
     echo "---"
     echo ""

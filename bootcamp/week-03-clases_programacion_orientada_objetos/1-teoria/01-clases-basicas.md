@@ -430,7 +430,7 @@ Crea una clase `TodoList` con:
 
 - [MDN: Classes](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)
 - [JavaScript.info: Class basic syntax](https://javascript.info/class)
-- [ES2023 Classes in Depth](https://exploringjs.com/es6/ch_classes.html)
+- [ES6 Classes in Depth](https://exploringjs.com/es6/ch_classes.html)
 
 ---
 

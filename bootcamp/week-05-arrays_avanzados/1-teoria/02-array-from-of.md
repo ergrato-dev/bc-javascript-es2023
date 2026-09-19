@@ -463,12 +463,6 @@ console.log(Array.isArray('hello')); // false
 
 ---
 
-## 📋 Diagrama Visual
-
-![Diagrama Array.from y Array.of](../0-assets/02-array-from-of.svg)
-
----
-
 ## ⚠️ Consideraciones
 
 ### `Array.from()` vs Spread

@@ -2,7 +2,7 @@
 
 ## 📋 What?
 
-Automated commit system using Conventional Commits that runs every 5 minutes on Fedora 43.
+Automated commit system using Conventional Commits that runs every 5 minutes via cron (WSL2, Debian/Ubuntu, Fedora).
 
 ## 🎯 For?
 
@@ -39,7 +39,7 @@ chmod +x scripts/autocommit.sh
 crontab -e
 
 # 3. Add this line:
-*/5 * * * * /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023/scripts/autocommit.sh >> /home/epti/Documents/epti-dev/bc-channel/bc-javascript-es2023/scripts/autocommit.log 2>&1
+*/5 * * * * /ruta/al/repo/scripts/autocommit.sh >> /ruta/al/repo/scripts/autocommit.log 2>&1
 
 # 4. Save and exit
 ```
@@ -84,7 +84,6 @@ Impact: Ensures continuous backup and detailed history
 | ----------------- | -------------------------------------------- |
 | `autocommit.sh`   | Main script that detects and commits changes |
 | `install-cron.sh` | Automated installer for the cron job         |
-| `crontab.conf`    | Cron configuration reference                 |
 | `autocommit.log`  | Log file (auto-generated)                    |
 | `README.md`       | This file                                    |
 
@@ -94,7 +93,7 @@ Impact: Ensures continuous backup and detailed history
 
 ### Change Frequency
 
-Edit the cron schedule in `crontab.conf` or directly in crontab:
+Edit the cron schedule directly in crontab:
 
 ```bash
 # Every 5 minutes (default)
@@ -149,13 +148,15 @@ Uncomment these lines in `autocommit.sh`:
 ### Check if cron is running
 
 ```bash
-sudo systemctl status crond
+pgrep -a cron        # WSL2 / Debian / Ubuntu
+sudo systemctl status crond   # Fedora
 ```
 
 ### Start/enable cron service
 
 ```bash
-sudo systemctl enable --now crond
+sudo service cron start          # WSL2 / Debian / Ubuntu
+sudo systemctl enable --now crond   # Fedora
 ```
 
 ### View installed cron jobs
@@ -193,9 +194,9 @@ crontab -e
 ### Common Issues
 
 **Issue**: Script doesn't run
-- Check if crond service is running: `sudo systemctl status crond`
+- Check if the cron daemon is running: `pgrep -a cron` (WSL2/Debian) or `sudo systemctl status crond` (Fedora)
 - Verify script is executable: `ls -l scripts/autocommit.sh`
-- Check cron logs: `sudo journalctl -u crond`
+- Check cron logs: `grep CRON /var/log/syslog` (Debian) or `sudo journalctl -u crond` (Fedora)
 
 **Issue**: No commits being made
 - Check if there are actual changes: `git status`
@@ -257,4 +258,4 @@ Modify `autocommit.sh` to:
 
 ---
 
-*Última actualización: Diciembre 2025*
+*Última actualización: Septiembre 2026*

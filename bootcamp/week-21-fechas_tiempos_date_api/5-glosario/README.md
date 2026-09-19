@@ -7,4 +7,4 @@
 - **Timezone**: Zona horaria para representar tiempo local.
 - **Locale**: Configuración regional para formato de fecha/hora.
 - **Intl.DateTimeFormat**: API para formateo internacional.
-- **Temporal**: Propuesta moderna para reemplazar limitaciones de Date.
+- **Temporal**: Propuesta TC39 (Stage 3) para reemplazar las limitaciones de Date; disponible en Firefox y con polyfill `@js-temporal/polyfill`.

@@ -20,7 +20,7 @@ Libros electrónicos gratuitos sobre metaprogramación en JavaScript.
 
 - **Autor**: Dr. Axel Rauschmayer
 - **Capítulo relevante**: Chapter 28: Metaprogramming with proxies
-- **Enlace**: [Exploring ES2023 - Proxies](https://exploringjs.com/es6/ch_proxies.html)
+- **Enlace**: [Exploring ES6 - Proxies](https://exploringjs.com/es6/ch_proxies.html)
 - **Idioma**: Inglés
 - **Descripción**: Análisis detallado de todas las traps disponibles y sus invariantes.
 

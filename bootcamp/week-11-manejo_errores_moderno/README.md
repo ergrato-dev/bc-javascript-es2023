@@ -81,7 +81,7 @@ week-11-manejo_errores_moderno/
 - Logging y recuperación de fallos
 - UI que muestra errores amigables
 
-📁 [Ver proyecto](3-proyecto/sistema-robusto/)
+📁 [Ver proyecto](3-proyecto/)
 
 ### 4️⃣ Recursos (0.5 horas)
 
@@ -206,7 +206,7 @@ El **único entregable** para esta semana es el proyecto:
 
 | ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
 |:------------|:---------:|-------------:|
-| [Week 10: Proxies y Reflect](../week-10-proxies_reflect/README.md) | [Bootcamp](../README.md) | [Week 12: Proyecto Integrador](../week-12-proyecto_integrador_fundamentos/README.md) |
+| [Week 10: Proxies y Reflect](../week-10-proxies_reflect/README.md) | [Bootcamp](../../README.md) | [Week 12: Proyecto Integrador](../week-12-proyecto_integrador_fundamentos/README.md) |
 
 ---
 

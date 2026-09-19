@@ -725,4 +725,4 @@ try {
 
 | ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
 |:------------|:--------:|-------------:|
-| [README](../README.md) | [Teoría](./README.md) | [02 - Errores Personalizados](./02-errores-personalizados.md) |
+| [README](../README.md) | [Teoría](../README.md) | [02 - Errores Personalizados](./02-errores-personalizados.md) |

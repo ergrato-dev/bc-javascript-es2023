@@ -42,7 +42,7 @@ jspm_packages/
 !.env.example
 !**/.env.example
 
-# PFDs
+# PDFs exportados (export-pdf.sh)
 *_pdf
 
 # ============================================
@@ -184,7 +184,6 @@ pids/
 *.seed
 *.pid.lock
 lib-cov/
-*_pdf
 
 # Runtime data
 pids
@@ -206,8 +205,7 @@ temp/
 # ============================================
 
 # Soluciones de proyectos y prácticas (NO publicar en GitHub)
-# Los estudiantes deben completar los ejercicios por sí mismos
-**/solution/
+# Los estudiantes deben completar los ejercicios por sí mismos (ver **/solution/ arriba)
 **/*-solution.js
 
 # Soluciones de estudiantes (cada estudiante debe tener su propio repo)
@@ -276,4 +274,3 @@ TODO_PERSONAL.md
 # SvelteKit
 .svelte-kit
 
-# End of https://github.com/epti-dev/bc-javascript-es6+

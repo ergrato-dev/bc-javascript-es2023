@@ -544,4 +544,4 @@ const api = {
 
 | ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
 |:------------|:--------:|-------------:|
-| [01 - try...catch...finally](./01-try-catch-finally.md) | [Teoría](./README.md) | [03 - Error Boundaries](./03-error-boundaries.md) |
+| [01 - try...catch...finally](./01-try-catch-finally.md) | [Teoría](../README.md) | [03 - Error Boundaries](./03-error-boundaries.md) |

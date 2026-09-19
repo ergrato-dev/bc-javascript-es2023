@@ -50,6 +50,9 @@ This bootcamp focuses exclusively on JavaScript ES2023 and modern features. We d
 
 **Total: 28 weeks** | **224 hours** of intensive training
 
+> 📌 **Status**: weeks 1-22 published; weeks 23-28 in progress.
+| **224 hours** of intensive training
+
 ---
 
 ## 📚 Weekly Content
@@ -85,8 +88,8 @@ bootcamp/week-xx-main_topic/
 | Technology  | Version        | Use                      |
 | ----------- | -------------- | ------------------------ |
 | JavaScript  | ES2023 | Main language            |
-| Jest        | 29+            | Testing and TDD          |
-| ESLint      | 8+             | Linting and code quality |
+| Jest        | 30+            | Testing and TDD          |
+| ESLint      | 9+             | Linting and code quality |
 | Prettier    | 3+             | Code formatting          |
 | Live Server | -              | Local development        |
 | Git         | 2.30+          | Version control          |
@@ -161,11 +164,8 @@ Each week includes three types of evidence:
 
 ---
 
----
-
 ## 📞 Support
 
-- 📧 Email: [your-email@example.com](mailto:your-email@example.com)
 - 💬 Discussions: [GitHub Discussions](https://github.com/ergrato-dev/bc-javascript-es2023/discussions)
 - 🐛 Issues: [GitHub Issues](https://github.com/ergrato-dev/bc-javascript-es2023/issues)
 
@@ -223,7 +223,7 @@ By using this repository and its contents, you agree to the following terms:
 <p align="center">
   <a href="bootcamp/week-01-introduccion_javascript_moderno_es2023">Start Week 1</a> •
   <a href="docs">View Documentation</a> •
-  <a href="../../issues">Report Issue</a>
+  <a href="https://github.com/ergrato-dev/bc-javascript-es2023/issues">Report Issue</a>
 </p>
 
 <p align="center">

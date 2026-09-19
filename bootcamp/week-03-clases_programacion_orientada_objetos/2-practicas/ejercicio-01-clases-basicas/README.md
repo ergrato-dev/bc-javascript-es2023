@@ -106,5 +106,5 @@ node index.js
 
 ## 🔗 Recursos
 
-- [Teoría: Clases ES2023](../../1-teoria/01-clases-es6.md)
+- [Teoría: Clases ES2023](../../1-teoria/01-clases-basicas.md)
 - [MDN: Classes](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)

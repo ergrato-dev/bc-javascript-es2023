@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Cerrar PR automáticamente
-        # actions/github-script@v7.1.0
+        # actions/github-script@v9.0.0
         # SHA pinado para prevenir supply chain attacks (tag mutable → SHA inmutable)
-        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           script: |
             await github.rest.issues.createComment({

@@ -534,12 +534,6 @@ console.log(transforms.countBy(data, 'dept')); // { IT: 2, HR: 1 }
 
 ---
 
-## 📋 Diagrama Visual
-
-![Diagrama Transformaciones](../0-assets/04-transformaciones.svg)
-
----
-
 ## ✅ Checklist de Verificación
 
 Antes de continuar, asegúrate de poder:

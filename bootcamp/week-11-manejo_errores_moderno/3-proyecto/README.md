@@ -225,4 +225,4 @@ En `starter/script.js`, completa los TODOs:
 
 | ⬅️ Prácticas | 🏠 Semana |
 |:-------------|:---------:|
-| [2-practicas](../../2-practicas/) | [README](../../README.md) |
+| [2-practicas](../2-practicas/) | [README](../README.md) |

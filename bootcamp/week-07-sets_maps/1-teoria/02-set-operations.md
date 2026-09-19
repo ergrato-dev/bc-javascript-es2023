@@ -271,12 +271,12 @@ const adminOnlyPerms = SetOps.difference(adminPerms, userPerms);
 console.log(adminOnlyPerms); // Set {'delete', 'admin'}
 ```
 
-## 🔮 ES2025: Métodos Nativos (Propuesta)
+## ✨ ES2025: Métodos Nativos de Set
 
-En futuras versiones de JavaScript, estos métodos podrían ser nativos:
+Desde ES2025 estos métodos son nativos (Baseline 2024: Chrome 122+, Firefox 127+, Safari 17+, Node.js 22+). Las implementaciones manuales anteriores siguen siendo útiles para entender la lógica:
 
 ```javascript
-// Propuesta TC39 (Stage 3)
+// Nativo desde ES2025
 setA.union(setB);
 setA.intersection(setB);
 setA.difference(setB);

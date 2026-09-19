@@ -20,14 +20,3 @@
 - [HTML Drag and Drop API - MDN](https://developer.mozilla.org/es/docs/Web/API/HTML_Drag_and_Drop_API)
 - [DataTransfer.files - MDN](https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/files)
 
----
-
-## 🌐 Webgrafía
-
-Ver [webgrafia/README.md](webgrafia/README.md) para más enlaces.
-
----
-
-## 🎬 Videografía
-
-Ver [videografia/README.md](videografia/README.md) para tutoriales recomendados.

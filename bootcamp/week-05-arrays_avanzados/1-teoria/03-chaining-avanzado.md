@@ -438,12 +438,6 @@ const result = enriched
 
 ---
 
-## 📋 Diagrama Visual
-
-![Diagrama Chaining](../0-assets/03-chaining.svg)
-
----
-
 ## ✅ Checklist de Verificación
 
 Antes de continuar, asegúrate de poder:

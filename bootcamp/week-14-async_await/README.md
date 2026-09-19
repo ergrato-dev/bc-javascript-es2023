@@ -115,7 +115,7 @@ El proyecto debe demostrar:
 
 | ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
 |-------------|-----------|--------------|
-| [Semana 13: Promises](../week-13-programacion_asincronica_callbacks_promises/README.md) | [Bootcamp](../README.md) | [Semana 15: Fetch API](../week-15-fetch_api/README.md) |
+| [Semana 13: Promises](../week-13-programacion_asincronica_callbacks_promises/README.md) | [Bootcamp](../../README.md) | [Semana 15: Fetch API](../week-15-fetch_api/README.md) |
 
 ---
 

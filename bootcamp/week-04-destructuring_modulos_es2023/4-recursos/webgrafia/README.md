@@ -91,7 +91,7 @@ Documentación oficial, artículos y recursos web sobre destructuring y módulos
 ## 📊 Compatibilidad
 
 ### **Can I Use**
-- [ES2023 Modules](https://caniuse.com/es6-module)
+- [ES6 Modules](https://caniuse.com/es6-module)
 - [Dynamic Import](https://caniuse.com/es6-module-dynamic-import)
 - **Descripción**: Verifica compatibilidad con navegadores.
 

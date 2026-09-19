@@ -25,12 +25,12 @@ Recursos web recomendados para profundizar en los conceptos de ES2023 vistos est
 
 ### Características Específicas ES2023
 
-- **[ES2023 Features](http://es6-features.org/)**
+- **[ES6 Features](http://es6-features.org/)**
   - Comparación visual entre ES5 y ES2023
   - Ejemplos lado a lado
   - Referencia rápida
 
-- **[Exploring ES2023 - Dr. Axel Rauschmayer](https://exploringjs.com/es6/)**
+- **[Exploring ES6 - Dr. Axel Rauschmayer](https://exploringjs.com/es6/)**
   - Libro online gratuito
   - Explicaciones profundas
   - Casos de uso avanzados
@@ -82,7 +82,7 @@ Recursos web recomendados para profundizar en los conceptos de ES2023 vistos est
   - Múltiples ejemplos
   - Ejercicios interactivos
 
-- **[ES2023 Destructuring: The Complete Guide](https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f)**
+- **[ES6 Destructuring: The Complete Guide](https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f)**
   - Guía exhaustiva
   - Patrones avanzados
   - Casos de uso reales
@@ -258,7 +258,7 @@ Recursos web recomendados para profundizar en los conceptos de ES2023 vistos est
 
 ## 🔍 Cheat Sheets
 
-- **[ES2023 Cheat Sheet - DevHints](https://devhints.io/es6)**
+- **[ES6 Cheat Sheet - DevHints](https://devhints.io/es6)**
   - Referencia rápida
   - Sintaxis y ejemplos
   - Descargable

@@ -108,7 +108,7 @@ ejercicio-XX-nombre/
 
 Una vez completados los ejercicios, continúa con el **Proyecto Integrador**:
 
-➡️ [Paginador Personalizado con Generadores](../3-proyecto/paginador-generadores/)
+➡️ [Paginador Personalizado con Generadores](../3-proyecto/)
 
 ---
 

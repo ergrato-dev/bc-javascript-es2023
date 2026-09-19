@@ -113,5 +113,5 @@ node index.js
 
 ## 🔗 Recursos
 
-- [Teoría: Encapsulación](../../1-teoria/04-encapsulacion.md)
+- [Teoría: Encapsulación](../../1-teoria/04-getters-setters.md)
 - [MDN: Private class features](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)

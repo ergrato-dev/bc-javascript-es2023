@@ -83,7 +83,7 @@ Antes de codificar:
 
 | Proyecto | Descripción | Enlace |
 |----------|-------------|--------|
-| 🛒 E-commerce App | Aplicación completa de tienda online | [3-proyecto/ecommerce-app](./3-proyecto/ecommerce-app/) |
+| 🛒 E-commerce App | Aplicación completa de tienda online | [3-proyecto](./3-proyecto/) |
 
 **Características del proyecto**:
 - Catálogo de productos con filtros y búsqueda
@@ -189,7 +189,7 @@ class ProductNotFoundError extends AppError { ... }
 
 | ⬅️ Semana 11 | 🏠 Inicio | ➡️ Semana 13 |
 |:-------------|:---------:|-------------:|
-| [Manejo de Errores](../week-11-manejo_errores_moderno/) | [Bootcamp](../README.md) | [Callbacks y Promises](../week-13-programacion_asincronica_callbacks_promises/) |
+| [Manejo de Errores](../week-11-manejo_errores_moderno/) | [Bootcamp](../../README.md) | [Callbacks y Promises](../week-13-programacion_asincronica_callbacks_promises/) |
 
 ---
 

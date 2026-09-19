@@ -196,7 +196,7 @@ console.log(age);  // 25
 
 ## E
 
-### **ES2023** (ECMAScript 2015)
+### **ES6** (ECMAScript 2015)
 Sexta versión importante de ECMAScript, publicada en 2015. Introdujo muchas características modernas como `let`, `const`, arrow functions, template literals, etc.
 
 **Ver también**: [ECMAScript](#ecmascript)
@@ -801,8 +801,8 @@ let mutable = 'mutable';
 
 ## 🔗 Navegación
 
-- ← Volver a [README de la Semana 01](../../README.md)
-- → Continuar a [Semana 02](../../../week-02-operadores_metodos_modernos_arrays/README.md)
+- ← Volver a [README de la Semana 01](../../../README.md)
+- → Continuar a [Semana 02](../../week-02-operadores_metodos_modernos_arrays/README.md)
 
 ---
 

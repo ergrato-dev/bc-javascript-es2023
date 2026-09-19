@@ -1,7 +1,7 @@
 /**
- * 📘 Ejercicio 03: Módulos ES6
+ * 📘 Ejercicio 03: Módulos ES
  *
- * Este es un ejercicio guiado conceptual sobre módulos ES6.
+ * Este es un ejercicio guiado conceptual sobre módulos ES (import/export).
  * Como Node.js requiere configuración especial para ES modules,
  * este ejercicio explica los conceptos con código comentado.
  *

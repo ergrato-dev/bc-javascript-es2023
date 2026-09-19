@@ -492,12 +492,6 @@ console.log(sorted);
 
 ---
 
-## 📋 Diagrama Visual
-
-![Diagrama Sort Personalizado](../0-assets/05-sort-personalizado.svg)
-
----
-
 ## ⚠️ Errores Comunes
 
 ### ❌ Olvidar que sort() muta

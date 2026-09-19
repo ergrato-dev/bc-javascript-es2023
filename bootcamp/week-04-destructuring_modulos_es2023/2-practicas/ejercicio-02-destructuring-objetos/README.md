@@ -147,5 +147,5 @@ node index.js
 
 ## 🔗 Recursos
 
-- [Teoría: Destructuring Avanzado](../../1-teoria/01-destructuring-avanzado.md)
+- [Teoría: Destructuring Avanzado](../../1-teoria/02-destructuring-objetos.md)
 - [MDN: Object Destructuring](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)

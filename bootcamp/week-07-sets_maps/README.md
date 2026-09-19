@@ -30,7 +30,7 @@ Al finalizar esta semana serás capaz de:
 | 01 | [Set Básico](2-practicas/ejercicio-01-set-basics/) | add, delete, has, size, clear |
 | 02 | [Operaciones Set](2-practicas/ejercicio-02-set-operations/) | Unión, intersección, diferencia |
 | 03 | [Map Básico](2-practicas/ejercicio-03-map-basics/) | set, get, has, delete, entries |
-| 04 | [Map y WeakMap](2-practicas/ejercicio-04-map-weakmap/) | Casos de uso, caché, privacidad |
+| 04 | [Map y WeakMap](2-practicas/ejercicio-04-weakmap-cache/) | Casos de uso, caché, privacidad |
 
 ### 3. Proyecto
 
@@ -71,7 +71,7 @@ week-07-sets_maps/
 │   ├── ejercicio-01-set-basics/
 │   ├── ejercicio-02-set-operations/
 │   ├── ejercicio-03-map-basics/
-│   └── ejercicio-04-map-weakmap/
+│   └── ejercicio-04-weakmap-cache/
 ├── 3-proyecto/
 ├── 4-recursos/
 └── 5-glosario/

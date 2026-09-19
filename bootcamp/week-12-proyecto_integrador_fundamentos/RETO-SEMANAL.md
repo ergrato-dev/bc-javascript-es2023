@@ -123,7 +123,7 @@ Al completar este reto con **80+ puntos**, habrás demostrado dominio de los **f
 ## 🔗 Recursos
 
 - [Video de la semana](https://youtube.com/@bc-channel-epti)
-- [Proyecto E-commerce](./3-proyecto/ecommerce-app/)
+- [Proyecto E-commerce](./3-proyecto/)
 - [Revisión de conceptos](./1-teoria/01-revision-conceptos.md)
 
 ---

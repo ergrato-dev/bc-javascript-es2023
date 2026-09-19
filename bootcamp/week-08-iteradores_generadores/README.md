@@ -72,7 +72,7 @@ week-08-iteradores_generadores/
 
 ### 3. Proyecto (2 horas)
 
-**[Paginador Personalizado con Generadores](3-proyecto/paginador-generadores/)**
+**[Paginador Personalizado con Generadores](3-proyecto/)**
 
 Sistema de paginación que utiliza generadores para manejar grandes conjuntos de datos de forma eficiente y lazy.
 
@@ -164,7 +164,7 @@ function* infiniteSequence() {
 
 | ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
 |-------------|-----------|---------------|
-| [Week 07: Sets y Maps](../week-07-sets_maps/README.md) | [Bootcamp](../README.md) | [Week 09: Símbolos](../week-09-simbolos_metaprogramacion_basica/README.md) |
+| [Week 07: Sets y Maps](../week-07-sets_maps/README.md) | [Bootcamp](../../README.md) | [Week 09: Símbolos](../week-09-simbolos_metaprogramacion_basica/README.md) |
 
 ---
 

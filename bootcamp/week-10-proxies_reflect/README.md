@@ -37,7 +37,7 @@ Al finalizar esta semana serás capaz de:
 
 | Proyecto | Descripción |
 |----------|-------------|
-| [Sistema de Validación Reactivo](3-proyecto/sistema-validacion/) | Sistema completo con Proxy y Reflect |
+| [Sistema de Validación Reactivo](3-proyecto/) | Sistema completo con Proxy y Reflect |
 
 ### 4. Recursos Adicionales
 

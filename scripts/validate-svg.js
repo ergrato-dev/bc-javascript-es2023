@@ -10,6 +10,8 @@
  *   node validate-svg.js                    # Validate all SVGs in bootcamp
  *   node validate-svg.js path/to/file.svg   # Validate specific file
  *   node validate-svg.js --week 08          # Validate specific week
+ *
+ * Requires Node.js >= 20.19 (ESM syntax detection; no package.json needed).
  */
 
 import { readFileSync, readdirSync, statSync } from 'fs';
@@ -332,7 +334,13 @@ const main = () => {
       console.error('Usage: node validate-svg.js --week 08');
       process.exit(1);
     }
-    const weekDir = join(bootcampDir, `week-${week}`);
+    // Folders are named week-XX-topic, so resolve by prefix
+    const weekFolder = readdirSync(bootcampDir).find(d => d.startsWith(`week-${week}-`));
+    if (!weekFolder) {
+      console.error(`Week ${week} not found in ${bootcampDir}`);
+      process.exit(1);
+    }
+    const weekDir = join(bootcampDir, weekFolder);
     svgFiles = findSvgFiles(weekDir);
   } else {
     // Validate specific file(s)

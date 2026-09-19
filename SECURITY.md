@@ -7,7 +7,6 @@ Este proyecto educativo está en desarrollo activo. Mantenemos las siguientes ve
 | Versión | Soportada          |
 | ------- | ------------------ |
 | main    | :white_check_mark: |
-| develop | :white_check_mark: |
 | < 1.0   | :x:                |
 
 ---
@@ -45,9 +44,11 @@ En el contexto de este bootcamp educativo, consideramos vulnerabilidades:
 
 ## 📧 Cómo Reportar
 
-### Opción 1: Email Privado (Preferido para vulnerabilidades críticas)
+### Opción 1: GitHub Security Advisory (Preferido)
 
-Envía un email a: **[security@ejemplo.com](mailto:security@ejemplo.com)**
+1. Ve a la pestaña "Security" del repositorio
+2. Click en "Report a vulnerability"
+3. Completa el formulario
 
 **Incluye:**
 - Descripción de la vulnerabilidad
@@ -56,13 +57,7 @@ Envía un email a: **[security@ejemplo.com](mailto:security@ejemplo.com)**
 - Ubicación en el código (archivo, línea)
 - Tu sugerencia de solución (opcional)
 
-### Opción 2: GitHub Security Advisory (Para vulnerabilidades moderadas)
-
-1. Ve a la pestaña "Security" del repositorio
-2. Click en "Report a vulnerability"
-3. Completa el formulario
-
-### Opción 3: Issue Privado
+### Opción 2: Issue
 
 Para problemas de seguridad menores:
 - Crea un issue con la etiqueta `security`
@@ -101,7 +96,6 @@ Para problemas de seguridad menores:
    - Actualizaremos el código
 
 5. **Reconocimiento**
-   - Te acreditaremos en el CHANGELOG (si lo deseas)
    - Incluiremos tu nombre en el Security Advisory
 
 ---
@@ -113,8 +107,7 @@ Aunque este es un proyecto educativo sin recompensas monetarias, reconocemos pú
 ### Hall of Fame
 
 Los contribuidores de seguridad serán listados en:
-- `SECURITY_HALL_OF_FAME.md`
-- Release notes
+- Security Advisories publicados
 - README principal
 
 ### Niveles de Reconocimiento
@@ -228,10 +221,10 @@ uses: actions/setup-node@main      # ❌ rama flotante
 
 ```yaml
 # GitHub Actions — SHA de commit inmutable
-# actions/checkout@v4.1.1
-uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11   # ✅ SHA pinado
-# actions/github-script@v7.1.0
-uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b  # ✅ SHA pinado
+# actions/checkout@v7.0.1
+uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1   # ✅ SHA pinado
+# actions/github-script@v9.0.0
+uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # ✅ SHA pinado
 ```
 
 ### Por qué esto importa
@@ -284,9 +277,8 @@ Nos comprometemos a:
 
 ## 📞 Contacto de Seguridad
 
-- **Email Principal**: [security@ejemplo.com](mailto:security@ejemplo.com)
-- **Email Alternativo**: [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
-- **PGP Key**: [Disponible aquí](link-to-pgp-key) (opcional)
+- **Security Advisory**: pestaña "Security" → "Report a vulnerability" (canal privado)
+- **Issues**: [GitHub Issues](https://github.com/ergrato-dev/bc-javascript-es2023/issues) con etiqueta `security` (sin detalles sensibles)
 
 ---
 
@@ -311,7 +303,7 @@ Agradecemos a todos los investigadores de seguridad y contribuidores que nos ayu
 
 ---
 
-*Última actualización: Abril 2026*
-*Versión: 1.1*
+*Última actualización: Septiembre 2026*
+*Versión: 1.2*
 
-**Para consultas urgentes de seguridad, contacta: [security@ejemplo.com](mailto:security@ejemplo.com)**
+**Para consultas urgentes de seguridad, usa GitHub Security Advisory (pestaña "Security" → "Report a vulnerability").**
