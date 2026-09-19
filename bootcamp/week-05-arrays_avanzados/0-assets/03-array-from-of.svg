@@ -98,6 +98,6 @@
   <rect class="array-box" x="730" y="375" width="130" height="32" rx="8"/>
   <text class="item" x="745" y="396">['a', 1, true]</text>
 
-  <text class="comment" x="500" y="450">// Array.of() siempre crea array con los</text>
-  <text class="comment" x="500" y="468">// elementos dados, sin comportamiento especial</text>
+  <text class="comment" x="500" y="450">// Array.of() siempre crea un array con los</text>
+  <text class="comment" x="500" y="468">// elementos dados, sin casos especiales</text>
 </svg>
