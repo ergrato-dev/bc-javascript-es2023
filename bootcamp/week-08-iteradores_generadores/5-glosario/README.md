@@ -225,6 +225,13 @@ function* gen() {
 | yield | Keyword | Pausa generador |
 | yield* | Operador | Delega iteración |
 
+<!-- nav -->
 ---
 
-*Glosario Week 08 | Bootcamp JavaScript ES2023*
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📅 Week 09: Símbolos y Metaprogramación Básica](../../week-09-simbolos_metaprogramacion_basica/README.md) → |
+
+[↑ Semana 08](../README.md)

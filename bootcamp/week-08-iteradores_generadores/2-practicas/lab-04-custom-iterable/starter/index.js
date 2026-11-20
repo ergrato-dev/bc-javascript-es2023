@@ -1,8 +1,9 @@
-// ============================================
-// EJERCICIO 04: Iterables Personalizados
-// ============================================
-// Crea tus propias estructuras de datos iterables
-// Descomenta cada sección y ejecuta: node index.js
+/**
+ * 📘 Lab 04: Generadores y yield
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
+ */
 
 // ============================================
 // PASO 1: Objeto Iterable Simple
@@ -60,6 +61,7 @@ console.log('--- Paso 2: Clase Range ---');
 
 // const range = new Range(1, 5);
 // console.log('Range 1-5:', [...range]);
+// console.log('Longitud:', range.length);
 
 // const evens = new Range(0, 10, 2);
 // console.log('Evens 0-10:', [...evens]);
@@ -217,7 +219,7 @@ console.log('--- Paso 5: Colección Fluida ---');
 // Encadenamiento de operaciones
 // const adults = users.filter(u => u.age >= 25);
 // for (const user of adults) {
-//   console.log(`Adultos: ${user.name} (${user.age})`);
+//   console.log(`25 o más: ${user.name} (${user.age})`);
 // }
 
 // const names = users
@@ -229,28 +231,28 @@ console.log('--- Paso 5: Colección Fluida ---');
 console.log('');
 
 // ============================================
-// 🎯 DESAFÍO EXTRA
+// PASO 6: Pila iterable
 // ============================================
-// Crea una clase Stack (LIFO) que sea iterable
-// - push(item): agregar elemento
-// - pop(): remover y retornar el último
-// - peek(): ver el último sin remover
-// - La iteración debe ser desde el top (último primero)
-// Descomenta y completa:
+console.log('--- Paso 6: Pila iterable ---');
+
+// Una pila (LIFO): el último que entra es el primero que sale
+// El iterador la recorre desde arriba, sin modificar #items
+// Descomenta las siguientes líneas:
 
 // class Stack {
 //   #items = [];
 //
 //   push(item) {
-//     // Tu código
+//     this.#items.push(item);
+//     return this;
 //   }
 //
 //   pop() {
-//     // Tu código
+//     return this.#items.pop();
 //   }
 //
 //   peek() {
-//     // Tu código
+//     return this.#items.at(-1);
 //   }
 //
 //   get size() {
@@ -258,7 +260,7 @@ console.log('');
 //   }
 //
 //   *[Symbol.iterator]() {
-//     // Iterar desde el último al primero
+//     yield* this.#items.toReversed();
 //   }
 // }
 
@@ -266,3 +268,7 @@ console.log('');
 // stack.push('first').push('second').push('third');
 // console.log('Stack (LIFO):', [...stack]);
 // console.log('Top:', stack.peek());
+// console.log('Pop:', stack.pop(), '| size:', stack.size);
+
+console.log('');
+console.log('✅ Lab completado.');

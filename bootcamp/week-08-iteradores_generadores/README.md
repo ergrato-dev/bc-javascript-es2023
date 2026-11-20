@@ -1,181 +1,108 @@
-# 📅 Week 08: Iteradores y Generadores
+# Semana 08 - Iteradores y Generadores
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de aprendizaje
 
-Al finalizar esta semana, serás capaz de:
+Al terminar la semana podrás:
 
-- ✅ Comprender el protocolo de iteración en JavaScript
-- ✅ Diferenciar y usar correctamente `for...of` vs `for...in`
-- ✅ Crear y utilizar funciones generadoras con `function*`
-- ✅ Aplicar `yield` y delegación de generadores
-- ✅ Implementar iterables personalizados para tus propias estructuras
+- Explicar el protocolo de iteración (`Symbol.iterator`, `next()` y `{ value, done }`) y recorrer a mano el iterador de un array, un string, un `Map` o un `Set`.
+- Elegir entre `for...of` (valores de un iterable) y `for...in` (claves de un objeto), y recorrer objetos con `Object.entries()`, `Object.keys()` y `Object.values()`.
+- Escribir generadores con `function*` y `yield`, pasarles valores con `next(value)` y delegar en otro iterable con `yield*`.
+- Crear secuencias infinitas y tomar solo los valores que necesitas, gracias a que los generadores son perezosos.
+- Hacer iterables tus propias clases y objetos con `*[Symbol.iterator]()`.
+
+## Requisitos previos
+
+- La [semana 03](../week-03-clases_programacion_orientada_objetos/README.md) (clases, getters y campos privados), la [semana 04](../week-04-destructuring_modulos_es2023/README.md) (destructuring y módulos) y la [semana 07](../week-07-sets_maps/README.md) (`Set` y `Map`).
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
+
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 11.20.0 (o superior)
+  ```
 
 ---
 
-## 📚 Requisitos Previos
+## Contenidos
 
-Antes de comenzar esta semana, debes dominar:
+### 1. Teoría (2 h)
 
-- Sets y Maps (Week 07)
-- Spread operator y rest parameters (Week 02)
-- Arrow functions y métodos de arrays (Week 01-02)
-- Clases ES2023 (Week 03)
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Protocolo de iteración](1-teoria/01-iteration-protocol.md) | 25 min | `Symbol.iterator`, `next()` e iterables nativos |
+| [02 - for...of frente a for...in](1-teoria/02-for-of-vs-for-in.md) | 20 min | Valores frente a claves, `Object.entries()` |
+| [03 - Generadores](1-teoria/03-generators-basics.md) | 25 min | `function*`, `yield`, `next(value)`, `return` y `throw` |
+| [04 - yield y delegación](1-teoria/04-yield-delegation.md) | 25 min | `yield*`, composición de generadores |
+| [05 - Iterables personalizados](1-teoria/05-custom-iterables.md) | 25 min | Clases iterables, iterables infinitos |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Iteradores](2-practicas/lab-01-iterators/README.md) | 50 min |
+| [Lab 02 - `for...of` y `for...in`](2-practicas/lab-02-for-loops/README.md) | 45 min |
+| [Lab 03 - Generadores y `yield`](2-practicas/lab-03-generators/README.md) | 60 min |
+| [Lab 04 - Iterables personalizados](2-practicas/lab-04-custom-iterable/README.md) | 55 min |
+
+### 3. Proyecto (2 h)
+
+[Catálogo por páginas](3-proyecto/README.md): completas los cuatro generadores y las tres funciones de `src/logic.js` (ids con `createIdGenerator`, `take`, `skip`, `filterBy`, `countPages`, `getPage` y un catálogo iterable con `createCatalog`) y adaptas `src/data.js` al dominio que te asigna el instructor. `scripts/verificar-semana.sh 08` comprueba las funciones.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
 
 ---
 
-## 🗂️ Estructura de la Semana
+## Evaluación
 
-```
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 12/12 comprobaciones y datos del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
+
+```text
 week-08-iteradores_generadores/
-├── README.md                    # Este archivo
-├── rubrica-evaluacion.md        # Criterios de evaluación
-├── 0-assets/                    # Diagramas SVG
-├── 1-teoria/                    # Material teórico
-│   ├── 01-iteration-protocol.md
-│   ├── 02-for-of-vs-for-in.md
-│   ├── 03-generators-basics.md
-│   ├── 04-yield-delegation.md
-│   └── 05-custom-iterables.md
-├── 2-practicas/                 # Ejercicios guiados
-│   ├── ejercicio-01-iterators/
-│   ├── ejercicio-02-for-loops/
-│   ├── ejercicio-03-generators/
-│   └── ejercicio-04-custom-iterable/
-├── 3-proyecto/                  # Proyecto integrador
-│   └── paginador-generadores/
-├── 4-recursos/                  # Material complementario
-└── 5-glosario/                  # Términos clave
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 5 diagramas SVG
+|-- 1-teoria/                  # 01 a 05
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-iterators/
+|   |-- lab-02-for-loops/
+|   |-- lab-03-generators/
+|   `-- lab-04-custom-iterable/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # index.html, styles.css, src/data.js, src/logic.js, src/main.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## 📝 Contenidos
+## Versiones de la semana
 
-### 1. Teoría (2.5 horas)
-
-| Archivo | Tema | Duración |
-|---------|------|----------|
-| [01-iteration-protocol.md](1-teoria/01-iteration-protocol.md) | Protocolo de iteración | 30 min |
-| [02-for-of-vs-for-in.md](1-teoria/02-for-of-vs-for-in.md) | for...of vs for...in | 25 min |
-| [03-generators-basics.md](1-teoria/03-generators-basics.md) | Generadores básicos | 35 min |
-| [04-yield-delegation.md](1-teoria/04-yield-delegation.md) | yield y delegación | 30 min |
-| [05-custom-iterables.md](1-teoria/05-custom-iterables.md) | Iterables personalizados | 30 min |
-
-### 2. Prácticas (3 horas)
-
-| Ejercicio | Descripción | Duración |
-|-----------|-------------|----------|
-| [ejercicio-01](2-practicas/ejercicio-01-iterators/) | Iteradores básicos | 45 min |
-| [ejercicio-02](2-practicas/ejercicio-02-for-loops/) | for...of y for...in | 40 min |
-| [ejercicio-03](2-practicas/ejercicio-03-generators/) | Generadores y yield | 50 min |
-| [ejercicio-04](2-practicas/ejercicio-04-custom-iterable/) | Iterables personalizados | 45 min |
-
-### 3. Proyecto (2 horas)
-
-**[Paginador Personalizado con Generadores](3-proyecto/)**
-
-Sistema de paginación que utiliza generadores para manejar grandes conjuntos de datos de forma eficiente y lazy.
-
-### 4. Recursos (30 minutos)
-
-Material complementario para profundizar en los temas.
+Node para ejecutar los labs y comprobar el proyecto; `pnpm dlx serve` para abrir el proyecto en el navegador. Las salidas de este material se obtuvieron con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## ⏱️ Distribución del Tiempo
+## Navegación
 
-| Actividad | Tiempo | Porcentaje |
-|-----------|--------|------------|
-| 📖 Teoría | 2.5h | 31% |
-| 💻 Prácticas | 3h | 38% |
-| 🚀 Proyecto | 2h | 25% |
-| 📚 Recursos | 0.5h | 6% |
-| **Total** | **8h** | **100%** |
-
----
-
-## 📌 Entregables
-
-### 📦 Proyecto (100%)
-
-El **único entregable** para esta semana es el proyecto:
-
-- [ ] **Proyecto "Paginador con Generadores" funcional**
-- [ ] Implementación correcta de iteradores y generadores
-- [ ] Uso de Symbol.iterator
-- [ ] Código limpio y documentado
-
-> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
-
----
-
-## 🔑 Conceptos Clave de la Semana
-
-```javascript
-// Protocolo de iteración
-const iterable = {
-  [Symbol.iterator]() {
-    let i = 0;
-    return {
-      next() {
-        return i < 3
-          ? { value: i++, done: false }
-          : { done: true };
-      }
-    };
-  }
-};
-
-// for...of itera sobre valores
-for (const value of [1, 2, 3]) {
-  console.log(value); // 1, 2, 3
-}
-
-// for...in itera sobre claves
-for (const key in { a: 1, b: 2 }) {
-  console.log(key); // 'a', 'b'
-}
-
-// Generador básico
-function* numberGenerator() {
-  yield 1;
-  yield 2;
-  yield 3;
-}
-
-// Delegación de generadores
-function* combined() {
-  yield* [1, 2];
-  yield* 'ab';
-}
-
-// Generador infinito con lazy evaluation
-function* infiniteSequence() {
-  let n = 0;
-  while (true) {
-    yield n++;
-  }
-}
-```
-
----
-
-## 🔗 Navegación
-
-| ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
-|-------------|-----------|---------------|
-| [Week 07: Sets y Maps](../week-07-sets_maps/README.md) | [Bootcamp](../../README.md) | [Week 09: Símbolos](../week-09-simbolos_metaprogramacion_basica/README.md) |
-
----
-
-## 💡 Tips de la Semana
-
-> 🎯 **Lazy Evaluation**: Los generadores no ejecutan todo el código de una vez. Cada `yield` pausa la ejecución hasta que se solicita el siguiente valor. Esto es perfecto para manejar grandes datasets.
-
-> ⚠️ **Cuidado**: `for...in` itera sobre propiedades enumerables (incluyendo las heredadas), mientras que `for...of` solo funciona con iterables.
-
-> 🔧 **Práctica**: Los generadores son ideales para paginación, streaming de datos, y secuencias infinitas.
-
----
-
-*Semana 08 de 28 | Bootcamp JavaScript ES2023*
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 07 - Sets y Maps](../week-07-sets_maps/README.md) | [Semana 09 - Símbolos y Metaprogramación Básica](../week-09-simbolos_metaprogramacion_basica/README.md) |

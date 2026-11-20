@@ -1,8 +1,9 @@
-// ============================================
-// EJERCICIO 02: for...of y for...in
-// ============================================
-// Aprende las diferencias entre estos dos loops
-// Descomenta cada sección y ejecuta: node index.js
+/**
+ * 📘 Lab 02: Iteradores
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
+ */
 
 // ============================================
 // PASO 1: for...of con Arrays
@@ -66,11 +67,12 @@ console.log('--- Paso 3: for...of con Strings ---');
 //   console.log('Letra:', letter);
 // }
 
-// Maneja correctamente emojis compuestos
+// Ojo: for...of recorre puntos de código (code points), no lo que ves como un carácter
 // const emoji = '👨‍💻';
 // for (const char of emoji) {
 //   console.log('Emoji chars:', char);
 // }
+// console.log('Partes:', [...emoji].length, '| length:', emoji.length);
 
 console.log('');
 
@@ -164,12 +166,12 @@ console.log('--- Paso 7: Comparación Directa ---');
 console.log('');
 
 // ============================================
-// 🎯 DESAFÍO EXTRA
+// PASO 8: Contar y filtrar sin bucle
 // ============================================
-// Dado un objeto, usa el loop correcto para:
-// 1. Contar cuántas propiedades tiene
-// 2. Crear un array con solo los valores numéricos
-// Descomenta y completa:
+console.log('--- Paso 8: Contar y filtrar sin bucle ---');
+
+// Object.keys() y Object.values() devuelven arrays: length y filter hacen el resto
+// Descomenta las siguientes líneas:
 
 // const product = {
 //   name: 'Laptop',
@@ -179,10 +181,11 @@ console.log('');
 //   rating: 4.5
 // };
 
-// let propCount = 0;
-// const numericValues = [];
-
-// Tu código aquí usando el loop apropiado
+// const propCount = Object.keys(product).length;
+// const numericValues = Object.values(product).filter((value) => typeof value === 'number');
 
 // console.log('Total propiedades:', propCount);
 // console.log('Valores numéricos:', numericValues);
+
+console.log('');
+console.log('✅ Lab completado.');

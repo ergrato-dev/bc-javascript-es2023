@@ -178,16 +178,17 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 08: Iteradores y Generadores**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Protocol de iteración
-- for...of vs for...in
-- Generadores (function*)
-- yield y delegación de generadores
+- Protocolo de iteración (`Symbol.iterator`, `next()`)
+- for...of vs for...in, `Object.entries()`, `keys()` y `values()`
+- Generadores (function*), `next(value)` y secuencias infinitas
+- yield y delegación de generadores (`yield*`)
 - Iterables personalizados
 
-**Proyecto**: Paginador personalizado con generadores
+**Proyecto**: Catálogo por páginas: ids con un generador infinito, `take`, `skip`, `filterBy`, `getPage` y un catálogo iterable ordenado por nombre
 
 ---
 

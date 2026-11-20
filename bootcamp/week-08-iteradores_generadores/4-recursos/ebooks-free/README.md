@@ -55,6 +55,13 @@
 2. **Intermedio**: Eloquent JavaScript (contexto amplio)
 3. **Avanzado**: Exploring ES2023 (detalles técnicos profundos)
 
+<!-- nav -->
 ---
 
-*eBooks Week 08 | Bootcamp JavaScript ES2023*
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 08](../../README.md)

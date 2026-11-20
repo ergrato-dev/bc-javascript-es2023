@@ -1,148 +1,89 @@
-# 📋 Rúbrica de Evaluación - Week 08
+# Rúbrica de Evaluación - Semana 08
 
-## Iteradores y Generadores
+## Evidencias y ponderación
 
----
-
-## 🎯 Competencias a Evaluar
-
-| Competencia | Descripción |
-|-------------|-------------|
-| **C1** | Comprensión del protocolo de iteración |
-| **C2** | Uso correcto de for...of y for...in |
-| **C3** | Creación y uso de generadores |
-| **C4** | Aplicación de yield y delegación |
-| **C5** | Implementación de iterables personalizados |
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | Protocolo de iteración, `for...of` frente a `for...in`, generadores, `yield*` e iterables propios |
+| Desempeño | 40% | Labs 01 a 04 descomentados y ejecutados |
+| Producto | 30% | Catálogo por páginas: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-## 📊 Distribución de Evidencias
+## Criterios por evidencia
 
-| Tipo de Evidencia | Porcentaje | Actividades |
-|-------------------|------------|-------------|
-| 🧠 **Conocimiento** | 30% | Cuestionarios, explicaciones |
-| 💪 **Desempeño** | 40% | Ejercicios prácticos |
-| 📦 **Producto** | 30% | Proyecto paginador |
+## 1) Conocimiento (30%)
 
----
+### Criterios
 
-## 🧠 Evidencia de Conocimiento (30%)
+- Explica qué es un iterable, qué es un iterador y qué devuelve `next()`, y por qué un objeto normal no funciona con `for...of`.
+- Elige entre `for...of`, `for...in` y `Object.entries()` para recorrer un array, un objeto o un `Map`, y explica por qué `for...in` no conviene con arrays.
+- Explica qué pasa al llamar a una función `function*`, dónde se pausa con cada `next()` y qué recibe un `yield` cuando llamas a `next(value)`.
+- Distingue `yield` de `yield*` con un ejemplo.
+- Explica por qué un generador infinito no cuelga el programa y cómo se toma solo una parte de él.
+- Explica por qué un iterable escrito con `*[Symbol.iterator]()` se puede recorrer varias veces y un generador solo una.
 
-### Cuestionario Teórico
+### Niveles
 
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| **Protocolo de iteración** | Explica correctamente Symbol.iterator, next(), value y done | Comprende el concepto general con errores menores | Conocimiento parcial del protocolo | No comprende el protocolo |
-| **for...of vs for...in** | Diferencia claramente ambos, sabe cuándo usar cada uno | Diferencia correctamente pero con dudas en casos límite | Confunde algunos usos | No distingue entre ambos |
-| **Generadores** | Explica function*, yield, y estados del generador | Comprende sintaxis y uso básico | Conoce sintaxis pero no el funcionamiento interno | No comprende generadores |
-
----
-
-## 💪 Ejercicios de Práctica (No se entregan)
-
-> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
-
-### Ejercicio 01: Iteradores Básicos
-
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| **Implementación** | Implementa iterador completo con Symbol.iterator | Iterador funcional con detalles menores | Iterador parcialmente funcional | No logra implementar |
-| **Comprensión** | Explica cada parte del protocolo | Comprende el flujo general | Sigue el patrón sin entenderlo | No demuestra comprensión |
-
-### Ejercicio 02: for...of y for...in
-
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| **Uso correcto** | Aplica el loop correcto en cada situación | Usa correctamente con alguna confusión | Acierta en casos simples | Confunde constantemente |
-| **Casos especiales** | Maneja objetos, arrays, strings, Maps, Sets | Maneja la mayoría de estructuras | Solo maneja arrays | No diferencia estructuras |
-
-### Ejercicio 03: Generadores y yield
-
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| **Sintaxis** | Usa function* y yield correctamente | Sintaxis correcta con errores menores | Errores de sintaxis pero concepto claro | Sintaxis incorrecta |
-| **Delegación** | Implementa yield* para delegar | Usa delegación con ayuda | Conoce pero no implementa | No conoce delegación |
-
-### Ejercicio 04: Iterables Personalizados
-
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| **Clase iterable** | Crea clase con [Symbol.iterator] funcional | Implementación con detalles menores | Iterable parcialmente funcional | No logra hacer iterable |
-| **Compatibilidad** | Funciona con for...of, spread, Array.from | Funciona con for...of | Funciona parcialmente | No es compatible |
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, entre iterable e iterador).
+- **Bajo (<21):** no distingue `for...of` de `for...in`, o no sabe qué devuelve `next()`.
 
 ---
 
-## 📦 Evidencia de Producto (30%)
+## 2) Desempeño (40%)
 
-### Proyecto: Paginador con Generadores
+### Criterios
 
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| **Funcionalidad** | Paginación completa con lazy loading | Paginación funcional | Paginación básica | No funciona |
-| **Uso de generadores** | Generadores para control de flujo eficiente | Generadores implementados correctamente | Generadores básicos | No usa generadores |
-| **Interfaz** | UI intuitiva con navegación clara | UI funcional | UI básica | Sin UI |
-| **Código limpio** | Código modular, bien documentado | Código organizado | Código funcional pero desordenado | Código difícil de leer |
-| **Edge cases** | Maneja datos vacíos, fin de lista, reinicio | Maneja mayoría de casos | Maneja casos básicos | No maneja errores |
+- Lab 01: los 7 pasos descomentados; explica por qué el spread del paso 5 vuelve a empezar desde 3 y cómo termina el iterador del paso 7.
+- Lab 02: los 8 pasos; explica por qué los índices del paso 2 son strings y por qué el emoji del paso 3 sale en tres partes.
+- Lab 03: los 7 pasos; explica qué hace `yield*` en `flatten` (paso 3), por qué `take` cuenta después del `yield` (paso 4) y qué recibe `name` en el paso 5.
+- Lab 04: los 6 pasos; explica qué diferencia hay entre `[Symbol.iterator]` y `byRows` en el paso 4, y por qué la pila del paso 6 usa `toReversed()`.
 
----
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab.
 
-## 📈 Escala de Calificación
+### Niveles
 
-| Rango | Nivel | Descripción |
-|-------|-------|-------------|
-| 90-100 | 🌟 Excelente | Dominio completo de iteradores y generadores |
-| 80-89 | ✅ Bueno | Buen manejo con áreas de mejora menores |
-| 70-79 | 📝 Suficiente | Cumple requisitos mínimos |
-| 60-69 | ⚠️ En desarrollo | Necesita refuerzo en conceptos clave |
-| 0-59 | ❌ Insuficiente | No alcanza los objetivos mínimos |
+- **Alto (36-40):** los cuatro labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cuatro labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-## ✅ Criterios de Aprobación
+## 3) Producto (30%)
 
-Para aprobar la semana 08, el estudiante debe:
+### Criterios
 
-1. ✅ Obtener mínimo **70%** en cada tipo de evidencia
-2. ✅ Completar todos los ejercicios prácticos
-3. ✅ Entregar el proyecto del paginador funcional
-4. ✅ Demostrar comprensión del protocolo de iteración
+- `PROYECTO=... ./scripts/verificar-semana.sh 08` pasa las 12 comprobaciones.
+- `TITLE`, `ID_PREFIX` y las piezas de `src/data.js` describen el dominio asignado, con 8 a 15 piezas coherentes repartidas en al menos 2 salas, y algún nombre que empiece por vocal con tilde o que obligue a ordenar con `localeCompare`.
+- La página funciona servida con `pnpm dlx serve .`: los botones de página se desactivan en los extremos, el filtro por sala y el cambio de tamaño vuelven a la página 1, los dos errores del formulario aparecen y desaparecen, una pieza nueva recibe el siguiente id y un id borrado no se reutiliza, sin errores en la consola.
+- Las funciones usan lo de la semana donde corresponde: `function*` y `yield` en `createIdGenerator`, `take`, `skip` y `filterBy`; `getPage` combina `skip` y `take` sin `slice`; `createCatalog` devuelve un objeto con `*[Symbol.iterator]()`, `yield*` y `toSorted`.
 
----
+### Niveles
 
-## 🔄 Retroalimentación
-
-### Áreas de Enfoque
-
-| Área | Indicadores de Mejora |
-|------|----------------------|
-| **Protocolo de iteración** | Practicar implementación manual de Symbol.iterator |
-| **Generadores** | Crear más ejemplos con yield y estados |
-| **Delegación** | Practicar yield* con diferentes iterables |
-| **Iterables custom** | Crear clases iterables para estructuras de datos |
-
-### Recursos de Refuerzo
-
-- MDN: Iteration protocols
-- JavaScript.info: Generators
-- Ejercicios adicionales en 4-recursos/
+- **Alto (27-30):** 12/12, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 12/12 con datos poco adaptados (piezas de relleno, una sola sala con casi todo) o alguna acción de la página que falla.
+- **Bajo (<21):** menos de 12 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## 📝 Notas del Evaluador
+## Calificación
 
-```
-Espacio para comentarios específicos del estudiante:
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
-_____________________________________________
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
 
-_____________________________________________
-
-_____________________________________________
-
-Fecha de evaluación: ___/___/_____
-Evaluador: _________________________
-```
-
+<!-- nav -->
 ---
 
-*Rúbrica Week 08 | Bootcamp JavaScript ES2023*
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Catálogo por páginas](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
+
+[↑ Semana 08](README.md)

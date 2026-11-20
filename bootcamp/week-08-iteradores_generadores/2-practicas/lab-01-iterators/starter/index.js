@@ -1,8 +1,9 @@
-// ============================================
-// EJERCICIO 01: Iteradores Básicos
-// ============================================
-// Aprende el protocolo de iteración de JavaScript
-// Descomenta cada sección y ejecuta: node index.js
+/**
+ * 📘 Lab 01: 
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
+ */
 
 // ============================================
 // PASO 1: Iterador de Array
@@ -59,7 +60,7 @@ console.log('--- Paso 3: Iterador de Map ---');
 // const mapIterator = userMap[Symbol.iterator]();
 
 // const firstEntry = mapIterator.next().value;
-// console.log('Tipo de entrada:', typeof firstEntry);
+// console.log('Primera entrada:', firstEntry, typeof firstEntry);
 
 // for (const [key, value] of userMap) {
 //   console.log(`${key} → ${value}`);
@@ -157,11 +158,12 @@ console.log('--- Paso 6: Rango Iterable ---');
 console.log('');
 
 // ============================================
-// 🎯 DESAFÍO EXTRA
+// PASO 7: Fibonacci con un iterador
 // ============================================
-// Crea un iterador que genere los primeros N
-// números de la secuencia Fibonacci
-// Descomenta y completa:
+console.log('--- Paso 7: Fibonacci ---');
+
+// El iterador guarda el estado (prev, curr, count) entre llamadas a next()
+// Descomenta las siguientes líneas:
 
 // const fibonacci = {
 //   limit: 10,
@@ -174,10 +176,19 @@ console.log('');
 //
 //     return {
 //       next() {
-//         // Tu código aquí
+//         if (count === limit) {
+//           return { value: undefined, done: true };
+//         }
+//         count++;
+//         const value = curr;
+//         [prev, curr] = [curr, prev + curr];
+//         return { value, done: false };
 //       }
 //     };
 //   }
 // };
 
 // console.log('Fibonacci:', [...fibonacci]);
+
+console.log('');
+console.log('✅ Lab completado.');

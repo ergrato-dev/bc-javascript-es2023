@@ -1,5 +1,7 @@
 # 🔄 Protocolo de Iteración
 
+![Protocolo de iteración](../0-assets/01-iteration-protocol.svg)
+
 ## 🎯 Objetivos
 
 - Comprender qué es un iterable y un iterador
@@ -338,6 +340,13 @@ const myIterable = {
 - [MDN: Iteration protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)
 - [JavaScript.info: Iterables](https://javascript.info/iterable)
 
+<!-- nav -->
 ---
 
-[⬅️ Volver al README](../README.md) | [Siguiente: for...of vs for...in ➡️](02-for-of-vs-for-in.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 08 - Iteradores y Generadores](../README.md) | [Teoría — 🔀 for...of vs for...in](02-for-of-vs-for-in.md) → |
+
+[↑ Semana 08](../README.md)

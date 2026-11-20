@@ -68,6 +68,13 @@
 3. **Tercero**: Traversy Media (tutorial completo)
 4. **Cuarto**: Fun Fun Function (profundización)
 
+<!-- nav -->
 ---
 
-*Videografía Week 08 | Bootcamp JavaScript ES2023*
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 08](../../README.md)

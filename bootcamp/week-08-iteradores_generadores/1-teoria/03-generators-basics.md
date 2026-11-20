@@ -1,5 +1,7 @@
 # ⚡ Generadores Básicos
 
+![Flujo de un generador](../0-assets/03-generator-flow.svg)
+
 ## 🎯 Objetivos
 
 - Comprender qué son las funciones generadoras
@@ -440,6 +442,13 @@ for (const val of myGen()) {
 - [MDN: function*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)
 - [JavaScript.info: Generators](https://javascript.info/generators)
 
+<!-- nav -->
 ---
 
-[⬅️ for...of vs for...in](02-for-of-vs-for-in.md) | [Siguiente: yield y Delegación ➡️](04-yield-delegation.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔀 for...of vs for...in](02-for-of-vs-for-in.md) | [Teoría — 🔗 yield y Delegación de Generadores](04-yield-delegation.md) → |
+
+[↑ Semana 08](../README.md)

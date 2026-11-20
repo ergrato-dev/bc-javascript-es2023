@@ -1,8 +1,9 @@
-// ============================================
-// EJERCICIO 03: Generadores y yield
-// ============================================
-// Aprende a crear funciones generadoras
-// Descomenta cada sección y ejecuta: node index.js
+/**
+ * 📘 Lab 03: for...of y for...in
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
+ */
 
 // ============================================
 // PASO 1: Generador Básico
@@ -123,11 +124,12 @@ console.log('--- Paso 4: Generador Infinito ---');
 
 // Helper para tomar N elementos
 // function* take(iterable, n) {
+//   if (n <= 0) return;
 //   let count = 0;
 //   for (const item of iterable) {
-//     if (count >= n) return;
 //     yield item;
 //     count++;
+//     if (count === n) return;
 //   }
 // }
 
@@ -200,23 +202,27 @@ console.log('--- Paso 6: Generadores Prácticos ---');
 console.log('');
 
 // ============================================
-// 🎯 DESAFÍO EXTRA
+// PASO 7: Generador de primos
 // ============================================
-// Crea un generador que produzca números primos
-// Descomenta y completa:
+console.log('--- Paso 7: Generador de primos ---');
+
+// Un bucle sin condición de fin: take() del paso 4 decide cuántos pedir
+// Descomenta las siguientes líneas:
 
 // function* primes() {
-//   // Helper para verificar si es primo
-//   const isPrime = n => {
-//     if (n < 2) return false;
-//     for (let i = 2; i <= Math.sqrt(n); i++) {
+//   const isPrime = (n) => {
+//     for (let i = 2; i * i <= n; i++) {
 //       if (n % i === 0) return false;
 //     }
 //     return true;
 //   };
 //
-//   // Tu código aquí: genera números primos infinitamente
+//   for (let n = 2; ; n++) {
+//     if (isPrime(n)) yield n;
+//   }
 // }
 
-// Usa take() del Paso 4 para probar
 // console.log('Primeros 10 primos:', [...take(primes(), 10)]);
+
+console.log('');
+console.log('✅ Lab completado.');

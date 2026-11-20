@@ -1,0 +1,90 @@
+{
+  "semana": "08",
+  "titulo": "Iteradores y Generadores",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js y src/logic.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE, ID_PREFIX de 2 a 4 mayúsculas y por defecto 8 a 15 piezas sin id, con nombre sin repetir y sala; al menos 2 salas",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE, ID_PREFIX } from './src/data.js'; assert.ok(typeof TITLE === 'string' && TITLE.trim() !== ''); assert.match(ID_PREFIX, /^[A-Z]{2,4}$/); assert.ok(Array.isArray(items) && items.length >= 8 && items.length <= 15); assert.ok(items.every((item) => !('id' in item) && [item.name, item.room].every((t) => typeof t === 'string' && t.trim() !== ''))); assert.equal(new Set(items.map(({ name }) => name)).size, items.length); assert.ok(new Set(items.map(({ room }) => room)).size >= 2);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título, el prefijo y las piezas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE, ID_PREFIX } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.notEqual(ID_PREFIX, 'PLA'); assert.ok(!items.some(({ name }) => ['Telescopio refractor', 'Globo lunar', 'Astrolabio', 'Planisferio'].includes(name)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "id-generator",
+      "descripcion": "createIdGenerator es un generador infinito de ids PREFIJO-001, PREFIJO-002... y cada llamada empieza su propia cuenta",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createIdGenerator, take } from './src/logic.js'; const ids = createIdGenerator('MUS'); assert.equal(typeof ids.next, 'function'); assert.equal(ids.next().value, 'MUS-001'); assert.equal(ids.next().value, 'MUS-002'); assert.equal(createIdGenerator('AC').next().value, 'AC-001'); const many = createIdGenerator('X'); for (let i = 0; i < 9; i++) many.next(); assert.deepEqual(many.next(), { value: 'X-010', done: false });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "take",
+      "descripcion": "take entrega los n primeros valores, ninguno con n <= 0, y no pide al iterable ningún valor de más",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { take } from './src/logic.js'; let pulled = 0; function* counted(values) { for (const v of values) { pulled++; yield v; } } function* naturals() { for (let n = 0; ; n++) yield n; } assert.deepEqual([...take([1, 2, 3], 2)], [1, 2]); assert.deepEqual([...take([1, 2], 5)], [1, 2]); assert.deepEqual([...take([1, 2], 0)], []); assert.deepEqual([...take(naturals(), 3)], [0, 1, 2]); [...take(counted([1, 2, 3, 4]), 2)]; assert.equal(pulled, 2); pulled = 0; [...take(counted([1, 2]), 0)]; assert.equal(pulled, 0);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "skip",
+      "descripcion": "skip se salta los n primeros valores y entrega el resto, también de un generador infinito",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { skip, take } from './src/logic.js'; function* naturals() { for (let n = 0; ; n++) yield n; } assert.deepEqual([...skip(['a', 'b', 'c'], 1)], ['b', 'c']); assert.deepEqual([...skip(['a', 'b'], 0)], ['a', 'b']); assert.deepEqual([...skip(['a', 'b'], 5)], []); assert.deepEqual([...take(skip(naturals(), 3), 2)], [3, 4]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "filter-by",
+      "descripcion": "filterBy entrega los valores que cumplen la condición a medida que se piden, también de un generador infinito",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { filterBy, take } from './src/logic.js'; function* naturals() { for (let n = 0; ; n++) yield n; } assert.deepEqual([...filterBy([1, 2, 3, 4], (n) => n % 2 === 0)], [2, 4]); assert.deepEqual([...filterBy([1, 3], (n) => n % 2 === 0)], []); assert.deepEqual([...take(filterBy(naturals(), (n) => n % 5 === 0), 3)], [0, 5, 10]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "count-pages",
+      "descripcion": "countPages redondea hacia arriba y nunca devuelve menos de 1",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { countPages } from './src/logic.js'; assert.equal(countPages(10, 4), 3); assert.equal(countPages(8, 4), 2); assert.equal(countPages(1, 4), 1); assert.equal(countPages(0, 4), 1);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "get-page",
+      "descripcion": "getPage devuelve un array con la página pedida, funciona con generadores y no recorre más allá de esa página",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { getPage } from './src/logic.js'; let pulled = 0; function* counted(values) { for (const v of values) { pulled++; yield v; } } const letters = Object.freeze(['a', 'b', 'c', 'd', 'e']); assert.deepEqual(getPage(letters, 1, 2), ['a', 'b']); assert.deepEqual(getPage(letters, 3, 2), ['e']); assert.deepEqual(getPage(letters, 4, 2), []); assert.ok(Array.isArray(getPage(letters, 1, 2))); assert.deepEqual(getPage(counted(letters), 2, 2), ['c', 'd']); assert.equal(pulled, 4);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "catalog",
+      "descripcion": "createCatalog devuelve un iterable con size que entrega las piezas por nombre (localeCompare con es), se puede recorrer varias veces y no ordena el array original",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createCatalog } from './src/logic.js'; const items = Object.freeze([{ id: 'M-1', name: 'Busto', room: 'A' }, { id: 'M-2', name: 'Ánfora', room: 'A' }, { id: 'M-3', name: 'Casco', room: 'B' }, { id: 'M-4', name: 'Arpa', room: 'B' }].map(Object.freeze)); const catalog = createCatalog(items); assert.equal(catalog.size, 4); assert.equal(typeof catalog[Symbol.iterator], 'function'); assert.deepEqual([...catalog].map(({ name }) => name), ['Ánfora', 'Arpa', 'Busto', 'Casco']); assert.deepEqual([...catalog].map(({ id }) => id), ['M-2', 'M-4', 'M-1', 'M-3']); assert.strictEqual([...catalog][0], items[1]); assert.equal(items[0].name, 'Busto');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}

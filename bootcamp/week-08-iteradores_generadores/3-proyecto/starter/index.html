@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo por páginas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">📖 Catálogo por páginas</h1>
+      <div class="stats-summary">
+        <span class="stat">Piezas: <strong id="stat-pieces">0</strong></span>
+        <span class="stat">Salas: <strong id="stat-rooms">0</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>➕ Nueva pieza</h2>
+      <form id="item-form" class="item-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-name">Nombre</label>
+            <input type="text" id="item-name">
+            <small class="field-error" id="error-name"></small>
+          </div>
+          <div class="form-group">
+            <label for="item-room">Sala</label>
+            <input type="text" id="item-room" list="room-options">
+            <datalist id="room-options"></datalist>
+            <small class="field-error" id="error-room"></small>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Añadir</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="filter-room">Sala:</label>
+          <select id="filter-room"></select>
+        </div>
+        <div class="filter-group">
+          <label for="page-size">Piezas por página:</label>
+          <select id="page-size">
+            <option value="3">3</option>
+            <option value="4" selected>4</option>
+            <option value="6">6</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Piezas por nombre</h2>
+      </div>
+      <div id="item-list" class="item-list"></div>
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay piezas que mostrar</p>
+        <p class="empty-state-hint">Elige otra sala o añade una pieza</p>
+      </div>
+      <nav class="pagination">
+        <button type="button" id="btn-prev" class="btn btn-secondary">← Anterior</button>
+        <span id="page-info">Página 1 de 1</span>
+        <button type="button" id="btn-next" class="btn btn-secondary">Siguiente →</button>
+      </nav>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

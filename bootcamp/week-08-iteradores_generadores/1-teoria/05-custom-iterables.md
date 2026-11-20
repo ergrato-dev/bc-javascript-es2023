@@ -1,5 +1,7 @@
 # 🛠️ Iterables Personalizados
 
+![Iterable personalizado](../0-assets/05-custom-iterable.svg)
+
 ## 🎯 Objetivos
 
 - Crear clases y objetos iterables
@@ -586,6 +588,13 @@ class Multi {
 - [MDN: Symbol.iterator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator)
 - [JavaScript.info: Iterables](https://javascript.info/iterable)
 
+<!-- nav -->
 ---
 
-[⬅️ yield y Delegación](04-yield-delegation.md) | [Volver al README ➡️](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔗 yield y Delegación de Generadores](04-yield-delegation.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 08](../README.md)

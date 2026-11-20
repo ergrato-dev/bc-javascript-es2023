@@ -1,5 +1,7 @@
 # 🔀 for...of vs for...in
 
+![for...of frente a for...in](../0-assets/02-for-of-vs-for-in.svg)
+
 ## 🎯 Objetivos
 
 - Diferenciar claramente `for...of` y `for...in`
@@ -417,6 +419,13 @@ for (const key in obj) {
 - [MDN: for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
 - [MDN: for...in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
 
+<!-- nav -->
 ---
 
-[⬅️ Protocolo de Iteración](01-iteration-protocol.md) | [Siguiente: Generadores ➡️](03-generators-basics.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔄 Protocolo de Iteración](01-iteration-protocol.md) | [Teoría — ⚡ Generadores Básicos](03-generators-basics.md) → |
+
+[↑ Semana 08](../README.md)

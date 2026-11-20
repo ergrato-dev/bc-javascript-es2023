@@ -100,6 +100,13 @@
 5. ECMAScript Specification
 6. TC39 Proposals
 
+<!-- nav -->
 ---
 
-*Webgrafía Week 08 | Bootcamp JavaScript ES2023*
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 08](../../README.md)

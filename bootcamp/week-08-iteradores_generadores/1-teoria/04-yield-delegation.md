@@ -1,5 +1,7 @@
 # 🔗 yield y Delegación de Generadores
 
+![Delegación con yield*](../0-assets/04-yield-delegation.svg)
+
 ## 🎯 Objetivos
 
 - Dominar el uso avanzado de `yield`
@@ -445,6 +447,13 @@ function* recurse(arr) {
 - [MDN: yield*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield*)
 - [JavaScript.info: Generator composition](https://javascript.info/generators#generator-composition)
 
+<!-- nav -->
 ---
 
-[⬅️ Generadores Básicos](03-generators-basics.md) | [Siguiente: Iterables Personalizados ➡️](05-custom-iterables.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — ⚡ Generadores Básicos](03-generators-basics.md) | [Teoría — 🛠️ Iterables Personalizados](05-custom-iterables.md) → |
+
+[↑ Semana 08](../README.md)
