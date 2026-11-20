@@ -223,18 +223,18 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 11: Manejo de Errores Moderno**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- try...catch...finally
+- `try`/`catch`/`finally` y errores nativos (`SyntaxError`, `TypeError`, `RangeError`)
 - Optional catch binding (ES2019)
-- Crear errores personalizados (extends Error)
+- Errores personalizados (`extends Error`), códigos y jerarquías
 - Error cause (ES2022): `new Error('msg', { cause })`
-- Manejo de errores asincrónicos
-- Mejores prácticas
-- Mejores prácticas
+- Errores asíncronos: `.catch()`, `async`/`await`, `Promise.allSettled()` y timeouts
+- Patrones: respaldo, reintentos, error boundaries y patrón Result
 
-**Proyecto**: Sistema robusto con manejo de errores completo
+**Proyecto**: Importador de fichas: valida cada pieza de un JSON con errores propios sin que una mala detenga el resto, encadena el `SyntaxError` con `cause`, reintenta los fallos pasajeros de un servidor simulado y traduce cada error a un mensaje para el usuario
 
 ---
 

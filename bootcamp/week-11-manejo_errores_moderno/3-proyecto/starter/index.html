@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Importador de fichas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">🛡️ Importador de fichas</h1>
+      <div class="stats-summary">
+        <span class="stat">Piezas: <strong id="stat-pieces">0</strong></span>
+        <span class="stat">Valor total: <strong id="stat-value">0 €</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>📥 Importar piezas</h2>
+      <form id="import-form" class="item-form">
+        <div class="form-group">
+          <label for="import-text">Lista de piezas en JSON</label>
+          <textarea id="import-text" class="json-input" rows="12" spellcheck="false"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Importar</button>
+        </div>
+      </form>
+      <p id="import-message" class="message" role="status"></p>
+      <div class="change-log">
+        <h2>⚠️ Piezas rechazadas</h2>
+        <ol id="import-errors"></ol>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <h2>☁️ Guardar en el servidor</h2>
+      <form id="save-form" class="item-form">
+        <div class="form-group">
+          <label for="server-mode">Cómo responde el servidor (simulado)</label>
+          <select id="server-mode">
+            <option value="ok">Estable: guarda a la primera</option>
+            <option value="flaky">Inestable: falla dos veces con 503</option>
+            <option value="down">Caído: siempre 503</option>
+            <option value="reject">Rechaza los datos: 400</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="btn-save" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+      <p id="save-message" class="message" role="status"></p>
+      <div class="change-log">
+        <h2>📜 Intentos</h2>
+        <ol id="save-log"></ol>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Piezas</h2>
+      </div>
+      <div id="item-list" class="item-list"></div>
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay piezas que mostrar</p>
+        <p class="empty-state-hint">Importa la lista del cuadro de arriba</p>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

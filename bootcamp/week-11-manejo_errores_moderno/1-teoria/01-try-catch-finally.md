@@ -719,10 +719,13 @@ try {
 - [MDN: Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)
 - [JavaScript.info: Error handling](https://javascript.info/try-catch)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
-|:------------|:--------:|-------------:|
-| [README](../README.md) | [Teoría](../README.md) | [02 - Errores Personalizados](./02-errores-personalizados.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 11 - Manejo de Errores Moderno](../README.md) | [Teoría — 🎨 Errores Personalizados](02-errores-personalizados.md) → |
+
+[↑ Semana 11](../README.md)

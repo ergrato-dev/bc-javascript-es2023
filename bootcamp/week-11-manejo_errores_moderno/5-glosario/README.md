@@ -345,10 +345,13 @@ class ValidationError extends AppError {
 }
 ```
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Recursos | 🏠 Semana |
-|:------------|:---------:|
-| [4-recursos](../4-recursos/) | [README](../README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📅 Semana 12: Proyecto Integrador - Fundamentos](../../week-12-proyecto_integrador_fundamentos/README.md) → |
+
+[↑ Semana 11](../README.md)

@@ -676,10 +676,13 @@ throw new AuthError('Invalid credentials');
 - [JavaScript Error Handling Patterns](https://www.patterns.dev/posts/error-handling)
 - [Clean Code: Error Handling](https://www.oreilly.com/library/view/clean-code-a/9780136083238/)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
-|:------------|:--------:|-------------:|
-| [04 - Errores Asíncronos](./04-errores-asincronos.md) | [Teoría](../README.md) | [Prácticas](../2-practicas/) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — ⏳ Errores Asíncronos](04-errores-asincronos.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 11](../README.md)

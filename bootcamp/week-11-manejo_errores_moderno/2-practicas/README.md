@@ -1,115 +1,32 @@
-# 💪 Prácticas - Week 11: Manejo de Errores Moderno
+# Prácticas — Semana 11
 
-## 🎯 Objetivos
+Cuatro labs guiados que siguen el orden de la teoría. Cada lab trae en `starter/index.js` el código comentado: lo descomentas paso a paso, lo ejecutas con Node y comparas con la salida esperada del README. No se entregan; preparan el [proyecto de la semana](../3-proyecto/README.md).
 
-Aplicar los conceptos de manejo de errores a través de ejercicios prácticos progresivos.
+| Lab | Tema | Duración |
+|---|---|---|
+| [Lab 01](lab-01-try-catch/README.md) | `try`/`catch`/`finally`, errores nativos, `throw`, `instanceof` y `cause` | 50 min |
+| [Lab 02](lab-02-custom-errors/README.md) | Clases de error propias, códigos, jerarquías y `toJSON()` | 55 min |
+| [Lab 03](lab-03-async-errors/README.md) | Rechazos de promesas, `async`/`await`, `Promise.allSettled()` y timeouts | 55 min |
+| [Lab 04](lab-04-error-patterns/README.md) | Respaldo, reintentos, cadena de respaldos y patrón Result | 50 min |
 
----
+**Total:** 3 h 30 min.
 
-## 📋 Lista de Ejercicios
+## Antes de empezar
 
-| # | Ejercicio | Tema | Duración | Dificultad |
-|---|-----------|------|----------|------------|
-| 01 | [try-catch](./ejercicio-01-try-catch/) | try...catch...finally básico | 45 min | ⭐ Básico |
-| 02 | [custom-errors](./ejercicio-02-custom-errors/) | Errores personalizados | 45 min | ⭐⭐ Intermedio |
-| 03 | [async-errors](./ejercicio-03-async-errors/) | Errores asíncronos | 45 min | ⭐⭐ Intermedio |
-| 04 | [error-patterns](./ejercicio-04-error-patterns/) | Patrones avanzados | 45 min | ⭐⭐⭐ Avanzado |
-
-**Tiempo total estimado**: 3 horas
-
----
-
-## 🗂️ Estructura de Cada Ejercicio
-
-```
-ejercicio-XX-nombre/
-├── README.md           # Instrucciones del ejercicio
-└── starter/
-    └── index.js        # Código con secciones para descomentar
-```
-
----
-
-## 📝 Metodología
-
-Cada ejercicio es un **tutorial guiado** donde aprenderás descomentando código:
-
-1. **Lee** la explicación en el README
-2. **Abre** el archivo `starter/index.js`
-3. **Descomenta** las líneas indicadas
-4. **Ejecuta** con `node index.js`
-5. **Observa** el resultado y comprende el concepto
-
----
-
-## 🚀 Cómo Empezar
-
-### Prerrequisitos
-
-- Node.js instalado
-- Editor de código (VS Code recomendado)
-
-### Ejecutar un Ejercicio
+Comprueba que tienes Node instalado (versión en [docs/stack-versions.md](../../../docs/stack-versions.md)):
 
 ```bash
-# Navegar al ejercicio
-cd bootcamp/week-11-manejo_errores_moderno/2-practicas/ejercicio-01-try-catch/starter
-
-# Ejecutar
-node index.js
+node --version
+# v24.19.0 (o superior)
 ```
 
----
-
-## 📊 Progresión de Dificultad
-
-```
-Ejercicio 01: ⭐ Básico
-├── try...catch básico
-├── finally para cleanup
-└── throw y tipos de error
-
-Ejercicio 02: ⭐⭐ Intermedio
-├── Clases de error custom
-├── Propiedades adicionales
-└── Jerarquía de errores
-
-Ejercicio 03: ⭐⭐ Intermedio
-├── Errores en Promises
-├── async/await + try/catch
-└── Promise.allSettled()
-
-Ejercicio 04: ⭐⭐⭐ Avanzado
-├── Safe execute pattern
-├── Retry con backoff
-└── Error boundaries
-```
-
----
-
-## ✅ Checklist de Completado
-
-- [ ] Ejercicio 01: try...catch...finally dominado
-- [ ] Ejercicio 02: Errores personalizados creados
-- [ ] Ejercicio 03: Errores async manejados
-- [ ] Ejercicio 04: Patrones avanzados aplicados
-
----
-
-## 💡 Tips
-
-> **Tip 1**: Ejecuta el código paso a paso, no todo de una vez.
-
-> **Tip 2**: Lee los comentarios en el código—contienen explicaciones importantes.
-
-> **Tip 3**: Experimenta modificando los valores para ver diferentes resultados.
-
-> **Tip 4**: Si algo no funciona, revisa la consola para ver el error completo.
-
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Teoría | 🏠 Semana | Proyecto ➡️ |
-|:----------|:---------:|------------:|
-| [1-teoria](../1-teoria/) | [README](../README.md) | [3-proyecto](../3-proyecto/) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🏆 Mejores Prácticas de Manejo de Errores](../1-teoria/05-mejores-practicas.md) | [Lab 01 — try...catch...finally](lab-01-try-catch/README.md) → |
+
+[↑ Semana 11](../README.md)

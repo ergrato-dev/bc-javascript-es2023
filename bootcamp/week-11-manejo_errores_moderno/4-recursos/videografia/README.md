@@ -100,10 +100,13 @@
 | 6 | Fun Fun Function | Promise errors |
 | 7 | JSConf | Patrones avanzados |
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Recursos | 🏠 Semana |
-|:------------|:---------:|
-| [4-recursos](../) | [README](../../README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 11](../../README.md)

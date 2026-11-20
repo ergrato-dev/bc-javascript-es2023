@@ -1,210 +1,88 @@
-# 📋 Rúbrica de Evaluación - Week 11
+# Rúbrica de Evaluación - Semana 11
 
-## 🎯 Manejo de Errores Moderno
+## Evidencias y ponderación
 
-### Información General
-
-| Aspecto | Detalle |
-|---------|---------|
-| **Semana** | 11 de 28 |
-| **Tema** | Manejo de Errores Moderno |
-| **Duración** | 8 horas |
-| **Ponderación** | 100 puntos |
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | `try`/`catch`/`finally`, errores nativos y propios, `cause`, errores asíncronos y patrones de recuperación |
+| Desempeño | 40% | Labs 01 a 04 descomentados y ejecutados |
+| Producto | 30% | Importador de fichas: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-## 📊 Distribución de Puntos
+## Criterios por evidencia
 
-| Tipo de Evidencia | Porcentaje | Puntos |
-|-------------------|------------|--------|
-| 🧠 Conocimiento | 30% | 30 pts |
-| 💪 Desempeño | 40% | 40 pts |
-| 📦 Producto | 30% | 30 pts |
+## 1) Conocimiento (30%)
 
----
+### Criterios
 
-## 🧠 Evidencia de Conocimiento (30 pts)
+- Explica cuándo se ejecuta cada bloque de `try`/`catch`/`finally` y qué pasa con un error que nadie captura.
+- Distingue `SyntaxError`, `TypeError`, `RangeError` y `ReferenceError` con un ejemplo de cada uno.
+- Explica para qué sirve heredar de `Error`, por qué se cambia `name` y qué aporta `cause` al relanzar un error.
+- Explica cómo se captura el rechazo de una promesa con `.catch()` y con `await` dentro de `try`, y cuándo usar `Promise.all()` o `Promise.allSettled()`.
+- Dice qué errores conviene reintentar y cuáles no, y por qué no se debe tragar un error que no se esperaba.
 
-### Cuestionario Teórico
+### Niveles
 
-| Criterio | Excelente (10) | Bueno (7) | Básico (4) | Insuficiente (0) |
-|----------|----------------|-----------|------------|------------------|
-| **try...catch...finally** | Explica correctamente el flujo, cuándo se ejecuta finally, y re-throw | Comprende el flujo básico y finally | Solo conoce try...catch | No comprende el manejo de errores |
-| **Errores personalizados** | Crea clases de error con propiedades extra, herencia y contexto | Extiende Error correctamente | Conoce Error pero no lo extiende | No puede crear errores custom |
-| **Errores asíncronos** | Domina manejo en Promises, async/await, y Promise.allSettled | Maneja errores con .catch() y try/catch en async | Conocimiento básico | No maneja errores async |
-
-**Total Conocimiento: 30 puntos**
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, sobre cuándo se ejecuta `finally` si el `catch` relanza).
+- **Bajo (<21):** captura todos los errores con un `catch` vacío, o no distingue un error de validación de un fallo del programa.
 
 ---
 
-## 💪 Ejercicios de Práctica (No se entregan)
+## 2) Desempeño (40%)
 
-> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
+### Criterios
 
-### Ejercicios Prácticos
+- Lab 01: los 7 pasos descomentados; explica por qué `finally` se ejecuta en los dos casos del paso 3 y qué guarda `cause` en el paso 7.
+- Lab 02: los 7 pasos; explica por qué un `Error` normal se serializa como `{}` y qué cambia `toJSON()` en el paso 5.
+- Lab 03: los 7 pasos; explica por qué `Promise.all()` pierde los resultados del paso 4 y cómo los conserva `Promise.allSettled()` en el paso 5.
+- Lab 04: los 7 pasos; explica la diferencia entre reintentar (paso 3), probar otra fuente (paso 5) y devolver un `Result` (paso 7).
 
-#### Ejercicio 01: try...catch...finally (10 pts)
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab.
 
-| Nivel | Criterios | Puntos |
-|-------|-----------|--------|
-| ⭐⭐⭐ Excelente | Maneja múltiples tipos de error, usa finally para cleanup, re-throw apropiado | 10 |
-| ⭐⭐ Bueno | Usa try...catch correctamente, finally presente | 7 |
-| ⭐ Básico | Catch genérico, sin finally | 4 |
-| ❌ Insuficiente | No maneja errores o código incorrecto | 0 |
+### Niveles
 
-#### Ejercicio 02: Errores Personalizados (10 pts)
-
-| Nivel | Criterios | Puntos |
-|-------|-----------|--------|
-| ⭐⭐⭐ Excelente | Jerarquía de errores, propiedades útiles, instanceof funciona | 10 |
-| ⭐⭐ Bueno | Clase que extiende Error correctamente | 7 |
-| ⭐ Básico | Error con mensaje custom pero sin clase | 4 |
-| ❌ Insuficiente | No crea errores personalizados | 0 |
-
-#### Ejercicio 03: Errores Asíncronos (10 pts)
-
-| Nivel | Criterios | Puntos |
-|-------|-----------|--------|
-| ⭐⭐⭐ Excelente | Maneja errores de red, timeout, parsing; usa Promise.allSettled | 10 |
-| ⭐⭐ Bueno | try/catch en async functions, .catch() en promises | 7 |
-| ⭐ Básico | Solo maneja errores básicos de fetch | 4 |
-| ❌ Insuficiente | Errores sin manejar (unhandled rejections) | 0 |
-
-#### Ejercicio 04: Patrones de Error (10 pts)
-
-| Nivel | Criterios | Puntos |
-|-------|-----------|--------|
-| ⭐⭐⭐ Excelente | Implementa error boundaries, retry, circuit breaker | 10 |
-| ⭐⭐ Bueno | Safe execute pattern, fallbacks funcionales | 7 |
-| ⭐ Básico | Manejo básico sin patrones claros | 4 |
-| ❌ Insuficiente | No aplica patrones de manejo de errores | 0 |
-
-**Total Desempeño: 40 puntos**
+- **Alto (36-40):** los cuatro labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cuatro labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-## 📦 Evidencia de Producto (30 pts)
+## 3) Producto (30%)
 
-### Proyecto: Sistema Robusto
+### Criterios
 
-#### Funcionalidad (12 pts)
+- `PROYECTO=... ./scripts/verificar-semana.sh 11` pasa las 14 comprobaciones.
+- `TITLE`, `ID_PREFIX`, `ROOMS` y las piezas de `src/data.js` describen el dominio asignado, con 5 a 12 piezas coherentes y valores creíbles.
+- La página funciona servida con `pnpm dlx serve .`: **Importar** añade las piezas válidas y lista las rechazadas, un JSON roto muestra `El texto no es JSON válido`, y los cuatro modos del servidor dan el número de intentos y el mensaje del paso 10, sin errores inesperados en la consola.
+- Las funciones usan lo de la semana donde corresponde: las cuatro clases heredan de `AppError` y no repiten `name`; `parseJson` encadena el `SyntaxError` con `cause`; `importItems` captura solo `ValidationError` y relanza el resto; `retry` decide con `retryable`; `userMessage` distingue los tipos con `instanceof`.
 
-| Criterio | Puntos |
-|----------|--------|
-| Operaciones CRUD funcionan correctamente | 3 |
-| Validación con errores descriptivos | 3 |
-| Manejo de errores de red/API | 3 |
-| Recuperación de fallos (retry, fallback) | 3 |
+### Niveles
 
-#### Clases de Error (8 pts)
-
-| Criterio | Puntos |
-|----------|--------|
-| Jerarquía de errores (base + específicos) | 2 |
-| Propiedades útiles (código, campo, contexto) | 2 |
-| Métodos helper (toJSON, toUserMessage) | 2 |
-| instanceof funciona correctamente | 2 |
-
-#### UX de Errores (6 pts)
-
-| Criterio | Puntos |
-|----------|--------|
-| Mensajes amigables para el usuario | 2 |
-| Errores no bloquean la aplicación | 2 |
-| Logging para debugging | 2 |
-
-#### Calidad de Código (4 pts)
-
-| Criterio | Puntos |
-|----------|--------|
-| Código limpio y bien organizado | 1 |
-| Comentarios explicativos | 1 |
-| Nombres descriptivos | 1 |
-| Sin errores de sintaxis | 1 |
-
-**Total Producto: 30 puntos**
+- **Alto (27-30):** 14/14, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 14/14 con datos poco adaptados (piezas de relleno) o alguna acción de la página que falla.
+- **Bajo (<21):** menos de 14 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## 📈 Escala de Calificación
+## Calificación
 
-| Rango | Calificación | Descripción |
-|-------|--------------|-------------|
-| 90-100 | ⭐ Excelente | Dominio completo del manejo de errores |
-| 80-89 | ✅ Muy Bueno | Buen manejo con pequeñas áreas de mejora |
-| 70-79 | 👍 Bueno | Comprensión sólida de los conceptos básicos |
-| 60-69 | 📝 Suficiente | Conocimientos mínimos, necesita reforzar |
-| 0-59 | ❌ No Aprobado | Debe repetir la semana |
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
+
+<!-- nav -->
 ---
 
-## ✅ Checklist de Entrega
+## 🔗 Navegación
 
-### Ejercicios
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Importador de fichas](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
-- [ ] Ejercicio 01: try...catch...finally completado
-- [ ] Ejercicio 02: Errores personalizados implementados
-- [ ] Ejercicio 03: Errores asíncronos manejados
-- [ ] Ejercicio 04: Patrones de error aplicados
-- [ ] Todos los ejercicios ejecutan sin errores
-
-### Proyecto
-
-- [ ] Sistema de gestión funcional
-- [ ] Jerarquía de errores personalizados
-- [ ] Validación con mensajes descriptivos
-- [ ] Manejo de errores de red
-- [ ] UI muestra errores amigables
-- [ ] Console logging para debug
-- [ ] README con instrucciones claras
-
-### Documentación
-
-- [ ] Código comentado donde es necesario
-- [ ] Nombres descriptivos en inglés
-- [ ] Estructura de archivos correcta
-
----
-
-## 🎯 Objetivos de Aprendizaje Evaluados
-
-| Objetivo | Método de Evaluación |
-|----------|---------------------|
-| Dominar try...catch...finally | Ejercicio 01 + Cuestionario |
-| Crear errores personalizados | Ejercicio 02 + Proyecto |
-| Implementar error boundaries | Ejercicio 04 + Proyecto |
-| Manejar errores asíncronos | Ejercicio 03 + Proyecto |
-| Aplicar mejores prácticas | Proyecto + Código |
-
----
-
-## 📝 Criterios de Excelencia
-
-Para obtener la máxima calificación:
-
-1. **Errores Informativos**: Cada error incluye contexto útil
-2. **Jerarquía Clara**: Errores organizados por tipo/dominio
-3. **Recuperación**: El sistema se recupera de fallos gracefully
-4. **UX**: Usuarios ven mensajes útiles, no stack traces
-5. **Logging**: Desarrolladores pueden debuggear fácilmente
-6. **Código Limpio**: Sin catch vacíos, sin errores silenciados
-
----
-
-## 🔄 Retroalimentación
-
-| Aspecto | Comentarios |
-|---------|-------------|
-| Fortalezas | |
-| Áreas de mejora | |
-| Recomendaciones | |
-
-**Calificación Final**: _____ / 100
-
-**Evaluador**: _________________
-
-**Fecha**: _________________
-
----
-
-*Week 11 - Manejo de Errores Moderno | Bootcamp JavaScript ES2023*
+[↑ Semana 11](README.md)

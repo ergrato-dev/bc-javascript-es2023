@@ -67,10 +67,13 @@
 2. **Profundiza con YDKJS** - Para errores asíncronos
 3. **JavaScript Allongé** - Para patrones avanzados
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Recursos | 🏠 Semana |
-|:------------|:---------:|
-| [4-recursos](../) | [README](../../README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 11](../../README.md)

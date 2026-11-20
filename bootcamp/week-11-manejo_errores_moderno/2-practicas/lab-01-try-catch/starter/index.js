@@ -1,23 +1,14 @@
 /**
- * 🛡️ Ejercicio 01: try...catch...finally
- * =====================================
- * Aprende a manejar errores con la estructura try...catch...finally.
+ * 📘 Lab 01: try...catch...finally
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Instrucciones:
- * 1. Lee cada sección
- * 2. Descomenta el código indicado
- * 3. Ejecuta: node index.js
- * 4. Observa el resultado
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
-
-console.log('='.repeat(60));
-console.log('🛡️ Ejercicio 01: try...catch...finally');
-console.log('='.repeat(60));
 
 // ============================================
 // PASO 1: Catch Básico
 // ============================================
-console.log('\n--- Paso 1: Catch Básico ---');
+console.log('--- Paso 1: Catch Básico ---');
 
 // El bloque catch captura errores que ocurren en try
 // Descomenta las siguientes líneas:
@@ -38,7 +29,7 @@ console.log('');
 // ============================================
 // PASO 2: Propiedades del Error
 // ============================================
-console.log('\n--- Paso 2: Propiedades del Error ---');
+console.log('--- Paso 2: Propiedades del Error ---');
 
 // Todo Error tiene: name, message, stack
 // Descomenta las siguientes líneas:
@@ -48,8 +39,11 @@ console.log('\n--- Paso 2: Propiedades del Error ---');
 // } catch (error) {
 //   console.log('Name:', error.name);
 //   console.log('Message:', error.message);
-//   console.log('Stack (first 200 chars):');
-//   console.log(error.stack.slice(0, 200) + '...');
+//   // stack: la primera línea es "name: message"; las siguientes, "at ...",
+//   // dicen en qué archivo y línea se creó el error (cambian en cada equipo).
+//   const [firstLine, secondLine] = error.stack.split('\n');
+//   console.log('Stack, línea 1:', firstLine);
+//   console.log('Stack, línea 2 empieza por "at":', secondLine.trim().startsWith('at '));
 // }
 
 console.log('');
@@ -57,7 +51,7 @@ console.log('');
 // ============================================
 // PASO 3: El Bloque finally
 // ============================================
-console.log('\n--- Paso 3: El Bloque finally ---');
+console.log('--- Paso 3: El Bloque finally ---');
 
 // finally SIEMPRE se ejecuta, haya error o no
 // Descomenta las siguientes líneas:
@@ -91,7 +85,7 @@ console.log('');
 // ============================================
 // PASO 4: Tipos de Error Nativos
 // ============================================
-console.log('\n--- Paso 4: Tipos de Error Nativos ---');
+console.log('--- Paso 4: Tipos de Error Nativos ---');
 
 // JavaScript tiene varios tipos de error built-in
 // Descomenta las siguientes líneas:
@@ -133,7 +127,7 @@ console.log('');
 // ============================================
 // PASO 5: Lanzar Errores (throw)
 // ============================================
-console.log('\n--- Paso 5: Lanzar Errores (throw) ---');
+console.log('--- Paso 5: Lanzar Errores (throw) ---');
 
 // Usa throw para lanzar tus propios errores
 // Descomenta las siguientes líneas:
@@ -174,7 +168,7 @@ console.log('');
 // ============================================
 // PASO 6: Identificar Tipos con instanceof
 // ============================================
-console.log('\n--- Paso 6: Identificar Tipos con instanceof ---');
+console.log('--- Paso 6: Identificar Tipos con instanceof ---');
 
 // Usa instanceof para manejar diferentes tipos de error
 // Descomenta las siguientes líneas:
@@ -208,7 +202,7 @@ console.log('');
 // ============================================
 // PASO 7: Re-throw de Errores
 // ============================================
-console.log('\n--- Paso 7: Re-throw de Errores ---');
+console.log('--- Paso 7: Re-throw de Errores ---');
 
 // A veces capturas un error, haces algo, y lo vuelves a lanzar
 // Descomenta las siguientes líneas:
@@ -220,8 +214,8 @@ console.log('\n--- Paso 7: Re-throw de Errores ---');
 //     // Log the error for debugging
 //     console.log('⚠️ Logging error:', error.message);
 //
-//     // Re-throw with more context
-//     throw new Error(`Failed to parse data: ${error.message}`);
+//     // Re-throw with more context: cause (ES2022) keeps the original error
+//     throw new Error('Failed to parse data', { cause: error });
 //   }
 // };
 //
@@ -230,32 +224,11 @@ console.log('\n--- Paso 7: Re-throw de Errores ---');
 //   const data = processData('{ bad json }');
 // } catch (error) {
 //   console.log('❌ Final handler:', error.message);
+//   console.log('   Cause:', error.cause.name, '-', error.cause.message);
 // }
 //
 // console.log('✅ Program continues');
 
 console.log('');
 
-// ============================================
-// 🎯 DESAFÍO EXTRA
-// ============================================
-console.log('\n--- 🎯 Desafío Extra ---');
-
-// Crea una función safeParseJSON que:
-// 1. Intente parsear JSON
-// 2. Si falla, retorne un valor por defecto
-// 3. Siempre loguee "Parse attempt complete" al final
-// Descomenta y completa:
-
-// const safeParseJSON = (jsonString, defaultValue = null) => {
-//   // Tu código aquí
-//   // Usa try...catch...finally
-// };
-//
-// console.log('Valid:', safeParseJSON('{"name": "John"}'));
-// console.log('Invalid:', safeParseJSON('bad json', { error: true }));
-
-console.log('');
-console.log('='.repeat(60));
-console.log('✅ Ejercicio 01 completado');
-console.log('='.repeat(60));
+console.log('✅ Lab completado.');

@@ -1,23 +1,14 @@
 /**
- * 🎨 Ejercicio 02: Errores Personalizados
- * =======================================
- * Aprende a crear clases de error que comuniquen claramente qué salió mal.
+ * 📘 Lab 02: Errores personalizados
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Instrucciones:
- * 1. Lee cada sección
- * 2. Descomenta el código indicado
- * 3. Ejecuta: node index.js
- * 4. Observa el resultado
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
-
-console.log('='.repeat(60));
-console.log('🎨 Ejercicio 02: Errores Personalizados');
-console.log('='.repeat(60));
 
 // ============================================
 // PASO 1: Error Personalizado Básico
 // ============================================
-console.log('\n--- Paso 1: Error Personalizado Básico ---');
+console.log('--- Paso 1: Error Personalizado Básico ---');
 
 // Crea una clase que extiende Error
 // Descomenta las siguientes líneas:
@@ -44,7 +35,7 @@ console.log('');
 // ============================================
 // PASO 2: Añadir Propiedades
 // ============================================
-console.log('\n--- Paso 2: Añadir Propiedades ---');
+console.log('--- Paso 2: Añadir Propiedades ---');
 
 // Los errores personalizados pueden tener propiedades extra
 // Descomenta las siguientes líneas:
@@ -77,7 +68,7 @@ console.log('');
 // ============================================
 // PASO 3: Error con Código
 // ============================================
-console.log('\n--- Paso 3: Error con Código ---');
+console.log('--- Paso 3: Error con Código ---');
 
 // Códigos de error facilitan el manejo programático
 // Descomenta las siguientes líneas:
@@ -130,7 +121,7 @@ console.log('');
 // ============================================
 // PASO 4: Jerarquía de Errores
 // ============================================
-console.log('\n--- Paso 4: Jerarquía de Errores ---');
+console.log('--- Paso 4: Jerarquía de Errores ---');
 
 // Crea errores específicos que heredan de una base
 // Descomenta las siguientes líneas:
@@ -188,7 +179,7 @@ console.log('');
 // ============================================
 // PASO 5: Método toJSON()
 // ============================================
-console.log('\n--- Paso 5: Método toJSON() ---');
+console.log('--- Paso 5: Método toJSON() ---');
 
 // Útil para logging y envío a APIs
 // Descomenta las siguientes líneas:
@@ -207,28 +198,25 @@ console.log('\n--- Paso 5: Método toJSON() ---');
 //       code: this.code,
 //       message: this.message,
 //       timestamp: this.timestamp,
-//       // Optionally include stack in development
-//       stack: process.env.NODE_ENV !== 'production' ? this.stack : undefined
 //     };
 //   }
 // }
 //
 // const error = new SerializableError('Operation failed', 'OP_FAILED');
 //
-// // Perfect for JSON.stringify
-// console.log('As JSON:');
-// console.log(JSON.stringify(error.toJSON(), null, 2));
+// // message y stack no son enumerables: JSON.stringify no los ve
+// console.log('Plain Error as JSON:', JSON.stringify(new Error('Operation failed')));
 //
-// // Send to logging service
-// console.log('\nFor logging service:');
-// console.log(error.toJSON());
+// // JSON.stringify llama a toJSON() automáticamente
+// console.log('SerializableError as JSON:');
+// console.log(JSON.stringify(error, null, 2));
 
 console.log('');
 
 // ============================================
 // PASO 6: Mensaje para Usuario
 // ============================================
-console.log('\n--- Paso 6: Mensaje para Usuario ---');
+console.log('--- Paso 6: Mensaje para Usuario ---');
 
 // Separar mensaje técnico del mensaje amigable
 // Descomenta las siguientes líneas:
@@ -277,7 +265,7 @@ console.log('');
 // ============================================
 // PASO 7: Factory Methods
 // ============================================
-console.log('\n--- Paso 7: Factory Methods ---');
+console.log('--- Paso 7: Factory Methods ---');
 
 // Métodos estáticos para crear errores comunes
 // Descomenta las siguientes líneas:
@@ -311,57 +299,17 @@ console.log('\n--- Paso 7: Factory Methods ---');
 // // Clean and readable error creation
 // console.log('Using factory methods:');
 //
-// const errors = [
+// const apiErrors = [
 //   ApiError.validation('email', 'Invalid email format'),
 //   ApiError.notFound('User', 12345),
 //   ApiError.unauthorized('Token expired'),
 //   ApiError.serverError({ operation: 'database query' })
 // ];
 //
-// errors.forEach(error => {
+// apiErrors.forEach(error => {
 //   console.log(`[${error.code}] ${error.message}`, error.details);
 // });
 
 console.log('');
 
-// ============================================
-// 🎯 DESAFÍO EXTRA
-// ============================================
-console.log('\n--- 🎯 Desafío Extra ---');
-
-// Crea un sistema completo de errores para una app de e-commerce:
-// 1. CartError (base)
-// 2. EmptyCartError (no items)
-// 3. OutOfStockError (item sin stock, incluir productId)
-// 4. InvalidQuantityError (cantidad < 1)
-// Descomenta y completa:
-
-// class CartError extends Error {
-//   // Tu código aquí
-// }
-//
-// class EmptyCartError extends CartError {
-//   // Tu código aquí
-// }
-//
-// class OutOfStockError extends CartError {
-//   // Tu código aquí - incluir productId
-// }
-//
-// class InvalidQuantityError extends CartError {
-//   // Tu código aquí
-// }
-//
-// // Test
-// try {
-//   throw new OutOfStockError('SKU-12345');
-// } catch (error) {
-//   if (error instanceof OutOfStockError) {
-//     console.log('Product', error.productId, 'is out of stock');
-//   }
-// }
-
-console.log('');
-console.log('='.repeat(60));
-console.log('✅ Ejercicio 02 completado');
-console.log('='.repeat(60));
+console.log('✅ Lab completado.');

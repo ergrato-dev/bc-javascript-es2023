@@ -538,10 +538,13 @@ const api = {
 - [MDN: Custom Errors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#custom_error_types)
 - [JavaScript.info: Custom errors](https://javascript.info/custom-errors)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
-|:------------|:--------:|-------------:|
-| [01 - try...catch...finally](./01-try-catch-finally.md) | [Teoría](../README.md) | [03 - Error Boundaries](./03-error-boundaries.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🛡️ try...catch...finally](01-try-catch-finally.md) | [Teoría — 🛑 Error Boundaries](03-error-boundaries.md) → |
+
+[↑ Semana 11](../README.md)

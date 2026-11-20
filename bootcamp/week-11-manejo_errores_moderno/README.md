@@ -1,237 +1,108 @@
-# 📅 Week 11: Manejo de Errores Moderno
+# Semana 11 - Manejo de Errores Moderno
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de aprendizaje
 
-Al finalizar esta semana, serás capaz de:
+Al terminar la semana podrás:
 
-- ✅ Dominar `try...catch...finally` para control de flujo de errores
-- ✅ Usar **optional catch binding** (ES2019) cuando no necesitas el error
-- ✅ Crear clases de error personalizadas extendiendo `Error`
-- ✅ Aplicar **Error cause** (ES2022) para encadenar errores
-- ✅ Implementar patrones de error boundaries para aislar fallos
-- ✅ Manejar errores en código asíncrono (Promises, async/await)
-- ✅ Aplicar mejores prácticas de manejo de errores en producción
+- Capturar errores con `try`/`catch`/`finally`, usar el *optional catch binding* (`catch { }`) y reconocer los errores nativos de JavaScript.
+- Crear clases de error propias que heredan de `Error`, con datos útiles (`code`, `field`, `status`) y una jerarquía que se distingue con `instanceof`.
+- Relanzar un error con contexto sin perder el original gracias a `cause` (ES2022).
+- Manejar los errores de promesas y de `async`/`await`, y elegir entre `Promise.all()` y `Promise.allSettled()`.
+- Aplicar patrones de recuperación: valor de respaldo, reintentos, *error boundaries* por elemento y mensajes para el usuario separados del error técnico.
+
+## Requisitos previos
+
+- La [semana 03](../week-03-clases_programacion_orientada_objetos/README.md) (clases, `extends`, `super` y getters) y la [semana 10](../week-10-proxies_reflect/README.md). Las promesas se ven a fondo en la semana 13; aquí solo se usan `async`/`await` y `.catch()` sobre promesas ya hechas, y el [lab 03](2-practicas/lab-03-async-errors/README.md) explica lo necesario.
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
+
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 11.20.0 (o superior)
+  ```
 
 ---
 
-## 📚 Requisitos Previos
+## Contenidos
 
-- ✅ Week 10: Proxies y Reflect
-- ✅ Conocimiento de clases y herencia ES2023
-- ✅ Comprensión básica de programación asíncrona
+### 1. Teoría (2 h)
+
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - try...catch...finally](1-teoria/01-try-catch-finally.md) | 25 min | Bloques, errores nativos, `throw`, *optional catch binding* y `cause` |
+| [02 - Errores personalizados](1-teoria/02-errores-personalizados.md) | 25 min | Clases que heredan de `Error`, códigos y jerarquías |
+| [03 - Error boundaries](1-teoria/03-error-boundaries.md) | 20 min | Aislar fallos para que no tumben la aplicación |
+| [04 - Errores asíncronos](1-teoria/04-errores-asincronos.md) | 25 min | Promesas, `async`/`await`, `Promise.allSettled()` y timeouts |
+| [05 - Mejores prácticas](1-teoria/05-mejores-practicas.md) | 25 min | Qué capturar, qué relanzar y qué mostrar al usuario |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - try...catch...finally](2-practicas/lab-01-try-catch/README.md) | 50 min |
+| [Lab 02 - Errores personalizados](2-practicas/lab-02-custom-errors/README.md) | 55 min |
+| [Lab 03 - Errores asíncronos](2-practicas/lab-03-async-errors/README.md) | 55 min |
+| [Lab 04 - Patrones de manejo de errores](2-practicas/lab-04-error-patterns/README.md) | 50 min |
+
+### 3. Proyecto (2 h)
+
+[Importador de fichas](3-proyecto/README.md): completas las clases de error y las funciones de `src/logic.js` (validar cada pieza de un JSON sin que una mala detenga el resto, encadenar el error original con `cause`, reintentar los fallos pasajeros del servidor y traducir cada error a un mensaje para el usuario) y adaptas `src/data.js` al dominio que te asigna el instructor. `scripts/verificar-semana.sh 11` comprueba las funciones.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
 
 ---
 
-## 🗂️ Estructura de la Semana
+## Evaluación
 
-```
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 14/14 comprobaciones y datos del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
+
+```text
 week-11-manejo_errores_moderno/
-├── README.md                          # Este archivo
-├── rubrica-evaluacion.md              # Criterios de evaluación
-├── 0-assets/                          # Diagramas y recursos visuales
-├── 1-teoria/                          # Material teórico
-│   ├── 01-try-catch-finally.md        # Estructura básica de manejo de errores
-│   ├── 02-errores-personalizados.md   # Clases de error custom
-│   ├── 03-error-boundaries.md         # Patrones de aislamiento
-│   ├── 04-errores-asincronos.md       # Errores en Promises y async/await
-│   └── 05-mejores-practicas.md        # Best practices en producción
-├── 2-practicas/                       # Ejercicios guiados
-│   ├── ejercicio-01-try-catch/        # Práctica con try...catch...finally
-│   ├── ejercicio-02-custom-errors/    # Crear errores personalizados
-│   ├── ejercicio-03-async-errors/     # Errores asíncronos
-│   └── ejercicio-04-error-patterns/   # Patrones de manejo de errores
-├── 3-proyecto/                        # Proyecto integrador
-│   └── sistema-robusto/               # Sistema con manejo de errores completo
-├── 4-recursos/                        # Material complementario
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/                        # Términos clave
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 5 diagramas SVG
+|-- 1-teoria/                  # 01 a 05
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-try-catch/
+|   |-- lab-02-custom-errors/
+|   |-- lab-03-async-errors/
+|   `-- lab-04-error-patterns/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # index.html, styles.css, src/data.js, src/logic.js, src/main.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## 📝 Contenido
+## Versiones de la semana
 
-### 1️⃣ Teoría (2.5 horas)
-
-| Archivo | Tema | Duración |
-|---------|------|----------|
-| [01-try-catch-finally.md](1-teoria/01-try-catch-finally.md) | Estructura try...catch...finally + **Optional catch binding (ES2019)** + **Error cause (ES2022)** | 30 min |
-| [02-errores-personalizados.md](1-teoria/02-errores-personalizados.md) | Clases de error custom | 30 min |
-| [03-error-boundaries.md](1-teoria/03-error-boundaries.md) | Patrones de aislamiento | 30 min |
-| [04-errores-asincronos.md](1-teoria/04-errores-asincronos.md) | Errores en código async | 30 min |
-| [05-mejores-practicas.md](1-teoria/05-mejores-practicas.md) | Best practices | 30 min |
-
-### 2️⃣ Prácticas (3 horas)
-
-| Ejercicio | Tema | Duración |
-|-----------|------|----------|
-| [ejercicio-01-try-catch](2-practicas/ejercicio-01-try-catch/) | Manejo básico de errores | 45 min |
-| [ejercicio-02-custom-errors](2-practicas/ejercicio-02-custom-errors/) | Errores personalizados | 45 min |
-| [ejercicio-03-async-errors](2-practicas/ejercicio-03-async-errors/) | Errores asíncronos | 45 min |
-| [ejercicio-04-error-patterns](2-practicas/ejercicio-04-error-patterns/) | Patrones avanzados | 45 min |
-
-### 3️⃣ Proyecto (2 horas)
-
-**Sistema Robusto** - Aplicación completa con manejo de errores integral:
-- Clases de error personalizadas por dominio
-- Validación con errores descriptivos
-- Manejo de errores de red y async
-- Logging y recuperación de fallos
-- UI que muestra errores amigables
-
-📁 [Ver proyecto](3-proyecto/)
-
-### 4️⃣ Recursos (0.5 horas)
-
-- 📖 [E-books gratuitos](4-recursos/ebooks-free/)
-- 🎥 [Videografía](4-recursos/videografia/)
-- 🌐 [Webgrafía](4-recursos/webgrafia/)
+Node para ejecutar los labs y comprobar el proyecto; `pnpm dlx serve` para abrir el proyecto en el navegador. Las salidas de este material se obtuvieron con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## ⏱️ Distribución del Tiempo
+## Navegación
 
-```
-Total: 8 horas
-
-┌─────────────────────────────────────────────────────────┐
-│ Teoría        ████████████░░░░░░░░░░░░░░░░  2.5h (31%) │
-│ Prácticas     ████████████████░░░░░░░░░░░░  3.0h (38%) │
-│ Proyecto      ████████░░░░░░░░░░░░░░░░░░░░  2.0h (25%) │
-│ Recursos      ██░░░░░░░░░░░░░░░░░░░░░░░░░░  0.5h (6%)  │
-└─────────────────────────────────────────────────────────┘
-```
-
----
-
-## 🎯 Conceptos Clave
-
-### try...catch...finally
-
-```javascript
-try {
-  // Code that may throw
-  const data = JSON.parse(userInput);
-} catch (error) {
-  // Handle the error
-  console.error('Invalid JSON:', error.message);
-} finally {
-  // Always runs
-  cleanupResources();
-}
-```
-
-### Errores Personalizados
-
-```javascript
-class ValidationError extends Error {
-  constructor(field, message) {
-    super(message);
-    this.name = 'ValidationError';
-    this.field = field;
-  }
-}
-
-throw new ValidationError('email', 'Invalid email format');
-```
-
-### Manejo de Errores Async
-
-```javascript
-// Con async/await
-const fetchData = async url => {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new HttpError(response.status, response.statusText);
-    }
-    return await response.json();
-  } catch (error) {
-    if (error instanceof HttpError) {
-      handleHttpError(error);
-    } else {
-      handleNetworkError(error);
-    }
-  }
-};
-```
-
-### Error Boundary Pattern
-
-```javascript
-const safeExecute = (fn, fallback) => {
-  try {
-    return fn();
-  } catch (error) {
-    logError(error);
-    return fallback;
-  }
-};
-
-const result = safeExecute(
-  () => riskyOperation(),
-  defaultValue
-);
-```
-
----
-
-## 📌 Entregables
-
-### 📦 Proyecto (100%)
-
-El **único entregable** para esta semana es el proyecto:
-
-- [ ] **Proyecto "Sistema Robusto" funcional**
-- [ ] Jerarquía de errores personalizados implementada
-- [ ] Manejo completo de errores de red
-- [ ] UI con mensajes de error amigables
-- [ ] Logging de errores para debugging
-- [ ] Patrones de error boundaries aplicados
-
-> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
-
-### Checklist de verificación
-- [ ] try...catch...finally dominado
-- [ ] Errores personalizados creados
-- [ ] Errores async manejados correctamente
-- [ ] Patrones de error boundaries aplicados
-- [ ] Mejores prácticas implementadas
-
----
-
-## 🔗 Navegación
-
-| ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
-|:------------|:---------:|-------------:|
-| [Week 10: Proxies y Reflect](../week-10-proxies_reflect/README.md) | [Bootcamp](../../README.md) | [Week 12: Proyecto Integrador](../week-12-proyecto_integrador_fundamentos/README.md) |
-
----
-
-## 💡 Tips para esta Semana
-
-> **Tip 1**: No uses try...catch para control de flujo normal. Los errores son para situaciones excepcionales.
-
-> **Tip 2**: Siempre incluye información útil en tus errores personalizados (códigos, campos afectados, contexto).
-
-> **Tip 3**: En código async, decide entre `.catch()` y try...catch según el contexto - ambos son válidos.
-
-> **Tip 4**: Nunca silencies errores con catch vacío. Al menos regístralos para debugging.
-
----
-
-## 🌟 Resultado Esperado
-
-Al completar esta semana podrás:
-
-1. **Manejar errores** de forma estructurada y predecible
-2. **Crear errores** que comuniquen claramente qué salió mal
-3. **Aislar fallos** para que no colapsen toda la aplicación
-4. **Depurar** problemas gracias a errores informativos
-5. **Escribir código** más robusto y mantenible
-
----
-
-*Semana 11 de 28 | Etapa 1: Fundamentos Modernos | Última semana antes del proyecto integrador*
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 10 - Proxies y Reflect](../week-10-proxies_reflect/README.md) | [Semana 12 - Proyecto Integrador - Fundamentos](../week-12-proyecto_integrador_fundamentos/README.md) |

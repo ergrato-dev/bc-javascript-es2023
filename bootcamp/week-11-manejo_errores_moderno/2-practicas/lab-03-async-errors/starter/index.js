@@ -1,18 +1,9 @@
 /**
- * ⏳ Ejercicio 03: Errores Asíncronos
- * ===================================
- * Aprende a manejar errores en Promises y async/await.
+ * 📘 Lab 03: Errores asíncronos
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Instrucciones:
- * 1. Lee cada sección
- * 2. Descomenta el código indicado
- * 3. Ejecuta: node index.js
- * 4. Observa el resultado
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
-
-console.log('='.repeat(60));
-console.log('⏳ Ejercicio 03: Errores Asíncronos');
-console.log('='.repeat(60));
 
 // Helper: Simular operaciones asíncronas
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -32,7 +23,7 @@ const simulateFetch = (shouldFail = false, delayMs = 100) => {
 // ============================================
 // PASO 1: .catch() en Promises
 // ============================================
-console.log('\n--- Paso 1: .catch() en Promises ---');
+console.log('--- Paso 1: .catch() en Promises ---');
 
 // Usa .catch() para capturar rechazos
 // Descomenta las siguientes líneas:
@@ -54,7 +45,7 @@ console.log('');
 // ============================================
 // PASO 2: Propagación en Cadena
 // ============================================
-console.log('\n--- Paso 2: Propagación en Cadena ---');
+console.log('--- Paso 2: Propagación en Cadena ---');
 
 // Los errores se propagan hasta el primer .catch()
 // Descomenta las siguientes líneas:
@@ -89,7 +80,7 @@ console.log('');
 // ============================================
 // PASO 3: try...catch con async/await
 // ============================================
-console.log('\n--- Paso 3: try...catch con async/await ---');
+console.log('--- Paso 3: try...catch con async/await ---');
 
 // Combina async/await con try...catch
 // Descomenta las siguientes líneas:
@@ -118,7 +109,7 @@ console.log('');
 // ============================================
 // PASO 4: Promise.all() - Fail Fast
 // ============================================
-console.log('\n--- Paso 4: Promise.all() - Fail Fast ---');
+console.log('--- Paso 4: Promise.all() - Fail Fast ---');
 
 // Promise.all() falla si CUALQUIER promesa falla
 // Descomenta las siguientes líneas:
@@ -148,7 +139,7 @@ console.log('');
 // ============================================
 // PASO 5: Promise.allSettled() - Get All Results
 // ============================================
-console.log('\n--- Paso 5: Promise.allSettled() ---');
+console.log('--- Paso 5: Promise.allSettled() ---');
 
 // Promise.allSettled() reporta todos los resultados
 // Descomenta las siguientes líneas:
@@ -187,7 +178,7 @@ console.log('');
 // ============================================
 // PASO 6: Timeout con Promise.race()
 // ============================================
-console.log('\n--- Paso 6: Timeout con Promise.race() ---');
+console.log('--- Paso 6: Timeout con Promise.race() ---');
 
 // Implementa timeouts usando Promise.race()
 // Descomenta las siguientes líneas:
@@ -235,7 +226,7 @@ console.log('');
 // ============================================
 // PASO 7: finally() para Cleanup
 // ============================================
-console.log('\n--- Paso 7: finally() para Cleanup ---');
+console.log('--- Paso 7: finally() para Cleanup ---');
 
 // finally() siempre se ejecuta
 // Descomenta las siguientes líneas:
@@ -273,36 +264,4 @@ console.log('\n--- Paso 7: finally() para Cleanup ---');
 
 console.log('');
 
-// ============================================
-// 🎯 DESAFÍO EXTRA
-// ============================================
-console.log('\n--- 🎯 Desafío Extra ---');
-
-// Crea una función fetchMultipleUsers que:
-// 1. Reciba un array de user IDs
-// 2. Fetch cada usuario en paralelo
-// 3. Use Promise.allSettled() para no perder resultados
-// 4. Retorne { users: [...], errors: [...] }
-// Descomenta y completa:
-
-// const simulateUserFetch = async (userId) => {
-//   await delay(50);
-//   if (userId % 3 === 0) {
-//     throw new Error(`User ${userId} not found`);
-//   }
-//   return { id: userId, name: `User ${userId}` };
-// };
-//
-// const fetchMultipleUsers = async (userIds) => {
-//   // Tu código aquí usando Promise.allSettled()
-// };
-//
-// // Test
-// const result = await fetchMultipleUsers([1, 2, 3, 4, 5, 6]);
-// console.log('Users found:', result.users);
-// console.log('Errors:', result.errors);
-
-console.log('');
-console.log('='.repeat(60));
-console.log('✅ Ejercicio 03 completado');
-console.log('='.repeat(60));
+console.log('✅ Lab completado.');

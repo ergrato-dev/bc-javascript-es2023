@@ -324,6 +324,6 @@ Técnica donde la validación ocurre automáticamente cuando se asignan valores,
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📅 Week 11: Manejo de Errores Moderno](../../week-11-manejo_errores_moderno/README.md) → |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 11 - Manejo de Errores Moderno](../../week-11-manejo_errores_moderno/README.md) → |
 
 [↑ Semana 10](../README.md)

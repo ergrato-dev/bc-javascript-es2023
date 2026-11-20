@@ -508,10 +508,13 @@ contentBoundary.renderAsync(() => fetchAndRenderContent());
 - [JavaScript.info: Error handling](https://javascript.info/error-handling)
 - [Patterns for fault-tolerant JavaScript](https://www.patterns.dev/posts/error-boundaries)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
-|:------------|:--------:|-------------:|
-| [02 - Errores Personalizados](./02-errores-personalizados.md) | [Teoría](../README.md) | [04 - Errores Asíncronos](./04-errores-asincronos.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🎨 Errores Personalizados](02-errores-personalizados.md) | [Teoría — ⏳ Errores Asíncronos](04-errores-asincronos.md) → |
+
+[↑ Semana 11](../README.md)

@@ -661,10 +661,13 @@ try {
 - [MDN: async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises)
 - [JavaScript.info: Error handling with promises](https://javascript.info/promise-error-handling)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | Siguiente ➡️ |
-|:------------|:--------:|-------------:|
-| [03 - Error Boundaries](./03-error-boundaries.md) | [Teoría](../README.md) | [05 - Mejores Prácticas](./05-mejores-practicas.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🛑 Error Boundaries](03-error-boundaries.md) | [Teoría — 🏆 Mejores Prácticas de Manejo de Errores](05-mejores-practicas.md) → |
+
+[↑ Semana 11](../README.md)

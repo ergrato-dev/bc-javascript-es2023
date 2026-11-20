@@ -1,18 +1,9 @@
 /**
- * 🏗️ Ejercicio 04: Patrones de Manejo de Errores
- * ==============================================
- * Aprende patrones avanzados para código robusto y resiliente.
+ * 📘 Lab 04: Patrones de manejo de errores
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Instrucciones:
- * 1. Lee cada sección
- * 2. Descomenta el código indicado
- * 3. Ejecuta: node index.js
- * 4. Observa el resultado
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
-
-console.log('='.repeat(60));
-console.log('🏗️ Ejercicio 04: Patrones de Manejo de Errores');
-console.log('='.repeat(60));
 
 // Helper
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -20,7 +11,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 // ============================================
 // PASO 1: Safe Execute Pattern (Sync)
 // ============================================
-console.log('\n--- Paso 1: Safe Execute Pattern (Sync) ---');
+console.log('--- Paso 1: Safe Execute Pattern (Sync) ---');
 
 // Envuelve operaciones riesgosas con un fallback
 // Descomenta las siguientes líneas:
@@ -63,7 +54,7 @@ console.log('');
 // ============================================
 // PASO 2: Safe Execute Async
 // ============================================
-console.log('\n--- Paso 2: Safe Execute Async ---');
+console.log('--- Paso 2: Safe Execute Async ---');
 
 // Versión asíncrona del patrón
 // Descomenta las siguientes líneas:
@@ -107,7 +98,7 @@ console.log('');
 // ============================================
 // PASO 3: Retry Pattern
 // ============================================
-console.log('\n--- Paso 3: Retry Pattern ---');
+console.log('--- Paso 3: Retry Pattern ---');
 
 // Reintenta operaciones que pueden fallar temporalmente
 // Descomenta las siguientes líneas:
@@ -153,7 +144,7 @@ console.log('');
 // ============================================
 // PASO 4: Retry con Exponential Backoff
 // ============================================
-console.log('\n--- Paso 4: Retry con Exponential Backoff ---');
+console.log('--- Paso 4: Retry con Exponential Backoff ---');
 
 // Espera progresivamente más entre reintentos
 // Descomenta las siguientes líneas:
@@ -199,7 +190,7 @@ console.log('');
 // ============================================
 // PASO 5: Fallback Chain
 // ============================================
-console.log('\n--- Paso 5: Fallback Chain ---');
+console.log('--- Paso 5: Fallback Chain ---');
 
 // Intenta múltiples fuentes hasta que una funcione
 // Descomenta las siguientes líneas:
@@ -254,7 +245,7 @@ console.log('');
 // ============================================
 // PASO 6: Error Boundary para Arrays
 // ============================================
-console.log('\n--- Paso 6: Error Boundary para Arrays ---');
+console.log('--- Paso 6: Error Boundary para Arrays ---');
 
 // Procesa items individualmente sin que uno falle todo
 // Descomenta las siguientes líneas:
@@ -307,7 +298,7 @@ console.log('');
 // ============================================
 // PASO 7: Result Pattern
 // ============================================
-console.log('\n--- Paso 7: Result Pattern ---');
+console.log('--- Paso 7: Result Pattern ---');
 
 // Retorna objetos que indican éxito o fallo explícitamente
 // (Inspirado en Rust/Functional Programming)
@@ -376,34 +367,4 @@ console.log('\n--- Paso 7: Result Pattern ---');
 
 console.log('');
 
-// ============================================
-// 🎯 DESAFÍO EXTRA
-// ============================================
-console.log('\n--- 🎯 Desafío Extra ---');
-
-// Combina los patrones para crear un "resilient fetch":
-// 1. Timeout después de 2 segundos
-// 2. Retry 3 veces con backoff
-// 3. Fallback a cached data si todo falla
-// 4. Retornar Result pattern
-// Descomenta y completa:
-
-// const resilientFetch = async (url, cachedData = null) => {
-//   // Tu código aquí combinando:
-//   // - withTimeout
-//   // - retryWithBackoff
-//   // - Result pattern
-// };
-//
-// // Test
-// const result = await resilientFetch('/api/users', { cached: true });
-// if (result.ok) {
-//   console.log('Got data:', result.value);
-// } else {
-//   console.log('Failed:', result.error);
-// }
-
-console.log('');
-console.log('='.repeat(60));
-console.log('✅ Ejercicio 04 completado');
-console.log('='.repeat(60));
+console.log('✅ Lab completado.');

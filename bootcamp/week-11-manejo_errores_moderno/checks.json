@@ -1,0 +1,104 @@
+{
+  "semana": "11",
+  "titulo": "Manejo de Errores Moderno",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE, ID_PREFIX de 2 a 4 mayúsculas, de 3 a 8 salas sin repetir y por defecto de 5 a 12 piezas sin id, con nombre de 3 o más caracteres sin repetir, una sala de ROOMS y valor numérico de 0 o más",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE, ID_PREFIX, ROOMS } from './src/data.js'; assert.ok(typeof TITLE === 'string' && TITLE.trim() !== ''); assert.match(ID_PREFIX, /^[A-Z]{2,4}$/); assert.ok(Array.isArray(ROOMS) && ROOMS.length >= 3 && ROOMS.length <= 8 && ROOMS.every((room) => typeof room === 'string' && room.trim() !== '')); assert.equal(new Set(ROOMS).size, ROOMS.length); assert.ok(Array.isArray(items) && items.length >= 5 && items.length <= 12); assert.ok(items.every((item) => !('id' in item) && typeof item.name === 'string' && item.name.trim().length >= 3 && ROOMS.includes(item.room) && Number.isFinite(item.value) && item.value >= 0)); assert.equal(new Set(items.map(({ name }) => name)).size, items.length);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título, el prefijo, las salas y las piezas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE, ID_PREFIX, ROOMS } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.notEqual(ID_PREFIX, 'PLA'); assert.ok(!ROOMS.some((room) => ['Cúpula', 'Sala Solar', 'Sala Lunar'].includes(room))); assert.ok(!items.some(({ name }) => ['Telescopio refractor', 'Meteorito de hierro', 'Esfera armilar', 'Mapa lunar'].includes(name)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "app-error",
+      "descripcion": "AppError hereda de Error, toma el name de su clase, guarda code (APP_ERROR por defecto) y cause",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { AppError } from './src/logic.js'; const cause = new SyntaxError('x'); const error = new AppError('Fallo', { code: 'X', cause }); assert.ok(error instanceof Error); assert.equal(error.name, 'AppError'); assert.equal(error.message, 'Fallo'); assert.equal(error.code, 'X'); assert.equal(error.cause, cause); const plain = new AppError('Otro'); assert.equal(plain.code, 'APP_ERROR'); assert.equal(plain.cause, undefined); class Child extends AppError {} assert.equal(new Child('y').name, 'Child');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "subclases",
+      "descripcion": "ValidationError, ParseError y NetworkError heredan de AppError con su code, field, cause, status y retryable",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { AppError, ValidationError, ParseError, NetworkError } from './src/logic.js'; const validation = new ValidationError('name', 'Campo obligatorio'); assert.ok(validation instanceof AppError); assert.equal(validation.name, 'ValidationError'); assert.equal(validation.code, 'VALIDATION'); assert.equal(validation.field, 'name'); assert.equal(validation.message, 'Campo obligatorio'); const cause = new SyntaxError('x'); const parse = new ParseError('Mal', { cause }); assert.ok(parse instanceof AppError); assert.equal(parse.name, 'ParseError'); assert.equal(parse.code, 'PARSE'); assert.equal(parse.cause, cause); assert.equal(new ParseError('Sin causa').cause, undefined); const network = new NetworkError(503); assert.ok(network instanceof AppError); assert.equal(network.name, 'NetworkError'); assert.equal(network.code, 'NETWORK'); assert.equal(network.status, 503); assert.equal(network.message, 'Error de red (503)'); assert.equal(network.retryable, true); assert.equal(new NetworkError(0).retryable, true); assert.equal(new NetworkError(400).retryable, false); assert.equal(new NetworkError(499).retryable, false);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "parse-json",
+      "descripcion": "parseJson devuelve el JSON leído o lanza ParseError con el SyntaxError original como cause",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { parseJson, ParseError } from './src/logic.js'; assert.deepEqual(parseJson('[1, {\\\"a\\\": 2}]'), [1, { a: 2 }]); assert.throws(() => parseJson('{ mal }'), (error) => error instanceof ParseError && error.message === 'El texto no es JSON válido' && error.cause instanceof SyntaxError);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "validate-ok",
+      "descripcion": "validateItem devuelve una copia { name, room, value } con el nombre recortado, sin modificar la pieza",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { validateItem } from './src/logic.js'; const rooms = ['A', 'B']; const item = { name: '  Mapa  ', room: 'B', value: 0, extra: true }; const clean = validateItem(item, rooms); assert.deepEqual(clean, { name: 'Mapa', room: 'B', value: 0 }); assert.notEqual(clean, item); assert.deepEqual(item, { name: '  Mapa  ', room: 'B', value: 0, extra: true });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "validate-errores",
+      "descripcion": "validateItem lanza ValidationError con el campo y el mensaje del primer problema",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { validateItem, ValidationError } from './src/logic.js'; const rooms = ['A', 'B']; const fails = (item, field, message) => assert.throws(() => validateItem(item, rooms), (error) => error instanceof ValidationError && error.field === field && error.message === message); fails(null, 'item', 'Cada pieza debe ser un objeto'); fails([], 'item', 'Cada pieza debe ser un objeto'); fails('Mapa', 'item', 'Cada pieza debe ser un objeto'); fails({ room: 'A', value: 1 }, 'name', 'Campo obligatorio'); fails({ name: '   ', room: 'Z', value: -1 }, 'name', 'Campo obligatorio'); fails({ name: 42, room: 'A', value: 1 }, 'name', 'Campo obligatorio'); fails({ name: ' ab ', room: 'A', value: 1 }, 'name', 'Mínimo 3 caracteres'); fails({ name: 'Mapa', room: 'Z', value: -1 }, 'room', 'Elige una sala válida'); fails({ name: 'Mapa', room: 'A', value: '5' }, 'value', 'Debe ser un número de 0 o más'); fails({ name: 'Mapa', room: 'A', value: -1 }, 'value', 'Debe ser un número de 0 o más'); fails({ name: 'Mapa', room: 'A', value: NaN }, 'value', 'Debe ser un número de 0 o más');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "import-items",
+      "descripcion": "importItems separa las piezas válidas de las rechazadas ({ index, field, message }) y lanza ParseError si el texto no es JSON o no es una lista",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { importItems, ParseError } from './src/logic.js'; const rooms = ['A', 'B']; const text = JSON.stringify([{ name: 'Mapa', room: 'A', value: 1 }, { name: '', room: 'A', value: 1 }, 7, { name: ' Reloj ', room: 'B', value: 2 }]); assert.deepEqual(importItems(text, rooms), { items: [{ name: 'Mapa', room: 'A', value: 1 }, { name: 'Reloj', room: 'B', value: 2 }], errors: [{ index: 1, field: 'name', message: 'Campo obligatorio' }, { index: 2, field: 'item', message: 'Cada pieza debe ser un objeto' }] }); assert.deepEqual(importItems('[]', rooms), { items: [], errors: [] }); assert.throws(() => importItems('{ mal', rooms), (error) => error instanceof ParseError && error.cause instanceof SyntaxError); assert.throws(() => importItems('{}', rooms), (error) => error instanceof ParseError && error.message === 'Se esperaba una lista de piezas');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "import-relanza",
+      "descripcion": "importItems solo captura ValidationError: cualquier otro error se relanza",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { importItems } from './src/logic.js'; const broken = { includes() { throw new TypeError('rooms roto'); } }; assert.throws(() => importItems(JSON.stringify([{ name: 'Mapa', room: 'A', value: 1 }]), broken), { name: 'TypeError', message: 'rooms roto' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "retry",
+      "descripcion": "retry repite fn mientras el error sea reintentable y queden intentos, avisa con onError y relanza el resto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { retry, NetworkError } from './src/logic.js'; const calls = []; const seen = []; const flaky = async (attempt) => { calls.push(attempt); if (attempt < 3) throw new NetworkError(503); return 'ok-' + attempt; }; assert.equal(await retry(flaky, 3, (error, attempt) => seen.push([error.status, attempt])), 'ok-3'); assert.deepEqual(calls, [1, 2, 3]); assert.deepEqual(seen, [[503, 1], [503, 2]]); assert.equal(await retry(() => 'sync'), 'sync'); let count = 0; await assert.rejects(retry(async () => { count++; throw new NetworkError(503); }, 2), { status: 503 }); assert.equal(count, 2); count = 0; await assert.rejects(retry(async () => { count++; throw new NetworkError(400); }, 5), { status: 400 }); assert.equal(count, 1); count = 0; await assert.rejects(retry(() => { count++; throw new TypeError('bug'); }, 5), TypeError); assert.equal(count, 1); count = 0; await assert.rejects(retry(async () => { count++; throw new NetworkError(0); }), { status: 0 }); assert.equal(count, 3);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "user-message",
+      "descripcion": "userMessage traduce cada tipo de error a un mensaje para el usuario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { userMessage, ValidationError, ParseError, NetworkError, AppError } from './src/logic.js'; assert.equal(userMessage(new ValidationError('room', 'Elige una sala válida')), 'Revisa el campo room: Elige una sala válida'); assert.equal(userMessage(new ParseError('El texto no es JSON válido')), 'El texto no es JSON válido'); assert.equal(userMessage(new NetworkError(503)), 'El servidor no responde. Inténtalo más tarde.'); assert.equal(userMessage(new NetworkError(0)), 'El servidor no responde. Inténtalo más tarde.'); assert.equal(userMessage(new NetworkError(400)), 'El servidor rechazó los datos (400)'); assert.equal(userMessage(new TypeError('x')), 'Algo salió mal. Inténtalo de nuevo.'); assert.equal(userMessage(new AppError('x')), 'Algo salió mal. Inténtalo de nuevo.');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}
