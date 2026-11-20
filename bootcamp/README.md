@@ -14,7 +14,7 @@ Estado de cada semana:
 | [04](week-04-destructuring_modulos_es2023/README.md) | [Destructuring y Módulos ES2023](week-04-destructuring_modulos_es2023/README.md) | Fundamentos | ✅ |
 | [05](week-05-arrays_avanzados/README.md) | [Arrays Avanzados](week-05-arrays_avanzados/README.md) | Fundamentos | ✅ |
 | [06](week-06-strings_regexp_modernos/README.md) | [Strings y RegExp Modernos](week-06-strings_regexp_modernos/README.md) | Fundamentos | ✅ |
-| [07](week-07-sets_maps/README.md) | [Sets y Maps](week-07-sets_maps/README.md) | Fundamentos | 🟡 |
+| [07](week-07-sets_maps/README.md) | [Sets y Maps](week-07-sets_maps/README.md) | Fundamentos | ✅ |
 | [08](week-08-iteradores_generadores/README.md) | [Iteradores y Generadores](week-08-iteradores_generadores/README.md) | Fundamentos | 🟡 |
 | [09](week-09-simbolos_metaprogramacion_basica/README.md) | [Símbolos y Metaprogramación Básica](week-09-simbolos_metaprogramacion_basica/README.md) | Fundamentos | 🟡 |
 | [10](week-10-proxies_reflect/README.md) | [Proxies y Reflect](week-10-proxies_reflect/README.md) | Fundamentos | 🟡 |

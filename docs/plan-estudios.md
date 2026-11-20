@@ -161,17 +161,19 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 07: Sets y Maps**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 - Set (agregar, eliminar, verificar existencia)
 - Map (claves de cualquier tipo)
 - WeakSet y WeakMap
 - Symbols como claves de WeakMap (ES2023)
+- Operaciones de conjuntos a mano y con los métodos nativos de `Set` (ES2025)
 - Casos de uso prácticos
 - Conversión entre estructuras y `Object.fromEntries()` (ES2019)
 
-**Proyecto**: Sistema de gestión de usuarios únicos
+**Proyecto**: Mapa de la colección (`logic.js` con `Set`, `Map` para indexar, agrupar y contar, una copia inmutable del Set de etiquetas marcadas, `isSubsetOf` y un resumen guardado en un `WeakMap`)
 
 ---
 

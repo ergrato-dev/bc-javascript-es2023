@@ -1,50 +1,32 @@
-# 📝 Prácticas - Semana 07
+# Prácticas — Semana 07
 
-## Sets y Maps
+Cuatro labs guiados que siguen el orden de la teoría. Cada lab trae en `starter/index.js` el código comentado: lo descomentas paso a paso, lo ejecutas con Node y comparas con la salida esperada del README. No se entregan; preparan el [proyecto de la semana](../3-proyecto/README.md).
 
-Esta carpeta contiene los ejercicios prácticos de la semana 07. Cada ejercicio es un **tutorial guiado** donde aprenderás descomentando código paso a paso.
+| Lab | Tema | Duración |
+|---|---|---|
+| [Lab 01](lab-01-set-basics/README.md) | `Set`: crear, añadir, borrar, recorrer y quitar duplicados | 45 min |
+| [Lab 02](lab-02-set-operations/README.md) | Unión, intersección, diferencia y métodos nativos (ES2025) | 55 min |
+| [Lab 03](lab-03-map-basics/README.md) | `Map`: métodos, claves de cualquier tipo, conversiones y caché | 50 min |
+| [Lab 04](lab-04-weakmap-cache/README.md) | `WeakMap` y `WeakSet`: claves Symbol (ES2023), datos privados y caché | 60 min |
 
-## 📋 Lista de Ejercicios
+**Total:** 3 h 30 min.
 
-| # | Ejercicio | Tema | Duración |
-|---|-----------|------|----------|
-| 01 | [Set Básico](./ejercicio-01-set-basics/) | Set, add, has, delete, iteración | 45 min |
-| 02 | [Operaciones de Set](./ejercicio-02-set-operations/) | Unión, intersección, diferencia | 45 min |
-| 03 | [Map Básico](./ejercicio-03-map-basics/) | Map, set, get, iteración, conversiones | 45 min |
-| 04 | [WeakMap y Caché](./ejercicio-04-weakmap-cache/) | WeakMap, datos privados, caché | 45 min |
+## Antes de empezar
 
-## 🎯 Objetivos de Aprendizaje
-
-Al completar estos ejercicios podrás:
-
-- ✅ Crear y manipular Sets para colecciones únicas
-- ✅ Implementar operaciones matemáticas de conjuntos
-- ✅ Usar Map como alternativa superior a objetos
-- ✅ Aplicar WeakMap para caché y datos privados
-
-## 📝 Instrucciones Generales
-
-1. **Lee el README.md** de cada ejercicio antes de comenzar
-2. **Abre `starter/index.js`** en tu editor
-3. **Sigue los pasos** descomentando el código indicado
-4. **Ejecuta** con `node index.js` para ver los resultados
-5. **Compara** con `solution/index.js` si tienes dudas
-
-## 🚀 Cómo Ejecutar
+Comprueba que tienes Node instalado (versión en [docs/stack-versions.md](../../../docs/stack-versions.md)). Los métodos nativos de `Set` del lab 02 necesitan Node 22 o superior:
 
 ```bash
-# Navegar al ejercicio
-cd ejercicio-01-set-basics/starter
-
-# Ejecutar
-node index.js
+node --version
+# v24.19.0 (o superior)
 ```
 
-## ⏱️ Tiempo Estimado
-
-- **Total**: 3 horas
-- **Por ejercicio**: 45 minutos
-
+<!-- nav -->
 ---
 
-[⬅️ Volver a Semana 07](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔗 WeakSet y WeakMap](../1-teoria/05-weak-collections.md) | [Lab 01 — Set básico](lab-01-set-basics/README.md) → |
+
+[↑ Semana 07](../README.md)

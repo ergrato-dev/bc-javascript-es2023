@@ -1,123 +1,88 @@
-# 📊 Rúbrica de Evaluación - Semana 07
+# Rúbrica de Evaluación - Semana 07
 
-## Sets y Maps
+## Evidencias y ponderación
 
-## 🎯 Distribución de Evidencias
-
-| Tipo de Evidencia | Peso     | Puntaje Mínimo |
-| ----------------- | -------- | -------------- |
-| 📦 Producto       | 100%     | 70/100 (70%)   |
-| **TOTAL**         | **100%** | **70/100**     |
-
-> **Nota**: Ejercicios prácticos no se entregan de forma separada.
-
-### 🎯 Competencias a Evaluar
-
-| Competencia | Descripción |
-|-------------|-------------|
-| **Producto** | Implementación del proyecto de gestión de usuarios |
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | `Set`, operaciones de conjuntos (a mano y nativas), `Map`, conversiones, `WeakMap`, `WeakSet` y Symbols como claves |
+| Desempeño | 40% | Labs 01 a 04 descomentados y ejecutados |
+| Producto | 30% | Mapa de la colección: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-## 🧠 Material de Conocimiento (No se entrega)
+## Criterios por evidencia
 
-> **Importante**: Autoevaluación. Tu comprensión se evalúa en el proyecto.
+## 1) Conocimiento (30%)
 
-### Cuestionario Teórico (Autoevaluación)
+### Criterios
 
-| Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
-|----------|------------------|-------------|------------------|---------------------|
-| Set vs Array | Explica diferencias clave y cuándo usar cada uno | Conoce diferencias principales | Diferenciación básica | Confunde conceptos |
-| Map vs Object | Comprende ventajas de Map y casos de uso | Sabe usar Map correctamente | Uso básico | No diferencia |
-| WeakSet/WeakMap | Entiende garbage collection y casos de uso | Conoce el concepto | Sabe que existen | No comprende |
-| Iteración | Domina for...of, forEach, entries, keys, values | Usa métodos de iteración | Itera de forma básica | Dificultad para iterar |
+- Elige entre array, `Set`, objeto y `Map` para un problema concreto y justifica la elección (valores únicos, claves que no son texto, orden, tamaño con `size`).
+- Explica por qué un Set o un Map comparan los objetos por referencia y qué consecuencia tiene al buscar con `has` o `get`.
+- Escribe la unión, la intersección y la diferencia de dos Sets con spread y `filter`, y las relaciona con `union`, `intersection` y `difference` (ES2025).
+- Convierte entre `Map`, objeto y array con `Object.fromEntries`, `Object.entries` y spread.
+- Explica qué significa que un `WeakMap` sujete sus claves de forma débil, por qué eso le impide tener `size` o recorrerse, y qué claves acepta (objetos y Symbols no registrados, desde ES2023).
 
----
+### Niveles
 
-## 💪 Ejercicios de Práctica (No se entregan)
-
-> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
-
-### Ejercicios Guiados
-
-| Ejercicio | Criterios de Evaluación | Puntos |
-|-----------|------------------------|--------|
-| **Set Básico** | Uso correcto de add, delete, has, size | 25% |
-| **Operaciones Set** | Implementación de unión, intersección, diferencia | 25% |
-| **Map Básico** | Manejo de claves/valores, iteración | 25% |
-| **Map y WeakMap** | Aplicación en caché y datos privados | 25% |
-
-### Niveles de Desempeño
-
-| Nivel | Descripción | Rango |
-|-------|-------------|-------|
-| **Experto** | Soluciones óptimas, código limpio, casos edge | 90-100% |
-| **Competente** | Soluciones correctas, buen código | 80-89% |
-| **En desarrollo** | Funciona con errores menores | 70-79% |
-| **Inicial** | Solución incompleta o incorrecta | <70% |
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, cree que `Set` compara objetos por contenido).
+- **Bajo (<21):** no distingue `Map` de un objeto ni `Map` de `WeakMap`.
 
 ---
 
-## 📦 Evidencia de Producto (30%)
+## 2) Desempeño (40%)
 
-### Proyecto: Sistema de Gestión de Usuarios
+### Criterios
 
-| Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
-|----------|------------------|-------------|------------------|---------------------|
-| **Funcionalidad** | Todas las features implementadas y funcionando | Mayoría de features | Features básicas | Incompleto |
-| **Uso de Set** | Uso apropiado para usuarios únicos y permisos | Uso correcto básico | Uso funcional | Uso incorrecto |
-| **Uso de Map** | Implementación de sesiones y caché con Map | Uso correcto | Uso básico | No usa Map |
-| **Código** | Limpio, documentado, sin repetición | Bien organizado | Legible | Desorganizado |
-| **Extras** | WeakMap para datos privados, optimizaciones | Algunos extras | Sin extras | N/A |
+- Lab 01: los 6 pasos descomentados; explica por qué el paso 6 guarda dos objetos iguales.
+- Lab 02: los 7 pasos; explica por qué el paso 2 necesita `[...setA]` antes de `filter` y compara sus resultados con los del paso 7.
+- Lab 03: los 6 pasos; explica qué pasa con un número como clave en un objeto y en un Map (paso 4) y cómo cuenta la caché del paso 6 los aciertos y los fallos.
+- Lab 04: los 6 pasos; explica por qué falla `Symbol.for()` como clave (paso 1) y por qué el paso 6 usa un `WeakSet` y no un `Set`.
 
-### Funcionalidades Requeridas
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab.
 
-- [ ] Registro de usuarios únicos (Set)
-- [ ] Gestión de sesiones activas (Map)
-- [ ] Sistema de permisos por usuario (Map<User, Set>)
-- [ ] Búsqueda y filtrado de usuarios
-- [ ] Eliminación de usuarios y sus datos asociados
+### Niveles
+
+- **Alto (36-40):** los cuatro labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cuatro labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-## 🏆 Escala de Calificación
+## 3) Producto (30%)
 
-| Calificación | Rango | Descripción |
-|--------------|-------|-------------|
-| **A** | 90-100% | Excelente dominio de Sets y Maps |
-| **B** | 80-89% | Buen manejo, mínimos errores |
-| **C** | 70-79% | Competencia básica alcanzada |
-| **D** | 60-69% | Necesita refuerzo |
-| **F** | <60% | No alcanza competencias mínimas |
+### Criterios
 
----
+- `PROYECTO=... ./scripts/verificar-semana.sh 07` pasa las 12 comprobaciones.
+- `TITLE` y las piezas de `src/data.js` describen el dominio asignado, con 5 a 8 piezas coherentes en al menos 2 salas y etiquetas que se repiten entre piezas.
+- La página funciona servida con `pnpm dlx serve .`: los dos errores del formulario aparecen y desaparecen, una pieza con etiquetas repetidas las guarda una vez, el filtro de varias etiquetas deja solo las piezas que las llevan todas, y el buscador y el borrado funcionan, sin errores en la consola.
+- Las funciones usan lo de la semana donde corresponde: un `Set` en `uniqueTags`, `new Map` con pares en `indexById`, `get` y `set` en `groupByRoom` y `countTags`, una copia del Set en `toggleTag`, `isSubsetOf` o `every` con `has` en `filterByTags` y el `WeakMap` en `getSummary`.
 
-## 📋 Checklist de Entrega
+### Niveles
 
-### Ejercicios
-- [ ] ejercicio-01-set-basics completado
-- [ ] ejercicio-02-set-operations completado
-- [ ] ejercicio-03-map-basics completado
-- [ ] ejercicio-04-map-weakmap completado
-
-### Proyecto
-- [ ] Código funcional en `starter/script.js`
-- [ ] Todas las funcionalidades implementadas
-- [ ] Código comentado
-- [ ] Sin errores en consola
-
-### Documentación
-- [ ] README del proyecto leído
-- [ ] Glosario revisado
+- **Alto (27-30):** 12/12, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 12/12 con datos poco adaptados (piezas de relleno, sin etiquetas repetidas) o alguna acción de la página que falla.
+- **Bajo (<21):** menos de 12 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## 💡 Criterios de Aprobación
+## Calificación
 
-- **Mínimo 70%** en cada tipo de evidencia
-- **Proyecto funcional** con features principales
-- **Código original** (no copiado)
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
+
+<!-- nav -->
 ---
 
-⬅️ [Volver al README](./README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Mapa de la colección](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
+
+[↑ Semana 07](README.md)

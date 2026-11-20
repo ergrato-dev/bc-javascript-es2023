@@ -483,6 +483,13 @@ console.log(account.transactions); // undefined
 - **WeakMap**: Datos privados, caché de objetos, metadata de elementos
 - **WeakSet**: Marcar objetos visitados/válidos, tracking sin memory leak
 
+<!-- nav -->
 ---
 
-⬅️ [Anterior: Map Avanzado](./04-map-advanced.md) | [Ir a Prácticas](../2-practicas/) ➡️
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🎯 Map Avanzado](04-map-advanced.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 07](../README.md)

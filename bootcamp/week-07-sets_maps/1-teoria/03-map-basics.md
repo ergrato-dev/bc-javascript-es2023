@@ -333,6 +333,13 @@ console.log(userPosts.get(users[0])); // ['Post 1', 'Post 2']
 | `entries()` | Iterador de [k, v] | Iterator |
 | `forEach(callback)` | Iterar | undefined |
 
+<!-- nav -->
 ---
 
-⬅️ [Anterior: Operaciones con Set](./02-set-operations.md) | [Siguiente: Map Avanzado](./04-map-advanced.md) ➡️
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔄 Operaciones con Set](02-set-operations.md) | [Teoría — 🎯 Map Avanzado](04-map-advanced.md) → |
+
+[↑ Semana 07](../README.md)

@@ -36,6 +36,13 @@
 | Codecademy | Learn JavaScript | Advanced Data Types |
 | Scrimba | Modern JavaScript | Collections |
 
+<!-- nav -->
 ---
 
-[⬅️ Volver a Recursos](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 07](../../README.md)

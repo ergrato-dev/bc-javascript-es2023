@@ -298,6 +298,13 @@ setA.isDisjointFrom(setB);
 | Superconjunto | A ⊇ B | ¿B dentro de A? |
 | Disjuntos | A ∩ B = ∅ | ¿Sin comunes? |
 
+<!-- nav -->
 ---
 
-⬅️ [Anterior: Set Básico](./01-set-basics.md) | [Siguiente: Map Básico](./03-map-basics.md) ➡️
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📦 Introducción a Set](01-set-basics.md) | [Teoría — 🗺️ Introducción a Map](03-map-basics.md) → |
+
+[↑ Semana 07](../README.md)

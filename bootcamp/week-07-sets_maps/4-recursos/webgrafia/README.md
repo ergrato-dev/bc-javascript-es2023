@@ -53,6 +53,13 @@
 - **JavaScript Weekly**: [javascriptweekly.com](https://javascriptweekly.com/)
 - **ES6 Features**: [es6-features.org](http://es6-features.org/)
 
+<!-- nav -->
 ---
 
-[⬅️ Volver a Recursos](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 07](../../README.md)

@@ -486,6 +486,13 @@ store.set('count', 1); // "count changed to 1"
 | LRU Cache | Caché con límite de tamaño |
 | Frequency Counter | Contar ocurrencias |
 
+<!-- nav -->
 ---
 
-⬅️ [Anterior: Map Básico](./03-map-basics.md) | [Siguiente: WeakSet y WeakMap](./05-weak-collections.md) ➡️
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🗺️ Introducción a Map](03-map-basics.md) | [Teoría — 🔗 WeakSet y WeakMap](05-weak-collections.md) → |
+
+[↑ Semana 07](../README.md)

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de la colección</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">🗺️ Mapa de la colección</h1>
+      <div class="stats-summary">
+        <span class="stat">Piezas: <strong id="stat-pieces">0</strong></span>
+        <span class="stat">Salas: <strong id="stat-rooms">0</strong></span>
+        <span class="stat">Etiquetas: <strong id="stat-tags">0</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>➕ Nueva pieza</h2>
+      <form id="item-form" class="item-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-name">Nombre</label>
+            <input type="text" id="item-name">
+            <small class="field-error" id="error-name"></small>
+          </div>
+          <div class="form-group">
+            <label for="item-room">Sala</label>
+            <input type="text" id="item-room" list="room-options">
+            <datalist id="room-options"></datalist>
+            <small class="field-error" id="error-room"></small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="item-tags">Etiquetas separadas por comas</label>
+          <input type="text" id="item-tags" placeholder="óptica, historia">
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Añadir</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="search-id">Buscar por id:</label>
+          <input type="text" id="search-id">
+          <small class="field-error" id="error-search"></small>
+        </div>
+      </div>
+      <p>Filtra por etiquetas (las piezas deben llevar todas las marcadas):</p>
+      <div id="tag-cloud" class="tag-cloud"></div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Piezas por sala</h2>
+      </div>
+      <div id="room-list"></div>
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay piezas que mostrar</p>
+        <p class="empty-state-hint">Quita alguna etiqueta del filtro o vacía el buscador</p>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

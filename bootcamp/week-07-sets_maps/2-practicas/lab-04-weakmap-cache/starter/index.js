@@ -1,9 +1,9 @@
-// ============================================
-// EJERCICIO 04: WEAKMAP Y CACHÉ
-// ============================================
-// Aprende a usar WeakMap para datos privados
-// y sistemas de caché sin memory leaks
-// ============================================
+/**
+ * 📘 Lab 04: WeakMap, WeakSet y caché
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
+ */
 
 // ============================================
 // PASO 1: Map vs WeakMap
@@ -24,7 +24,19 @@ console.log('--- Paso 1: Map vs WeakMap ---');
 // try {
 //   weakMap.set('string-key', 'value');
 // } catch (error) {
-//   console.log('Clave debe ser objeto (primitivo falla)');
+//   console.log('Clave primitiva:', error.message);
+// }
+
+// Desde ES2023, un Symbol también vale como clave
+// const sessionKey = Symbol('session');
+// weakMap.set(sessionKey, 'datos de la sesión');
+// console.log('Valor con clave Symbol:', weakMap.get(sessionKey));
+
+// Pero no uno registrado con Symbol.for(): es global y nunca se libera
+// try {
+//   weakMap.set(Symbol.for('global'), 'value');
+// } catch (error) {
+//   console.log('Symbol.for():', error.message);
 // }
 
 console.log('');
@@ -190,7 +202,7 @@ console.log('--- Paso 6: Sistema Completo ---');
 // class User {
 //   constructor(name, email) {
 //     this.name = name;
-//     this.id = 'user_' + Math.random().toString(36).substr(2, 6);
+//     this.id = `user_${name.toLowerCase()}`;
 //
 //     userData.set(this, {
 //       email,
@@ -224,30 +236,21 @@ console.log('--- Paso 6: Sistema Completo ---');
 //   }
 // }
 
-// const user = new User('Alice', 'alice@example.com');
-// console.log('Usuario creado:', user.id);
+// const alice = new User('Alice', 'alice@example.com');
+// console.log('Usuario creado:', alice.id);
 
-// user.login();
+// alice.login();
 
 // try {
 //   console.log('Intentando iniciar otra sesión...');
-//   user.login();
+//   alice.login();
 // } catch (e) {
 //   console.log('Error:', e.message);
 // }
 
-// user.logout();
-// user.login();
+// alice.logout();
+// alice.login();
 
 console.log('');
 
-// ============================================
-// 🎉 ¡COMPLETADO!
-// ============================================
-// Has aprendido:
-// - Diferencias entre Map y WeakMap
-// - Usar WeakMap para datos privados
-// - Implementar caché sin memory leaks
-// - Usar WeakSet para marcar objetos
-// - Combinar WeakMap y WeakSet en sistemas reales
-// ============================================
+console.log('✅ Lab completado.');

@@ -36,6 +36,13 @@
 | Map Basics | MDN Guide | [MDN Map Guide](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Keyed_collections#map_object) |
 | WeakMap | MDN Guide | [MDN WeakMap](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) |
 
+<!-- nav -->
 ---
 
-[⬅️ Volver a Recursos](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 07](../../README.md)

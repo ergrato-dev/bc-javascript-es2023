@@ -1,9 +1,9 @@
-// ============================================
-// EJERCICIO 02: OPERACIONES DE SET
-// ============================================
-// Aprende a implementar operaciones matemáticas
-// de conjuntos: unión, intersección, diferencia
-// ============================================
+/**
+ * 📘 Lab 02: operaciones con Set
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
+ */
 
 // ============================================
 // PASO 1: Unión de Sets
@@ -145,7 +145,7 @@ console.log('--- Paso 6: Clase SetOps ---');
 
 // console.log('Frontend:', frontendDevs);
 // console.log('Backend:', backendDevs);
-// console.log('Full-stack (unión):', SetOps.union(frontendDevs, backendDevs));
+// console.log('Todos (unión):', SetOps.union(frontendDevs, backendDevs));
 // console.log('Saben ambos (intersección):', SetOps.intersection(frontendDevs, backendDevs));
 // console.log('Solo frontend:', SetOps.difference(frontendDevs, backendDevs));
 // console.log('Solo backend:', SetOps.difference(backendDevs, frontendDevs));
@@ -153,13 +153,23 @@ console.log('--- Paso 6: Clase SetOps ---');
 console.log('');
 
 // ============================================
-// 🎉 ¡COMPLETADO!
+// PASO 7: Métodos nativos (ES2025)
 // ============================================
-// Has aprendido:
-// - Unión de conjuntos
-// - Intersección de conjuntos
-// - Diferencia de conjuntos
-// - Diferencia simétrica
-// - Verificar subconjuntos y superconjuntos
-// - Crear una clase reutilizable
-// ============================================
+console.log('--- Paso 7: Métodos nativos (ES2025) ---');
+
+// Desde ES2025 (Node 22+), Set trae estas operaciones de serie
+// Descomenta las siguientes líneas:
+// console.log('union:', setA.union(setB));
+// console.log('intersection:', setA.intersection(setB));
+// console.log('difference:', setA.difference(setB));
+// console.log('symmetricDifference:', setA.symmetricDifference(setB));
+// console.log('isSubsetOf:', setX.isSubsetOf(setY));
+// console.log('isSupersetOf:', setY.isSupersetOf(setX));
+// console.log('isDisjointFrom:', setX.isDisjointFrom(setZ));
+
+// No modifican el Set original: devuelven uno nuevo
+// console.log('setA sigue igual:', setA);
+
+console.log('');
+
+console.log('✅ Lab completado.');

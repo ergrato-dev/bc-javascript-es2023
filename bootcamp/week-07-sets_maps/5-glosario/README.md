@@ -330,6 +330,13 @@ if (visited.has(node)) { /* ya visitado */ }
 - [JavaScript.info: Map and Set](https://javascript.info/map-set)
 - [TC39: Symbols as WeakMap Keys](https://github.com/tc39/proposal-symbols-as-weakmap-keys)
 
+<!-- nav -->
 ---
 
-[⬅️ Volver a Semana 07](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📅 Week 08: Iteradores y Generadores](../../week-08-iteradores_generadores/README.md) → |
+
+[↑ Semana 07](../README.md)

@@ -1,9 +1,9 @@
-// ============================================
-// EJERCICIO 01: SET BÁSICO
-// ============================================
-// Aprende a crear y manipular Sets para
-// gestionar colecciones de valores únicos
-// ============================================
+/**
+ * 📘 Lab 01: Set básico
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
+ */
 
 // ============================================
 // PASO 1: Creación de Set
@@ -59,6 +59,12 @@ console.log('--- Paso 3: Verificar y Eliminar ---');
 // const deleted = fruits.delete('banana');
 // console.log("Eliminar 'banana':", deleted);
 // console.log('Después de eliminar:', fruits);
+
+// clear() vacía el Set entero (trabaja sobre una copia para no perder fruits)
+// Descomenta las siguientes líneas:
+// const basket = new Set(fruits);
+// basket.clear();
+// console.log('Después de clear:', basket, '| fruits sigue igual:', fruits.size);
 
 console.log('');
 
@@ -132,14 +138,4 @@ console.log('--- Paso 6: Sets con Objetos ---');
 
 console.log('');
 
-// ============================================
-// 🎉 ¡COMPLETADO!
-// ============================================
-// Has aprendido:
-// - Crear Sets vacíos y con valores
-// - Agregar elementos con add()
-// - Verificar con has() y eliminar con delete()
-// - Iterar sobre Sets
-// - Eliminar duplicados de arrays
-// - Comportamiento con objetos
-// ============================================
+console.log('✅ Lab completado.');

@@ -244,6 +244,13 @@ console.log([...tags]); // ['javascript']
 | `keys()` / `values()` | Obtener iterador | Iterator |
 | `entries()` | Obtener pares [v, v] | Iterator |
 
+<!-- nav -->
 ---
 
-⬅️ [Volver al README](../README.md) | [Siguiente: Operaciones con Set](./02-set-operations.md) ➡️
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 07 - Sets y Maps](../README.md) | [Teoría — 🔄 Operaciones con Set](02-set-operations.md) → |
+
+[↑ Semana 07](../README.md)

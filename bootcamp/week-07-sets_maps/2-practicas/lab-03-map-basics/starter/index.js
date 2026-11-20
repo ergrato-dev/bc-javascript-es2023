@@ -1,9 +1,9 @@
-// ============================================
-// EJERCICIO 03: MAP BÁSICO
-// ============================================
-// Aprende a crear y manipular Maps para
-// almacenar pares clave-valor eficientemente
-// ============================================
+/**
+ * 📘 Lab 03: Map básico
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
+ */
 
 // ============================================
 // PASO 1: Creación de Map
@@ -174,14 +174,4 @@ console.log('--- Paso 6: Caché de Datos ---');
 
 console.log('');
 
-// ============================================
-// 🎉 ¡COMPLETADO!
-// ============================================
-// Has aprendido:
-// - Crear Maps vacíos y con valores
-// - Usar set(), get(), has(), delete()
-// - Iterar con keys(), values(), entries()
-// - Usar claves de cualquier tipo
-// - Convertir entre Map, Object y Array
-// - Implementar un sistema de caché
-// ============================================
+console.log('✅ Lab completado.');

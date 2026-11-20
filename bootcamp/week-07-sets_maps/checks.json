@@ -1,0 +1,90 @@
+{
+  "semana": "07",
+  "titulo": "Sets y Maps",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js y src/logic.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE con nombre, y por defecto 5 a 8 piezas con id sin repetir (minúsculas y guiones), nombre, sala y etiquetas; al menos 2 salas y alguna etiqueta en dos piezas",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE } from './src/data.js'; assert.equal(typeof TITLE, 'string'); assert.ok(Array.isArray(items) && items.length >= 5 && items.length <= 8); assert.ok(items.every(({ id, name, room, tags }) => /^[\\\\p{Ll}\\\\d]+(-[\\\\p{Ll}\\\\d]+)*$/u.test(id) && [name, room].every((t) => typeof t === 'string' && t.trim() !== '') && Array.isArray(tags) && tags.length > 0 && tags.every((t) => typeof t === 'string' && t !== ''))); assert.equal(new Set(items.map(({ id }) => id)).size, items.length); assert.ok(new Set(items.map(({ room }) => room)).size >= 2); const all = items.flatMap(({ tags }) => tags); assert.ok(new Set(all).size < all.length);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título y las piezas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.ok(!items.some(({ id }) => ['telescopio-refractor', 'globo-lunar', 'proyector-estelar', 'reloj-de-sol'].includes(id)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "unique-tags",
+      "descripcion": "uniqueTags devuelve un Set con las etiquetas sin repetir y en orden de aparición",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { uniqueTags } from './src/logic.js'; const T = (id, room, tags) => Object.freeze({ id, name: id.toUpperCase(), room, tags: Object.freeze(tags) }); const F = Object.freeze([T('a', 'R1', ['x', 'y']), T('b', 'R2', ['y', 'z']), T('c', 'R1', ['x'])]); const s = uniqueTags(F); assert.ok(s instanceof Set); assert.deepEqual([...s], ['x', 'y', 'z']); assert.equal(uniqueTags([]).size, 0);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "index-by-id",
+      "descripcion": "indexById devuelve un Map de id a la misma pieza",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { indexById } from './src/logic.js'; const T = (id, room, tags) => Object.freeze({ id, name: id.toUpperCase(), room, tags: Object.freeze(tags) }); const F = Object.freeze([T('a', 'R1', ['x', 'y']), T('b', 'R2', ['y', 'z']), T('c', 'R1', ['x'])]); const m = indexById(F); assert.ok(m instanceof Map); assert.equal(m.size, 3); assert.equal(m.get('b'), F[1]); assert.equal(m.get('w'), undefined);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "group-by-room",
+      "descripcion": "groupByRoom devuelve un Map de sala a sus piezas, con las salas en orden de aparición",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { groupByRoom } from './src/logic.js'; const T = (id, room, tags) => Object.freeze({ id, name: id.toUpperCase(), room, tags: Object.freeze(tags) }); const F = Object.freeze([T('a', 'R1', ['x', 'y']), T('b', 'R2', ['y', 'z']), T('c', 'R1', ['x'])]); const m = groupByRoom(F); assert.ok(m instanceof Map); assert.deepEqual([...m.keys()], ['R1', 'R2']); assert.deepEqual(m.get('R1').map(({ id }) => id), ['a', 'c']); assert.equal(m.get('R2')[0], F[1]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "count-tags",
+      "descripcion": "countTags devuelve un Map de etiqueta a número de piezas, en orden de aparición",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { countTags } from './src/logic.js'; const T = (id, room, tags) => Object.freeze({ id, name: id.toUpperCase(), room, tags: Object.freeze(tags) }); const F = Object.freeze([T('a', 'R1', ['x', 'y']), T('b', 'R2', ['y', 'z']), T('c', 'R1', ['x'])]); const m = countTags(F); assert.ok(m instanceof Map); assert.deepEqual([...m], [['x', 2], ['y', 2], ['z', 1]]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "toggle-tag",
+      "descripcion": "toggleTag añade o quita la etiqueta en un Set nuevo y no cambia el original",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { toggleTag } from './src/logic.js'; const T = (id, room, tags) => Object.freeze({ id, name: id.toUpperCase(), room, tags: Object.freeze(tags) }); const F = Object.freeze([T('a', 'R1', ['x', 'y']), T('b', 'R2', ['y', 'z']), T('c', 'R1', ['x'])]); const s = new Set(['x']); const added = toggleTag(s, 'y'); const removed = toggleTag(s, 'x'); assert.ok(added instanceof Set && added !== s && removed !== s); assert.deepEqual([...added], ['x', 'y']); assert.equal(removed.size, 0); assert.deepEqual([...s], ['x']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "filter-by-tags",
+      "descripcion": "filterByTags deja las piezas con todas las etiquetas marcadas, y todas si no hay ninguna marcada",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { filterByTags } from './src/logic.js'; const T = (id, room, tags) => Object.freeze({ id, name: id.toUpperCase(), room, tags: Object.freeze(tags) }); const F = Object.freeze([T('a', 'R1', ['x', 'y']), T('b', 'R2', ['y', 'z']), T('c', 'R1', ['x'])]); const ids = (tags) => filterByTags(F, new Set(tags)).map(({ id }) => id); assert.deepEqual(ids(['x']), ['a', 'c']); assert.deepEqual(ids(['x', 'y']), ['a']); assert.deepEqual(ids([]), ['a', 'b', 'c']); assert.deepEqual(ids(['w']), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "summary-cache",
+      "descripcion": "getSummary cuenta piezas, salas y etiquetas, y con el mismo array devuelve el mismo objeto guardado en un WeakMap",
+      "cmd": "cd {proyecto} && grep -q 'WeakMap' src/logic.js && node --input-type=module -e \"import assert from 'node:assert/strict'; import { getSummary } from './src/logic.js'; const T = (id, room, tags) => Object.freeze({ id, name: id.toUpperCase(), room, tags: Object.freeze(tags) }); const F = Object.freeze([T('a', 'R1', ['x', 'y']), T('b', 'R2', ['y', 'z']), T('c', 'R1', ['x'])]); const first = getSummary(F); assert.deepEqual(first, { pieces: 3, rooms: 2, tags: 3 }); assert.equal(getSummary(F), first); const copy = getSummary([...F]); assert.notEqual(copy, first); assert.deepEqual(copy, first); assert.deepEqual(getSummary([]), { pieces: 0, rooms: 0, tags: 0 });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}
