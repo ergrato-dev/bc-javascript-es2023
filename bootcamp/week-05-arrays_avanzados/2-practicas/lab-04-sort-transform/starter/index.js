@@ -1,9 +1,11 @@
 /**
- * 📘 Ejercicio 04: Sort y Transformaciones
- * Práctica guiada - Descomenta cada sección para aprender
+ * 📘 Lab 04: Sort y Transformaciones
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
-console.log('=== Ejercicio 04: Sort y Transformaciones ===\n');
+console.log('=== Lab 04: Sort y Transformaciones ===\n');
 
 // ============================================
 // PASO 1: El Problema de sort() por Defecto
@@ -233,4 +235,4 @@ const users = [
 // console.log('Acceso directo:', usersById[2].name);  // 'Luis'
 
 console.log('');
-console.log('=== ¡Descomenta cada sección y ejecuta de nuevo! ===');
+console.log('✅ Lab completado.');

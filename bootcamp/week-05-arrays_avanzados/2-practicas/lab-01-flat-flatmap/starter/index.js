@@ -1,9 +1,11 @@
 /**
- * 📘 Ejercicio 01: flat() y flatMap()
- * Práctica guiada - Descomenta cada sección para aprender
+ * 📘 Lab 01: flat() y flatMap()
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
-console.log('=== Ejercicio 01: flat() y flatMap() ===\n');
+console.log('=== Lab 01: flat() y flatMap() ===\n');
 
 // ============================================
 // PASO 1: Entendiendo flat()
@@ -212,4 +214,4 @@ const ranges = [
 // Esperado: [1, 2, 3, 10, 11, 12, 20, 21]
 
 console.log('');
-console.log('=== ¡Descomenta cada sección y ejecuta de nuevo! ===');
+console.log('✅ Lab completado.');

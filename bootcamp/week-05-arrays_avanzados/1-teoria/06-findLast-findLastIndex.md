@@ -507,6 +507,13 @@ arr.findLastIndex(n => n > 2); // 4 (índice del último > 2)
 - 📖 [TC39 Proposal - findLast](https://github.com/tc39/proposal-array-find-from-last)
 - 📖 [JavaScript.info - Arrays](https://javascript.info/array-methods)
 
+<!-- nav -->
 ---
 
-**Última actualización**: Enero 2025
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📚 Sort Personalizado](05-sort-personalizado.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 05](../README.md)

@@ -1,12 +1,11 @@
-// ============================================
-// EJERCICIO 05: findLast() y findLastIndex() - ES2023
-// ============================================
-// Aprende a buscar desde el final del array con estos nuevos métodos.
+/**
+ * 📘 Lab 05: findLast() y findLastIndex() (ES2023)
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
+ */
 
-console.log('='.repeat(60));
-console.log('EJERCICIO 05: findLast() y findLastIndex() - ES2023');
-console.log('='.repeat(60));
-console.log('');
+console.log('=== Lab 05: findLast() y findLastIndex() ===\n');
 
 // ============================================
 // DATOS DE EJEMPLO
@@ -265,23 +264,4 @@ console.log('--- Paso 7: Combinando con Otros Métodos ES2023 ---');
 // }
 
 console.log('');
-
-// ============================================
-// RESUMEN
-// ============================================
-console.log('='.repeat(60));
-console.log('RESUMEN');
-console.log('='.repeat(60));
-console.log('');
-console.log(
-  'findLast(callback)      → Último elemento que cumple, o undefined'
-);
-console.log('findLastIndex(callback) → Índice del último que cumple, o -1');
-console.log('');
-console.log('Diferencias clave:');
-console.log('  find()          busca desde el INICIO');
-console.log('  findLast()      busca desde el FINAL');
-console.log('  findIndex()     índice desde el INICIO');
-console.log('  findLastIndex() índice desde el FINAL');
-console.log('');
-console.log('✅ Ejercicio completado');
+console.log('✅ Lab completado.');

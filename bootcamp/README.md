@@ -12,7 +12,7 @@ Estado de cada semana:
 | [02](week-02-operadores_metodos_modernos_arrays/README.md) | [Operadores y Métodos Modernos de Arrays](week-02-operadores_metodos_modernos_arrays/README.md) | Fundamentos | ✅ |
 | [03](week-03-clases_programacion_orientada_objetos/README.md) | [Clases y Programación Orientada a Objetos](week-03-clases_programacion_orientada_objetos/README.md) | Fundamentos | ✅ |
 | [04](week-04-destructuring_modulos_es2023/README.md) | [Destructuring y Módulos ES2023](week-04-destructuring_modulos_es2023/README.md) | Fundamentos | ✅ |
-| [05](week-05-arrays_avanzados/README.md) | [Arrays Avanzados](week-05-arrays_avanzados/README.md) | Fundamentos | 🟡 |
+| [05](week-05-arrays_avanzados/README.md) | [Arrays Avanzados](week-05-arrays_avanzados/README.md) | Fundamentos | ✅ |
 | [06](week-06-strings_regexp_modernos/README.md) | [Strings y RegExp Modernos](week-06-strings_regexp_modernos/README.md) | Fundamentos | 🟡 |
 | [07](week-07-sets_maps/README.md) | [Sets y Maps](week-07-sets_maps/README.md) | Fundamentos | 🟡 |
 | [08](week-08-iteradores_generadores/README.md) | [Iteradores y Generadores](week-08-iteradores_generadores/README.md) | Fundamentos | 🟡 |

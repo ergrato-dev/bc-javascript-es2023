@@ -175,6 +175,13 @@ MDN sort() → flaviocopes → stackoverflow ejemplos
 3. **Para practicar**: Usa los playgrounds y ejercicios
 4. **Para resolver dudas**: Stackoverflow + MDN
 
+<!-- nav -->
 ---
 
-[← Volver a Recursos](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 05](../../README.md)

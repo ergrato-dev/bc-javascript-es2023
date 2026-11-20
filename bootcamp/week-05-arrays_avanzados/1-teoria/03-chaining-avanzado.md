@@ -458,10 +458,13 @@ Antes de continuar, asegúrate de poder:
 - 📖 [MDN - Array methods](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - 📖 [JavaScript.info - Array methods](https://javascript.info/array-methods)
 
+<!-- nav -->
 ---
 
-## 🧭 Navegación
+## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [Array.from() y Array.of()](02-array-from-of.md) | [Teoría](.) | [Transformaciones de Datos](04-transformaciones-datos.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📚 Array.from() y Array.of()](02-array-from-of.md) | [Teoría — 📚 Transformaciones de Datos](04-transformaciones-datos.md) → |
+
+[↑ Semana 05](../README.md)

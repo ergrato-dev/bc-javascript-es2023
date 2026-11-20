@@ -303,6 +303,13 @@ Estándar de codificación de caracteres. `sort()` por defecto ordena según val
 - [MDN Web Docs - Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - [JavaScript.info - Array Methods](https://javascript.info/array-methods)
 
+<!-- nav -->
 ---
 
-[← Volver al README principal](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📝 Week 06: Strings y RegExp Modernos](../../week-06-strings_regexp_modernos/README.md) → |
+
+[↑ Semana 05](../README.md)

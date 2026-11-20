@@ -1,194 +1,90 @@
-# 📊 Rúbrica de Evaluación - Semana 5
+# Rúbrica de Evaluación - Semana 05
 
-## 🎯 Arrays Avanzados
+## Evidencias y ponderación
 
----
-
-## 📋 Información General
-
-| Aspecto | Detalle |
-|---------|---------|
-| **Semana** | 5 |
-| **Tema** | Arrays Avanzados |
-| **Duración** | 8 horas |
-| **Fecha límite** | Final de la semana 5 |
-
-## 🎯 Distribución de Evidencias
-
-| Tipo de Evidencia | Peso     | Puntaje Mínimo |
-| ----------------- | -------- | -------------- |
-| 📦 Producto       | 100%     | 70/100 (70%)   |
-| **TOTAL**         | **100%** | **70/100**     |
-
-> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | `flat`/`flatMap`, `Array.from`/`Array.of`, encadenamiento, funciones de comparación, agrupar con `reduce`, `findLast`/`findLastIndex` |
+| Desempeño | 40% | Labs 01 a 05 descomentados y ejecutados |
+| Producto | 30% | Explorador de colección: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-## 🧠 Material de Conocimiento (No se entrega)
+## Criterios por evidencia
 
-> **Importante**: Criterios de autoevaluación. Tu comprensión se evalúa en el proyecto.
+## 1) Conocimiento (30%)
 
-### Autoevaluación Teórica
+### Criterios
 
-| Criterio | Excelente (100%) | Bueno (75%) | Suficiente (50%) | Insuficiente (0%) |
-|----------|------------------|-------------|------------------|-------------------|
-| **flat() y flatMap()** | Explica con precisión ambos métodos, sus diferencias, y cuándo usar cada uno | Comprende ambos métodos con ejemplos correctos | Conoce los métodos pero confunde casos de uso | No comprende los métodos |
-| **Array.from() y Array.of()** | Domina la creación de arrays desde cualquier iterable y la función de mapeo | Comprende la creación básica desde iterables | Conoce la sintaxis pero no los casos de uso | No comprende la creación de arrays |
-| **Chaining** | Diseña cadenas complejas optimizadas y explica el flujo | Encadena métodos correctamente | Encadena métodos básicos con errores | No comprende el concepto |
-| **Transformaciones** | Aplica patrones de transformación complejos y optimizados | Transforma datos correctamente | Realiza transformaciones básicas | No puede transformar datos |
-| **Sort personalizado** | Implementa comparadores multi-criterio y entiende estabilidad | Implementa comparadores correctos | Ordena con comparadores simples | No comprende sort |
+- Explica qué hace `flatMap` frente a `map` seguido de `flat()`, y qué pasa cuando la función devuelve `[]`.
+- Genera un array con `Array.from({ length: n }, fn)` y explica por qué `Array(3)` y `Array.of(3)` dan resultados distintos.
+- Escribe una cadena de métodos de varios pasos y dice qué devuelve cada uno.
+- Escribe una función de comparación para números, para textos (`localeCompare`) y para varios criterios, y explica qué significa que devuelva un número negativo, positivo o `0`.
+- Explica por qué `sort()` sin función ordena mal los números y por qué `toSorted()` no modifica el array.
+- Usa `findLast` y `findLastIndex` y dice qué devuelven cuando no encuentran nada.
 
-### Puntuación Mínima: 70%
+### Niveles
 
----
-
-## 💪 Ejercicios de Práctica (No se entregan)
-
-> **Importante**: Materiales de aprendizaje guiados. **No se entregan de forma separada**.
-
-### Ejercicios Guiados
-
-#### Ejercicio 1: flat y flatMap (Práctica)
-
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Aplanar arrays | 3 | Usa `flat()` con diferentes niveles de profundidad |
-| flatMap correcto | 3 | Aplica `flatMap()` para mapear y aplanar |
-| Casos edge | 2 | Maneja arrays vacíos y valores `null` |
-| Código limpio | 2 | Sintaxis ES2023, nombres descriptivos |
-
-#### Ejercicio 2: Array.from y Array.of (10%)
-
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Array.from básico | 2 | Crea arrays desde strings, Sets, Maps |
-| Función de mapeo | 3 | Usa el segundo argumento de `Array.from()` |
-| Array.of correcto | 2 | Diferencia `Array.of()` de `Array()` |
-| Iterables custom | 3 | Crea arrays desde NodeList y argumentos |
-
-#### Ejercicio 3: Chaining Complejo (10%)
-
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Cadenas correctas | 3 | Encadena múltiples métodos sin errores |
-| Orden óptimo | 3 | Ordena métodos para mejor rendimiento |
-| Transformaciones | 2 | Logra transformaciones complejas |
-| Legibilidad | 2 | Código bien formateado e indentado |
-
-#### Ejercicio 4: Sort y Transformaciones (10%)
-
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Sort numérico | 2 | Ordena números correctamente |
-| Sort alfabético | 2 | Ordena strings con locale |
-| Multi-criterio | 3 | Ordena por múltiples campos |
-| Transformación completa | 3 | Pipeline de transformación funcional |
-
-### Puntuación Mínima: 70%
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, el signo de la función de comparación).
+- **Bajo (<21):** cree que `sort()` ordena números sin función, o confunde `findLast` con `findLastIndex`.
 
 ---
 
-## 📦 Evidencia de Producto (30%)
+## 2) Desempeño (40%)
 
-### Proyecto: Dashboard de Análisis de Datos
+### Criterios
 
-| Criterio | Excelente (100%) | Bueno (75%) | Suficiente (50%) | Insuficiente (0%) |
-|----------|------------------|-------------|------------------|-------------------|
-| **Procesamiento de datos** (25%) | Pipeline completo con múltiples transformaciones optimizadas | Pipeline funcional con transformaciones correctas | Transformaciones básicas funcionando | No procesa datos |
-| **Chaining aplicado** (25%) | Chaining complejo, legible y optimizado | Chaining correcto y funcional | Chaining básico | No usa chaining |
-| **Ordenamiento** (20%) | Sort multi-criterio con opciones de dirección | Sort por múltiples criterios | Sort básico funcional | No ordena datos |
-| **Agregaciones** (15%) | Estadísticas completas (suma, promedio, min, max, conteo) | Agregaciones principales funcionando | Agregaciones básicas | No agrega datos |
-| **Interfaz** (15%) | UI profesional, responsive, con feedback visual | UI funcional y clara | UI básica pero usable | UI no funcional |
+- Lab 01: los 10 pasos descomentados; explica cómo filtra y duplica el `flatMap` del paso 6.
+- Lab 02: los 10 pasos; explica el `_` de `Array.from({ length: 5 }, (_, i) => i)` y por qué `Array(3)` sale vacío.
+- Lab 03: los 10 pasos; explica por qué el paso 3 copia `products` antes de `sort` y qué devuelve `createTopPerformers`.
+- Lab 04: los 10 pasos; explica por qué `sort()` del paso 1 pone `10` antes que `2` y cómo funcionan los dos criterios del paso 5.
+- Lab 05: los 7 pasos; explica la diferencia entre `find` y `findLast` del paso 2 y por qué `with()` no cambia `notifications` en el paso 7.
 
-### Características Mínimas Requeridas
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab.
 
-- [ ] Cargar y procesar dataset de ejemplo
-- [ ] Filtrar datos por múltiples criterios
-- [ ] Ordenar por al menos 3 campos diferentes
-- [ ] Mostrar estadísticas agregadas
-- [ ] Exportar datos transformados
-- [ ] Tabla HTML con los resultados
+### Niveles
 
-### Puntuación Mínima: 70%
+- **Alto (36-40):** los cinco labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cinco labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-## 📈 Rúbrica de Calidad de Código
+## 3) Producto (30%)
 
-| Aspecto | Excelente | Bueno | Suficiente | Insuficiente |
-|---------|-----------|-------|------------|--------------|
-| **Sintaxis ES2023** | Uso consistente de ES2023 en todo el código | Mayormente ES2023 con pocas excepciones | Mezcla de sintaxis | Sintaxis antigua |
-| **Inmutabilidad** | No muta arrays originales, usa métodos puros | Mayoría de operaciones inmutables | Algunas mutaciones innecesarias | Muta datos constantemente |
-| **Funciones puras** | Todas las funciones son puras y predecibles | Mayoría de funciones puras | Algunas funciones con efectos secundarios | Funciones con muchos efectos |
-| **Nombrado** | Nombres descriptivos y consistentes | Buenos nombres en general | Nombres aceptables | Nombres confusos |
-| **Documentación** | Comentarios claros donde son necesarios | Algunos comentarios útiles | Pocos comentarios | Sin comentarios |
+### Criterios
 
----
+- `PROYECTO=... ./scripts/verificar-semana.sh 05` pasa las 12 comprobaciones.
+- `TITLE`, `CATEGORIES` y los elementos de `src/data.js` describen una colección del dominio asignado, con 3 a 5 categorías, 4 a 6 elementos coherentes con ese dominio, etiquetas que se repiten entre elementos y al menos uno sin año.
+- La página funciona servida con `pnpm dlx serve .`: añadir, eliminar, filtrar por etiqueta, ordenar por nombre, año y recientes, y ver el resumen por categoría con su último añadido, sin errores en la consola.
+- Las funciones usan lo de la semana donde corresponde: `flatMap` y `Array.from` en `getAllTags`, `toSorted` con funciones de comparación en `sortItems`, una cadena en `queryItems`, `reduce` con propiedad computada en `groupByCategory` y `findLast` en `findLastAdded`.
 
-## 🎯 Matriz de Competencias
+### Niveles
 
-| Competencia | Nivel Esperado | Indicador |
-|-------------|----------------|-----------|
-| Manipulación de arrays | Intermedio-Alto | Usa métodos avanzados con fluidez |
-| Transformación de datos | Intermedio | Transforma datasets complejos |
-| Pensamiento funcional | Intermedio | Aplica paradigma funcional |
-| Resolución de problemas | Intermedio | Soluciona problemas con arrays eficientemente |
-| Código limpio | Intermedio | Escribe código mantenible |
+- **Alto (27-30):** 12/12, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 12/12 con datos poco adaptados (categorías genéricas, elementos de relleno) o alguna acción de la página que falla.
+- **Bajo (<21):** menos de 12 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## 📝 Checklist de Entrega
+## Calificación
 
-### Ejercicios Prácticos
-- [ ] Ejercicio 1: flat y flatMap completo
-- [ ] Ejercicio 2: Array.from y Array.of completo
-- [ ] Ejercicio 3: Chaining completo
-- [ ] Ejercicio 4: Sort y transformaciones completo
-- [ ] Todos los tests pasan (si aplica)
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
-### Proyecto
-- [ ] README.md con instrucciones
-- [ ] Código fuente completo en `starter/`
-- [ ] Dataset de ejemplo incluido
-- [ ] Interfaz HTML funcional
-- [ ] Sin errores en consola
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
 
-### Documentación
-- [ ] Código comentado donde sea necesario
-- [ ] Nombres de variables descriptivos
-- [ ] Estructura de archivos clara
-
+<!-- nav -->
 ---
 
-## 📊 Cálculo de Calificación Final
+## 🔗 Navegación
 
-```
-Calificación = (Conocimiento × 0.30) + (Desempeño × 0.40) + (Producto × 0.30)
-```
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Explorador de colección](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
-### Escala de Calificación
-
-| Rango | Calificación | Descripción |
-|-------|--------------|-------------|
-| 90-100% | Excelente | Dominio completo de arrays avanzados |
-| 80-89% | Muy Bueno | Sólido conocimiento con pequeñas áreas de mejora |
-| 70-79% | Bueno | Cumple requisitos mínimos satisfactoriamente |
-| 60-69% | Suficiente | Necesita refuerzo en algunos temas |
-| < 60% | Insuficiente | Requiere repetir la semana |
-
----
-
-## 🚀 Criterios de Excelencia (Bonus)
-
-Puntos adicionales por:
-
-- ✨ Implementar método `groupBy()` personalizado
-- ✨ Crear utilidades de array reutilizables
-- ✨ Optimizar rendimiento con mediciones
-- ✨ Implementar búsqueda binaria
-- ✨ Documentación excepcional
-- ✨ Tests unitarios para funciones de transformación
-
----
-
-*Rúbrica versión 1.0 - Semana 5*
+[↑ Semana 05](README.md)

@@ -130,7 +130,8 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 05: Arrays Avanzados**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 - Métodos avanzados (flatMap, flat, from, of)
@@ -139,7 +140,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 - Chaining complejo y transformaciones de datos
 - Ordenamiento personalizado (sort vs toSorted)
 
-**Proyecto**: Dashboard de análisis de datos
+**Proyecto**: Explorador de colección (`logic.js` con `flatMap`, `Array.from`, `toSorted`, agrupar con `reduce` y `findLast`)
 
 ---
 

@@ -1,9 +1,11 @@
 /**
- * 📘 Ejercicio 02: Array.from() y Array.of()
- * Práctica guiada - Descomenta cada sección para aprender
+ * 📘 Lab 02: Array.from() y Array.of()
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
-console.log('=== Ejercicio 02: Array.from() y Array.of() ===\n');
+console.log('=== Lab 02: Array.from() y Array.of() ===\n');
 
 // ============================================
 // PASO 1: Array.from() Básico
@@ -113,7 +115,7 @@ console.log('--- Paso 6: Array.of() ---');
 
 // Array() tiene comportamiento inconsistente:
 // Descomenta las siguientes líneas:
-// console.log('Array(3):', Array(3));          // [empty × 3]
+// console.log('Array(3):', Array(3));          // [ <3 empty items> ]
 // console.log('Array(1, 2):', Array(1, 2));    // [1, 2]
 
 // Array.of() siempre crea un array con los elementos dados:
@@ -203,4 +205,4 @@ console.log('--- Paso 10: Datos de prueba ---');
 // console.log('Usuarios generados:', generateUsers(3));
 
 console.log('');
-console.log('=== ¡Descomenta cada sección y ejecuta de nuevo! ===');
+console.log('✅ Lab completado.');

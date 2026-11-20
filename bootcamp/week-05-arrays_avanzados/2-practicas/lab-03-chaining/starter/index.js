@@ -1,9 +1,11 @@
 /**
- * 📘 Ejercicio 03: Chaining Avanzado
- * Práctica guiada - Descomenta cada sección para aprender
+ * 📘 Lab 03: Chaining Avanzado
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
-console.log('=== Ejercicio 03: Chaining Avanzado ===\n');
+console.log('=== Lab 03: Chaining Avanzado ===\n');
 
 // ============================================
 // PASO 1: Chaining Básico
@@ -252,4 +254,4 @@ const createTopPerformers =
 // console.log('Top 3:', getTop3(users));
 
 console.log('');
-console.log('=== ¡Descomenta cada sección y ejecuta de nuevo! ===');
+console.log('✅ Lab completado.');

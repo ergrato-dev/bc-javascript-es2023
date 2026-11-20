@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorador de colección</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">📦 Explorador de colección</h1>
+      <div class="stats-summary">
+        <span class="stat">Total: <strong id="stat-total">0</strong></span>
+        <span class="stat">Último añadido: <strong id="stat-last">—</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>➕ Nuevo elemento</h2>
+      <form id="item-form" class="item-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-name">Nombre</label>
+            <input type="text" id="item-name" required>
+          </div>
+          <div class="form-group">
+            <label for="item-category">Categoría</label>
+            <select id="item-category"></select>
+          </div>
+          <div class="form-group">
+            <label for="item-year">Año</label>
+            <input type="number" id="item-year">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="item-tags">Etiquetas separadas por comas</label>
+          <input type="text" id="item-tags" placeholder="gigante, helado">
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Añadir</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="filter-tag">Etiqueta:</label>
+          <select id="filter-tag"></select>
+        </div>
+        <div class="filter-group">
+          <label for="sort-by">Ordenar por:</label>
+          <select id="sort-by">
+            <option value="name">Nombre</option>
+            <option value="year">Año</option>
+            <option value="recent">Más recientes</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Lista</h2>
+      </div>
+      <div id="item-list" class="item-list"></div>
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay elementos que mostrar</p>
+        <p class="empty-state-hint">Cambia la etiqueta o añade uno con el formulario</p>
+      </div>
+    </section>
+
+    <section class="detailed-stats">
+      <h3>📊 Por categoría</h3>
+      <div id="groups" class="stats-grid"></div>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

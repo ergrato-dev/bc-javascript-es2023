@@ -554,10 +554,13 @@ Antes de continuar, asegúrate de poder:
 - 📖 [MDN - Array.prototype.reduce()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
 - 📖 [JavaScript.info - Array methods](https://javascript.info/array-methods)
 
+<!-- nav -->
 ---
 
-## 🧭 Navegación
+## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [Chaining Avanzado](03-chaining-avanzado.md) | [Teoría](.) | [Sort Personalizado](05-sort-personalizado.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📚 Chaining Avanzado](03-chaining-avanzado.md) | [Teoría — 📚 Sort Personalizado](05-sort-personalizado.md) → |
+
+[↑ Semana 05](../README.md)

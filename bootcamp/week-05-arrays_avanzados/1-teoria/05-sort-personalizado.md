@@ -553,10 +553,13 @@ Antes de continuar, asegúrate de poder:
 - 📖 [MDN - String.prototype.localeCompare()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare)
 - 📖 [MDN - Array.prototype.toSorted()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted)
 
+<!-- nav -->
 ---
 
-## 🧭 Navegación
+## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [Transformaciones de Datos](04-transformaciones-datos.md) | [Teoría](.) | [Prácticas](../2-practicas/) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📚 Transformaciones de Datos](04-transformaciones-datos.md) | [Teoría — 📘 findLast() y findLastIndex() - ES2023](06-findLast-findLastIndex.md) → |
+
+[↑ Semana 05](../README.md)

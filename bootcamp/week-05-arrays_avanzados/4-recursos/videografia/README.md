@@ -129,6 +129,13 @@ const result = myData.map(item => item.toUpperCase());
 
 > 💡 No es necesario ver todos. Selecciona según tus necesidades.
 
+<!-- nav -->
 ---
 
-[← Volver a Recursos](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 05](../../README.md)

@@ -1,0 +1,90 @@
+{
+  "semana": "05",
+  "titulo": "Arrays Avanzados",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js y src/logic.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE y CATEGORIES con nombre, y por defecto 4 a 6 elementos con año y etiquetas",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, * as d from './src/data.js'; assert.equal(typeof d.TITLE, 'string'); const keys = Object.keys(d.CATEGORIES); assert.ok(keys.length >= 3 && keys.length <= 5); assert.ok(keys.includes('other')); assert.ok(Array.isArray(items) && items.length >= 4 && items.length <= 6); assert.ok(items.every(({ name, category, year, tags }) => typeof name === 'string' && keys.includes(category) && (year === null || Number.isInteger(year)) && Array.isArray(tags)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "Las categorías y el título no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, * as d from './src/data.js'; assert.ok(!Object.keys(d.CATEGORIES).some((key) => ['planet', 'star', 'nebula'].includes(key))); assert.ok(!d.TITLE.toLowerCase().includes('planetario'));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "all-tags",
+      "descripcion": "getAllTags devuelve las etiquetas sin repetir y en orden alfabético",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = Object.freeze([Object.freeze({ id: 1, name: 'Urano', category: 'planet', year: 1781, tags: Object.freeze(['helado', 'gigante']) }), Object.freeze({ id: 2, name: 'Betelgeuse', category: 'star', year: null, tags: Object.freeze([]) }), Object.freeze({ id: 3, name: 'Ámbar', category: 'other', year: -500, tags: Object.freeze(['resina']) }), Object.freeze({ id: 4, name: 'Sirio B', category: 'star', year: 1862, tags: Object.freeze(['enana']) }), Object.freeze({ id: 5, name: 'Neptuno', category: 'planet', year: 1846, tags: Object.freeze(['helado']) })]); const names = (list) => list.map(({ name }) => name); assert.deepEqual(l.getAllTags(items), ['enana', 'gigante', 'helado', 'resina']); assert.deepEqual(l.getAllTags([]), []); assert.deepEqual(l.getAllTags([{ tags: ['órbita', 'luna', 'Marte'] }]), ['luna', 'Marte', 'órbita']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sort-name",
+      "descripcion": "sortItems ordena por nombre por defecto y con 'name', sin modificar el array",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = Object.freeze([Object.freeze({ id: 1, name: 'Urano', category: 'planet', year: 1781, tags: Object.freeze(['helado', 'gigante']) }), Object.freeze({ id: 2, name: 'Betelgeuse', category: 'star', year: null, tags: Object.freeze([]) }), Object.freeze({ id: 3, name: 'Ámbar', category: 'other', year: -500, tags: Object.freeze(['resina']) }), Object.freeze({ id: 4, name: 'Sirio B', category: 'star', year: 1862, tags: Object.freeze(['enana']) }), Object.freeze({ id: 5, name: 'Neptuno', category: 'planet', year: 1846, tags: Object.freeze(['helado']) })]); const names = (list) => list.map(({ name }) => name); const expected = ['Ámbar', 'Betelgeuse', 'Neptuno', 'Sirio B', 'Urano']; assert.deepEqual(names(l.sortItems(items)), expected); assert.deepEqual(names(l.sortItems(items, 'name')), expected); assert.notEqual(l.sortItems(items), items);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "sort-year",
+      "descripcion": "sortItems con 'year' pone primero el más antiguo y al final los que no tienen año",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = Object.freeze([Object.freeze({ id: 1, name: 'Urano', category: 'planet', year: 1781, tags: Object.freeze(['helado', 'gigante']) }), Object.freeze({ id: 2, name: 'Betelgeuse', category: 'star', year: null, tags: Object.freeze([]) }), Object.freeze({ id: 3, name: 'Ámbar', category: 'other', year: -500, tags: Object.freeze(['resina']) }), Object.freeze({ id: 4, name: 'Sirio B', category: 'star', year: 1862, tags: Object.freeze(['enana']) }), Object.freeze({ id: 5, name: 'Neptuno', category: 'planet', year: 1846, tags: Object.freeze(['helado']) })]); const names = (list) => list.map(({ name }) => name); assert.deepEqual(names(l.sortItems(items, 'year')), ['Ámbar', 'Urano', 'Neptuno', 'Sirio B', 'Betelgeuse']); const twoNull = [...items, { id: 6, name: 'X', category: 'other', year: null, tags: [] }]; assert.deepEqual(names(l.sortItems(twoNull, 'year')).slice(-2).toSorted(), ['Betelgeuse', 'X']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "sort-recent",
+      "descripcion": "sortItems con 'recent' pone primero el id mayor",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = Object.freeze([Object.freeze({ id: 1, name: 'Urano', category: 'planet', year: 1781, tags: Object.freeze(['helado', 'gigante']) }), Object.freeze({ id: 2, name: 'Betelgeuse', category: 'star', year: null, tags: Object.freeze([]) }), Object.freeze({ id: 3, name: 'Ámbar', category: 'other', year: -500, tags: Object.freeze(['resina']) }), Object.freeze({ id: 4, name: 'Sirio B', category: 'star', year: 1862, tags: Object.freeze(['enana']) }), Object.freeze({ id: 5, name: 'Neptuno', category: 'planet', year: 1846, tags: Object.freeze(['helado']) })]); const names = (list) => list.map(({ name }) => name); assert.deepEqual(l.sortItems(items, 'recent').map(({ id }) => id), [5, 4, 3, 2, 1]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "query-items",
+      "descripcion": "queryItems filtra por etiqueta y ordena, con valores por defecto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = Object.freeze([Object.freeze({ id: 1, name: 'Urano', category: 'planet', year: 1781, tags: Object.freeze(['helado', 'gigante']) }), Object.freeze({ id: 2, name: 'Betelgeuse', category: 'star', year: null, tags: Object.freeze([]) }), Object.freeze({ id: 3, name: 'Ámbar', category: 'other', year: -500, tags: Object.freeze(['resina']) }), Object.freeze({ id: 4, name: 'Sirio B', category: 'star', year: 1862, tags: Object.freeze(['enana']) }), Object.freeze({ id: 5, name: 'Neptuno', category: 'planet', year: 1846, tags: Object.freeze(['helado']) })]); const names = (list) => list.map(({ name }) => name); assert.deepEqual(names(l.queryItems(items)), ['Ámbar', 'Betelgeuse', 'Neptuno', 'Sirio B', 'Urano']); assert.deepEqual(names(l.queryItems(items, { tag: 'helado' })), ['Neptuno', 'Urano']); assert.deepEqual(names(l.queryItems(items, { tag: 'helado', sortBy: 'year' })), ['Urano', 'Neptuno']); assert.deepEqual(names(l.queryItems(items, { sortBy: 'recent' })), ['Neptuno', 'Sirio B', 'Ámbar', 'Betelgeuse', 'Urano']); assert.deepEqual(l.queryItems(items, { tag: 'xyz' }), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "group-by-category",
+      "descripcion": "groupByCategory devuelve un objeto con la lista de elementos de cada categoría",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = Object.freeze([Object.freeze({ id: 1, name: 'Urano', category: 'planet', year: 1781, tags: Object.freeze(['helado', 'gigante']) }), Object.freeze({ id: 2, name: 'Betelgeuse', category: 'star', year: null, tags: Object.freeze([]) }), Object.freeze({ id: 3, name: 'Ámbar', category: 'other', year: -500, tags: Object.freeze(['resina']) }), Object.freeze({ id: 4, name: 'Sirio B', category: 'star', year: 1862, tags: Object.freeze(['enana']) }), Object.freeze({ id: 5, name: 'Neptuno', category: 'planet', year: 1846, tags: Object.freeze(['helado']) })]); const names = (list) => list.map(({ name }) => name); const groups = l.groupByCategory(items); assert.deepEqual(Object.keys(groups), ['planet', 'star', 'other']); assert.deepEqual(names(groups.planet), ['Urano', 'Neptuno']); assert.deepEqual(names(groups.star), ['Betelgeuse', 'Sirio B']); assert.deepEqual(names(groups.other), ['Ámbar']); assert.deepEqual(l.groupByCategory([]), {});\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "find-last-added",
+      "descripcion": "findLastAdded devuelve el último elemento de la categoría, el último de todos con 'all' o undefined",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = Object.freeze([Object.freeze({ id: 1, name: 'Urano', category: 'planet', year: 1781, tags: Object.freeze(['helado', 'gigante']) }), Object.freeze({ id: 2, name: 'Betelgeuse', category: 'star', year: null, tags: Object.freeze([]) }), Object.freeze({ id: 3, name: 'Ámbar', category: 'other', year: -500, tags: Object.freeze(['resina']) }), Object.freeze({ id: 4, name: 'Sirio B', category: 'star', year: 1862, tags: Object.freeze(['enana']) }), Object.freeze({ id: 5, name: 'Neptuno', category: 'planet', year: 1846, tags: Object.freeze(['helado']) })]); const names = (list) => list.map(({ name }) => name); assert.equal(l.findLastAdded(items, 'star').name, 'Sirio B'); assert.equal(l.findLastAdded(items, 'other').name, 'Ámbar'); assert.equal(l.findLastAdded(items).name, 'Neptuno'); assert.equal(l.findLastAdded(items, 'all').name, 'Neptuno'); assert.equal(l.findLastAdded(items, 'nebula'), undefined); assert.equal(l.findLastAdded([]), undefined);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    }
+  ]
+}

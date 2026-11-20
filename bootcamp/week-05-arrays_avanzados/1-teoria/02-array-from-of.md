@@ -518,10 +518,13 @@ Antes de continuar, asegúrate de poder:
 - 📖 [MDN - Array.of()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/of)
 - 📖 [JavaScript.info - Array methods](https://javascript.info/array-methods)
 
+<!-- nav -->
 ---
 
-## 🧭 Navegación
+## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [flat() y flatMap()](01-flat-flatmap.md) | [Teoría](.) | [Chaining Avanzado](03-chaining-avanzado.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📚 flat() y flatMap()](01-flat-flatmap.md) | [Teoría — 📚 Chaining Avanzado](03-chaining-avanzado.md) → |
+
+[↑ Semana 05](../README.md)

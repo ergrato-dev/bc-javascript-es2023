@@ -432,10 +432,13 @@ Antes de continuar, asegúrate de poder:
 - 📖 [MDN - Array.prototype.flatMap()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)
 - 📖 [JavaScript.info - Array methods](https://javascript.info/array-methods)
 
+<!-- nav -->
 ---
 
-## 🧭 Navegación
+## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [README](../README.md) | [Teoría](.) | [Array.from() y Array.of()](02-array-from-of.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 05 - Arrays Avanzados](../README.md) | [Teoría — 📚 Array.from() y Array.of()](02-array-from-of.md) → |
+
+[↑ Semana 05](../README.md)

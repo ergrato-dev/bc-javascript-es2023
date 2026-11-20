@@ -1,302 +1,205 @@
-# 🎯 Proyecto Semana 05: Dashboard de Análisis de Datos
+# Proyecto Semana 05 — Explorador de colección
 
-> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+## Descripción
 
-## 🏛️ Política de Dominios Únicos
+Una página para explorar una colección de elementos de tu dominio: filtrar por etiqueta, ordenar por nombre, por año o por los más recientes, ver cuántos elementos hay de cada categoría y cuál es el último que se añadió. También puedes añadir y eliminar elementos.
 
-**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto debe implementarse completamente dentro del contexto de tu dominio asignado.
+La página ya está montada. Tu trabajo es escribir las cinco funciones de `src/logic.js` con lo que has visto esta semana (`flatMap`, `Array.from`, encadenar métodos, ordenar con una función de comparación, agrupar con `reduce` y `findLast`) y cambiar los datos de ejemplo por los de tu dominio.
 
-### ¿Por qué dominios únicos?
+La regla del proyecto, la misma de la semana 02: **ninguna función modifica el array que recibe**.
 
-- Previene copia entre compañeros
-- Fomenta implementaciones originales
-- Desarrolla capacidad de análisis de datos en contextos específicos
-- Aplica métodos avanzados de arrays a datos reales
+**Tiempo:** 2 h.
 
----
+## Punto de partida
 
-## 📋 Descripción
+```bash
+mkdir -p ~/js-proyecto-semana-05
+cp -r bootcamp/week-05-arrays_avanzados/3-proyecto/starter/. ~/js-proyecto-semana-05/
+cd ~/js-proyecto-semana-05
+```
 
-Construirás un **Dashboard de Análisis de Datos** que procesa información de tu dominio asignado. El dashboard mostrará estadísticas, rankings, agrupaciones y transformaciones de datos usando todas las técnicas aprendidas en la semana.
+Ejecuta el `cp` desde la carpeta del bootcamp. Quedan estos archivos:
 
----
+| Archivo | Qué contiene | ¿Lo editas? |
+|---|---|---|
+| `index.html` | El formulario, los selectores de etiqueta y orden, la lista y el resumen por categoría; carga `src/main.js` | No |
+| `styles.css` | Los estilos | Si quieres |
+| `src/data.js` | El título, las categorías y los elementos de ejemplo | Sí: paso 2 |
+| `src/logic.js` | Cinco funciones con `TODO` | Sí: es el proyecto |
+| `src/main.js` | El código que lee el formulario y pinta la página | No |
 
-## 🎯 Objetivos
-
-Al completar este proyecto, demostrarás dominio de:
-
-- ✅ `flat()` y `flatMap()` para aplanar estructuras
-- ✅ `Array.from()` para generar datos y rangos
-- ✅ `toSorted()`, `toReversed()`, `with()` (métodos inmutables ES2023)
-- ✅ `findLast()` y `findLastIndex()` (ES2023)
-- ✅ Chaining de métodos para pipelines de datos
-- ✅ `reduce()` para agregaciones y transformaciones
-
----
-
-## 💡 Ejemplos de Adaptación por Dominio
-
-| Concepto | Planetario 🔭 | Acuario 🐠 |
-|----------|---------------|------------|
-| **Registro Principal** | Observation (observación) | Feeding (alimentación) |
-| **Items Anidados** | celestialBodies[] | species[] |
-| **Categorías** | type: planet/star | type: fish/mammal |
-| **Métrica Principal** | magnitude | quantity |
-| **Agrupación** | Por constelación | Por tanque |
-| **Ranking** | Cuerpos más brillantes | Especies más alimentadas |
+- **Qué:** cada elemento tiene la forma `{ id, name, category, year, tags }`. `main.js` le pone el `id` al cargarlo o añadirlo, en orden: el id mayor es el más reciente.
+- **Para qué:** las funciones de `logic.js` solo reciben elementos y devuelven datos nuevos, así que `scripts/verificar-semana.sh` puede probarlas desde Node con datos concretos.
+- **Impacto:** la colección vive en memoria; al recargar la página vuelven los datos de `data.js`. Los datos de prueba de las comprobaciones están congelados con `Object.freeze`: si una función los modifica (por ejemplo, con `sort` en lugar de `toSorted`), sale un `TypeError` y la comprobación falla. Más detalles en [docs/autograding.md](../../../docs/autograding.md).
 
 ---
 
-## 📊 Estructura de Datos Genérica
+## Paso 1: ver la página (10 min)
 
-Adapta esta estructura a tu dominio:
+```bash
+pnpm dlx serve .
+```
+
+```text
+ INFO  Accepting connections at http://localhost:3000
+```
+
+Abre `http://localhost:3000`. Con el starter, la página sale vacía y la consola de las DevTools (`F12`, pestaña **Console**) muestra un `TypeError`: `getAllTags` todavía no devuelve nada. Deja el servidor abierto en esa terminal, usa otra para el resto de pasos y recarga la página después de cada uno.
+
+## Paso 2: tus datos (15 min)
+
+En `src/data.js` están los datos del dominio Planetario, que es solo un ejemplo. Cámbialos por los de **tu dominio** (el que te asignó el instructor):
+
+- `TITLE`: el título de la página, con un emoji.
+- `CATEGORIES`: de 3 a 5 categorías. La clave va en inglés y en `camelCase` (`planet`); `name` y `emoji` son lo que se muestra. Deja `other`.
+- El export por defecto: de 4 a 6 elementos, sin `id`, con una `category` que exista en `CATEGORIES`, un `year` (un número entero, negativo para antes de nuestra era, o `null` si no se conoce) y un array de `tags`. Repite alguna etiqueta entre elementos y deja al menos uno sin año, para que el filtro y el orden se noten.
+
+## Paso 3: `getAllTags` (20 min)
+
+Devuelve todas las etiquetas de la colección, sin repetir y en orden alfabético. `main.js` las usa para rellenar el selector **Etiqueta**. Tres pasos encadenados:
+
+1. `flatMap` saca los arrays `tags` de cada elemento y los junta en uno ([lab 01](../2-practicas/lab-01-flat-flatmap/README.md), paso 3).
+2. `new Set(...)` quita los repetidos y `Array.from` lo convierte otra vez en array ([lab 02](../2-practicas/lab-02-array-from-of/README.md), paso 1).
+3. `toSorted` con `localeCompare` los ordena sin modificar el array ([lab 04](../2-practicas/lab-04-sort-transform/README.md), paso 3).
+
+```bash
+node --input-type=module -e "import { getAllTags } from './src/logic.js'; import items from './src/data.js'; console.log(getAllTags(items))"
+# [
+#   'enana blanca',
+#   'gigante',
+#   'helado',
+#   'roja',
+#   'supergigante',
+#   'supernova'
+# ]
+```
+
+Esa salida es la de los datos de ejemplo; con los tuyos verás tus etiquetas. Al recargar, el selector de etiquetas ya tiene opciones (la lista sigue vacía hasta el paso 5).
+
+## Paso 4: `sortItems` (25 min)
+
+Devuelve una copia ordenada de la colección según `sortBy`, que vale `'name'` si no llega:
+
+| `sortBy` | Orden |
+|---|---|
+| `'name'` | Por nombre, de la A a la Z, con `localeCompare` |
+| `'year'` | Por año, el más antiguo primero; los que tienen `year: null` van al final |
+| `'recent'` | Por `id`, el mayor primero |
+
+Usa `toSorted` (no `sort`, que modifica el array). Una forma ordenada de escribirlo es un objeto con una función de comparación por cada clave y elegir la función con `comparators[sortBy]`, como el `priorityOrder` del [lab 04](../2-practicas/lab-04-sort-transform/README.md), paso 8. Para el año, empieza por los casos con `null`, como en el paso 6 del mismo lab: si `a.year` es `null`, `a` va después (`1`); si lo es `b.year`, `a` va antes (`-1`); si los dos son números, `a.year - b.year`.
+
+```bash
+node --input-type=module -e "import { sortItems } from './src/logic.js'; import data from './src/data.js'; const items = data.map((item, i) => ({ id: i + 1, ...item })); for (const sortBy of ['name', 'year', 'recent']) console.log(sortBy, sortItems(items, sortBy).map(({ name }) => name))"
+# name [
+#   'Betelgeuse',
+#   'Nebulosa del Cangrejo',
+#   'Neptuno',
+#   'Sirio B',
+#   'Urano'
+# ]
+# year [
+#   'Nebulosa del Cangrejo',
+#   'Urano',
+#   'Neptuno',
+#   'Sirio B',
+#   'Betelgeuse'
+# ]
+# recent [
+#   'Betelgeuse',
+#   'Neptuno',
+#   'Nebulosa del Cangrejo',
+#   'Sirio B',
+#   'Urano'
+# ]
+```
+
+El comando pone los ids igual que `main.js` (`data.map` con el índice más uno), porque `'recent'` los necesita.
+
+## Paso 5: `queryItems` (15 min)
+
+Recibe la colección y un objeto `{ tag, sortBy }` con valores por defecto (`tag = 'all'`, `sortBy = 'name'`, y el objeto entero `= {}`), y devuelve los elementos con esa etiqueta, ordenados. Es una cadena de dos pasos: `filter` (pasa todo si `tag` es `'all'`, y si no, los elementos cuyo `tags` incluye esa etiqueta) y después `sortItems` con el `sortBy` recibido ([lab 03](../2-practicas/lab-03-chaining/README.md)).
+
+```bash
+node --input-type=module -e "import { queryItems } from './src/logic.js'; import data from './src/data.js'; const items = data.map((item, i) => ({ id: i + 1, ...item })); console.log(queryItems(items, { tag: 'gigante', sortBy: 'year' }).map(({ name }) => name))"
+# [ 'Urano', 'Neptuno' ]
+```
+
+Al recargar, la lista aparece y los selectores **Etiqueta** y **Ordenar por** funcionan.
+
+## Paso 6: `groupByCategory` (20 min)
+
+Devuelve un objeto con una clave por categoría y, en cada una, el array de sus elementos. `main.js` lo usa para el resumen **Por categoría**. Es el «agrupar» del [lab 04](../2-practicas/lab-04-sort-transform/README.md), paso 9, pero sin modificar el acumulador: en cada vuelta devuelve un objeto nuevo con una propiedad computada, igual que el `getStats` de la semana 02:
 
 ```javascript
-// EJEMPLO (Planetario - NO es un dominio asignable)
-const observationData = [
-  {
-    id: 'OBS001',
-    date: '2024-01-15',
-    astronomer: 'Dr. García',
-    location: 'Domo Norte',
-    celestialBodies: [
-      { name: 'Júpiter', type: 'planet', magnitude: -2.5, constellation: 'Piscis' },
-      { name: 'Europa', type: 'moon', magnitude: 5.3, constellation: 'Piscis' }
-    ],
-    status: 'verified'
-  },
-  // ... más observaciones
-];
+{ ...groups, [item.category]: [...(groups[item.category] ?? []), item] }
 ```
 
-Tu dominio debe tener:
-- **Registros principales** (observaciones, transacciones, eventos)
-- **Items anidados** (elementos dentro de cada registro)
-- **Categorías** (tipos de elementos)
-- **Métricas** (valores numéricos para análisis)
-- **Fechas** (para análisis temporal)
-- **Agrupadores** (región, ubicación, categoría)
+Las categorías sin elementos no aparecen.
+
+```bash
+node --input-type=module -e "import { groupByCategory } from './src/logic.js'; import items from './src/data.js'; console.log(Object.entries(groupByCategory(items)).map(([key, list]) => [key, list.length]))"
+# [ [ 'planet', 2 ], [ 'star', 2 ], [ 'nebula', 1 ] ]
+```
+
+## Paso 7: `findLastAdded` (10 min)
+
+Devuelve el último elemento del array que es de esa categoría, o el último de todos si `category` vale `'all'` (su valor por defecto). Si no hay ninguno, `undefined`. Como `main.js` añade los elementos nuevos al final, el último del array es el último añadido: un solo `findLast` con la condición `category === 'all' || item.category === category` ([lab 05](../2-practicas/lab-05-findlast/README.md)).
+
+```bash
+node --input-type=module -e "import { findLastAdded } from './src/logic.js'; import items from './src/data.js'; console.log(findLastAdded(items, 'planet').name, findLastAdded(items).name, findLastAdded(items, 'other'))"
+# Neptuno Betelgeuse undefined
+```
+
+Al recargar, la cabecera muestra el último añadido y cada tarjeta de categoría el suyo. Añade un elemento con el formulario y comprueba que los dos cambian.
+
+## Paso 8: comprobar (5 min)
+
+Desde la carpeta del bootcamp:
+
+```bash
+PROYECTO=~/js-proyecto-semana-05 ./scripts/verificar-semana.sh 05
+# Semana 05 — Arrays Avanzados
+#   ✅ src/data.js y src/logic.js son módulos ES válidos
+#   ...
+# 12/12 comprobaciones superadas.
+```
+
+Cada ❌ trae una pista con el paso que lo arregla. Por último, prueba la página entera: añade un elemento con una etiqueta nueva, fíltralo por esa etiqueta, cambia el orden, mira el resumen por categoría y elimínalo.
 
 ---
 
-## 🔧 Funcionalidades a Implementar
+## ✅ Requisitos verificables
 
-### 1. **Aplanar Items Anidados** (flatMap)
+Las comprobaciones de [`checks.json`](../checks.json):
 
-Extrae todos los items de todos los registros en un solo array plano.
+| Comprobación | Qué pide |
+|---|---|
+| `sintaxis` | `src/data.js` y `src/logic.js` son módulos ES válidos |
+| `sin-todo` | `src/logic.js` no tiene ningún `TODO` |
+| `sin-var` | Ningún archivo de `src/` usa `var` |
+| `datos-exports` | `data.js` exporta `TITLE` y `CATEGORIES` con nombre, y por defecto de 4 a 6 elementos con año y etiquetas |
+| `datos-dominio` | Las categorías y el título no son los del ejemplo Planetario |
+| `all-tags` | `getAllTags` devuelve las etiquetas sin repetir y en orden alfabético |
+| `sort-name` | `sortItems` ordena por nombre por defecto y con `'name'`, sin modificar el array |
+| `sort-year` | `sortItems` con `'year'` pone primero el más antiguo y al final los que no tienen año |
+| `sort-recent` | `sortItems` con `'recent'` pone primero el id mayor |
+| `query-items` | `queryItems` filtra por etiqueta y ordena, con valores por defecto |
+| `group-by-category` | `groupByCategory` devuelve un objeto con la lista de elementos de cada categoría |
+| `find-last-added` | `findLastAdded` devuelve el último elemento de la categoría, el último de todos con `'all'` o `undefined` |
 
-```javascript
-// Ejemplo genérico
-const getAllItems = records =>
-  records.flatMap(record =>
-    record.items.map(item => ({
-      ...item,
-      recordId: record.id,
-      location: record.location
-    }))
-  );
-```
+Que los datos sean de tu dominio y que la página funcione lo revisa el instructor con la [rúbrica](../rubrica-evaluacion.md).
 
-### 2. **Calcular Total por Registro** (map + reduce)
+## Entrega
 
-Calcula una métrica agregada para cada registro.
+La carpeta `~/js-proyecto-semana-05` con tus datos en `src/data.js` y `src/logic.js` completo, por el canal que indique el instructor.
 
-### 3. **Top N Elementos** (chaining + toSorted)
-
-Obtiene los N elementos con mayor valor usando `toSorted()` (inmutable).
-
-### 4. **Agrupar por Categoría** (reduce)
-
-Agrupa los datos por una categoría del dominio.
-
-### 5. **Estadísticas por Agrupador** (flatMap + reduce)
-
-Calcula totales/promedios agrupados.
-
-### 6. **Ranking de Items** (flatMap + reduce + toSorted)
-
-Lista items ordenados por alguna métrica.
-
-### 7. **Filtrar por Rango de Fechas** (filter + chaining)
-
-Filtra registros en un rango de fechas dado.
-
-### 8. **Estadísticas Generales** (reduce)
-
-Calcula: total, promedio, máximo, mínimo.
-
-### 9. **Tendencia Temporal** (groupBy por mes/semana)
-
-Agrupa datos por período para ver tendencias.
-
-### 10. **Buscar Último Elemento** (findLast/findLastIndex ES2023)
-
-Encuentra el último elemento que cumpla una condición.
-
-### 11. **Modificar Sin Mutar** (with() ES2023)
-
-Actualiza un elemento en un índice específico sin mutar el array original.
-
+<!-- nav -->
 ---
 
-## 🧪 Requisitos Técnicos
+## 🔗 Navegación
 
-### Métodos ES2023 Obligatorios
+| Anterior | Siguiente |
+|---|---|
+| ← [Lab 05 — `findLast()` y `findLastIndex()`](../2-practicas/lab-05-findlast/README.md) | [Rúbrica de evaluación](../rubrica-evaluacion.md) → |
 
-```javascript
-// toSorted() - ordenar sin mutar
-const sortedByMetric = items.toSorted((a, b) => b.value - a.value);
-
-// toReversed() - invertir sin mutar
-const reversed = items.toReversed();
-
-// findLast() - buscar desde el final
-const lastHighValue = items.findLast(item => item.value > threshold);
-
-// findLastIndex() - índice del último que cumple
-const lastIndex = items.findLastIndex(item => item.category === 'target');
-
-// with() - reemplazar en índice sin mutar
-const updated = items.with(2, { ...items[2], status: 'updated' });
-```
-
-### Chaining de Métodos
-
-```javascript
-// Pipeline de transformación
-const result = records
-  .filter(r => r.status === 'active')
-  .flatMap(r => r.items)
-  .filter(item => item.value > threshold)
-  .toSorted((a, b) => b.value - a.value)
-  .slice(0, 10);
-```
-
----
-
-## 📁 Estructura de Archivos
-
-```
-3-proyecto/
-├── README.md           # Este archivo
-├── index.html          # HTML del dashboard
-├── styles.css          # Estilos
-├── starter/
-│   ├── script.js       # Código inicial con TODOs
-│   └── data.js         # Datos de ejemplo (adaptar a tu dominio)
-└── solution/
-    └── script.js       # Referencia
-```
-
----
-
-## ✅ Criterios de Evaluación
-
-### Métodos de Arrays (50 puntos)
-
-- [ ] Uso correcto de `flatMap()` (10pts)
-- [ ] Uso de `toSorted()` en lugar de `sort()` (10pts)
-- [ ] Uso de `findLast()`/`findLastIndex()` (10pts)
-- [ ] Uso de `with()` para inmutabilidad (10pts)
-- [ ] Chaining efectivo de métodos (10pts)
-
-### Agregaciones con Reduce (25 puntos)
-
-- [ ] Agrupación por categoría (10pts)
-- [ ] Estadísticas calculadas correctamente (10pts)
-- [ ] Código limpio y legible (5pts)
-
-### Funcionalidad (25 puntos)
-
-- [ ] Dashboard muestra datos correctamente (10pts)
-- [ ] Filtros funcionan (10pts)
-- [ ] Datos adaptados al dominio asignado (5pts)
-
-**Total: 100 puntos**
-**Mínimo para aprobar: 70 puntos**
-
----
-
-## 🚀 Cómo Empezar
-
-### 1. Define tus Datos
-
-Crea en `data.js` la estructura de datos de tu dominio:
-
-```javascript
-// EJEMPLO (Planetario - NO asignable)
-export const observationData = [
-  {
-    id: 'OBS001',
-    date: '2024-01-15',
-    astronomer: 'Dr. García',
-    location: 'Domo Norte',
-    celestialBodies: [
-      { name: 'Júpiter', type: 'planet', magnitude: -2.5 },
-      { name: 'Saturno', type: 'planet', magnitude: 0.7 }
-    ],
-    status: 'verified'
-  },
-  // Agrega al menos 10 registros con varios items cada uno
-];
-```
-
-### 2. Implementa las Funciones
-
-Completa los TODOs en `script.js` usando los métodos ES2023.
-
-### 3. Conecta con el DOM
-
-Renderiza los resultados en el dashboard.
-
----
-
-## 💡 Pistas
-
-### Array.from() para Generar Rangos
-
-```javascript
-// Generar array de números
-const range = Array.from({ length: 12 }, (_, i) => i + 1);
-
-// Generar desde otro iterable
-const uniqueCategories = Array.from(new Set(items.map(i => i.category)));
-```
-
-### Reduce para Agrupar
-
-```javascript
-const groupByCategory = items.reduce((acc, item) => {
-  const key = item.category;
-  acc[key] = acc[key] ?? [];
-  acc[key].push(item);
-  return acc;
-}, {});
-```
-
----
-
-## ⏱️ Tiempo Estimado
-
-- **Definir estructura de datos**: 30 min
-- **Implementar funciones de análisis**: 2 horas
-- **Conectar con UI**: 1.5 horas
-- **Pruebas y refinamiento**: 1 hora
-
-**Total: ~5 horas**
-
----
-
-## 📋 Entregables
-
-1. **Código funcional** con todas las transformaciones
-2. **Datos de ejemplo** adaptados a tu dominio (mínimo 10 registros)
-3. **Dashboard visual** que muestre los análisis
-4. **Todo el código debe usar**:
-   - Nomenclatura técnica en inglés
-   - Comentarios en español
-   - Métodos inmutables ES2023 (toSorted, toReversed, with)
-
----
-
-_Proyecto Week-05 - JavaScript Moderno Bootcamp_
+[↑ Semana 05](../README.md)

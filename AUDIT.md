@@ -56,7 +56,7 @@ Teoría: número de archivos y rango de líneas. Glosario: términos.
 | 02 | ✅ | ✅ lab | — | ✅ | **Migrada.** El CSS del proyecto usaba clases `task-*` y el HTML `item-*` (la página salía sin estilos): alineado. Lab 05 tenía datos comentados fuera del bloque «Descomenta»: el README lo explica. SVG 06 enlazado. Proyecto nuevo: gestor con 8 funciones puras inmutables (721 líneas y 49 TODO antes) y 12 checks con datos congelados |
 | 03 | ✅ | ✅ lab | — | ✅ | **Migrada.** Labs 01, 03 y 04 daban `SyntaxError` al descomentarlos enteros (cada paso redeclara la clase): cada paso va en su propio bloque `{ }`. Lab 05 tenía las clases comentadas fuera del bloque «Descomenta»: marcador movido encima de cada clase. `0-assets/README.md` retirado. Proyecto nuevo: `Item` y `Collection` con campos privados y tipos del dominio en `types.js` (734 líneas y 56 TODO antes), 12 checks |
 | 04 | ✅ | ✅ lab | — | ✅ | **Migrada.** Labs 03 y 04 eran páginas con botones: pasan a Node (`node starter/main.js`, `node starter/app.js`) con `package.json` `{ "type": "module" }`. Lab 04 sin `loader.js` (reimplementaba la caché nativa de módulos); el paso 5 la muestra. Teoría 03: `var` del ejemplo y «con npx» corregidos; navegaciones manuales sustituidas. `RETO-SEMANAL.md`, `0-assets/README.md` y `4-recursos/README.md` retirados. Proyecto nuevo: catálogo en 4 módulos (`data.js`, `logic.js`, `stats.js` con `import()`, `main.js`), 1068 líneas y 108 TODO antes, 12 checks |
-| 05 | 6 · 441–563 | 5 ejercicio | 24 | 10 TODO | `06-findlast-findlastindex.svg` usa degradado (prohibido) |
+| 05 | ✅ | ✅ lab | — | ✅ | **Migrada.** `06-findlast-findlastindex.svg` sin degradado (fondo `#0d1117`). Lab 02: comentario `[empty × 3]` (salida del navegador) cambiado por la de Node. Lab 05: cabecera alineada y bloque «RESUMEN» retirado (repetía la teoría). Navegaciones manuales y «Volver» sustituidas. `RETO-SEMANAL.md`, `0-assets/README.md` y `4-recursos/README.md` retirados. Proyecto nuevo: explorador de colección con 5 funciones puras (`getAllTags`, `sortItems`, `queryItems`, `groupByCategory`, `findLastAdded`), 499 líneas y 10 TODO antes, 12 checks con datos congelados |
 | 06 | 5 · 303–486 | 4 ejercicio | 42 | 22 TODO | Enlace roto `url` en `ejercicio-04-matchall-search/README.md` |
 | 07 | 5 · 249–491 | 4 ejercicio | 19 | 17 TODO | — |
 | 08 | 5 · 343–591 | 4 ejercicio | 11 | 29 TODO | — |
@@ -83,7 +83,7 @@ Un bloque de 5 semanas por sesión, commit y push por semana terminada:
 
 | Sesión | Semanas | Trabajo |
 |---|---|---|
-| 1 | S01–S05 | migración |
+| 1 | S01–S05 | migración ✅ |
 | 2 | S06–S10 | migración |
 | 3 | S11–S15 | migración |
 | 4 | S16–S20 | migración + reescritura de teoría, labs y proyecto |
