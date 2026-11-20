@@ -1,0 +1,90 @@
+{
+  "semana": "04",
+  "titulo": "Destructuring y Módulos ES2023",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/stats.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/stats.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js y src/stats.js no tienen ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js src/stats.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE y CATEGORIES con nombre, y por defecto 4 a 6 elementos de categorías existentes",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, * as d from './src/data.js'; assert.equal(typeof d.TITLE, 'string'); const keys = Object.keys(d.CATEGORIES); assert.ok(keys.length >= 3 && keys.length <= 5); assert.ok(keys.includes('other')); assert.ok(Array.isArray(items) && items.length >= 4 && items.length <= 6); assert.ok(items.every(({ name, category }) => typeof name === 'string' && keys.includes(category)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "Las categorías y el título no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, * as d from './src/data.js'; assert.ok(!Object.keys(d.CATEGORIES).some((key) => ['planet', 'star', 'nebula'].includes(key))); assert.ok(!d.TITLE.includes('planetario'));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "parse-line",
+      "descripcion": "parseLine separa nombre, categoría, año y etiquetas, sin espacios en los extremos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.deepEqual(l.parseLine('  Urano ; planet ; 1781 ;  gigante, helado '), { name: 'Urano', category: 'planet', details: { year: 1781 }, tags: ['gigante', 'helado'] }); assert.deepEqual(l.parseLine('Sirio;star;1844;brillante'), { name: 'Sirio', category: 'star', details: { year: 1844 }, tags: ['brillante'] });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "parse-line-defaults",
+      "descripcion": "parseLine usa 'other', null y [] para las partes que faltan o están vacías",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const empty = { category: 'other', details: { year: null }, tags: [] }; assert.deepEqual(l.parseLine('Vega'), { name: 'Vega', ...empty }); assert.deepEqual(l.parseLine('Rigel; ; ;'), { name: 'Rigel', ...empty }); assert.deepEqual(l.parseLine('Deneb;star'), { name: 'Deneb', category: 'star', details: { year: null }, tags: [] });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "summarize",
+      "descripcion": "summarize devuelve 'nombre (categoría, año)' con valores por defecto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.summarize({ name: 'Urano', category: 'planet', details: { year: 1781 }, tags: [] }), 'Urano (planet, 1781)'); assert.equal(l.summarize({ name: 'Vega', category: 'star', details: { year: null } }), 'Vega (star, año desconocido)'); assert.equal(l.summarize({ name: 'Vega' }), 'Vega (other, año desconocido)'); assert.equal(l.summarize({ name: 'Eris', details: { year: 2005 } }), 'Eris (other, 2005)');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "filter-items",
+      "descripcion": "filterItems combina categoría y búsqueda en nombre y etiquetas, sin modificar el array",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = Object.freeze([{ name: 'Urano', category: 'planet', details: { year: 1781 }, tags: ['gigante', 'helado'] }, { name: 'Sirio B', category: 'star', details: { year: 1862 }, tags: [] }, { name: 'Neptuno', category: 'planet', details: { year: null }, tags: ['Helado'] }, { name: 'Halley', category: 'other' }]); const names = (f) => l.filterItems(items, f).map(({ name }) => name); assert.deepEqual(names(), ['Urano', 'Sirio B', 'Neptuno', 'Halley']); assert.deepEqual(names({ category: 'planet' }), ['Urano', 'Neptuno']); assert.deepEqual(names({ query: ' HELADO ' }), ['Urano', 'Neptuno']); assert.deepEqual(names({ category: 'star', query: 'sirio' }), ['Sirio B']); assert.deepEqual(names({ category: 'other', query: 'hal' }), ['Halley']); assert.deepEqual(names({ query: 'xyz' }), []); assert.notEqual(l.filterItems(items), items);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "stats-default",
+      "descripcion": "stats.js exporta por defecto una función",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import stats from './src/stats.js'; assert.equal(typeof stats, 'function');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "stats-total-categoria",
+      "descripcion": "La función de stats.js cuenta el total y los elementos de cada categoría",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import stats from './src/stats.js'; const items = Object.freeze([{ name: 'Urano', category: 'planet', details: { year: 1781 }, tags: ['gigante', 'helado'] }, { name: 'Sirio B', category: 'star', details: { year: 1862 }, tags: [] }, { name: 'Neptuno', category: 'planet', details: { year: null }, tags: ['Helado'] }, { name: 'Halley', category: 'other' }]); const { total, byCategory } = stats(items); assert.equal(total, 4); assert.deepEqual(byCategory, { planet: 2, star: 1, other: 1 }); assert.deepEqual(stats([]).byCategory, {}); assert.equal(stats([]).total, 0);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "stats-anios",
+      "descripcion": "yearRange tiene el año menor y el mayor, sin contar los elementos sin año",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import stats from './src/stats.js'; const items = Object.freeze([{ name: 'Urano', category: 'planet', details: { year: 1781 }, tags: ['gigante', 'helado'] }, { name: 'Sirio B', category: 'star', details: { year: 1862 }, tags: [] }, { name: 'Neptuno', category: 'planet', details: { year: null }, tags: ['Helado'] }, { name: 'Halley', category: 'other' }]); assert.deepEqual(stats(items).yearRange, [1781, 1862]); assert.deepEqual(stats([{ name: 'A', category: 'a', details: { year: -19 } }]).yearRange, [-19, -19]); assert.deepEqual(stats(items.slice(2)).yearRange, [null, null]); assert.deepEqual(stats([]).yearRange, [null, null]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    }
+  ]
+}

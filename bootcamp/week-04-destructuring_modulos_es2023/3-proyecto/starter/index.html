@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo modular</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">📦 Catálogo modular</h1>
+      <div class="stats-summary">
+        <span class="stat">Total: <strong id="stat-total">0</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>➕ Nuevo elemento</h2>
+      <form id="item-form" class="item-form">
+        <div class="form-group">
+          <label for="item-line">Nombre; categoría; año; etiquetas separadas por comas</label>
+          <input type="text" id="item-line" placeholder="Urano; planet; 1781; gigante, helado">
+          <small id="line-hint"></small>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Añadir</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="filter-category">Categoría:</label>
+          <select id="filter-category"></select>
+        </div>
+        <div class="filter-group search-group">
+          <label for="search-input">Buscar:</label>
+          <input type="text" id="search-input">
+        </div>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Lista</h2>
+      </div>
+      <div id="item-list" class="item-list"></div>
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay elementos que mostrar</p>
+        <p class="empty-state-hint">Cambia los filtros o añade uno con el formulario</p>
+      </div>
+    </section>
+
+    <section class="detailed-stats">
+      <h3>📊 Estadísticas</h3>
+      <button type="button" class="btn btn-secondary" id="stats-btn">Ver estadísticas</button>
+      <p id="stats-range"></p>
+      <div id="stats-details" class="stats-grid"></div>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

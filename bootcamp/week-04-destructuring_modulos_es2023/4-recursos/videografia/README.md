@@ -107,3 +107,14 @@ Videos y tutoriales recomendados sobre destructuring y módulos ES2023.
 ---
 
 **Última actualización**: Diciembre 2024
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 04](../../README.md)

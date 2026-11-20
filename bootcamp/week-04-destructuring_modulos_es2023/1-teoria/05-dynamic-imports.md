@@ -525,10 +525,13 @@ doSomething(module); // ❌ module es null
 - [ ] Code splitting por rutas
 - [ ] Conditional feature loading
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [Named vs Default Exports](./04-named-default-exports.md) | [Semana 4](../README.md) | [Ejercicio 1: Destructuring Arrays](../2-practicas/ejercicio-01-destructuring-arrays/README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📘 Named Exports vs Default Exports](04-named-default-exports.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 04](../README.md)

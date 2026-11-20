@@ -466,10 +466,13 @@ const data = {
 - [ ] Combinar arrays y objetos
 - [ ] Aplicar en casos reales (APIs, configs)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [Destructuring Arrays](./01-destructuring-arrays.md) | [Semana 4](../README.md) | [Módulos ES2023](./03-modulos-es6.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📘 Destructuring de Arrays en JavaScript ES2023](01-destructuring-arrays.md) | [Teoría — 📘 Módulos ES2023 en JavaScript](03-modulos-es6.md) → |
+
+[↑ Semana 04](../README.md)

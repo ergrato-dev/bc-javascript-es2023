@@ -114,7 +114,8 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 04: Destructuring y Módulos ES2023**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 - Destructuring de arrays
@@ -124,7 +125,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 - Dynamic imports (`import()`)
 - Top-level await en módulos (ES2022)
 
-**Proyecto**: Aplicación modular de gestión de inventario
+**Proyecto**: Catálogo modular (`data.js`, `logic.js` con destructuring y `stats.js` cargado con `import()`)
 
 ---
 

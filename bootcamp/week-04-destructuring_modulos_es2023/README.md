@@ -1,184 +1,108 @@
-# 🚀 Semana 4: Destructuring y Módulos ES2023
+# Semana 04 - Destructuring y Módulos ES2023
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de aprendizaje
 
-Al finalizar esta semana, serás capaz de:
+Al terminar la semana podrás:
 
-- ✅ Aplicar destructuring en arrays para extraer valores
-- ✅ Usar destructuring en objetos con alias y valores por defecto
-- ✅ Trabajar con destructuring anidado en estructuras complejas
-- ✅ Crear módulos ES2023 con `import` y `export`
-- ✅ Diferenciar entre named exports y default exports
-- ✅ Implementar dynamic imports para carga bajo demanda
-- ✅ Organizar proyectos con arquitectura modular
+- Sacar valores de un array a variables por posición, con huecos, rest y valores por defecto.
+- Sacar propiedades de un objeto por nombre, renombrarlas, darles valores por defecto y abrir objetos anidados, también en los parámetros de una función.
+- Repartir un programa en módulos con `export` e `import`, y reunirlos en un barrel.
+- Elegir entre exports con nombre y export por defecto, e importar cada uno.
+- Cargar un módulo bajo demanda con `import()` y usar lo que devuelve.
+
+## Requisitos previos
+
+- La [semana 03](../week-03-clases_programacion_orientada_objetos/README.md), y de la [semana 02](../week-02-operadores_metodos_modernos_arrays/README.md) spread, rest y los parámetros por defecto.
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
+
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 11.20.0 (o superior)
+  ```
 
 ---
 
-## 📚 Requisitos Previos
+## Contenidos
 
-- ✅ Haber completado las Semanas 1, 2 y 3
-- ✅ Dominar clases ES2023 y herencia
-- ✅ Comprender spread operator y rest parameters
-- ✅ Conocer arrow functions y métodos de arrays
+### 1. Teoría (2 h)
+
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Destructuring de arrays](1-teoria/01-destructuring-arrays.md) | 20 min | Posición, huecos, rest, valores por defecto e intercambio |
+| [02 - Destructuring de objetos](1-teoria/02-destructuring-objetos.md) | 25 min | Renombrado, valores por defecto, anidado y parámetros |
+| [03 - Módulos ES](1-teoria/03-modulos-es6.md) | 30 min | `import`/`export`, rutas y organización en archivos |
+| [04 - Named y default exports](1-teoria/04-named-default-exports.md) | 25 min | Cuándo usar cada uno y cómo se importan |
+| [05 - Imports dinámicos](1-teoria/05-dynamic-imports.md) | 20 min | `import()`, carga bajo demanda y errores |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Destructuring de arrays](2-practicas/lab-01-destructuring-arrays/README.md) | 45 min |
+| [Lab 02 - Destructuring de objetos](2-practicas/lab-02-destructuring-objetos/README.md) | 55 min |
+| [Lab 03 - Módulos básicos](2-practicas/lab-03-modulos-basicos/README.md) | 55 min |
+| [Lab 04 - Imports avanzados](2-practicas/lab-04-imports-avanzados/README.md) | 55 min |
+
+### 3. Proyecto (2 h)
+
+[Catálogo modular](3-proyecto/README.md): pones los datos de tu dominio en `src/data.js` y escribes con destructuring las funciones de `src/logic.js` (leer una línea de texto, resumir y filtrar) y el export por defecto de `src/stats.js`, que la página carga con `import()`. `scripts/verificar-semana.sh 04` comprueba los tres módulos.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
 
 ---
 
-## 🗂️ Estructura de la Semana
+## Evaluación
 
-```
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 12/12 comprobaciones y datos del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
+
+```text
 week-04-destructuring_modulos_es2023/
-├── README.md                    # Este archivo
-├── rubrica-evaluacion.md        # Criterios de evaluación
-├── 0-assets/                    # Diagramas y recursos visuales
-│   ├── 01-destructuring-arrays.svg
-│   ├── 02-destructuring-objetos.svg
-│   ├── 03-modulos-es6.svg
-│   ├── 04-named-default-exports.svg
-│   ├── 05-dynamic-imports.svg
-│   └── README.md
-├── 1-teoria/                    # Material teórico
-│   ├── 01-destructuring-arrays.md
-│   ├── 02-destructuring-objetos.md
-│   ├── 03-modulos-es6.md
-│   ├── 04-named-default-exports.md
-│   └── 05-dynamic-imports.md
-├── 2-practicas/                 # Ejercicios guiados
-│   ├── ejercicio-01-destructuring-arrays/
-│   ├── ejercicio-02-destructuring-objetos/
-│   ├── ejercicio-03-modulos-basicos/
-│   └── ejercicio-04-imports-avanzados/
-├── 3-proyecto/                  # Proyecto semanal
-│   └── inventario-modular/
-├── 4-recursos/                  # Material adicional
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/                  # Términos clave
-    └── README.md
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 5 diagramas SVG, uno por archivo de teoría
+|-- 1-teoria/                  # 01 a 05
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-destructuring-arrays/
+|   |-- lab-02-destructuring-objetos/
+|   |-- lab-03-modulos-basicos/     # varios módulos: main.js, config.js, utils/
+|   `-- lab-04-imports-avanzados/   # app.js y features/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # index.html, styles.css, src/{main,data,logic,stats}.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## 📝 Contenidos
+## Versiones de la semana
 
-### 1️⃣ Teoría (2.5 horas)
-
-| Tema | Duración | Descripción |
-|------|----------|-------------|
-| [Destructuring de Arrays](1-teoria/01-destructuring-arrays.md) | 25 min | Extracción de valores, skip, rest |
-| [Destructuring de Objetos](1-teoria/02-destructuring-objetos.md) | 30 min | Alias, defaults, anidado |
-| [Módulos ES2023](1-teoria/03-modulos-es6.md) | 35 min | import/export, organización |
-| [Named vs Default Exports](1-teoria/04-named-default-exports.md) | 25 min | Cuándo usar cada tipo |
-| [Dynamic Imports](1-teoria/05-dynamic-imports.md) | 25 min | Carga bajo demanda, code splitting |
-
-### 2️⃣ Prácticas (3 horas)
-
-| Ejercicio | Duración | Nivel | Objetivo |
-|-----------|----------|-------|----------|
-| Destructuring Arrays | 40 min | Básico | Extraer y manipular arrays |
-| Destructuring Objetos | 45 min | Básico | Trabajar con objetos complejos |
-| Módulos Básicos | 50 min | Intermedio | Crear arquitectura modular |
-| Imports Avanzados | 45 min | Intermedio | Dynamic imports y re-exports |
-
-### 3️⃣ Proyecto (2 horas)
-
-**Sistema de Gestión de Inventario Modular**
-
-Aplicación completa con arquitectura modular que incluye:
-- Módulos para productos, categorías y reportes
-- Destructuring en parámetros de funciones
-- Dynamic imports para cargar funcionalidades
-- Patrón barrel exports para organización
+Node para ejecutar los labs y comprobar el proyecto; `pnpm dlx serve` para abrir el proyecto en el navegador. Las salidas de este material se obtuvieron con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## ⏱️ Distribución del Tiempo
+## Navegación
 
-| Actividad | Tiempo | Porcentaje |
-|-----------|--------|------------|
-| 📖 Teoría | 2.5 horas | 31% |
-| 💻 Prácticas | 3 horas | 38% |
-| 🏗️ Proyecto | 2 horas | 25% |
-| 📚 Recursos | 0.5 horas | 6% |
-| **Total** | **8 horas** | **100%** |
-
----
-
-## 📌 Entregables
-
-### 📦 Proyecto (100%)
-
-El **único entregable** para esta semana es el proyecto:
-
-- [ ] **Proyecto "Sistema de Inventario Modular" funcional**
-- [ ] Uso avanzado de destructuring en arrays y objetos
-- [ ] Arquitectura modular con import/export correctos
-- [ ] Implementación de dynamic imports (lazy loading)
-- [ ] Código limpio y bien comentado en inglés
-- [ ] README del proyecto documentado
-
-> **Nota**: Los ejercicios prácticos y la teoría son materiales de aprendizaje para prepararte para el proyecto, pero no se entregan de forma separada. El proyecto debe demostrar tu dominio de destructuring y módulos ES2023.
-
-### Extras Opcionales
-- Extender el proyecto con localStorage
-- Implementar lazy loading de módulos adicionales
-- Crear documentación de módulos con JSDoc
-
----
-
-## 🎯 Competencias a Desarrollar
-
-| Competencia | Nivel |
-|-------------|-------|
-| Destructuring de datos | ⭐⭐⭐ Intermedio |
-| Arquitectura modular | ⭐⭐⭐ Intermedio |
-| Organización de código | ⭐⭐⭐ Intermedio |
-| Optimización de carga | ⭐⭐ Básico |
-
----
-
-## 💡 Consejos para esta Semana
-
-1. **Practica destructuring** en cada oportunidad - parámetros de funciones, retornos, etc.
-2. **Planifica la estructura de módulos** antes de codificar
-3. **Usa un servidor local** para probar módulos ES2023 (no funcionan con `file://`)
-4. **Nombra exports de forma descriptiva** para mejor legibilidad
-
----
-
-## 🔗 Navegación
-
-| ⬅️ Anterior | 🏠 Inicio | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [Semana 3: Clases y POO](../week-03-clases_programacion_orientada_objetos/README.md) | [Bootcamp](../../README.md) | [Semana 5: Arrays Avanzados](../week-05-arrays_avanzados/README.md) |
-
----
-
-## 📖 Referencias Rápidas
-
-```javascript
-// Destructuring de array
-const [first, second, ...rest] = [1, 2, 3, 4, 5];
-
-// Destructuring de objeto
-const { name, age = 18 } = user;
-const { address: { city } } = person;
-
-// Named exports
-export const sum = (a, b) => a + b;
-export { sum, multiply };
-
-// Default export
-export default class Calculator { }
-
-// Imports
-import Calculator from './calculator.js';
-import { sum, multiply } from './math.js';
-
-// Dynamic import
-const module = await import('./module.js');
-```
-
----
-
-_Semana 4 de 28 | Etapa 1: Fundamentos Modernos_
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 03 - Clases y Programación Orientada a Objetos](../week-03-clases_programacion_orientada_objetos/README.md) | [Semana 05 - Arrays Avanzados](../week-05-arrays_avanzados/README.md) |

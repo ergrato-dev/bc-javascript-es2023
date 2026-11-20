@@ -405,3 +405,14 @@ import { used } from './utils.js';
 ---
 
 **Última actualización**: Diciembre 2024
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [🚀 Semana 5: Arrays Avanzados](../../week-05-arrays_avanzados/README.md) → |
+
+[↑ Semana 04](../README.md)

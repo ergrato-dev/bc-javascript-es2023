@@ -30,8 +30,8 @@ Los **módulos ES2023** permiten dividir el código en archivos separados, cada 
 ```javascript
 // ❌ Sin módulos - todo en un archivo global
 // app.js (1000+ líneas)
-var users = [];
-var products = [];
+let users = [];
+let products = [];
 function addUser() { /* ... */ }
 function addProduct() { /* ... */ }
 // Todo contamina el scope global
@@ -356,7 +356,7 @@ Los módulos ES2023 **no funcionan** con `file://`. Necesitas un servidor:
 # Python
 python -m http.server 8000
 
-# Node.js (con npx)
+# Node.js (con pnpm)
 pnpm dlx serve
 
 # VS Code - Live Server extension
@@ -441,10 +441,13 @@ export const b = 2;
 - [ ] Usar barrel exports
 - [ ] Organizar proyecto con módulos
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [Destructuring Objetos](./02-destructuring-objetos.md) | [Semana 4](../README.md) | [Named vs Default Exports](./04-named-default-exports.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📘 Destructuring de Objetos en JavaScript ES2023](02-destructuring-objetos.md) | [Teoría — 📘 Named Exports vs Default Exports](04-named-default-exports.md) → |
+
+[↑ Semana 04](../README.md)

@@ -465,10 +465,13 @@ export const method2 = () => {};
 - [ ] Renombrar exports e imports
 - [ ] Aplicar convenciones de nombres
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [Módulos ES2023](./03-modulos-es6.md) | [Semana 4](../README.md) | [Dynamic Imports](./05-dynamic-imports.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📘 Módulos ES2023 en JavaScript](03-modulos-es6.md) | [Teoría — 📘 Dynamic Imports en JavaScript ES2023](05-dynamic-imports.md) → |
+
+[↑ Semana 04](../README.md)

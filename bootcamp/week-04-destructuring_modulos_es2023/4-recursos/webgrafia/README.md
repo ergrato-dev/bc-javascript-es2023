@@ -123,3 +123,14 @@ Documentación oficial, artículos y recursos web sobre destructuring y módulos
 ---
 
 **Última actualización**: Diciembre 2024
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 04](../../README.md)

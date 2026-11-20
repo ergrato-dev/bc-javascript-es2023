@@ -376,10 +376,13 @@ const numbers = [1, 2, 3, 4, 5];
 - [ ] Usar en parámetros de funciones
 - [ ] Aplicar en retornos de funciones
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Índice | ➡️ Siguiente |
-|-------------|-----------|--------------|
-| [Week 03: Campos Privados](../../week-03-clases_programacion_orientada_objetos/1-teoria/05-campos-privados.md) | [Semana 4](../README.md) | [Destructuring Objetos](./02-destructuring-objetos.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 04 - Destructuring y Módulos ES2023](../README.md) | [Teoría — 📘 Destructuring de Objetos en JavaScript ES2023](02-destructuring-objetos.md) → |
+
+[↑ Semana 04](../README.md)
