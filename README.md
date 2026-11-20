@@ -28,7 +28,7 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 - ✅ Manipular el DOM y gestionar eventos de manera efectiva
 - ✅ Consumir y trabajar con APIs REST usando Fetch API
 - ✅ Aplicar programación funcional y patrones modernos
-- ✅ Escribir tests automatizados con Jest
+- ✅ Escribir tests automatizados con Vitest
 - ✅ Implementar clean code y mejores prácticas
 - ✅ Construir aplicaciones completas y complejas con JavaScript puro
 
@@ -50,8 +50,7 @@ Este bootcamp se enfoca exclusivamente en JavaScript ES2023 y características m
 
 **Total: 28 semanas** | **224 horas** de formación intensiva
 
-> 📌 **Estado**: semanas 1-22 publicadas; semanas 23-28 en desarrollo.
-| **224 horas** de formación intensiva
+> 📌 **Estado**: semanas 1-22 publicadas; semanas 23-28 en desarrollo. Detalle en el [índice del bootcamp](bootcamp/README.md).
 
 ---
 
@@ -63,9 +62,10 @@ Cada semana incluye:
 bootcamp/week-xx-tema_principal/
 ├── README.md                 # Descripción y objetivos
 ├── rubrica-evaluacion.md     # Criterios de evaluación
-├── 0-assets/                 # Imágenes y diagramas
+├── checks.json               # Requisitos verificables del proyecto
+├── 0-assets/                 # Diagramas SVG
 ├── 1-teoria/                 # Material teórico
-├── 2-practicas/              # Ejercicios guiados
+├── 2-practicas/              # Labs guiados (lab-NN-tema)
 ├── 3-proyecto/               # Proyecto semanal
 ├── 4-recursos/               # Recursos adicionales
 │   ├── ebooks-free/
@@ -85,16 +85,15 @@ bootcamp/week-xx-tema_principal/
 
 ## 🛠️ Stack Tecnológico
 
-| Tecnología  | Versión        | Uso                         |
-| ----------- | -------------- | --------------------------- |
-| JavaScript  | ES2023 | Lenguaje principal          |
-| Jest        | 30+            | Testing y TDD               |
-| ESLint      | 9+             | Linting y calidad de código |
-| Prettier    | 3+             | Formateo de código          |
-| Live Server | -              | Desarrollo local            |
-| Git         | 2.30+          | Control de versiones        |
+| Tecnología | Uso |
+| ---------- | --- |
+| JavaScript ES2023 | Lenguaje principal, sin transpilar |
+| Node.js LTS | Ejecutar labs y autograding |
+| pnpm | Único gestor de paquetes (`pnpm dlx` en lugar de `npx`; nunca npm ni yarn) |
+| Vitest | Testing y TDD (semanas 25-28) |
+| Git | Control de versiones |
 
-**Gestores de paquetes**: `pnpm` o `yarn` (❌ NO usar npm)
+Versiones exactas en [docs/stack-versions.md](docs/stack-versions.md).
 
 ---
 
@@ -102,7 +101,8 @@ bootcamp/week-xx-tema_principal/
 
 ### Prerrequisitos
 
-- **Node.js** 24 LTS (recomendado para herramientas de desarrollo)
+- **Node.js** LTS y **pnpm** (versiones en [docs/stack-versions.md](docs/stack-versions.md))
+- **jq** para el autograding (`./scripts/verificar-semana.sh --doctor` lo comprueba)
 - **Git** para control de versiones
 - **VS Code** (recomendado) con extensiones incluidas
 - Navegador moderno (Chrome, Firefox, Edge)
@@ -132,7 +132,13 @@ cd bootcamp/week-01-introduccion_javascript_moderno_es2023
 
 ### 4. Seguir las Instrucciones
 
-Cada semana contiene un `README.md` con instrucciones detalladas.
+Cada semana contiene un `README.md` con instrucciones detalladas. Antes de entregar el proyecto, compruébalo:
+
+```bash
+PROYECTO=ruta/a/tu/proyecto ./scripts/verificar-semana.sh 05
+```
+
+Detalle en [docs/autograding.md](docs/autograding.md).
 
 ---
 
@@ -148,9 +154,10 @@ Cada semana contiene un `README.md` con instrucciones detalladas.
 
 ### Distribución del Tiempo (8h/semana)
 
-- **Teoría**: 2-2.5 horas
-- **Prácticas**: 3-3.5 horas
-- **Proyecto**: 2-2.5 horas
+- **Teoría**: 2 horas
+- **Prácticas**: 3.5 horas
+- **Proyecto**: 2 horas
+- **Recursos**: 0.5 horas
 
 ### Evaluación
 

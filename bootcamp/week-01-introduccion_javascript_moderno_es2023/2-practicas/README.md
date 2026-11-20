@@ -82,23 +82,6 @@ Abre `index.js` y comienza a programar.
 node index.js
 ```
 
-### Paso 4: Verificar con Tests (Opcional)
-
-```bash
-cd ../tests
-npm install  # Solo la primera vez
-npm test
-```
-
-### Paso 5: Comparar con la Solución
-
-Una vez que hayas intentado resolver el ejercicio, compara tu código con la solución:
-
-```bash
-cd ../solution
-cat index.js
-```
-
 ---
 
 ## 📊 Propósito de los Ejercicios

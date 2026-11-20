@@ -47,7 +47,7 @@ fi
 
 if ! command -v pnpm &>/dev/null; then
   echo -e "${RED}❌ Error: pnpm no está instalado${NC}"
-  echo "   Instálalo con: npm install -g pnpm"
+  echo "   Instálalo siguiendo https://pnpm.io/installation"
   exit 1
 fi
 

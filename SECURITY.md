@@ -231,7 +231,7 @@ uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3  # ✅ SHA 
 
 | Vector | Riesgo con versión flotante | Mitigación con SHA pinado |
 |---|---|---|
-| `npm install` con `^` | Instala versión comprometida automáticamente | Instala solo la versión auditada |
+| `pnpm add` con rango `^` | Instala versión comprometida automáticamente | Instala solo la versión auditada |
 | GitHub Action con tag `@v4` | El tag puede ser movido a un commit malicioso | SHA inmutable, imposible redirigir |
 | Supply chain attack | Un paquete popular comprometido compromete tu CI/CD | El SHA solo coincide si el código es exactamente el auditado |
 

@@ -357,7 +357,7 @@ Los módulos ES2023 **no funcionan** con `file://`. Necesitas un servidor:
 python -m http.server 8000
 
 # Node.js (con npx)
-npx serve
+pnpm dlx serve
 
 # VS Code - Live Server extension
 # Click derecho -> "Open with Live Server"

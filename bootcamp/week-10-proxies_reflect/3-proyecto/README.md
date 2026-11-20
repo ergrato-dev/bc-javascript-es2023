@@ -189,7 +189,7 @@ open bootcamp/week-10-proxies_reflect/3-proyecto/sistema-validacion/index.html
 
 # Opción 2: Servidor local
 cd bootcamp/week-10-proxies_reflect/3-proyecto/sistema-validacion
-npx serve .
+pnpm dlx serve .
 ```
 
 ---

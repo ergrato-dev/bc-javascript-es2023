@@ -99,7 +99,7 @@ cd starter
 python -m http.server 8000
 
 # Opción 2: Node
-npx serve starter
+pnpm dlx serve starter
 
 # Opción 3: VS Code Live Server
 # Click derecho en index.html → Open with Live Server

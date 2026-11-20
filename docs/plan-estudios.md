@@ -3,7 +3,7 @@
 **Duración Total**: 28 semanas (7 meses)
 **Horas Semanales**: 8 horas
 **Horas Totales**: 224 horas
-**Estado**: semanas 1-22 publicadas; semanas 23-28 pendientes de desarrollo
+**Estado**: semanas 1-22 publicadas con la estructura anterior (en migración); semanas 23-28 pendientes. Estado al día en [bootcamp/README.md](../bootcamp/README.md)
 
 ---
 
@@ -63,7 +63,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ### 🟦 ETAPA 1: FUNDAMENTOS MODERNOS (Semanas 1-12)
 
-#### ✅ **Week 01: Introducción a JavaScript Moderno**
+#### **Week 01: Introducción a JavaScript Moderno**
 **Estado**: Completada
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
@@ -80,7 +80,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### ✅ **Week 02: Operadores Avanzados y Array Methods**
+#### **Week 02: Operadores Avanzados y Array Methods**
 **Estado**: Completada
 **Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
 
@@ -412,12 +412,12 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ### 🟥 ETAPA 3: AVANZADO (Semanas 25-28)
 
-#### **Week 25: Testing con Jest - Parte 1** ⏳ _pendiente_
+#### **Week 25: Testing con Vitest - Parte 1** ⏳ _pendiente_
 **Horas**: 8h (2.5h teoría + 3.5h práctica + 1.5h proyecto + 0.5h recursos)
 
 **Temas**:
 - Introducción a testing
-- Jest setup
+- Vitest setup con pnpm (ESM nativo, API compatible con Jest)
 - Unit tests
 - Matchers (expect, toBe, toEqual)
 - Test coverage
@@ -426,7 +426,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 26: Testing con Jest - Parte 2** ⏳ _pendiente_
+#### **Week 26: Testing con Vitest - Parte 2** ⏳ _pendiente_
 **Horas**: 8h (2.5h teoría + 3.5h práctica + 1.5h proyecto + 0.5h recursos)
 
 **Temas**:
@@ -448,7 +448,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 - SOLID principles
 - Clean code principles
 - Code smells y refactoring
-- ESLint y Prettier
+- ESLint y Prettier (con `pnpm`)
 
 **Proyecto**: Refactorización de código legacy
 
@@ -498,7 +498,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ### Calidad y Testing
 - Performance (Week 23)
-- Jest Testing (Week 25-26)
+- Testing con Vitest (Week 25-26)
 - Patrones (Week 27)
 - Clean Code (Week 27)
 
@@ -517,7 +517,7 @@ Al completar las 28 semanas, el estudiante será capaz de:
 ✅ **Crear aplicaciones web completas** con arquitectura limpia
 ✅ **Consumir APIs REST** y manejar datos asíncronos
 ✅ **Manipular el DOM** de forma eficiente y reactiva
-✅ **Escribir tests automatizados** con Jest
+✅ **Escribir tests automatizados** con Vitest
 ✅ **Aplicar patrones de diseño** y clean code
 ✅ **Optimizar rendimiento** de aplicaciones JavaScript
 ✅ **Trabajar con Git** y metodologías colaborativas
@@ -528,13 +528,7 @@ Al completar las 28 semanas, el estudiante será capaz de:
 
 ## 📈 Progreso Actual
 
-- ✅ **Week 01**: Introducción a JavaScript Moderno - COMPLETADA
-- ✅ **Week 02**: Operadores y Array Methods - COMPLETADA
-- ⏸️ **Week 03**: Clases y OOP - PENDIENTE
-- ⏸️ **Week 04-28**: PENDIENTE
-
-**Completado**: 2/28 semanas (7.14%)
-**Horas completadas**: 16/224 horas (7.14%)
+El estado de cada semana se lleva en un solo sitio: [bootcamp/README.md](../bootcamp/README.md). Los hallazgos pendientes de la migración están en [AUDIT.md](../AUDIT.md).
 
 ---
 
@@ -548,5 +542,14 @@ Al completar las 28 semanas, el estudiante será capaz de:
 
 ---
 
-**Última actualización**: Septiembre 2026
-**Versión**: 1.1
+**Última actualización**: Noviembre 2026
+**Versión**: 1.2
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Inicio del bootcamp](../README.md) | [Versiones del stack](stack-versions.md) → |
