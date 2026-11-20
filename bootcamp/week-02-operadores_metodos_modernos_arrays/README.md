@@ -1,240 +1,112 @@
-# 🚀 Semana 2: Operadores y Métodos Modernos de Arrays
+# Semana 02 - Operadores y Métodos Modernos de Arrays
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de aprendizaje
 
-Al finalizar esta semana, serás capaz de:
+Al terminar la semana podrás:
 
-- ✅ Utilizar el spread operator para copiar y combinar arrays/objetos
-- ✅ Aplicar rest parameters en funciones para argumentos variables
-- ✅ Trabajar con default parameters avanzados
-- ✅ Dominar métodos de arrays modernos (map, filter, reduce)
-- ✅ Usar shorthand properties y methods en objetos
-- ✅ Crear computed property names dinámicamente
-- ✅ Encadenar métodos de arrays para transformaciones complejas
-- ✅ Usar `Array.prototype.at()` para índices negativos (ES2022)
-- ✅ Aplicar `Object.hasOwn()` para verificar propiedades propias (ES2022)
+- Copiar y combinar arrays y objetos con spread (`...`) sin modificar los originales.
+- Recoger argumentos y elementos sobrantes con rest, en parámetros y en destructuring.
+- Dar valores por defecto a los parámetros de una función, también a los desestructurados.
+- Transformar, filtrar, buscar y resumir arrays con `map`, `filter`, `find`, `findIndex`, `some`, `every`, `includes` y `reduce`, y encadenarlos.
+- Escribir objetos con propiedades y métodos abreviados y con propiedades computadas.
+- Leer desde el final con `at()` y comprobar propiedades propias con `Object.hasOwn()` (ES2022).
+
+## Requisitos previos
+
+- La [semana 01](../week-01-introduccion_javascript_moderno_es2023/README.md): `const`/`let`, template literals, arrow functions, destructuring, `?.` y `??`.
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
+
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 11.20.0 (o superior)
+  ```
 
 ---
 
-## 📚 Requisitos Previos
+## Contenidos
 
-- ✅ Haber completado la Semana 1
-- ✅ Dominar let/const, template literals y arrow functions
-- ✅ Comprender destructuring básico
-- ✅ Conocer la sintaxis de objetos y arrays
+### 1. Teoría (2 h)
+
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Spread](1-teoria/01-spread-operator.md) | 20 min | Expandir arrays y objetos para copiar y combinar |
+| [02 - Rest](1-teoria/02-rest-parameters.md) | 15 min | Recoger argumentos y elementos sobrantes |
+| [03 - Parámetros por defecto](1-teoria/03-default-parameters.md) | 20 min | Valores por defecto, también con destructuring |
+| [04 - Métodos de array](1-teoria/04-array-methods.md) | 25 min | `map`, `filter`, `reduce`, `find`, `some`, `every` y encadenamiento |
+| [05 - Mejoras de objetos](1-teoria/05-object-enhancements.md) | 25 min | Propiedades abreviadas, computadas y `Object.entries` |
+| [06 - Métodos ES2022](1-teoria/06-metodos-es2022.md) | 15 min | `at()` y `Object.hasOwn()` |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Spread y rest](2-practicas/lab-01-spread-rest/README.md) | 40 min |
+| [Lab 02 - Buscar en arrays](2-practicas/lab-02-array-methods/README.md) | 40 min |
+| [Lab 03 - `map` y `filter`](2-practicas/lab-03-map-filter/README.md) | 45 min |
+| [Lab 04 - `reduce`](2-practicas/lab-04-reduce/README.md) | 45 min |
+| [Lab 05 - `at()` y `Object.hasOwn()`](2-practicas/lab-05-metodos-es2022/README.md) | 40 min |
+
+### 3. Proyecto (2 h)
+
+[Gestor de colección de tu dominio](3-proyecto/README.md): completas las funciones puras de `src/logic.js` (crear, actualizar, eliminar, filtrar y contar sin modificar nunca el array) y adaptas los datos al dominio que te asigna el instructor. `scripts/verificar-semana.sh 02` comprueba las funciones.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
 
 ---
 
-## 🗂️ Estructura de la Semana
+## Evaluación
 
-```
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cinco labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 12/12 comprobaciones y datos del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
+
+```text
 week-02-operadores_metodos_modernos_arrays/
-├── README.md                    # Este archivo
-├── rubrica-evaluacion.md        # Criterios de evaluación
-├── 0-assets/                    # Diagramas y recursos visuales
-│   ├── 01-spread-operator.svg
-│   ├── 02-rest-parameters.svg
-│   ├── 03-array-methods.svg
-│   ├── 04-map-filter-reduce.svg
-│   ├── 05-object-enhancements.svg
-│   └── 06-metodos-es2022.svg
-├── 1-teoria/                    # Material teórico
-│   ├── 01-spread-operator.md
-│   ├── 02-rest-parameters.md
-│   ├── 03-default-parameters.md
-│   ├── 04-array-methods.md
-│   ├── 05-object-enhancements.md
-│   └── 06-metodos-es2022.md
-├── 2-practicas/                 # Ejercicios guiados
-│   ├── ejercicio-01-spread-rest/
-│   ├── ejercicio-02-array-methods/
-│   ├── ejercicio-03-map-filter/
-│   ├── ejercicio-04-reduce/
-│   └── ejercicio-05-metodos-es2022/
-├── 3-proyecto/                  # Proyecto semanal
-│   └── gestor-tareas/
-├── 4-recursos/                  # Material adicional
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/                  # Términos clave
-    └── README.md
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 6 diagramas SVG, uno por archivo de teoría
+|-- 1-teoria/                  # 01 a 06
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-spread-rest/
+|   |-- lab-02-array-methods/
+|   |-- lab-03-map-filter/
+|   |-- lab-04-reduce/
+|   `-- lab-05-metodos-es2022/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # index.html, styles.css, src/logic.js, src/main.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## 📝 Contenidos
+## Versiones de la semana
 
-### 1️⃣ Teoría
-
-#### [01. Spread Operator](1-teoria/01-spread-operator.md)
-- Copiar arrays y objetos
-- Combinar múltiples arrays/objetos
-- Pasar arrays como argumentos
-- Casos de uso prácticos
-
-#### [02. Rest Parameters](1-teoria/02-rest-parameters.md)
-- Diferencia entre spread y rest
-- Funciones con argumentos variables
-- Combinar con parámetros normales
-- Patrones comunes
-
-#### [03. Default Parameters](1-teoria/03-default-parameters.md)
-- Valores por defecto avanzados
-- Expresiones como valores por defecto
-- Parámetros que dependen de otros
-- Mejores prácticas
-
-#### [04. Array Methods](1-teoria/04-array-methods.md)
-- map(): Transformar arrays
-- filter(): Filtrar elementos
-- reduce(): Reducir a un valor
-- find(), findIndex(), some(), every()
-- Encadenar métodos
-
-#### [05. Object Enhancements](1-teoria/05-object-enhancements.md)
-- Property shorthand
-- Method shorthand
-- Computed property names
-- Object.assign()
-- Object.keys(), values(), entries()
-
-#### [06. Métodos ES2022](1-teoria/06-metodos-es2022.md)
-- `Array.prototype.at()` para índices negativos
-- `Object.hasOwn()` vs `hasOwnProperty()`
-- Propiedades propias vs heredadas
-- Casos de uso prácticos
+Node para ejecutar los labs y comprobar el proyecto; `pnpm dlx serve` para abrir el proyecto en el navegador. Las salidas de este material se obtuvieron con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-### 2️⃣ Prácticas
+## Navegación
 
-#### [Ejercicio 01: Spread y Rest](2-practicas/ejercicio-01-spread-rest/)
-Practicar spread operator y rest parameters en diferentes contextos.
-
-#### [Ejercicio 02: Array Methods Básicos](2-practicas/ejercicio-02-array-methods/)
-Dominar map(), filter() y métodos de búsqueda.
-
-#### [Ejercicio 03: Map y Filter Avanzado](2-practicas/ejercicio-03-map-filter/)
-Transformaciones y filtrados complejos de datos.
-
-#### [Ejercicio 04: Reduce Patterns](2-practicas/ejercicio-04-reduce/)
-Resolver problemas con reduce y encadenar métodos.
-
-#### [Ejercicio 05: Métodos ES2022](2-practicas/ejercicio-05-metodos-es2022/)
-Practicar `at()` y `Object.hasOwn()` en escenarios reales.
-
----
-
-### 3️⃣ Proyecto: Gestor de Tareas
-
-**[Ver Proyecto Completo](3-proyecto/)**
-
-Aplicación de gestión de tareas que utiliza:
-- Spread/Rest para manipulación de datos
-- Array methods para filtrado y transformación
-- Object enhancements para código limpio
-- Default parameters para configuración
-- Encadenamiento de métodos
-
----
-
-## ⏱️ Distribución del Tiempo (8 horas)
-
-| Actividad     | Tiempo | Descripción                        |
-| ------------- | ------ | ---------------------------------- |
-| **Teoría**    | 2.5h   | Lectura de los 5 archivos teóricos |
-| **Prácticas** | 3h     | Completar 4 ejercicios guiados     |
-| **Proyecto**  | 2h     | Gestor de tareas interactivo       |
-| **Recursos**  | 0.5h   | Revisión de material adicional     |
-
----
-
-## 📌 Entregables
-
-### 📦 Proyecto (100%)
-
-El **único entregable** para esta semana es el proyecto:
-
-- [ ] **Proyecto "Gestor de Tareas" funcional**
-- [ ] Código usando ES2023 correctamente (spread, rest, array methods)
-- [ ] README del proyecto documentado
-- [ ] Código limpio y bien comentado en inglés
-- [ ] Uso correcto de map, filter, reduce
-- [ ] Despliegue funcional (opcional)
-
-> **Nota**: Los ejercicios prácticos y la teoría son materiales de aprendizaje para prepararte para el proyecto, pero no se entregan de forma separada. El proyecto debe demostrar tu dominio de todos los conceptos aprendidos.
-
----
-
-## 🎯 Temas Clave
-
-- **Spread Operator** (`...`): Expandir elementos
-- **Rest Parameters**: Agrupar argumentos
-- **Default Parameters**: Valores por defecto
-- **map()**: Transformar cada elemento
-- **filter()**: Seleccionar elementos
-- **reduce()**: Reducir a un valor
-- **Property Shorthand**: `{ name }` en vez de `{ name: name }`
-- **Method Shorthand**: `{ method() {} }` en vez de `{ method: function() {} }`
-
----
-
-## 📚 Recursos Destacados
-
-### Lectura Esencial
-- [MDN - Spread syntax](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
-- [MDN - Rest parameters](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/rest_parameters)
-- [MDN - Array methods](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)
-
-### Videos Recomendados
-- JavaScript Array Methods - Traversy Media
-- Spread Operator Explained - Web Dev Simplified
-- Reduce Method Tutorial - Fun Fun Function
-
----
-
-## ✅ Criterios de Éxito
-
-Para completar exitosamente esta semana:
-
-- [ ] Entender la diferencia entre spread y rest
-- [ ] Usar array methods con confianza
-- [ ] Dominar map, filter, reduce
-- [ ] Aplicar object enhancements naturalmente
-- [ ] Practicar con los ejercicios guiados (no se entregan)
-- [ ] **Entregar el proyecto funcional** ⭐ (único entregable)
-- [ ] Alcanzar mínimo 70% en la evaluación del proyecto
-
----
-
-## 🔗 Navegación
-
-- [← Semana 01: Introducción a ES2023](../week-01-introduccion_javascript_moderno_es2023/README.md)
-- [→ Semana 03: Próximamente](#)
-- [↑ Volver al inicio del bootcamp](../../README.md)
-
----
-
-## 💡 Consejos para Esta Semana
-
-1. **Practica con datos reales**: Usa arrays de objetos que simulen datos de API
-2. **Encadena métodos**: Combina map, filter y reduce
-3. **Consola siempre**: Usa `console.log()` para ver resultados intermedios
-4. **Performance**: map/filter son más legibles que bucles for
-5. **Immutability**: Spread crea copias, no muta originales
-
----
-
-## 🎓 Conceptos Avanzados (Opcional)
-
-Si terminas antes, explora:
-- Array.from() para crear arrays
-- Array.flat() para aplanar arrays anidados
-- Object.fromEntries() para convertir entries a objeto
-- Composición de funciones con reduce
-- Transducers (concepto avanzado)
-
----
-
-_Semana 2 de 28 - JavaScript Moderno Bootcamp_
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 01 - Introducción a JavaScript Moderno](../week-01-introduccion_javascript_moderno_es2023/README.md) | [Semana 03 - Clases y Programación Orientada a Objetos](../week-03-clases_programacion_orientada_objetos/README.md) |

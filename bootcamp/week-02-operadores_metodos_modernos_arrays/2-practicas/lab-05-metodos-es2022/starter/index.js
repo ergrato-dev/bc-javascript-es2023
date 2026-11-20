@@ -1,9 +1,9 @@
 /**
- * Ejercicio 05: Métodos ES2022 - at() y Object.hasOwn()
+ * Lab 05: Métodos ES2022 - at() y Object.hasOwn()
  *
  * Instrucciones:
  * - Lee cada paso y descomenta el código correspondiente
- * - Ejecuta con: node index.js
+ * - Ejecuta desde la carpeta del lab: node starter/index.js
  * - Observa los resultados en la consola
  */
 
@@ -295,5 +295,5 @@ console.log('--- Paso 8: Ejercicio integrador ---');
 
 console.log('');
 console.log('='.repeat(50));
-console.log('✅ Ejercicio completado');
+console.log('✅ Lab completado');
 console.log('='.repeat(50));

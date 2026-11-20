@@ -90,7 +90,7 @@ body {
    Task Form
    =================================== */
 
-.task-form-section {
+.form-section {
   background: var(--color-white);
   padding: 2rem;
   border-radius: var(--radius-lg);
@@ -98,17 +98,17 @@ body {
   margin-bottom: 2rem;
 }
 
-.task-form-section h2 {
+.form-section h2 {
   margin-bottom: 1.5rem;
   color: var(--color-dark);
   font-size: 1.5rem;
 }
 
-.task-form .form-group {
+.item-form .form-group {
   margin-bottom: 1.25rem;
 }
 
-.task-form label {
+.item-form label {
   display: block;
   margin-bottom: 0.5rem;
   color: var(--color-dark);
@@ -116,9 +116,9 @@ body {
   font-size: 0.9rem;
 }
 
-.task-form input[type="text"],
-.task-form textarea,
-.task-form select {
+.item-form input[type="text"],
+.item-form textarea,
+.item-form select {
   width: 100%;
   padding: 0.75rem;
   border: 2px solid var(--color-light);
@@ -128,14 +128,14 @@ body {
   transition: border-color 0.2s;
 }
 
-.task-form input:focus,
-.task-form textarea:focus,
-.task-form select:focus {
+.item-form input:focus,
+.item-form textarea:focus,
+.item-form select:focus {
   outline: none;
   border-color: var(--color-primary);
 }
 
-.task-form textarea {
+.item-form textarea {
   resize: vertical;
 }
 
@@ -250,7 +250,7 @@ body {
    Tasks Section
    =================================== */
 
-.tasks-section {
+.items-section {
   background: var(--color-white);
   padding: 2rem;
   border-radius: var(--radius-lg);
@@ -258,26 +258,26 @@ body {
   margin-bottom: 2rem;
 }
 
-.tasks-header {
+.items-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
 }
 
-.tasks-header h2 {
+.items-header h2 {
   font-size: 1.5rem;
   color: var(--color-dark);
 }
 
-.task-list {
+.item-list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
 /* Task Item */
-.task-item {
+.item {
   background: var(--color-light);
   border-left: 4px solid var(--color-primary);
   border-radius: var(--radius-md);
@@ -288,32 +288,32 @@ body {
   transition: all 0.2s;
 }
 
-.task-item:hover {
+.item:hover {
   transform: translateX(4px);
   box-shadow: var(--shadow-md);
 }
 
-.task-item.completed {
+.item.inactive {
   opacity: 0.6;
 }
 
-.task-item.completed .task-content h3 {
+.item.inactive .item-content h3 {
   text-decoration: line-through;
 }
 
-.task-item.priority-high {
+.item.priority-high {
   border-left-color: var(--priority-high);
 }
 
-.task-item.priority-medium {
+.item.priority-medium {
   border-left-color: var(--priority-medium);
 }
 
-.task-item.priority-low {
+.item.priority-low {
   border-left-color: var(--priority-low);
 }
 
-.task-checkbox {
+.item-checkbox {
   width: 20px;
   height: 20px;
   margin-top: 0.25rem;
@@ -321,31 +321,31 @@ body {
   flex-shrink: 0;
 }
 
-.task-content {
+.item-content {
   flex: 1;
 }
 
-.task-content h3 {
+.item-content h3 {
   font-size: 1.1rem;
   margin-bottom: 0.5rem;
   color: var(--color-dark);
 }
 
-.task-content p {
+.item-content p {
   color: var(--color-gray);
   font-size: 0.9rem;
   margin-bottom: 0.75rem;
   line-height: 1.5;
 }
 
-.task-meta {
+.item-meta {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-bottom: 0.75rem;
 }
 
-.task-badge {
+.item-badge {
   display: inline-block;
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-sm);
@@ -375,18 +375,18 @@ body {
   background: var(--priority-low);
 }
 
-.task-date {
+.item-date {
   font-size: 0.8rem;
   color: var(--color-gray);
 }
 
-.task-actions {
+.item-actions {
   display: flex;
   gap: 0.5rem;
   flex-shrink: 0;
 }
 
-.task-actions button {
+.item-actions button {
   padding: 0.5rem;
   border: none;
   background: transparent;
@@ -396,7 +396,7 @@ body {
   transition: all 0.2s;
 }
 
-.task-actions button:hover {
+.item-actions button:hover {
   background: var(--color-white);
 }
 
@@ -495,17 +495,17 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .tasks-header {
+  .items-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
 
-  .task-item {
+  .item {
     flex-direction: column;
   }
 
-  .task-actions {
+  .item-actions {
     width: 100%;
     justify-content: flex-end;
   }

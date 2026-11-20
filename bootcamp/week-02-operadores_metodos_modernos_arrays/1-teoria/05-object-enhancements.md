@@ -659,13 +659,13 @@ const updated = { ...product, stock: 4 };
 - [MDN - Working with Objects](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Working_with_Objects)
 - [MDN - Object](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-- [← Anterior: Array Methods](04-array-methods.md)
-- [↑ Volver al README](../README.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔄 Array Methods (Métodos de Arrays ES2023)](04-array-methods.md) | [Teoría — 📚 Métodos Modernos ES2022](06-metodos-es2022.md) → |
 
----
-
-_Semana 02 - JavaScript Moderno Bootcamp_
+[↑ Semana 02](../README.md)

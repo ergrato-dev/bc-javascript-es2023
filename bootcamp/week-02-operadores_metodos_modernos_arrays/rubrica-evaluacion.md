@@ -1,211 +1,90 @@
-# 📊 Rúbrica de Evaluación - Semana 02
+# Rúbrica de Evaluación - Semana 02
 
-## 🎯 Distribución de Evidencias
+## Evidencias y ponderación
 
-| Tipo de Evidencia | Peso     | Puntaje Mínimo |
-| ----------------- | -------- | -------------- |
-| 📦 Producto       | 100%     | 70/100 (70%)   |
-| **TOTAL**         | **100%** | **70/100**     |
-
-> **Nota Importante**: Los ejercicios prácticos y la teoría son materiales de aprendizaje que te preparan para el proyecto, pero **no se entregan de forma separada**. El proyecto debe demostrar tu dominio de todos los conceptos aprendidos en teoría y practicados en los ejercicios.
-
----
-
-## 🧠 Material de Conocimiento (No se entrega)
-
-> **Importante**: Esta sección describe material de estudio y autoevaluación. No se entrega de forma separada. Tu comprensión de estos conceptos se evalúa a través del proyecto final.
-
-### Componentes de Estudio
-
-| Criterio            | Excelente<br>(9-10)                                                  | Bueno<br>(7-8)                                                   | Suficiente<br>(5-6)                                           | Insuficiente<br>(0-4)       |
-| ------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------- |
-| **Spread Operator** | Explica perfectamente cuándo y cómo usar spread, con ejemplos claros | Comprende el uso básico de spread en arrays y objetos            | Identifica spread pero tiene dudas en su aplicación           | No comprende el concepto    |
-| **Rest Parameters** | Diferencia claramente rest de spread, explica casos de uso           | Entiende rest parameters pero confunde ocasionalmente con spread | Conoce la sintaxis pero no domina aplicaciones                | No distingue rest de spread |
-| **Array Methods**   | Domina map, filter, reduce y explica cuándo usar cada uno            | Usa correctamente map y filter, tiene dudas con reduce           | Conoce los métodos básicamente pero no sabe cuándo aplicarlos | No comprende los métodos    |
-
-> Usa estos criterios para autoevaluación antes de comenzar el proyecto.
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | Spread y rest, parámetros por defecto, `map`/`filter`/`reduce` y métodos de búsqueda, mejoras de objetos, `at()` y `Object.hasOwn()` |
+| Desempeño | 40% | Labs 01 a 05 descomentados y ejecutados |
+| Producto | 30% | Gestor de colección: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-## 💪 Ejercicios de Práctica (No se entregan)
+## Criterios por evidencia
 
-> **Importante**: Los ejercicios prácticos son materiales de aprendizaje guiados que te preparan para el proyecto. **No se entregan de forma separada**. Úsalos para practicar antes de hacer el proyecto.
+## 1) Conocimiento (30%)
 
-### Ejercicios Guiados (Práctica)
+### Criterios
 
-#### Ejercicio 01: Spread y Rest (Práctica)
+- Distingue spread de rest por la posición del `...` y explica por qué spread hace una copia superficial.
+- Escribe una función con parámetros por defecto, también sobre un parámetro desestructurado (`({ a = 1 } = {}) => ...`).
+- Elige entre `map`, `filter`, `find`, `some`, `every` y `reduce` según el resultado que necesita (array del mismo tamaño, parte del array, un elemento, un booleano o un valor).
+- Usa propiedades abreviadas, métodos abreviados y propiedades computadas (`[key]: value`).
+- Explica qué aporta `at(-1)` frente a `array[array.length - 1]` y por qué `Object.hasOwn()` sustituye a `hasOwnProperty`.
+- Explica qué significa que una función no modifique su entrada y cómo se actualiza un elemento de un array sin modificarlo.
 
-| Criterio            | Puntos | Descripción                                             |
-| ------------------- | ------ | ------------------------------------------------------- |
-| **Funcionalidad**   | 0-4    | Todas las operaciones de spread funcionan correctamente |
-| **Rest Parameters** | 0-3    | Implementa correctamente funciones con rest             |
-| **Código Limpio**   | 0-2    | Código legible, bien estructurado                       |
-| **Casos Edge**      | 0-1    | Maneja casos especiales (arrays vacíos, undefined)      |
+### Niveles
 
-#### Ejercicio 02: Array Methods Básicos (10 puntos)
-
-| Criterio              | Puntos | Descripción                             |
-| --------------------- | ------ | --------------------------------------- |
-| **map() correcto**    | 0-3    | Transforma arrays correctamente con map |
-| **filter() correcto** | 0-3    | Filtra elementos adecuadamente          |
-| **find/some/every**   | 0-2    | Usa métodos de búsqueda apropiadamente  |
-| **Código Limpio**     | 0-2    | Arrow functions, nombres descriptivos   |
-
-#### Ejercicio 03: Map y Filter Avanzado (10 puntos)
-
-| Criterio              | Puntos | Descripción                                |
-| --------------------- | ------ | ------------------------------------------ |
-| **Transformaciones**  | 0-4    | Transforma objetos complejos correctamente |
-| **Filtros Complejos** | 0-3    | Combina múltiples condiciones de filtrado  |
-| **Encadenamiento**    | 0-2    | Encadena métodos de forma eficiente        |
-| **Performance**       | 0-1    | No hace operaciones redundantes            |
-
-#### Ejercicio 04: Reduce Patterns (10 puntos)
-
-| Criterio            | Puntos | Descripción                                  |
-| ------------------- | ------ | -------------------------------------------- |
-| **Reduce básico**   | 0-3    | Suma, cuenta, agrupa con reduce              |
-| **Reduce complejo** | 0-4    | Transforma estructuras de datos complejas    |
-| **Valor inicial**   | 0-2    | Usa valores iniciales apropiados             |
-| **Alternativas**    | 0-1    | Reconoce cuándo usar reduce vs otros métodos |
-
-**Total Desempeño: ___ / 40 puntos**
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, entre `find` y `filter`).
+- **Bajo (<21):** confunde spread con rest, o cree que spread copia también los objetos anidados.
 
 ---
 
-## 📦 Proyecto: Gestor de Tareas (100%)
+## 2) Desempeño (40%)
 
-> **Único Entregable**: Este proyecto es la única entrega requerida para aprobar la semana. Debe demostrar tu dominio de todos los conceptos aprendidos.
+### Criterios
 
-### Evaluación del Proyecto
+- Lab 01: los 8 pasos descomentados; explica por qué el paso 4 necesita un segundo spread para `address`.
+- Lab 02: los 8 pasos; explica qué devuelven `find` y `findIndex` cuando no encuentran nada.
+- Lab 03: los 8 pasos; explica por qué el objeto que devuelve `map` en el paso 2 va entre paréntesis.
+- Lab 04: los 9 pasos; explica qué vale `acc` en la primera vuelta, con y sin valor inicial.
+- Lab 05: los 8 pasos; explica por qué `nums[-1]` es `undefined` y la diferencia entre `Object.hasOwn()` e `in`.
 
-| Criterio          | Excelente<br>(9-10)                                                              | Bueno<br>(7-8)                                               | Suficiente<br>(5-6)                                     | Insuficiente<br>(0-4)                       |
-| ----------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------- |
-| **Funcionalidad** | Todas las features funcionan perfectamente (agregar, eliminar, filtrar, ordenar) | La mayoría de features funcionan, bugs menores               | Funcionalidad básica presente pero con errores          | No funciona o features incompletas          |
-| **Uso de ES2023**   | Usa spread, rest, array methods naturalmente en todo el código                   | Usa ES2023 en la mayoría del código, algunos patrones antiguos | Mezcla ES2023 con código antiguo inconsistentemente       | Código principalmente ES5 o mal uso de ES2023 |
-| **Código Limpio** | Código muy legible, bien organizado, nombres descriptivos, comentarios útiles    | Código legible en general, organización adecuada             | Código funciona pero difícil de leer, mala organización | Código difícil de entender, sin estructura  |
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab (salvo el `timestamp` del lab 05).
 
-**Desglose Detallado del Proyecto:**
+### Niveles
 
-| Feature                 | Puntos | Criterios de Evaluación                            |
-| ----------------------- | ------ | -------------------------------------------------- |
-| **Agregar Tareas**      | 0-5    | Usa spread para inmutabilidad, genera IDs únicos   |
-| **Eliminar Tareas**     | 0-3    | Usa filter() para eliminar, no muta array original |
-| **Filtrar Tareas**      | 0-5    | Filtros por estado, prioridad, búsqueda por texto  |
-| **Ordenar Tareas**      | 0-3    | Ordena por fecha, prioridad, alfabético            |
-| **Estadísticas**        | 0-4    | Usa reduce() para contar completadas, pendientes   |
-| **Object Enhancements** | 0-3    | Property/method shorthand, computed properties     |
-| **Default Params**      | 0-2    | Usa defaults para configuración y opciones         |
-| **Código Limpio**       | 0-5    | Estructura clara, funciones pequeñas, comentarios  |
-
-**Total Producto: ___ / 30 puntos**
+- **Alto (36-40):** los cinco labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cinco labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-## 🎯 Criterios Generales de Calidad
+## 3) Producto (30%)
 
-### Código ES2023 (Todos los ejercicios)
+### Criterios
 
-- ✅ **Obligatorio usar**:
-  - `const` por defecto, `let` solo si se reasigna
-  - Arrow functions para callbacks
-  - Template literals para strings
-  - Spread operator para copiar arrays/objetos
-  - Array methods (map, filter, reduce) en vez de bucles for
+- `PROYECTO=... ./scripts/verificar-semana.sh 02` pasa las 12 comprobaciones.
+- `TITLE`, `CATEGORIES` y `SAMPLE_ITEMS` de `src/main.js` describen una colección del dominio asignado, con 3 a 5 categorías y 4 a 6 elementos coherentes con ese dominio.
+- La página funciona servida con `pnpm dlx serve .`: crear, editar, marcar como inactivo, eliminar, filtrar, buscar y quitar inactivos; los datos siguen al recargar y no hay errores en la consola.
+- Las funciones usan lo de la semana donde corresponde: valores por defecto en `createItem` y `filterItems`, rest en `addItem`, spread para copiar, `reduce` con propiedad computada en `getStats` y `Object.hasOwn()` en `missingFields`.
 
-- ❌ **Penalizaciones**:
-  - Usar `var`: -2 puntos por ejercicio
-  - Usar bucles `for` cuando hay método de array apropiado: -1 punto
-  - Mutar arrays/objetos originales: -2 puntos
-  - Concatenación con `+` en vez de template literals: -0.5 puntos
+### Niveles
 
-### Mejores Prácticas
-
-- ✅ **Bonus** (+5 puntos máximo):
-  - Validación de inputs
-  - Manejo de errores
-  - Tests manuales documentados
-  - README bien documentado
-  - Uso de JSDoc comments
+- **Alto (27-30):** 12/12, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 12/12 con datos poco adaptados (categorías genéricas, elementos de relleno) o alguna acción de la página que falla.
+- **Bajo (<21):** menos de 12 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## 📝 Formato de Entrega
+## Calificación
 
-### Archivos Requeridos
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
-```
-week-02-entregas/
-├── ejercicios/
-│   ├── 01-spread-rest/
-│   │   └── index.js
-│   ├── 02-array-methods/
-│   │   └── index.js
-│   ├── 03-map-filter/
-│   │   └── index.js
-│   └── 04-reduce/
-│       └── index.js
-└── proyecto/
-    ├── index.html
-    ├── styles.css
-    ├── script.js
-    └── README.md
-```
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
 
-### Checklist de Entrega
-
-- [ ] Todos los ejercicios ejecutan sin errores
-- [ ] Proyecto funciona en navegador
-- [ ] Código usa solo ES2023
-- [ ] README del proyecto incluye:
-  - [ ] Descripción de features
-  - [ ] Instrucciones de uso
-  - [ ] Tecnologías utilizadas
-  - [ ] Conceptos ES2023 aplicados
-- [ ] Comentarios explicando lógica compleja
-- [ ] Nombres de variables/funciones descriptivos
-
+<!-- nav -->
 ---
 
-## 🏆 Niveles de Logro
+## 🔗 Navegación
 
-| Puntaje | Nivel          | Descripción                                                          |
-| ------- | -------------- | -------------------------------------------------------------------- |
-| 90-100  | 🌟 Excelente    | Dominio completo de spread, rest y array methods. Código profesional |
-| 80-89   | 🎯 Muy Bueno    | Buen entendimiento, aplica conceptos correctamente                   |
-| 70-79   | ✅ Bueno        | Comprende los conceptos básicos, algunas dudas                       |
-| 60-69   | ⚠️ Suficiente   | Conocimiento básico, necesita más práctica                           |
-| 0-59    | ❌ Insuficiente | No alcanza los objetivos mínimos                                     |
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Gestor de colección de tu dominio](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
----
-
-## 💡 Consejos para Maximizar Puntaje
-
-1. **Lee bien las instrucciones**: Cada TODO tiene requisitos específicos
-2. **Prueba tu código**: Verifica que funciona con diferentes inputs
-3. **Usa console.log()**: Demuestra que entiendes el flujo de datos
-4. **Código limpio**: Más importante que código complejo
-5. **Pregunta dudas**: Mejor preguntar que entregar mal
-6. **Revisa rúbrica antes**: Saber qué se evalúa te guía
-
----
-
-## 📅 Fechas Importantes
-
-- **Inicio**: Semana 2 del bootcamp
-- **Entrega ejercicios**: Final de la semana
-- **Entrega proyecto**: Final de la semana
-- **Retroalimentación**: Dentro de 3 días hábiles
-
----
-
-## 🔗 Referencias
-
-- [Semana 02 - README](README.md)
-- [Teoría de la Semana](1-teoria/)
-- [Ejercicios Prácticos](2-practicas/)
-- [Proyecto](3-proyecto/)
-
----
-
-_Última actualización: Diciembre 2024_
+[↑ Semana 02](README.md)

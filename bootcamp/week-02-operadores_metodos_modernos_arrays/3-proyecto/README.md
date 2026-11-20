@@ -1,331 +1,203 @@
-# 📦 Proyecto Semana 02: Gestor de Colección
+# Proyecto Semana 02 — Gestor de colección de tu dominio
 
-> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+## Descripción
 
-## 🏛️ Política de Dominios Únicos
+Una página para gestionar una colección de elementos de tu dominio: crear, editar, eliminar, marcar como activo o inactivo, filtrar, buscar y ver estadísticas por categoría. Los datos se guardan en el navegador (`localStorage`), así que siguen ahí al recargar.
 
-**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto debe implementarse completamente dentro del contexto de tu dominio asignado.
+La página ya está montada. Tu trabajo es escribir las ocho funciones de `src/logic.js` con lo que has visto esta semana (spread, rest, parámetros por defecto, `map`, `filter`, `reduce`, propiedades computadas, `at()` y `Object.hasOwn()`) y cambiar los datos de ejemplo por los de tu dominio.
 
-### ¿Por qué dominios únicos?
+La regla del proyecto: **ninguna función modifica el array ni los objetos que recibe**. Todas devuelven un array u objeto nuevo.
 
-- Previene copia entre compañeros
-- Fomenta implementaciones originales
-- Desarrolla capacidad de abstracción
-- Aplica conceptos generales a contextos específicos
+**Tiempo:** 2 h.
 
----
+## Punto de partida
 
-## 🎯 Objetivos del Proyecto
-
-Construir una aplicación completa de gestión de colección que consolide todos los conceptos aprendidos en Week-02:
-
-- ✅ Spread & Rest operators
-- ✅ Default parameters
-- ✅ Array methods (map, filter, reduce, find, etc.)
-- ✅ Object enhancements
-- ✅ Manipulación del DOM
-- ✅ LocalStorage para persistencia
-- ✅ Inmutabilidad y programación funcional
-
----
-
-## 📋 Descripción
-
-Aplicación web para gestionar una colección de elementos de tu dominio asignado con las siguientes características:
-
-### Funcionalidades Principales
-
-1. **Crear elementos** con propiedades específicas de tu dominio
-2. **Listar elementos** con filtros (todos, activos, inactivos)
-3. **Editar elementos** existentes
-4. **Eliminar elementos**
-5. **Marcar como activo/inactivo** (o estado equivalente en tu dominio)
-6. **Filtrar** por categoría y prioridad/nivel
-7. **Buscar** elementos por texto
-8. **Estadísticas** (total, activos, inactivos, por categoría)
-9. **Persistencia** en LocalStorage
-
-### Características Técnicas
-
-- **Sin frameworks**: JavaScript puro (ES2023)
-- **Inmutabilidad**: Nunca mutar el estado directamente
-- **Array methods**: Uso intensivo de map, filter, reduce
-- **Spread/Rest**: Para copiar y actualizar objetos/arrays
-- **Modular**: Código organizado en funciones puras
-
----
-
-## 💡 Ejemplos de Adaptación por Dominio
-
-> **⚠️ IMPORTANTE**: Estos son ejemplos ilustrativos. Usa el dominio que te asignó tu instructor.
-
-| Concepto Genérico | Ejemplo: Planetario 🔭 | Ejemplo: Acuario 🐠 |
-|-------------------|------------------------|---------------------|
-| **Elemento** | Cuerpo celeste | Especie marina |
-| **Propiedades** | nombre, tipo, distancia, magnitud | nombre, tipo, tanque, cantidad |
-| **Categorías** | planeta, estrella, asteroide, cometa | pez, mamífero, invertebrado, anfibio |
-| **Estado activo** | Visible esta noche | En exhibición |
-| **Prioridad/Nivel** | Brillo (alta/media/baja) | Peligrosidad (alta/media/baja) |
-| **Estadísticas** | Por tipo, por visibilidad | Por tanque, por tipo |
-
----
-
-## 🏗️ Estructura del Proyecto
-
-```
-3-proyecto/
-├── README.md           # Este archivo
-├── starter/
-│   ├── index.html      # HTML inicial
-│   ├── styles.css      # Estilos base
-│   └── script.js       # Código inicial con TODOs
-└── solution/
-    └── script.js       # Referencia (no copiar)
+```bash
+mkdir -p ~/js-proyecto-semana-02
+cp -r bootcamp/week-02-operadores_metodos_modernos_arrays/3-proyecto/starter/. ~/js-proyecto-semana-02/
+cd ~/js-proyecto-semana-02
 ```
 
+Ejecuta el `cp` desde la carpeta del bootcamp. Quedan estos archivos:
+
+| Archivo | Qué contiene | ¿Lo editas? |
+|---|---|---|
+| `index.html` | El formulario, los filtros, la lista y las estadísticas; carga `src/main.js` | No |
+| `styles.css` | Los estilos | Si quieres |
+| `src/main.js` | Los datos del dominio y el código que lee el formulario, guarda en `localStorage` y pinta la página | Solo los datos del principio |
+| `src/logic.js` | Ocho funciones con `TODO` | Sí: es el proyecto |
+
+- **Qué:** `logic.js` solo recibe datos y devuelve datos nuevos; no toca la página ni `localStorage`.
+- **Para qué:** cada función se puede probar desde Node con datos concretos, que es lo que hace `scripts/verificar-semana.sh`. Y como nunca modifican lo que reciben, `main.js` puede guardar siempre «el array nuevo» sin preocuparse de quién más usa el anterior.
+- **Impacto:** si una función modifica su entrada, la comprobación falla: los datos de prueba están congelados con `Object.freeze`, y cambiarlos da un `TypeError` (por ejemplo, `Cannot add property 1, object is not extensible` si haces `push`). Más detalles en [docs/autograding.md](../../../docs/autograding.md).
+
 ---
 
-## 📝 Modelo de Datos
+## Paso 1: ver la página (10 min)
 
-### Estructura Genérica del Elemento
+Igual que en la semana 01, los módulos necesitan un servidor local:
+
+```bash
+pnpm dlx serve .
+```
+
+```text
+ INFO  Accepting connections at http://localhost:3000
+```
+
+Abre `http://localhost:3000`. Con el starter, la lista sale vacía y la consola de las DevTools (`F12`, pestaña **Console**) muestra un `TypeError`: `filterItems` todavía no devuelve nada. Deja el servidor abierto en esa terminal, usa otra para el resto de pasos y recarga la página después de cada uno.
+
+## Paso 2: tus datos (15 min)
+
+Al principio de `src/main.js` hay tres datos del dominio Planetario, que es solo un ejemplo. Cámbialos por los de **tu dominio** (el que te asignó el instructor):
+
+- `TITLE`: el título de la página, con un emoji.
+- `CATEGORIES`: de 3 a 5 categorías. La clave va en inglés y en `camelCase` (`planet`); `name` y `emoji` son lo que se muestra. Deja `other`.
+- `SAMPLE_ITEMS`: de 4 a 6 elementos con la misma forma, con `id` del 1 en adelante y una `category` que exista en `CATEGORIES`.
+
+`main.js` guarda la colección en `localStorage` con la clave `STORAGE_KEY`. Los datos de ejemplo solo se cargan si no hay nada guardado: si cambias `SAMPLE_ITEMS` después de haber usado la página, cambia también `STORAGE_KEY` (o borra el dato en DevTools → **Application** → **Local Storage**).
+
+## Paso 3: `createItem` (15 min)
+
+Recibe los datos del formulario y la colección actual, y devuelve el elemento nuevo:
 
 ```javascript
-// Adapta este modelo a tu dominio
-{
-  id: 1,                      // Número único (Date.now())
-  name: "...",                // String - nombre del elemento
-  description: "...",         // String (opcional)
-  active: true,               // Boolean - estado activo/inactivo
-  priority: "high",           // "low" | "medium" | "high"
-  category: "...",            // Categoría específica de tu dominio
-  createdAt: "2024-01-15",    // String (ISO Date)
-  updatedAt: null,            // String | null
-
-  // Propiedades específicas de tu dominio:
-  // Planetario: magnitude, distance, constellation
-  // Acuario: tankNumber, population, feedingSchedule
-}
+createItem({ name: 'Marte' })
+// { id: 1, name: 'Marte', description: '', category: 'other', priority: 'medium', active: true }
 ```
 
----
+- **Valores por defecto:** desestructura el primer parámetro y da valores por defecto a `description`, `category` y `priority` ([teoría 03](../1-teoria/03-default-parameters.md)). El segundo parámetro, `items`, vale `[]` si no llega.
+- **Propiedades abreviadas:** si la variable se llama igual que la propiedad, basta con escribirla una vez: `{ name, description }` ([teoría 05](../1-teoria/05-object-enhancements.md)).
+- **El id:** es el mayor id de la colección más uno. `Math.max(...ids)` busca el mayor de una lista de números; con la colección vacía, `Math.max()` sin argumentos da `-Infinity`, así que añade un `0` a la lista: `Math.max(0, ...ids)`. Los ids salen de `items` con `map`.
 
-## 🔧 Funciones a Implementar
+```bash
+node --input-type=module -e "import { createItem } from './src/logic.js'; console.log(createItem({ name: 'Venus', category: 'planet' }, [{ id: 4 }, { id: 9 }]))"
+# {
+#   id: 10,
+#   name: 'Venus',
+#   description: '',
+#   category: 'planet',
+#   priority: 'medium',
+#   active: true
+# }
+```
 
-### 1. Estado y Persistencia
+¿Por qué el mayor y no el último? Si eliminas el último elemento, `items.at(-1).id + 1` repetiría un id que ya se usó.
 
-| Función | Descripción |
-|---------|-------------|
-| `loadItems()` | Carga elementos desde LocalStorage |
-| `saveItems(items)` | Guarda elementos en LocalStorage |
-| `getInitialState()` | Retorna estado inicial |
+## Paso 4: añadir, cambiar y eliminar (25 min)
 
-### 2. CRUD Básico
+Cuatro funciones cortas, todas de una línea:
 
-| Función | Descripción |
-|---------|-------------|
-| `createItem(itemData)` | Crea nuevo elemento con spread operator |
-| `updateItem(id, updates)` | Actualiza elemento usando map |
-| `deleteItem(id)` | Elimina elemento usando filter |
-| `toggleItemActive(id)` | Alterna estado activo/inactivo |
+| Función | Qué devuelve | Con qué |
+|---|---|---|
+| `addItem(items, ...newItems)` | `items` con los nuevos al final | Rest en el parámetro y spread en el array ([lab 01](../2-practicas/lab-01-spread-rest/README.md)) |
+| `updateItem(items, id, changes)` | El mismo array, pero el elemento con ese `id` lleva los cambios | `map` + `{ ...item, ...changes }` |
+| `removeItem(items, id)` | El array sin ese elemento | `filter` |
+| `toggleActive(items, id)` | El array con `active` invertido en ese elemento | `map` + `{ ...item, active: !item.active }` |
 
-### 3. Filtros y Búsqueda
+En `updateItem` y `toggleActive`, la función de `map` devuelve una copia modificada si el id coincide y el mismo elemento si no: `item.id === id ? { ... } : item`.
 
-| Función | Descripción |
-|---------|-------------|
-| `filterByStatus(items, status)` | Filtra por estado (all/active/inactive) |
-| `filterByCategory(items, category)` | Filtra por categoría |
-| `filterByPriority(items, priority)` | Filtra por prioridad |
-| `searchItems(items, query)` | Busca en nombre y descripción |
-| `applyFilters(items, filters)` | Aplica todos los filtros encadenados |
+```bash
+node --input-type=module -e "import * as l from './src/logic.js'; const items = Object.freeze([{ id: 1, active: true }, { id: 2, active: true }]); console.log(l.toggleActive(items, 2), l.removeItem(items, 1), l.addItem(items, { id: 3 }, { id: 4 }).length)"
+# [ { id: 1, active: true }, { id: 2, active: false } ] [ { id: 2, active: true } ] 4
+```
 
-### 4. Estadísticas
+`Object.freeze` congela el array: si alguna función intenta modificarlo (con `push`, `splice` o `items[0] = ...`), sale un `TypeError`. Con estas cuatro funciones ya puedes crear, editar, eliminar y marcar elementos en la página (después del paso 5, que es el que pinta la lista).
 
-| Función | Descripción |
-|---------|-------------|
-| `getStats(items)` | Calcula estadísticas usando reduce |
-| `getItemsByCategory(items)` | Agrupa por categoría |
+## Paso 5: `filterItems` (20 min)
 
-### 5. Renderizado
+Recibe la colección y un objeto con cuatro filtros, todos con valor por defecto:
 
-| Función | Descripción |
-|---------|-------------|
-| `renderItems(items)` | Renderiza lista usando map + template literals |
-| `renderStats(stats)` | Renderiza estadísticas |
-| `renderItem(item)` | Renderiza elemento individual |
+| Filtro | Valores | Por defecto |
+|---|---|---|
+| `status` | `'all'`, `'active'`, `'inactive'` | `'all'` |
+| `category` | `'all'` o una categoría | `'all'` |
+| `priority` | `'all'`, `'high'`, `'medium'`, `'low'` | `'all'` |
+| `query` | Texto que se busca en `name` y `description`, sin distinguir mayúsculas | `''` |
 
----
+Desestructura el segundo parámetro con valores por defecto, y el objeto entero también con `= {}`, para que `filterItems(items)` funcione sin filtros. Un solo `filter` con cuatro condiciones unidas por `&&`; cada condición se cumple si el filtro vale `'all'` o si el elemento coincide. Para el texto, pasa a minúsculas con `toLowerCase()`, quita los espacios de los extremos con `trim()` y busca con `includes`: `''` está incluido en cualquier texto, así que sin búsqueda pasan todos.
 
-## 🎨 Interfaz de Usuario
+Al recargar, la lista aparece y los filtros funcionan. El botón **Quitar inactivos** también, porque `main.js` lo hace con `filterItems(items, { status: 'active' })`.
 
-### Secciones Requeridas
+## Paso 6: `getStats` (15 min)
 
-1. **Header**: Título adaptado a tu dominio y estadísticas rápidas
-2. **Formulario**: Crear/editar elementos con campos de tu dominio
-3. **Filtros**: Por estado, categoría, prioridad + búsqueda
-4. **Lista**: Elementos renderizados con información relevante
-5. **Stats**: Resumen de estadísticas por categoría
-
-### Estados Visuales Sugeridos
-
-- Elementos inactivos: Opacidad reducida
-- Prioridades: Colores diferentes (rojo/amarillo/verde)
-- Categorías: Badges con emojis de tu dominio
-
----
-
-## ✅ Criterios de Evaluación
-
-### Funcionalidad (40 puntos)
-
-- [ ] Crear elementos con todos los campos (10pts)
-- [ ] Editar elementos existentes (8pts)
-- [ ] Eliminar elementos (5pts)
-- [ ] Marcar como activo/inactivo (5pts)
-- [ ] Filtros funcionales (7pts)
-- [ ] Búsqueda funcional (5pts)
-
-### Código (30 puntos)
-
-- [ ] Uso correcto de spread/rest (8pts)
-- [ ] Array methods apropiados (10pts)
-- [ ] Inmutabilidad mantenida (7pts)
-- [ ] Código limpio y organizado (5pts)
-
-### Persistencia y UI (30 puntos)
-
-- [ ] LocalStorage funcionando (10pts)
-- [ ] Estadísticas correctas (10pts)
-- [ ] Interfaz coherente con el dominio (10pts)
-
-**Total: 100 puntos**
-**Mínimo para aprobar: 70 puntos**
-
----
-
-## 🚀 Cómo Empezar
-
-### 1. Define tu Modelo de Datos
-
-Primero, adapta el modelo genérico a tu dominio:
+Devuelve `{ total, active, inactive, byCategory }`. Los tres primeros son recuentos (`length` y `filter`). `byCategory` cuenta los elementos de cada categoría con `reduce`, como el «contar ocurrencias» del [lab 04](../2-practicas/lab-04-reduce/README.md), pero sin modificar el acumulador: devuelve en cada vuelta un objeto nuevo con una **propiedad computada**, cuyo nombre sale de una variable:
 
 ```javascript
-// EJEMPLO Planetario (NO es un dominio asignable)
-const celestialBody = {
-  id: Date.now(),
-  name: "Júpiter",
-  description: "El gigante gaseoso más grande del sistema solar",
-  active: true,           // Visible esta noche
-  priority: "high",       // Brillo: alto
-  category: "planet",     // Tipo: planeta
-  // Propiedades específicas:
-  magnitude: -2.5,
-  distance: "628 millones km",
-  constellation: "Piscis"
-};
+{ ...acc, [category]: (acc[category] ?? 0) + 1 }
 ```
 
-### 2. Completa las Funciones
+```bash
+node --input-type=module -e "import { getStats } from './src/logic.js'; console.log(getStats([{ category: 'star', active: true }, { category: 'planet', active: false }, { category: 'star', active: true }]))"
+# {
+#   total: 3,
+#   active: 2,
+#   inactive: 1,
+#   byCategory: { star: 2, planet: 1 }
+# }
+```
 
-Abre `starter/script.js` y completa las funciones marcadas con `// TODO:`.
+## Paso 7: `missingFields` (10 min)
 
-### 3. Orden Recomendado
-
-1. Definir estructura de datos de tu dominio
-2. Implementar `createItem()` y `renderItem()`
-3. Conectar el formulario
-4. Implementar `loadItems()` y `saveItems()`
-5. Añadir toggle activo/inactivo y eliminar
-6. Implementar filtros y búsqueda
-7. Calcular y mostrar estadísticas
-8. Añadir edición de elementos
-
----
-
-## 💡 Pistas y Consejos
-
-### Inmutabilidad
+Devuelve la lista de campos obligatorios que faltan o están vacíos. `main.js` la usa antes de guardar: si no está vacía, muestra un aviso con los campos.
 
 ```javascript
-// ❌ MAL: Mutar array directamente
-items.push(newItem);
-
-// ✅ BIEN: Crear nuevo array con spread
-const newItems = [...items, newItem];
+missingFields({ name: '  ', category: 'star' })          // ['name']
+missingFields({ name: 'Sirio' }, ['name', 'priority'])   // ['priority']
 ```
 
-### Actualizar Elemento
+El segundo parámetro vale `['name', 'category']` por defecto. Recorre los campos con `filter`: un campo falta si `Object.hasOwn(data, field)` es `false` o si su valor, convertido a texto y sin espacios (`String(data[field]).trim()`), es `''`. Usa `Object.hasOwn` y no `in`: una propiedad heredada no cuenta como rellenada ([lab 05](../2-practicas/lab-05-metodos-es2022/README.md), paso 6).
 
-```javascript
-// Usa map para actualizar sin mutar
-const updated = items.map(item =>
-  item.id === id ? { ...item, active: !item.active } : item
-);
+## Paso 8: comprobar (10 min)
+
+Desde la carpeta del bootcamp:
+
+```bash
+PROYECTO=~/js-proyecto-semana-02 ./scripts/verificar-semana.sh 02
+# Semana 02 — Operadores y Métodos Modernos de Arrays
+#   ✅ src/logic.js es un módulo ES válido
+#   ...
+# 12/12 comprobaciones superadas.
 ```
 
-### Eliminar Elemento
+Cada ❌ trae una pista con el paso que lo arregla. Además de las funciones, el script comprueba que no queda ningún `TODO`, que no usas `var` y que `logic.js` no usa la palabra `function`.
 
-```javascript
-// Usa filter para eliminar sin mutar
-const filtered = items.filter(item => item.id !== id);
-```
-
-### Estadísticas con Reduce
-
-```javascript
-// Contar por categoría
-const byCategory = items.reduce((acc, item) => {
-  acc[item.category] = (acc[item.category] ?? 0) + 1;
-  return acc;
-}, {});
-```
+Por último, prueba la página entera: crea un elemento, edítalo, márcalo como inactivo, filtra, busca, recarga (los datos siguen) y quita los inactivos.
 
 ---
 
-## 🎓 Conceptos Aplicados
+## ✅ Requisitos verificables
 
-| Concepto | Uso en el Proyecto |
-|----------|-------------------|
-| **Spread Operator** | Copiar arrays `[...items]`, copiar objetos `{ ...item }` |
-| **Rest Parameters** | Funciones con argumentos variables |
-| **Array.map()** | Transformar elementos para renderizar |
-| **Array.filter()** | Filtrar por estado, categoría, búsqueda |
-| **Array.reduce()** | Calcular estadísticas y agrupar |
-| **Array.find()** | Encontrar elemento por ID |
-| **Default Parameters** | `filterByStatus(items, status = 'all')` |
-| **Object Enhancements** | Property shorthand, computed properties |
+Las comprobaciones de [`checks.json`](../checks.json):
 
+| Comprobación | Qué pide |
+|---|---|
+| `sintaxis` | `src/logic.js` es un módulo ES válido |
+| `sin-todo` | `src/logic.js` no tiene ningún `TODO` |
+| `sin-var` | Ningún archivo de `src/` usa `var` |
+| `arrow-functions` | `src/logic.js` no usa la palabra `function` |
+| `create-item` | `createItem` pone los valores por defecto y el id siguiente al mayor |
+| `add-item` | `addItem` añade uno o varios elementos sin modificar el array |
+| `update-item` | `updateItem` cambia solo el elemento con ese id y devuelve un array nuevo |
+| `remove-item` | `removeItem` quita el elemento con ese id |
+| `toggle-active` | `toggleActive` invierte `active` solo en ese elemento |
+| `filter-items` | `filterItems` combina estado, categoría, prioridad y búsqueda |
+| `get-stats` | `getStats` cuenta total, activos, inactivos y elementos por categoría |
+| `missing-fields` | `missingFields` devuelve los campos que faltan o están vacíos, sin contar los heredados |
+
+Todas las comprobaciones de funciones usan datos congelados: una función que modifica su entrada falla. Que los datos sean de tu dominio y que la página funcione lo revisa el instructor con la [rúbrica](../rubrica-evaluacion.md).
+
+## Entrega
+
+La carpeta `~/js-proyecto-semana-02` con tus datos en `src/main.js` y `src/logic.js` completo, por el canal que indique el instructor.
+
+<!-- nav -->
 ---
 
-## 📚 Recursos
+## 🔗 Navegación
 
-- [MDN - LocalStorage](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)
-- [MDN - Métodos de Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)
-- [JavaScript.info - Métodos de Array](https://javascript.info/array-methods)
+| Anterior | Siguiente |
+|---|---|
+| ← [Lab 05 — `at()` y `Object.hasOwn()`](../2-practicas/lab-05-metodos-es2022/README.md) | [Rúbrica de evaluación](../rubrica-evaluacion.md) → |
 
----
-
-## ⏱️ Tiempo Estimado
-
-- **Definir modelo de datos**: 20 minutos
-- **Implementación básica**: 1.5 horas
-- **Filtros y búsqueda**: 30 minutos
-- **Estadísticas**: 20 minutos
-- **Refinamiento y testing**: 20 minutos
-
-**Total: ~3 horas**
-
----
-
-## 📋 Entregables
-
-1. **Código funcional** adaptado a tu dominio asignado
-2. **README personal** explicando tu implementación específica
-3. **Capturas de pantalla** de la aplicación funcionando
-4. **Todo el código debe usar**:
-   - Nomenclatura técnica en inglés
-   - Comentarios en español
-   - Sintaxis ES2023 exclusivamente
-
----
-
-_Proyecto Week-02 - JavaScript Moderno Bootcamp_
+[↑ Semana 02](../README.md)

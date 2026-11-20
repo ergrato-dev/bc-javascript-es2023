@@ -562,14 +562,13 @@ const user = users.find(u => u.username === 'bob456');
 - [MDN - Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - [JavaScript.info - Array methods](https://javascript.info/array-methods)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-- [← Anterior: Default Parameters](03-default-parameters.md)
-- [→ Siguiente: Object Enhancements](05-object-enhancements.md)
-- [↑ Volver al README](../README.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🎯 Default Parameters (Parámetros por Defecto)](03-default-parameters.md) | [Teoría — ✨ Object Enhancements (Mejoras de Objetos ES2023)](05-object-enhancements.md) → |
 
----
-
-_Semana 02 - JavaScript Moderno Bootcamp_
+[↑ Semana 02](../README.md)

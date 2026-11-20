@@ -350,3 +350,14 @@ Para encontrar más recursos actualizados, usa estos términos:
 **Última actualización**: Diciembre 2024
 
 **Nota**: Los enlaces a artículos específicos pueden cambiar. Usa los sitios base y términos de búsqueda proporcionados para encontrar el contenido más actualizado.
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 02](../../README.md)

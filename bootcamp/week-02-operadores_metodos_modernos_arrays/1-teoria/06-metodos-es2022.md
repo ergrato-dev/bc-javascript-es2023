@@ -1,5 +1,7 @@
 # 📚 Métodos Modernos ES2022
 
+![Métodos ES2022: at() y Object.hasOwn()](../0-assets/06-metodos-es2022.svg)
+
 ## 🎯 Objetivos
 
 - Comprender y utilizar `Array.prototype.at()` para acceso por índice
@@ -394,3 +396,14 @@ console.log(history.hasMeta('author'));   // false
 - [ ] Sé cuándo usar `Object.hasOwn()` vs `in` operator
 - [ ] Puedo verificar propiedades propias vs heredadas
 - [ ] Conozco los problemas de `hasOwnProperty()` que `Object.hasOwn()` resuelve
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — ✨ Object Enhancements (Mejoras de Objetos ES2023)](05-object-enhancements.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 02](../README.md)

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de colección</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">📦 Gestor de colección</h1>
+      <div class="stats-summary">
+        <span class="stat">Total: <strong id="stat-total">0</strong></span>
+        <span class="stat">Activos: <strong id="stat-active">0</strong></span>
+        <span class="stat">Inactivos: <strong id="stat-inactive">0</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2 id="form-title">➕ Nuevo elemento</h2>
+      <form id="item-form" class="item-form">
+        <div class="form-group">
+          <label for="item-name">Nombre *</label>
+          <input type="text" id="item-name" required>
+        </div>
+        <div class="form-group">
+          <label for="item-description">Descripción</label>
+          <textarea id="item-description" rows="3"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-category">Categoría</label>
+            <select id="item-category"></select>
+          </div>
+          <div class="form-group">
+            <label for="item-priority">Prioridad</label>
+            <select id="item-priority">
+              <option value="low">Baja</option>
+              <option value="medium" selected>Media</option>
+              <option value="high">Alta</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submit-btn">Crear</button>
+          <button type="button" class="btn btn-secondary" id="cancel-btn" hidden>Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="filter-status">Estado:</label>
+          <select id="filter-status">
+            <option value="all">Todos</option>
+            <option value="active">Activos</option>
+            <option value="inactive">Inactivos</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-category">Categoría:</label>
+          <select id="filter-category"></select>
+        </div>
+        <div class="filter-group">
+          <label for="filter-priority">Prioridad:</label>
+          <select id="filter-priority">
+            <option value="all">Todas</option>
+            <option value="high">Alta</option>
+            <option value="medium">Media</option>
+            <option value="low">Baja</option>
+          </select>
+        </div>
+        <div class="filter-group search-group">
+          <label for="search-input">Buscar:</label>
+          <input type="text" id="search-input">
+        </div>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Lista</h2>
+        <button class="btn btn-outline" id="clear-inactive">🗑️ Quitar inactivos</button>
+      </div>
+      <div id="item-list" class="item-list"></div>
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay elementos que mostrar</p>
+        <p class="empty-state-hint">Cambia los filtros o crea uno con el formulario</p>
+      </div>
+    </section>
+
+    <section class="detailed-stats">
+      <h3>📊 Por categoría</h3>
+      <div id="stats-details" class="stats-grid"></div>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

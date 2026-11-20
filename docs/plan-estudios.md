@@ -80,9 +80,9 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 02: Operadores Avanzados y Array Methods**
-**Estado**: Completada
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+#### **Week 02: Operadores y Métodos Modernos de Arrays**
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 - Spread operator (`...`)
@@ -93,7 +93,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 - Object enhancements (shorthand, computed properties)
 - `Object.hasOwn()` (ES2022)
 
-**Proyecto**: Gestor de Tareas (Task Manager)
+**Proyecto**: Gestor de colección del dominio (CRUD inmutable en `logic.js`)
 
 ---
 

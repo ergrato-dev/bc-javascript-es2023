@@ -9,7 +9,7 @@ Estado de cada semana:
 | Semana | Tema | Etapa | Estado |
 |---|---|---|---|
 | [01](week-01-introduccion_javascript_moderno_es2023/README.md) | [Introducción a JavaScript Moderno (ES2023)](week-01-introduccion_javascript_moderno_es2023/README.md) | Fundamentos | ✅ |
-| [02](week-02-operadores_metodos_modernos_arrays/README.md) | [Operadores y Métodos Modernos de Arrays](week-02-operadores_metodos_modernos_arrays/README.md) | Fundamentos | 🟡 |
+| [02](week-02-operadores_metodos_modernos_arrays/README.md) | [Operadores y Métodos Modernos de Arrays](week-02-operadores_metodos_modernos_arrays/README.md) | Fundamentos | ✅ |
 | [03](week-03-clases_programacion_orientada_objetos/README.md) | [Clases y Programación Orientada a Objetos](week-03-clases_programacion_orientada_objetos/README.md) | Fundamentos | 🟡 |
 | [04](week-04-destructuring_modulos_es2023/README.md) | [Destructuring y Módulos ES2023](week-04-destructuring_modulos_es2023/README.md) | Fundamentos | 🟡 |
 | [05](week-05-arrays_avanzados/README.md) | [Arrays Avanzados](week-05-arrays_avanzados/README.md) | Fundamentos | 🟡 |

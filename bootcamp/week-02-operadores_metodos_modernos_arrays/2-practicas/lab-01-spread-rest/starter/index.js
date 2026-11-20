@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 01: Spread & Rest Operators
+ * 📘 Lab 01: Spread & Rest Operators
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para aprender spread y rest operators en JavaScript ES2023.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -213,7 +213,7 @@ console.log('--- Paso 8: Caso Práctico ---');
 console.log('');
 
 // ============================================
-// ✅ EJERCICIO COMPLETADO
+// ✅ LAB COMPLETADO
 // ============================================
-console.log('🎉 ¡Excelente! Has completado el ejercicio de Spread & Rest.');
+console.log('🎉 ¡Excelente! Has completado el lab de Spread & Rest.');
 console.log('Revisa cada paso y experimenta modificando los valores.');

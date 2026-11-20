@@ -515,3 +515,14 @@ Marca los términos que dominas completamente:
 **Última actualización**: Diciembre 2024
 
 **Objetivo**: Dominar al menos el 80% de estos términos al finalizar Week 02.
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [🚀 Semana 3: Clases y Programación Orientada a Objetos](../../week-03-clases_programacion_orientada_objetos/README.md) → |
+
+[↑ Semana 02](../README.md)

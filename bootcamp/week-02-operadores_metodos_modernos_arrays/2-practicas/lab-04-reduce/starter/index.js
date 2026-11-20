@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 04: reduce() - El Método Más Poderoso
+ * 📘 Lab 04: reduce() - El Método Más Poderoso
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para dominar el método reduce().
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -271,7 +271,7 @@ console.log('--- Paso 9: Carrito de Compras ---');
 console.log('');
 
 // ============================================
-// ✅ EJERCICIO COMPLETADO
+// ✅ LAB COMPLETADO
 // ============================================
 console.log('🎉 ¡Felicidades! Has dominado reduce().');
 console.log('Este es el método más versátil de los arrays.');

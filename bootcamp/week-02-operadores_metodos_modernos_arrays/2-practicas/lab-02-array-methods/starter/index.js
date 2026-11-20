@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 02: Array Methods Básicos
+ * 📘 Lab 02: Array Methods Básicos
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para aprender find, findIndex, some, every e includes.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -231,9 +231,9 @@ console.log('--- Paso 8: Búsqueda Múltiple ---');
 console.log('');
 
 // ============================================
-// ✅ EJERCICIO COMPLETADO
+// ✅ LAB COMPLETADO
 // ============================================
 console.log(
-  '🎉 ¡Excelente! Has completado el ejercicio de Array Methods Básicos.'
+  '🎉 ¡Excelente! Has completado el lab de Array Methods Básicos.'
 );
 console.log('Revisa cada paso y experimenta modificando las condiciones.');

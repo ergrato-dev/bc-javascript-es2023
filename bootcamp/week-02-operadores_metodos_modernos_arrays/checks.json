@@ -1,0 +1,90 @@
+{
+  "semana": "02",
+  "titulo": "Operadores y Métodos Modernos de Arrays",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/logic.js es un módulo ES válido",
+      "cmd": "cd {proyecto} && node --check src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "arrow-functions",
+      "descripcion": "src/logic.js define las funciones con arrow functions, sin la palabra function",
+      "cmd": "cd {proyecto} && ! grep -nw 'function' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "create-item",
+      "descripcion": "createItem pone los valores por defecto y el siguiente id libre",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const F = (v) => Object.freeze(Array.isArray(v) ? v.map((x) => Object.freeze(x)) : v); assert.deepEqual(l.createItem({ name: 'Marte' }), { id: 1, name: 'Marte', description: '', category: 'other', priority: 'medium', active: true }); assert.equal(l.createItem({ name: 'Venus' }, F([{ id: 4 }, { id: 9 }, { id: 2 }])).id, 10); assert.equal(l.createItem({ name: 'Luna', category: 'moon', priority: 'low' }).category, 'moon');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "add-item",
+      "descripcion": "addItem añade uno o varios elementos sin modificar el array",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const F = (v) => Object.freeze(Array.isArray(v) ? v.map((x) => Object.freeze(x)) : v); const a = { id: 1 }; const items = F([a]); assert.deepEqual(l.addItem(items, { id: 2 }), [a, { id: 2 }]); assert.deepEqual(l.addItem(items, { id: 2 }, { id: 3 }), [a, { id: 2 }, { id: 3 }]); assert.equal(items.length, 1);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "update-item",
+      "descripcion": "updateItem cambia solo el elemento con ese id y devuelve un array nuevo",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const F = (v) => Object.freeze(Array.isArray(v) ? v.map((x) => Object.freeze(x)) : v); const items = F([{ id: 1, name: 'Júpiter', description: 'Gigante gaseoso', category: 'planet', priority: 'high', active: true }, { id: 2, name: 'Sirio', description: 'Muy brillante', category: 'star', priority: 'medium', active: true }, { id: 5, name: 'Orión', description: 'Nebulosa', category: 'nebula', priority: 'low', active: false }]); const result = l.updateItem(items, 2, { priority: 'high', name: 'Sirio A' }); assert.deepEqual(result[1], { ...items[1], priority: 'high', name: 'Sirio A' }); assert.deepEqual(result[0], items[0]); assert.equal(result.length, 3); assert.notEqual(result, items);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "remove-item",
+      "descripcion": "removeItem quita el elemento con ese id",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const F = (v) => Object.freeze(Array.isArray(v) ? v.map((x) => Object.freeze(x)) : v); const items = F([{ id: 1, name: 'Júpiter', description: 'Gigante gaseoso', category: 'planet', priority: 'high', active: true }, { id: 2, name: 'Sirio', description: 'Muy brillante', category: 'star', priority: 'medium', active: true }, { id: 5, name: 'Orión', description: 'Nebulosa', category: 'nebula', priority: 'low', active: false }]); assert.deepEqual(l.removeItem(items, 2).map((i) => i.id), [1, 5]); assert.equal(l.removeItem(items, 99).length, 3);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "toggle-active",
+      "descripcion": "toggleActive invierte active solo en ese elemento",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const F = (v) => Object.freeze(Array.isArray(v) ? v.map((x) => Object.freeze(x)) : v); const items = F([{ id: 1, name: 'Júpiter', description: 'Gigante gaseoso', category: 'planet', priority: 'high', active: true }, { id: 2, name: 'Sirio', description: 'Muy brillante', category: 'star', priority: 'medium', active: true }, { id: 5, name: 'Orión', description: 'Nebulosa', category: 'nebula', priority: 'low', active: false }]); const result = l.toggleActive(items, 5); assert.equal(result[2].active, true); assert.equal(result[0].active, true); assert.equal(l.toggleActive(items, 1)[0].active, false); assert.equal(items[2].active, false);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "filter-items",
+      "descripcion": "filterItems combina estado, categoría, prioridad y búsqueda",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const F = (v) => Object.freeze(Array.isArray(v) ? v.map((x) => Object.freeze(x)) : v); const items = F([{ id: 1, name: 'Júpiter', description: 'Gigante gaseoso', category: 'planet', priority: 'high', active: true }, { id: 2, name: 'Sirio', description: 'Muy brillante', category: 'star', priority: 'medium', active: true }, { id: 5, name: 'Orión', description: 'Nebulosa', category: 'nebula', priority: 'low', active: false }]); const ids = (f) => l.filterItems(items, f).map((i) => i.id); assert.deepEqual(ids(), [1, 2, 5]); assert.deepEqual(ids({ status: 'active' }), [1, 2]); assert.deepEqual(ids({ status: 'inactive' }), [5]); assert.deepEqual(ids({ category: 'planet' }), [1]); assert.deepEqual(ids({ priority: 'medium' }), [2]); assert.deepEqual(ids({ query: '  GAS ' }), [1]); assert.deepEqual(ids({ query: 'sirio', status: 'inactive' }), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "get-stats",
+      "descripcion": "getStats cuenta total, activos, inactivos y elementos por categoría",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const F = (v) => Object.freeze(Array.isArray(v) ? v.map((x) => Object.freeze(x)) : v); const items = F([{ id: 1, name: 'Júpiter', description: 'Gigante gaseoso', category: 'planet', priority: 'high', active: true }, { id: 2, name: 'Sirio', description: 'Muy brillante', category: 'star', priority: 'medium', active: true }, { id: 5, name: 'Orión', description: 'Nebulosa', category: 'nebula', priority: 'low', active: false }]); assert.deepEqual(l.getStats([...items, { ...items[0], id: 6, active: false }]), { total: 4, active: 2, inactive: 2, byCategory: { planet: 2, star: 1, nebula: 1 } }); assert.deepEqual(l.getStats([]), { total: 0, active: 0, inactive: 0, byCategory: {} });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "missing-fields",
+      "descripcion": "missingFields devuelve los campos obligatorios que faltan o están vacíos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const F = (v) => Object.freeze(Array.isArray(v) ? v.map((x) => Object.freeze(x)) : v); assert.deepEqual(l.missingFields({ name: 'Sirio', category: 'star' }), []); assert.deepEqual(l.missingFields({ name: '  ', category: 'star' }), ['name']); assert.deepEqual(l.missingFields({}), ['name', 'category']); assert.deepEqual(l.missingFields({ name: 'Sirio' }, ['name', 'priority']), ['priority']); assert.deepEqual(l.missingFields(Object.assign(Object.create({ category: 'x' }), { name: 'A' })), ['category']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    }
+  ]
+}

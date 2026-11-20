@@ -113,4 +113,4 @@ Node para ejecutar los labs y comprobar el proyecto; `pnpm dlx serve` para abrir
 
 | ← Semana anterior | Siguiente → |
 |---|---|
-| [Inicio del bootcamp](../README.md) | [Semana 02 - Operadores Avanzados y Array Methods](../week-02-operadores_metodos_modernos_arrays/README.md) |
+| [Inicio del bootcamp](../README.md) | [Semana 02 - Operadores y Métodos Modernos de Arrays](../week-02-operadores_metodos_modernos_arrays/README.md) |

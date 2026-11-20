@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 03: map() y filter()
+ * 📘 Lab 03: map() y filter()
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para aprender transformación y filtrado de arrays.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -263,9 +263,9 @@ console.log('--- Paso 8: Filtrar Duplicados ---');
 console.log('');
 
 // ============================================
-// ✅ EJERCICIO COMPLETADO
+// ✅ LAB COMPLETADO
 // ============================================
-console.log('🎉 ¡Excelente! Has completado el ejercicio de map() y filter().');
+console.log('🎉 ¡Excelente! Has completado el lab de map() y filter().');
 console.log(
   'Revisa cada paso y experimenta creando tus propias transformaciones.'
 );

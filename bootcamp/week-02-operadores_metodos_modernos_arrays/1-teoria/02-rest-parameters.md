@@ -346,14 +346,13 @@ const { internalCode, ...publicProduct } = product;
 - [MDN - Rest parameters](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 - [JavaScript.info - Rest parameters](https://javascript.info/rest-parameters-spread#rest-parameters)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-- [← Anterior: Spread Operator](01-spread-operator.md)
-- [→ Siguiente: Default Parameters](03-default-parameters.md)
-- [↑ Volver al README](../README.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📦 Spread Operator (`...`)](01-spread-operator.md) | [Teoría — 🎯 Default Parameters (Parámetros por Defecto)](03-default-parameters.md) → |
 
----
-
-_Semana 02 - JavaScript Moderno Bootcamp_
+[↑ Semana 02](../README.md)

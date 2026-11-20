@@ -145,3 +145,14 @@ Para **Week 02**, sugerimos este orden:
 ---
 
 **Última actualización**: Diciembre 2024
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 02](../../README.md)

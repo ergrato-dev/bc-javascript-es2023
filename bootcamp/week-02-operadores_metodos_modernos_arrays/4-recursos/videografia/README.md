@@ -257,3 +257,14 @@ Videos, tutoriales y cursos seleccionados para complementar el aprendizaje de la
 **Última actualización**: Diciembre 2024
 
 **Nota**: Los enlaces específicos no se incluyen ya que las URLs de YouTube cambian. Usa los términos de búsqueda proporcionados para encontrar los videos actualizados.
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 02](../../README.md)

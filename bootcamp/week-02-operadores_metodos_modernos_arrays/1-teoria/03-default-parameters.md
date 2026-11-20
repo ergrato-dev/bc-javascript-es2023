@@ -467,14 +467,13 @@ const createConfig = ({
 - [MDN - Default parameters](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 - [JavaScript.info - Function parameters](https://javascript.info/function-basics#default-values)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-- [← Anterior: Rest Parameters](02-rest-parameters.md)
-- [→ Siguiente: Array Methods](04-array-methods.md)
-- [↑ Volver al README](../README.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🎒 Rest Parameters (`...`)](02-rest-parameters.md) | [Teoría — 🔄 Array Methods (Métodos de Arrays ES2023)](04-array-methods.md) → |
 
----
-
-_Semana 02 - JavaScript Moderno Bootcamp_
+[↑ Semana 02](../README.md)

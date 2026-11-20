@@ -421,13 +421,13 @@ const newNumbers = [1, ...numbers];
 - [JavaScript.info - Spread operator](https://javascript.info/rest-parameters-spread)
 - [ES6 Features - Spread](http://es6-features.org/#SpreadOperator)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-- [← Volver al README de la Semana](../README.md)
-- [→ Siguiente: Rest Parameters](02-rest-parameters.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 02 - Operadores y Métodos Modernos de Arrays](../README.md) | [Teoría — 🎒 Rest Parameters (`...`)](02-rest-parameters.md) → |
 
----
-
-_Semana 02 - JavaScript Moderno Bootcamp_
+[↑ Semana 02](../README.md)
