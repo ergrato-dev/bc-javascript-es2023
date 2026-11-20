@@ -1,12 +1,8 @@
 /**
- * Ejercicio 01: Creación y Uso de Symbols
+ * 📘 Lab 01: Crear y usar símbolos
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Aprende los fundamentos de Symbol en JavaScript ES2023
- *
- * Instrucciones:
- * - Lee cada paso y descomenta el código
- * - Ejecuta con: node index.js
- * - Observa los resultados
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -141,35 +137,34 @@ console.log('--- Paso 5: Acceder a Símbolos ---');
 console.log('');
 
 // ============================================
-// PASO 6: Ejercicio Práctico
+// PASO 6: Un objeto con claves públicas y simbólicas
 // ============================================
-console.log('--- Paso 6: Ejercicio Práctico ---');
+console.log('--- Paso 6: Claves públicas y simbólicas ---');
 
-// Crea un objeto "producto" con:
-// - Propiedades públicas: name, price
-// - Propiedades simbólicas: _internalId, _supplierCode
+// Un objeto con propiedades públicas (name, price)
+// y propiedades simbólicas (_internalId, _supplierCode)
 
-// Descomenta y completa:
+// Descomenta las siguientes líneas:
 // const _internalId = Symbol('internalId');
 // const _supplierCode = Symbol('supplierCode');
 //
-// const producto = {
-//   name: 'Laptop',
+// const product = {
+//   name: 'Telescopio',
 //   price: 999,
-//   // Agrega las propiedades simbólicas aquí
+//   [_internalId]: 'INT-042',
+//   [_supplierCode]: 'SUP-7'
 // };
 //
-// // Verificar
-// console.log('Claves públicas:', Object.keys(producto));
-// console.log('Todas las claves:', Reflect.ownKeys(producto));
-// console.log('ID interno:', producto[_internalId]);
+// console.log('Claves públicas:', Object.keys(product));
+// console.log('Todas las claves:', Reflect.ownKeys(product));
+// console.log('ID interno:', product[_internalId]);
 
 console.log('');
 
 // ============================================
-// BONUS: No Usar new con Symbol
+// PASO 7: Symbol no es un constructor
 // ============================================
-console.log('--- Bonus: Symbol no es Constructor ---');
+console.log('--- Paso 7: Symbol no es constructor ---');
 
 // Symbol NO es un constructor, no se puede usar con new
 
@@ -182,4 +177,4 @@ console.log('--- Bonus: Symbol no es Constructor ---');
 // }
 
 console.log('');
-console.log('✅ Ejercicio 01 completado');
+console.log('✅ Lab completado.');

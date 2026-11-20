@@ -73,6 +73,13 @@
 2. **Intermedio**: Exploring ES2023 → Capítulo de Symbols
 3. **Avanzado**: Deep JavaScript → Metaprogramming
 
+<!-- nav -->
 ---
 
-_Week 09 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 09](../../README.md)

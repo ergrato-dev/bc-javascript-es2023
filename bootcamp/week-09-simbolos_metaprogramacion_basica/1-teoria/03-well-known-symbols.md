@@ -407,6 +407,13 @@ console.log([...price].length);   // 550 (centavos)
 - [MDN: Well-known Symbols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols)
 - [JavaScript.info: Symbol](https://javascript.info/symbol)
 
+<!-- nav -->
 ---
 
-[← Anterior: Symbol.for y Registro Global](02-symbol-for-registry.md) | [Siguiente: Símbolos como Claves Privadas →](04-symbols-as-keys.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🌐 Symbol.for y Registro Global](02-symbol-for-registry.md) | [Teoría — 🔒 Símbolos como Claves Privadas](04-symbols-as-keys.md) → |
+
+[↑ Semana 09](../README.md)

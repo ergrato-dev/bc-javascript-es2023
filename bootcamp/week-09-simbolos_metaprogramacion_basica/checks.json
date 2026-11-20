@@ -1,0 +1,97 @@
+{
+  "semana": "09",
+  "titulo": "Símbolos y Metaprogramación Básica",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js y src/logic.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE, ID_PREFIX de 2 a 4 mayúsculas y por defecto 5 a 12 piezas sin id, con nombre sin repetir, sala, valor numérico de 0 o más y nota",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE, ID_PREFIX } from './src/data.js'; assert.ok(typeof TITLE === 'string' && TITLE.trim() !== ''); assert.match(ID_PREFIX, /^[A-Z]{2,4}$/); assert.ok(Array.isArray(items) && items.length >= 5 && items.length <= 12); assert.ok(items.every((item) => !('id' in item) && [item.name, item.room, item.note].every((t) => typeof t === 'string' && t.trim() !== '') && Number.isFinite(item.value) && item.value >= 0)); assert.equal(new Set(items.map(({ name }) => name)).size, items.length);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título, el prefijo y las piezas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE, ID_PREFIX } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.notEqual(ID_PREFIX, 'PLA'); assert.ok(!items.some(({ name }) => ['Telescopio refractor', 'Globo lunar', 'Astrolabio', 'Proyector estelar'].includes(name)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "notes-symbol",
+      "descripcion": "NOTES es un símbolo local (no del registro global) con la descripción notes",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { NOTES } from './src/logic.js'; assert.equal(typeof NOTES, 'symbol'); assert.equal(NOTES.description, 'notes'); assert.equal(Symbol.keyFor(NOTES), undefined); assert.notStrictEqual(NOTES, Symbol.for('notes'));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "create-piece",
+      "descripcion": "createPiece crea una pieza con id, name, room y value como únicas claves de texto, guarda la nota con la clave NOTES y no modifica los datos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { NOTES, createPiece } from './src/logic.js'; const data = Object.freeze({ name: 'Ánfora', room: 'Sala 1', value: 300, note: 'Grieta en el asa' }); const piece = createPiece(data, 'MUS-001'); assert.deepEqual(Object.keys(piece), ['id', 'name', 'room', 'value']); assert.deepEqual([piece.id, piece.name, piece.room, piece.value], ['MUS-001', 'Ánfora', 'Sala 1', 300]); assert.equal(piece[NOTES], 'Grieta en el asa'); assert.ok(!JSON.stringify(piece).includes('Grieta')); assert.ok(!('note' in piece)); assert.notStrictEqual(createPiece(data, 'MUS-002'), piece);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "to-primitive",
+      "descripcion": "Una pieza se convierte en el texto nombre (id) cuando se espera un string y en su valor en los demás casos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createPiece } from './src/logic.js'; const data = Object.freeze({ name: 'Ánfora', room: 'Sala 1', value: 300, note: 'Grieta en el asa' }); const piece = createPiece(data, 'MUS-001'); assert.equal(String(piece), 'Ánfora (MUS-001)'); assert.equal('' + [piece], 'Ánfora (MUS-001)'); assert.equal(+piece, 300); assert.equal(piece + 0, 300); assert.equal(piece * 2, 600); assert.ok(piece > 299);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "type-of",
+      "descripcion": "typeOf devuelve el tipo que da Object.prototype.toString, sin [object ]: Piece para una pieza",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createPiece, typeOf } from './src/logic.js'; const data = Object.freeze({ name: 'Ánfora', room: 'Sala 1', value: 300, note: 'Grieta en el asa' }); const piece = createPiece(data, 'MUS-001'); assert.equal(Object.prototype.toString.call(piece), '[object Piece]'); assert.equal(typeOf(piece), 'Piece'); assert.equal(typeOf([]), 'Array'); assert.equal(typeOf({}), 'Object'); assert.equal(typeOf(null), 'Null'); assert.equal(typeOf(new Map()), 'Map'); assert.equal(typeOf(5), 'Number');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "instance",
+      "descripcion": "x instanceof Piece es true solo para las piezas, también con null y valores primitivos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createPiece, Piece } from './src/logic.js'; const data = Object.freeze({ name: 'Ánfora', room: 'Sala 1', value: 300, note: 'Grieta en el asa' }); const piece = createPiece(data, 'MUS-001'); assert.equal(typeof Piece[Symbol.hasInstance], 'function'); assert.ok(piece instanceof Piece); assert.ok(!({ name: 'Ánfora', value: 300 } instanceof Piece)); assert.ok(!([] instanceof Piece)); assert.ok(!(null instanceof Piece)); assert.ok(!('Piece' instanceof Piece));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "total-value",
+      "descripcion": "totalValue suma las piezas convirtiéndolas en número con Symbol.toPrimitive, 0 sin piezas, y no modifica el array",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createPiece, totalValue } from './src/logic.js'; const pieces = Object.freeze([createPiece({ name: 'A', room: 'S', value: 300, note: 'n' }, 'M-1'), createPiece({ name: 'B', room: 'S', value: 50, note: 'n' }, 'M-2')]); assert.equal(totalValue(pieces), 350); assert.equal(totalValue([]), 0); const other = { [Symbol.toPrimitive]: () => 7 }; assert.equal(totalValue([other, other]), 14);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "to-public",
+      "descripcion": "toPublic devuelve un objeto nuevo y normal con solo las claves de texto de la pieza, sin ninguna clave simbólica",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { NOTES, createPiece, toPublic } from './src/logic.js'; const data = Object.freeze({ name: 'Ánfora', room: 'Sala 1', value: 300, note: 'Grieta en el asa' }); const piece = createPiece(data, 'MUS-001'); const view = toPublic(piece); assert.deepEqual(view, { id: 'MUS-001', name: 'Ánfora', room: 'Sala 1', value: 300 }); assert.deepEqual(Object.getOwnPropertySymbols(view), []); assert.equal(Object.prototype.toString.call(view), '[object Object]'); assert.notStrictEqual(view, piece); assert.equal(piece[NOTES], 'Grieta en el asa');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "hidden-keys",
+      "descripcion": "hiddenKeys devuelve la descripción de cada clave simbólica propia del objeto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createPiece, hiddenKeys } from './src/logic.js'; const data = Object.freeze({ name: 'Ánfora', room: 'Sala 1', value: 300, note: 'Grieta en el asa' }); const piece = createPiece(data, 'MUS-001'); assert.deepEqual(hiddenKeys(piece).toSorted(), ['Symbol.toPrimitive', 'Symbol.toStringTag', 'notes']); assert.deepEqual(hiddenKeys({ a: 1 }), []); assert.deepEqual(hiddenKeys({ a: 1, [Symbol('x')]: 1, [Symbol.for('y')]: 2 }), ['x', 'y']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    }
+  ]
+}

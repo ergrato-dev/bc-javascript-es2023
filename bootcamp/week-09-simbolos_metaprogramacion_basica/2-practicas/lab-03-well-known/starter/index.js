@@ -1,13 +1,8 @@
 /**
- * Ejercicio 03: Well-known Symbols
+ * 📘 Lab 03: Well-known symbols
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Aprende a personalizar el comportamiento de objetos
- * usando los símbolos predefinidos de JavaScript
- *
- * Instrucciones:
- * - Lee cada paso y descomenta el código
- * - Ejecuta con: node index.js
- * - Observa cómo cambia el comportamiento
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -132,7 +127,7 @@ console.log('--- Paso 4: Symbol.hasInstance ---');
 // Descomenta las siguientes líneas:
 // class Numeric {
 //   static [Symbol.hasInstance](value) {
-//     return typeof value === 'number' && !isNaN(value);
+//     return typeof value === 'number' && !Number.isNaN(value);
 //   }
 // }
 //
@@ -199,26 +194,26 @@ console.log('--- Paso 5: Clase Money Completa ---');
 console.log('');
 
 // ============================================
-// PASO 6: Ejercicio Práctico
+// PASO 6: Clase Temperature
 // ============================================
-console.log('--- Paso 6: Ejercicio Práctico ---');
+console.log('--- Paso 6: Clase Temperature ---');
 
-// Crea una clase Temperature que:
-// 1. Tenga toStringTag = 'Temperature'
-// 2. toPrimitive retorne:
-//    - number: el valor en Celsius
-//    - string: formato "25°C"
-//    - default: el valor numérico
+// Una clase Temperature con toStringTag = 'Temperature'
+// y un toPrimitive que da '25°C' como string y 25 en los demás casos
 
-// Descomenta y completa:
+// Descomenta las siguientes líneas:
 // class Temperature {
 //   constructor(celsius) {
 //     this.celsius = celsius;
 //   }
 //
-//   // Agrega Symbol.toStringTag
+//   get [Symbol.toStringTag]() {
+//     return 'Temperature';
+//   }
 //
-//   // Agrega Symbol.toPrimitive
+//   [Symbol.toPrimitive](hint) {
+//     return hint === 'string' ? `${this.celsius}°C` : this.celsius;
+//   }
 // }
 //
 // const temp = new Temperature(25);
@@ -227,4 +222,4 @@ console.log('--- Paso 6: Ejercicio Práctico ---');
 // console.log('Número:', temp + 10);
 
 console.log('');
-console.log('✅ Ejercicio 03 completado');
+console.log('✅ Lab completado.');

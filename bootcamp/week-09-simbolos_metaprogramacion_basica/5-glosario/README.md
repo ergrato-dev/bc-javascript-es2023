@@ -301,6 +301,13 @@ Symbol.toPrimitive       // +obj, `${obj}`
 Symbol.hasInstance       // instanceof
 ```
 
+<!-- nav -->
 ---
 
-_Week 09 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📅 Week 10: Proxies y Reflect](../../week-10-proxies_reflect/README.md) → |
+
+[↑ Semana 09](../README.md)

@@ -357,6 +357,13 @@ console.log(JSON.stringify(data)); // '{"name":"Test"}'
 - [MDN: Symbol](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
 - [JavaScript.info: Symbol type](https://javascript.info/symbol)
 
+<!-- nav -->
 ---
 
-[← Volver al índice](../README.md) | [Siguiente: Symbol.for y Registro Global →](02-symbol-for-registry.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 09 - Símbolos y Metaprogramación Básica](../README.md) | [Teoría — 🌐 Symbol.for y Registro Global](02-symbol-for-registry.md) → |
+
+[↑ Semana 09](../README.md)

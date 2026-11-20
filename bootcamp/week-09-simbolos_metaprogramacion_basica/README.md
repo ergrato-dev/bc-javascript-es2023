@@ -1,175 +1,108 @@
-# 📅 Week 09: Símbolos y Metaprogramación Básica
+# Semana 09 - Símbolos y Metaprogramación Básica
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de aprendizaje
 
-Al finalizar esta semana, serás capaz de:
+Al terminar la semana podrás:
 
-- ✅ Comprender qué son los Symbols y por qué existen
-- ✅ Crear símbolos únicos y símbolos compartidos (Symbol.for)
-- ✅ Utilizar Well-known Symbols para personalizar comportamiento
-- ✅ Implementar Symbol.iterator y Symbol.toStringTag
-- ✅ Usar símbolos como claves "privadas" en objetos
-- ✅ Acceder a propiedades simbólicas con Object.getOwnPropertySymbols()
+- Crear símbolos con `Symbol()` y explicar por qué cada uno es único.
+- Compartir símbolos con el registro global de `Symbol.for()` y leer su clave con `Symbol.keyFor()`.
+- Usar símbolos como claves de objeto para ocultar datos de `Object.keys`, `for...in` y `JSON.stringify`, y distinguir ocultar de proteger (campos `#`).
+- Cambiar cómo JavaScript trata a tus objetos con `Symbol.toStringTag`, `Symbol.toPrimitive`, `Symbol.iterator` y `Symbol.hasInstance`.
+- Encontrar las claves simbólicas de un objeto con `Object.getOwnPropertySymbols` y `Reflect.ownKeys`.
 
----
+## Requisitos previos
 
-## 📋 Contenido de la Semana
+- La [semana 03](../week-03-clases_programacion_orientada_objetos/README.md) (clases y campos privados `#`), la [semana 07](../week-07-sets_maps/README.md) (`Object.fromEntries`) y la [semana 08](../week-08-iteradores_generadores/README.md) (`Symbol.iterator` y generadores).
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
 
-### 📚 Teoría (2 horas)
-
-| # | Tema | Archivo |
-|---|------|---------|
-| 01 | Introducción a Symbols | [01-symbols-intro.md](1-teoria/01-symbols-intro.md) |
-| 02 | Symbol.for y Registro Global | [02-symbol-for-registry.md](1-teoria/02-symbol-for-registry.md) |
-| 03 | Well-known Symbols | [03-well-known-symbols.md](1-teoria/03-well-known-symbols.md) |
-| 04 | Símbolos como Claves Privadas | [04-symbols-as-keys.md](1-teoria/04-symbols-as-keys.md) |
-| 05 | Object.getOwnPropertySymbols | [05-get-own-property-symbols.md](1-teoria/05-get-own-property-symbols.md) |
-
-### 💻 Prácticas (3 horas)
-
-| # | Ejercicio | Carpeta |
-|---|-----------|---------|
-| 01 | Creación y Uso de Symbols | [ejercicio-01-symbols-basics/](2-practicas/ejercicio-01-symbols-basics/) |
-| 02 | Symbol.for y Registro Global | [ejercicio-02-symbol-registry/](2-practicas/ejercicio-02-symbol-registry/) |
-| 03 | Well-known Symbols | [ejercicio-03-well-known/](2-practicas/ejercicio-03-well-known/) |
-| 04 | Propiedades Privadas con Symbols | [ejercicio-04-private-props/](2-practicas/ejercicio-04-private-props/) |
-
-### 🚀 Proyecto (2.5 horas)
-
-**Objeto Seguro con Propiedades Privadas**
-
-Crear un sistema de objetos que use símbolos para implementar propiedades verdaderamente privadas, con control de acceso y metaprogramación.
-
-📁 [Ver proyecto](3-proyecto/)
-
-### 📖 Recursos (0.5 horas)
-
-- [E-books gratuitos](4-recursos/ebooks-free/)
-- [Videografía recomendada](4-recursos/videografia/)
-- [Webgrafía y documentación](4-recursos/webgrafia/)
-
-### 📝 Glosario
-
-[Términos clave de la semana](5-glosario/)
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 11.20.0 (o superior)
+  ```
 
 ---
 
-## ⏱️ Distribución del Tiempo
+## Contenidos
 
-| Actividad | Duración | Porcentaje |
-|-----------|----------|------------|
-| 📚 Teoría | 2 horas | 25% |
-| 💻 Prácticas | 3 horas | 37.5% |
-| 🚀 Proyecto | 2.5 horas | 31.25% |
-| 📖 Recursos | 0.5 horas | 6.25% |
-| **Total** | **8 horas** | **100%** |
+### 1. Teoría (2 h)
 
----
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Introducción a Symbols](1-teoria/01-symbols-intro.md) | 25 min | `Symbol()`, unicidad y claves simbólicas |
+| [02 - Symbol.for y registro global](1-teoria/02-symbol-for-registry.md) | 20 min | `Symbol.for()` y `Symbol.keyFor()` |
+| [03 - Well-known symbols](1-teoria/03-well-known-symbols.md) | 30 min | `toStringTag`, `toPrimitive`, `iterator`, `hasInstance` y otros |
+| [04 - Símbolos como claves](1-teoria/04-symbols-as-keys.md) | 25 min | Ocultar propiedades frente a `_nombre` y campos `#` |
+| [05 - Object.getOwnPropertySymbols](1-teoria/05-get-own-property-symbols.md) | 20 min | Introspección con `getOwnPropertySymbols` y `Reflect.ownKeys` |
 
-## 📌 Requisitos Previos
+### 2. Prácticas (3 h 30 min)
 
-Antes de comenzar esta semana, asegúrate de:
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Crear y usar símbolos](2-practicas/lab-01-symbols-basics/README.md) | 50 min |
+| [Lab 02 - `Symbol.for` y el registro global](2-practicas/lab-02-symbol-registry/README.md) | 50 min |
+| [Lab 03 - Well-known symbols](2-practicas/lab-03-well-known/README.md) | 55 min |
+| [Lab 04 - Ocultar propiedades con símbolos](2-practicas/lab-04-private-props/README.md) | 55 min |
 
-- ✅ Dominar iteradores y generadores (Week 08)
-- ✅ Comprender el protocolo de iteración
-- ✅ Conocer for...of y Symbol.iterator
-- ✅ Entender objetos y propiedades en JavaScript
+### 3. Proyecto (2 h)
 
----
+[Fichas con notas reservadas](3-proyecto/README.md): completas el símbolo `NOTES`, el objeto `Piece` y las cinco funciones de `src/logic.js` (crear piezas con una nota en clave simbólica, convertirlas con `Symbol.toPrimitive`, identificarlas con `Symbol.toStringTag` e `instanceof`, sumarlas y sacar su vista pública) y adaptas `src/data.js` al dominio que te asigna el instructor. `scripts/verificar-semana.sh 09` comprueba las funciones.
 
-## 🎓 Criterios de Evaluación
+### 4. Recursos (30 min)
 
-| Criterio | Peso |
-|----------|------|
-| 🧠 Conocimiento teórico | 30% |
-| 💪 Ejercicios prácticos | 40% |
-| 📦 Proyecto final | 30% |
-
-Para más detalles, consulta la [rúbrica de evaluación](rubrica-evaluacion.md).
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
 
 ---
 
-## 📚 Resumen de Conceptos Clave
+## Evaluación
 
-### ¿Qué es un Symbol?
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 13/13 comprobaciones y datos del dominio |
 
-```javascript
-// Crear un símbolo único
-const id = Symbol('descripción');
+Detalle en la [rúbrica](rubrica-evaluacion.md).
 
-// Cada símbolo es único
-Symbol('foo') === Symbol('foo'); // false
+---
 
-// Símbolos compartidos (registro global)
-const shared = Symbol.for('app.key');
-Symbol.for('app.key') === shared; // true
-```
+## Estructura
 
-### Well-known Symbols
-
-```javascript
-// Symbol.toStringTag - personalizar [object Type]
-const obj = {
-  [Symbol.toStringTag]: 'MyObject'
-};
-Object.prototype.toString.call(obj); // '[object MyObject]'
-
-// Symbol.iterator - hacer objeto iterable
-const range = {
-  from: 1,
-  to: 3,
-  [Symbol.iterator]() {
-    let current = this.from;
-    const last = this.to;
-    return {
-      next() {
-        if (current <= last) {
-          return { value: current++, done: false };
-        }
-        return { done: true };
-      }
-    };
-  }
-};
-```
-
-### Símbolos como Claves "Privadas"
-
-```javascript
-const _secret = Symbol('secret');
-
-const user = {
-  name: 'Alice',
-  [_secret]: 'hidden data'
-};
-
-// No visible en for...in ni Object.keys()
-Object.keys(user); // ['name']
-
-// Accesible con el símbolo
-user[_secret]; // 'hidden data'
-
-// Accesible con Object.getOwnPropertySymbols()
-Object.getOwnPropertySymbols(user); // [Symbol(secret)]
+```text
+week-09-simbolos_metaprogramacion_basica/
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 5 diagramas SVG
+|-- 1-teoria/                  # 01 a 05
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-symbols-basics/
+|   |-- lab-02-symbol-registry/
+|   |-- lab-03-well-known/
+|   `-- lab-04-private-props/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # index.html, styles.css, src/data.js, src/logic.js, src/main.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## 🔗 Navegación
+## Versiones de la semana
 
-| ← Anterior | Inicio | Siguiente → |
-|------------|--------|-------------|
-| [Week 08: Iteradores y Generadores](../week-08-iteradores_generadores/README.md) | [Bootcamp](../../README.md) | [Week 10: Proxy y Reflect](../week-10-proxies_reflect/README.md) |
+Node para ejecutar los labs y comprobar el proyecto; `pnpm dlx serve` para abrir el proyecto en el navegador. Las salidas de este material se obtuvieron con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## 💡 Tips para esta Semana
+## Navegación
 
-1. **No son privados "de verdad"**: Los símbolos no proporcionan privacidad real, solo ocultan propiedades de las enumeraciones comunes
-2. **Symbol() vs Symbol.for()**: Usa Symbol() para únicos locales, Symbol.for() para compartir entre módulos
-3. **Well-known Symbols**: Son la clave de la metaprogramación en JavaScript
-4. **Usa descripciones**: Siempre pasa una descripción a Symbol() para debugging más fácil
-
----
-
-_Semana 9 de 28 | Bootcamp JavaScript ES2023_
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 08 - Iteradores y Generadores](../week-08-iteradores_generadores/README.md) | [Semana 10 - Proxy y Reflect](../week-10-proxies_reflect/README.md) |

@@ -1,187 +1,88 @@
-# 📋 Rúbrica de Evaluación - Week 09
+# Rúbrica de Evaluación - Semana 09
 
-## Símbolos y Metaprogramación Básica
+## Evidencias y ponderación
 
----
-
-## 🎯 Distribución de Evidencias
-
-| Tipo de Evidencia | Peso     | Puntaje Mínimo |
-| ----------------- | -------- | -------------- |
-| 📦 Producto       | 100%     | 70/100 (70%)   |
-| **TOTAL**         | **100%** | **70/100**     |
-
-> **Nota**: Ejercicios prácticos no se entregan de forma separada.
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | `Symbol()`, registro global, claves simbólicas, well-known symbols e introspección con `Object.getOwnPropertySymbols` y `Reflect.ownKeys` |
+| Desempeño | 40% | Labs 01 a 04 descomentados y ejecutados |
+| Producto | 30% | Fichas con notas reservadas: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-## 🧠 Material de Conocimiento (No se entrega)
+## Criterios por evidencia
 
-> **Importante**: Autoevaluación. Tu comprensión se evalúa en el proyecto.
+## 1) Conocimiento (30%)
 
-### Autoevaluación Teórica (No se entrega)
+### Criterios
 
-| Nivel | Descripción | Puntos |
-|-------|-------------|--------|
-| **Excelente** | Explica con precisión qué son los símbolos, diferencia Symbol() de Symbol.for(), comprende todos los well-known symbols vistos y sabe cuándo usar cada uno | 90-100 |
-| **Bueno** | Comprende la mayoría de conceptos, puede explicar la utilidad de los símbolos y conoce los well-known symbols principales | 70-89 |
-| **Suficiente** | Entiende los conceptos básicos de símbolos pero tiene dificultades con well-known symbols o Symbol.for() | 50-69 |
-| **Insuficiente** | No comprende la diferencia entre símbolos y strings como claves, o confunde Symbol() con Symbol.for() | 0-49 |
+- Explica por qué dos `Symbol('id')` son distintos y para qué sirve la descripción.
+- Distingue `Symbol()` de `Symbol.for()` y dice cuándo conviene cada uno, y qué devuelve `Symbol.keyFor()` en cada caso.
+- Explica qué métodos ignoran las claves simbólicas (`Object.keys`, `for...in`, `JSON.stringify`) y cuáles las encuentran (`Object.getOwnPropertySymbols`, `Reflect.ownKeys`, spread).
+- Distingue una clave simbólica de un campo privado `#`: cuál oculta y cuál protege.
+- Explica qué símbolo del lenguaje consulta JavaScript en `Object.prototype.toString`, en `+obj` o `` `${obj}` ``, en `for...of` y en `instanceof`, y qué `hint` recibe `Symbol.toPrimitive` en cada conversión.
 
-#### Preguntas de Verificación
+### Niveles
 
-1. ¿Por qué `Symbol('foo') === Symbol('foo')` es `false`?
-2. ¿Cuándo usarías Symbol.for() en lugar de Symbol()?
-3. ¿Qué hace Symbol.toStringTag y para qué sirve?
-4. ¿Por qué los símbolos no son verdaderamente privados?
-5. ¿Cómo puedes obtener todas las propiedades simbólicas de un objeto?
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, entre oculto y privado).
+- **Bajo (<21):** no distingue `Symbol()` de `Symbol.for()`, o cree que una clave simbólica no se puede leer desde fuera.
 
 ---
 
-## 💪 Ejercicios de Práctica (No se entregan)
+## 2) Desempeño (40%)
 
-> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
+### Criterios
 
-Evaluación de los ejercicios prácticos realizados (para autoevaluación).
+- Lab 01: los 7 pasos descomentados; explica por qué `user.ID` da `undefined` en el paso 3 y cómo el paso 5 encuentra las claves ocultas.
+- Lab 02: los 8 pasos; explica por qué los dos «módulos» del paso 4 obtienen el mismo símbolo sin exportarlo y por qué conviene un prefijo en las claves del registro.
+- Lab 03: los 6 pasos; explica qué `hint` recibe `toPrimitive` en cada línea del paso 2 y por qué `42 instanceof Numeric` da `true` en el paso 4.
+- Lab 04: los 7 pasos; explica por qué el secreto del paso 2 no es privado, qué copian el spread y `Object.assign` en el paso 5 y por qué el JSON del paso 7 sale `{}`.
 
-| Nivel | Descripción | Puntos |
-|-------|-------------|--------|
-| **Excelente** | Completa todos los ejercicios correctamente, usa símbolos de manera idiomática y demuestra comprensión de well-known symbols | 90-100 |
-| **Bueno** | Completa la mayoría de ejercicios, usa símbolos correctamente con errores menores | 70-89 |
-| **Suficiente** | Completa ejercicios básicos pero tiene dificultades con well-known symbols o el registro global | 50-69 |
-| **Insuficiente** | No completa los ejercicios o los completa con errores conceptuales significativos | 0-49 |
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab.
 
-#### Criterios por Ejercicio
+### Niveles
 
-| Ejercicio | Criterios de Éxito |
-|-----------|-------------------|
-| 01 - Symbols Basics | Crea símbolos con descripción, demuestra unicidad, accede a propiedades simbólicas |
-| 02 - Symbol Registry | Usa Symbol.for() correctamente, obtiene claves con Symbol.keyFor() |
-| 03 - Well-known Symbols | Implementa Symbol.toStringTag, Symbol.toPrimitive o Symbol.iterator |
-| 04 - Private Props | Usa símbolos para ocultar propiedades, demuestra que no aparecen en Object.keys() |
+- **Alto (36-40):** los cuatro labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cuatro labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-### 3. 📦 Producto (30%)
+## 3) Producto (30%)
 
-Evaluación del proyecto "Objeto Seguro con Propiedades Privadas".
+### Criterios
 
-| Nivel | Descripción | Puntos |
-|-------|-------------|--------|
-| **Excelente** | Proyecto funcional completo, usa símbolos para propiedades privadas, implementa well-known symbols, código limpio y bien documentado | 90-100 |
-| **Bueno** | Proyecto funciona correctamente, usa símbolos apropiadamente, código legible | 70-89 |
-| **Suficiente** | Proyecto básico funcional, uso limitado de símbolos, falta documentación | 50-69 |
-| **Insuficiente** | Proyecto incompleto o no funcional, no demuestra comprensión de símbolos | 0-49 |
+- `PROYECTO=... ./scripts/verificar-semana.sh 09` pasa las 13 comprobaciones.
+- `TITLE`, `ID_PREFIX` y las piezas de `src/data.js` describen el dominio asignado, con 5 a 12 piezas coherentes, valores creíbles y notas que tenga sentido reservar.
+- La página funciona servida con `pnpm dlx serve .`: la casilla enseña y oculta las notas, la vista pública nunca las incluye, la cabecera suma el valor, los cuatro errores del formulario aparecen y desaparecen, una pieza nueva recibe el siguiente id y un id borrado no se reutiliza, sin errores en la consola.
+- Las funciones usan lo de la semana donde corresponde: `NOTES` es un `Symbol()` local; `createPiece` guarda la nota con `[NOTES]` y define `Symbol.toStringTag` y `Symbol.toPrimitive`; `Piece` usa `Symbol.hasInstance`; `totalValue` suma las piezas sin leer `value`; `hiddenKeys` usa `Object.getOwnPropertySymbols`.
 
-#### Requisitos del Proyecto
+### Niveles
 
-| Requisito | Peso | Descripción |
-|-----------|------|-------------|
-| Propiedades privadas | 25% | Usa símbolos para almacenar datos "ocultos" |
-| Métodos de acceso | 20% | Getters/setters que usan símbolos internamente |
-| Symbol.toStringTag | 15% | Personaliza el tipo mostrado por toString() |
-| Symbol.iterator | 20% | Hace el objeto iterable si aplica |
-| Código limpio | 10% | Nomenclatura, estructura, comentarios |
-| Documentación | 10% | README claro, ejemplos de uso |
+- **Alto (27-30):** 13/13, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 13/13 con datos poco adaptados (piezas de relleno, notas genéricas) o alguna acción de la página que falla.
+- **Bajo (<21):** menos de 13 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## 📊 Cálculo de Nota Final
+## Calificación
 
-```
-Nota Final = (Conocimiento × 0.30) + (Desempeño × 0.40) + (Producto × 0.30)
-```
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
-### Escala de Calificación
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
 
-| Rango | Calificación | Estado |
-|-------|--------------|--------|
-| 90-100 | A | Excelente ⭐ |
-| 80-89 | B | Muy Bueno ✨ |
-| 70-79 | C | Bueno ✅ |
-| 60-69 | D | Suficiente 📝 |
-| 0-59 | F | Insuficiente ❌ |
-
+<!-- nav -->
 ---
 
-## ✅ Checklist de Entrega
+## 🔗 Navegación
 
-### Ejercicios Prácticos
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Fichas con notas reservadas](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
-- [ ] Ejercicio 01: Symbols básicos completado
-- [ ] Ejercicio 02: Symbol.for y registro completado
-- [ ] Ejercicio 03: Well-known symbols completado
-- [ ] Ejercicio 04: Propiedades privadas completado
-
-### Proyecto Final
-
-- [ ] Código funcional en `starter/script.js`
-- [ ] Propiedades privadas implementadas con Symbol
-- [ ] Symbol.toStringTag implementado
-- [ ] Objeto iterable (si aplica)
-- [ ] Código documentado
-
----
-
-## 🔍 Errores Comunes a Evitar
-
-| Error | Descripción | Impacto |
-|-------|-------------|---------|
-| Usar strings como "privados" | Prefijar con `_` no oculta propiedades | -10 pts |
-| Confundir Symbol() y Symbol.for() | Usar Symbol.for() cuando debería ser único | -15 pts |
-| No usar descripción | Symbol() sin string descriptivo | -5 pts |
-| Ignorar Object.getOwnPropertySymbols | No saber que los símbolos son accesibles | -10 pts |
-| No implementar well-known symbols | Saltarse Symbol.toStringTag o iterator | -20 pts |
-
----
-
-## 💡 Criterios de Código Limpio
-
-### Nomenclatura
-
-```javascript
-// ✅ BIEN - Símbolos con descripción clara
-const _id = Symbol('user.id');
-const _password = Symbol('user.password');
-
-// ❌ MAL - Sin descripción
-const secret = Symbol();
-
-// ✅ BIEN - Prefijo para identificar símbolos privados
-const _internalState = Symbol('internal.state');
-
-// ✅ BIEN - Símbolos globales con namespace
-const SHARED_KEY = Symbol.for('myapp.shared.key');
-```
-
-### Organización
-
-```javascript
-// ✅ BIEN - Símbolos declarados al inicio del módulo
-const _data = Symbol('private.data');
-const _validate = Symbol('private.validate');
-
-class SecureObject {
-  constructor() {
-    this[_data] = {};
-  }
-
-  [_validate](value) {
-    // Método privado
-  }
-}
-```
-
----
-
-## 📚 Recursos de Apoyo
-
-Si tienes dificultades, revisa:
-
-- [MDN: Symbol](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
-- [JavaScript.info: Symbol](https://javascript.info/symbol)
-- Material teórico de la semana 09
-
----
-
-_Rúbrica Week 09 | Bootcamp JavaScript ES2023_
+[↑ Semana 09](README.md)

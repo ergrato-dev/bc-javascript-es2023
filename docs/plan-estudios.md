@@ -193,15 +193,17 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 09: Símbolos y Metaprogramación Básica**
-**Horas**: 8h (2h teoría + 3h práctica + 2.5h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Símbolos (Symbol)
-- Well-known symbols (Symbol.iterator, Symbol.toStringTag)
-- Object.getOwnPropertySymbols()
-- Uso de símbolos como claves privadas
+- Símbolos (`Symbol()`), unicidad y claves simbólicas
+- Registro global: `Symbol.for()` y `Symbol.keyFor()`
+- Well-known symbols (`Symbol.toStringTag`, `Symbol.toPrimitive`, `Symbol.iterator`, `Symbol.hasInstance`)
+- `Object.getOwnPropertySymbols()` y `Reflect.ownKeys()`
+- Ocultar propiedades con símbolos frente a campos privados `#`
 
-**Proyecto**: Creación de objetos con propiedades "privadas"
+**Proyecto**: Fichas con notas reservadas: la nota va en una clave simbólica, las piezas se convierten con `Symbol.toPrimitive`, se identifican con `Symbol.toStringTag` e `instanceof`, y la vista pública sale sin claves simbólicas
 
 ---
 

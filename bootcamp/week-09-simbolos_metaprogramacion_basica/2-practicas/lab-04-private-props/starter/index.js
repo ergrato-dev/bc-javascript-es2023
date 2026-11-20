@@ -1,13 +1,8 @@
 /**
- * Ejercicio 04: Propiedades Privadas con Symbols
+ * 📘 Lab 04: Ocultar propiedades con símbolos
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Aprende a usar símbolos para ocultar propiedades
- * y entiende sus limitaciones
- *
- * Instrucciones:
- * - Lee cada paso y descomenta el código
- * - Ejecuta con: node index.js
- * - Comprende la diferencia entre "oculto" y "privado"
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -178,35 +173,18 @@ console.log('--- Paso 6: Uso en Clases ---');
 // Descomenta las siguientes líneas:
 // // Símbolos definidos fuera de la clase
 // const _id = Symbol('id');
-// const _createdAt = Symbol('createdAt');
-// const _generateId = Symbol('generateId');
+// const _nextId = Symbol('nextId');
 //
 // class Entity {
-//   constructor(data) {
-//     this[_id] = this[_generateId]();
-//     this[_createdAt] = new Date();
-//     Object.assign(this, data);
-//   }
+//   static [_nextId] = 1;
 //
-//   [_generateId]() {
-//     return Math.random().toString(36).substr(2, 9);
+//   constructor(data) {
+//     this[_id] = Entity[_nextId]++;
+//     Object.assign(this, data);
 //   }
 //
 //   getId() {
 //     return this[_id];
-//   }
-//
-//   getCreatedAt() {
-//     return this[_createdAt];
-//   }
-//
-//   toJSON() {
-//     // Solo serializar propiedades públicas
-//     const result = {};
-//     for (const key of Object.keys(this)) {
-//       result[key] = this[key];
-//     }
-//     return result;
 //   }
 // }
 //
@@ -220,32 +198,31 @@ console.log('--- Paso 6: Uso en Clases ---');
 console.log('');
 
 // ============================================
-// PASO 7: Ejercicio Práctico
+// PASO 7: Configuración con claves ocultas
 // ============================================
-console.log('--- Paso 7: Ejercicio Práctico ---');
+console.log('--- Paso 7: Configuración con claves ocultas ---');
 
-// Crea un "SecureConfig" que:
-// 1. Guarde apiKey y secretToken como símbolos
-// 2. Tenga métodos públicos para verificar si están configurados
-// 3. No exponga los valores en Object.keys() ni JSON
+// Un "SecureConfig" que guarda apiKey y secretToken con claves simbólicas,
+// tiene métodos públicos para saber si están configurados
+// y no expone los valores en Object.keys() ni en JSON
 
-// Descomenta y completa:
+// Descomenta las siguientes líneas:
 // const _apiKey = Symbol('apiKey');
 // const _secretToken = Symbol('secretToken');
 //
 // const createSecureConfig = (apiKey, secretToken) => ({
-//   // Propiedades simbólicas
+//   [_apiKey]: apiKey,
+//   [_secretToken]: secretToken,
 //
-//   // Métodos públicos
 //   hasApiKey() {
-//     // Retorna true si apiKey existe
+//     return Boolean(this[_apiKey]);
 //   },
 //
 //   hasSecretToken() {
-//     // Retorna true si secretToken existe
+//     return Boolean(this[_secretToken]);
 //   },
 //
-//   // Para uso interno (requiere el símbolo)
+//   // Solo quien tenga el símbolo puede leer la clave
 //   getApiKey(symbol) {
 //     if (symbol === _apiKey) return this[_apiKey];
 //     throw new Error('Acceso denegado');
@@ -256,6 +233,13 @@ console.log('--- Paso 7: Ejercicio Práctico ---');
 // console.log('¿Tiene API Key?', config.hasApiKey());
 // console.log('Claves visibles:', Object.keys(config));
 // console.log('JSON:', JSON.stringify(config));
+// console.log('Con el símbolo:', config.getApiKey(_apiKey));
+//
+// try {
+//   config.getApiKey(Symbol('apiKey'));
+// } catch (error) {
+//   console.log('Con otro símbolo:', error.message);
+// }
 
 console.log('');
-console.log('✅ Ejercicio 04 completado');
+console.log('✅ Lab completado.');

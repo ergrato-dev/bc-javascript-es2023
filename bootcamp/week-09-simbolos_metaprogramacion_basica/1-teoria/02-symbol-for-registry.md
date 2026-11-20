@@ -334,6 +334,13 @@ const processData = (adapter, data) => {
 - [MDN: Symbol.for()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
 - [MDN: Symbol.keyFor()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Symbol/keyFor)
 
+<!-- nav -->
 ---
 
-[← Anterior: Introducción a Symbols](01-symbols-intro.md) | [Siguiente: Well-known Symbols →](03-well-known-symbols.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔷 Introducción a Symbols](01-symbols-intro.md) | [Teoría — ⚡ Well-known Symbols](03-well-known-symbols.md) → |
+
+[↑ Semana 09](../README.md)

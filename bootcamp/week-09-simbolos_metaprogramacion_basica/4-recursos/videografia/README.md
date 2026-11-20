@@ -103,6 +103,13 @@
 - ✅ Reproduce a 1.25x si ya conoces los básicos
 - ✅ Activa subtítulos si están disponibles
 
+<!-- nav -->
 ---
 
-_Week 09 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 09](../../README.md)

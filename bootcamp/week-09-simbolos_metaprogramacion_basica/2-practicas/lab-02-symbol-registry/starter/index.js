@@ -1,12 +1,8 @@
 /**
- * Ejercicio 02: Symbol.for y Registro Global
+ * 📘 Lab 02: Symbol.for y registro global
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Aprende la diferencia entre Symbol() y Symbol.for()
- *
- * Instrucciones:
- * - Lee cada paso y descomenta el código
- * - Ejecuta con: node index.js
- * - Observa las diferencias
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -161,18 +157,17 @@ console.log('--- Paso 7: Comparativa ---');
 console.log('');
 
 // ============================================
-// PASO 8: Ejercicio Práctico
+// PASO 8: Catálogo de eventos
 // ============================================
-console.log('--- Paso 8: Ejercicio Práctico ---');
+console.log('--- Paso 8: Catálogo de eventos ---');
 
-// Crea un sistema de eventos usando Symbol.for()
-// Los símbolos deben poder accederse desde cualquier parte
+// Un catálogo de eventos con Symbol.for()
+// Cualquier parte del código obtiene el mismo símbolo con la misma clave
 
-// Descomenta y completa:
+// Descomenta las siguientes líneas:
 // const Events = {
 //   USER_LOGIN: Symbol.for('events.user.login'),
-//   USER_LOGOUT: Symbol.for('events.user.logout'),
-//   // Agrega más eventos...
+//   USER_LOGOUT: Symbol.for('events.user.logout')
 // };
 //
 // // Función que emite eventos
@@ -181,9 +176,9 @@ console.log('--- Paso 8: Ejercicio Práctico ---');
 //   console.log(`  Evento: ${eventKey}`, data);
 // };
 //
-// // Prueba
 // emit(Events.USER_LOGIN, { userId: 123 });
 // emit(Symbol.for('events.user.login'), { userId: 456 }); // Mismo símbolo
+// emit(Events.USER_LOGOUT, { userId: 123 });
 
 console.log('');
-console.log('✅ Ejercicio 02 completado');
+console.log('✅ Lab completado.');

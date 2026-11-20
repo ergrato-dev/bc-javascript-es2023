@@ -141,6 +141,13 @@ Object.getOwnPropertySymbols(obj);  // Solo símbolos
 Reflect.ownKeys(obj);               // Todo (strings + symbols)
 ```
 
+<!-- nav -->
 ---
 
-_Week 09 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 09](../../README.md)

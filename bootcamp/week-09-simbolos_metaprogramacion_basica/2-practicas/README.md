@@ -1,145 +1,32 @@
-# 💻 Prácticas - Week 09
+# Prácticas — Semana 09
 
-## Símbolos y Metaprogramación Básica
+Cuatro labs guiados que siguen el orden de la teoría. Cada lab trae en `starter/index.js` el código comentado: lo descomentas paso a paso, lo ejecutas con Node y comparas con la salida esperada del README. No se entregan; preparan el [proyecto de la semana](../3-proyecto/README.md).
 
----
+| Lab | Tema | Duración |
+|---|---|---|
+| [Lab 01](lab-01-symbols-basics/README.md) | `Symbol()`, unicidad, claves simbólicas, `Object.getOwnPropertySymbols` y `Reflect.ownKeys` | 50 min |
+| [Lab 02](lab-02-symbol-registry/README.md) | Registro global: `Symbol.for()` y `Symbol.keyFor()` | 50 min |
+| [Lab 03](lab-03-well-known/README.md) | `Symbol.toStringTag`, `Symbol.toPrimitive`, `Symbol.iterator` y `Symbol.hasInstance` | 55 min |
+| [Lab 04](lab-04-private-props/README.md) | Ocultar propiedades con símbolos frente a `_nombre` y campos `#` | 55 min |
 
-## 📋 Índice de Ejercicios
+**Total:** 3 h 30 min.
 
-| # | Ejercicio | Duración | Dificultad |
-|---|-----------|----------|------------|
-| 01 | [Creación y Uso de Symbols](ejercicio-01-symbols-basics/) | 45 min | ⭐ Básico |
-| 02 | [Symbol.for y Registro Global](ejercicio-02-symbol-registry/) | 45 min | ⭐ Básico |
-| 03 | [Well-known Symbols](ejercicio-03-well-known/) | 45 min | ⭐⭐ Intermedio |
-| 04 | [Propiedades Privadas con Symbols](ejercicio-04-private-props/) | 45 min | ⭐⭐ Intermedio |
+## Antes de empezar
 
-**Tiempo total estimado**: 3 horas
-
----
-
-## 🎯 Objetivos de las Prácticas
-
-Al completar estos ejercicios serás capaz de:
-
-- ✅ Crear y utilizar símbolos con descripciones
-- ✅ Diferenciar Symbol() de Symbol.for()
-- ✅ Implementar Well-known Symbols (toStringTag, toPrimitive, iterator)
-- ✅ Usar símbolos para ocultar propiedades de objetos
-- ✅ Acceder a propiedades simbólicas con Object.getOwnPropertySymbols()
-
----
-
-## 📝 Formato de los Ejercicios
-
-Cada ejercicio sigue el formato de **tutorial guiado**:
-
-1. **Lee el README.md** del ejercicio para entender los conceptos
-2. **Abre `starter/index.js`** y sigue las instrucciones
-3. **Descomenta el código** paso a paso
-4. **Ejecuta con Node.js** para ver los resultados
+Comprueba que tienes Node instalado (versión en [docs/stack-versions.md](../../../docs/stack-versions.md)):
 
 ```bash
-# Ejecutar un ejercicio
-cd ejercicio-01-symbols-basics/starter
-node index.js
+node --version
+# v24.19.0 (o superior)
 ```
 
+<!-- nav -->
 ---
 
-## 🗂️ Estructura de Cada Ejercicio
+## 🔗 Navegación
 
-```
-ejercicio-XX-nombre/
-├── README.md           # Explicación y conceptos
-└── starter/
-    └── index.js        # Código para descomentar
-```
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔎 Object.getOwnPropertySymbols](../1-teoria/05-get-own-property-symbols.md) | [Lab 01 — Crear y usar símbolos](lab-01-symbols-basics/README.md) → |
 
----
-
-## 📚 Orden Recomendado
-
-### Ejercicio 01: Symbols Basics
-Conceptos fundamentales de Symbol:
-- Crear símbolos con descripción
-- Demostrar unicidad
-- Usar como claves de objeto
-- Ocultos de Object.keys() y for...in
-
-### Ejercicio 02: Symbol Registry
-El registro global de símbolos:
-- Symbol.for() para símbolos compartidos
-- Symbol.keyFor() para obtener claves
-- Diferencias con Symbol()
-- Convención de namespacing
-
-### Ejercicio 03: Well-known Symbols
-Personalizar comportamiento de objetos:
-- Symbol.toStringTag
-- Symbol.toPrimitive
-- Symbol.iterator
-- Symbol.hasInstance
-
-### Ejercicio 04: Private Props
-Encapsulación con símbolos:
-- Propiedades "ocultas"
-- Object.getOwnPropertySymbols()
-- Reflect.ownKeys()
-- Patrón de módulo con símbolos
-
----
-
-## ⚡ Tips para los Ejercicios
-
-### Debugging de Símbolos
-
-```javascript
-// Ver descripción del símbolo
-const sym = Symbol('my-id');
-console.log(sym.description); // 'my-id'
-console.log(sym.toString());  // 'Symbol(my-id)'
-
-// Ver todos los símbolos de un objeto
-const obj = { [sym]: 'value' };
-console.log(Object.getOwnPropertySymbols(obj)); // [Symbol(my-id)]
-```
-
-### Errores Comunes
-
-```javascript
-// ❌ No usar new con Symbol
-const sym = new Symbol('id'); // TypeError!
-
-// ❌ No concatenar directamente
-const sym = Symbol('id');
-console.log('Symbol: ' + sym); // TypeError!
-
-// ✅ Usar toString() o description
-console.log('Symbol: ' + sym.toString());
-console.log(`Symbol: ${sym.description}`);
-```
-
----
-
-## 🔗 Recursos de Apoyo
-
-- [Teoría 01: Introducción a Symbols](../1-teoria/01-symbols-intro.md)
-- [Teoría 02: Symbol.for y Registro Global](../1-teoria/02-symbol-for-registry.md)
-- [Teoría 03: Well-known Symbols](../1-teoria/03-well-known-symbols.md)
-- [Teoría 04: Símbolos como Claves Privadas](../1-teoria/04-symbols-as-keys.md)
-- [Teoría 05: Object.getOwnPropertySymbols](../1-teoria/05-get-own-property-symbols.md)
-
----
-
-## ✅ Checklist de Progreso
-
-- [ ] Ejercicio 01 completado
-- [ ] Ejercicio 02 completado
-- [ ] Ejercicio 03 completado
-- [ ] Ejercicio 04 completado
-- [ ] Todos los conceptos comprendidos
-- [ ] Listo para el proyecto
-
----
-
-[← Volver al índice de la semana](../README.md) | [Ir al proyecto →](../3-proyecto/)
+[↑ Semana 09](../README.md)

@@ -438,6 +438,13 @@ console.log(symbols.length); // 10000
 - [MDN: Object.getOwnPropertySymbols()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols)
 - [MDN: Reflect.ownKeys()](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Reflect/ownKeys)
 
+<!-- nav -->
 ---
 
-[← Anterior: Símbolos como Claves Privadas](04-symbols-as-keys.md) | [Volver al índice →](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔒 Símbolos como Claves Privadas](04-symbols-as-keys.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 09](../README.md)

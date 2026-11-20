@@ -421,6 +421,13 @@ export const __testing__ = {
 - [MDN: Private class features](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)
 - [JavaScript.info: Property flags and descriptors](https://javascript.info/property-descriptors)
 
+<!-- nav -->
 ---
 
-[← Anterior: Well-known Symbols](03-well-known-symbols.md) | [Siguiente: Object.getOwnPropertySymbols →](05-get-own-property-symbols.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — ⚡ Well-known Symbols](03-well-known-symbols.md) | [Teoría — 🔎 Object.getOwnPropertySymbols](05-get-own-property-symbols.md) → |
+
+[↑ Semana 09](../README.md)
