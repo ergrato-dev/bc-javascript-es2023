@@ -19,7 +19,7 @@ Estado de cada semana:
 | [09](week-09-simbolos_metaprogramacion_basica/README.md) | [Símbolos y Metaprogramación Básica](week-09-simbolos_metaprogramacion_basica/README.md) | Fundamentos | ✅ |
 | [10](week-10-proxies_reflect/README.md) | [Proxies y Reflect](week-10-proxies_reflect/README.md) | Fundamentos | ✅ |
 | [11](week-11-manejo_errores_moderno/README.md) | [Manejo de Errores Moderno](week-11-manejo_errores_moderno/README.md) | Fundamentos | ✅ |
-| [12](week-12-proyecto_integrador_fundamentos/README.md) | [Proyecto Integrador — Fundamentos](week-12-proyecto_integrador_fundamentos/README.md) | Fundamentos | 🟡 |
+| [12](week-12-proyecto_integrador_fundamentos/README.md) | [Proyecto Integrador — Fundamentos](week-12-proyecto_integrador_fundamentos/README.md) | Fundamentos | ✅ |
 | [13](week-13-programacion_asincronica_callbacks_promises/README.md) | [Programación Asincrónica — Callbacks y Promises](week-13-programacion_asincronica_callbacks_promises/README.md) | Intermedio | 🟡 |
 | [14](week-14-async_await/README.md) | [Async/Await](week-14-async_await/README.md) | Intermedio | 🟡 |
 | [15](week-15-fetch_api/README.md) | [Fetch API](week-15-fetch_api/README.md) | Intermedio | 🟡 |

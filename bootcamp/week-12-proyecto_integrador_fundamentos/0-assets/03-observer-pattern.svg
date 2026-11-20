@@ -33,10 +33,10 @@
 
   <rect x="240" y="115" width="220" height="100" rx="4" fill="#166534"/>
   <text x="255" y="135" class="code">#listeners = new Set();</text>
-  <text x="255" y="155" class="code">subscribe(callback) {'{'}</text>
+  <text x="255" y="155" class="code">subscribe(callback) {</text>
   <text x="265" y="170" class="code">  this.#listeners.add(cb);</text>
-  <text x="255" y="185" class="code">{'}'}</text>
-  <text x="255" y="205" class="code">#notify() {'{'} ... {'}'}</text>
+  <text x="255" y="185" class="code">}</text>
+  <text x="255" y="205" class="code">#notify() { ... }</text>
 
   <!-- Observer 1: CartView -->
   <rect x="50" y="300" width="160" height="120" rx="8" fill="#3b82f6"/>
@@ -45,7 +45,7 @@
 
   <rect x="60" y="355" width="140" height="55" rx="4" fill="#1e40af"/>
   <text x="75" y="375" class="code">onStateChange =</text>
-  <text x="75" y="390" class="code">  (state) => {'{'}</text>
+  <text x="75" y="390" class="code">  (state) => {</text>
   <text x="75" y="405" class="code">    this.render();</text>
 
   <!-- Observer 2: Badge -->
@@ -55,7 +55,7 @@
 
   <rect x="280" y="355" width="140" height="55" rx="4" fill="#1e40af"/>
   <text x="295" y="375" class="code">updateCount =</text>
-  <text x="295" y="390" class="code">  (state) => {'{'}</text>
+  <text x="295" y="390" class="code">  (state) => {</text>
   <text x="295" y="405" class="code">    badge.text =</text>
 
   <!-- Observer 3: Analytics -->
@@ -65,7 +65,7 @@
 
   <rect x="500" y="355" width="140" height="55" rx="4" fill="#1e40af"/>
   <text x="515" y="375" class="code">trackCart =</text>
-  <text x="515" y="390" class="code">  (state) => {'{'}</text>
+  <text x="515" y="390" class="code">  (state) => {</text>
   <text x="515" y="405" class="code">    log(state);</text>
 
   <!-- Subscribe arrows (solid) -->

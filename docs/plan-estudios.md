@@ -239,14 +239,17 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 12: Proyecto Integrador - Fundamentos**
-**Horas**: 8h (0.5h teoría + 1.5h planning + 5.5h desarrollo + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (0.5h repaso + 3h práctica + 4h proyecto + 0.5h recursos)
 
-**Temas**:
-- Revisión de todos los conceptos de semanas 1-11
-- Arquitectura de aplicación
-- Clean code y refactoring
+**Temas** (repaso, sin conceptos nuevos):
+- Qué usa el proyecto de cada semana 1-11, con enlaces
+- Arquitectura: datos, lógica sin DOM y página; un dueño del estado
+- Patrón observer con un `Set` de suscriptores
+- Módulos reales: exports con nombre y por defecto, `index.js` de carpeta, `import()`
+- Clean code
 
-**Proyecto**: Aplicación completa de E-commerce (carrito, productos, usuarios)
+**Proyecto**: Gestor de colección: una clase `Collection` con campos privados, un `Map` y suscriptores, iterable con `Symbol.iterator`; búsqueda y orden con `toSorted`, páginas con un generador, resumen por sala con un `Map` y un `ValidationError` para los datos del formulario
 
 ---
 

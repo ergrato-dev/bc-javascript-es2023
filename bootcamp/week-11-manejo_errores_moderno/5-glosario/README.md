@@ -352,6 +352,6 @@ class ValidationError extends AppError {
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📅 Semana 12: Proyecto Integrador - Fundamentos](../../week-12-proyecto_integrador_fundamentos/README.md) → |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 12 - Proyecto Integrador - Fundamentos](../../week-12-proyecto_integrador_fundamentos/README.md) → |
 
 [↑ Semana 11](../README.md)

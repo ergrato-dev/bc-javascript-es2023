@@ -2,7 +2,7 @@
 
 ## 🎯 Objetivo
 
-Aplicar principios de código limpio en el proyecto integrador.
+Repasar los principios de código limpio que se aplican al proyecto integrador. No son reglas de JavaScript sino costumbres que hacen el código más fácil de leer y de cambiar.
 
 ---
 
@@ -115,35 +115,37 @@ const processUser = (user) => {
 | Archivos | kebab-case o PascalCase | `product-list.js` o `ProductList.js` |
 | Booleanos | is/has/can prefix | `isLoading`, `hasError`, `canEdit` |
 
-### Estructura de Archivos
+### Orden dentro de un archivo
+
+El mismo orden en todos los archivos ayuda a encontrar las cosas. Así está `src/logic.js` del proyecto:
 
 ```javascript
-// 1. Imports
-import { Product } from '../models/Product.js';
-import { storageService } from './StorageService.js';
+// 1. Imports (logic.js no necesita ninguno; main.js empieza por ellos)
 
-// 2. Constantes
-const STORAGE_KEY = 'products';
-const DEFAULT_PAGE_SIZE = 10;
+// 2. Errores propios
+export class ValidationError extends Error { ... }
 
-// 3. Clase/Función principal
-export class ProductService {
+// 3. Funciones auxiliares que usa la clase
+export const validatePiece = (data, rooms) => { ... };
+
+// 4. La clase principal
+export class Collection {
   // Campos privados primero
-  #products = [];
+  #pieces = new Map();
 
-  // Constructor
-  constructor() { ... }
+  // Constructor y getters
+  constructor(prefix, rooms) { ... }
+  get size() { ... }
 
   // Métodos públicos
-  getAll() { ... }
-  getById(id) { ... }
+  add(data) { ... }
 
-  // Métodos privados al final
-  #loadFromStorage() { ... }
+  // Métodos privados
+  #notify() { ... }
 }
 
-// 4. Instancia singleton (si aplica)
-export const productService = new ProductService();
+// 5. Funciones que calculan sin guardar
+export const search = (pieces, filters) => { ... };
 ```
 
 ---
@@ -207,10 +209,13 @@ Antes de entregar, verifica:
 - [ ] Indentación consistente (2 espacios)
 - [ ] Imports organizados
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Semana |
-|:------------|:---------:|
-| [Arquitectura](./02-arquitectura-aplicacion.md) | [README](../README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — Arquitectura del proyecto](02-arquitectura-aplicacion.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 12](../README.md)

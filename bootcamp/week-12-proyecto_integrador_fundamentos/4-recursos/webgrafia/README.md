@@ -2,7 +2,7 @@
 
 ## 🎯 Proyecto Integrador - Fundamentos
 
-Documentación oficial y artículos de referencia para el proyecto E-commerce.
+Documentación oficial y artículos de referencia para el proyecto integrador.
 
 ---
 
@@ -98,10 +98,13 @@ Documentación oficial y artículos de referencia para el proyecto E-commerce.
 | [Emojipedia](https://emojipedia.org/) | Referencia de emojis |
 | [Font Awesome](https://fontawesome.com/) | Librería de iconos |
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Recursos | 🏠 Semana |
-|:------------|:---------:|
-| [4-recursos](../) | [README](../../README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 12](../../README.md)

@@ -1,349 +1,117 @@
 # 📖 Glosario - Semana 12
 
-## 🎯 Proyecto Integrador - Fundamentos
+## Proyecto Integrador - Fundamentos
 
-Términos clave relacionados con arquitectura de aplicaciones, patrones de diseño y desarrollo de proyectos.
+Términos clave de la semana ordenados alfabéticamente. Ninguno es nuevo: cada uno enlaza la semana o el lab donde se explica.
 
 ---
 
 ## A
 
-### **Arquitectura**
-Estructura organizacional de una aplicación que define cómo se organizan y comunican sus componentes.
-
-```
-app/
-├── models/      # Datos y lógica de negocio
-├── services/    # Operaciones y reglas
-└── ui/          # Interfaz de usuario
-```
-
-### **API (Application Programming Interface)**
-Interfaz que define cómo interactuar con un componente o servicio.
-
-```javascript
-// API pública de CartService
-CartService.addItem(product);
-CartService.removeItem(productId);
-CartService.getState();
-```
-
----
+### Arquitectura
+Cómo se reparte un programa en partes y qué responsabilidad tiene cada una. En el proyecto: `data.js` guarda los datos del dominio, `logic.js` las reglas sin DOM y `main.js` la página. Ver [02 - Arquitectura del proyecto](../1-teoria/02-arquitectura-aplicacion.md).
 
 ## C
 
-### **Clean Code**
-Código que es fácil de leer, entender y mantener. Sigue principios como nombres descriptivos, funciones pequeñas y DRY.
+### Campo privado
+Propiedad de una clase que empieza por `#` y solo se puede usar dentro de la clase. Escribir `objeto.#campo` desde fuera es un `SyntaxError`. Ver [semana 03](../../week-03-clases_programacion_orientada_objetos/README.md) y [lab 01](../2-practicas/lab-01-clases/README.md).
 
 ```javascript
-// ✅ Clean
-const calculateTotalPrice = items =>
-  items.reduce((sum, item) => sum + item.subtotal, 0);
-
-// ❌ No clean
-const calc = arr => arr.reduce((s, i) => s + i.p * i.q, 0);
-```
-
-### **Controller**
-Componente que coordina la comunicación entre diferentes partes de la aplicación.
-
-```javascript
-// app.js actúa como controller
-class App {
-  init() {
-    ProductList.init();
-    CartView.init();
-    AuthView.init();
-  }
+class Collection {
+  #pieces = new Map();
 }
 ```
 
----
+### Clean code
+Código que se lee y se cambia con facilidad: nombres que dicen qué guardan, funciones cortas, sin repeticiones ni código muerto. Ver [03 - Clean Code](../1-teoria/03-clean-code.md).
 
 ## D
 
-### **DRY (Don't Repeat Yourself)**
-Principio que promueve evitar duplicación de código extrayendo lógica común.
-
-```javascript
-// ✅ DRY - función reutilizable
-const formatPrice = price => `$${price.toLocaleString()}`;
-
-// Usar en múltiples lugares
-product.formattedPrice = formatPrice(product.price);
-cart.formattedTotal = formatPrice(cart.total);
-```
-
----
+### DRY (Don't Repeat Yourself)
+No repetir la misma lógica en dos sitios. Si dos funciones hacen lo mismo, se extrae una y se llama desde las dos.
 
 ## E
 
-### **Encapsulación**
-Ocultar los detalles internos de un objeto, exponiendo solo una interfaz pública.
+### Encapsulación
+Esconder el estado de un objeto y dejar que se cambie solo a través de sus métodos. En el proyecto, `Collection` guarda sus piezas en `#pieces` y solo `add` y `remove` las cambian, siempre validando y avisando.
 
-```javascript
-class User {
-  #password; // Campo privado encapsulado
+### Estado
+Los datos que un programa recuerda mientras funciona. En el proyecto, el estado son las piezas de la colección; los filtros se leen del formulario en cada `render()`.
 
-  get isValidPassword() {
-    return this.#password.length >= 6;
-  }
-}
-```
-
-### **Entry Point**
-Archivo principal que inicia la ejecución de la aplicación.
-
-```javascript
-// main.js - Entry point
-import { app } from './app.js';
-app.init();
-```
-
----
+### Export por defecto
+El valor que un módulo exporta con `export default`. Se importa sin llaves y con cualquier nombre: `import Product from './models/Product.js'`. Ver [lab 03](../2-practicas/lab-03-modulos/README.md).
 
 ## G
 
-### **Getter**
-Método especial que permite acceder a un valor computado como si fuera una propiedad.
+### Generador
+Función declarada con `function*` que entrega valores uno a uno con `yield` y se detiene hasta el siguiente `next()`. `paginate` es un generador. Ver [semana 08](../../week-08-iteradores_generadores/README.md).
 
-```javascript
-class Cart {
-  get total() {
-    return this.items.reduce((sum, item) => sum + item.subtotal, 0);
-  }
-}
-
-// Uso: cart.total (sin paréntesis)
-```
-
----
+### Getter
+Método declarado con `get` que se lee como una propiedad, sin paréntesis: `collection.size`. Puede devolver un campo privado o un valor calculado. Ver [lab 01](../2-practicas/lab-01-clases/README.md).
 
 ## I
 
-### **Integración**
-Proceso de combinar múltiples componentes para que trabajen juntos como un sistema.
+### `import()` dinámico
+Carga un módulo cuando el programa llega a esa línea y devuelve una promesa con sus exports. Ver [lab 03](../2-practicas/lab-03-modulos/README.md), paso 5.
 
----
-
-## L
-
-### **Layer (Capa)**
-Nivel de abstracción en una arquitectura de software. Ejemplo: Models, Services, UI.
-
-### **Listener**
-Función que se ejecuta cuando ocurre un evento específico.
-
-```javascript
-button.addEventListener('click', handleClick);
-CartService.subscribe(state => updateUI(state));
-```
-
----
+### Iterable
+Objeto con un método `[Symbol.iterator]` que devuelve un iterador. Funciona con `for...of` y con el spread `[...objeto]`. Los arrays, los `Map`, los `Set` y la `Collection` del proyecto son iterables. Ver [semana 09](../../week-09-simbolos_metaprogramacion_basica/README.md).
 
 ## M
 
-### **Model**
-Clase que representa una entidad del dominio y sus datos.
+### Map
+Colección de pares clave → valor que encuentra un valor por su clave sin recorrer nada y recuerda el orden de inserción. Ver [semana 07](../../week-07-sets_maps/README.md) y [lab 04](../2-practicas/lab-04-map/README.md).
 
-```javascript
-class Product {
-  #id;
-  #name;
-  #price;
-
-  get formattedPrice() { /* ... */ }
-  toJSON() { /* ... */ }
-}
-```
-
-### **Module**
-Archivo JavaScript que exporta funcionalidad para ser usada en otros archivos.
-
-```javascript
-// product.js
-export class Product { /* ... */ }
-
-// app.js
-import { Product } from './models/Product.js';
-```
-
----
+### Módulo
+Archivo con su propio ámbito: solo sale lo que lleva `export` y solo entra lo que se pide con `import`. Ver [semana 04](../../week-04-destructuring_modulos_es2023/README.md).
 
 ## O
 
-### **Observer Pattern**
-Patrón donde un objeto (subject) notifica a múltiples objetos (observers) cuando cambia su estado.
+### `Object.freeze`
+Congela un objeto: sus propiedades ya no se pueden cambiar, añadir ni borrar. En un módulo, intentarlo lanza `TypeError`. La `Collection` congela las piezas que devuelve.
 
-```javascript
-class CartService {
-  #listeners = new Set();
-
-  subscribe(callback) {
-    this.#listeners.add(callback);
-    return () => this.#listeners.delete(callback);
-  }
-
-  #notifyListeners() {
-    this.#listeners.forEach(cb => cb(this.getState()));
-  }
-}
-```
-
----
+### Observer
+Patrón en el que un objeto guarda una lista de funciones interesadas (suscriptores) y las llama cada vez que cambia. Ver [lab 02](../2-practicas/lab-02-observer/README.md).
 
 ## P
 
-### **Persistencia**
-Almacenamiento de datos que sobrevive al cierre de la aplicación.
-
-```javascript
-// Guardar en localStorage
-localStorage.setItem('cart', JSON.stringify(cartData));
-
-// Recuperar
-const cartData = JSON.parse(localStorage.getItem('cart'));
-```
-
-### **Private Field**
-Campo de clase accesible solo dentro de la propia clase, declarado con `#`.
-
-```javascript
-class User {
-  #email; // Privado - solo accesible dentro de User
-}
-```
-
----
+### Paginar
+Repartir una lista larga en páginas de un tamaño fijo para mostrar una cada vez. En el proyecto, `paginate(lista, 4)`.
 
 ## R
 
-### **Refactoring**
-Proceso de reestructurar código existente sin cambiar su comportamiento externo.
+### Re-exportar
+Exportar desde un módulo lo que exporta otro: `export { User } from './User.js'`. Un `index.js` que re-exporta toda una carpeta deja importarla desde un solo sitio. Ver [lab 03](../2-practicas/lab-03-modulos/README.md), paso 4.
 
-### **Render**
-Proceso de generar y mostrar la interfaz de usuario.
+### Refactorizar
+Cambiar cómo está escrito el código sin cambiar lo que hace. Las comprobaciones de `checks.json` avisan si un cambio rompe algo.
 
-```javascript
-render() {
-  this.container.innerHTML = this.items
-    .map(item => this.renderItem(item))
-    .join('');
-}
-```
-
----
+### Render
+Pintar en la página el estado actual. En el proyecto, `render()` de `main.js` lo hace cada vez que la colección avisa o cambia un filtro.
 
 ## S
 
-### **Separation of Concerns**
-Principio de diseño que separa una aplicación en secciones distintas, cada una responsable de una funcionalidad específica.
+### Separación de responsabilidades
+Que cada parte del programa se ocupe de una sola cosa. Por eso `logic.js` no toca el DOM y `main.js` no decide qué pieza es válida.
 
-### **Service**
-Clase que encapsula lógica de negocio y operaciones.
+### Set
+Colección de valores sin repetir. La `Collection` guarda sus suscriptores en un `Set`, así una misma función no se apunta dos veces. Ver [semana 07](../../week-07-sets_maps/README.md).
 
-```javascript
-class ProductService {
-  getAll() { /* ... */ }
-  getById(id) { /* ... */ }
-  filter(criteria) { /* ... */ }
-}
-```
-
-### **Singleton**
-Patrón que garantiza una única instancia de una clase en toda la aplicación.
-
-```javascript
-class StorageService { /* ... */ }
-export const storageService = new StorageService(); // Única instancia
-```
-
-### **State**
-Datos que representan el estado actual de la aplicación o componente.
-
-```javascript
-getState() {
-  return {
-    items: this.#cart.items,
-    total: this.#cart.total,
-    isEmpty: this.#cart.isEmpty
-  };
-}
-```
-
----
-
-## T
-
-### **Template Literal**
-String que permite interpolación de expresiones y múltiples líneas.
-
-```javascript
-const html = `
-  <div class="product">
-    <h2>${product.name}</h2>
-    <span>${product.formattedPrice}</span>
-  </div>
-`;
-```
-
-### **toJSON()**
-Método que convierte un objeto a formato serializable para JSON.
-
-```javascript
-toJSON() {
-  return {
-    id: this.#id,
-    name: this.#name,
-    price: this.#price
-  };
-}
-```
-
----
-
-## U
-
-### **UI (User Interface)**
-Capa de la aplicación responsable de mostrar información y capturar interacciones del usuario.
-
-### **Unsubscribe**
-Función que cancela una suscripción a cambios.
-
-```javascript
-const unsubscribe = CartService.subscribe(callback);
-// Más tarde...
-unsubscribe(); // Deja de recibir notificaciones
-```
-
----
+### Suscriptor
+Función que se apunta con `subscribe` para enterarse de los cambios. `subscribe` devuelve otra función que la da de baja.
 
 ## V
 
-### **Validation**
-Proceso de verificar que los datos cumplen con requisitos específicos.
+### Validación
+Comprobar que unos datos cumplen las reglas antes de usarlos. Si no las cumplen, `validatePiece` lanza un `ValidationError` con el campo que falla. Ver [semana 11](../../week-11-manejo_errores_moderno/README.md).
 
-```javascript
-static isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-```
-
-### **View**
-Componente responsable de renderizar la interfaz de usuario.
-
-```javascript
-class CartView {
-  render() { /* Actualiza el DOM */ }
-  open() { /* Muestra el sidebar */ }
-  close() { /* Oculta el sidebar */ }
-}
-```
-
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Recursos | 🏠 Semana |
-|:------------|:---------:|
-| [4-recursos](../4-recursos/) | [README](../README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📅 Semana 13: Programación Asincrónica - Callbacks y Promises](../../week-13-programacion_asincronica_callbacks_promises/README.md) → |
+
+[↑ Semana 12](../README.md)

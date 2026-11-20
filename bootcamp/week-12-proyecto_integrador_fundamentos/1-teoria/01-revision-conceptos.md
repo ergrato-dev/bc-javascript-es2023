@@ -1,191 +1,114 @@
-# 📚 Revisión de Conceptos ES2023
+# Repaso de las semanas 1 a 11
 
-## 🎯 Objetivo
+## Objetivo
 
-Repasar rápidamente todos los conceptos de las semanas 1-11 antes de aplicarlos en el proyecto integrador.
-
----
-
-## 📋 Semanas 1-4: Fundamentos Base
-
-### Week 01: Variables y Sintaxis Moderna
-
-```javascript
-// const y let (nunca var)
-const API_URL = 'https://api.example.com';
-let counter = 0;
-
-// Arrow functions
-const double = x => x * 2;
-const greet = (name, age) => `Hola ${name}, tienes ${age} años`;
-
-// Optional chaining y nullish coalescing
-const city = user?.address?.city ?? 'No especificada';
-```
-
-### Week 02: Operadores y Array Methods
-
-```javascript
-// Spread operator
-const allProducts = [...featured, ...regular];
-const newUser = { ...user, updatedAt: new Date() };
-
-// Rest parameters
-const sum = (...numbers) => numbers.reduce((a, b) => a + b, 0);
-
-// Array methods
-const active = users.filter(u => u.active);
-const names = users.map(u => u.name);
-const total = prices.reduce((sum, p) => sum + p, 0);
-```
-
-### Week 03: Clases y POO
-
-```javascript
-class Product {
-  #id;  // Campo privado
-
-  constructor(name, price) {
-    this.#id = crypto.randomUUID();
-    this.name = name;
-    this.price = price;
-  }
-
-  get id() { return this.#id; }
-
-  static create(data) {
-    return new Product(data.name, data.price);
-  }
-}
-
-class DigitalProduct extends Product {
-  constructor(name, price, downloadUrl) {
-    super(name, price);
-    this.downloadUrl = downloadUrl;
-  }
-}
-```
-
-### Week 04: Destructuring y Módulos
-
-```javascript
-// Destructuring
-const { name, price, category = 'General' } = product;
-const [first, second, ...rest] = items;
-
-// Módulos ES2023
-// models/Product.js
-export class Product { ... }
-export default Product;
-
-// main.js
-import Product, { Product as ProductClass } from './models/Product.js';
-```
+Repasar, sin conceptos nuevos, lo que el proyecto de esta semana necesita de cada semana anterior. Cada bloque recuerda la idea con un ejemplo corto y enlaza la semana donde se explica a fondo. Si un ejemplo no te resulta familiar, vuelve a esa semana antes de empezar el proyecto.
 
 ---
 
-## 📋 Semanas 5-8: Estructuras de Datos
+## Qué usa el proyecto de cada semana
 
-### Week 05: Arrays Avanzados
+| Semana | Concepto | Dónde aparece en el proyecto |
+|---|---|---|
+| [01](../../week-01-introduccion_javascript_moderno_es2023/README.md) | `const`/`let`, arrow functions, template literals | Todo `logic.js`; los ids `` `${prefix}-001` `` |
+| [02](../../week-02-operadores_metodos_modernos_arrays/README.md) | Spread, `??`, `filter`, `map`, `reduce` | `{ id, ...clean }`, `search`, `summarize` |
+| [03](../../week-03-clases_programacion_orientada_objetos/README.md) | Clases, `extends`, campos y métodos privados, getters | `ValidationError`, `Collection`, `get size()`, `#notify()` |
+| [04](../../week-04-destructuring_modulos_es2023/README.md) | Desestructuración con valores por defecto, módulos | `search(pieces, { text = '', ... } = {})`, `import`/`export` |
+| [05](../../week-05-arrays_avanzados/README.md) | `toSorted` y comparadores | `search` ordena sin tocar la lista original |
+| [06](../../week-06-strings_regexp_modernos/README.md) | `trim`, `toLowerCase`, `includes`, `padStart` | Validar el nombre, buscar por texto, numerar los ids |
+| [07](../../week-07-sets_maps/README.md) | `Map` y `Set` | Las piezas por id, los suscriptores, el resumen por sala |
+| [08](../../week-08-iteradores_generadores/README.md) | Generadores, `yield`, `yield*` | `paginate` y el iterador de `Collection` |
+| [09](../../week-09-simbolos_metaprogramacion_basica/README.md) | `Symbol.iterator` | `for...of` y `[...collection]` |
+| [11](../../week-11-manejo_errores_moderno/README.md) | Errores propios, `try...catch`, `instanceof` | `ValidationError` y el formulario de `main.js` |
 
-```javascript
-// flatMap, flat
-const allTags = products.flatMap(p => p.tags);
-const nested = [[1, 2], [3, 4]].flat();
-
-// Ordenamiento
-products.sort((a, b) => a.price - b.price);
-
-// Encadenamiento
-const result = products
-  .filter(p => p.active)
-  .map(p => p.name)
-  .sort();
-```
-
-### Week 06: Strings y RegExp
-
-```javascript
-// String methods
-const hasKeyword = text.includes('javascript');
-const isEmail = email.endsWith('@gmail.com');
-
-// RegExp
-const emailRegex = /^[\w.-]+@[\w.-]+\.\w+$/;
-const isValid = emailRegex.test(email);
-```
-
-### Week 07: Sets y Maps
-
-```javascript
-// Set - valores únicos
-const uniqueCategories = new Set(products.map(p => p.category));
-
-// Map - cualquier tipo como clave
-const cartItems = new Map();
-cartItems.set(productId, { quantity: 2, product });
-cartItems.get(productId);
-cartItems.has(productId);
-```
-
-### Week 08: Iteradores y Generadores
-
-```javascript
-// Generador para paginación
-function* paginate(items, pageSize) {
-  for (let i = 0; i < items.length; i += pageSize) {
-    yield items.slice(i, i + pageSize);
-  }
-}
-
-// Uso
-const pages = paginate(products, 10);
-const page1 = pages.next().value;
-const page2 = pages.next().value;
-```
+La [semana 10](../../week-10-proxies_reflect/README.md) (Proxy y Reflect) no aparece: la colección ya controla quién cambia sus datos con campos privados, que es más sencillo.
 
 ---
 
-## 📋 Semanas 9-11: Metaprogramación y Robustez
+## Clases con estado privado (semana 03)
 
-### Week 09: Símbolos
+Un campo con `#` solo existe dentro de la clase. Desde fuera, el estado se lee y se cambia a través de los métodos que la clase decida ofrecer:
 
 ```javascript
-// Símbolo como clave "privada"
-const SECRET = Symbol('secret');
+class Counter {
+  #count = 0;
 
-class User {
-  constructor(name) {
-    this.name = name;
-    this[SECRET] = generateToken();
+  get count() {
+    return this.#count;
   }
 
-  getToken() {
-    return this[SECRET];
+  increment() {
+    this.#count += 1;
   }
 }
+
+const counter = new Counter();
+counter.increment();
+console.log(counter.count, Object.keys(counter));
+// 1 []
 ```
 
-### Week 10: Proxies
+Practícalo en el [lab 01](../2-practicas/lab-01-clases/README.md).
+
+## Map y Set (semana 07)
+
+Un `Map` guarda pares clave → valor, encuentra un valor por su clave sin recorrer nada y recuerda el orden en que entraron las claves. Un `Set` guarda valores sin repetir:
 
 ```javascript
-// Proxy para validación reactiva
-const createReactiveCart = cart => new Proxy(cart, {
-  set(target, prop, value) {
-    if (prop === 'total' && value < 0) {
-      throw new Error('Total no puede ser negativo');
-    }
-    target[prop] = value;
-    updateUI(); // Reactividad
-    return true;
+const rooms = new Map();
+rooms.set('Cúpula', 2).set('Vestíbulo', 1);
+rooms.set('Cúpula', rooms.get('Cúpula') + 1);
+console.log(rooms.get('Cúpula'), rooms.has('Patio'), [...rooms.keys()]);
+// 3 false [ 'Cúpula', 'Vestíbulo' ]
+
+const listeners = new Set();
+const log = () => {};
+listeners.add(log).add(log);
+console.log(listeners.size);
+// 1
+```
+
+Practícalo en el [lab 04](../2-practicas/lab-04-map/README.md).
+
+## Iteradores y generadores (semanas 08 y 09)
+
+Una función con `*` es un generador: cada `yield` entrega un valor y la función se detiene hasta el siguiente `next()`. Si un objeto tiene un método `[Symbol.iterator]` que devuelve un iterador, funciona con `for...of` y con el spread:
+
+```javascript
+class Shelf {
+  #books = ['Atlas', 'Bestiario'];
+
+  *[Symbol.iterator]() {
+    yield* this.#books;
   }
-});
+}
+
+function* countTo(limit) {
+  for (let n = 1; n <= limit; n += 1) yield n;
+}
+
+console.log([...new Shelf()], [...countTo(3)]);
+// [ 'Atlas', 'Bestiario' ] [ 1, 2, 3 ]
 ```
 
-### Week 11: Manejo de Errores
+`yield*` entrega uno a uno los valores de otro iterable.
+
+## Métodos que no modifican el original (semanas 02 y 05)
+
+`filter`, `map` y `toSorted` devuelven un array nuevo. `sort` ordena el mismo array y cambia el original, así que en el proyecto se usa `toSorted`:
 
 ```javascript
-// Errores personalizados
+const values = [30, 10, 20];
+const sorted = values.toSorted((a, b) => a - b);
+console.log(sorted, values);
+// [ 10, 20, 30 ] [ 30, 10, 20 ]
+```
+
+## Errores propios (semana 11)
+
+Una clase que hereda de `Error` añade los datos que necesita quien captura el error. Con `instanceof`, el `catch` distingue un dato malo, que se explica a la persona, de un fallo del programa, que se relanza:
+
+```javascript
 class ValidationError extends Error {
   constructor(field, message) {
     super(message);
@@ -194,154 +117,30 @@ class ValidationError extends Error {
   }
 }
 
-// Uso con try/catch
 try {
-  validateProduct(data);
+  throw new ValidationError('name', 'Campo obligatorio');
 } catch (error) {
-  if (error instanceof ValidationError) {
-    showFieldError(error.field, error.message);
-  } else {
-    showGenericError();
-  }
+  if (!(error instanceof ValidationError)) throw error;
+  console.log(`${error.field}: ${error.message}`);
 }
+// name: Campo obligatorio
 ```
+
+## Módulos (semana 04)
+
+Cada archivo es un módulo con su propio ámbito: solo sale lo que lleva `export`, y solo entra lo que se pide con `import`. La ruta empieza por `./` y lleva la extensión `.js`. Practícalo en el [lab 03](../2-practicas/lab-03-modulos/README.md).
 
 ---
 
-## 📋 Características ES2019-ES2023 Específicas
+Todas las salidas de este documento se obtuvieron con Node 24.19.0.
 
-### Métodos de Array Modernos (ES2022-ES2023)
-
-```javascript
-// at() - índices negativos (ES2022)
-const lastProduct = products.at(-1);
-const secondToLast = products.at(-2);
-
-// findLast() y findLastIndex() (ES2023)
-const lastExpensive = products.findLast(p => p.price > 100);
-const lastExpensiveIndex = products.findLastIndex(p => p.price > 100);
-
-// toSorted(), toReversed(), with() - inmutables (ES2023)
-const sorted = products.toSorted((a, b) => a.price - b.price);
-const reversed = products.toReversed();
-const updated = products.with(0, newProduct);
-```
-
-### Object.hasOwn() (ES2022)
-
-```javascript
-// Mejor que hasOwnProperty
-if (Object.hasOwn(product, 'discount')) {
-  applyDiscount(product);
-}
-
-// Funciona con objetos sin prototipo
-const config = Object.create(null);
-config.theme = 'dark';
-Object.hasOwn(config, 'theme'); // true
-```
-
-### Static Blocks en Clases (ES2022)
-
-```javascript
-class ProductService {
-  static #instance;
-  static #config;
-
-  // Static initialization block
-  static {
-    this.#config = loadConfig();
-    console.log('ProductService initialized');
-  }
-
-  static getInstance() {
-    this.#instance ??= new ProductService();
-    return this.#instance;
-  }
-}
-```
-
-### Error Cause (ES2022)
-
-```javascript
-// Encadenar errores preservando el original
-const fetchProducts = async () => {
-  try {
-    const response = await fetch('/api/products');
-    return await response.json();
-  } catch (error) {
-    throw new Error('Failed to load products', { cause: error });
-  }
-};
-
-// Acceder a la cadena de errores
-try {
-  await fetchProducts();
-} catch (error) {
-  console.log(error.message);       // "Failed to load products"
-  console.log(error.cause?.message); // Error original de red/JSON
-}
-```
-
-### Optional Catch Binding (ES2019)
-
-```javascript
-// Cuando no necesitas el error
-const isValidJSON = str => {
-  try {
-    JSON.parse(str);
-    return true;
-  } catch {  // Sin parámetro
-    return false;
-  }
-};
-```
-
----
-
-## 🎯 Aplicación en el Proyecto
-
-| Concepto | Uso en E-commerce |
-|----------|-------------------|
-| Classes | Product, User, Cart, CartItem |
-| Modules | Separación en models/, services/ |
-| Array methods | Filtrar, buscar, ordenar productos |
-| Sets/Maps | Categorías únicas, items del carrito |
-| Proxies | Carrito reactivo |
-| Errores | Validación de datos |
-
----
-
-## ✅ Checklist de Preparación
-
-Antes de empezar el proyecto, asegúrate de entender:
-
-### Fundamentos
-- [ ] Crear clases con campos privados (`#`)
-- [ ] Usar herencia cuando es apropiado
-- [ ] Exportar/importar módulos ES2023
-- [ ] Manipular arrays con map/filter/reduce
-
-### Estructuras de Datos
-- [ ] Usar Set para valores únicos
-- [ ] Usar Map para key-value pairs
-- [ ] Aplicar optional chaining (`?.`) y nullish coalescing (`??`)
-
-### ES2022-ES2023
-- [ ] Usar `at(-1)` para acceso a índices negativos
-- [ ] Usar `findLast()` para buscar desde el final
-- [ ] Usar `Object.hasOwn()` en lugar de `hasOwnProperty`
-- [ ] Implementar static blocks en clases cuando sea apropiado
-
-### Robustez
-- [ ] Implementar validación con errores personalizados
-- [ ] Usar Error cause para encadenar errores
-- [ ] Aplicar optional catch binding cuando no necesites el error
-
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| 🏠 Semana | ➡️ Siguiente |
-|:---------:|-------------:|
-| [README](../README.md) | [Arquitectura](./02-arquitectura-aplicacion.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 12 - Proyecto Integrador - Fundamentos](../README.md) | [Teoría — Arquitectura del proyecto](02-arquitectura-aplicacion.md) → |
+
+[↑ Semana 12](../README.md)

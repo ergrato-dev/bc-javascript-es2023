@@ -47,10 +47,13 @@ Libros recomendados para profundizar en arquitectura de aplicaciones y patrones 
 - Observer Pattern
 - MVC/MVP Patterns
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Recursos | 🏠 Semana |
-|:------------|:---------:|
-| [4-recursos](../) | [README](../../README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 12](../../README.md)

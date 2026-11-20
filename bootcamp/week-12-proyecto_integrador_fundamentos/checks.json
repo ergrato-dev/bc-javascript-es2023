@@ -1,0 +1,111 @@
+{
+  "semana": "12",
+  "titulo": "Proyecto Integrador - Fundamentos",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE, ID_PREFIX de 2 a 4 mayúsculas, de 3 a 8 salas sin repetir y por defecto de 5 a 12 piezas sin id, con nombre de 3 o más caracteres sin repetir, una sala de ROOMS y valor numérico de 0 o más",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE, ID_PREFIX, ROOMS } from './src/data.js'; assert.ok(typeof TITLE === 'string' && TITLE.trim() !== ''); assert.match(ID_PREFIX, /^[A-Z]{2,4}$/); assert.ok(Array.isArray(ROOMS) && ROOMS.length >= 3 && ROOMS.length <= 8 && ROOMS.every((room) => typeof room === 'string' && room.trim() !== '')); assert.equal(new Set(ROOMS).size, ROOMS.length); assert.ok(Array.isArray(items) && items.length >= 5 && items.length <= 12); assert.ok(items.every((item) => !('id' in item) && typeof item.name === 'string' && item.name.trim().length >= 3 && ROOMS.includes(item.room) && Number.isFinite(item.value) && item.value >= 0)); assert.equal(new Set(items.map(({ name }) => name)).size, items.length);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título, el prefijo, las salas y las piezas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE, ID_PREFIX, ROOMS } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.notEqual(ID_PREFIX, 'PLA'); assert.ok(!ROOMS.some((room) => ['Cúpula', 'Sala Solar', 'Sala Lunar'].includes(room))); assert.ok(!items.some(({ name }) => ['Telescopio refractor', 'Meteorito de hierro', 'Esfera armilar', 'Mapa lunar'].includes(name)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "validation-error",
+      "descripcion": "ValidationError hereda de Error, se llama ValidationError y guarda field y message",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { ValidationError } from './src/logic.js'; const error = new ValidationError('name', 'Campo obligatorio'); assert.ok(error instanceof Error); assert.equal(error.name, 'ValidationError'); assert.equal(error.field, 'name'); assert.equal(error.message, 'Campo obligatorio');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "validate-ok",
+      "descripcion": "validatePiece devuelve una copia { name, room, value } con el nombre recortado y el valor convertido a número, sin modificar los datos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { validatePiece } from './src/logic.js'; const rooms = ['A', 'B']; const data = { name: '  Mapa  ', room: 'B', value: 0, extra: true }; const clean = validatePiece(data, rooms); assert.deepEqual(clean, { name: 'Mapa', room: 'B', value: 0 }); assert.notEqual(clean, data); assert.deepEqual(data, { name: '  Mapa  ', room: 'B', value: 0, extra: true }); assert.deepEqual(validatePiece({ name: 'Reloj', room: 'A', value: ' 12.5 ' }, rooms), { name: 'Reloj', room: 'A', value: 12.5 });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "validate-errores",
+      "descripcion": "validatePiece lanza ValidationError con el campo y el mensaje del primer problema",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { validatePiece, ValidationError } from './src/logic.js'; const rooms = ['A', 'B']; const fails = (data, field, message) => assert.throws(() => validatePiece(data, rooms), (error) => error instanceof ValidationError && error.field === field && error.message === message); fails(null, 'piece', 'Cada pieza debe ser un objeto'); fails([], 'piece', 'Cada pieza debe ser un objeto'); fails('Mapa', 'piece', 'Cada pieza debe ser un objeto'); fails({ room: 'A', value: 1 }, 'name', 'Campo obligatorio'); fails({ name: '   ', room: 'Z', value: -1 }, 'name', 'Campo obligatorio'); fails({ name: 42, room: 'A', value: 1 }, 'name', 'Campo obligatorio'); fails({ name: ' ab ', room: 'A', value: 1 }, 'name', 'Mínimo 3 caracteres'); fails({ name: 'Mapa', room: 'Z', value: -1 }, 'room', 'Elige una sala válida'); fails({ name: 'Mapa', room: 'A', value: '' }, 'value', 'Debe ser un número de 0 o más'); fails({ name: 'Mapa', room: 'A', value: '  ' }, 'value', 'Debe ser un número de 0 o más'); fails({ name: 'Mapa', room: 'A', value: 'doce' }, 'value', 'Debe ser un número de 0 o más'); fails({ name: 'Mapa', room: 'A', value: -1 }, 'value', 'Debe ser un número de 0 o más'); fails({ name: 'Mapa', room: 'A', value: NaN }, 'value', 'Debe ser un número de 0 o más'); fails({ name: 'Mapa', room: 'A' }, 'value', 'Debe ser un número de 0 o más');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "collection-add",
+      "descripcion": "Collection guarda las piezas validadas con ids PREFIJO-001, PREFIJO-002..., congeladas, con size y get, y sin propiedades públicas",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { Collection, ValidationError } from './src/logic.js'; const collection = new Collection('AB', ['A', 'B']); assert.equal(collection.size, 0); const first = collection.add({ name: ' Mapa ', room: 'A', value: '3' }); assert.deepEqual(first, { id: 'AB-001', name: 'Mapa', room: 'A', value: 3 }); assert.ok(Object.isFrozen(first)); assert.throws(() => collection.add({ name: 'x', room: 'A', value: 1 }), ValidationError); const second = collection.add({ name: 'Reloj', room: 'B', value: 2 }); assert.equal(second.id, 'AB-002'); assert.equal(collection.size, 2); assert.equal(collection.get('AB-001'), first); assert.equal(collection.get('AB-009'), undefined); assert.deepEqual(Object.keys(collection), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "collection-remove",
+      "descripcion": "remove borra por id, devuelve true o false y no reutiliza los ids",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { Collection } from './src/logic.js'; const collection = new Collection('AB', ['A']); collection.add({ name: 'Mapa', room: 'A', value: 1 }); assert.equal(collection.remove('AB-001'), true); assert.equal(collection.remove('AB-001'), false); assert.equal(collection.size, 0); assert.equal(collection.add({ name: 'Reloj', room: 'A', value: 1 }).id, 'AB-002');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "collection-observer",
+      "descripcion": "subscribe avisa con la colección tras cada add o remove que cambia algo y devuelve una función para darse de baja",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { Collection } from './src/logic.js'; const collection = new Collection('AB', ['A']); const seen = []; const unsubscribe = collection.subscribe((current) => seen.push([current === collection, current.size])); collection.add({ name: 'Mapa', room: 'A', value: 1 }); collection.add({ name: 'Reloj', room: 'A', value: 1 }); try { collection.add({}); } catch {} collection.remove('AB-001'); collection.remove('AB-001'); assert.deepEqual(seen, [[true, 1], [true, 2], [true, 1]]); assert.equal(typeof unsubscribe, 'function'); unsubscribe(); collection.add({ name: 'Globo', room: 'A', value: 1 }); assert.equal(seen.length, 3);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "collection-iterable",
+      "descripcion": "Collection es iterable con for...of y spread, en el orden en que se añadieron las piezas",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { Collection } from './src/logic.js'; const collection = new Collection('AB', ['A']); assert.deepEqual([...collection], []); ['Mapa', 'Reloj', 'Globo'].forEach((name) => collection.add({ name, room: 'A', value: 1 })); collection.remove('AB-002'); assert.deepEqual([...collection].map(({ id }) => id), ['AB-001', 'AB-003']); const names = []; for (const piece of collection) names.push(piece.name); assert.deepEqual(names, ['Mapa', 'Globo']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "search",
+      "descripcion": "search filtra por texto (sin distinguir mayúsculas) y sala, ordena por nombre o por valor y no modifica la lista",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { search } from './src/logic.js'; const pieces = [{ id: '1', name: 'Reloj de sol', room: 'A', value: 5 }, { id: '2', name: 'astrolabio', room: 'B', value: 9 }, { id: '3', name: 'Mapa lunar', room: 'A', value: 1 }, { id: '4', name: 'Globo', room: 'B', value: 7 }]; const copy = structuredClone(pieces); const ids = (list) => list.map(({ id }) => id); assert.deepEqual(ids(search(pieces)), ['2', '4', '3', '1']); assert.deepEqual(ids(search(pieces, { sort: 'value' })), ['2', '4', '1', '3']); assert.deepEqual(ids(search(pieces, { text: '  LU ' })), ['3']); assert.deepEqual(ids(search(pieces, { text: 'o', room: 'B' })), ['2', '4']); assert.deepEqual(search(pieces, { text: 'zzz' }), []); assert.deepEqual(pieces, copy); assert.notEqual(search(pieces), pieces);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "paginate",
+      "descripcion": "paginate es un generador que entrega la lista en páginas del tamaño pedido",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { paginate } from './src/logic.js'; const pages = paginate([1, 2, 3, 4, 5], 2); assert.equal(typeof pages.next, 'function'); assert.equal(pages[Symbol.iterator](), pages); assert.deepEqual(pages.next(), { value: [1, 2], done: false }); assert.deepEqual([...pages], [[3, 4], [5]]); assert.deepEqual([...paginate([1, 2, 3, 4], 2)], [[1, 2], [3, 4]]); assert.deepEqual([...paginate([], 3)], []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "summarize",
+      "descripcion": "summarize cuenta las piezas, suma su valor y devuelve un Map con cuántas hay en cada sala, desde un array o una Collection",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { summarize, Collection } from './src/logic.js'; const pieces = [{ room: 'B', value: 5 }, { room: 'A', value: 2 }, { room: 'B', value: 3 }]; const summary = summarize(pieces); assert.equal(summary.count, 3); assert.equal(summary.total, 10); assert.ok(summary.byRoom instanceof Map); assert.deepEqual([...summary.byRoom], [['B', 2], ['A', 1]]); const empty = summarize([]); assert.equal(empty.count, 0); assert.equal(empty.total, 0); assert.equal(empty.byRoom.size, 0); const collection = new Collection('AB', ['A']); collection.add({ name: 'Mapa', room: 'A', value: 4 }); assert.equal(summarize(collection).total, 4);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    }
+  ]
+}

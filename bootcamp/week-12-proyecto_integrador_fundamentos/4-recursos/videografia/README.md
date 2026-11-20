@@ -8,7 +8,7 @@ Videos recomendados para aprender a construir aplicaciones JavaScript completas.
 
 ## 📺 Videos Recomendados
 
-### Proyectos E-commerce
+### Proyectos de práctica
 
 | Video | Canal | Duración | Descripción |
 |-------|-------|----------|-------------|
@@ -65,10 +65,13 @@ Videos recomendados para aprender a construir aplicaciones JavaScript completas.
 | [The Net Ninja](https://www.youtube.com/@NetNinja) | Series completas |
 | [JavaScript Mastery](https://www.youtube.com/@javascriptmastery) | Proyectos modernos |
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Recursos | 🏠 Semana |
-|:------------|:---------:|
-| [4-recursos](../) | [README](../../README.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 12](../../README.md)

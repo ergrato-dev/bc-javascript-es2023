@@ -1,281 +1,82 @@
-# 🏗️ Arquitectura de Aplicación
+# Arquitectura del proyecto
 
-## 🎯 Objetivo
+## Objetivo
 
-Diseñar una estructura modular y escalable para la aplicación E-commerce.
-
----
-
-## 📂 Estructura de Carpetas
-
-```
-ecommerce-app/
-├── index.html              # Entry point HTML
-├── styles.css              # Estilos globales
-├── js/
-│   ├── main.js             # Entry point JS (inicialización)
-│   ├── app.js              # Lógica principal de la aplicación
-│   ├── config.js           # Configuración y constantes
-│   │
-│   ├── models/             # Clases de dominio
-│   │   ├── Product.js
-│   │   ├── User.js
-│   │   ├── Cart.js
-│   │   └── CartItem.js
-│   │
-│   ├── services/           # Lógica de negocio
-│   │   ├── ProductService.js
-│   │   ├── CartService.js
-│   │   ├── AuthService.js
-│   │   └── StorageService.js
-│   │
-│   └── ui/                 # Componentes de UI
-│       ├── ProductList.js
-│       ├── CartView.js
-│       ├── SearchBar.js
-│       └── Notifications.js
-```
-
-### Diagrama Visual
-
-![Arquitectura de 3 Capas](../0-assets/01-architecture-overview.svg)
+Entender cómo se reparte el trabajo entre los archivos del proyecto y por qué. No hay nada nuevo: es la misma separación entre `data.js`, `logic.js` y `main.js` de las semanas anteriores, más una clase que guarda el estado y avisa cuando cambia.
 
 ---
 
-## 🧩 Capas de la Aplicación
+## Tres archivos, tres responsabilidades
 
-### 1. Models (Datos)
+![Los tres archivos del proyecto y quién importa a quién](../0-assets/01-architecture-overview.svg)
 
-Representan las entidades del dominio:
+| Archivo | Responsabilidad | Sabe del DOM |
+|---|---|---|
+| `src/data.js` | Los datos de tu dominio: título, prefijo de los ids, salas y piezas de ejemplo | No |
+| `src/logic.js` | Las reglas: qué pieza es válida, cómo se guardan, cómo se buscan, se paginan y se resumen | No |
+| `src/main.js` | La página: lee el formulario y los filtros, escucha los clics y pinta | Sí |
 
-```javascript
-// models/Product.js
-export class Product {
-  #id;
-
-  constructor({ id, name, price, category, image, stock }) {
-    this.#id = id ?? crypto.randomUUID();
-    this.name = name;
-    this.price = price;
-    this.category = category;
-    this.image = image;
-    this.stock = stock ?? 0;
-  }
-
-  get id() { return this.#id; }
-
-  toJSON() {
-    return {
-      id: this.#id,
-      name: this.name,
-      price: this.price,
-      category: this.category,
-      image: this.image,
-      stock: this.stock
-    };
-  }
-}
-```
-
-### 2. Services (Lógica de Negocio)
-
-Manejan operaciones y datos:
-
-```javascript
-// services/ProductService.js
-import { Product } from '../models/Product.js';
-import { StorageService } from './StorageService.js';
-
-class ProductService {
-  #products = [];
-
-  constructor() {
-    this.#loadProducts();
-  }
-
-  getAll() {
-    return [...this.#products];
-  }
-
-  getById(id) {
-    return this.#products.find(p => p.id === id);
-  }
-
-  filter({ category, minPrice, maxPrice, search }) {
-    return this.#products.filter(product => {
-      if (category && product.category !== category) return false;
-      if (minPrice && product.price < minPrice) return false;
-      if (maxPrice && product.price > maxPrice) return false;
-      if (search && !product.name.toLowerCase().includes(search.toLowerCase())) {
-        return false;
-      }
-      return true;
-    });
-  }
-
-  #loadProducts() {
-    // Cargar de storage o usar datos iniciales
-  }
-}
-
-export const productService = new ProductService();
-```
-
-### 3. UI (Presentación)
-
-Renderizan y manejan interacciones:
-
-```javascript
-// ui/ProductList.js
-import { productService } from '../services/ProductService.js';
-import { cartService } from '../services/CartService.js';
-
-export class ProductList {
-  #container;
-  #products = [];
-
-  constructor(containerSelector) {
-    this.#container = document.querySelector(containerSelector);
-    this.#bindEvents();
-  }
-
-  render(products = productService.getAll()) {
-    this.#products = products;
-    this.#container.innerHTML = products
-      .map(p => this.#renderProduct(p))
-      .join('');
-  }
-
-  #renderProduct(product) {
-    return `
-      <article class="product-card" data-id="${product.id}">
-        <img src="${product.image}" alt="${product.name}">
-        <h3>${product.name}</h3>
-        <p class="price">$${product.price}</p>
-        <button class="add-to-cart">Agregar</button>
-      </article>
-    `;
-  }
-
-  #bindEvents() {
-    this.#container.addEventListener('click', e => {
-      if (e.target.classList.contains('add-to-cart')) {
-        const id = e.target.closest('.product-card').dataset.id;
-        cartService.add(id);
-      }
-    });
-  }
-}
-```
+- **Qué:** cada archivo solo importa lo que necesita. `main.js` importa de `data.js` y de `logic.js`; `logic.js` no importa nada de la página.
+- **Para qué:** las reglas se pueden probar desde Node sin abrir un navegador, que es lo que hace `scripts/verificar-semana.sh`. Y cambiar de dominio solo toca `data.js`.
+- **Impacto:** si una función de `logic.js` necesitara `document`, dejaría de funcionar en Node y las comprobaciones fallarían. Todo lo que toca el DOM se queda en `main.js`.
 
 ---
 
-## 🔄 Flujo de Datos
+## Un solo dueño del estado
 
-![Flujo de Datos - Agregar al Carrito](../0-assets/02-data-flow.svg)
+Las piezas viven en una instancia de `Collection`, en un campo privado `#pieces`. Nadie más guarda una copia que pueda quedar desactualizada:
 
-El diagrama muestra el flujo completo cuando un usuario agrega un producto al carrito:
-
-1. **Usuario** hace click en "Agregar"
-2. **ProductList** captura el evento y llama al servicio
-3. **CartService** procesa la operación
-4. **CartItem** se crea/actualiza
-5. **StorageService** persiste en localStorage
-6. **Observer** notifica a los listeners
-7. **CartView** recibe la notificación
-8. **render()** actualiza la UI
-9. **DOM** refleja los cambios
-10. **Usuario** ve el carrito actualizado
-                    └─────────────┘     └─────────────┘
+```javascript
+const collection = new Collection(ID_PREFIX, ROOMS);
+collection.add({ name: 'Mapa lunar', room: 'Sala Lunar', value: 3200 });
+collection.remove('PLA-001');
 ```
 
-1. **Usuario** interactúa (click, input)
-2. **UI** captura evento y llama a Service
-3. **Service** procesa lógica con Models
-4. **UI** re-renderiza con datos actualizados
+`add` es la única puerta de entrada y siempre valida. `remove` es la única de salida. Como los campos son privados, `collection.#pieces.clear()` desde fuera es un `SyntaxError`, no un despiste que pasa desapercibido. Las piezas que devuelve `add` están congeladas con `Object.freeze`, así que tampoco se pueden cambiar por la espalda.
+
+## Avisar en lugar de acordarse
+
+La colección guarda en un `Set` las funciones que quieren enterarse de sus cambios y las llama después de cada `add` o `remove`. Es el patrón *observer* del [lab 02](../2-practicas/lab-02-observer/README.md):
+
+```javascript
+collection.subscribe(render);
+```
+
+Con esa línea, `main.js` no tiene que llamar a `render()` después de cada cambio: la colección avisa. Si mañana otra parte de la página también necesitara enterarse (un contador en la pestaña, un registro de cambios), se suscribiría igual, sin tocar el formulario ni el botón de borrar.
+
+![Qué pasa al pulsar Añadir, desde el formulario hasta la página](../0-assets/02-data-flow.svg)
+
+1. El formulario llama a `collection.add(datos)`.
+2. `add` llama a `validatePiece`. Si un dato no vale, sale un `ValidationError` y el `catch` de `main.js` muestra qué campo corregir. La colección no cambia.
+3. Si vale, la pieza recibe su id y se guarda en el `Map`.
+4. `#notify()` llama a cada suscriptor.
+5. `render()` pide el resumen, la búsqueda y las páginas a `logic.js`.
+6. La página muestra el resultado.
+
+## Funciones que calculan sin guardar
+
+`search`, `paginate` y `summarize` no guardan nada ni modifican lo que reciben: devuelven un resultado nuevo cada vez. Aceptan cualquier iterable de piezas, así que funcionan igual con un array de prueba que con la colección:
+
+```javascript
+search(collection, { text: 'luna' });
+search([{ name: 'Mapa lunar', room: 'A', value: 1 }], { text: 'luna' });
+```
+
+Los filtros de la página tampoco se guardan en la colección: `render()` los lee del formulario cada vez. Así la colección solo sabe de piezas, no de lo que la persona está mirando.
 
 ---
 
-## 📦 Patrón de Exportación
+## Cuándo crecería esta arquitectura
 
-### Singleton para Services
+Para un proyecto de este tamaño, tres archivos bastan. Si `logic.js` creciera mucho, se partiría en carpetas con un `index.js` que re-exporta, como en el [lab 03](../2-practicas/lab-03-modulos/README.md). No hace falta hacerlo antes de necesitarlo.
 
-```javascript
-// services/CartService.js
-class CartService {
-  // ... implementación
-}
-
-// Exportar instancia única
-export const cartService = new CartService();
-```
-
-### Clases para Models
-
-```javascript
-// models/Product.js
-export class Product {
-  // ... implementación
-}
-
-// Se instancian múltiples veces
-const product1 = new Product({ name: 'Laptop' });
-const product2 = new Product({ name: 'Phone' });
-```
-
----
-
-## 🎯 Entry Point
-
-```javascript
-// main.js
-import { App } from './app.js';
-
-// Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-  const app = new App();
-  app.init();
-});
-```
-
-```javascript
-// app.js
-import { ProductList } from './ui/ProductList.js';
-import { CartView } from './ui/CartView.js';
-import { SearchBar } from './ui/SearchBar.js';
-import { authService } from './services/AuthService.js';
-
-export class App {
-  #productList;
-  #cartView;
-  #searchBar;
-
-  init() {
-    this.#productList = new ProductList('#products');
-    this.#cartView = new CartView('#cart');
-    this.#searchBar = new SearchBar('#search');
-
-    this.#productList.render();
-    this.#cartView.render();
-  }
-}
-```
-
----
-
-## ✅ Principios Clave
-
-| Principio | Aplicación |
-|-----------|------------|
-| **Separación de responsabilidades** | Models, Services, UI en carpetas separadas |
-| **Encapsulación** | Campos privados (#) en clases |
-| **Single source of truth** | Services manejan el estado |
-| **Bajo acoplamiento** | Módulos independientes con imports explícitos |
-
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Anterior | 🏠 Semana | ➡️ Siguiente |
-|:------------|:---------:|-------------:|
-| [Revisión](./01-revision-conceptos.md) | [README](../README.md) | [Clean Code](./03-clean-code.md) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — Repaso de las semanas 1 a 11](01-revision-conceptos.md) | [Teoría — ✨ Clean Code y Refactoring](03-clean-code.md) → |
+
+[↑ Semana 12](../README.md)

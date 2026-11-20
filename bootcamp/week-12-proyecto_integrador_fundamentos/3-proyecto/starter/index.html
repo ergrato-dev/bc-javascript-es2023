@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colección</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">🗃️ Colección</h1>
+      <div class="stats-summary">
+        <span class="stat">Piezas: <strong id="stat-pieces">0</strong></span>
+        <span class="stat">Valor total: <strong id="stat-value">0 €</strong></span>
+      </div>
+      <div id="room-summary" class="item-meta room-summary"></div>
+    </header>
+
+    <section class="form-section">
+      <h2>➕ Nueva pieza</h2>
+      <form id="piece-form" class="item-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="piece-name">Nombre</label>
+            <input id="piece-name" name="name" type="text" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="piece-room">Sala</label>
+            <select id="piece-room" name="room"></select>
+          </div>
+          <div class="form-group">
+            <label for="piece-value">Valor (€)</label>
+            <input id="piece-value" name="value" type="number" min="0">
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Añadir</button>
+        </div>
+      </form>
+      <p id="form-message" class="message" role="status"></p>
+    </section>
+
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group search-group">
+          <label for="search-text">Buscar</label>
+          <input id="search-text" type="search" placeholder="Nombre de la pieza">
+        </div>
+        <div class="filter-group">
+          <label for="filter-room">Sala</label>
+          <select id="filter-room"></select>
+        </div>
+        <div class="filter-group">
+          <label for="sort-by">Ordenar por</label>
+          <select id="sort-by">
+            <option value="name">Nombre (A-Z)</option>
+            <option value="value">Valor (mayor primero)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Piezas</h2>
+      </div>
+      <div id="item-list" class="item-list"></div>
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay piezas que mostrar</p>
+        <p class="empty-state-hint">Añade una pieza o cambia los filtros</p>
+      </div>
+      <nav class="pagination" aria-label="Páginas">
+        <button id="btn-prev" class="btn btn-outline btn-sm" type="button">← Anterior</button>
+        <span id="page-info">Página 0 de 0</span>
+        <button id="btn-next" class="btn btn-outline btn-sm" type="button">Siguiente →</button>
+      </nav>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

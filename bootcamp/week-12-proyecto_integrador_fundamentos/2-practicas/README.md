@@ -1,52 +1,32 @@
-# 🏋️ Prácticas - Semana 12
+# Prácticas — Semana 12
 
-## 🎯 Ejercicios de Calentamiento
+Cuatro labs guiados de repaso, sin conceptos nuevos: cada uno practica una pieza que el proyecto integrador junta. Cada lab trae en `starter/` el código comentado: lo descomentas paso a paso, lo ejecutas con Node y comparas con la salida esperada del README. No se entregan; preparan el [proyecto de la semana](../3-proyecto/README.md).
 
-Antes de comenzar el proyecto integrador, estos ejercicios de warm-up te ayudarán a repasar y afianzar los conceptos clave que utilizarás.
+| Lab | Tema | Duración |
+|---|---|---|
+| [Lab 01](lab-01-clases/README.md) | Campos privados, getters, métodos, `toJSON` y métodos estáticos | 50 min |
+| [Lab 02](lab-02-observer/README.md) | Un `Set` de suscriptores, `notify` y darse de baja | 45 min |
+| [Lab 03](lab-03-modulos/README.md) | Exports con nombre y por defecto, `index.js` de carpeta e `import()` | 40 min |
+| [Lab 04](lab-04-map/README.md) | `Map` como almacén: buscar, recorrer, convertir y guardarlo en una clase | 45 min |
 
----
+**Total:** 3 h.
 
-## 📚 Lista de Ejercicios
+## Antes de empezar
 
-| # | Ejercicio | Tema | Duración |
-|---|-----------|------|----------|
-| 01 | [Clases y Encapsulación](./ejercicio-01-clases/README.md) | Classes con #private fields | 20 min |
-| 02 | [Patrón Observer](./ejercicio-02-observer/README.md) | Set, callbacks, subscribe | 25 min |
-| 03 | [Módulos ES2023](./ejercicio-03-modulos/README.md) | import/export, arquitectura | 20 min |
-| 04 | [Map y Operaciones](./ejercicio-04-map/README.md) | Map para colecciones | 25 min |
+Comprueba que tienes Node instalado (versión en [docs/stack-versions.md](../../../docs/stack-versions.md)):
 
----
+```bash
+node --version
+# v24.19.0 (o superior)
+```
 
-## ⏱️ Tiempo Total
-
-**~1.5 horas** de ejercicios de calentamiento antes del proyecto integrador.
-
----
-
-## 🎯 Objetivos
-
-Estos ejercicios están diseñados para:
-
-1. **Repasar** conceptos de las semanas anteriores
-2. **Practicar** patrones que usarás en el proyecto
-3. **Ganar confianza** antes de un proyecto grande
-4. **Identificar** áreas que necesitas reforzar
-
----
-
-## 📋 Cómo Trabajar
-
-1. Completa cada ejercicio en orden
-2. Lee el README de cada ejercicio
-3. Trabaja en el archivo `starter/index.js`
-4. Descomenta el código según las instrucciones
-5. Ejecuta con `node index.js` para verificar
-6. Compara con `solution/index.js` si tienes dudas
-
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-| ⬅️ Teoría | 🏠 Semana | Proyecto ➡️ |
-|:----------|:---------:|------------:|
-| [1-teoria](../1-teoria/) | [README](../README.md) | [3-proyecto](../3-proyecto/) |
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — ✨ Clean Code y Refactoring](../1-teoria/03-clean-code.md) | [Lab 01 — Clases y encapsulación](lab-01-clases/README.md) → |
+
+[↑ Semana 12](../README.md)
