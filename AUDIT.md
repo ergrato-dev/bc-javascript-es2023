@@ -54,7 +54,7 @@ Teoría: número de archivos y rango de líneas. Glosario: términos.
 |---|---|---|---|---|---|
 | 01 | ✅ | ✅ lab | — | ✅ | **Migrada.** Labs 03 y 04 daban `SyntaxError` al descomentarlos enteros (identificadores repetidos): corregido. SVG 06 enlazado. Proyecto nuevo: ficha con `logic.js`/`main.js` y 12 checks |
 | 02 | ✅ | ✅ lab | — | ✅ | **Migrada.** El CSS del proyecto usaba clases `task-*` y el HTML `item-*` (la página salía sin estilos): alineado. Lab 05 tenía datos comentados fuera del bloque «Descomenta»: el README lo explica. SVG 06 enlazado. Proyecto nuevo: gestor con 8 funciones puras inmutables (721 líneas y 49 TODO antes) y 12 checks con datos congelados |
-| 03 | 6 · 444–705 | 5 ejercicio | 26 | 56 TODO | — |
+| 03 | ✅ | ✅ lab | — | ✅ | **Migrada.** Labs 01, 03 y 04 daban `SyntaxError` al descomentarlos enteros (cada paso redeclara la clase): cada paso va en su propio bloque `{ }`. Lab 05 tenía las clases comentadas fuera del bloque «Descomenta»: marcador movido encima de cada clase. `0-assets/README.md` retirado. Proyecto nuevo: `Item` y `Collection` con campos privados y tipos del dominio en `types.js` (734 líneas y 56 TODO antes), 12 checks |
 | 04 | 5 · 385–534 | 4 ejercicio | 33 | 108 TODO | Starter del proyecto sobredimensionado para 2 h |
 | 05 | 6 · 441–563 | 5 ejercicio | 24 | 10 TODO | `06-findlast-findlastindex.svg` usa degradado (prohibido) |
 | 06 | 5 · 303–486 | 4 ejercicio | 42 | 22 TODO | Enlace roto `url` en `ejercicio-04-matchall-search/README.md` |

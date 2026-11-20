@@ -403,3 +403,14 @@ class Example {
 - [MDN: Classes](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes)
 - [JavaScript.info: Classes](https://javascript.info/classes)
 - [TC39: Class Fields](https://github.com/tc39/proposal-class-fields)
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [🚀 Semana 4: Destructuring y Módulos ES2023](../../week-04-destructuring_modulos_es2023/README.md) → |
+
+[↑ Semana 03](../README.md)

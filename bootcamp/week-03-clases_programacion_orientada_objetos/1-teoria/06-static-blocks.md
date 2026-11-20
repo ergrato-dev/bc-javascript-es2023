@@ -530,3 +530,14 @@ console.log(Child.childValue);  // 'from child'
 - [ ] Sé acceder a campos privados estáticos desde static blocks
 - [ ] Comprendo el orden de ejecución con múltiples bloques
 - [ ] Puedo aplicar static blocks para configuración de clases
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📘 Campos Privados en JavaScript ES2023](05-campos-privados.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 03](../README.md)

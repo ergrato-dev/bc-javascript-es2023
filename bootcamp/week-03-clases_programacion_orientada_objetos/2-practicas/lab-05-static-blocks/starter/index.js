@@ -1,9 +1,9 @@
 /**
- * Ejercicio 05: Static Blocks (ES2022)
+ * Lab 05: Static Blocks (ES2022)
  *
  * Instrucciones:
  * - Lee cada paso y descomenta el código correspondiente
- * - Ejecuta con: node index.js
+ * - Ejecuta desde la carpeta del lab: node starter/index.js
  * - Observa los resultados en la consola
  */
 
@@ -15,6 +15,7 @@ console.log('--- Paso 1: Introducción a Static Blocks ---');
 // Un static block se ejecuta automáticamente cuando la clase se define
 // Se usa para inicialización compleja de campos estáticos
 
+// Descomenta todo el código del paso: la clase y las pruebas de debajo.
 // class Counter {
 //   static count = 0;
 //   static prefix;
@@ -30,7 +31,6 @@ console.log('--- Paso 1: Introducción a Static Blocks ---');
 //   }
 // }
 
-// Descomenta las siguientes líneas:
 // console.log('Counter.count:', Counter.count);
 // console.log('Counter.prefix:', Counter.prefix);
 // console.log('Primer ID:', Counter.increment());
@@ -45,6 +45,7 @@ console.log('--- Paso 2: Inicialización Condicional ---');
 
 // Static blocks permiten lógica condicional para inicializar campos
 
+// Descomenta todo el código del paso: la clase y las pruebas de debajo.
 // class AppMode {
 //   static environment;
 //   static apiUrl;
@@ -75,7 +76,6 @@ console.log('--- Paso 2: Inicialización Condicional ---');
 //   }
 // }
 
-// Descomenta las siguientes líneas:
 // console.log('AppMode.environment:', AppMode.environment);
 // console.log('AppMode.apiUrl:', AppMode.apiUrl);
 // console.log('AppMode.debug:', AppMode.debug);
@@ -90,6 +90,7 @@ console.log('--- Paso 3: Acceso a Campos Privados ---');
 
 // Static blocks pueden acceder y modificar campos privados estáticos
 
+// Descomenta todo el código del paso: la clase y las pruebas de debajo.
 // class SecureConfig {
 //   static #apiKey;
 //   static #encryptionSalt;
@@ -122,7 +123,6 @@ console.log('--- Paso 3: Acceso a Campos Privados ---');
 //   }
 // }
 
-// Descomenta las siguientes líneas:
 // console.log('SecureConfig.initialized:', SecureConfig.initialized);
 // console.log('API Key (masked):', SecureConfig.getMaskedKey());
 // console.log('Full API Key:', SecureConfig.getApiKey());
@@ -139,6 +139,7 @@ console.log('--- Paso 4: Múltiples Static Blocks ---');
 
 // Puedes tener varios static blocks, se ejecutan en orden
 
+// Descomenta todo el código del paso: la clase y las pruebas de debajo.
 // class InitOrder {
 //   static step1 = 'initialized inline';
 //
@@ -164,7 +165,6 @@ console.log('--- Paso 4: Múltiples Static Blocks ---');
 //   }
 // }
 
-// Descomenta la siguiente línea para ver el orden de ejecución:
 // console.log('Orden de inicialización completado');
 // console.log('Valores finales:', InitOrder.step1, InitOrder.step2, InitOrder.step3);
 
@@ -177,6 +177,7 @@ console.log('--- Paso 5: Patrón Singleton ---');
 
 // Static blocks son útiles para configurar singletons
 
+// Descomenta todo el código del paso: la clase y las pruebas de debajo.
 // class Logger {
 //   static #instance = null;
 //   static #logLevel;
@@ -219,7 +220,6 @@ console.log('--- Paso 5: Patrón Singleton ---');
 //   }
 // }
 
-// Descomenta las siguientes líneas:
 // const logger1 = Logger.getInstance();
 // const logger2 = Logger.getInstance();
 //
@@ -240,6 +240,7 @@ console.log('--- Paso 6: Registro de Plugins ---');
 
 // Implementar un sistema de registro con defaults
 
+// Descomenta todo el código del paso: la clase y las pruebas de debajo.
 // class PluginManager {
 //   static #plugins = new Map();
 //   static #initialized = false;
@@ -284,7 +285,6 @@ console.log('--- Paso 6: Registro de Plugins ---');
 //   }
 // }
 
-// Descomenta las siguientes líneas:
 // console.log('Is initialized?', PluginManager.isInitialized());
 // console.log('Default plugins:', PluginManager.list());
 //
@@ -306,10 +306,11 @@ console.log('');
 // ============================================
 // PASO 7: Ejercicio Integrador
 // ============================================
-console.log('--- Paso 7: Ejercicio Integrador ---');
+console.log('--- Paso 7: Integrador ---');
 
 // Sistema completo de configuración de aplicación
 
+// Descomenta todo el código del paso: la clase y las pruebas de debajo.
 // class AppConfig {
 //   static #config = {};
 //   static #secrets = {};
@@ -382,7 +383,6 @@ console.log('--- Paso 7: Ejercicio Integrador ---');
 //   }
 // }
 
-// Descomenta las siguientes líneas:
 // console.log('');
 // console.log('App Status:', AppConfig.getStatus());
 // console.log('Full Config:', AppConfig.get());
@@ -395,5 +395,5 @@ console.log('--- Paso 7: Ejercicio Integrador ---');
 
 console.log('');
 console.log('='.repeat(50));
-console.log('✅ Ejercicio completado');
+console.log('✅ Lab completado');
 console.log('='.repeat(50));

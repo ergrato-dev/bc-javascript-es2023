@@ -467,3 +467,14 @@ Crea una clase `Color` con:
 - [ ] Puedo implementar el patrón Factory
 - [ ] Entiendo cuándo es apropiado usar métodos estáticos
 - [ ] Puedo crear clases de utilidades con solo métodos estáticos
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📘 Clases Básicas en JavaScript ES2023](01-clases-basicas.md) | [Teoría — 📘 Herencia en JavaScript ES2023](03-herencia.md) → |
+
+[↑ Semana 03](../README.md)

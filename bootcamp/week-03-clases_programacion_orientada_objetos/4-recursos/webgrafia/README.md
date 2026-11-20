@@ -82,3 +82,14 @@ Para esta semana, enfócate en:
 1. **MDN Classes** - Referencia completa
 2. **JavaScript.info** - Tutoriales paso a paso
 3. **Can I Use** - Verificar compatibilidad de campos privados
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 03](../../README.md)

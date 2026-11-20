@@ -98,7 +98,8 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 03: Clases y Programación Orientada a Objetos**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 - Clases modernas (class, constructor)
@@ -108,7 +109,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 - Private fields (`#`) y private methods (ES2022)
 - Static blocks (ES2022)
 
-**Proyecto**: Sistema de gestión de biblioteca (clases Book, Library, User)
+**Proyecto**: Catálogo con clases (`Item` y `Collection` en `logic.js`, tipos del dominio con `extends` en `types.js`)
 
 ---
 

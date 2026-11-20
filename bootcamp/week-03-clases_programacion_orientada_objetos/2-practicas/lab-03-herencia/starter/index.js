@@ -1,16 +1,17 @@
 /**
- * 📘 Ejercicio 03: Herencia
+ * 📘 Lab 03: Herencia
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para aprender herencia de clases en JavaScript ES2023.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
 // PASO 1: Clase Base (Padre)
 // ============================================
 console.log('--- Paso 1: Clase Base ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // La clase base define propiedades y métodos comunes
 // Las clases hijas heredarán todo esto
@@ -51,12 +52,14 @@ console.log('--- Paso 1: Clase Base ---');
 // vehicle.start();
 // vehicle.stop();
 
+}
 console.log('');
 
 // ============================================
 // PASO 2: Herencia Básica con extends
 // ============================================
 console.log('--- Paso 2: Herencia con extends ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // extends crea una clase hija que hereda de la clase padre
 // super() llama al constructor del padre
@@ -106,12 +109,14 @@ console.log('--- Paso 2: Herencia con extends ---');
 // console.log(car.start()); // Método heredado
 // console.log(car.openTrunk()); // Método propio
 
+}
 console.log('');
 
 // ============================================
 // PASO 3: Sobrescribir Métodos (Override)
 // ============================================
 console.log('--- Paso 3: Override de Métodos ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // La clase hija puede redefinir métodos del padre
 // super.method() llama al método del padre
@@ -157,12 +162,14 @@ console.log('--- Paso 3: Override de Métodos ---');
 // console.log('Info:', sedan.getInfo());
 // console.log(sedan.drive(100));
 
+}
 console.log('');
 
 // ============================================
 // PASO 4: Múltiples Clases Hijas
 // ============================================
 console.log('--- Paso 4: Múltiples Clases Hijas ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Una clase padre puede tener varias clases hijas
 // Cada una con su propio comportamiento
@@ -254,12 +261,14 @@ console.log('--- Paso 4: Múltiples Clases Hijas ---');
 // console.log(truck.start());
 // console.log(truck.loadCargo(10000));
 
+}
 console.log('');
 
 // ============================================
 // PASO 5: instanceof y Polimorfismo
 // ============================================
 console.log('--- Paso 5: instanceof y Polimorfismo ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // instanceof verifica si un objeto es instancia de una clase
 // El polimorfismo permite tratar objetos diferentes de forma uniforme
@@ -307,12 +316,14 @@ console.log('--- Paso 5: instanceof y Polimorfismo ---');
 //   console.log(`${v.brand}: ${type}`);
 // });
 
+}
 console.log('');
 
 // ============================================
 // PASO 6: Cadena de Herencia
 // ============================================
 console.log('--- Paso 6: Cadena de Herencia ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Puedes extender clases que ya extienden otras
 // Descomenta las siguientes líneas:
@@ -364,10 +375,11 @@ console.log('--- Paso 6: Cadena de Herencia ---');
 // console.log('Es ElectricCar:', tesla instanceof ElectricCar);
 // console.log(tesla.getStatus());
 
+}
 console.log('');
 
 // ============================================
 // ✅ EJERCICIO COMPLETADO
 // ============================================
-console.log('🎉 ¡Excelente! Has completado el ejercicio de herencia.');
+console.log('🎉 ¡Excelente! Has completado el lab de herencia.');
 console.log('Revisa cada paso y experimenta creando tus propias jerarquías.');

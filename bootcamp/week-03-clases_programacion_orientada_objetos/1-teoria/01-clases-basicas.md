@@ -442,3 +442,14 @@ Crea una clase `TodoList` con:
 - [ ] Entiendo cuándo usar clases vs objetos literales
 - [ ] Puedo implementar method chaining
 - [ ] Sé usar valores por defecto en constructores
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 03 - Clases y Programación Orientada a Objetos](../README.md) | [Teoría — 📘 Métodos Estáticos en JavaScript ES2023](02-metodos-estaticos.md) → |
+
+[↑ Semana 03](../README.md)

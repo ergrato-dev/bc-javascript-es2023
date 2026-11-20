@@ -662,3 +662,14 @@ constructor(name) {
 - [ ] Entiendo la sobrescritura de métodos
 - [ ] Puedo aplicar polimorfismo en mis diseños
 - [ ] Sé usar `instanceof` para verificar tipos
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📘 Métodos Estáticos en JavaScript ES2023](02-metodos-estaticos.md) | [Teoría — 📘 Getters y Setters en JavaScript ES2023](04-getters-setters.md) → |
+
+[↑ Semana 03](../README.md)

@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 02: Métodos Estáticos
+ * 📘 Lab 02: Métodos Estáticos
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para aprender métodos estáticos en clases ES2023.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -287,5 +287,5 @@ console.log('');
 // ============================================
 // ✅ EJERCICIO COMPLETADO
 // ============================================
-console.log('🎉 ¡Excelente! Has completado el ejercicio de métodos estáticos.');
+console.log('🎉 ¡Excelente! Has completado el lab de métodos estáticos.');
 console.log('Revisa cada paso y experimenta modificando los valores.');

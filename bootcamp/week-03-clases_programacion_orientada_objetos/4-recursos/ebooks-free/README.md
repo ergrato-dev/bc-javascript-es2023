@@ -37,3 +37,14 @@ Todos los recursos listados son **gratuitos** y accesibles online. Algunos ofrec
 2. Eloquent JavaScript - Chapter 6
 3. JavaScript.info - Class inheritance
 4. You Don't Know JS - Para profundizar
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 03](../../README.md)

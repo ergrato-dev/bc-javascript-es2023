@@ -647,3 +647,14 @@ set user(value) {
 - [ ] Puedo implementar validación en setters
 - [ ] Entiendo cómo crear propiedades de solo lectura
 - [ ] Sé proteger datos internos retornando copias
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📘 Herencia en JavaScript ES2023](03-herencia.md) | [Teoría — 📘 Campos Privados en JavaScript ES2023](05-campos-privados.md) → |
+
+[↑ Semana 03](../README.md)

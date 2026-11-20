@@ -1,16 +1,17 @@
 /**
- * 📘 Ejercicio 04: Encapsulación
+ * 📘 Lab 04: Encapsulación
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para aprender encapsulación con campos privados en ES2023.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
 // PASO 1: Campos Privados con #
 // ============================================
 console.log('--- Paso 1: Campos Privados ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Los campos privados usan # y solo son accesibles dentro de la clase
 // Descomenta las siguientes líneas:
@@ -35,12 +36,14 @@ console.log('--- Paso 1: Campos Privados ---');
 // console.log('Password correcto:', user.checkPassword('secret123'));
 // console.log('Password incorrecto:', user.checkPassword('wrong'));
 
+}
 console.log('');
 
 // ============================================
 // PASO 2: Getters para Datos Privados
 // ============================================
 console.log('--- Paso 2: Getters ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Los getters permiten acceso controlado a datos privados
 // Descomenta las siguientes líneas:
@@ -76,12 +79,14 @@ console.log('--- Paso 2: Getters ---');
 // console.log('Balance:', account.balance); // $1500.50
 // console.log('Balance numérico:', account.numericBalance);
 
+}
 console.log('');
 
 // ============================================
 // PASO 3: Setters con Validación
 // ============================================
 console.log('--- Paso 3: Setters con Validación ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Los setters permiten validar antes de modificar datos privados
 // Descomenta las siguientes líneas:
@@ -131,12 +136,14 @@ console.log('--- Paso 3: Setters con Validación ---');
 //   console.log('Error esperado:', e.message);
 // }
 
+}
 console.log('');
 
 // ============================================
 // PASO 4: Métodos Privados
 // ============================================
 console.log('--- Paso 4: Métodos Privados ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Los métodos privados solo se llaman internamente
 // Descomenta las siguientes líneas:
@@ -197,12 +204,14 @@ console.log('--- Paso 4: Métodos Privados ---');
 // console.log('Estado de cuenta:');
 // console.log(account.getStatement());
 
+}
 console.log('');
 
 // ============================================
 // PASO 5: Propiedades Estáticas Privadas
 // ============================================
 console.log('--- Paso 5: Propiedades Estáticas Privadas ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Las propiedades estáticas privadas se comparten entre instancias
 // Descomenta las siguientes líneas:
@@ -249,12 +258,14 @@ console.log('--- Paso 5: Propiedades Estáticas Privadas ---');
 // console.log('Total de cuentas:', BankAccount.getTotalAccounts());
 // console.log('Balance total:', BankAccount.getTotalDeposits());
 
+}
 console.log('');
 
 // ============================================
 // PASO 6: Sistema de Autenticación
 // ============================================
 console.log('--- Paso 6: Sistema de Autenticación ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Ejemplo completo con PIN y bloqueo
 // Descomenta las siguientes líneas:
@@ -334,10 +345,11 @@ console.log('--- Paso 6: Sistema de Autenticación ---');
 // console.log(secure.unlock('MASTER-KEY-2024'));
 // console.log('Balance después de desbloquear:', secure.getBalance('1234'));
 
+}
 console.log('');
 
 // ============================================
 // ✅ EJERCICIO COMPLETADO
 // ============================================
-console.log('🎉 ¡Excelente! Has completado el ejercicio de encapsulación.');
+console.log('🎉 ¡Excelente! Has completado el lab de encapsulación.');
 console.log('Revisa cada paso y experimenta con los campos privados.');

@@ -1,0 +1,90 @@
+{
+  "semana": "03",
+  "titulo": "Clases y Programación Orientada a Objetos",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/logic.js y src/types.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/logic.js && node --check src/types.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "tipos-dominio",
+      "descripcion": "types.js exporta en ITEM_TYPES 2 o más clases hijas de Item, con type propio y distinto de los del ejemplo",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; import * as t from './src/types.js'; const types = t.ITEM_TYPES.map((T) => T.type); assert.ok(t.ITEM_TYPES.length >= 2); assert.ok(t.ITEM_TYPES.every((T) => T.prototype instanceof l.Item)); assert.equal(new Set(types).size, types.length); assert.ok(types.every((type) => typeof type === 'string' && !['item', 'planet', 'star'].includes(type)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "tipos-describe",
+      "descripcion": "Cada tipo del dominio se crea solo con el nombre y amplía describe() con super",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; import * as t from './src/types.js'; for (const T of t.ITEM_TYPES) { const item = new T('Zeta'); assert.ok(item instanceof l.Item); assert.equal(item.type, T.type); assert.equal(item.name, 'Zeta'); const text = item.describe(); assert.ok(text.startsWith('[' + T.type + '] Zeta'), text); assert.ok(text.length > ('[' + T.type + '] Zeta').length, text); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "item-crear",
+      "descripcion": "new Item() guarda los datos con valores por defecto y un id que sube de uno en uno",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; class Moon extends l.Item { static type = 'moon'; } const a = new l.Item('Marte'); const b = new Moon('Fobos', 'Pequeña'); assert.ok(Number.isInteger(a.id)); assert.equal(b.id, a.id + 1); assert.equal(a.description, ''); assert.equal(a.active, true); assert.equal(a.type, 'item'); assert.equal(b.type, 'moon'); assert.equal(b.description, 'Pequeña');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "item-privado",
+      "descripcion": "El contador de ids y el nombre son privados",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const a = new l.Item('Marte'); assert.deepEqual(Object.keys(l.Item), ['type']); assert.deepEqual(Object.keys(a).toSorted(), ['active', 'description', 'id']); assert.equal(a.name, 'Marte');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "item-nombre",
+      "descripcion": "El setter de name quita espacios y rechaza un nombre vacío",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const a = new l.Item('  Marte '); assert.equal(a.name, 'Marte'); a.name = ' Venus'; assert.equal(a.name, 'Venus'); assert.throws(() => { a.name = '   '; }, Error); assert.equal(a.name, 'Venus'); assert.throws(() => new l.Item(''), Error); assert.throws(() => new l.Item(), Error);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "item-toggle-describe",
+      "descripcion": "toggle() invierte active y devuelve el objeto; describe() devuelve '[tipo] nombre'",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const a = new l.Item('Marte'); assert.equal(a.toggle(), a); assert.equal(a.active, false); assert.equal(a.toggle().active, true); assert.equal(a.describe(), '[item] Marte');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "coleccion-add",
+      "descripcion": "Collection añade solo objetos Item en un array privado",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; class Moon extends l.Item { static type = 'moon'; } const col = new l.Collection(); assert.equal(col.size, 0); const a = new l.Item('A'); assert.equal(col.add(a), col); col.add(new Moon('B')); assert.equal(col.size, 2); assert.throws(() => col.add({ name: 'C' }), TypeError); assert.equal(col.size, 2); assert.deepEqual(Object.keys(col), []); const other = l.Collection.from([a]); assert.ok(other instanceof l.Collection); assert.equal(other.size, 1);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "coleccion-find-remove",
+      "descripcion": "find, remove y activeCount",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; class Moon extends l.Item { static type = 'moon'; } const a = new l.Item('Júpiter', 'Gigante gaseoso'); const b = new Moon('Ío', 'Volcanes'); const c = new l.Item('Sirio', 'Muy brillante').toggle(); const col = l.Collection.from([a, b, c]); assert.equal(col.find(b.id), b); assert.equal(col.find(-1), undefined); assert.equal(col.activeCount, 2); assert.equal(col.remove(a.id), true); assert.equal(col.remove(a.id), false); assert.equal(col.size, 2); assert.equal(col.activeCount, 1);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "coleccion-filter",
+      "descripcion": "filter combina tipo, estado y búsqueda; countByType cuenta por tipo",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; class Moon extends l.Item { static type = 'moon'; } const a = new l.Item('Júpiter', 'Gigante gaseoso'); const b = new Moon('Ío', 'Volcanes'); const c = new l.Item('Sirio', 'Muy brillante').toggle(); const col = l.Collection.from([a, b, c]); const names = (f) => col.filter(f).map((i) => i.name); assert.deepEqual(names(), ['Júpiter', 'Ío', 'Sirio']); assert.deepEqual(names({ type: 'item' }), ['Júpiter', 'Sirio']); assert.deepEqual(names({ status: 'inactive' }), ['Sirio']); assert.deepEqual(names({ status: 'active', type: 'moon' }), ['Ío']); assert.deepEqual(names({ query: '  GAS ' }), ['Júpiter']); assert.ok(Array.isArray(col.filter())); assert.deepEqual(col.countByType(), { item: 2, moon: 1 }); assert.deepEqual(new l.Collection().countByType(), {});\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    }
+  ]
+}

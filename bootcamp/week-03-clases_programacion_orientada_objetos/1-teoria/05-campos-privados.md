@@ -703,3 +703,14 @@ class User {
 - [ ] Puedo crear campos privados estáticos
 - [ ] Entiendo las limitaciones con herencia
 - [ ] Sé aplicar encapsulación para proteger datos sensibles
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📘 Getters y Setters en JavaScript ES2023](04-getters-setters.md) | [Teoría — 📘 Static Blocks en JavaScript ES2022](06-static-blocks.md) → |
+
+[↑ Semana 03](../README.md)

@@ -1,344 +1,212 @@
-# 📦 Proyecto Semana 03: Sistema de Gestión con POO
+# Proyecto Semana 03 — Catálogo con clases
 
-> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la semana.
+## Descripción
 
-## 🏛️ Política de Dominios Únicos
+Una página para gestionar un catálogo de tu dominio con varios **tipos** de elemento: cada tipo tiene un dato propio (en el ejemplo, un planeta tiene lunas y una estrella, magnitud). Puedes crear, editar el nombre y la descripción, marcar como activo o inactivo, eliminar, filtrar por tipo y estado, buscar y ver cuántos hay de cada tipo.
 
-**Tu dominio fue asignado por el instructor al inicio del trimestre.** Este proyecto debe implementarse completamente dentro del contexto de tu dominio asignado.
+La página ya está montada. Tu trabajo es escribir las dos clases de `src/logic.js` con lo que has visto esta semana (clases, `static`, campos privados, getters y setters) y crear en `src/types.js` las clases hijas de tu dominio con `extends` y `super`.
 
-### ¿Por qué dominios únicos?
+**Tiempo:** 2 h.
 
-- Previene copia entre compañeros
-- Fomenta implementaciones originales
-- Desarrolla capacidad de abstracción
-- Aplica conceptos de POO a contextos específicos
+## Punto de partida
+
+```bash
+mkdir -p ~/js-proyecto-semana-03
+cp -r bootcamp/week-03-clases_programacion_orientada_objetos/3-proyecto/starter/. ~/js-proyecto-semana-03/
+cd ~/js-proyecto-semana-03
+```
+
+Ejecuta el `cp` desde la carpeta del bootcamp. Quedan estos archivos:
+
+| Archivo | Qué contiene | ¿Lo editas? |
+|---|---|---|
+| `index.html` | El formulario, los filtros, la lista y las estadísticas; carga `src/main.js` | No |
+| `styles.css` | Los estilos | Si quieres |
+| `src/main.js` | El código que lee el formulario y pinta la página | No |
+| `src/logic.js` | Las clases `Item` y `Collection`, con `TODO` | Sí: pasos 2, 3, 5 y 6 |
+| `src/types.js` | El título y los tipos del dominio Planetario, que es solo un ejemplo | Sí: paso 4 |
+
+- **Qué:** `logic.js` no toca la página. `Item` es un elemento cualquiera y `Collection` guarda los elementos y los busca, filtra y cuenta. `types.js` define clases hijas de `Item`, una por tipo de tu dominio.
+- **Para qué:** `main.js` solo habla con la colección (`add`, `remove`, `filter`...) y no sabe qué hay dentro. Si añades un tipo nuevo en `types.js`, el formulario, los filtros y las estadísticas lo incluyen solos. Y las clases se pueden probar desde Node, que es lo que hace `scripts/verificar-semana.sh`.
+- **Impacto:** el nombre de un elemento y la lista de la colección son **privados** (`#`): solo se cambian a través de sus métodos, que validan. Las comprobaciones lo verifican: si dejas `name` o `items` como propiedades públicas, fallan. Más detalles en [docs/autograding.md](../../../docs/autograding.md).
+
+La colección vive en memoria: al recargar, la página vuelve a los elementos de ejemplo.
 
 ---
 
-## 🎯 Objetivo
+## Paso 1: ver la página (10 min)
 
-Crear un sistema completo de gestión usando clases ES2023, herencia, encapsulación y todos los conceptos de POO aprendidos durante la semana, aplicado a tu dominio asignado.
+Igual que en las semanas anteriores, los módulos necesitan un servidor local:
 
----
-
-## 📋 Descripción
-
-Desarrollarás una aplicación web que permita gestionar entidades de tu dominio con:
-
-- Catálogo de elementos (con diferentes tipos/subclases)
-- Sistema de usuarios (diferentes roles)
-- Operaciones CRUD con validación
-- Sistema de estados y transiciones
-- Búsqueda y filtrado
-
----
-
-## 🏗️ Arquitectura de Clases (Genérica)
-
-Debes adaptar esta estructura a tu dominio:
-
-```
-BaseItem (clase base abstracta)
-├── ItemType1
-├── ItemType2
-└── ItemType3
-
-Person (clase base)
-├── UserRole1
-└── UserRole2
-
-MainSystem (clase principal)
-├── Transaction (operaciones)
-└── Record (historial)
+```bash
+pnpm dlx serve .
 ```
 
-### 💡 Ejemplo: Planetario (NO es un dominio asignable)
-
-```
-CelestialBody (clase base abstracta)
-├── Planet
-├── Star
-└── Satellite
-    ├── NaturalSatellite
-    └── ArtificialSatellite
-
-Person (clase base)
-├── Visitor
-└── Astronomer
-
-Observatory (clase principal)
-├── Observation (observaciones)
-└── Event (eventos astronómicos)
+```text
+ INFO  Accepting connections at http://localhost:3000
 ```
 
----
+Abre `http://localhost:3000`. Con el starter, la lista sale vacía y la consola de las DevTools (`F12`, pestaña **Console**) muestra un `TypeError`: `Collection.from` todavía no devuelve nada. Deja el servidor abierto en esa terminal, usa otra para el resto de pasos y recarga la página después de cada uno.
 
-## 📝 Requisitos Técnicos
+## Paso 2: la clase `Item` (25 min)
 
-### 1. Clase Base `BaseItem` (Abstracta)
+Un `Item` guarda `id`, `name`, `description` (por defecto `''`) y `active` (empieza en `true`):
 
-Tu clase base debe incluir:
+- **El id:** un campo **estático privado**, `static #nextId = 1`, es un contador compartido por todos los elementos ([lab 02](../2-practicas/lab-02-metodos-estaticos/README.md), paso 3). En el constructor, `this.id = Item.#nextId++` guarda el valor actual y después lo sube en 1.
+- **`get type()`:** cada clase tiene un `static type` (`Item` tiene `'item'`; `Planet`, `'planet'`). El getter devuelve el de la clase con la que se creó el objeto: `this.constructor.type`. Así las clases hijas solo cambian su `static type` y el getter sirve para todas.
+- **`toggle()`:** invierte `active` y devuelve `this`, para poder encadenar ([lab 01](../2-practicas/lab-01-clases-basicas/README.md), paso 3).
+- **`describe()`:** devuelve `[tipo] nombre`.
+
+En este paso guarda el nombre como una propiedad normal (`this.name = name`); en el paso 3 lo haces privado.
+
+```bash
+node --input-type=module -e "import { Item } from './src/logic.js'; const marte = new Item('Marte'); console.log(marte); console.log(marte.describe(), marte.type); console.log(new Item('Venus').id, marte.toggle().active)"
+# Item { id: 1, name: 'Marte', description: '', active: true }
+# [item] Marte item
+# 2 false
+```
+
+## Paso 3: el nombre privado (15 min)
+
+Un nombre vacío no tiene sentido. Para impedirlo, guarda el nombre en un campo privado `#name` y da acceso a él con un getter y un setter ([lab 04](../2-practicas/lab-04-encapsulacion/README.md), pasos 1 a 3):
+
+- `get name()` devuelve `this.#name`.
+- `set name(value)` convierte el valor a texto, le quita los espacios de los extremos (`String(value ?? '').trim()`) y, si queda vacío, lanza `new Error('El nombre no puede estar vacío')`. Si no, lo guarda en `this.#name`.
+
+El constructor no cambia: `this.name = name` ahora pasa por el setter, así que `new Item('')` también lanza el error. `main.js` captura ese error y lo muestra como aviso: prueba a guardar un elemento sin nombre.
+
+```bash
+node --input-type=module -e "import { Item } from './src/logic.js'; const marte = new Item('  Marte '); console.log(marte, marte.name); marte.name = '   '"
+# Item { id: 1, description: '', active: true } Marte
+# ...
+# Error: El nombre no puede estar vacío
+```
+
+Node no muestra `#name` al imprimir el objeto: es privado. `marte.name` sí funciona, porque pasa por el getter.
+
+## Paso 4: los tipos de tu dominio (25 min)
+
+Abre `src/types.js`. Tiene el título de la página y dos tipos del Planetario, `Planet` y `Star`. Cada tipo es una clase hija de `Item` ([lab 03](../2-practicas/lab-03-herencia/README.md)):
 
 ```javascript
-class BaseItem {
-  // Campos privados obligatorios
-  #id;
-  #name;
-  #active;
-  #location;
-  #dateCreated;
+export class Planet extends Item {
+  static type = 'planet';
+  static label = '🪐 Planeta';
+  static extraLabel = 'Lunas';
 
-  constructor(name, location) { /* ... */ }
-
-  // Getters obligatorios
-  get id() { /* ... */ }
-  get name() { /* ... */ }
-  get isActive() { /* ... */ }
-  get location() { /* ... */ }
-  get dateCreated() { /* ... */ }
-
-  // Setter con validación
-  set location(value) { /* validar y asignar */ }
-
-  // Métodos de estado
-  activate() { /* ... */ }
-  deactivate() { /* ... */ }
-
-  // Método abstracto - debe sobrescribirse
-  getInfo() {
-    throw new Error('Método getInfo() debe ser implementado');
+  constructor(name, description = '', moons = 0) {
+    super(name, description);
+    this.moons = Number(moons);
   }
 
-  // Método para obtener el tipo
-  getType() {
-    return this.constructor.name;
+  describe() {
+    return `${super.describe()} · ${this.moons} lunas`;
   }
 }
 ```
 
-### 2. Clases Derivadas (mínimo 3)
+- `super(name, description)` ejecuta el constructor de `Item`, que pone el id, valida el nombre y deja `active` en `true`. Después, la clase hija guarda su dato propio, con valor por defecto.
+- `describe()` sobrescribe el de `Item` y lo amplía: `super.describe()` devuelve `[planet] Júpiter` y la hija le añade su dato.
+- `type` va en inglés y en `camelCase`: los filtros y las estadísticas lo usan. `label` y `extraLabel` son los textos que enseña la página.
 
-Crea al menos 3 clases que extiendan tu clase base:
+Sustitúyelos por **los tipos de tu dominio** (el que te asignó el instructor):
 
-- Propiedades privadas adicionales específicas
-- Implementación del método `getInfo()`
-- Getters para todas las propiedades
-- Métodos específicos del tipo
+- `TITLE`: el título de la página, con un emoji.
+- De 2 a 4 clases hijas de `Item`, cada una con `static type`, `static label`, `static extraLabel`, un dato propio con valor por defecto y su `describe()` con `super.describe()`.
+- `ITEM_TYPES`: el array con tus clases.
+- `createSamples()`: de 4 a 6 elementos de ejemplo creados con tus clases.
 
-### 3. Clase `Person` (Base para usuarios)
+El dato propio llega del formulario como texto. Si es un número (como `moons`), conviértelo con `Number()`; si es texto, guárdalo tal cual.
 
-```javascript
-class Person {
-  #id;
-  #name;
-  #email;
-  #registrationDate;
+Con los tipos del Planetario, antes de cambiarlos:
 
-  constructor(name, email) { /* ... */ }
-
-  get id() { /* ... */ }
-  get name() { /* ... */ }
-  get email() { /* ... */ }
-
-  set email(value) { /* validar formato */ }
-}
+```bash
+node --input-type=module -e "import { Planet, Star } from './src/types.js'; const jupiter = new Planet('Júpiter', '', 95); console.log(jupiter); console.log(jupiter.describe(), jupiter.type); console.log(new Star('Sirio').describe())"
+# Planet { id: 1, description: '', active: true, moons: 95 }
+# [planet] Júpiter · 95 lunas planet
+# [star] Sirio · magnitud 0
 ```
 
-### 4. Clases de Roles (mínimo 2)
+## Paso 5: la clase `Collection` (25 min)
 
-- Diferentes permisos/capacidades
-- Métodos específicos del rol
-- Propiedades privadas adicionales
+La colección guarda los elementos en un array **privado**, `#items = []`, y solo deja tocarlo con sus métodos:
 
-### 5. Clase Principal del Sistema
+| Miembro | Qué hace |
+|---|---|
+| `static from(items)` | Crea una colección nueva, le añade los elementos del array con `add` y la devuelve. Es un método *factory* ([lab 02](../2-practicas/lab-02-metodos-estaticos/README.md), paso 6) |
+| `get size` | Cuántos elementos hay |
+| `get activeCount` | Cuántos tienen `active` a `true` |
+| `add(item)` | Añade el elemento y devuelve `this`. Si no es un `Item` (`!(item instanceof Item)`), lanza `new TypeError(...)` |
+| `find(id)` | El elemento con ese id, o `undefined` |
+| `remove(id)` | Quita el elemento con ese id; devuelve `true` si lo quitó y `false` si no existía |
 
-```javascript
-class MainSystem {
-  #items = [];
-  #users = [];
-  #transactions = [];
+`instanceof Item` también es `true` para un `Planet`: un objeto de una clase hija es también de la clase padre. Para `remove`, compara la longitud del array antes y después de filtrarlo.
 
-  // Bloque estático para configuración
-  static {
-    this.VERSION = '1.0.0';
-    this.MAX_ITEMS = 1000;
-  }
+Al recargar, la lista aparece y puedes crear, marcar y eliminar elementos (los filtros funcionan después del paso 6).
 
-  // Métodos CRUD
-  addItem(item) { /* ... */ }
-  removeItem(id) { /* ... */ }
-  findItem(id) { /* ... */ }
+## Paso 6: filtrar y contar (15 min)
 
-  // Métodos de búsqueda
-  searchByName(query) { /* ... */ }
-  filterByType(type) { /* ... */ }
+- `filter({ type, status, query })`: los tres filtros con valor por defecto (`'all'`, `'all'` y `''`), y el objeto entero con `= {}`, igual que `filterItems` en la semana 02. `type` compara con `item.type`; `status` vale `'all'`, `'active'` o `'inactive'`; `query` busca en `name` y `description` sin distinguir mayúsculas. Devuelve un array.
+- `countByType()`: un objeto con cuántos elementos hay de cada tipo, con `reduce` y una propiedad computada, como `getStats` en la semana 02.
 
-  // Estadísticas
-  getStats() { /* ... */ }
-}
+```bash
+node --input-type=module -e "import { Collection } from './src/logic.js'; import { createSamples } from './src/types.js'; const col = Collection.from(createSamples()); col.find(2).toggle(); console.log(col.size, col.activeCount, col.remove(4), col.remove(4)); console.log(col.filter({ type: 'planet' }).map((item) => item.name), col.countByType())"
+# 4 3 true false
+# [ 'Júpiter', 'Saturno' ] { planet: 2, star: 1 }
 ```
 
----
+La salida es la de los ejemplos del Planetario; con tus tipos será otra.
 
-## 💡 Ejemplos de Adaptación por Dominio
+## Paso 7: comprobar (5 min)
 
-| Concepto | Planetario 🔭 | Acuario 🐠 |
-|----------|---------------|------------|
-| **BaseItem** | CelestialBody | MarineSpecies |
-| **Tipo 1** | Planet | Fish |
-| **Tipo 2** | Star | Mammal |
-| **Tipo 3** | Satellite | Invertebrate |
-| **Rol 1** | Visitor | Guest |
-| **Rol 2** | Astronomer | Biologist |
-| **Sistema** | Observatory | Aquarium |
-| **Transacción** | Observation | Feeding |
+Desde la carpeta del bootcamp:
 
----
-
-## 🎨 Interfaz de Usuario
-
-### Secciones Requeridas
-
-1. **Header**: Nombre del sistema y estadísticas
-2. **Formulario**: Crear/editar elementos
-3. **Lista de Elementos**: Con información según tipo
-4. **Filtros**: Por tipo, estado, búsqueda
-5. **Detalles**: Modal con información completa
-
-### Estados Visuales
-
-- Elementos activos/inactivos
-- Diferentes iconos por tipo
-- Badges de categoría
-
----
-
-## ✅ Criterios de Evaluación
-
-### Clases y Herencia (40 puntos)
-
-- [ ] Clase base abstracta correcta (10pts)
-- [ ] Mínimo 3 clases derivadas (10pts)
-- [ ] Uso correcto de `extends` y `super` (10pts)
-- [ ] Métodos sobrescritos correctamente (10pts)
-
-### Encapsulación (30 puntos)
-
-- [ ] Campos privados `#` correctos (10pts)
-- [ ] Getters y setters apropiados (10pts)
-- [ ] Validación en setters (10pts)
-
-### Características Modernas (30 puntos)
-
-- [ ] Static blocks para configuración (10pts)
-- [ ] Métodos estáticos apropiados (10pts)
-- [ ] Integración con DOM funcional (10pts)
-
-**Total: 100 puntos**
-**Mínimo para aprobar: 70 puntos**
-
----
-
-## 🚀 Cómo Empezar
-
-### 1. Define tu Jerarquía de Clases
-
-Dibuja primero tu arquitectura de clases adaptada a tu dominio.
-
-### 2. Implementa de Abajo hacia Arriba
-
-1. Clase base `BaseItem`
-2. Clases derivadas (tipos de elementos)
-3. Clase `Person`
-4. Clases de roles
-5. Clase principal del sistema
-6. Integración con DOM
-
-### 3. Prueba Incrementalmente
-
-Después de cada clase, crea instancias de prueba en la consola.
-
----
-
-## 💡 Pistas y Consejos
-
-### Campos Privados
-
-```javascript
-class Example {
-  #privateField;
-
-  constructor(value) {
-    this.#privateField = value;
-  }
-
-  get privateField() {
-    return this.#privateField;
-  }
-}
+```bash
+PROYECTO=~/js-proyecto-semana-03 ./scripts/verificar-semana.sh 03
+# Semana 03 — Clases y Programación Orientada a Objetos
+#   ✅ src/logic.js y src/types.js son módulos ES válidos
+#   ...
+# 12/12 comprobaciones superadas.
 ```
 
-### Herencia
+Cada ❌ trae una pista con el paso que lo arregla. `tipos-dominio` falla mientras `types.js` siga con `planet` y `star`.
 
-```javascript
-class Child extends Parent {
-  constructor(parentProp, childProp) {
-    super(parentProp); // Llamar al padre primero
-    this.#childProp = childProp;
-  }
-}
-```
-
-### Static Blocks
-
-```javascript
-class Config {
-  static {
-    this.settings = {
-      theme: 'dark',
-      language: 'es'
-    };
-  }
-}
-```
+Por último, prueba la página entera: crea un elemento de cada tipo, intenta guardar uno sin nombre, edita uno, márcalo como inactivo, filtra por tipo y estado, busca y elimina.
 
 ---
 
-## 🎓 Conceptos Aplicados
+## ✅ Requisitos verificables
 
-| Concepto | Uso en el Proyecto |
-|----------|-------------------|
-| **Clases** | Definir entidades del dominio |
-| **Herencia** | Especializar tipos de elementos |
-| **Campos privados** | Encapsular datos sensibles |
-| **Getters/Setters** | Controlar acceso a propiedades |
-| **Métodos estáticos** | Utilidades y configuración |
-| **Static blocks** | Inicialización compleja |
+Las comprobaciones de [`checks.json`](../checks.json):
 
+| Comprobación | Qué pide |
+|---|---|
+| `sintaxis` | `src/logic.js` y `src/types.js` son módulos ES válidos |
+| `sin-todo` | `src/logic.js` no tiene ningún `TODO` |
+| `sin-var` | Ningún archivo de `src/` usa `var` |
+| `tipos-dominio` | `ITEM_TYPES` tiene 2 o más clases hijas de `Item`, cada una con un `type` propio, distinto de `item`, `planet` y `star` |
+| `tipos-describe` | Cada tipo se crea solo con el nombre y su `describe()` amplía el de `Item` |
+| `item-crear` | `new Item()` guarda los datos con valores por defecto y un id que sube de uno en uno |
+| `item-privado` | El contador de ids y el nombre son privados |
+| `item-nombre` | El setter de `name` quita los espacios y rechaza un nombre vacío |
+| `item-toggle-describe` | `toggle()` invierte `active` y devuelve el objeto; `describe()` devuelve `[tipo] nombre` |
+| `coleccion-add` | `Collection` añade solo objetos `Item`, en un array privado; `Collection.from` crea una colección |
+| `coleccion-find-remove` | `find`, `remove` y `activeCount` |
+| `coleccion-filter` | `filter` combina tipo, estado y búsqueda; `countByType` cuenta por tipo |
+
+Que los tipos y los ejemplos sean de tu dominio y que la página funcione lo revisa el instructor con la [rúbrica](../rubrica-evaluacion.md).
+
+## Entrega
+
+La carpeta `~/js-proyecto-semana-03` con `src/logic.js` completo y tus tipos en `src/types.js`, por el canal que indique el instructor.
+
+<!-- nav -->
 ---
 
-## ⏱️ Tiempo Estimado
+## 🔗 Navegación
 
-- **Definir arquitectura**: 30 minutos
-- **Clases base**: 1 hora
-- **Clases derivadas**: 1.5 horas
-- **Sistema principal**: 1 hora
-- **Integración DOM**: 1 hora
+| Anterior | Siguiente |
+|---|---|
+| ← [Lab 05 — Static blocks](../2-practicas/lab-05-static-blocks/README.md) | [Rúbrica de evaluación](../rubrica-evaluacion.md) → |
 
-**Total: ~5 horas**
-
----
-
-## 📋 Entregables
-
-1. **Código funcional** con jerarquía de clases completa
-2. **Diagrama de clases** (puede ser texto o imagen)
-3. **README personal** explicando tu implementación
-4. **Todo el código debe usar**:
-   - Nomenclatura técnica en inglés
-   - Comentarios en español
-   - Sintaxis ES2023 (campos privados `#`, static blocks)
-
----
-
-_Proyecto Week-03 - JavaScript Moderno Bootcamp_
+[↑ Semana 03](../README.md)

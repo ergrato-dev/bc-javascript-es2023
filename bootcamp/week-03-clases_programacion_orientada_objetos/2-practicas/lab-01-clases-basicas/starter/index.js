@@ -1,16 +1,17 @@
 /**
- * 📘 Ejercicio 01: Clases Básicas
+ * 📘 Lab 01: Clases Básicas
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para aprender a crear clases en JavaScript ES2023.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
 // PASO 1: Definir una Clase Básica
 // ============================================
 console.log('--- Paso 1: Clase Básica ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Las clases se definen con la palabra clave class
 // El constructor inicializa las propiedades
@@ -30,12 +31,14 @@ console.log('--- Paso 1: Clase Básica ---');
 // console.log('Nombre:', laptop.name);
 // console.log('Precio:', laptop.price);
 
+}
 console.log('');
 
 // ============================================
 // PASO 2: Agregar Métodos de Instancia
 // ============================================
 console.log('--- Paso 2: Métodos de Instancia ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Los métodos se definen dentro de la clase sin "function"
 // this hace referencia a la instancia actual
@@ -73,12 +76,14 @@ console.log('--- Paso 2: Métodos de Instancia ---');
 // console.log('Después de agregar stock:', phone.isAvailable());
 // console.log('Stock actual:', phone.stock);
 
+}
 console.log('');
 
 // ============================================
 // PASO 3: Métodos que Modifican Estado
 // ============================================
 console.log('--- Paso 3: Métodos que Modifican Estado ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Los métodos pueden modificar las propiedades de la instancia
 // Es buena práctica retornar this para encadenar métodos
@@ -119,12 +124,14 @@ console.log('--- Paso 3: Métodos que Modifican Estado ---');
 // console.log('Tablet con descuento:', tablet.getInfo());
 // console.log('Stock:', tablet.stock);
 
+}
 console.log('');
 
 // ============================================
 // PASO 4: Clase ShoppingCart (Composición)
 // ============================================
 console.log('--- Paso 4: Clase ShoppingCart ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Una clase puede contener instancias de otras clases
 // Esto se llama composición
@@ -178,12 +185,14 @@ console.log('--- Paso 4: Clase ShoppingCart ---');
 // console.log('Items en carrito:', cart.getItemCount());
 // console.log('Total:', cart.getTotal());
 
+}
 console.log('');
 
 // ============================================
 // PASO 5: Métodos de Resumen
 // ============================================
 console.log('--- Paso 5: Métodos de Resumen ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Los métodos pueden generar reportes o resúmenes
 // Descomenta las siguientes líneas:
@@ -239,12 +248,14 @@ console.log('--- Paso 5: Métodos de Resumen ---');
 // myCart.addItem(new Product('Webcam', 89, 'Tech'), 1);
 // console.log(myCart.getSummary());
 
+}
 console.log('');
 
 // ============================================
 // PASO 6: Clase Customer (Uso de otras clases)
 // ============================================
 console.log('--- Paso 6: Clase Customer ---');
+{ // Bloque del paso: sus clases y variables no chocan con las de otros pasos.
 
 // Una clase puede crear y usar instancias de otras clases
 // Descomenta las siguientes líneas:
@@ -317,10 +328,11 @@ console.log('--- Paso 6: Clase Customer ---');
 // console.log('Orden creada:', order);
 // console.log('Perfil después:', customer.getProfile());
 
+}
 console.log('');
 
 // ============================================
 // ✅ EJERCICIO COMPLETADO
 // ============================================
-console.log('🎉 ¡Excelente! Has completado el ejercicio de clases básicas.');
+console.log('🎉 ¡Excelente! Has completado el lab de clases básicas.');
 console.log('Revisa cada paso y experimenta modificando los valores.');

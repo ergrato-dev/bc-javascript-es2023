@@ -73,3 +73,14 @@
 - ✅ Toma notas de conceptos clave
 - ✅ Reproduce a 1.25x si ya conoces lo básico
 - ✅ Activa subtítulos en videos en inglés
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 03](../../README.md)
