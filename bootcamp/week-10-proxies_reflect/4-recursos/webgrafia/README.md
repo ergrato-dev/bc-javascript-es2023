@@ -116,6 +116,13 @@ JS.info Proxy:  https://javascript.info/proxy
 Can I Use:      https://caniuse.com/proxy
 ```
 
+<!-- nav -->
 ---
 
-_Week 10 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 10](../../README.md)

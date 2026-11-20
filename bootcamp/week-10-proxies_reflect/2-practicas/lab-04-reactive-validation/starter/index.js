@@ -1,8 +1,8 @@
 /**
- * Ejercicio 04: Validación Reactiva
- * ==================================
- * Construye un sistema completo de validación reactiva
- * con validadores, observers y propiedades computadas.
+ * 📘 Lab 04: Validación reactiva
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -78,7 +78,7 @@ console.log('--- Paso 2: Fábrica de Validadores ---');
 //   },
 
 //   number: (min = -Infinity, max = Infinity) => (value, prop) => {
-//     if (typeof value !== 'number' || isNaN(value)) return `${prop} must be a number`;
+//     if (typeof value !== 'number' || Number.isNaN(value)) return `${prop} must be a number`;
 //     if (value < min) return `${prop} must be at least ${min}`;
 //     if (value > max) return `${prop} must be at most ${max}`;
 //     return true;
@@ -369,7 +369,22 @@ console.log('--- Paso 7: Sistema Completo ---');
 //     errorListeners.forEach(fn => fn(prop, error));
 //   };
 
-//   const proxy = new Proxy({}, {
+//   // Los métodos van en el objeto original: si se asignaran a través del
+//   // proxy, pasarían por el trap set como si fueran campos del formulario.
+//   const target = {
+//     onChange(fn) {
+//       changeListeners.add(fn);
+//       return () => changeListeners.delete(fn);
+//     },
+//     onError(fn) {
+//       errorListeners.add(fn);
+//       return () => errorListeners.delete(fn);
+//     },
+//     isValid: () => errors.size === 0,
+//     getErrors: () => Object.fromEntries(errors)
+//   };
+
+//   const proxy = new Proxy(target, {
 //     set(target, prop, value, receiver) {
 //       const validator = schema[prop];
 
@@ -392,19 +407,6 @@ console.log('--- Paso 7: Sistema Completo ---');
 //       return success;
 //     }
 //   });
-
-//   proxy.onChange = (fn) => {
-//     changeListeners.add(fn);
-//     return () => changeListeners.delete(fn);
-//   };
-
-//   proxy.onError = (fn) => {
-//     errorListeners.add(fn);
-//     return () => errorListeners.delete(fn);
-//   };
-
-//   proxy.isValid = () => errors.size === 0;
-//   proxy.getErrors = () => Object.fromEntries(errors);
 
 //   return proxy;
 // };
@@ -432,9 +434,4 @@ console.log('--- Paso 7: Sistema Completo ---');
 
 console.log('');
 
-// ============================================
-// 🎉 ¡Ejercicio completado!
-// ============================================
-console.log('🎉 ¡Ejercicio 04 completado!');
-console.log('Has construido un sistema de validación reactiva.');
-console.log('¡Ahora estás listo para el proyecto de la semana!');
+console.log('✅ Lab completado.');

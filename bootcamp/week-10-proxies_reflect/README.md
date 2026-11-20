@@ -1,194 +1,108 @@
-# 📅 Week 10: Proxies y Reflect
+# Semana 10 - Proxies y Reflect
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de aprendizaje
 
-Al finalizar esta semana serás capaz de:
+Al terminar la semana podrás:
 
-- ✅ Crear objetos Proxy para interceptar operaciones
-- ✅ Implementar traps para get, set, has, deleteProperty y más
-- ✅ Usar la API Reflect para operaciones reflexivas
-- ✅ Construir sistemas de validación reactiva
-- ✅ Implementar observadores de cambios en objetos
+- Crear un `Proxy` a partir de un objeto y un handler, y explicar qué hace un handler vacío.
+- Interceptar lecturas, escrituras, el operador `in`, `delete` y la lista de claves con los traps `get`, `set`, `has`, `deleteProperty` y `ownKeys`.
+- Usar `Reflect` dentro de los traps para mantener el comportamiento normal, y explicar qué cambia el parámetro `receiver`.
+- Validar datos al asignarlos y calcular propiedades al leerlas.
+- Avisar de cada cambio de un objeto a quien se suscribe (patrón Observer).
 
----
+## Requisitos previos
 
-## 📋 Contenido
+- La [semana 03](../week-03-clases_programacion_orientada_objetos/README.md) (getters y `this`), la [semana 07](../week-07-sets_maps/README.md) (`Map`, `Set` y `Object.fromEntries`) y la [semana 09](../week-09-simbolos_metaprogramacion_basica/README.md) (claves simbólicas y `Reflect.ownKeys`).
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
 
-### 1. Teoría (2.5 horas)
-
-| Archivo | Tema | Duración |
-|---------|------|----------|
-| [01-proxy-intro.md](1-teoria/01-proxy-intro.md) | Introducción a Proxy | 30 min |
-| [02-traps-basicos.md](1-teoria/02-traps-basicos.md) | Traps básicos (get, set, has) | 30 min |
-| [03-reflect-api.md](1-teoria/03-reflect-api.md) | API Reflect | 30 min |
-| [04-validacion-reactiva.md](1-teoria/04-validacion-reactiva.md) | Validación reactiva | 30 min |
-| [05-observadores.md](1-teoria/05-observadores.md) | Observadores de cambios | 30 min |
-
-### 2. Prácticas (3 horas)
-
-| Ejercicio | Tema | Duración |
-|-----------|------|----------|
-| [ejercicio-01](2-practicas/ejercicio-01-proxy-basico/) | Proxy básico | 45 min |
-| [ejercicio-02](2-practicas/ejercicio-02-traps-avanzados/) | Traps avanzados | 45 min |
-| [ejercicio-03](2-practicas/ejercicio-03-reflect/) | Reflect API | 45 min |
-| [ejercicio-04](2-practicas/ejercicio-04-reactive-validation/) | Validación reactiva | 45 min |
-
-### 3. Proyecto (2 horas)
-
-| Proyecto | Descripción |
-|----------|-------------|
-| [Sistema de Validación Reactivo](3-proyecto/) | Sistema completo con Proxy y Reflect |
-
-### 4. Recursos Adicionales
-
-- [📚 eBooks gratuitos](4-recursos/ebooks-free/)
-- [🎬 Videografía](4-recursos/videografia/)
-- [🌐 Webgrafía](4-recursos/webgrafia/)
-
-### 5. Glosario
-
-- [📖 Términos clave](5-glosario/)
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 11.20.0 (o superior)
+  ```
 
 ---
 
-## 🗂️ Estructura de la Semana
+## Contenidos
 
-```
+### 1. Teoría (2 h)
+
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Introducción a Proxy](1-teoria/01-proxy-intro.md) | 25 min | Target, handler y proxy; `Proxy.revocable()` |
+| [02 - Traps básicos](1-teoria/02-traps-basicos.md) | 25 min | `get`, `set`, `has`, `deleteProperty`, `ownKeys` y otros |
+| [03 - API Reflect](1-teoria/03-reflect-api.md) | 25 min | Los métodos de `Reflect` y el parámetro `receiver` |
+| [04 - Validación reactiva](1-teoria/04-validacion-reactiva.md) | 25 min | Validadores y esquemas aplicados en el trap `set` |
+| [05 - Patrón Observer con Proxies](1-teoria/05-observadores.md) | 20 min | Suscripciones y propiedades calculadas |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Proxy básico](2-practicas/lab-01-proxy-basics/README.md) | 50 min |
+| [Lab 02 - Traps avanzados](2-practicas/lab-02-traps/README.md) | 55 min |
+| [Lab 03 - La API Reflect](2-practicas/lab-03-reflect/README.md) | 50 min |
+| [Lab 04 - Validación reactiva](2-practicas/lab-04-reactive-validation/README.md) | 55 min |
+
+### 3. Proyecto (2 h)
+
+[Fichas validadas en vivo](3-proyecto/README.md): completas los validadores y los dos proxies de `src/logic.js` (un borrador de formulario que valida cada campo en el trap `set` y avisa a la página, y un envoltorio de solo lectura para las piezas guardadas) y adaptas `src/data.js` al dominio que te asigna el instructor. `scripts/verificar-semana.sh 10` comprueba las funciones.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
+
+---
+
+## Evaluación
+
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 14/14 comprobaciones y datos del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
+
+```text
 week-10-proxies_reflect/
-├── README.md
-├── rubrica-evaluacion.md
-├── 0-assets/
-│   ├── 01-proxy-overview.svg
-│   ├── 02-traps-diagram.svg
-│   ├── 03-reflect-api.svg
-│   ├── 04-reactive-validation.svg
-│   └── 05-observer-pattern.svg
-├── 1-teoria/
-│   ├── 01-proxy-intro.md
-│   ├── 02-traps-basicos.md
-│   ├── 03-reflect-api.md
-│   ├── 04-validacion-reactiva.md
-│   └── 05-observadores.md
-├── 2-practicas/
-│   ├── README.md
-│   ├── ejercicio-01-proxy-basico/
-│   ├── ejercicio-02-traps-avanzados/
-│   ├── ejercicio-03-reflect/
-│   └── ejercicio-04-reactive-validation/
-├── 3-proyecto/
-│   └── sistema-validacion/
-├── 4-recursos/
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/
-    └── README.md
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 5 diagramas SVG
+|-- 1-teoria/                  # 01 a 05
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-proxy-basics/
+|   |-- lab-02-traps/
+|   |-- lab-03-reflect/
+|   `-- lab-04-reactive-validation/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # index.html, styles.css, src/data.js, src/logic.js, src/main.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## ⏱️ Distribución del Tiempo
+## Versiones de la semana
 
-| Actividad | Tiempo | Porcentaje |
-|-----------|--------|------------|
-| Teoría | 2.5 h | 31% |
-| Prácticas | 3 h | 38% |
-| Proyecto | 2 h | 25% |
-| Recursos | 0.5 h | 6% |
-| **Total** | **8 h** | **100%** |
+Node para ejecutar los labs y comprobar el proyecto; `pnpm dlx serve` para abrir el proyecto en el navegador. Las salidas de este material se obtuvieron con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## 📚 Requisitos Previos
+## Navegación
 
-Antes de comenzar esta semana, debes dominar:
-
-- ✅ Objetos y sus métodos (Week 01-02)
-- ✅ Clases ES2023 (Week 03)
-- ✅ Symbols y metaprogramación básica (Week 09)
-- ✅ Funciones y closures
-
----
-
-## 🎯 Conceptos Clave
-
-### Proxy
-
-Objeto que envuelve otro objeto e intercepta operaciones:
-
-```javascript
-const proxy = new Proxy(target, handler);
-```
-
-### Traps
-
-Métodos del handler que interceptan operaciones:
-
-```javascript
-const handler = {
-  get(target, prop, receiver) {
-    console.log(`Accediendo a ${prop}`);
-    return Reflect.get(target, prop, receiver);
-  },
-  set(target, prop, value, receiver) {
-    console.log(`Estableciendo ${prop} = ${value}`);
-    return Reflect.set(target, prop, value, receiver);
-  }
-};
-```
-
-### Reflect
-
-API que proporciona métodos para operaciones interceptables:
-
-```javascript
-Reflect.get(obj, 'prop');
-Reflect.set(obj, 'prop', value);
-Reflect.has(obj, 'prop');
-Reflect.deleteProperty(obj, 'prop');
-```
-
----
-
-## 📌 Entregables
-
-### 📦 Proyecto (100%)
-
-El **único entregable** para esta semana es el proyecto:
-
-- [ ] **Proyecto "Sistema de Validación Reactivo" funcional**
-- [ ] Uso correcto de Proxies para validación
-- [ ] Implementación de Reflect API
-- [ ] Código limpio y documentado
-
-> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
-
----
-
-## 🔗 Navegación
-
-| ← Anterior | Inicio | Siguiente → |
-|------------|--------|-------------|
-| [Week 09: Símbolos](../week-09-simbolos_metaprogramacion_basica/) | [Índice](../../README.md) | [Week 11: Errores](../week-11-manejo_errores_moderno/) |
-
----
-
-## 💡 Tips de Estudio
-
-1. **Practica con la consola**: Prueba cada trap individualmente
-2. **Usa Reflect**: Siempre usa Reflect dentro de traps
-3. **Debugging**: console.log en cada trap para ver el flujo
-4. **Casos de uso**: Piensa en validación, logging, caché
-
----
-
-## 🌟 Casos de Uso Reales
-
-- **Vue 3**: Sistema de reactividad basado en Proxy
-- **MobX**: State management con observables
-- **Immer**: Inmutabilidad con Proxy
-- **Validación**: Formularios reactivos
-
----
-
-_Week 10 | Bootcamp JavaScript ES2023_
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 09 - Símbolos y Metaprogramación Básica](../week-09-simbolos_metaprogramacion_basica/README.md) | [Semana 11 - Manejo de Errores Moderno](../week-11-manejo_errores_moderno/README.md) |

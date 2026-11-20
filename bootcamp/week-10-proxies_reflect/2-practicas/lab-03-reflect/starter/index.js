@@ -1,8 +1,8 @@
 /**
- * Ejercicio 03: API Reflect
- * =========================
- * Domina la API Reflect, el parámetro receiver
- * y su uso correcto dentro de traps.
+ * 📘 Lab 03: La API Reflect
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -202,9 +202,4 @@ console.log('--- Paso 7: Proxy + Reflect Completo ---');
 
 console.log('');
 
-// ============================================
-// 🎉 ¡Ejercicio completado!
-// ============================================
-console.log('🎉 ¡Ejercicio 03 completado!');
-console.log('Has dominado la API Reflect.');
-console.log('Siguiente: Ejercicio 04 - Validación Reactiva');
+console.log('✅ Lab completado.');

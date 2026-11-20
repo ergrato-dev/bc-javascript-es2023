@@ -527,6 +527,13 @@ const schema = {
 - [MDN: Proxy](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 - [Form Validation Patterns](https://javascript.info/forms-validation)
 
+<!-- nav -->
 ---
 
-_Week 10 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🪞 API Reflect](03-reflect-api.md) | [Teoría — 👁️ Patrón Observer con Proxies](05-observadores.md) → |
+
+[↑ Semana 10](../README.md)

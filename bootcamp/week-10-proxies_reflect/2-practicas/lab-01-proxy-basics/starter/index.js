@@ -1,8 +1,8 @@
 /**
- * Ejercicio 01: Proxy Básico
- * ==========================
- * Aprende a crear Proxies, interceptar operaciones
- * y entender la relación target-handler-proxy.
+ * 📘 Lab 01: Proxy básico
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -169,7 +169,7 @@ console.log('--- Paso 6: Proxy Revocable ---');
 // try {
 //   console.log(tempAccess.apiKey);
 // } catch (error) {
-//   console.log('Proxy revoked - access error caught!');
+//   console.log('Error:', error.message);
 // }
 
 console.log('');
@@ -190,7 +190,7 @@ console.log('--- Paso 7: Proxy con Arrays ---');
 //     const index = Number(property);
 
 //     // Si es un índice numérico negativo
-//     if (!isNaN(index) && index < 0) {
+//     if (!Number.isNaN(index) && index < 0) {
 //       return target[target.length + index];
 //     }
 
@@ -205,9 +205,4 @@ console.log('--- Paso 7: Proxy con Arrays ---');
 
 console.log('');
 
-// ============================================
-// 🎉 ¡Ejercicio completado!
-// ============================================
-console.log('🎉 ¡Ejercicio 01 completado!');
-console.log('Has aprendido a crear Proxies básicos.');
-console.log('Siguiente: Ejercicio 02 - Traps Avanzados');
+console.log('✅ Lab completado.');

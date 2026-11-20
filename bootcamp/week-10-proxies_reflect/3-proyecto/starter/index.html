@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fichas validadas en vivo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">🛡️ Fichas validadas en vivo</h1>
+      <div class="stats-summary">
+        <span class="stat">Piezas: <strong id="stat-pieces">0</strong></span>
+        <span class="stat">Valor total: <strong id="stat-value">0</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>➕ Nueva pieza</h2>
+      <form id="item-form" class="item-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-name">Nombre</label>
+            <input type="text" id="item-name" name="name">
+            <small class="field-error" id="error-name"></small>
+          </div>
+          <div class="form-group">
+            <label for="item-room">Sala</label>
+            <select id="item-room" name="room"></select>
+            <small class="field-error" id="error-room"></small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-value">Valor (€)</label>
+            <input type="number" id="item-value" name="value" step="1">
+            <small class="field-error" id="error-value"></small>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="btn-add" class="btn btn-primary" disabled>Añadir</button>
+        </div>
+      </form>
+      <div class="change-log">
+        <h2>📜 Últimos cambios</h2>
+        <ol id="change-log"></ol>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Piezas</h2>
+      </div>
+      <div id="item-list" class="item-list"></div>
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay piezas que mostrar</p>
+        <p class="empty-state-hint">Añade una pieza con el formulario</p>
+      </div>
+      <p id="message" class="message" role="status"></p>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

@@ -583,6 +583,13 @@ const notify = (data) => {
 - [Vue.js Reactivity](https://vuejs.org/guide/extras/reactivity-in-depth.html)
 - [Proxy-based Reactivity](https://javascript.info/proxy)
 
+<!-- nav -->
 ---
 
-_Week 10 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — ✅ Validación Reactiva](04-validacion-reactiva.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 10](../README.md)

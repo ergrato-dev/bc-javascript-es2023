@@ -94,6 +94,13 @@ Videos y tutoriales recomendados sobre Proxies, Reflect y patrones reactivos.
 3. **Experimenta**: Modifica los ejemplos
 4. **Toma notas**: Apunta conceptos clave
 
+<!-- nav -->
 ---
 
-_Week 10 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 10](../../README.md)

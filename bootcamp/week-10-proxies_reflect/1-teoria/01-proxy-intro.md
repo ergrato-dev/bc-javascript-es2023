@@ -434,6 +434,13 @@ console.log(config.apiUrl); // 'https://api.com' (sin cambios)
 - [MDN: Proxy](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
 - [JavaScript.info: Proxy](https://javascript.info/proxy)
 
+<!-- nav -->
 ---
 
-_Week 10 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 10 - Proxies y Reflect](../README.md) | [Teoría — 🪤 Traps Básicos](02-traps-basicos.md) → |
+
+[↑ Semana 10](../README.md)

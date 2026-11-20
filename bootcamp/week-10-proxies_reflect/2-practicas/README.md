@@ -1,77 +1,32 @@
-# 🛠️ Prácticas - Semana 10
+# Prácticas — Semana 10
 
-## Proxies y Reflect
+Cuatro labs guiados que siguen el orden de la teoría. Cada lab trae en `starter/index.js` el código comentado: lo descomentas paso a paso, lo ejecutas con Node y comparas con la salida esperada del README. No se entregan; preparan el [proyecto de la semana](../3-proyecto/README.md).
 
-Esta semana trabajarás con Proxies, Traps y la API Reflect para crear sistemas reactivos y de validación.
+| Lab | Tema | Duración |
+|---|---|---|
+| [Lab 01](lab-01-proxy-basics/README.md) | `new Proxy()`, traps `get` y `set`, `Proxy.revocable()` | 50 min |
+| [Lab 02](lab-02-traps/README.md) | Traps `has`, `deleteProperty` y `ownKeys`; validar, ocultar y avisar | 55 min |
+| [Lab 03](lab-03-reflect/README.md) | Métodos de `Reflect` y el parámetro `receiver` | 50 min |
+| [Lab 04](lab-04-reactive-validation/README.md) | Validadores, observables y un formulario reactivo | 55 min |
 
----
+**Total:** 3 h 30 min.
 
-## 📋 Ejercicios
+## Antes de empezar
 
-| # | Ejercicio | Tema | Dificultad |
-|---|-----------|------|------------|
-| 01 | [Proxy Básico](./ejercicio-01-proxy-basico/) | Creación de Proxies, handler, target | ⭐ |
-| 02 | [Traps Avanzados](./ejercicio-02-traps-avanzados/) | get, set, has, deleteProperty, ownKeys | ⭐⭐ |
-| 03 | [API Reflect](./ejercicio-03-reflect/) | Métodos Reflect, receiver, comparación | ⭐⭐ |
-| 04 | [Validación Reactiva](./ejercicio-04-reactive-validation/) | Validadores, observers, data binding | ⭐⭐⭐ |
-
----
-
-## 🎯 Objetivos de Aprendizaje
-
-Al completar estos ejercicios, serás capaz de:
-
-- ✅ Crear Proxies con diferentes handlers
-- ✅ Implementar traps para interceptar operaciones
-- ✅ Usar Reflect correctamente dentro de traps
-- ✅ Construir sistemas de validación automática
-- ✅ Implementar el patrón Observer con Proxies
-- ✅ Crear propiedades computadas reactivas
-
----
-
-## 📝 Formato de Ejercicios
-
-Cada ejercicio sigue el formato de **tutorial guiado**:
-
-1. **Lee el README.md** del ejercicio para entender los conceptos
-2. **Abre `starter/index.js`** y sigue las instrucciones
-3. **Descomenta el código** paso a paso
-4. **Ejecuta con Node.js** para ver los resultados
+Comprueba que tienes Node instalado (versión en [docs/stack-versions.md](../../../docs/stack-versions.md)):
 
 ```bash
-# Ejecutar un ejercicio
-node ejercicio-01-proxy-basico/starter/index.js
+node --version
+# v24.19.0 (o superior)
 ```
 
----
-
-## ⏱️ Tiempo Estimado
-
-| Ejercicio | Tiempo |
-|-----------|--------|
-| 01 - Proxy Básico | 40 min |
-| 02 - Traps Avanzados | 50 min |
-| 03 - API Reflect | 45 min |
-| 04 - Validación Reactiva | 55 min |
-| **Total** | **~3 horas** |
-
----
-
-## 📚 Recursos de Apoyo
-
-- [MDN: Proxy](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy)
-- [MDN: Reflect](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
-- [JavaScript.info: Proxy](https://javascript.info/proxy)
-
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
 | Anterior | Siguiente |
-|----------|-----------|
-| [← Teoría](../1-teoria/) | [Proyecto →](../3-proyecto/) |
+|---|---|
+| ← [Teoría — 👁️ Patrón Observer con Proxies](../1-teoria/05-observadores.md) | [Lab 01 — Proxy básico](lab-01-proxy-basics/README.md) → |
 
----
-
-_Week 10 | Bootcamp JavaScript ES2023_
+[↑ Semana 10](../README.md)

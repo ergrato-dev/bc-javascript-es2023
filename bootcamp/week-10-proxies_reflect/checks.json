@@ -1,0 +1,104 @@
+{
+  "semana": "10",
+  "titulo": "Proxies y Reflect",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE, ID_PREFIX de 2 a 4 mayúsculas, de 3 a 8 salas sin repetir, un SCHEMA con reglas para name, room y value, y por defecto 5 a 12 piezas sin id, con nombre sin repetir, una sala de ROOMS y valor numérico de 0 o más",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import items, { TITLE, ID_PREFIX, ROOMS, SCHEMA } from './src/data.js'; assert.ok(typeof TITLE === 'string' && TITLE.trim() !== ''); assert.match(ID_PREFIX, /^[A-Z]{2,4}$/); assert.ok(Array.isArray(ROOMS) && ROOMS.length >= 3 && ROOMS.length <= 8 && ROOMS.every((room) => typeof room === 'string' && room.trim() !== '')); assert.equal(new Set(ROOMS).size, ROOMS.length); assert.deepEqual(Object.keys(SCHEMA).toSorted(), ['name', 'room', 'value']); assert.ok(Object.values(SCHEMA).every((rules) => Array.isArray(rules) && rules.length > 0 && rules.every((rule) => typeof rule === 'function'))); assert.ok(Array.isArray(items) && items.length >= 5 && items.length <= 12); assert.ok(items.every((item) => !('id' in item) && typeof item.name === 'string' && item.name.trim() !== '' && ROOMS.includes(item.room) && Number.isFinite(item.value) && item.value >= 0)); assert.equal(new Set(items.map(({ name }) => name)).size, items.length);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título, el prefijo, las salas y las piezas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import items, { TITLE, ID_PREFIX, ROOMS } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.notEqual(ID_PREFIX, 'PLA'); assert.ok(!ROOMS.some((room) => ['Cúpula', 'Sala Solar', 'Sala Lunar'].includes(room))); assert.ok(!items.some(({ name }) => ['Telescopio refractor', 'Meteorito de hierro', 'Esfera armilar', 'Mapa lunar'].includes(name)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-validos",
+      "descripcion": "Cada pieza de ejemplo pasa las reglas de SCHEMA y SCHEMA rechaza un nombre vacío, una sala que no está en ROOMS y un valor no numérico",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import items, { SCHEMA } from './src/data.js'; import { firstError } from './src/logic.js'; for (const item of items) for (const field of ['name', 'room', 'value']) assert.equal(firstError(SCHEMA[field], String(item[field])), null, item.name + ': ' + field); assert.notEqual(firstError(SCHEMA.name, ''), null); assert.notEqual(firstError(SCHEMA.room, 'Sala inventada'), null); assert.notEqual(firstError(SCHEMA.value, 'abc'), null);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "required",
+      "descripcion": "required() devuelve un validador que da Campo obligatorio con texto vacío o solo espacios y null en otro caso",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import { required } from './src/logic.js'; const check = required(); assert.equal(typeof check, 'function'); assert.equal(check(''), 'Campo obligatorio'); assert.equal(check('   '), 'Campo obligatorio'); assert.equal(check('Mapa'), null); assert.equal(check(0), null);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "min-length",
+      "descripcion": "minLength(min) falla con menos de min caracteres sin contar los espacios de los extremos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import { minLength } from './src/logic.js'; assert.equal(minLength(3)('ab'), 'Mínimo 3 caracteres'); assert.equal(minLength(3)('  ab  '), 'Mínimo 3 caracteres'); assert.equal(minLength(3)('abc'), null); assert.equal(minLength(5)('abcd'), 'Mínimo 5 caracteres');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "between",
+      "descripcion": "between(min, max) acepta números entre min y max, ambos incluidos, también escritos como texto, y rechaza el resto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import { between } from './src/logic.js'; const check = between(0, 10); for (const ok of ['0', '7', '10', 3.5]) assert.equal(check(ok), null, String(ok)); for (const bad of ['-1', '11', 'abc', 'Infinity']) assert.equal(check(bad), 'Debe estar entre 0 y 10', bad); assert.equal(between(5, 6)('1'), 'Debe estar entre 5 y 6');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "one-of",
+      "descripcion": "oneOf(options) solo acepta los valores de options",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import { oneOf } from './src/logic.js'; const options = Object.freeze(['a', 'b']); const check = oneOf(options); assert.equal(check('a'), null); assert.equal(check('b'), null); assert.equal(check('c'), 'Elige una opción válida'); assert.equal(check('A'), 'Elige una opción válida');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "first-error",
+      "descripcion": "firstError devuelve el primer error en el orden de los validadores, o null, sin modificar la lista",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import { firstError, required, minLength } from './src/logic.js'; const rules = Object.freeze([required(), minLength(3)]); assert.equal(firstError(rules, ''), 'Campo obligatorio'); assert.equal(firstError(rules, 'ab'), 'Mínimo 3 caracteres'); assert.equal(firstError(rules, 'abc'), null); assert.equal(firstError([], 'x'), null); assert.equal(firstError([() => 'uno', () => 'dos'], 'x'), 'uno');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "form-set",
+      "descripcion": "createForm devuelve un proxy cuyo set guarda el valor, llama a onChange(campo, valor, error) y lanza TypeError con un campo que no está en schema",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import { createForm, required, minLength, oneOf } from './src/logic.js'; const schema = { name: [required(), minLength(3)], room: [required(), oneOf(['A', 'B'])] }; const calls = []; const form = createForm(schema, (...args) => calls.push(args)); assert.ok(types.isProxy(form)); form.name = 'ab'; assert.equal(form.name, 'ab'); form.name = 'Ábaco'; form.room = 'C'; assert.deepEqual(calls, [['name', 'ab', 'Mínimo 3 caracteres'], ['name', 'Ábaco', null], ['room', 'C', 'Elige una opción válida']]); assert.throws(() => { form.color = 'rojo'; }, { name: 'TypeError', message: 'Campo desconocido: color' }); assert.equal(form.color, undefined); assert.equal(calls.length, 3);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "form-get",
+      "descripcion": "form.errors devuelve un objeto nuevo con los errores actuales y form.isValid solo es true con todos los campos rellenos y sin errores",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import { createForm, required, minLength, oneOf } from './src/logic.js'; const schema = { name: [required(), minLength(3)], room: [required(), oneOf(['A', 'B'])] }; const calls = []; const form = createForm(schema, (...args) => calls.push(args)); assert.deepEqual(form.errors, {}); assert.equal(form.isValid, false); form.name = 'ab'; assert.deepEqual(form.errors, { name: 'Mínimo 3 caracteres' }); form.errors.name = 'otro'; assert.deepEqual(form.errors, { name: 'Mínimo 3 caracteres' }); assert.notEqual(form.errors, form.errors); form.name = 'Ábaco'; assert.deepEqual(form.errors, {}); assert.equal(form.isValid, false); form.room = 'A'; assert.equal(form.isValid, true); form.room = 'Z'; assert.equal(form.isValid, false); assert.deepEqual(form.errors, { room: 'Elige una opción válida' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "read-only",
+      "descripcion": "readOnly devuelve un proxy que se lee igual que el objeto y lanza TypeError al asignar o borrar, sin cambiar el original",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { types } from 'node:util'; import { readOnly } from './src/logic.js'; const original = { id: 'X-001', value: 5 }; const piece = readOnly(original); assert.ok(types.isProxy(piece)); assert.equal(piece.value, 5); assert.deepEqual(Object.keys(piece), ['id', 'value']); assert.deepEqual({ ...piece }, original); assert.throws(() => { piece.value = 0; }, TypeError); assert.throws(() => { piece.extra = 1; }, TypeError); assert.throws(() => { delete piece.id; }, TypeError); assert.deepEqual(original, { id: 'X-001', value: 5 });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    }
+  ]
+}

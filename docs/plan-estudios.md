@@ -208,16 +208,17 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 10: Proxies y Reflect**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Proxy object
-- Traps (get, set, has, deleteProperty)
-- Reflect API
-- Validación reactiva
-- Observadores de cambios
+- `Proxy`: target, handler y `Proxy.revocable()`
+- Traps `get`, `set`, `has`, `deleteProperty` y `ownKeys`
+- API `Reflect` y el parámetro `receiver`
+- Validación al asignar y propiedades calculadas al leer
+- Patrón Observer con proxies
 
-**Proyecto**: Sistema de validación reactivo
+**Proyecto**: Fichas validadas en vivo: un borrador de formulario que valida cada campo en el trap `set`, calcula `errors` e `isValid` en el trap `get` y avisa a la página, y piezas guardadas tras un proxy de solo lectura
 
 ---
 

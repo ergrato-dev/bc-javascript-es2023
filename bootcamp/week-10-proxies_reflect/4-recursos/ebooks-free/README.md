@@ -69,6 +69,13 @@ Libros electrónicos gratuitos sobre metaprogramación en JavaScript.
 3. **Exploring ES2023** - Para referencia completa de traps
 4. **Deep JavaScript** - Para casos avanzados
 
+<!-- nav -->
 ---
 
-_Week 10 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 10](../../README.md)

@@ -533,6 +533,13 @@ const user2 = new ValidatedUser('Bob', -5);   // ❌ Error
 - [MDN: Proxy handler](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy)
 - [Lista completa de traps](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Proxy#m%C3%A9todos_del_objeto_handler)
 
+<!-- nav -->
 ---
 
-_Week 10 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🎭 Introducción a Proxy](01-proxy-intro.md) | [Teoría — 🪞 API Reflect](03-reflect-api.md) → |
+
+[↑ Semana 10](../README.md)

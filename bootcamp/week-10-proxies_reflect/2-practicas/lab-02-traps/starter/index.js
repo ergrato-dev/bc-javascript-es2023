@@ -1,8 +1,8 @@
 /**
- * Ejercicio 02: Traps Avanzados
- * =============================
- * Domina los traps principales: get, set, has,
- * deleteProperty y ownKeys con casos prácticos.
+ * 📘 Lab 02: Traps avanzados
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
+ *
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -284,9 +284,4 @@ console.log('--- Paso 7: Notificación de Cambios ---');
 
 console.log('');
 
-// ============================================
-// 🎉 ¡Ejercicio completado!
-// ============================================
-console.log('🎉 ¡Ejercicio 02 completado!');
-console.log('Has dominado los traps principales de Proxy.');
-console.log('Siguiente: Ejercicio 03 - API Reflect');
+console.log('✅ Lab completado.');

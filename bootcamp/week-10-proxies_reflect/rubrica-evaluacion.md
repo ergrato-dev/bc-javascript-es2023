@@ -1,190 +1,88 @@
-# 📊 Rúbrica de Evaluación - Week 10
+# Rúbrica de Evaluación - Semana 10
 
-## Proxies y Reflect
+## Evidencias y ponderación
 
----
-
-## 🎯 Distribución de Evidencias
-
-| Tipo de Evidencia | Peso     | Puntaje Mínimo |
-| ----------------- | -------- | -------------- |
-| 📦 Producto       | 100%     | 70/100 (70%)   |
-| **TOTAL**         | **100%** | **70/100**     |
-
-> **Nota**: Ejercicios prácticos no se entregan de forma separada.
-
-| Competencia | Descripción |
-|-------------|-------------|
-| **C1** | Crear y configurar objetos Proxy |
-| **C2** | Implementar traps correctamente |
-| **C3** | Usar Reflect API apropiadamente |
-| **C4** | Construir sistemas reactivos |
-| **C5** | Aplicar patrones de observador |
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | `Proxy`, traps, `Reflect` y el parámetro `receiver`, validación y patrón Observer con proxies |
+| Desempeño | 40% | Labs 01 a 04 descomentados y ejecutados |
+| Producto | 30% | Fichas validadas en vivo: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-## 📝 Evidencias de Aprendizaje
+## Criterios por evidencia
 
-### 1. Conocimiento (30%) 🧠
+## 1) Conocimiento (30%)
 
-#### Quiz Teórico
+### Criterios
 
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| Proxy basics | Explica target, handler, receiver | Explica target y handler | Concepto básico | No comprende |
-| Traps | Conoce 5+ traps y cuándo usar cada uno | Conoce 3-4 traps | Conoce 1-2 traps | No conoce traps |
-| Reflect | Explica todos los métodos Reflect | Conoce métodos principales | Conoce algunos | No conoce Reflect |
+- Explica qué son el target, el handler y el proxy, y qué pasa con un handler vacío.
+- Dice qué operación intercepta cada trap visto en la semana (`get`, `set`, `has`, `deleteProperty`, `ownKeys`) y qué debe devolver.
+- Explica qué ocurre cuando `set` o `deleteProperty` devuelven `false`, en un script normal y en un módulo (modo estricto).
+- Explica para qué sirve `Reflect` dentro de un trap y qué cambia el parámetro `receiver` con un getter.
+- Distingue una propiedad guardada de una calculada en el trap `get`, y explica cómo un proxy avisa de los cambios a quien se suscribe.
 
-**Puntaje Conocimiento: ___ / 30**
+### Niveles
 
----
-
-### 2. Desempeño (40%) 💪
-
-#### Ejercicio 01: Proxy Básico
-
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| Creación | Proxy creado correctamente | Funciona con pequeños errores | Proxy básico | No funciona |
-| Get trap | Intercepta y retorna correctamente | Intercepta con limitaciones | Intercepta parcialmente | No intercepta |
-
-**Puntaje Ejercicio 01: ___ / 20**
-
-#### Ejercicio 02: Traps Avanzados
-
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| Set trap | Validación completa antes de set | Validación básica | Set sin validación | No implementado |
-| Has/Delete | Ambos traps funcionan | Uno funciona bien | Implementación parcial | No implementados |
-
-**Puntaje Ejercicio 02: ___ / 20**
-
-#### Ejercicio 03: Reflect API
-
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| Uso de Reflect | Usa Reflect en todos los traps | Usa Reflect en la mayoría | Uso parcial | No usa Reflect |
-| Correctitud | Maneja receiver correctamente | Funciona sin receiver | Errores menores | No funciona |
-
-**Puntaje Ejercicio 03: ___ / 20**
-
-#### Ejercicio 04: Validación Reactiva
-
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| Reactividad | Cambios detectados y notificados | Detecta la mayoría | Detección parcial | No detecta |
-| Validación | Reglas aplicadas correctamente | Reglas básicas | Validación mínima | Sin validación |
-
-**Puntaje Ejercicio 04: ___ / 20**
-
-**Puntaje Total Desempeño: ___ / 80 → Normalizado: ___ / 40**
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, sobre cuándo un trap que devuelve `false` lanza error).
+- **Bajo (<21):** no distingue el target del proxy, o cree que `Reflect` es necesario para crear un proxy.
 
 ---
 
-### 3. Producto (30%) 📦
+## 2) Desempeño (40%)
 
-#### Proyecto: Sistema de Validación Reactivo
+### Criterios
 
-| Criterio | Excelente (10) | Bueno (8) | Suficiente (6) | Insuficiente (0-5) |
-|----------|----------------|-----------|----------------|-------------------|
-| **Funcionalidad** | Todas las features funcionan | 80% funciona | 60% funciona | < 60% funciona |
-| **Proxy/Reflect** | Uso correcto y eficiente | Uso correcto | Uso básico | Uso incorrecto |
-| **Observadores** | Sistema de notificación completo | Notificación básica | Notificación parcial | Sin notificación |
-| **Validación** | Múltiples tipos de validación | Validación estándar | Validación básica | Sin validación |
-| **Código** | Limpio, documentado, modular | Bien estructurado | Funcional | Desorganizado |
-| **UI** | Interfaz completa e intuitiva | UI funcional | UI básica | Sin UI |
+- Lab 01: los 7 pasos descomentados; explica por qué el paso 1 cambia también `user` y por qué el paso 7 necesita `Number(property)`.
+- Lab 02: los 7 pasos; explica qué hace cada trap con las propiedades que empiezan por `_` y por qué el paso 6 registra una lectura de `toJSON`.
+- Lab 03: los 7 pasos; explica por qué la primera línea del paso 3 da `NaN` y qué lecturas registra el paso 4 gracias a `receiver`.
+- Lab 04: los 7 pasos; explica por qué los métodos del formulario del paso 7 están en el objeto original y no se asignan a través del proxy.
 
-**Puntaje Producto: ___ / 60 → Normalizado: ___ / 30**
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab.
 
----
+### Niveles
 
-## 📊 Resumen de Evaluación
-
-| Tipo de Evidencia | Puntaje Obtenido | Puntaje Máximo | Porcentaje |
-|-------------------|------------------|----------------|------------|
-| Conocimiento 🧠 | | 30 | 30% |
-| Desempeño 💪 | | 40 | 40% |
-| Producto 📦 | | 30 | 30% |
-| **TOTAL** | | **100** | **100%** |
+- **Alto (36-40):** los cuatro labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cuatro labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-## 🏆 Escala de Calificación
+## 3) Producto (30%)
 
-| Rango | Calificación | Descripción |
-|-------|--------------|-------------|
-| 90-100 | ⭐ Excelente | Dominio completo de Proxy y Reflect |
-| 80-89 | ✅ Muy Bueno | Buen manejo con detalles menores |
-| 70-79 | 👍 Bueno | Comprensión sólida, práctica necesaria |
-| 60-69 | 📝 Suficiente | Conceptos básicos adquiridos |
-| 0-59 | ❌ Insuficiente | Requiere refuerzo significativo |
+### Criterios
 
----
+- `PROYECTO=... ./scripts/verificar-semana.sh 10` pasa las 14 comprobaciones.
+- `TITLE`, `ID_PREFIX`, `ROOMS`, `SCHEMA` y las piezas de `src/data.js` describen el dominio asignado, con 5 a 12 piezas coherentes, valores creíbles y reglas que tengan sentido en ese dominio.
+- La página funciona servida con `pnpm dlx serve .`: cada campo se marca y muestra su error mientras escribes, **Últimos cambios** apunta cada tecla, **Añadir** solo se activa con todo válido, una pieza nueva recibe el siguiente id, ✏️ muestra el error del proxy de solo lectura y un id borrado no se reutiliza, sin errores en la consola.
+- Las funciones usan lo de la semana donde corresponde: los validadores son funciones que devuelven funciones; `createForm` valida y avisa en el trap `set`, calcula `errors` e `isValid` en el trap `get` y delega en `Reflect.set` y `Reflect.get`; `readOnly` rechaza los cambios con los traps `set` y `deleteProperty`.
 
-## ✅ Checklist de Competencias
+### Niveles
 
-### Proxy
-
-- [ ] Crear Proxy con target y handler
-- [ ] Entender el concepto de intercepción
-- [ ] Usar Proxy con objetos y arrays
-- [ ] Crear Proxies anidados
-- [ ] Manejar Proxy revocable
-
-### Traps
-
-- [ ] Implementar get trap
-- [ ] Implementar set trap con validación
-- [ ] Usar has trap (operador `in`)
-- [ ] Usar deleteProperty trap
-- [ ] Implementar apply trap (funciones)
-- [ ] Usar construct trap (new)
-- [ ] Conocer ownKeys y getOwnPropertyDescriptor
-
-### Reflect
-
-- [ ] Usar Reflect.get() y Reflect.set()
-- [ ] Usar Reflect.has() y Reflect.deleteProperty()
-- [ ] Entender el parámetro receiver
-- [ ] Usar Reflect.apply() y Reflect.construct()
-- [ ] Comparar Reflect vs operaciones directas
-
-### Patrones
-
-- [ ] Implementar validación reactiva
-- [ ] Crear observadores de cambios
-- [ ] Implementar logging automático
-- [ ] Crear propiedades computadas
-- [ ] Implementar caché con Proxy
+- **Alto (27-30):** 14/14, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 14/14 con datos poco adaptados (piezas de relleno, reglas sin cambiar) o alguna acción de la página que falla.
+- **Bajo (<21):** menos de 14 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## 📝 Notas del Evaluador
+## Calificación
 
-```
-Fortalezas:
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
 
-Áreas de mejora:
-
-
-Recomendaciones:
-
-
-```
-
+<!-- nav -->
 ---
 
-## 🔄 Retroalimentación
+## 🔗 Navegación
 
-| Aspecto | Comentario |
-|---------|------------|
-| Comprensión de Proxy | |
-| Uso de traps | |
-| Manejo de Reflect | |
-| Patrones reactivos | |
-| Calidad del código | |
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Fichas validadas en vivo](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
----
-
-_Week 10 | Bootcamp JavaScript ES2023_
+[↑ Semana 10](README.md)

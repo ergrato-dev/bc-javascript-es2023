@@ -317,6 +317,13 @@ Técnica donde la validación ocurre automáticamente cuando se asignan valores,
 - [MDN: Reflect](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
 - [JavaScript.info: Proxy](https://javascript.info/proxy)
 
+<!-- nav -->
 ---
 
-_Week 10 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📅 Week 11: Manejo de Errores Moderno](../../week-11-manejo_errores_moderno/README.md) → |
+
+[↑ Semana 10](../README.md)

@@ -476,6 +476,13 @@ set(target, prop, value, receiver) {
 - [MDN: Reflect](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Reflect)
 - [JavaScript.info: Proxy and Reflect](https://javascript.info/proxy#reflect)
 
+<!-- nav -->
 ---
 
-_Week 10 | Bootcamp JavaScript ES2023_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🪤 Traps Básicos](02-traps-basicos.md) | [Teoría — ✅ Validación Reactiva](04-validacion-reactiva.md) → |
+
+[↑ Semana 10](../README.md)
