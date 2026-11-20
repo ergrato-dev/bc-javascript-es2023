@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 01: Variables Modernas (const y let)
+ * 📘 Lab 01: Variables Modernas (const y let)
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para aprender sobre variables modernas en JavaScript.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -192,10 +192,10 @@ console.log('--- Paso 8: Caso Práctico ---');
 console.log('');
 
 // ============================================
-// ✅ EJERCICIO COMPLETADO
+// ✅ LAB COMPLETADO
 // ============================================
 console.log(
-  '🎉 ¡Excelente! Has completado el ejercicio de variables modernas.'
+  '🎉 ¡Excelente! Has completado el lab de variables modernas.'
 );
 console.log(
   'Recuerda: const por defecto, let solo cuando necesites reasignar.'

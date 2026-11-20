@@ -249,3 +249,14 @@ Después de ver cada video:
 
 _Última actualización: Diciembre 2024_
 _Los enlaces pueden cambiar con el tiempo. Si encuentras alguno roto, avísanos._
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
+
+[↑ Semana 01](../../README.md)

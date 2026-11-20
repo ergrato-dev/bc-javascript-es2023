@@ -350,3 +350,14 @@ Respeta los derechos de autor. Si un libro te resulta muy útil, considera:
 
 _Última actualización: Diciembre 2024_
 _Todos los enlaces verificados y funcionales al momento de publicación._
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 01](../../README.md)

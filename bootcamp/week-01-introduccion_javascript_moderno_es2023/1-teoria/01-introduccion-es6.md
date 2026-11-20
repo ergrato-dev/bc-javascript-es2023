@@ -376,17 +376,13 @@ Antes de continuar, asegúrate de entender:
 - [JavaScript.info: Modern JavaScript](https://javascript.info/)
 - [Exploring ES6 (libro gratuito)](https://exploringjs.com/es6/)
 
+<!-- nav -->
 ---
 
-## 🚀 Próximo Paso
+## 🔗 Navegación
 
-Ahora que entiendes **qué es ES2023** y **por qué es importante**, es hora de empezar con las características concretas.
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 01 - Introducción a JavaScript Moderno](../README.md) | [Teoría — 🔒 let y const - Variables Modernas](02-let-const.md) → |
 
-➡️ **Siguiente**: [let y const - Variables Modernas](02-let-const.md)
-
----
-
-<p align="center">
-  <strong>🎉 ¡Bienvenido a JavaScript moderno!</strong><br>
-  <em>El futuro del desarrollo web comienza aquí</em>
-</p>
+[↑ Semana 01](../README.md)

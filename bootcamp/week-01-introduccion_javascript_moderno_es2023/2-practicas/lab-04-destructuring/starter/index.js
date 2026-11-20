@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 04: Destructuring
+ * 📘 Lab 04: Destructuring
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para dominar el destructuring de objetos y arrays.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -81,8 +81,8 @@ console.log('--- Paso 3: Valores por Defecto ---');
 //
 // // En arrays
 // const shortArray = [1, 2];
-// const [a, b, c = 0] = shortArray;
-// console.log('a, b, c:', a, b, c); // 1, 2, 0
+// const [one, two, three = 0] = shortArray;
+// console.log('one, two, three:', one, two, three); // 1, 2, 0
 
 console.log('');
 
@@ -130,8 +130,8 @@ console.log('--- Paso 5: Objetos Anidados ---');
 // };
 //
 // // Extraer propiedades anidadas
-// const { name, address: { city, zipCode } } = employee;
-// console.log('Nombre:', name);
+// const { name: employeeName, address: { city, zipCode } } = employee;
+// console.log('Nombre:', employeeName);
 // console.log('Ciudad:', city);
 // console.log('CP:', zipCode);
 //
@@ -257,7 +257,7 @@ console.log('--- Paso 9: Caso Práctico ---');
 console.log('');
 
 // ============================================
-// ✅ EJERCICIO COMPLETADO
+// ✅ LAB COMPLETADO
 // ============================================
 console.log('🎉 ¡Excelente! Has dominado el destructuring.');
 console.log('Úsalo para escribir código más limpio y legible.');

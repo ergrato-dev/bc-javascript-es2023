@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha interactiva</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">
+      <span class="theme-icon">🌙</span>
+    </button>
+
+    <article class="card">
+      <header class="card-header">
+        <div class="header-info">
+          <h1 id="header">Cargando...</h1>
+          <p class="location" id="location"></p>
+        </div>
+      </header>
+
+      <section class="card-section">
+        <h2>Descripción</h2>
+        <p id="description" class="bio"></p>
+      </section>
+
+      <section class="card-section">
+        <h2>Elementos</h2>
+        <ul id="itemsList" class="skills-list"></ul>
+        <button id="toggleItems" class="btn btn-secondary">Mostrar todos</button>
+      </section>
+
+      <section class="card-section">
+        <h2>Estadísticas</h2>
+        <div id="stats" class="stats-grid"></div>
+      </section>
+
+      <section class="card-section">
+        <button id="copyBtn" class="btn">Copiar resumen</button>
+      </section>
+    </article>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <!-- type="module" permite usar import/export: por eso hay que abrir la página con un servidor -->
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

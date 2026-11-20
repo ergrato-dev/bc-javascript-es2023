@@ -31,7 +31,8 @@ Este archivo es la lista de trabajo de la migración: cada semana migrada cierra
 | Jest en S25–S26 y en los README raíz | ✅ Vitest (decisión: ESM nativo, sin transpilar) |
 | `scripts/autocommit.sh` + cron cada 5 min, contrario al commit por semana terminada | ✅ Retirados |
 | `docs/plan-estudios.md` decía "Completado 2/28" | ✅ Estado delegado a `bootcamp/README.md` |
-| Sin carpeta de la solución de referencia en `bc-instructor` | ⏳ Se crea con la primera semana migrada |
+| Sin carpeta de la solución de referencia en `bc-instructor` | ✅ Creada con S01 |
+| `verificar-semana.sh` pasaba los `cmd` con las `\` duplicadas (`jq @tsv` + `read -r`): fallaba cualquier check con comillas escapadas o `\n` | ✅ Se deshace el escape antes de ejecutar |
 
 ## Hallazgos comunes a S01–S22 (se corrigen al migrar cada semana)
 
@@ -51,7 +52,7 @@ Teoría: número de archivos y rango de líneas. Glosario: términos.
 
 | S | Teoría | Prácticas | Glosario | Proyecto starter | Hallazgos específicos |
 |---|---|---|---|---|---|
-| 01 | 6 · 325–730 | 5 ejercicio | 99 | 37 TODO | `06-operadores-modernos.svg` huérfano. Teoría larga: valorar partir archivos de 700+ líneas |
+| 01 | ✅ | ✅ lab | — | ✅ | **Migrada.** Labs 03 y 04 daban `SyntaxError` al descomentarlos enteros (identificadores repetidos): corregido. SVG 06 enlazado. Proyecto nuevo: ficha con `logic.js`/`main.js` y 12 checks |
 | 02 | 6 · 359–671 | 5 ejercicio | 47 | 49 TODO | — |
 | 03 | 6 · 444–705 | 5 ejercicio | 26 | 56 TODO | — |
 | 04 | 5 · 385–534 | 4 ejercicio | 33 | 108 TODO | Starter del proyecto sobredimensionado para 2 h |

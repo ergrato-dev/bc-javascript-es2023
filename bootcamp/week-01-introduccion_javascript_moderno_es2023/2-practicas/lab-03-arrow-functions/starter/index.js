@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 03: Arrow Functions
+ * 📘 Lab 03: Arrow Functions
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para dominar las arrow functions de JavaScript moderno.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -112,22 +112,22 @@ console.log('--- Paso 5: Encadenar Métodos ---');
 // Puedes encadenar múltiples operaciones
 // Descomenta las siguientes líneas:
 
-// const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const oneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 //
 // // Filtrar pares y duplicarlos
-// const doubledEvens = numbers
+// const doubledEvens = oneToTen
 //   .filter(n => n % 2 === 0)
 //   .map(n => n * 2);
 // console.log('Pares duplicados:', doubledEvens);
 //
 // // Cuadrados de impares
-// const oddSquares = numbers
+// const oddSquares = oneToTen
 //   .filter(n => n % 2 !== 0)
 //   .map(n => n ** 2);
 // console.log('Cuadrados de impares:', oddSquares);
 //
 // // Suma de los primeros 5
-// const sumFirst5 = numbers
+// const sumFirst5 = oneToTen
 //   .slice(0, 5)
 //   .reduce((sum, n) => sum + n, 0);
 // console.log('Suma primeros 5:', sumFirst5);
@@ -227,7 +227,7 @@ console.log('--- Paso 8: Caso Práctico ---');
 console.log('');
 
 // ============================================
-// ✅ EJERCICIO COMPLETADO
+// ✅ LAB COMPLETADO
 // ============================================
 console.log('🎉 ¡Excelente! Has dominado las arrow functions.');
 console.log('Úsalas especialmente con map, filter y reduce.');

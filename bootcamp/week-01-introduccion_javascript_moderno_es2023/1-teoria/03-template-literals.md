@@ -669,17 +669,13 @@ Antes de continuar, asegúrate de:
 - [MDN: Template Literals](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals)
 - [JavaScript.info: Template Literals](https://javascript.info/string#quotes)
 
+<!-- nav -->
 ---
 
-## 🚀 Próximo Paso
+## 🔗 Navegación
 
-Ahora que dominas los strings modernos, aprenderás la sintaxis más revolucionaria de ES2023: arrow functions.
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔒 let y const - Variables Modernas](02-let-const.md) | [Teoría — ➡️ Arrow Functions - Funciones Modernas](04-arrow-functions.md) → |
 
-➡️ **Siguiente**: [Arrow Functions](04-arrow-functions.md)
-
----
-
-<p align="center">
-  <strong>📝 Template Literals Dominados</strong><br>
-  <em>Adiós concatenación, hola interpolación</em>
-</p>
+[↑ Semana 01](../README.md)

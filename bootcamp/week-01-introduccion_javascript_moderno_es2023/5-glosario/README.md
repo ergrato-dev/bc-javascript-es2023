@@ -793,18 +793,17 @@ let mutable = 'mutable';
 ## 💡 Cómo Usar Este Glosario
 
 1. **Durante el estudio**: Consulta términos que no entiendas
-2. **Antes de evalaciones**: Repasa los términos clave
+2. **Antes de evaluaciones**: Repasa los términos clave
 3. **Al practicar**: Verifica que usas la terminología correcta
 4. **En código**: Asegúrate de entender qué hace cada concepto
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-- ← Volver a [README de la Semana 01](../../../README.md)
-- → Continuar a [Semana 02](../../week-02-operadores_metodos_modernos_arrays/README.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [🚀 Semana 2: Operadores y Métodos Modernos de Arrays](../../week-02-operadores_metodos_modernos_arrays/README.md) → |
 
----
-
-_Última actualización: Diciembre 2024_
-_Este glosario se expandirá en las siguientes semanas con nuevos términos._
+[↑ Semana 01](../README.md)

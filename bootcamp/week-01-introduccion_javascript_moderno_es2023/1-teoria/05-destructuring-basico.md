@@ -702,29 +702,13 @@ Antes de continuar, asegúrate de:
 - [MDN: Destructuring Assignment](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 - [JavaScript.info: Destructuring](https://javascript.info/destructuring-assignment)
 
+<!-- nav -->
 ---
 
-## 🎉 ¡Teoría Completa!
+## 🔗 Navegación
 
-Felicitaciones, has completado toda la teoría de la Semana 1:
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — ➡️ Arrow Functions - Funciones Modernas](04-arrow-functions.md) | [Teoría — 🔧 Operadores Modernos de JavaScript](06-operadores-modernos.md) → |
 
-1. ✅ Introducción a ES2023
-2. ✅ let y const
-3. ✅ Template Literals
-4. ✅ Arrow Functions
-5. ✅ Destructuring Básico
-
----
-
-## 🚀 Próximo Paso
-
-Ahora es momento de poner en práctica todo lo aprendido con ejercicios hands-on.
-
-➡️ **Siguiente**: [Ejercicios Prácticos](../2-practicas/)
-
----
-
-<p align="center">
-  <strong>🎁 Destructuring Dominado</strong><br>
-  <em>Extrae datos como un profesional</em>
-</p>
+[↑ Semana 01](../README.md)

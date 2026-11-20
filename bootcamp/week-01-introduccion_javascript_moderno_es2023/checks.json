@@ -1,0 +1,90 @@
+{
+  "semana": "01",
+  "titulo": "Introducción a JavaScript Moderno",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/logic.js es un módulo ES válido",
+      "cmd": "cd {proyecto} && node --check src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "arrow-functions",
+      "descripcion": "src/logic.js define las funciones con arrow functions, sin la palabra function",
+      "cmd": "cd {proyecto} && ! grep -nw 'function' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "format-header",
+      "descripcion": "formatHeader devuelve 'nombre (código)'",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.formatHeader({ name: 'Sala Norte', code: 'SN-7' }), 'Sala Norte (SN-7)');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "format-location",
+      "descripcion": "formatLocation usa valores por defecto y respeta la planta 0",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.formatLocation({ location: { room: 'Sala A', floor: 0 } }), 'Sala A · planta 0'); assert.equal(l.formatLocation({}), 'Sin ubicación · planta -'); assert.equal(l.formatLocation({ location: { floor: 3 } }), 'Sin ubicación · planta 3');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "item-to-html",
+      "descripcion": "itemToHtml genera el <li> con nombre y nivel",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.itemToHtml({ name: 'Lupa', level: 42 }), '<li class=\\\"skill-item\\\"><span class=\\\"skill-name\\\">Lupa</span> <span class=\\\"skill-level\\\">42%</span></li>');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "visible-items",
+      "descripcion": "visibleItems devuelve 3 elementos o todos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = [1, 2, 3, 4, 5].map((n) => ({ name: 'e' + n, level: n })); assert.equal(l.visibleItems(items, false).length, 3); assert.equal(l.visibleItems(items, false)[0].name, 'e1'); assert.equal(l.visibleItems(items, true).length, 5); assert.equal(l.visibleItems(items.slice(0, 2), false).length, 2);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "average-level",
+      "descripcion": "averageLevel calcula la media redondeada y 0 sin elementos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.averageLevel([{ level: 90 }, { level: 75 }]), 83); assert.equal(l.averageLevel([{ level: 10 }]), 10); assert.equal(l.averageLevel([]), 0);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "count-above",
+      "descripcion": "countAbove cuenta los elementos con nivel igual o mayor",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const items = [{ level: 90 }, { level: 80 }, { level: 79 }]; assert.equal(l.countAbove(items, 80), 2); assert.equal(l.countAbove(items, 95), 0); assert.equal(l.countAbove([], 10), 0);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "build-summary",
+      "descripcion": "buildSummary devuelve las 4 líneas del resumen",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const s = l.buildSummary({ name: 'Sala Norte', code: 'SN-7', description: 'Mapas', location: { room: 'Ala B', floor: 1 }, items: [{ level: 50 }, { level: 70 }] }); assert.deepEqual(s.split('\\\\n'), ['Sala Norte (SN-7)', 'Mapas', 'Ala B · planta 1', 'Elementos: 2 · nivel medio 60%']); assert.deepEqual(l.buildSummary({ name: 'X', code: 'Y' }).split('\\\\n'), ['X (Y)', 'Sin descripción', 'Sin ubicación · planta -', 'Elementos: 0 · nivel medio 0%']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "next-theme",
+      "descripcion": "nextTheme alterna entre light y dark",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.nextTheme('light'), 'dark'); assert.equal(l.nextTheme('dark'), 'light'); assert.equal(l.nextTheme(undefined), 'dark');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    }
+  ]
+}

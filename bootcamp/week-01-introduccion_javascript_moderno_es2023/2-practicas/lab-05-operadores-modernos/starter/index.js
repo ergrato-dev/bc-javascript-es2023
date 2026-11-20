@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 05: Operadores Modernos
+ * 📘 Lab 05: Operadores Modernos
  *
- * Este es un ejercicio guiado. Descomenta el código
+ * Este es un lab guiado. Descomenta el código
  * en cada sección para aprender los operadores modernos.
  *
- * Ejecuta con: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -185,4 +185,4 @@ const apiResponse = {
 // console.log('Avatar:', avatar);
 
 console.log('');
-console.log('✅ Ejercicio completado');
+console.log('✅ Lab completado');

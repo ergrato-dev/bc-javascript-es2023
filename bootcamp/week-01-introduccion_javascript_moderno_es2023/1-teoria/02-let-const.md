@@ -570,17 +570,13 @@ Antes de continuar, asegúrate de:
 - [MDN: let](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/let)
 - [JavaScript.info: Variables](https://javascript.info/variables)
 
+<!-- nav -->
 ---
 
-## 🚀 Próximo Paso
+## 🔗 Navegación
 
-Ahora que dominas las variables modernas, aprenderás a trabajar con strings de forma elegante.
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🚀 Introducción a JavaScript Moderno (ES2023)](01-introduccion-es6.md) | [Teoría — 📝 Template Literals - Strings Modernos](03-template-literals.md) → |
 
-➡️ **Siguiente**: [Template Literals](03-template-literals.md)
-
----
-
-<p align="center">
-  <strong>🔒 Variables Modernas Dominadas</strong><br>
-  <em>const por defecto, let cuando sea necesario, var nunca</em>
-</p>
+[↑ Semana 01](../README.md)

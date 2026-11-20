@@ -1,299 +1,90 @@
-# 📊 Rúbrica de Evaluación - Semana 1
+# Rúbrica de Evaluación - Semana 01
 
-## 🎯 Criterios Generales de Aprobación
+## Evidencias y ponderación
 
-- **Calificación mínima**: 70% en el proyecto
-- **Entrega puntual**: Penalización del 10% por día de retraso
-- **Código funcional**: El código debe ejecutarse sin errores críticos
-- **Buenas prácticas**: Seguir convenciones de ES2023 establecidas
-- **Único entregable**: Solo se entrega el proyecto final
-
----
-
-## 📋 Distribución de Evidencias
-
-| Tipo de Evidencia | Ponderación | Descripción                                      |
-| ----------------- | ----------- | ------------------------------------------------ |
-| 📦 Producto       | 100%        | Proyecto final (único entregable)                |
-
-> **Nota Importante**: Los ejercicios prácticos y la teoría son materiales de aprendizaje que te preparan para el proyecto, pero **no se entregan de forma separada**. El proyecto debe demostrar tu dominio de todos los conceptos aprendidos en teoría y practicados en los ejercicios.
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | `const` y `let`, ámbito de bloque, template literals, arrow functions, destructuring, `?.`, `??` y asignaciones lógicas |
+| Desempeño | 40% | Labs 01 a 05 descomentados y ejecutados |
+| Producto | 30% | Ficha interactiva: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-## 🧠 Material de Conocimiento (No se entrega)
+## Criterios por evidencia
 
-> **Importante**: Esta sección describe material de estudio y autoevaluación. No se entrega de forma separada. Tu comprensión de estos conceptos se evalúa a través del proyecto final.
+## 1) Conocimiento (30%)
 
-### Componentes de Estudio
+### Criterios
 
-1. **Cuestionario de Autoevaluación** (Opcional)
-   - 10 preguntas de opción múltiple
-   - Temas: ES2023, let/const, template literals, arrow functions, destructuring
-   - Para verificar tu comprensión antes del proyecto
+- Explica por qué una variable `const` que guarda un objeto permite cambiar sus propiedades.
+- Distingue el ámbito de bloque de `let`/`const` y explica la Temporal Dead Zone con un ejemplo.
+- Interpola expresiones en un template literal y escribe un texto de varias líneas sin `\n`.
+- Distingue el retorno implícito del explícito en una arrow function y sabe cuándo el objeto devuelto necesita paréntesis.
+- Desestructura objetos y arrays con valores por defecto, renombrado y `...`.
+- Elige entre `||` y `??` cuando el valor puede ser `0` o `''`, y explica qué devuelve `?.` cuando la cadena se corta.
 
-2. **Análisis de Código** (Opcional)
-   - Identificar errores en código
-   - Proponer mejoras usando ES2023
-   - Práctica para mejorar tu código
+### Niveles
 
-### Criterios de Comprensión
-
-| Criterio                      | Excelente (100%)                                  | Satisfactorio (80%)               | Aceptable (70%)                    | Insuficiente (<70%)          |
-| ----------------------------- | ------------------------------------------------- | --------------------------------- | ---------------------------------- | ---------------------------- |
-| **Comprensión conceptual**    | Explica conceptos con ejemplos propios            | Explica conceptos correctamente   | Comprende pero con errores menores | No comprende conceptos       |
-| **Identificación de errores** | Identifica todos los errores y propone soluciones | Identifica la mayoría de errores  | Identifica algunos errores         | No identifica errores        |
-| **Terminología técnica**      | Usa términos técnicos correctamente               | Usa términos con pequeños errores | Usa términos básicos               | No usa terminología adecuada |
-
-### Preguntas Ejemplo
-
-```markdown
-1. ¿Cuál es la diferencia principal entre `let` y `const`?
-   a) let es para strings, const para números
-   b) let permite reasignación, const no
-   c) No hay diferencia
-   d) const es más rápido
-
-2. ¿Qué salida produce este código?
-   const name = 'Juan';
-   console.log(`Hola ${name}`);
-   a) Hola ${name}
-   b) Hola Juan
-   c) Error de sintaxis
-   d) undefined
-```
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, entre `||=` y `??=`).
+- **Bajo (<21):** confunde `const` con inmutable, o `??` con `||`.
 
 ---
 
-## 💪 Ejercicios de Práctica (No se entregan)
+## 2) Desempeño (40%)
 
-> **Importante**: Los ejercicios prácticos son materiales de aprendizaje guiados que te preparan para el proyecto. **No se entregan de forma separada**. Úsalos para practicar antes de hacer el proyecto.
+### Criterios
 
-### Ejercicios Guiados (Práctica)
+- Lab 01: los 8 pasos descomentados; provoca y explica el `TypeError` del paso 1 y el `ReferenceError` del paso 5.
+- Lab 02: los 8 pasos; explica `$${` y cómo escapar un backtick.
+- Lab 03: los 8 pasos; explica por qué el mensaje del `setTimeout` sale al final.
+- Lab 04: los 9 pasos; explica el `undefined` y el valor por defecto del paso 3.
+- Lab 05: los 8 pasos; explica la diferencia entre `Con ||` y `Con ??` del paso 3.
 
-#### Ejercicio 1: Variables Modernas
-- [ ] Usa `const` por defecto
-- [ ] Usa `let` solo cuando sea necesario reasignar
-- [ ] No usa `var` en ningún caso
-- [ ] Respeta block scope correctamente
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab.
 
-#### Ejercicio 2: Template Literals
-- [ ] Implementa interpolación de variables
-- [ ] Usa strings multilínea cuando sea apropiado
-- [ ] Evita concatenación con `+`
-- [ ] Código limpio y legible
+### Niveles
 
-#### Ejercicio 3: Arrow Functions
-- [ ] Convierte funciones tradicionales a arrow functions
-- [ ] Usa sintaxis concisa cuando sea posible
-- [ ] Comprende el retorno implícito
-- [ ] Identifica cuándo usar `return` explícito
-
-#### Ejercicio 4: Destructuring
-- [ ] Extrae valores de arrays
-- [ ] Extrae propiedades de objetos
-- [ ] Usa nombres de variables descriptivos
-- [ ] Aplica valores por defecto
-
-### Criterios de Evaluación
-
-| Criterio          | Excelente (100%)                               | Satisfactorio (80%)                       | Aceptable (70%)                    | Insuficiente (<70%)            |
-| ----------------- | ---------------------------------------------- | ----------------------------------------- | ---------------------------------- | ------------------------------ |
-| **Funcionalidad** | Funciona perfectamente                         | Funciona con bugs menores                 | Funciona parcialmente              | No funciona                    |
-| **Sintaxis ES2023** | Usa todas las características modernas         | Usa la mayoría correctamente              | Usa algunas características        | No usa ES2023                    |
-| **Código limpio** | Código impecable y bien estructurado           | Código ordenado con mejoras menores       | Código funcional pero desordenado  | Código difícil de leer         |
-| **Nomenclatura**  | Nombres en inglés, descriptivos y consistentes | Nombres descriptivos con pequeños errores | Nombres básicos pero comprensibles | Nombres pobres o en español    |
-| **Comentarios**   | Comentarios educativos en inglés               | Comentarios básicos correctos             | Pocos comentarios pero útiles      | Sin comentarios o irrelevantes |
+- **Alto (36-40):** los cinco labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cinco labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-## 📦 Proyecto: Tarjeta de Presentación Interactiva (100%)
+## 3) Producto (30%)
 
-> **Único Entregable**: Este proyecto es la única entrega requerida para aprobar la semana. Debe demostrar tu dominio de todos los conceptos aprendidos.
+### Criterios
 
-### Descripción del Proyecto
+- `PROYECTO=... ./scripts/verificar-semana.sh 01` pasa las 12 comprobaciones.
+- El objeto `entity` de `src/main.js` describe una entidad del dominio asignado, con 5 a 8 elementos y valores coherentes con ese dominio.
+- La página funciona servida con `pnpm dlx serve .`: lista, botón **Mostrar todos**, cambio de tema y **Copiar resumen**, sin errores en la consola.
+- Las funciones usan destructuring en los parámetros donde la entidad o el elemento se desestructuran, y `buildSummary` reutiliza las demás funciones.
 
-#### Requisitos Funcionales (60% del producto)
+### Niveles
 
-- [ ] **Variables (10%)**: Usa `const` y `let` apropiadamente
-- [ ] **Datos dinámicos (15%)**: Template literals para mostrar información
-- [ ] **Interactividad (20%)**: Arrow functions en event listeners
-- [ ] **Estructura de datos (15%)**: Destructuring para datos del usuario
-
-#### Requisitos No Funcionales (40% del producto)
-
-- [ ] **Código limpio (10%)**: Indentación, espaciado, estructura
-- [ ] **Nomenclatura (10%)**: Variables/funciones en inglés, descriptivas
-- [ ] **Comentarios (5%)**: Explicaciones en inglés, claros
-- [ ] **README (5%)**: Instrucciones de instalación y uso
-- [ ] **Sin errores (10%)**: Código ejecuta sin errores en consola
-
-### Rúbrica Detallada del Proyecto
-
-| Aspecto                  | Excelente (100%)                     | Satisfactorio (80%)               | Aceptable (70%)             | Insuficiente (<70%)          |
-| ------------------------ | ------------------------------------ | --------------------------------- | --------------------------- | ---------------------------- |
-| **Uso de `let`/`const`** | Usa correctamente en todos los casos | Pequeños errores de uso           | Confunde ocasionalmente     | No usa correctamente         |
-| **Template literals**    | Implementación perfecta y creativa   | Implementación correcta básica    | Usa pero con errores        | No usa o usa mal             |
-| **Arrow functions**      | Sintaxis moderna en todos los casos  | Usa en mayoría de casos           | Uso básico correcto         | No usa o sintaxis incorrecta |
-| **Destructuring**        | Aplica en múltiples lugares          | Aplica en casos básicos           | Implementación mínima       | No usa                       |
-| **Diseño UI**            | Interfaz atractiva y profesional     | Interfaz funcional y clara        | Interfaz básica pero usable | Interfaz pobre               |
-| **Interactividad**       | Múltiples interacciones fluidas      | Interacciones básicas funcionales | Interactividad mínima       | No hay interactividad        |
-| **Código limpio**        | Código ejemplar                      | Código ordenado                   | Código aceptable            | Código desorganizado         |
-| **Documentación**        | README completo con ejemplos         | README básico pero útil           | README mínimo               | Sin README o incompleto      |
-| **Creatividad**          | Solución innovadora                  | Solución correcta estándar        | Solución básica             | Copia de ejemplos            |
+- **Alto (27-30):** 12/12, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 12/12 con datos poco adaptados (nombres genéricos, niveles al azar) o algún botón que falla.
+- **Bajo (<21):** menos de 12 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## 📈 Cálculo de Calificación Final
+## Calificación
 
-### Fórmula
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
-```
-Calificación Final = Proyecto × 100%
-```
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
 
-### Ejemplo
-
-```
-Proyecto: 85%
-
-Calificación = 85% ✅ APROBADO
-
-Nota mínima para aprobar: 70%
-```
-
-> **Nota**: El proyecto debe demostrar tu dominio de todos los conceptos aprendidos en teoría y practicados en los ejercicios guiados.
-
+<!-- nav -->
 ---
 
-## ✅ Checklist de Autoevaluación
+## 🔗 Navegación
 
-Antes de entregar, verifica:
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Ficha interactiva de tu dominio](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
-### Código
-- [ ] No hay errores en la consola del navegador
-- [ ] Todas las funciones están en inglés
-- [ ] Los comentarios están en inglés
-- [ ] Se usa `const` por defecto, `let` solo cuando es necesario
-- [ ] No se usa `var` en ningún lugar
-- [ ] Template literals en lugar de concatenación con `+`
-- [ ] Arrow functions en lugar de `function` tradicional
-- [ ] Destructuring aplicado donde sea apropiado
-
-### Documentación
-- [ ] README incluye instrucciones de instalación
-- [ ] README explica cómo ejecutar el proyecto
-- [ ] Código tiene comentarios explicativos
-- [ ] Variables y funciones tienen nombres descriptivos
-
-### Buenas Prácticas
-- [ ] Código indentado correctamente (2 espacios)
-- [ ] Sin código comentado (dead code)
-- [ ] Sin `console.log` de debugging
-- [ ] Archivos organizados lógicamente
-
----
-
-## 🎯 Criterios de Aprobación
-
-### Para Aprobar la Semana
-
-- ✅ Mínimo **70%** en el Proyecto
-- ✅ Entrega puntual o con penalización máxima del 20%
-- ✅ Código funcional sin errores críticos
-- ✅ Demostrar dominio de los conceptos aprendidos
-
-### Para Excelencia
-
-- 🌟 Mínimo **90%** en el proyecto
-- 🌟 Código sin errores ni warnings
-- 🌟 Implementación creativa y original
-- 🌟 Documentación completa y profesional
-- 🌟 Documentación completa y profesional
-
----
-
-## 📝 Formato de Entrega
-
-### Estructura de Carpetas
-
-```
-apellido-nombre-week01/
-├── README.md
-├── index.html
-├── script.js
-├── style.css
-└── assets/ (si aplica)
-```
-
-### Información del README
-
-```markdown
-# Semana 1 - Tarjeta de Presentación - [Tu Nombre]
-
-## 📋 Información del Estudiante
-- **Nombre**: [Tu nombre completo]
-- **Fecha de entrega**: [DD/MM/YYYY]
-- **Semana**: 01 - Introducción a JavaScript Moderno
-
-## 🎯 Descripción del Proyecto
-[Breve descripción de tu tarjeta de presentación]
-
-## 🚀 Características Implementadas
-- [ ] Variables con let/const
-- [ ] Template literals
-- [ ] Arrow functions
-- [ ] Destructuring
-- [ ] Operadores modernos (?.  ??)
-
-## 📦 Cómo ejecutar
-1. Clonar el repositorio
-2. Abrir index.html en el navegador
-
-## 🎯 Autoevaluación
-- Proyecto: [X]%
-```
-
----
-
-## 🔄 Retroalimentación
-
-### Plazos
-
-- **Entrega**: Viernes de la semana correspondiente
-- **Retroalimentación**: Dentro de 3 días hábiles
-- **Reentrega** (si aplica): Dentro de 5 días de recibir feedback
-
-### Formato de Feedback
-
-El instructor proporcionará:
-
-1. **Calificación numérica** por cada evidencia
-2. **Comentarios específicos** sobre áreas de mejora
-3. **Aspectos destacados** del trabajo realizado
-4. **Recursos adicionales** para reforzar conceptos débiles
-
----
-
-## ❓ Preguntas Frecuentes
-
-**¿Puedo usar bibliotecas externas?**
-❌ No. Esta semana se enfoca en JavaScript puro ES2023.
-
-**¿Qué pasa si no alcanzo el 70%?**
-Tendrás una oportunidad de reentrega con feedback específico.
-
-**¿Los comentarios deben estar en inglés?**
-✅ Sí. Toda la nomenclatura técnica debe estar en inglés.
-
-**¿Puedo entregar antes de tiempo?**
-✅ Sí. Las entregas anticipadas son bienvenidas.
-
-**¿Cómo se evalúa la creatividad?**
-Se valora la solución de problemas de manera innovadora, no solo seguir el ejemplo.
-
----
-
-<p align="center">
-  <strong>📊 Rúbrica de Evaluación - Semana 1</strong><br>
-  <em>Criterios claros para el éxito</em>
-</p>
+[↑ Semana 01](README.md)

@@ -1,10 +1,10 @@
 /**
- * 📘 Ejercicio 02: Template Literals
+ * 📘 Lab 02: Template Literals
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
+ * Este es un lab guiado. Descomenta el código en cada paso
  * para dominar los template literals de JavaScript moderno.
  *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -216,7 +216,7 @@ console.log('--- Paso 8: Caso Práctico ---');
 console.log('');
 
 // ============================================
-// ✅ EJERCICIO COMPLETADO
+// ✅ LAB COMPLETADO
 // ============================================
 console.log('🎉 ¡Excelente! Has dominado los template literals.');
 console.log('Úsalos siempre en lugar de concatenación con +.');

@@ -142,6 +142,9 @@ verificar_semana() {
   while IFS=$'\t' read -r _id descripcion cmd asercion pista; do
     total=$(( total + 1 ))
 
+    # @tsv escribe cada \ como \\: se deshace para que el cmd llegue tal cual está en el JSON.
+    cmd=${cmd//\\\\/\\}
+
     # Los marcadores dejan el checks.json independiente de rutas y plataforma.
     cmd=${cmd//\{semana\}/$dir}
     cmd=${cmd//\{raiz\}/$RAIZ}

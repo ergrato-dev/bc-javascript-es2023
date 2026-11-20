@@ -694,17 +694,13 @@ Antes de continuar, asegúrate de:
 - [MDN: Arrow Functions](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 - [JavaScript.info: Arrow Functions](https://javascript.info/arrow-functions-basics)
 
+<!-- nav -->
 ---
 
-## 🚀 Próximo Paso
+## 🔗 Navegación
 
-Ahora que dominas arrow functions, aprenderás a simplificar el acceso a datos con destructuring.
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📝 Template Literals - Strings Modernos](03-template-literals.md) | [Teoría — 🎁 Destructuring Básico - Extraer Valores Fácilmente](05-destructuring-basico.md) → |
 
-➡️ **Siguiente**: [Destructuring Básico](05-destructuring-basico.md)
-
----
-
-<p align="center">
-  <strong>➡️ Arrow Functions Dominadas</strong><br>
-  <em>Funciones concisas, código elegante</em>
-</p>
+[↑ Semana 01](../README.md)

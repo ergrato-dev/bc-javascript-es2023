@@ -64,8 +64,8 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ### 🟦 ETAPA 1: FUNDAMENTOS MODERNOS (Semanas 1-12)
 
 #### **Week 01: Introducción a JavaScript Moderno**
-**Estado**: Completada
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 - Configuración del entorno (VS Code, Node.js, Git)
@@ -76,7 +76,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 - Logical assignment operators (`??=`, `||=`, `&&=`)
 - Numeric separators (`1_000_000`)
 
-**Proyecto**: Calculadora moderna con ES2023
+**Proyecto**: Ficha interactiva del dominio (funciones puras en `logic.js`)
 
 ---
 

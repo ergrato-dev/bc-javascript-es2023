@@ -1,394 +1,183 @@
-# 🏛️ Proyecto Semanal: Ficha de Información Interactiva
+# Proyecto Semana 01 — Ficha interactiva de tu dominio
 
-> **🎯 ÚNICO ENTREGABLE**: Este proyecto es el **único entregable obligatorio** para aprobar la Semana 1. Debe demostrar tu dominio de todos los conceptos aprendidos.
+## Descripción
 
-## 🎯 Objetivos del Proyecto
+Una página que muestra la ficha de una entidad de tu dominio: título, ubicación, descripción, una lista de elementos con su nivel y unas estadísticas. Tiene tres botones: mostrar todos los elementos, cambiar entre tema claro y oscuro, y copiar un resumen al portapapeles.
 
-Crear una aplicación web interactiva que muestre una ficha de información de tu dominio asignado, aplicando todos los conceptos aprendidos en la Semana 1:
+La página ya está montada. Tu trabajo es escribir las funciones de `src/logic.js` con lo que has visto esta semana (`const`, template literals, arrow functions, destructuring, `?.` y `??`) y cambiar los datos de ejemplo por los de tu dominio.
 
-- ✅ Variables modernas (`const` y `let`)
-- ✅ Template literals para contenido dinámico
-- ✅ Arrow functions para eventos y lógica
-- ✅ Destructuring para manejo de datos
+**Tiempo:** 2 h.
+
+## Punto de partida
+
+```bash
+mkdir -p ~/js-proyecto-semana-01
+cp -r bootcamp/week-01-introduccion_javascript_moderno_es2023/3-proyecto/starter/. ~/js-proyecto-semana-01/
+cd ~/js-proyecto-semana-01
+```
+
+Ejecuta el `cp` desde la carpeta del bootcamp. Quedan estos archivos:
+
+| Archivo | Qué contiene | ¿Lo editas? |
+|---|---|---|
+| `index.html` | La estructura de la ficha; carga `src/main.js` | No |
+| `styles.css` | Los estilos, con un tema oscuro en `[data-theme="dark"]` | Si quieres |
+| `src/main.js` | Los datos de la entidad y el código que pinta la página y atiende los botones | Solo el objeto `entity` |
+| `src/logic.js` | Ocho funciones con `TODO` | Sí: es el proyecto |
+
+- **Qué:** `logic.js` solo calcula y devuelve valores; no toca la página.
+- **Para qué:** así cada función se puede probar desde Node con datos concretos, sin navegador. Es lo que hace `scripts/verificar-semana.sh`.
+- **Impacto:** si una función devuelve algo incorrecto, la comprobación te dice cuál y en qué paso se arregla. Más detalles en [docs/autograding.md](../../../docs/autograding.md).
 
 ---
 
-## 📋 Tu Dominio Asignado
+## Paso 1: ver la página (10 min)
 
-**Dominio**: [El instructor te asignará tu dominio al inicio del trimestre]
+`index.html` carga `src/main.js` con `<script type="module">`, que es lo que permite usar `import` y `export`. El navegador no carga módulos desde un archivo abierto con doble clic (`file://`), así que hace falta un servidor local:
 
-> **IMPORTANTE**: Cada aprendiz tiene un dominio único asignado por el instructor. NO copies la implementación de otro compañero. Tu código debe reflejar tu dominio específico.
+```bash
+pnpm dlx serve .
+```
 
----
+La primera vez, `pnpm dlx` descarga `serve` (unos segundos). Después el servidor muestra su dirección, en un recuadro `Serving!` o en una línea como esta:
 
-## 💡 Estructura de Datos Esperada
+```text
+ INFO  Accepting connections at http://localhost:3000
+```
 
-Independientemente de tu dominio, tu ficha debe incluir:
+Abre `http://localhost:3000`. Con el starter, la ficha sale casi vacía (el título en blanco y la ubicación como `📍 undefined`): abre las DevTools (`F12`), pestaña **Console**, y verás un `TypeError` en rojo. Es lo esperado: las funciones de `logic.js` todavía no devuelven nada. Deja el servidor abierto en esa terminal y usa otra para el resto de pasos; después de cada paso recarga la página.
 
-### Datos Requeridos
+## Paso 2: tus datos (15 min)
 
-| Tipo | Descripción | Ejemplo (Planetario - NO asignable) |
-|------|-------------|-------------------------------------|
-| **Información básica** | Nombre, descripción, identificador | nombre: "Sistema Solar Interactivo", código: "EXH-001" |
-| **Propiedades específicas** | Datos propios del dominio | ubicación, capacidad, estado |
-| **Array de elementos** | Lista de items relacionados con nivel/valor | características, servicios, componentes |
-| **Estadísticas** | Contadores y métricas numéricas | visitantes, rating, duración |
-
-### Ejemplo de Estructura (Planetario)
+Abre `src/main.js`. El objeto `entity` trae datos del dominio Planetario, que es solo un ejemplo. Cámbialos por una entidad de **tu dominio** (el que te asignó el instructor), con la misma forma:
 
 ```javascript
-const exhibitData = {
-  name: 'Sistema Solar Interactivo',
-  description: 'Exhibición inmersiva del sistema solar',
-  code: 'EXH-001',
-  location: { room: 'Sala Principal', floor: 2 },
-  features: [
-    { name: 'Proyección 360°', level: 95 },
-    { name: 'Audio envolvente', level: 88 }
+const entity = {
+  name: '...',          // nombre de la entidad
+  code: '...',          // identificador corto, como 'EXH-001'
+  description: '...',
+  location: { room: '...', floor: 0 },  // dónde está; floor es un número
+  items: [              // de 5 a 8 elementos relacionados con un nivel de 0 a 100
+    { name: '...', level: 0 },
   ],
-  stats: { visitors: 15000, rating: 4.8, duration: 45 }
 };
 ```
 
-> **Nota**: El ejemplo usa "Planetario" porque NO es un dominio asignable. Adapta esta estructura a tu dominio asignado.
+Los nombres de las propiedades se quedan en inglés; los valores, en español y de tu dominio. No cambies nada más de `main.js`.
 
----
+## Paso 3: `formatHeader` (10 min)
 
-## 🎨 Características Requeridas
+Recibe la entidad y devuelve el título: `'Sala Cúpula (SC-01)'`. Usa destructuring en el parámetro para sacar `name` y `code`, y un template literal para el resultado. Repasa [teoría 03](../1-teoria/03-template-literals.md) y [teoría 05](../1-teoria/05-destructuring-basico.md).
 
-### Funcionalidades Obligatorias
-
-1. **Información Principal de tu Dominio**
-   - Datos básicos de la entidad (nombre, identificador, etc.)
-   - Descripción o detalles relevantes
-   - Propiedades específicas del dominio
-
-2. **Lista de Elementos Relacionados**
-   - Array de elementos (ej: habilidades, características, servicios)
-   - Nivel o porcentaje cuando aplique
-   - Categorías o tipos
-
-3. **Estadísticas**
-   - Contadores relevantes al dominio
-   - Cálculos usando métodos de array
-
-4. **Interactividad**
-   - Botón para cambiar tema (claro/oscuro)
-   - Botón para copiar información al portapapeles
-   - Botón para mostrar/ocultar sección
-
-5. **Notificaciones**
-   - Toast/mensaje de confirmación para acciones
-
----
-
-## 📁 Estructura de Archivos
-
-```
-3-proyecto/
-├── README.md           # Este archivo con instrucciones
-├── index.html          # Estructura HTML (completa)
-├── styles.css          # Estilos CSS (completo)
-├── starter/
-│   └── script.js       # Archivo inicial con TODOs
-└── solution/
-    └── script.js       # Solución de referencia
-```
-
-> **📌 Nota Pedagógica**: La carpeta `solution/` está **excluida del repositorio de GitHub** (`.gitignore`). Debes completar los ejercicios por ti mismo.
-
----
-
-## 🚀 Instrucciones
-
-### Paso 1: Identificar tu Dominio
-
-Revisa con tu instructor cuál es tu dominio asignado para el trimestre.
-
-### Paso 2: Planificar tu Estructura de Datos
-
-Basándote en tu dominio, define:
-- ¿Qué entidad principal representarás?
-- ¿Qué propiedades tiene esa entidad?
-- ¿Qué elementos relacionados tiene (array)?
-- ¿Qué estadísticas son relevantes?
-
-### Paso 3: Completar los TODOs en script.js
-
-Abre `starter/script.js` y completa todos los TODOs marcados, adaptándolos a tu dominio.
-
-### Paso 4: Aplicar Conceptos ES2023
-
-Asegúrate de usar:
-- `const` para valores que no cambian
-- `let` para valores que sí cambian
-- Template literals para strings
-- Arrow functions para todas las funciones
-- Destructuring para extraer datos
-
-### Paso 5: Probar la Funcionalidad
-
-Abre `index.html` en el navegador y verifica que todo funcione.
-
----
-
-## 📝 TODOs a Completar
-
-### 1. Datos de tu Dominio (Destructuring)
-```javascript
-// TODO: Crear objeto con datos de tu dominio
-// TODO: Extraer datos usando destructuring
-```
-
-### 2. Renderizar Información (Template Literals)
-```javascript
-// TODO: Crear HTML dinámico con template literals
-```
-
-### 3. Event Listeners (Arrow Functions)
-```javascript
-// TODO: Agregar event listeners con arrow functions
-```
-
-### 4. Calcular Estadísticas (Array Methods + Arrows)
-```javascript
-// TODO: Calcular estadísticas usando map, reduce, filter
-```
-
-### 5. Toggle Theme (Variables + Funciones)
-```javascript
-// TODO: Implementar cambio de tema claro/oscuro
-```
-
----
-
-## ✅ Criterios de Evaluación
-
-### Funcionalidad (40%)
-- [ ] Muestra correctamente toda la información del dominio
-- [ ] Los botones son interactivos
-- [ ] Cambio de tema funciona
-- [ ] Estadísticas se calculan correctamente
-- [ ] Copiar información funciona
-
-### Código ES2023 (30%)
-- [ ] Usa `const` por defecto, `let` solo cuando necesario
-- [ ] Template literals en lugar de concatenación
-- [ ] Arrow functions en lugar de `function`
-- [ ] Destructuring aplicado correctamente
-- [ ] Sin uso de `var`
-
-### Código Limpio (20%)
-- [ ] Código bien indentado
-- [ ] Nombres de variables descriptivos en inglés
-- [ ] Comentarios explicativos en español
-- [ ] Sin código duplicado
-- [ ] Estructura lógica y organizada
-
-### Adaptación al Dominio (10%)
-- [ ] Datos coherentes con el dominio asignado
-- [ ] Propiedades específicas del dominio
-- [ ] Implementación original (no copiada)
-
-**Calificación Total**: 100%
-**Mínimo para Aprobar**: 70%
-
----
-
-## 🎨 Bonus (Opcional)
-
-Si terminas antes y quieres un desafío extra:
-
-1. **Validación de Datos**
-   - Validar información antes de copiar
-
-2. **Persistencia**
-   - Guardar tema preferido en localStorage
-
-3. **Animaciones**
-   - Transiciones suaves al cambiar tema
-
-4. **Responsive**
-   - Mejorar diseño mobile
-
----
-
-## 🧪 Cómo Probar
-
-### 1. Abrir en Navegador
+Comprueba la función desde Node sin esperar al final:
 
 ```bash
-# Opción 1: Doble click en index.html
-
-# Opción 2: Con Live Server (VS Code extension)
-# Click derecho en index.html → Open with Live Server
-
-# Opción 3: Python simple server
-python -m http.server 8000
-# Abrir http://localhost:8000
+node --input-type=module -e "import { formatHeader } from './src/logic.js'; console.log(formatHeader({ name: 'Sala Cúpula', code: 'SC-01' }))"
+# Sala Cúpula (SC-01)
 ```
 
-### 2. Verificar Consola
+## Paso 4: `formatLocation` (15 min)
 
-Abre las DevTools (F12) y verifica que no haya errores.
+Devuelve `'sala · planta N'`. La entidad puede no tener `location`, o tenerla sin `room` o sin `floor`:
 
-### 3. Probar Funcionalidades
+| Entrada | Salida |
+|---|---|
+| `{ location: { room: 'Sala A', floor: 0 } }` | `'Sala A · planta 0'` |
+| `{ location: { floor: 3 } }` | `'Sin ubicación · planta 3'` |
+| `{}` | `'Sin ubicación · planta -'` |
 
-- ✅ Click en "Copiar Información"
-- ✅ Click en cambio de tema
-- ✅ Click en "Mostrar más" / "Mostrar menos"
-- ✅ Verificar estadísticas correctas
+Lee cada dato con `?.` y pon el valor por defecto con `??` ([teoría 06](../1-teoria/06-operadores-modernos.md)). La primera fila es la trampa: con `||` la planta `0` se convertiría en `-`.
+
+## Paso 5: `itemToHtml` y `visibleItems` (20 min)
+
+`itemToHtml` recibe un elemento y devuelve su `<li>` exactamente así (los estilos dependen de esas clases):
+
+```html
+<li class="skill-item"><span class="skill-name">Telescopio</span> <span class="skill-level">80%</span></li>
+```
+
+`visibleItems(items, showAll)` devuelve los 3 primeros elementos si `showAll` es `false`, y todos si es `true`. `items.slice(0, 3)` devuelve un array nuevo con las posiciones 0, 1 y 2 sin modificar el original; un operador ternario (`condición ? a : b`) elige entre las dos respuestas.
+
+Al recargar la página ya ves la lista, y el botón **Mostrar todos** funciona.
+
+## Paso 6: `averageLevel` y `countAbove` (20 min)
+
+- `averageLevel(items)`: suma los niveles con `reduce`, divide entre el número de elementos y redondea con `Math.round`. Con un array vacío devuelve `0` (sin esa comprobación, dividiría entre 0 y daría `NaN`).
+- `countAbove(items, minLevel)`: filtra con `filter` los elementos con `level >= minLevel` y devuelve cuántos quedan (`.length`).
+
+`reduce` y `filter` aparecen en la [teoría 04](../1-teoria/04-arrow-functions.md) y en el [lab 03](../2-practicas/lab-03-arrow-functions/README.md). Usa destructuring en el parámetro de la arrow function: `({ level }) => ...`.
+
+```bash
+node --input-type=module -e "import { averageLevel, countAbove } from './src/logic.js'; const items = [{ level: 90 }, { level: 75 }]; console.log(averageLevel(items), countAbove(items, 80), averageLevel([]))"
+# 83 1 0
+```
+
+## Paso 7: `buildSummary` (15 min)
+
+Devuelve un texto de 4 líneas con un template literal multilínea (los saltos de línea dentro de los backticks forman parte del texto). Reutiliza `formatHeader`, `formatLocation` y `averageLevel`. Si falta `items`, usa `[]` con `??`.
+
+```bash
+node --input-type=module -e "import { buildSummary } from './src/logic.js'; console.log(buildSummary({ name: 'X', code: 'Y' }))"
+# X (Y)
+# Sin descripción
+# Sin ubicación · planta -
+# Elementos: 0 · nivel medio 0%
+```
+
+Cuidado con los espacios al principio de las líneas 2 a 4: si indentas el template literal, los espacios también forman parte del texto.
+
+## Paso 8: `nextTheme` (5 min)
+
+Devuelve `'light'` si recibe `'dark'` y `'dark'` en cualquier otro caso. Una línea con un ternario. Con eso funciona el botón de tema; prueba también **Copiar resumen** y pega el resultado en un editor.
+
+## Paso 9: comprobar (10 min)
+
+Desde la carpeta del bootcamp:
+
+```bash
+PROYECTO=~/js-proyecto-semana-01 ./scripts/verificar-semana.sh 01
+# Semana 01 — Introducción a JavaScript Moderno
+#   ✅ src/logic.js es un módulo ES válido
+#   ...
+# 12/12 comprobaciones superadas.
+```
+
+Cada ❌ trae una pista con el paso que lo arregla. Además de las funciones, el script comprueba que no queda ningún `TODO`, que no usas `var` y que `logic.js` no usa la palabra `function`.
 
 ---
 
-## 📚 Recursos de Ayuda
+## ✅ Requisitos verificables
 
-- [Teoría Week-01](../1-teoria/)
-- [Ejercicios Prácticos](../2-practicas/)
-- [MDN: JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+Las comprobaciones de [`checks.json`](../checks.json):
 
+| Comprobación | Qué pide |
+|---|---|
+| `sintaxis` | `src/logic.js` es un módulo ES válido |
+| `sin-todo` | `src/logic.js` no tiene ningún `TODO` |
+| `sin-var` | Ningún archivo de `src/` usa `var` |
+| `arrow-functions` | `src/logic.js` no usa la palabra `function` |
+| `format-header` | `formatHeader` devuelve `'nombre (código)'` |
+| `format-location` | `formatLocation` pone `Sin ubicación` y `-` por defecto y respeta la planta `0` |
+| `item-to-html` | `itemToHtml` devuelve el `<li>` con las clases del paso 5 |
+| `visible-items` | `visibleItems` devuelve 3 elementos, o todos con `showAll` |
+| `average-level` | `averageLevel` redondea la media y devuelve `0` sin elementos |
+| `count-above` | `countAbove` cuenta los elementos con `level >= minLevel` |
+| `build-summary` | `buildSummary` devuelve las 4 líneas, con sus valores por defecto |
+| `next-theme` | `nextTheme` alterna entre `light` y `dark` |
+
+El script comprueba las funciones. Que los datos sean de tu dominio y que la página funcione lo revisa el instructor con la [rúbrica](../rubrica-evaluacion.md).
+
+## Entrega
+
+La carpeta `~/js-proyecto-semana-01` con tus datos en `src/main.js` y `src/logic.js` completo, por el canal que indique el instructor.
+
+<!-- nav -->
 ---
 
-## 💡 Pistas
+## 🔗 Navegación
 
-<details>
-<summary>Pista 1: Destructuring de objeto</summary>
+| Anterior | Siguiente |
+|---|---|
+| ← [Lab 05 — Operadores modernos](../2-practicas/lab-05-operadores-modernos/README.md) | [Rúbrica de evaluación](../rubrica-evaluacion.md) → |
 
-```javascript
-const {
-  name,
-  description,
-  details: { property1, property2 },
-  items
-} = entityData;
-```
-</details>
-
-<details>
-<summary>Pista 2: Template Literals para HTML</summary>
-
-```javascript
-const html = `
-  <div class="card">
-    <h2>${name}</h2>
-    <p>${description}</p>
-  </div>
-`;
-```
-</details>
-
-<details>
-<summary>Pista 3: Arrow Functions para Events</summary>
-
-```javascript
-button.addEventListener('click', () => {
-  // Tu código aquí
-});
-```
-</details>
-
-<details>
-<summary>Pista 4: Calcular Promedio</summary>
-
-```javascript
-const average = items.reduce((sum, item) => sum + item.value, 0) / items.length;
-```
-</details>
-
----
-
-## 🎯 Resultado Esperado
-
-Al finalizar, deberías tener:
-
-1. ✅ Ficha mostrando información de tu dominio
-2. ✅ Botón funcional para copiar información
-3. ✅ Toggle de tema claro/oscuro
-4. ✅ Estadísticas calculadas dinámicamente
-5. ✅ Código limpio usando ES2023
-
----
-
-## 🚀 Entrega
-
-> **Este es el único entregable para aprobar la Semana 1**
-
-### Formato
-
-Crea una carpeta con tu apellido y nombre:
-
-```
-apellido-nombre-proyecto/
-├── index.html
-├── styles.css
-├── script.js
-├── README.md (con tu información)
-└── screenshots/
-    ├── light-theme.png
-    └── dark-theme.png
-```
-
-### README de Entrega
-
-```markdown
-# Ficha de [Tu Dominio] - [Tu Nombre]
-
-## 📋 Información
-- **Nombre**: [Tu nombre completo]
-- **Fecha**: [DD/MM/YYYY]
-- **Dominio Asignado**: [Tu dominio]
-- **Entidad Principal**: [Qué representa tu ficha]
-
-## 🎯 Descripción
-[Breve descripción de lo que muestra tu ficha]
-
-## 📚 Conceptos ES2023 Aplicados
-- [ ] Variables con let/const
-- [ ] Template literals
-- [ ] Arrow functions
-- [ ] Destructuring
-- [ ] Optional chaining (?.)
-- [ ] Nullish coalescing (??)
-
-## 🚀 Cómo Ejecutar
-1. Abrir index.html en el navegador
-
-## 📸 Screenshots
-[Agregar capturas de pantalla]
-
-## 🎯 Autoevaluación
-- Funcionalidad: [X]%
-- Código ES2023: [X]%
-- Código Limpio: [X]%
-- Adaptación al Dominio: [X]%
-- **Total Estimado**: [X]%
-```
-
-### Plazos de Entrega
-
-- **Entrega**: Viernes de la semana correspondiente
-- **Retroalimentación**: Dentro de 3 días hábiles
-- **Reentrega** (si aplica): Dentro de 5 días de recibir feedback
-
----
-
-## ❓ Preguntas Frecuentes
-
-**P: ¿Puedo usar librerías externas?**
-R: No, este proyecto debe usar solo JavaScript ES2023 puro.
-
-**P: ¿Puedo cambiar el diseño CSS?**
-R: Sí, puedes personalizar los estilos a tu gusto.
-
-**P: ¿Qué pasa si mi dominio no está en la lista de ejemplos?**
-R: Pregunta a tu instructor. Él puede asignar dominios adicionales.
-
-**P: ¿Puedo ver la solución de otro compañero?**
-R: No. Cada dominio es único, tu implementación debe ser original.
-
----
-
-<p align="center">
-  <strong>🏛️ ¡Crea tu ficha de información profesional!</strong><br>
-  <em>Aplica todo lo aprendido en un proyecto real adaptado a tu dominio</em>
-</p>
+[↑ Semana 01](../README.md)

@@ -295,3 +295,14 @@ Recursos web recomendados para profundizar en los conceptos de ES2023 vistos est
 ---
 
 _Última actualización: Diciembre 2024_
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 01](../../README.md)

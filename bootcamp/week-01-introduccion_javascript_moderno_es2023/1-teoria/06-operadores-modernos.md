@@ -11,6 +11,8 @@
 
 ## 📋 Contenido
 
+![Operadores modernos: ?., ??, asignaciones lógicas y separadores numéricos](../0-assets/06-operadores-modernos.svg)
+
 ### 1. Optional Chaining (`?.`) - ES2020
 
 El **optional chaining** permite acceder a propiedades anidadas de objetos sin verificar manualmente si cada nivel existe.
@@ -320,6 +322,13 @@ const result = data
 - [MDN - Nullish Coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - [MDN - Logical Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)
 
+<!-- nav -->
 ---
 
-⬅️ [Anterior: Destructuring Básico](./05-destructuring-basico.md) | 🏠 [Volver al índice](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🎁 Destructuring Básico - Extraer Valores Fácilmente](05-destructuring-basico.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 01](../README.md)

@@ -195,6 +195,8 @@ body {
    Skills Section
    ============================================ */
 .skills-list {
+  list-style: none;
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
@@ -239,7 +241,7 @@ body {
 
 .skill-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), #667eea);
+  background: var(--accent);
   transition: width 0.5s ease;
 }
 
