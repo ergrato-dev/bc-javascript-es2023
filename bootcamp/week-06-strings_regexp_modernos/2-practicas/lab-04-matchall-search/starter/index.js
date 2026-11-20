@@ -1,10 +1,8 @@
 /**
- * 📘 Ejercicio 04: matchAll y Búsqueda Avanzada
+ * 📘 Lab 04: matchAll y búsqueda avanzada
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para dominar matchAll() y técnicas de búsqueda avanzada.
- *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -38,12 +36,12 @@ console.log('--- Paso 1: Problema con match() ---');
 // match() con flag 'g' pierde grupos de captura
 // Descomenta las siguientes líneas:
 
-// const text = 'John: 25, Jane: 30, Bob: 28';
-// const regex = /(\w+):\s*(\d+)/g;
+// const ages = 'John: 25, Jane: 30, Bob: 28';
+// const ageRegex = /(\w+):\s*(\d+)/g;
 //
 // // match() solo devuelve coincidencias completas
-// const matches = text.match(regex);
-// console.log('match() con /g:', matches);
+// const ageMatches = ages.match(ageRegex);
+// console.log('match() con /g:', ageMatches);
 // // ['John: 25', 'Jane: 30', 'Bob: 28']
 // // ❌ No podemos acceder a los grupos individuales
 
@@ -57,13 +55,13 @@ console.log('--- Paso 2: matchAll() Básico ---');
 // matchAll() retorna un iterador con información completa
 // Descomenta las siguientes líneas:
 
-// const text = 'John: 25, Jane: 30, Bob: 28';
-// const regex = /(\w+):\s*(\d+)/g;  // ⚠️ Requiere flag 'g'
+// const people = 'John: 25, Jane: 30, Bob: 28';
+// const personRegex = /(\w+):\s*(\d+)/g;  // ⚠️ Requiere flag 'g'
 //
 // // matchAll retorna un iterador
-// const matches = text.matchAll(regex);
+// const peopleMatches = people.matchAll(personRegex);
 //
-// for (const match of matches) {
+// for (const match of peopleMatches) {
 //   console.log('Full:', match[0]);
 //   console.log('Name:', match[1]);
 //   console.log('Age:', match[2]);
@@ -80,20 +78,20 @@ console.log('--- Paso 3: Convertir a Array ---');
 // Usar spread operator o Array.from()
 // Descomenta las siguientes líneas:
 
-// const text = 'Colors: #ff0000, #00ff00, #0000ff';
+// const palette = 'Colors: #ff0000, #00ff00, #0000ff';
 // const hexRegex = /#([0-9a-f]{6})/gi;
 //
 // // Spread operator
-// const matches = [...text.matchAll(hexRegex)];
-// console.log('Total matches:', matches.length);
+// const hexMatches = [...palette.matchAll(hexRegex)];
+// console.log('Total matches:', hexMatches.length);
 //
 // // Extraer solo los grupos
-// const colors = matches.map(m => m[1]);
+// const colors = hexMatches.map(m => m[1]);
 // console.log('Colores:', colors);
 //
 // // Array.from con mapeo
 // const colorsWithHash = Array.from(
-//   text.matchAll(hexRegex),
+//   palette.matchAll(hexRegex),
 //   m => m[0]
 // );
 // console.log('Con #:', colorsWithHash);
@@ -202,10 +200,10 @@ console.log('--- Paso 8: Índices de Posición ---');
 // matchAll incluye índice de cada coincidencia
 // Descomenta las siguientes líneas:
 
-// const text = 'The quick brown fox jumps over the lazy dog';
+// const sentence = 'The quick brown fox jumps over the lazy dog';
 // const wordRegex = /\b\w{4,}\b/g;  // Palabras de 4+ letras
 //
-// const wordsWithPos = [...text.matchAll(wordRegex)].map(m => ({
+// const wordsWithPos = [...sentence.matchAll(wordRegex)].map(m => ({
 //   word: m[0],
 //   start: m.index,
 //   end: m.index + m[0].length
@@ -214,8 +212,8 @@ console.log('--- Paso 8: Índices de Posición ---');
 // console.log('Palabras con posición:', wordsWithPos);
 //
 // // Resaltar palabras (simulado)
-// let highlighted = text;
-// wordsWithPos.reverse().forEach(w => {
+// let highlighted = sentence;
+// wordsWithPos.toReversed().forEach(w => {
 //   highlighted = highlighted.slice(0, w.start) +
 //     `[${w.word}]` +
 //     highlighted.slice(w.end);
@@ -260,7 +258,27 @@ console.log('--- Paso 9: Template Engine ---');
 console.log('');
 
 // ============================================
-// ✅ EJERCICIO COMPLETADO
+// PASO 10: Flag /d - Índices de cada grupo (ES2022)
 // ============================================
-console.log('🎉 ¡Excelente! Has dominado matchAll() y búsqueda avanzada.');
-console.log('matchAll es esencial para parsear datos estructurados.');
+console.log('--- Paso 10: Flag /d ---');
+
+// m.index da dónde empieza la coincidencia; con /d, m.indices
+// da [inicio, fin] de la coincidencia y de cada grupo
+// Descomenta las siguientes líneas:
+
+// const entry = 'ERROR: Database connection failed';
+// const levelRegex = /(?<level>[A-Z]+):\s+(?<message>.+)/d;
+// const found = entry.match(levelRegex);
+//
+// console.log('hasIndices:', levelRegex.hasIndices);
+// console.log('Coincidencia:', found.indices[0]);
+// console.log('level:', found.indices.groups.level);
+// console.log('message:', found.indices.groups.message);
+//
+// // Con [inicio, fin] y slice() recuperas el texto del grupo
+// const [start, end] = found.indices.groups.message;
+// console.log('Texto del grupo:', entry.slice(start, end));
+
+console.log('');
+
+console.log('✅ Lab completado.');

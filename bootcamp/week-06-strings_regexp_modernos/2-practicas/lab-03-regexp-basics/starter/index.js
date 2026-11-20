@@ -1,10 +1,8 @@
 /**
- * 📘 Ejercicio 03: Fundamentos de RegExp
+ * 📘 Lab 03: Fundamentos de RegExp
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para dominar las expresiones regulares en JavaScript.
- *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -38,19 +36,19 @@ console.log('--- Paso 2: Flags ---');
 // Las flags modifican el comportamiento del patrón
 // Descomenta las siguientes líneas:
 
-// const text = 'Hello hello HELLO';
+// const greetings = 'Hello hello HELLO';
 //
 // // Sin flag: case sensitive, solo primer match
-// console.log('Sin flags:', text.match(/hello/));
+// console.log('Sin flags:', greetings.match(/hello/));
 //
 // // Flag 'i': ignore case
-// console.log('Con i:', text.match(/hello/i));
+// console.log('Con i:', greetings.match(/hello/i));
 //
 // // Flag 'g': global (todos los matches)
-// console.log('Con g:', text.match(/hello/g));
+// console.log('Con g:', greetings.match(/hello/g));
 //
 // // Combinando flags
-// console.log('Con gi:', text.match(/hello/gi));
+// console.log('Con gi:', greetings.match(/hello/gi));
 
 console.log('');
 
@@ -62,19 +60,19 @@ console.log('--- Paso 3: Clases de Caracteres ---');
 // Atajos para conjuntos comunes
 // Descomenta las siguientes líneas:
 
-// const text = 'ABC 123 def_456';
+// const sample = 'ABC 123 def_456';
 //
 // // \d = dígito [0-9]
-// console.log('Dígitos (\\d):', text.match(/\d+/g));
+// console.log('Dígitos (\\d):', sample.match(/\d+/g));
 //
 // // \w = palabra [a-zA-Z0-9_]
-// console.log('Palabras (\\w+):', text.match(/\w+/g));
+// console.log('Palabras (\\w+):', sample.match(/\w+/g));
 //
 // // \s = espacio en blanco
-// console.log('Espacios (\\s+):', text.match(/\s+/g));
+// console.log('Espacios (\\s+):', sample.match(/\s+/g));
 //
 // // Negaciones: \D, \W, \S
-// console.log('No dígitos (\\D+):', text.match(/\D+/g));
+// console.log('No dígitos (\\D+):', sample.match(/\D+/g));
 
 console.log('');
 
@@ -187,19 +185,19 @@ console.log('--- Paso 8: Métodos ---');
 // Diferentes formas de usar RegExp
 // Descomenta las siguientes líneas:
 
-// const text = 'The price is $100 and $200';
+// const prices = 'The price is $100 and $200';
 //
 // // test() - boolean
-// console.log('test():', /\$\d+/.test(text));
+// console.log('test():', /\$\d+/.test(prices));
 //
 // // match() - array de coincidencias
-// console.log('match():', text.match(/\$\d+/g));
+// console.log('match():', prices.match(/\$\d+/g));
 //
 // // search() - índice de primera coincidencia
-// console.log('search():', text.search(/\$\d+/));
+// console.log('search():', prices.search(/\$\d+/));
 //
 // // replace() - reemplazar
-// console.log('replace():', text.replace(/\$(\d+)/g, '€$1'));
+// console.log('replace():', prices.replace(/\$(\d+)/g, '€$1'));
 //
 // // split() - dividir
 // console.log('split():', 'a1b2c3'.split(/\d/));
@@ -231,8 +229,4 @@ console.log('--- Paso 9: Validaciones ---');
 
 console.log('');
 
-// ============================================
-// ✅ EJERCICIO COMPLETADO
-// ============================================
-console.log('🎉 ¡Excelente! Has aprendido los fundamentos de RegExp.');
-console.log('Usa regex101.com para practicar y depurar patrones.');
+console.log('✅ Lab completado.');

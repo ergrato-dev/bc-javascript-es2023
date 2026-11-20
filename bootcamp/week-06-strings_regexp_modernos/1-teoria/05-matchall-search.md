@@ -481,6 +481,13 @@ const regexWithIndices = /pattern/gid;  // global + ignoreCase + indices
 - [MDN - RegExp hasIndices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/hasIndices)
 - [TC39 - RegExp Match Indices](https://github.com/tc39/proposal-regexp-match-indices)
 
+<!-- nav -->
 ---
 
-[← Anterior: Patrones Comunes](04-regexp-patterns.md) | [Ir a Prácticas →](../2-practicas/)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🎯 Patrones Comunes de RegExp](04-regexp-patterns.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 06](../README.md)

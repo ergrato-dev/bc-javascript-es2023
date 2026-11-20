@@ -1,10 +1,8 @@
 /**
- * 📘 Ejercicio 02: Tagged Templates
+ * 📘 Lab 02: Tagged templates
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para dominar los tagged templates de JavaScript.
- *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -67,9 +65,9 @@ console.log('--- Paso 3: Transformar Valores ---');
 //   }, '');
 // };
 //
-// const name = 'ana garcía';
+// const fullName = 'ana garcía';
 // const city = 'madrid';
-// console.log(upper`Nombre: ${name}, Ciudad: ${city}`);
+// console.log(upper`Nombre: ${fullName}, Ciudad: ${city}`);
 
 console.log('');
 
@@ -117,8 +115,8 @@ console.log('--- Paso 5: Resaltar Valores ---');
 // };
 //
 // const product = 'Laptop';
-// const price = 999;
-// console.log(highlight`El producto ${product} cuesta $${price}`);
+// const laptopPrice = 999;
+// console.log(highlight`El producto ${product} cuesta $${laptopPrice}`);
 //
 // // Para HTML
 // const htmlHighlight = (strings, ...values) => {
@@ -189,9 +187,9 @@ console.log('--- Paso 7: Tag Factory ---');
 // const lowerTag = createTag(v => String(v).toLowerCase());
 // const jsonTag = createTag(v => JSON.stringify(v));
 //
-// const name = 'Ana García';
-// console.log(upperTag`Nombre: ${name}`);
-// console.log(lowerTag`Nombre: ${name}`);
+// const userName = 'Ana García';
+// console.log(upperTag`Nombre: ${userName}`);
+// console.log(lowerTag`Nombre: ${userName}`);
 //
 // const data = { x: 1, y: 2 };
 // console.log(jsonTag`Data: ${data}`);
@@ -251,8 +249,4 @@ console.log('--- Paso 9: Debug Logger ---');
 
 console.log('');
 
-// ============================================
-// ✅ EJERCICIO COMPLETADO
-// ============================================
-console.log('🎉 ¡Excelente! Has dominado los tagged templates.');
-console.log('Úsalos para sanitización, formateo y DSLs.');
+console.log('✅ Lab completado.');

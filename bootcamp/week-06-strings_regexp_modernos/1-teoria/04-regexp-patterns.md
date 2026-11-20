@@ -377,6 +377,13 @@ console.log(toKebabCase('fontSize'));        // 'font-size'
 - [Regex101](https://regex101.com) - Probador con explicaciones
 - [RegExr](https://regexr.com) - Referencia interactiva
 
+<!-- nav -->
 ---
 
-[← Anterior: Fundamentos de RegExp](03-regexp-fundamentos.md) | [Siguiente: matchAll y Búsqueda →](05-matchall-search.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔍 Fundamentos de Expresiones Regulares](03-regexp-fundamentos.md) | [Teoría — 🔎 matchAll y Búsqueda Avanzada](05-matchall-search.md) → |
+
+[↑ Semana 06](../README.md)

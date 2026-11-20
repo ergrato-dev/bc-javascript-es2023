@@ -1,10 +1,8 @@
 /**
- * 📘 Ejercicio 01: Métodos Modernos de Strings
+ * 📘 Lab 01: Métodos modernos de strings
+ * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
- * Este es un ejercicio guiado. Descomenta el código en cada paso
- * para dominar los métodos de string de ES2023.
- *
- * Ejecuta: node index.js
+ * Ejecuta desde la carpeta del lab: node starter/index.js
  */
 
 // ============================================
@@ -148,11 +146,11 @@ console.log('--- Paso 6: at() ---');
 // const word = 'JavaScript';
 //
 // // Índices positivos
-// console.log('Primer caracter:', word.at(0));
-// console.log('Quinto caracter:', word.at(4));
+// console.log('Primer carácter:', word.at(0));
+// console.log('Quinto carácter:', word.at(4));
 //
 // // Índices negativos (desde el final)
-// console.log('Último caracter:', word.at(-1));
+// console.log('Último carácter:', word.at(-1));
 // console.log('Penúltimo:', word.at(-2));
 //
 // // Comparación con forma antigua
@@ -225,8 +223,4 @@ console.log('--- Paso 8: Caso Práctico ---');
 
 console.log('');
 
-// ============================================
-// ✅ EJERCICIO COMPLETADO
-// ============================================
-console.log('🎉 ¡Excelente! Has dominado los métodos modernos de strings.');
-console.log('Estos métodos hacen el código más legible y expresivo.');
+console.log('✅ Lab completado.');

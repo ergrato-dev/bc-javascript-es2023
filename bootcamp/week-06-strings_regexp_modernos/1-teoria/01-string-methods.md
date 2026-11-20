@@ -298,6 +298,13 @@ console.log(escapeHtml('<script>alert("xss")</script>'));
 
 - [MDN - String](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String)
 
+<!-- nav -->
 ---
 
-[Siguiente: Template Literals Avanzados →](02-template-literals-avanzados.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 06 - Strings y RegExp Modernos](../README.md) | [Teoría — 🏷️ Template Literals Avanzados](02-template-literals-avanzados.md) → |
+
+[↑ Semana 06](../README.md)

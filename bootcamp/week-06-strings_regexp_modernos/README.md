@@ -1,115 +1,108 @@
-# 📝 Week 06: Strings y RegExp Modernos
+# Semana 06 - Strings y RegExp Modernos
 
-## 🎯 Objetivos de Aprendizaje
+## Objetivos de aprendizaje
 
-Al finalizar esta semana, serás capaz de:
+Al terminar la semana podrás:
 
-- ✅ Dominar los métodos modernos de strings (`includes`, `startsWith`, `endsWith`, `replaceAll`)
-- ✅ Usar `trimStart()` y `trimEnd()` para limpiar strings (ES2019)
-- ✅ Crear y usar tagged templates para casos avanzados
-- ✅ Entender y aplicar expresiones regulares básicas
-- ✅ Usar `matchAll()` para búsquedas con grupos de captura
-- ✅ Aplicar el flag `/d` (hasIndices) para obtener índices de grupos (ES2022)
-- ✅ Validar y transformar texto de forma eficiente
+- Buscar, rellenar, limpiar, leer y reemplazar texto con `includes`, `startsWith`, `endsWith`, `padStart`, `padEnd`, `trim`, `trimStart`, `trimEnd`, `repeat`, `at` y `replaceAll`.
+- Escribir funciones tag para transformar, formatear o escapar los valores de un template literal, y usar `String.raw`.
+- Leer y escribir expresiones regulares con clases, cuantificadores, anclas, conjuntos, alternancias, grupos y los flags `g`, `i` y `u`.
+- Usarlas con `test`, `match`, `search`, `replace` y `split` para validar y transformar texto.
+- Recorrer todas las coincidencias con `matchAll()` y grupos con nombre, y obtener la posición de cada grupo con el flag `d` (ES2022).
 
-## 📋 Requisitos Previos
+## Requisitos previos
 
-- Week 01-05 completadas
-- Conocimiento de template literals básicos
-- Familiaridad con métodos de array
+- La [semana 02](../week-02-operadores_metodos_modernos_arrays/README.md) (template literals, rest, `reduce`), la [semana 04](../week-04-destructuring_modulos_es2023/README.md) (destructuring y módulos) y la [semana 05](../week-05-arrays_avanzados/README.md) (`Array.from`, `Set`, cadenas de métodos).
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
 
-## 🗂️ Estructura de la Semana
-
-```
-week-06-strings_regexp_modernos/
-├── 📖 1-teoria/
-│   ├── 01-string-methods.md      # Métodos modernos (replaceAll, trimStart/End)
-│   ├── 02-template-literals-avanzados.md  # Tagged templates
-│   ├── 03-regexp-fundamentos.md  # Introducción a RegExp (flag /d ES2022)
-│   ├── 04-regexp-patterns.md     # Patrones comunes
-│   └── 05-matchall-search.md     # matchAll y flag /d (ES2022)
-│
-├── 💻 2-practicas/
-│   ├── ejercicio-01-string-methods/    # Métodos de string
-│   ├── ejercicio-02-template-tags/     # Tagged templates
-│   ├── ejercicio-03-regexp-basics/     # RegExp básico
-│   └── ejercicio-04-matchall-search/   # Búsqueda avanzada
-│
-├── 🚀 3-proyecto/
-│   └── validador-formularios/    # Validador con RegExp
-│
-├── 📚 4-recursos/
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-│
-└── 📖 5-glosario/
-```
-
-## 📝 Contenidos
-
-### Teoría (2.5 horas)
-
-| # | Tema | Duración | Archivo |
-|---|------|----------|---------|
-| 1 | Métodos Modernos de Strings | 30 min | [01-string-methods.md](1-teoria/01-string-methods.md) |
-| 2 | Tagged Templates | 30 min | [02-template-literals-avanzados.md](1-teoria/02-template-literals-avanzados.md) |
-| 3 | Fundamentos de RegExp + flag `/d` | 35 min | [03-regexp-fundamentos.md](1-teoria/03-regexp-fundamentos.md) |
-| 4 | Patrones Comunes | 30 min | [04-regexp-patterns.md](1-teoria/04-regexp-patterns.md) |
-| 5 | matchAll + hasIndices (ES2022) | 25 min | [05-matchall-search.md](1-teoria/05-matchall-search.md) |
-
-### Prácticas (3 horas)
-
-| # | Ejercicio | Duración | Carpeta |
-|---|-----------|----------|---------|
-| 1 | Métodos de String | 45 min | [ejercicio-01](2-practicas/ejercicio-01-string-methods/) |
-| 2 | Tagged Templates | 45 min | [ejercicio-02](2-practicas/ejercicio-02-template-tags/) |
-| 3 | RegExp Básico | 45 min | [ejercicio-03](2-practicas/ejercicio-03-regexp-basics/) |
-| 4 | matchAll y Búsqueda | 45 min | [ejercicio-04](2-practicas/ejercicio-04-matchall-search/) |
-
-### Proyecto (2 horas)
-
-| Proyecto | Descripción | Carpeta |
-|----------|-------------|---------|
-| Validador de Formularios | Sistema de validación con RegExp | [3-proyecto](3-proyecto/) |
-
-## ⏱️ Distribución del Tiempo
-
-| Actividad | Tiempo |
-|-----------|--------|
-| 📖 Teoría | 2.5 horas |
-| 💻 Prácticas | 3 horas |
-| 🚀 Proyecto | 2 horas |
-| 📚 Recursos | 0.5 horas |
-| **Total** | **8 horas** |
-
-## 📌 Entregables
-
-### 📦 Proyecto (100%)
-
-El **único entregable** para esta semana es el proyecto:
-
-- [ ] **Proyecto "Validador de Formularios" funcional**
-- [ ] Validación de email con RegExp
-- [ ] Validación de teléfono
-- [ ] Validación de contraseña con requisitos
-- [ ] Validación de URL
-- [ ] Mensajes de error descriptivos
-- [ ] Código limpio y documentado
-
-> **Nota**: Los ejercicios prácticos son materiales de aprendizaje. No se entregan de forma separada.
-
-## 💡 Tips de la Semana
-
-- RegExp puede parecer críptico al inicio, pero es extremadamente poderoso
-- Usa [regex101.com](https://regex101.com) para probar y entender patrones
-- Prefiere métodos de string simples cuando sea suficiente
-- Los tagged templates son útiles para DSLs y sanitización
-
-## 🔗 Navegación
-
-⬅️ [Week 05: Arrays Avanzados](../week-05-arrays_avanzados/README.md) | [Week 07: Sets y Maps](../week-07-sets_maps/README.md) ➡️
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 11.20.0 (o superior)
+  ```
 
 ---
 
-**Semana 6 de 28** | Etapa 1: Fundamentos Modernos
+## Contenidos
+
+### 1. Teoría (2 h)
+
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Métodos de strings](1-teoria/01-string-methods.md) | 25 min | `includes`, `padStart`, `trimStart`, `at`, `replaceAll` |
+| [02 - Template literals avanzados](1-teoria/02-template-literals-avanzados.md) | 25 min | Tagged templates y `String.raw` |
+| [03 - Fundamentos de RegExp](1-teoria/03-regexp-fundamentos.md) | 25 min | Sintaxis, flags y métodos |
+| [04 - Patrones comunes](1-teoria/04-regexp-patterns.md) | 20 min | Validar email, teléfono, URL y contraseñas |
+| [05 - matchAll y búsqueda](1-teoria/05-matchall-search.md) | 25 min | `matchAll`, grupos con nombre y flag `d` (ES2022) |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Métodos modernos de strings](2-practicas/lab-01-string-methods/README.md) | 50 min |
+| [Lab 02 - Tagged templates](2-practicas/lab-02-template-tags/README.md) | 50 min |
+| [Lab 03 - Fundamentos de RegExp](2-practicas/lab-03-regexp-basics/README.md) | 55 min |
+| [Lab 04 - `matchAll()` y búsqueda avanzada](2-practicas/lab-04-matchall-search/README.md) | 55 min |
+
+### 3. Proyecto (2 h)
+
+[Registro de fichas](3-proyecto/README.md): completas las siete funciones puras de `src/logic.js` (limpiar texto, formar y validar códigos, validar correos, convertir fechas, extraer `#etiquetas` y escapar HTML con una función tag) y adaptas `src/data.js` al dominio que te asigna el instructor. `scripts/verificar-semana.sh 06` comprueba las funciones.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
+
+---
+
+## Evaluación
+
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 12/12 comprobaciones y datos del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
+
+```text
+week-06-strings_regexp_modernos/
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 5 diagramas SVG
+|-- 1-teoria/                  # 01 a 05
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-string-methods/
+|   |-- lab-02-template-tags/
+|   |-- lab-03-regexp-basics/
+|   `-- lab-04-matchall-search/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # index.html, styles.css, src/data.js, src/logic.js, src/main.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
+```
+
+---
+
+## Versiones de la semana
+
+Node para ejecutar los labs y comprobar el proyecto; `pnpm dlx serve` para abrir el proyecto en el navegador. Las salidas de este material se obtuvieron con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
+
+---
+
+## Navegación
+
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 05 - Arrays Avanzados](../week-05-arrays_avanzados/README.md) | [Semana 07 - Sets y Maps](../week-07-sets_maps/README.md) |

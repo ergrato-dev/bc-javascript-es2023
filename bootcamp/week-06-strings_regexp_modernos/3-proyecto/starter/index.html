@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de fichas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">🗂️ Registro de fichas</h1>
+      <div class="stats-summary">
+        <span class="stat">Fichas: <strong id="stat-total">0</strong></span>
+        <span class="stat">Etiquetas: <strong id="stat-tags">0</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>➕ Nueva ficha</h2>
+      <form id="entry-form" class="item-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="entry-number">Número</label>
+            <input type="number" id="entry-number" min="1" step="1">
+            <small class="field-error" id="error-number"></small>
+          </div>
+          <div class="form-group">
+            <label for="entry-name">Nombre</label>
+            <input type="text" id="entry-name">
+            <small class="field-error" id="error-name"></small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="entry-email">Correo del responsable</label>
+            <input type="text" id="entry-email" placeholder="nombre@dominio.org">
+            <small class="field-error" id="error-email"></small>
+          </div>
+          <div class="form-group">
+            <label for="entry-date">Fecha (opcional)</label>
+            <input type="date" id="entry-date">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="entry-notes">Notas: marca las etiquetas con #</label>
+          <textarea id="entry-notes" rows="2" placeholder="Sesión en la #cúpula"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Añadir</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="search-code">Buscar por código:</label>
+          <input type="text" id="search-code">
+          <small class="field-error" id="error-search"></small>
+        </div>
+        <div class="filter-group">
+          <label for="filter-tag">Etiqueta:</label>
+          <select id="filter-tag"></select>
+        </div>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Fichas</h2>
+      </div>
+      <div id="entry-list" class="item-list"></div>
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay fichas que mostrar</p>
+        <p class="empty-state-hint">Cambia la búsqueda o añade una con el formulario</p>
+      </div>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

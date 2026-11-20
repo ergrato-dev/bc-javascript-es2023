@@ -341,6 +341,13 @@ console.log(typeof result);  // 'object', no 'string'
 
 - [MDN - Tagged templates](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals#plantillas_etiquetadas)
 
+<!-- nav -->
 ---
 
-[← Anterior: Métodos de Strings](01-string-methods.md) | [Siguiente: Fundamentos de RegExp →](03-regexp-fundamentos.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📝 Métodos Modernos de Strings](01-string-methods.md) | [Teoría — 🔍 Fundamentos de Expresiones Regulares](03-regexp-fundamentos.md) → |
+
+[↑ Semana 06](../README.md)

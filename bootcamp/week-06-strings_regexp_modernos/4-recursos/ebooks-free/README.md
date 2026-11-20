@@ -52,6 +52,13 @@
 - **JavaScript String Methods Cheatsheet**
   - 🔗 [devhints.io/js-strings](https://devhints.io/js-strings)
 
+<!-- nav -->
 ---
 
-⬅️ [Volver a Recursos](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
+
+[↑ Semana 06](../../README.md)

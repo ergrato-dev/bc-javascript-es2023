@@ -145,7 +145,8 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 06: Strings y RegExp Modernos**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 - String methods modernos (includes, startsWith, endsWith, repeat)
@@ -155,7 +156,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 - Regular Expressions básicas y `matchAll()`
 - Regex `/d` flag para índices (ES2022)
 
-**Proyecto**: Validador de formularios con RegExp
+**Proyecto**: Registro de fichas (`logic.js` con `padStart`, `new RegExp` y `String.raw`, grupos con nombre, `matchAll` con el flag `u` y una función tag que escapa HTML)
 
 ---
 

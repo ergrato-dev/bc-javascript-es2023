@@ -329,6 +329,13 @@ emails.forEach(email => {
 - [MDN - Regular Expressions](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_Expressions)
 - [Regex101](https://regex101.com) - Probador interactivo
 
+<!-- nav -->
 ---
 
-[← Anterior: Tagged Templates](02-template-literals-avanzados.md) | [Siguiente: Patrones Comunes →](04-regexp-patterns.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🏷️ Template Literals Avanzados](02-template-literals-avanzados.md) | [Teoría — 🎯 Patrones Comunes de RegExp](04-regexp-patterns.md) → |
+
+[↑ Semana 06](../README.md)

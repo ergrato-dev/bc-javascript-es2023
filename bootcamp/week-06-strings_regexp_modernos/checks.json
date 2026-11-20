@@ -1,0 +1,90 @@
+{
+  "semana": "06",
+  "titulo": "Strings y RegExp Modernos",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js y src/logic.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE y CODE_PREFIX (3 mayúsculas) con nombre, y por defecto 4 a 6 fichas con número sin repetir, texto en cada campo y alguna #etiqueta",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import entries, * as d from './src/data.js'; assert.equal(typeof d.TITLE, 'string'); assert.match(d.CODE_PREFIX, /^[A-Z]{3}$/); assert.ok(Array.isArray(entries) && entries.length >= 4 && entries.length <= 6); assert.ok(entries.every(({ number, name, email, date, notes }) => Number.isInteger(number) && number > 0 && [name, email, date, notes].every((field) => typeof field === 'string'))); assert.equal(new Set(entries.map(({ number }) => number)).size, entries.length); assert.ok(entries.some(({ notes }) => notes.includes('#')));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El prefijo y el título no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as d from './src/data.js'; assert.notEqual(d.CODE_PREFIX, 'PLA'); assert.ok(!d.TITLE.toLowerCase().includes('planetario'));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "normalize-text",
+      "descripcion": "normalizeText quita los espacios de los extremos y deja uno solo entre palabras",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.normalizeText('  Taller   de \\t telescopios \\n'), 'Taller de telescopios'); assert.equal(l.normalizeText('Luna'), 'Luna'); assert.equal(l.normalizeText('   '), ''); assert.equal(l.normalizeText(''), '');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "format-code",
+      "descripcion": "formatCode une prefijo, guion y número con al menos 4 cifras",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.formatCode('PLA', 7), 'PLA-0007'); assert.equal(l.formatCode('MUS', 42), 'MUS-0042'); assert.equal(l.formatCode('PLA', 1234), 'PLA-1234'); assert.equal(l.formatCode('PLA', 12345), 'PLA-12345');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "valid-code",
+      "descripcion": "isValidCode acepta solo el prefijo, un guion y 4 dígitos, sin nada más",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.isValidCode('PLA-0007', 'PLA'), true); assert.equal(l.isValidCode('MUS-1234', 'MUS'), true); for (const code of ['pla-0007', 'PLA-7', 'PLA-00071', 'XPLA-0007', 'PLA-0007 ', 'PLA0007', 'PLA-00a7', 'MUS-0007']) assert.equal(l.isValidCode(code, 'PLA'), false, code);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "valid-email",
+      "descripcion": "isValidEmail acepta usuario@dominio.ext y rechaza los correos incompletos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; for (const email of ['cupula@planetario.org', 'ana.lopez+info@sub.museo.es', 'A_B@Acuario.COM']) assert.equal(l.isValidEmail(email), true, email); for (const email of ['cupula@planetario', '@planetario.org', 'cupula.planetario.org', 'ana lopez@museo.org', 'ana@@museo.org', 'ana@museo.o', '']) assert.equal(l.isValidEmail(email), false, email);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "format-date",
+      "descripcion": "formatDate convierte AAAA-MM-DD en DD/MM/AAAA y devuelve null si no tiene esa forma",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.equal(l.formatDate('2025-03-14'), '14/03/2025'); assert.equal(l.formatDate('1999-12-01'), '01/12/1999'); for (const text of ['', '14/03/2025', '2025-3-14', 'x2025-03-14', '2025-03-14x']) assert.equal(l.formatDate(text), null, text);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "extract-tags",
+      "descripcion": "extractTags devuelve las #etiquetas en minúsculas, sin repetir y en orden de aparición, con tildes y ñ",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; assert.deepEqual(l.extractTags('Desde la #Cúpula norte. #eclipse #luna #cúpula'), ['cúpula', 'eclipse', 'luna']); assert.deepEqual(l.extractTags('sin etiquetas'), []); assert.deepEqual(l.extractTags(''), []); assert.deepEqual(l.extractTags('#Año-2025, #año-2025. # suelto #pez_globo'), ['año-2025', 'pez_globo']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "safe-html",
+      "descripcion": "safeHtml escapa &, <, >, comillas dobles y simples en los valores y deja igual el texto fijo",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import * as l from './src/logic.js'; const parts = (...strings) => Object.freeze(strings); assert.equal(l.safeHtml(parts('<p>', '</p>'), '<b>\\\"Tom\\\" & ' + String.fromCharCode(39) + 'Ana' + String.fromCharCode(39) + '</b>'), '<p>&lt;b&gt;&quot;Tom&quot; &amp; &#39;Ana&#39;&lt;/b&gt;</p>'); assert.equal(l.safeHtml(parts('<i>', ' de ', '</i>'), 7, '&lt;'), '<i>7 de &amp;lt;</i>'); assert.equal(l.safeHtml(parts('<hr>')), '<hr>'); assert.equal(l.safeHtml(parts('<td>', '</td>'), 0), '<td>0</td>');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    }
+  ]
+}

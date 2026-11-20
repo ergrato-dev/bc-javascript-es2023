@@ -91,10 +91,17 @@
 
 #### Colecciones de Patrones
 
-- **Common Regex Patterns** | [github.com/regexhub/regexhub](https://github.com/aloisdg/awesome-regex)
+- **Common Regex Patterns** | [github.com/aloisdg/awesome-regex](https://github.com/aloisdg/awesome-regex)
 - **iHateRegex** | [ihateregex.io](https://ihateregex.io/) - Patrones comunes explicados
 - **Regex Library** | [regexlib.com](https://regexlib.com/)
 
+<!-- nav -->
 ---
 
-⬅️ [Volver a Recursos](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — videos](../videografia/README.md) | [Glosario](../../5-glosario/README.md) → |
+
+[↑ Semana 06](../../README.md)

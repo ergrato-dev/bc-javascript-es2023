@@ -405,6 +405,13 @@ Métodos que eliminan espacios en blanco.
 | `\s` | Espacio en blanco |
 | `\b` | Límite de palabra |
 
+<!-- nav -->
 ---
 
-⬅️ [Volver a Recursos](../4-recursos/README.md) | [Semana 06 README](../README.md) ➡️
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📚 Semana 07: Sets y Maps](../../week-07-sets_maps/README.md) → |
+
+[↑ Semana 06](../README.md)
