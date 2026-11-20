@@ -1,5 +1,5 @@
 /**
- * 📘 Lab 04: Generadores y yield
+ * 📘 Lab 04: Iterables personalizados
  * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
  * Ejecuta desde la carpeta del lab: node starter/index.js

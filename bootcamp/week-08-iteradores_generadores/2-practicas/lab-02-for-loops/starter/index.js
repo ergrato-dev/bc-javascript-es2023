@@ -1,5 +1,5 @@
 /**
- * 📘 Lab 02: Iteradores
+ * 📘 Lab 02: for...of y for...in
  * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
  * Ejecuta desde la carpeta del lab: node starter/index.js

@@ -1,5 +1,5 @@
 /**
- * 📘 Lab 03: for...of y for...in
+ * 📘 Lab 03: Generadores y yield
  * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
  * Ejecuta desde la carpeta del lab: node starter/index.js

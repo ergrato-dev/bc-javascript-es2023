@@ -1,5 +1,5 @@
 /**
- * 📘 Lab 01: 
+ * 📘 Lab 01: Iteradores
  * Este es un lab guiado. Descomenta el código de cada paso y ejecuta.
  *
  * Ejecuta desde la carpeta del lab: node starter/index.js
