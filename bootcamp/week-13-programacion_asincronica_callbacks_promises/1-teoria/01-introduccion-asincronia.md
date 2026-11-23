@@ -229,8 +229,9 @@ fetch('https://api.example.com/data')
 #### 📁 Sistema de Archivos (Node.js)
 ```javascript
 // Leer archivo
-const fs = require('fs').promises;
-fs.readFile('file.txt', 'utf8')
+import { readFile } from 'node:fs/promises';
+
+readFile('file.txt', 'utf8')
   .then(content => console.log(content));
 ```
 
@@ -375,6 +376,13 @@ Antes de continuar, asegúrate de comprender:
 - 🔧 [Loupe - Event Loop Visualizer](http://latentflip.com/loupe/)
 - 📘 [JavaScript.info: Introduction to callbacks](https://javascript.info/callbacks)
 
+<!-- nav -->
 ---
 
-**Próximo tema**: [02 - Callbacks y sus Problemas](./02-callbacks-problemas.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 13 - Programación Asincrónica - Callbacks y Promises](../README.md) | [Teoría — 🔗 Callbacks y sus Problemas](02-callbacks-problemas.md) → |
+
+[↑ Semana 13](../README.md)

@@ -513,6 +513,13 @@ Antes de continuar, asegúrate de comprender:
 - 📘 [JavaScript.info: Callbacks](https://javascript.info/callbacks)
 - 🎥 [Callback Hell and How to Rescue It](https://www.youtube.com/watch?v=QRq2zMHlBz4)
 
+<!-- nav -->
 ---
 
-**Próximo tema**: [03 - Promises: Fundamentos](./03-promises-fundamentos.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔄 Introducción a la Programación Asincrónica](01-introduccion-asincronia.md) | [Teoría — 🎁 Promises: Fundamentos](03-promises-fundamentos.md) → |
+
+[↑ Semana 13](../README.md)

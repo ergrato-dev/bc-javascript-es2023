@@ -624,6 +624,13 @@ Antes de continuar, asegúrate de comprender:
 - 📖 [MDN: Promise.allSettled()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
 - 📖 [MDN: Promise.any()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any)
 
+<!-- nav -->
 ---
 
-**Siguiente paso**: ¡Practica con los ejercicios en [2-practicas](../2-practicas/)!
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🎁 Promises: Fundamentos](03-promises-fundamentos.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 13](../README.md)

@@ -1,206 +1,88 @@
-# 📊 Rúbrica de Evaluación - Week 13
+# Rúbrica de Evaluación - Semana 13
 
-## 🎯 Programación Asincrónica: Callbacks y Promises
+## Evidencias y ponderación
 
----
-
-## 📋 Distribución de Evaluación
-
-| Tipo de Evidencia | Peso | Descripción |
-|-------------------|------|-------------|
-| **🧠 Conocimiento** | 30% | Comprensión teórica de conceptos |
-| **💪 Desempeño** | 40% | Ejecución de prácticas guiadas |
-| **📦 Producto** | 30% | Proyecto HTTP Simulator |
-
-**Calificación mínima para aprobar**: 70% en cada tipo de evidencia
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | Event loop, callbacks y sus problemas, estados de una promesa, encadenamiento y combinadores |
+| Desempeño | 40% | Labs 01 a 04 descomentados y ejecutados |
+| Producto | 30% | Panel de servicios: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-## 🧠 1. Evidencia de Conocimiento (30%)
+## Criterios por evidencia
 
-### Criterios de Evaluación
+## 1) Conocimiento (30%)
 
-| Criterio | Excelente (100%) | Satisfactorio (80%) | Básico (70%) | Insuficiente (<70%) |
-|----------|------------------|---------------------|--------------|---------------------|
-| **Event Loop** | Explica claramente Call Stack, Callback Queue y Microtask Queue con ejemplos | Comprende los conceptos pero con dificultad para explicarlos | Conocimiento superficial del Event Loop | No comprende el Event Loop |
-| **Callbacks** | Identifica patrones, ventajas y desventajas (callback hell) | Usa callbacks correctamente | Comprende callbacks básicos | No comprende callbacks |
-| **Promises** | Domina estados, métodos y manejo de errores | Usa Promises correctamente | Conocimiento básico de Promises | No comprende Promises |
-| **Promise Combinators** | Distingue claramente all/race/allSettled/any y sus casos de uso | Conoce los combinators principales | Conocimiento superficial | No distingue los combinators |
+### Criterios
 
-### Métodos de Evaluación
+- Explica qué hacen la pila de llamadas, la cola de tareas y la cola de microtareas, y predice el orden de salida de un fragmento con código síncrono, `setTimeout` y `.then()`.
+- Explica por qué una función asíncrona no puede avisar de un error con `throw` y cómo lo resuelven el callback *error-first* y el rechazo de una promesa.
+- Nombra los tres estados de una promesa y explica por qué una promesa resuelta ya no cambia.
+- Explica qué devuelve `.then()`, qué pasa si su callback devuelve una promesa y qué pasa si olvida el `return`.
+- Dice cuándo se cumple y cuándo se rechaza cada combinador (`all`, `race`, `allSettled`, `any`) y elige el adecuado para un caso dado.
 
-- ✅ Cuestionario teórico (10 preguntas)
-- ✅ Explicación verbal de conceptos
-- ✅ Análisis de código asíncrono
-- ✅ Identificación de errores comunes
+### Niveles
 
-### Puntuación: _____ / 30 puntos
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, entre microtareas y macrotareas, o entre `race` y `any`).
+- **Bajo (<21):** no predice el orden de salida de un fragmento asíncrono sencillo o no distingue una promesa de su valor.
 
 ---
 
-## 💪 Ejercicios de Práctica (No se entregan)
+## 2) Desempeño (40%)
 
-> **Importante**: Materiales de aprendizaje. **No se entregan de forma separada**.
+### Criterios
 
-### Práctica 1: Callbacks y Event Loop (10 puntos)
+- Lab 01: los 7 pasos descomentados; explica el orden del paso 3 y por qué el `return` del paso 6 es necesario.
+- Lab 02: los 7 pasos; explica los estados que imprime el paso 1 y qué se ignora en el paso 6.
+- Lab 03: los 7 pasos; explica qué cambia el `return` en el paso 5 y cómo se recupera la cadena en el paso 6.
+- Lab 04: los 7 pasos; explica la tabla del paso 7 y por qué el tiempo límite del paso 4 no cancela la operación lenta.
 
-| Criterio | Puntos | ✓ |
-|----------|--------|---|
-| Completa todos los pasos del ejercicio | 4 | ☐ |
-| Código funcional y sin errores | 3 | ☐ |
-| Comprende el orden de ejecución | 2 | ☐ |
-| Documenta aprendizajes | 1 | ☐ |
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab.
 
-### Práctica 2: Promises Básicas (10 puntos)
+### Niveles
 
-| Criterio | Puntos | ✓ |
-|----------|--------|---|
-| Crea Promises correctamente | 3 | ☐ |
-| Usa .then() y .catch() apropiadamente | 3 | ☐ |
-| Maneja errores correctamente | 2 | ☐ |
-| Código limpio y comentado | 2 | ☐ |
-
-### Práctica 3: Promise Chaining (10 puntos)
-
-| Criterio | Puntos | ✓ |
-|----------|--------|---|
-| Encadena Promises correctamente | 4 | ☐ |
-| Pasa datos entre Promises | 3 | ☐ |
-| Maneja errores en la cadena | 2 | ☐ |
-| Usa .finally() apropiadamente | 1 | ☐ |
-
-### Práctica 4: Promise Combinators (10 puntos)
-
-| Criterio | Puntos | ✓ |
-|----------|--------|---|
-| Implementa Promise.all() correctamente | 2 | ☐ |
-| Implementa Promise.race() correctamente | 2 | ☐ |
-| Implementa Promise.allSettled() correctamente | 2 | ☐ |
-| Implementa Promise.any() correctamente | 2 | ☐ |
-| Comprende diferencias entre combinators | 2 | ☐ |
-
-### Puntuación: _____ / 40 puntos
+- **Alto (36-40):** los cuatro labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cuatro labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-## 📦 3. Evidencia de Producto (30%)
+## 3) Producto (30%)
 
-### Proyecto: HTTP Simulator
+### Criterios
 
-#### Funcionalidad (15 puntos)
+- `PROYECTO=... ./scripts/verificar-semana.sh 13` pasa las 13 comprobaciones.
+- `TITLE` y los servicios de `src/data.js` describen el dominio asignado: de 4 a 8 servicios coherentes, con resultados creíbles y retrasos distintos entre sí.
+- La página funciona servida con `pnpm dlx serve .`: los cinco modos dan el resultado del paso 10 del proyecto, el tiempo límite corta las consultas lentas y la consola no muestra errores inesperados.
+- Las funciones usan lo de la semana donde corresponde: `request` envuelve a `requestWithCallback` en lugar de repetir el `setTimeout`; `requestInSequence` encadena `.then()` sin `async`/`await`; los combinadores reciben `services.map(request)`; `requestFirst` conserva el `AggregateError` en `cause`.
 
-| Criterio | Puntos | ✓ |
-|----------|--------|---|
-| **Módulo HTTP (http.js)** | | |
-| - Función `simulateRequest()` funcional | 2 | ☐ |
-| - Métodos HTTP (GET/POST/PUT/DELETE) implementados | 2 | ☐ |
-| - Timeout con Promise.race() implementado | 2 | ☐ |
-| - Combinators (all/race/allSettled) funcionan | 3 | ☐ |
-| **Módulo UI (ui.js)** | | |
-| - Muestra resultados correctamente | 2 | ☐ |
-| - Maneja estados (loading/success/error) | 2 | ☐ |
-| - Actualiza estadísticas correctamente | 2 | ☐ |
+### Niveles
 
-#### Calidad del Código (10 puntos)
-
-| Criterio | Puntos | ✓ |
-|----------|--------|---|
-| Nomenclatura clara y consistente | 2 | ☐ |
-| Código modular y bien organizado | 2 | ☐ |
-| Manejo robusto de errores | 2 | ☐ |
-| Comentarios útiles en código complejo | 2 | ☐ |
-| Uso correcto de sintaxis ES2023 | 2 | ☐ |
-
-#### Mejores Prácticas (5 puntos)
-
-| Criterio | Puntos | ✓ |
-|----------|--------|---|
-| Usa const/let apropiadamente | 1 | ☐ |
-| Arrow functions donde corresponde | 1 | ☐ |
-| Destructuring cuando es útil | 1 | ☐ |
-| Evita código repetitivo (DRY) | 1 | ☐ |
-| Interface de usuario responsiva | 1 | ☐ |
-
-### Puntuación: _____ / 30 puntos
+- **Alto (27-30):** 13/13, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 13/13 con datos poco adaptados (servicios de relleno o con el mismo retraso) o algún modo de la página que falla.
+- **Bajo (<21):** menos de 13 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## 📊 Resumen de Calificación
+## Calificación
 
-| Evidencia | Puntos Obtenidos | Puntos Máximos | Porcentaje |
-|-----------|------------------|----------------|------------|
-| 🧠 Conocimiento | _____ | 30 | _____% |
-| 💪 Desempeño | _____ | 40 | _____% |
-| 📦 Producto | _____ | 30 | _____% |
-| **TOTAL** | **_____** | **100** | **_____%** |
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
+
+<!-- nav -->
 ---
 
-## 🎓 Escala de Calificación
+## 🔗 Navegación
 
-| Rango | Calificación | Nivel |
-|-------|--------------|-------|
-| 90-100% | **Excelente** | Dominio completo de conceptos asíncronos |
-| 80-89% | **Muy Bueno** | Buen manejo de Promises y callbacks |
-| 70-79% | **Satisfactorio** | Comprensión básica suficiente |
-| 60-69% | **Insuficiente** | Requiere refuerzo |
-| <60% | **No Aprobado** | Debe repetir la semana |
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Panel de servicios](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
 
----
-
-## ✅ Criterios Adicionales de Aprobación
-
-Para aprobar la Week 13, el estudiante debe:
-
-- [ ] Obtener mínimo 70% en CADA tipo de evidencia
-- [ ] Entregar el proyecto HTTP Simulator funcional
-- [ ] Completar las 4 prácticas guiadas
-- [ ] Demostrar comprensión del Event Loop
-- [ ] Usar Promises correctamente en código real
-- [ ] Manejar errores asíncronos apropiadamente
-
----
-
-## 📝 Comentarios del Instructor
-
-```
-_______________________________________________________________
-
-_______________________________________________________________
-
-_______________________________________________________________
-
-_______________________________________________________________
-```
-
----
-
-## 🚀 Recomendaciones de Mejora
-
-**Para estudiantes que obtuvieron 70-79%:**
-- Revisar material teórico sobre Event Loop
-- Practicar más con Promise chaining
-- Reforzar manejo de errores asíncronos
-
-**Para estudiantes que obtuvieron 80-89%:**
-- Profundizar en Promise combinators
-- Experimentar con APIs públicas
-- Optimizar código del proyecto
-
-**Para estudiantes que obtuvieron 90-100%:**
-- Investigar async/await (próxima semana)
-- Resolver el Reto Semanal
-- Ayudar a compañeros con dudas
-
----
-
-## 📅 Información de Entrega
-
-- **Fecha de entrega**: ____ / ____ / ____
-- **Hora límite**: ____ : ____
-- **Método de entrega**: GitHub / Plataforma LMS
-- **Formato requerido**: Código fuente + README con instrucciones
-
----
-
-_Última actualización: Diciembre 2024_
+[↑ Semana 13](README.md)

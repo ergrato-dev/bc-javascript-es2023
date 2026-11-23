@@ -256,17 +256,19 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ### 🟩 ETAPA 2: INTERMEDIO (Semanas 13-24)
 
 #### **Week 13: Programación Asincrónica - Callbacks y Promises**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Callback hell y sus problemas
+- Event loop: pila de llamadas, microtareas y macrotareas
+- Callbacks *error-first* y callback hell
 - Promises (then, catch, finally)
 - Promise chaining
 - `Promise.all()`, `Promise.race()`, `Promise.allSettled()` (ES2020)
 - `Promise.any()` y `AggregateError` (ES2021)
 - Error handling en promises
 
-**Proyecto**: Simulador de solicitudes HTTP con promises
+**Proyecto**: Panel de servicios: consultar servicios simulados del dominio con un callback *error-first*, envolverlo en una promesa y combinar las consultas en orden (cadena de `.then()` con `reduce`), con `Promise.all`, `allSettled`, `any` (con el `AggregateError` como `cause`) y un tiempo límite con `race`, sin `async`/`await`
 
 ---
 

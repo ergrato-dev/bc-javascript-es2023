@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de servicios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">📡 Panel de servicios</h1>
+      <div class="stats-summary">
+        <span class="stat">Servicios: <strong id="stat-services">0</strong></span>
+        <span class="stat">Disponibles: <strong id="stat-available">0</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>🔎 Consultar</h2>
+      <form id="query-form" class="item-form">
+        <div class="form-group">
+          <label for="mode">Cómo consultar</label>
+          <select id="mode">
+            <option value="callback">Uno a uno con callbacks</option>
+            <option value="sequence">En orden: un .then() detrás de otro</option>
+            <option value="all">Todos a la vez: Promise.all</option>
+            <option value="report">Informe: Promise.allSettled</option>
+            <option value="first">El primero que responda: Promise.any</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="timeout">Tiempo límite en ms (0 = sin límite; no se aplica con callbacks)</label>
+          <input type="number" id="timeout" min="0" step="100" value="0">
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="btn-query" class="btn btn-primary">Consultar</button>
+        </div>
+      </form>
+      <p id="query-message" class="message" role="status"></p>
+      <div class="change-log">
+        <h2>📜 Registro</h2>
+        <ol id="query-log"></ol>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>🛰️ Servicios</h2>
+      </div>
+      <div id="item-list" class="item-list"></div>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

@@ -584,6 +584,13 @@ Antes de continuar, asegúrate de comprender:
 - 🎥 [JavaScript Promises In 10 Minutes](https://www.youtube.com/watch?v=DHvZLI7Db8E)
 - 🔧 [Promises/A+ Specification](https://promisesaplus.com/)
 
+<!-- nav -->
 ---
 
-**Próximo tema**: [04 - Métodos de Promise](./04-promise-methods.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🔗 Callbacks y sus Problemas](02-callbacks-problemas.md) | [Teoría — 🔀 Métodos de Promise (Combinators)](04-promise-methods.md) → |
+
+[↑ Semana 13](../README.md)

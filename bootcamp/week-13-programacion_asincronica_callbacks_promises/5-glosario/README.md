@@ -1,4 +1,4 @@
-# 📖 Glosario - Week 13: Programación Asincrónica
+# 📖 Glosario - Semana 13: Programación Asincrónica
 
 > Términos clave ordenados alfabéticamente
 
@@ -271,6 +271,13 @@ APIs proporcionadas por el navegador (como `fetch`, `setTimeout`, `XMLHttpReques
 - [MDN - Event Loop](https://developer.mozilla.org/es/docs/Web/JavaScript/EventLoop)
 - [JavaScript.info - Promises](https://javascript.info/promise-basics)
 
+<!-- nav -->
 ---
 
-_Última actualización: Diciembre 2024_
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📘 Semana 14: Async/Await](../../week-14-async_await/README.md) → |
+
+[↑ Semana 13](../README.md)

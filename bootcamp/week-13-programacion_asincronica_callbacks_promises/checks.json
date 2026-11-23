@@ -1,0 +1,97 @@
+{
+  "semana": "13",
+  "titulo": "Programación Asincrónica - Callbacks y Promises",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-async-await",
+      "descripcion": "src/logic.js usa callbacks y promesas, sin async ni await (llegan en la semana 14)",
+      "cmd": "cd {proyecto} && ! grep -v '^ *//' src/logic.js | grep -nwE 'async|await'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE y por defecto de 4 a 8 servicios con nombre de 3 o más caracteres sin repetir, delay entero de 50 a 3000, available booleano (al menos uno true y uno false) y result de texto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import services, { TITLE } from './src/data.js'; assert.ok(typeof TITLE === 'string' && TITLE.trim() !== ''); assert.ok(Array.isArray(services) && services.length >= 4 && services.length <= 8); assert.ok(services.every((service) => typeof service.name === 'string' && service.name.trim().length >= 3 && Number.isInteger(service.delay) && service.delay >= 50 && service.delay <= 3000 && typeof service.available === 'boolean' && typeof service.result === 'string' && service.result.trim() !== '')); assert.equal(new Set(services.map(({ name }) => name)).size, services.length); assert.ok(services.some(({ available }) => available)); assert.ok(services.some(({ available }) => !available));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título y los servicios no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import services, { TITLE } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.ok(!services.some(({ name }) => ['Cartelera de sesiones', 'Reservas de cúpula', 'Observatorio remoto', 'Tienda de recuerdos', 'Clima espacial'].includes(name)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "callback",
+      "descripcion": "requestWithCallback llama al callback pasado delay ms, con (null, result) o con un Error «<nombre>: sin respuesta»",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { requestWithCallback } from './src/logic.js'; const calls = []; const start = performance.now(); const record = (...args) => calls.push([performance.now() - start, ...args]); requestWithCallback({ name: 'Alfa', delay: 60, available: true, result: 'R1' }, record); requestWithCallback({ name: 'Beta', delay: 20, available: false, result: 'R2' }, record); assert.equal(calls.length, 0); setTimeout(() => { assert.equal(calls.length, 2); const [beta, alfa] = calls; assert.ok(beta[0] >= 15 && beta[1] instanceof Error && beta[1].message === 'Beta: sin respuesta'); assert.ok(alfa[0] >= 55 && alfa[1] === null && alfa[2] === 'R1'); }, 150);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "request",
+      "descripcion": "request devuelve una promesa que se cumple con result o se rechaza con el error del servicio",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { request } from './src/logic.js'; const pending = request({ name: 'Alfa', delay: 20, available: true, result: 'R1' }); assert.ok(pending instanceof Promise); assert.equal(await pending, 'R1'); await assert.rejects(request({ name: 'Beta', delay: 20, available: false, result: 'R2' }), { message: 'Beta: sin respuesta' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "secuencia",
+      "descripcion": "requestInSequence consulta uno detrás de otro, devuelve los resultados en orden y se detiene en el primer fallo",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { requestInSequence } from './src/logic.js'; const start = performance.now(); const results = await requestInSequence([{ name: 'A', delay: 60, available: true, result: 'a' }, { name: 'B', delay: 10, available: true, result: 'b' }, { name: 'C', delay: 60, available: true, result: 'c' }]); assert.deepEqual(results, ['a', 'b', 'c']); assert.ok(performance.now() - start >= 120); let touched = false; const watched = { name: 'Z', delay: 10, result: 'z', get available() { touched = true; return true; } }; await assert.rejects(requestInSequence([{ name: 'A', delay: 10, available: true, result: 'a' }, { name: 'B', delay: 10, available: false, result: 'b' }, watched]), { message: 'B: sin respuesta' }); await new Promise((resolve) => setTimeout(resolve, 50)); assert.equal(touched, false); assert.deepEqual(await requestInSequence([]), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "todos",
+      "descripcion": "requestAll consulta todos a la vez con los resultados en el orden de la lista, o se rechaza con el primer error",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { requestAll } from './src/logic.js'; const start = performance.now(); const results = await requestAll([{ name: 'A', delay: 80, available: true, result: 'a' }, { name: 'B', delay: 20, available: true, result: 'b' }, { name: 'C', delay: 80, available: true, result: 'c' }]); assert.deepEqual(results, ['a', 'b', 'c']); assert.ok(performance.now() - start < 150); await assert.rejects(requestAll([{ name: 'A', delay: 10, available: true, result: 'a' }, { name: 'B', delay: 30, available: false, result: 'b' }]), { message: 'B: sin respuesta' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "informe",
+      "descripcion": "requestReport devuelve { name, ok, text } por servicio, en orden, aunque alguno falle",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { requestReport } from './src/logic.js'; const report = await requestReport([{ name: 'A', delay: 40, available: true, result: 'a' }, { name: 'B', delay: 10, available: false, result: 'b' }, { name: 'C', delay: 20, available: true, result: 'c' }]); assert.deepEqual(report, [{ name: 'A', ok: true, text: 'a' }, { name: 'B', ok: false, text: 'B: sin respuesta' }, { name: 'C', ok: true, text: 'c' }]); assert.deepEqual(await requestReport([]), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "primero",
+      "descripcion": "requestFirst devuelve el primer resultado bueno y, si fallan todos, un Error «Ningún servicio respondió» con el AggregateError como cause",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { requestFirst } from './src/logic.js'; assert.equal(await requestFirst([{ name: 'A', delay: 80, available: true, result: 'a' }, { name: 'B', delay: 10, available: false, result: 'b' }, { name: 'C', delay: 40, available: true, result: 'c' }]), 'c'); await assert.rejects(requestFirst([{ name: 'A', delay: 10, available: false, result: 'a' }, { name: 'B', delay: 20, available: false, result: 'b' }]), (error) => error.message === 'Ningún servicio respondió' && error.cause instanceof AggregateError && error.cause.errors.length === 2);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "tiempo-limite",
+      "descripcion": "withTimeout deja pasar el resultado o el error si llegan a tiempo y si no se rechaza con «Tiempo agotado: <ms> ms»",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { withTimeout } from './src/logic.js'; const after = (ms, value) => new Promise((resolve) => setTimeout(() => resolve(value), ms)); assert.equal(await withTimeout(after(10, 'a'), 100), 'a'); await assert.rejects(withTimeout(after(200, 'b'), 30), { message: 'Tiempo agotado: 30 ms' }); await assert.rejects(withTimeout(Promise.reject(new Error('Original')), 50), { message: 'Original' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}
