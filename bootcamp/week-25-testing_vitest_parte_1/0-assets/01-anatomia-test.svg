@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="sans-serif">
+  <rect width="800" height="450" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Las partes de un archivo de tests</text>
+
+  <!-- Código -->
+  <rect x="30" y="56" width="450" height="250" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="46" y="78" fill="#8b949e" font-size="12">tests/cart.test.js</text>
+  <g font-family="monospace" font-size="13" fill="#c9d1d9">
+    <text x="46" y="108"><tspan fill="#8b949e">import</tspan> { describe, it, expect } <tspan fill="#8b949e">from</tspan> 'vitest';</text>
+    <text x="46" y="130"><tspan fill="#8b949e">import</tspan> { cartTotal } <tspan fill="#8b949e">from</tspan> '../src/cart.js';</text>
+    <text x="46" y="168"><tspan fill="#58a6ff">describe('cartTotal'</tspan>, () =&gt; {</text>
+    <text x="62" y="194"><tspan fill="#3fb950">it('un carrito vacío vale 0'</tspan>, () =&gt; {</text>
+    <text x="78" y="220"><tspan fill="#d29922">expect(cartTotal([]))</tspan><tspan fill="#F7DF1E">.toBe(0)</tspan>;</text>
+    <text x="62" y="246">});</text>
+    <text x="46" y="272">});</text>
+  </g>
+
+  <!-- Leyenda -->
+  <g font-size="13">
+    <rect x="510" y="56" width="4" height="52" fill="#58a6ff"/>
+    <text x="524" y="76" fill="#58a6ff" font-family="monospace">describe(nombre, fn)</text>
+    <text x="524" y="98" fill="#c9d1d9">Agrupa los tests de una función</text>
+
+    <rect x="510" y="120" width="4" height="52" fill="#3fb950"/>
+    <text x="524" y="140" fill="#3fb950" font-family="monospace">it(nombre, fn)</text>
+    <text x="524" y="162" fill="#c9d1d9">Un test: qué se espera</text>
+
+    <rect x="510" y="184" width="4" height="52" fill="#d29922"/>
+    <text x="524" y="204" fill="#d29922" font-family="monospace">expect(valor)</text>
+    <text x="524" y="226" fill="#c9d1d9">El valor que se comprueba</text>
+
+    <rect x="510" y="248" width="4" height="52" fill="#F7DF1E"/>
+    <text x="524" y="268" fill="#F7DF1E" font-family="monospace">.toBe(0)</text>
+    <text x="524" y="290" fill="#c9d1d9">El matcher: lo que debe cumplir</text>
+  </g>
+
+  <!-- Informe -->
+  <rect x="30" y="326" width="740" height="104" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="46" y="350" fill="#8b949e" font-size="12">En el informe de pnpm test --reporter=verbose</text>
+  <text x="46" y="380" font-family="monospace" font-size="13" fill="#8b949e"><tspan fill="#3fb950">✓</tspan> tests/cart.test.js &gt; <tspan fill="#58a6ff">cartTotal</tspan> &gt; <tspan fill="#3fb950">un carrito vacío vale 0</tspan> 0ms</text>
+  <text x="46" y="410" fill="#c9d1d9" font-size="13">Pasa si su función termina sin errores. Falla si un expect no se cumple o se lanza un error.</text>
+</svg>

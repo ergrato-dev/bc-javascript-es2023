@@ -103,4 +103,4 @@ week-24-proyecto_integrador_intermedio/
 
 | ← Semana anterior | Siguiente → |
 |---|---|
-| [Semana 23 - Performance y Optimización](../week-23-performance_optimizacion/README.md) | Semana 25 - Testing con Vitest - Parte 1 (pendiente) |
+| [Semana 23 - Performance y Optimización](../week-23-performance_optimizacion/README.md) | [Semana 25 - Testing con Vitest - Parte 1](../week-25-testing_vitest_parte_1/README.md) |

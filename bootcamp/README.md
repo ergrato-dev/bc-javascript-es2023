@@ -32,7 +32,7 @@ Estado de cada semana:
 | [22](week-22-trabajo_archivos/README.md) | [Trabajo con Archivos](week-22-trabajo_archivos/README.md) | Intermedio | ✅ |
 | [23](week-23-performance_optimizacion/README.md) | [Performance y Optimización](week-23-performance_optimizacion/README.md) | Intermedio | ✅ |
 | [24](week-24-proyecto_integrador_intermedio/README.md) | [Proyecto Integrador — Intermedio](week-24-proyecto_integrador_intermedio/README.md) | Intermedio | ✅ |
-| 25 | Testing con Vitest — Parte 1 | Avanzado | ⬜ |
+| [25](week-25-testing_vitest_parte_1/README.md) | [Testing con Vitest — Parte 1](week-25-testing_vitest_parte_1/README.md) | Avanzado | ✅ |
 | 26 | Testing con Vitest — Parte 2 | Avanzado | ⬜ |
 | 27 | Patrones de Diseño y Clean Code | Avanzado | ⬜ |
 | 28 | Proyecto Final — Bootcamp | Avanzado | ⬜ |

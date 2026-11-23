@@ -54,7 +54,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ### 📗 Etapa 2: Intermedio (Semanas 13-24) — ✅ escrita
 **96 horas totales** | Programación asincrónica y manipulación del DOM
 
-### 📕 Etapa 3: Avanzado (Semanas 25-28) — ⏳ pendiente
+### 📕 Etapa 3: Avanzado (Semanas 25-28) — 🟡 en curso (S25 escrita)
 **32 horas totales** | Testing, patrones y mejores prácticas
 
 ---
@@ -431,17 +431,18 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ### 🟥 ETAPA 3: AVANZADO (Semanas 25-28)
 
-#### **Week 25: Testing con Vitest - Parte 1** ⏳ _pendiente_
-**Horas**: 8h (2.5h teoría + 3.5h práctica + 1.5h proyecto + 0.5h recursos)
+#### **Week 25: Testing con Vitest - Parte 1**
+**Estado**: ✅ Escrita
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Introducción a testing
-- Vitest setup con pnpm (ESM nativo, API compatible con Jest)
-- Unit tests
-- Matchers (expect, toBe, toEqual)
-- Test coverage
+- Por qué escribir tests: regresiones, `node:assert`, tipos de tests y código fácil de probar
+- Vitest con pnpm: `package.json`, versión exacta, `pnpm-lock.yaml`, `describe`/`it`/`expect`, ejecutar y leer un fallo
+- Matchers: `toBe`, `toEqual`, `toStrictEqual`, `toBeCloseTo`, textos y arrays, `toThrow`, `not` y partes de un objeto
+- Organizar los tests: preparar-actuar-comprobar, `beforeEach`, `describe` anidados, `it.each`, casos límite, `todo`/`skip`/`only`
+- Cobertura con `@vitest/coverage-v8`: las cuatro medidas, `include`, umbrales y mutantes
 
-**Proyecto**: Testing de funciones utilitarias
+**Proyecto**: Tests del catálogo: los tests de siete funciones de utilidad ya escritas (`normalize`, `formatNumber`, `paginate`, `search`, `sortBy`, `validate`, `summarize`) con los datos del dominio, al 100 % de cobertura y detectando un error introducido en cada función
 
 ---
 

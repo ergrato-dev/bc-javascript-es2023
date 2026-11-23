@@ -22,7 +22,7 @@ Criterio: nunca la última versión publicada ni una con menos de 7 días, por r
 
 | Componente | Versión | Dónde se fija | Por qué |
 |---|---|---|---|
-| Vitest | 5.x, se fija en S25 | `devDependencies` | Testing de S25–S28: ESM nativo, sin transpilar, API compatible con Jest |
+| Vitest y @vitest/coverage-v8 | 5.1.0 (publicada el 2026-11-02; la 5.1.1 tenía menos de 7 días al fijarla) | `devDependencies` con versión exacta y `pnpm-lock.yaml`, desde S25 | Testing de S25–S28: ESM nativo, sin transpilar, API compatible con Jest. Las dos en la misma versión |
 
 Hasta S24 los proyectos no tienen dependencias: JavaScript del navegador y de Node, sin `package.json`.
 

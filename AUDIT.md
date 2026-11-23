@@ -1,7 +1,7 @@
 # Auditoría del repositorio — bc-javascript-es2023
 
 **Fecha**: 2026-11-19
-**Alcance**: S01–S24 publicadas (de 28 planificadas), configuración raíz, docs y scripts.
+**Alcance**: S01–S25 publicadas (de 28 planificadas), configuración raíz, docs y scripts.
 **Referencia**: estándar de los bootcamps cerrados en 2026-11 (`bc-ssh`, `bc-testing`) y [`CLAUDE.md`](CLAUDE.md).
 
 Este archivo es la lista de trabajo de la migración: cada semana migrada cierra su fila.
@@ -23,7 +23,7 @@ Este archivo es la lista de trabajo de la migración: cada semana migrada cierra
 |---|---|
 | Sin `CLAUDE.md`; `.github/copilot-instructions.md` (778 líneas) y `docs/guia-desarrollo-contenidos.md` contradecían las reglas: `yarn` permitido, SQLite, `solution/` en ejercicios | ✅ `CLAUDE.md` nuevo como fuente única; `copilot-instructions.md` reducido a puntero; guía retirada |
 | Lista de dominios anticopia dentro del repo (guía de desarrollo) | ✅ Retirada; catálogo en el repo privado de dominios |
-| Sin índice de semanas (`bootcamp/README.md`) | ✅ Creado: S01–S24 🟡, S25–S28 ⬜ |
+| Sin índice de semanas (`bootcamp/README.md`) | ✅ Creado: S01–S25 🟡, S26–S28 ⬜ |
 | Sin autograding: ni `checks.json` ni `scripts/verificar-semana.sh` | ✅ Script y contrato ([docs/autograding.md](docs/autograding.md)); los `checks.json` llegan con cada semana migrada |
 | Sin generador de navegación ni verificador de enlaces | ✅ `scripts/generar-navegacion.sh` y `scripts/verificar-enlaces.sh` |
 | Versiones repartidas por los README (Node 24, Jest 30+, ESLint 9+, Live Server) | ✅ Única fuente en [docs/stack-versions.md](docs/stack-versions.md) |
@@ -76,6 +76,7 @@ Teoría: número de archivos y rango de líneas. Glosario: términos.
 | 22 | ✅ | ✅ lab | — | ✅ | **Migrada y reescrita.** Teoría delgada (78–98 líneas, 5 archivos) sustituida por cuatro: Blob y File (bytes y `type`, `text`/`bytes`/`arrayBuffer`, `slice`, firmas, marca BOM), leer archivos del usuario (`<input type="file">`, validar antes de leer, `file.text()`, `FileReader`, reglas de CSV, errores por fila), URLs de objeto y descargas (`createObjectURL`, data URLs, `revokeObjectURL`, `<a download>`, exportar CSV y JSON, vista previa) y arrastrar y soltar (eventos, `preventDefault`, `dataTransfer`, contador para resaltar, botón y pegado). Lab 01 de Node y labs 02–04 de navegador con `muestras/`, todos con 6 pasos y salidas reales (Chromium 156). 5 SVG sustituidos por 4. `RETO-SEMANAL.md`, `0-assets/README.md` y `4-recursos/README.md` retirados. Proyecto nuevo (el anterior tenía 13 TODO en un solo `script.js`): importador de colección con 8 funciones puras probadas con el `File` de Node (`formatBytes`, `checkFile`, `parseCsv`, `toRecords`, `readRecords`, `mergeRecords`, `toCsv`, `exportFile`), muestras del dominio comprobadas con las funciones del aprendiz y 14 checks. Recursos verificados |
 | 23 | ✅ | ✅ lab | — | ✅ | **Escrita de cero** (no existía carpeta). Teoría: medir (`performance.now`, `mark`/`measure`, mediana, crecimiento del coste), debounce y throttle (con llamada final, `cancel`, `requestAnimationFrame`, listeners pasivos), hacer menos trabajo (memoize LRU, índices, paginar con `IntersectionObserver`, `loading="lazy"`, fases del pintado, tareas largas, `import()`) y fugas de memoria (alcanzable, listeners, temporizadores, cachés, nodos desconectados, closures, `WeakMap`, heap snapshots), con 4 SVG. Labs 01, 02 y 04 con Node (02 y 04 con salida estable: tiempos redondeados a 10 ms y `node --expose-gc`); lab 03 en el navegador. Los READMEs de los labs 01 y 03 avisan de que los tiempos dependen del equipo. Proyecto «Buscador rápido del catálogo» (`normalize`, `buildIndex`, `search`, `paginate`, `debounce`, `throttle`, `memoize`, `measure`; 14 checks, `measure` probado con un `performance.now` falso y `catalogo` con los datos del aprendiz). |
 | 24 | ✅ | ✅ lab | — | ✅ | **Escrita de cero** (no existía carpeta). Semana integradora: repaso de las semanas 13 a 23, arquitectura de una aplicación asíncrona y estados de carga, con 2 SVG. Labs 01 y 02 con Node y lab 03 en el navegador, los tres con salida estable. Proyecto «Catálogo conectado» (`requestJson`, `createLatest`, `reduce`, `statusText`, `cardHtml`, `validate`, `createCache`; 14 checks, `servidor` prueba las funciones juntas contra el `server.js` del aprendiz con sus datos). |
+| 25 | ✅ | ✅ lab | — | ✅ | **Escrita de cero** (no existía carpeta). Primera semana con dependencias: Vitest y `@vitest/coverage-v8` 5.1.0 exactas, con `pnpm-lock.yaml`. Teoría: por qué tests, Vitest, matchers, organizar tests y cobertura, con 2 SVG. 4 labs con Vitest (en el 01 se crea el `package.json`), salidas reales salvo hora y duración. Proyecto «Tests del catálogo»: `logic.js` terminado y el aprendiz escribe los tests; 17 checks (29 casos del starter por título, 100 % de cobertura y 7 mutantes, uno por función, que los tests deben detectar). |
 
 **Conclusión**: S01–S15 necesitan migración estructural. S16–S22 necesitan además reescritura de teoría y labs, y un proyecto nuevo cuyo starter no traiga la solución.
 

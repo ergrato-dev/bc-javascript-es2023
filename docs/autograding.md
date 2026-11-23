@@ -42,7 +42,7 @@ Los proyectos corren en el navegador, pero el autograding corre en Node. Por eso
 - **Para qué:** se puede importar desde Node y comprobar con valores concretos, sin navegador.
 - **Impacto:** es la misma separación que usarás en S25–S26 para escribir tests con Vitest.
 
-Desde S25 el proyecto tiene `package.json` con Vitest y los checks ejecutan `pnpm vitest run`.
+Desde S25 el proyecto tiene `package.json` con Vitest. Los checks necesitan `pnpm install` hecho en el proyecto y llaman a `node_modules/.bin/vitest` directamente: `pnpm vitest` comprobaría antes las dependencias y añadiría líneas a la salida.
 
 ## Formato de `checks.json`
 

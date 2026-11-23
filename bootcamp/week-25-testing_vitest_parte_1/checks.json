@@ -1,0 +1,125 @@
+{
+  "semana": "25",
+  "titulo": "Testing con Vitest — Parte 1",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/ y tests/ son módulos ES válidos",
+      "cmd": "cd {proyecto} && for f in src/*.js tests/*.js; do node --check \"$f\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "paquete",
+      "descripcion": "package.json es un módulo ES con vitest y @vitest/coverage-v8 5.x en la misma versión exacta, el script test ejecuta vitest run y hay pnpm-lock.yaml",
+      "cmd": "test -f {proyecto}/pnpm-lock.yaml && cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readFileSync } from 'node:fs'; const pkg = JSON.parse(readFileSync('package.json', 'utf8')); const dev = pkg.devDependencies ?? {}; assert.equal(pkg.type, 'module', 'type: module'); assert.match(dev.vitest ?? '', /^5[.][0-9]+[.][0-9]+$/, 'vitest con versión exacta 5.x, sin ^ ni ~'); assert.equal(dev['@vitest/coverage-v8'], dev.vitest, '@vitest/coverage-v8 en la misma versión que vitest'); assert.match(pkg.scripts?.test ?? '', /vitest run/, 'scripts.test ejecuta vitest run');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "logic-intacto",
+      "descripcion": "src/logic.js es el del starter, sin cambios",
+      "cmd": "cmp -s {proyecto}/src/logic.js {semana}/3-proyecto/starter/src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "tests/ no tiene ningún it.todo ni TODO",
+      "cmd": "cd {proyecto} && ! grep -rnE '[.]todo[(]|TODO' tests/",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "sin-only-skip",
+      "descripcion": "tests/ no tiene .only ni .skip, que esconden tests",
+      "cmd": "cd {proyecto} && ! grep -rnE '[.](only|skip)[(]' tests/",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta de 3 a 8 FIELDS (name camelCase sin repetir, label, type text o number, el primero text y obligatorio, al menos uno number) y de 8 a 30 SEED que cumplen validate, con el primer campo sin repetir",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { FIELDS, SEED } from './src/data.js'; import { validate } from './src/logic.js'; assert.ok(Array.isArray(FIELDS) && FIELDS.length >= 3 && FIELDS.length <= 8, 'de 3 a 8 FIELDS'); const names = FIELDS.map((field) => field.name); assert.equal(new Set(names).size, names.length, 'name repetido en FIELDS'); for (const field of FIELDS) { assert.match(field.name ?? '', /^[a-z][a-zA-Z0-9]*$/, 'name en camelCase: ' + field.name); assert.ok(typeof field.label === 'string' && field.label.trim() !== '', 'label de ' + field.name); assert.ok(['text', 'number'].includes(field.type), 'type de ' + field.name); } assert.equal(FIELDS[0].type, 'text', 'el primer campo es text'); assert.equal(FIELDS[0].required, true, 'el primer campo es obligatorio'); assert.ok(FIELDS.some((field) => field.type === 'number'), 'al menos un campo number'); assert.ok(Array.isArray(SEED) && SEED.length >= 8 && SEED.length <= 30, 'de 8 a 30 SEED'); for (const item of SEED) { const values = Object.fromEntries(names.map((name) => [name, item[name] == null ? '' : String(item[name])])); const { errors } = validate(values, FIELDS); assert.deepEqual(errors, {}, 'ficha no válida: ' + item[names[0]]); } const firsts = SEED.map((item) => item[names[0]]); assert.equal(new Set(firsts).size, firsts.length, 'el primer campo se repite en SEED');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "FIELDS y SEED son de tu dominio, no los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { FIELDS, SEED } from './src/data.js'; assert.notEqual(FIELDS.map((field) => field.name).join(), 'name,type,constellation,magnitude', 'FIELDS sigue siendo el del ejemplo'); const example = ['Sirio', 'Vega', 'Betelgeuse', 'Pléyades']; assert.ok(!SEED.some((item) => example.includes(item[FIELDS[0].name])), 'SEED tiene fichas del ejemplo');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "tests-pasan",
+      "descripcion": "pnpm test pasa",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "casos",
+      "descripcion": "Cada caso del starter es un test que pasa, con su describe y su título (28 casos), y el describe data.js tiene al menos un test que pasa",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && { ./node_modules/.bin/vitest run --reporter=json --outputFile=\"$t/r.json\" >/dev/null 2>&1; true; } && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readFileSync } from 'node:fs'; const report = JSON.parse(readFileSync(process.argv[1], 'utf8')); const passed = report.testResults.flatMap((file) => file.assertionResults).filter((test) => test.status === 'passed'); const names = new Set(passed.map((test) => test.ancestorTitles.join(' > ') + ' > ' + test.title)); const cases = {\\\"normalize\\\":[\\\"pasa a minúsculas y quita las tildes\\\",\\\"quita los espacios de los lados y deja uno solo entre palabras\\\",\\\"devuelve un texto vacío con null o undefined\\\"],\\\"formatNumber\\\":[\\\"separa los miles con punto y los decimales con coma\\\",\\\"redondea a 2 decimales como mucho\\\",\\\"devuelve — si no recibe un número finito\\\"],\\\"paginate\\\":[\\\"devuelve los elementos de la página pedida, el número de páginas y el total\\\",\\\"la última página puede tener menos elementos\\\",\\\"lleva una página fuera de rango a la primera o a la última\\\",\\\"una lista vacía tiene 1 página\\\",\\\"lanza un RangeError si perPage no es un entero mayor que 0\\\"],\\\"search\\\":[\\\"encuentra fichas de tu catálogo sin distinguir mayúsculas ni tildes\\\",\\\"exige que estén todas las palabras de la búsqueda\\\",\\\"devuelve todas las fichas con una búsqueda vacía\\\",\\\"devuelve un array vacío si nada coincide\\\"],\\\"sortBy\\\":[\\\"ordena los números de menor a mayor\\\",\\\"ordena los textos en orden alfabético español\\\",\\\"con 'desc' ordena al revés\\\",\\\"deja las fichas sin valor al final\\\",\\\"no modifica el array que recibe\\\"],\\\"validate\\\":[\\\"una ficha de SEED no tiene errores\\\",\\\"marca los campos obligatorios vacíos\\\",\\\"limpia los textos y convierte los números\\\",\\\"acepta los valores justo en el límite y rechaza los de fuera\\\",\\\"lanza un TypeError si fields no es un array\\\"],\\\"summarize\\\":[\\\"resume un campo numérico de tu catálogo\\\",\\\"no cuenta las fichas sin número\\\",\\\"sin ninguna ficha con número, devuelve count 0 y lo demás null\\\"]}; const missing = Object.entries(cases).flatMap(([fn, titles]) => titles.map((title) => fn + ' > ' + title)).filter((name) => !names.has(name)); assert.deepEqual(missing, [], 'casos que faltan o no pasan'); assert.ok(passed.some((test) => test.ancestorTitles[0] === 'data.js'), 'ningún test de data.js pasa');\" \"$t/r.json\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "cobertura",
+      "descripcion": "Los tests cubren el 100% de src/logic.js: líneas, ramas, funciones y sentencias",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && ./node_modules/.bin/vitest run --coverage --coverage.include=src/logic.js --coverage.thresholds.100 --coverage.reporter=text-summary >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "mutante-normalize",
+      "descripcion": "Tus tests fallan si normalize deja de pasar a minúsculas",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('.toLowerCase()', '.toString()'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "mutante-formatnumber",
+      "descripcion": "Tus tests fallan si formatNumber deja de escribir decimales",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('maximumFractionDigits: 2', 'maximumFractionDigits: 0'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "mutante-paginate",
+      "descripcion": "Tus tests fallan si paginate cuenta una página de menos cuando la última no está llena",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('Math.ceil(items.length / perPage)', 'Math.floor(items.length / perPage)'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "mutante-search",
+      "descripcion": "Tus tests fallan si search se conforma con una sola de las palabras",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('words.every(', 'words.some('); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "mutante-sortby",
+      "descripcion": "Tus tests fallan si sortBy ordena el array que recibe en lugar de una copia",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('items.toSorted(', 'items.sort('); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "mutante-validate",
+      "descripcion": "Tus tests fallan si validate rechaza un número igual al mínimo",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('value < min', 'value <= min'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "mutante-summarize",
+      "descripcion": "Tus tests fallan si summarize divide la media entre todas las fichas, también las que no tienen número",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('total / values.length', 'total / items.length'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    }
+  ]
+}
