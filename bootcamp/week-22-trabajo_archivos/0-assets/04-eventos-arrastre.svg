@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="sans-serif">
+  <rect width="800" height="380" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Soltar archivos en una zona</text>
+
+  <!-- zona -->
+  <rect x="200" y="60" width="400" height="150" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="400" y="86" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="bold">#zone</text>
+  <rect x="290" y="110" width="220" height="44" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="400" y="137" text-anchor="middle" fill="#8b949e" font-size="12">&lt;p&gt; hijo</text>
+  <text x="400" y="190" text-anchor="middle" fill="#8b949e" font-size="12">Entrar en el hijo: dragenter del hijo y dragleave de la zona</text>
+
+  <!-- línea temporal -->
+  <line x1="40" y1="262" x2="760" y2="262" stroke="#30363d" stroke-width="2"/>
+  <g font-size="12">
+    <circle cx="90" cy="262" r="7" fill="#58a6ff"/>
+    <text text-anchor="middle" x="90" y="290" fill="#c9d1d9" font-family="monospace">dragenter</text>
+    <text text-anchor="middle" x="90" y="308" fill="#8b949e">depth + 1</text>
+    <text text-anchor="middle" x="90" y="326" fill="#8b949e">resaltar</text>
+
+    <circle cx="250" cy="262" r="7" fill="#d29922"/>
+    <circle cx="270" cy="262" r="5" fill="#d29922"/>
+    <circle cx="286" cy="262" r="4" fill="#d29922"/>
+    <text text-anchor="middle" x="268" y="290" fill="#c9d1d9" font-family="monospace">dragover ×N</text>
+    <text text-anchor="middle" x="268" y="308" fill="#d29922">preventDefault()</text>
+    <text text-anchor="middle" x="268" y="326" fill="#8b949e">sin él, no hay drop</text>
+
+    <circle cx="450" cy="262" r="7" fill="#8b949e"/>
+    <text text-anchor="middle" x="450" y="290" fill="#c9d1d9" font-family="monospace">dragleave</text>
+    <text text-anchor="middle" x="450" y="308" fill="#8b949e">depth − 1</text>
+    <text text-anchor="middle" x="450" y="326" fill="#8b949e">si llega a 0, quitar</text>
+
+    <circle cx="650" cy="262" r="7" fill="#3fb950"/>
+    <text text-anchor="middle" x="650" y="290" fill="#c9d1d9" font-family="monospace">drop</text>
+    <text text-anchor="middle" x="650" y="308" fill="#3fb950">preventDefault()</text>
+    <text text-anchor="middle" x="650" y="326" fill="#8b949e">dataTransfer.files</text>
+  </g>
+
+  <text x="400" y="362" text-anchor="middle" fill="#f85149" font-size="12">Durante el arrastre, files está vacío: mira dataTransfer.types.includes('Files')</text>
+</svg>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lab 04 — Arrastrar y soltar archivos</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; background: #0d1117; color: #c9d1d9; }
+      h1 { color: #F7DF1E; font-size: 1.4rem; }
+      #zone { padding: 2rem 1rem; border: 2px dashed #30363d; border-radius: 8px; text-align: center; background: #161b22; }
+      #zone.is-over { border-color: #58a6ff; background: #1c2a3d; }
+      #zone label { color: #58a6ff; text-decoration: underline; cursor: pointer; }
+      #zone input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+      #zone input:focus-visible + label { outline: 2px solid #F7DF1E; outline-offset: 2px; }
+      ul { padding-left: 1.2rem; }
+      #gallery img { max-width: 160px; margin: 0.25rem; border: 1px solid #30363d; }
+    </style>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <h1>Lab 04 — Arrastrar y soltar archivos</h1>
+    <p>Abre la consola de las DevTools (F12) para ver la salida de cada paso.</p>
+    <div id="zone">
+      <p>Suelta aquí tus archivos, pégalos con Ctrl+V o
+        <input id="files" type="file" multiple />
+        <label for="files">elígelos desde tu equipo</label>
+      </p>
+    </div>
+    <ul id="list"></ul>
+    <div id="gallery"></div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lab 03 — URLs de objeto y descargas</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; background: #0d1117; color: #c9d1d9; }
+      h1 { color: #F7DF1E; font-size: 1.4rem; }
+      img { display: block; margin: 1rem 0; border: 1px solid #30363d; }
+      button { font: inherit; margin: 0 0.5rem 0.5rem 0; padding: 0.4rem 0.8rem; background: #161b22; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; cursor: pointer; }
+      label { display: block; margin-top: 1rem; }
+    </style>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <h1>Lab 03 — URLs de objeto y descargas</h1>
+    <p>Abre la consola de las DevTools (F12) para ver la salida de cada paso.</p>
+    <img id="preview" alt="Un círculo amarillo sobre fondo oscuro, creado como SVG en el paso 1" width="160" height="90" />
+    <button id="download-txt" type="button">Descargar plazas.txt</button>
+    <button id="download-csv" type="button">Descargar sesiones.csv</button>
+    <button id="download-json" type="button">Descargar sesiones.json</button>
+    <label for="reopen">Abrir el JSON descargado</label>
+    <input id="reopen" type="file" accept=".json,application/json" />
+  </body>
+</html>

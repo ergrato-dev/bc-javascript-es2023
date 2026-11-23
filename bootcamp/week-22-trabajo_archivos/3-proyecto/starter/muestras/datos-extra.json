@@ -1,0 +1,23 @@
+[
+  {
+    "id": "S2",
+    "title": "Planetas gigantes",
+    "room": "Sala 2",
+    "seats": 45,
+    "minutes": 30
+  },
+  {
+    "id": "S7",
+    "title": "Eclipse en directo",
+    "room": "Terraza",
+    "seats": 30,
+    "minutes": 120
+  },
+  {
+    "id": "S8",
+    "title": "El Sol, nuestra estrella",
+    "room": "Cúpula",
+    "seats": 80,
+    "minutes": 40
+  }
+]

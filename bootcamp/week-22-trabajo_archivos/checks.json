@@ -1,0 +1,104 @@
+{
+  "semana": "22",
+  "titulo": "Trabajo con Archivos",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta APP (title, intro, accept con .csv y .json, maxBytes entero de 1 KB a 5 MB, key que es un campo obligatorio y exportName sin extensión ni espacios) y de 3 a 8 FIELDS con name camelCase sin repetir, label, type text o number y required booleano",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, FIELDS } from './src/data.js'; for (const key of ['title', 'intro', 'exportName']) assert.ok(typeof APP[key] === 'string' && APP[key].trim() !== '', key); assert.deepEqual([...APP.accept].sort(), ['.csv', '.json']); assert.ok(Number.isInteger(APP.maxBytes) && APP.maxBytes >= 1024 && APP.maxBytes <= 5 * 1024 * 1024, 'maxBytes'); assert.match(APP.exportName, /^[a-z0-9-]+$/, 'exportName: minúsculas, números y guiones'); assert.ok(Array.isArray(FIELDS) && FIELDS.length >= 3 && FIELDS.length <= 8, 'de 3 a 8 FIELDS'); assert.equal(new Set(FIELDS.map((field) => field.name)).size, FIELDS.length, 'name repetido'); for (const field of FIELDS) {   assert.match(field.name, /^[a-z][a-zA-Z0-9]*$/, field.name + ': camelCase');   assert.ok(typeof field.label === 'string' && field.label.trim() !== '', field.name + ': label');   assert.ok(['text', 'number'].includes(field.type), field.name + ': type');   assert.equal(typeof field.required, 'boolean', field.name + ': required'); } const keyField = FIELDS.find((field) => field.name === APP.key); assert.ok(keyField && keyField.required, 'key debe ser un campo obligatorio'); assert.ok(FIELDS.some((field) => field.type === 'number'), 'al menos un campo number');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título, exportName y los campos no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, FIELDS } from './src/data.js'; assert.notEqual(APP.title, 'Importador de sesiones del planetario'); assert.notEqual(APP.exportName, 'sesiones-planetario'); assert.notDeepEqual(FIELDS.map((field) => field.name), ['id', 'title', 'room', 'seats', 'minutes'], 'cambia los campos del ejemplo');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "format-bytes",
+      "descripcion": "formatBytes escribe bytes, KB, MB y GB en base 1024 con un decimal desde KB",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { formatBytes } from './src/logic.js'; assert.equal(formatBytes(0), '0 B'); assert.equal(formatBytes(512), '512 B'); assert.equal(formatBytes(1023), '1023 B'); assert.equal(formatBytes(1024), '1.0 KB'); assert.equal(formatBytes(1536), '1.5 KB'); assert.equal(formatBytes(50 * 1024), '50.0 KB'); assert.equal(formatBytes(1048576), '1.0 MB'); assert.equal(formatBytes(5.5 * 1048576), '5.5 MB'); assert.equal(formatBytes(3 * 1024 ** 3), '3.0 GB');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "check-file",
+      "descripcion": "checkFile acepta las extensiones de la lista sin mirar mayúsculas y rechaza, con el nombre del archivo al principio, otra extensión, un archivo vacío o uno que pasa de maxBytes",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { checkFile } from './src/logic.js'; const rules = { accept: ['.csv', '.json'], maxBytes: 1024 }; const file = (name, size) => new File(['x'.repeat(size)], name); assert.equal(checkFile(file('datos.csv', 10), rules), null); assert.equal(checkFile(file('DATOS.JSON', 1024), rules), null); assert.equal(checkFile(file('notas.txt', 10), rules), 'notas.txt: el tipo .txt no se admite (usa .csv o .json)'); assert.equal(checkFile(file('LEEME', 10), rules), 'LEEME: el tipo (sin extensión) no se admite (usa .csv o .json)'); assert.equal(checkFile(file('csv.json.exe', 10), rules), 'csv.json.exe: el tipo .exe no se admite (usa .csv o .json)'); assert.equal(checkFile(file('vacio.csv', 0), rules), 'vacio.csv: está vacío'); assert.equal(checkFile(file('grande.csv', 2150), rules), 'grande.csv: pesa 2.1 KB y el máximo es 1.0 KB'); assert.equal(checkFile(file('a.csv', 10), { accept: ['.csv'], maxBytes: 5 }), 'a.csv: pesa 10 B y el máximo es 5 B');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "parse-csv-basico",
+      "descripcion": "parseCsv separa filas y columnas con saltos \\n y \\r\\n, quita la marca BOM, se salta las líneas vacías y conserva los campos vacíos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { parseCsv } from './src/logic.js'; const BS = String.fromCharCode(92); const LF = String.fromCharCode(10); const CR = String.fromCharCode(13); const CRLF = CR + LF; const BOM = String.fromCharCode(65279); const Q = String.fromCharCode(34); assert.deepEqual(parseCsv('id,title' + LF + 'S1,Luna' + LF), [['id', 'title'], ['S1', 'Luna']]); assert.deepEqual(parseCsv(BOM + 'id,title' + CRLF + 'S1,Luna' + CRLF + CRLF + 'S2,Sol'), [['id', 'title'], ['S1', 'Luna'], ['S2', 'Sol']]); assert.deepEqual(parseCsv('a,,c' + LF + ',b,' + LF + LF), [['a', '', 'c'], ['', 'b', '']]); assert.deepEqual(parseCsv(' x , y '), [[' x ', ' y ']]); assert.deepEqual(parseCsv(''), []); assert.equal(parseCsv(BOM + 'id')[0][0], 'id');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "parse-csv-comillas",
+      "descripcion": "parseCsv lee campos entre comillas con comas, comillas dobles (\"\") y saltos de línea dentro",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { parseCsv } from './src/logic.js'; const BS = String.fromCharCode(92); const LF = String.fromCharCode(10); const CR = String.fromCharCode(13); const CRLF = CR + LF; const BOM = String.fromCharCode(65279); const Q = String.fromCharCode(34); assert.deepEqual(parseCsv('id,title' + CRLF + 'S1,' + Q + 'Luna, Sol' + Q + CRLF), [['id', 'title'], ['S1', 'Luna, Sol']]); assert.deepEqual(parseCsv('S2,' + Q + 'El ' + Q + Q + 'Sol' + Q + Q + Q), [['S2', 'El ' + Q + 'Sol' + Q]]); assert.deepEqual(parseCsv(Q + 'línea 1' + LF + 'línea 2' + Q + ',x' + LF + 'y,z'), [['línea 1' + LF + 'línea 2', 'x'], ['y', 'z']]); assert.deepEqual(parseCsv(Q + Q + ',' + Q + ',' + Q), [['', ',']]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "to-records",
+      "descripcion": "toRecords usa la cabecera en cualquier orden, recorta los valores, convierte los number (vacío y opcional = null) y devuelve { row, message } por cada fila con error, que no entra en records",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { toRecords } from './src/logic.js'; const F = [{ name: 'id', label: 'Código', type: 'text', required: true }, { name: 'title', label: 'Título', type: 'text', required: true }, { name: 'seats', label: 'Plazas', type: 'number', required: true }, { name: 'minutes', label: 'Minutos', type: 'number', required: false }]; const rows = [['seats', 'id', 'extra', 'title', 'minutes'], ['80', ' S1 ', 'z', ' Luna ', '45'], ['40', 'S2', '', 'Sol', ''], ['10', 'S3', '', '', '5'], ['muchas', 'S4', '', 'Marte', ''], ['', 'S5', '', 'Venus', ''], ['7', 'S6', '', 'Saturno', 'dos'], ['12.5', 'S7']]; const { records, errors } = toRecords(rows, F); assert.deepEqual(records, [{ id: 'S1', title: 'Luna', seats: 80, minutes: 45 }, { id: 'S2', title: 'Sol', seats: 40, minutes: null }]); assert.deepEqual(errors, [{ row: 4, message: 'falta title' }, { row: 5, message: 'seats no es un número' }, { row: 6, message: 'falta seats' }, { row: 7, message: 'minutes no es un número' }, { row: 8, message: 'falta title' }]); assert.deepEqual(toRecords([['id', 'title', 'minutes'], ['S1', 'Luna', '4']], F), { records: [], errors: [{ row: 1, message: 'falta la columna seats' }] }); assert.deepEqual(toRecords([], F), { records: [], errors: [{ row: 1, message: 'falta la columna id' }] }); assert.deepEqual(toRecords([[' id', 'title ', 'seats', 'minutes']], F), { records: [], errors: [] });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "read-records",
+      "descripcion": "readRecords lee un File .csv o .json (sin mirar mayúsculas) con las reglas de toRecords, y avisa en la fila 0 de un JSON roto o que no es una lista",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readRecords } from './src/logic.js'; const F = [{ name: 'id', label: 'Código', type: 'text', required: true }, { name: 'title', label: 'Título', type: 'text', required: true }, { name: 'seats', label: 'Plazas', type: 'number', required: true }, { name: 'minutes', label: 'Minutos', type: 'number', required: false }]; const BS = String.fromCharCode(92); const LF = String.fromCharCode(10); const CR = String.fromCharCode(13); const CRLF = CR + LF; const BOM = String.fromCharCode(65279); const Q = String.fromCharCode(34); const csv = new File([BOM + 'id,title,seats,minutes' + CRLF + 'S1,' + Q + 'Luna, Sol' + Q + ',80,' + CRLF + 'S2,,3,' + CRLF], 'datos.CSV'); assert.deepEqual(await readRecords(csv, F), { records: [{ id: 'S1', title: 'Luna, Sol', seats: 80, minutes: null }], errors: [{ row: 3, message: 'falta title' }] }); const json = new File([JSON.stringify([{ id: 'S3', title: 'Marte', seats: 20, minutes: 30, extra: true }, { id: 'S4', title: 'Venus', seats: 'x' }, { id: 'S5', title: 'Io', seats: 0 }])], 'extra.Json'); assert.deepEqual(await readRecords(json, F), { records: [{ id: 'S3', title: 'Marte', seats: 20, minutes: 30 }, { id: 'S5', title: 'Io', seats: 0, minutes: null }], errors: [{ row: 3, message: 'seats no es un número' }] }); assert.deepEqual(await readRecords(new File(['[{ roto'], 'roto.json'), F), { records: [], errors: [{ row: 0, message: 'no es JSON válido' }] }); assert.deepEqual(await readRecords(new File(['{}'], 'obj.json'), F), { records: [], errors: [{ row: 0, message: 'el JSON no es una lista' }] }); assert.ok(readRecords(new File(['id'], 'a.csv'), F) instanceof Promise, 'devuelve una promesa');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "merge-records",
+      "descripcion": "mergeRecords sustituye por key en la misma posición, añade los nuevos al final, cuenta added y replaced y no cambia los arrays recibidos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { mergeRecords } from './src/logic.js'; const current = [{ id: 'S1', seats: 1 }, { id: 'S2', seats: 2 }]; const incoming = [{ id: 'S3', seats: 3 }, { id: 'S1', seats: 10 }, { id: 'S4', seats: 4 }]; const copyCurrent = structuredClone(current); const copyIncoming = structuredClone(incoming); const result = mergeRecords(current, incoming, 'id'); assert.deepEqual(result, { records: [{ id: 'S1', seats: 10 }, { id: 'S2', seats: 2 }, { id: 'S3', seats: 3 }, { id: 'S4', seats: 4 }], added: 2, replaced: 1 }); assert.deepEqual(current, copyCurrent); assert.deepEqual(incoming, copyIncoming); assert.notEqual(result.records, current); assert.deepEqual(mergeRecords([], [{ code: 'a' }, { code: 'a', v: 2 }], 'code'), { records: [{ code: 'a', v: 2 }], added: 1, replaced: 1 });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "exportar",
+      "descripcion": "toCsv escribe la cabecera y los registros con \\r\\n, vacío para null y comillas cuando hacen falta (y parseCsv lo vuelve a leer igual); exportFile crea el File .csv con BOM o el .json con su nombre y type",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { toCsv, exportFile, parseCsv } from './src/logic.js'; const F = [{ name: 'id', label: 'Código', type: 'text', required: true }, { name: 'title', label: 'Título', type: 'text', required: true }, { name: 'seats', label: 'Plazas', type: 'number', required: true }, { name: 'minutes', label: 'Minutos', type: 'number', required: false }]; const BS = String.fromCharCode(92); const LF = String.fromCharCode(10); const CR = String.fromCharCode(13); const CRLF = CR + LF; const BOM = String.fromCharCode(65279); const Q = String.fromCharCode(34); const records = [{ id: 'S1', title: 'Luna, Sol', seats: 80, minutes: null }, { id: 'S2', title: 'El ' + Q + 'Sol' + Q, seats: 0, minutes: 5 }, { id: 'S3', title: 'dos' + LF + 'líneas', seats: 1, minutes: 2 }]; const text = toCsv(records, F); assert.equal(text, 'id,title,seats,minutes' + CRLF + 'S1,' + Q + 'Luna, Sol' + Q + ',80,' + CRLF + 'S2,' + Q + 'El ' + Q + Q + 'Sol' + Q + Q + Q + ',0,5' + CRLF + 'S3,' + Q + 'dos' + LF + 'líneas' + Q + ',1,2' + CRLF); assert.equal(toCsv([], F), 'id,title,seats,minutes' + CRLF); assert.deepEqual(parseCsv(text).slice(1).map((row) => row[1]), records.map((record) => record.title)); const csv = exportFile(records, F, 'csv', 'sesiones'); assert.ok(csv instanceof File); assert.equal(csv.name, 'sesiones.csv'); assert.equal(csv.type, 'text/csv'); const bytes = await csv.bytes(); assert.deepEqual([...bytes.slice(0, 3)], [239, 187, 191], 'empieza por la marca BOM'); assert.equal(await csv.text(), text); const json = exportFile(records, F, 'json', 'sesiones'); assert.equal(json.name, 'sesiones.json'); assert.equal(json.type, 'application/json'); assert.equal(await json.text(), JSON.stringify(records, null, 2));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "muestras",
+      "descripcion": "Los archivos de muestras/ son del dominio y pasan por tus funciones: datos.csv con 5 o más registros sin errores, datos-extra.json con 2 o más registros sin errores y que actualiza alguno de datos.csv, con-errores.csv con algún registro y 2 o más errores, y leeme.txt rechazado por checkFile",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readFile } from 'node:fs/promises'; import { APP, FIELDS } from './src/data.js'; import { checkFile, readRecords, mergeRecords } from './src/logic.js'; const open = async (name) => new File([await readFile('muestras/' + name)], name); const files = await Promise.all(['datos.csv', 'datos-extra.json', 'con-errores.csv', 'leeme.txt'].map(open)); for (const file of files.slice(0, 3)) assert.equal(checkFile(file, APP), null, file.name + ' debería pasar checkFile'); assert.notEqual(checkFile(files[3], APP), null, 'leeme.txt debería rechazarse'); const [main, extra, broken] = await Promise.all(files.slice(0, 3).map((file) => readRecords(file, FIELDS))); assert.ok(main.records.length >= 5, 'datos.csv: 5 o más registros'); assert.deepEqual(main.errors, [], 'datos.csv sin errores'); assert.ok(extra.records.length >= 2, 'datos-extra.json: 2 o más registros'); assert.deepEqual(extra.errors, [], 'datos-extra.json sin errores'); assert.ok(mergeRecords(main.records, extra.records, APP.key).replaced >= 1, 'datos-extra.json actualiza algún registro de datos.csv'); assert.ok(broken.records.length >= 1 && broken.errors.length >= 2, 'con-errores.csv: algún registro bueno y 2 o más errores'); assert.ok(!main.records.some((record) => Object.values(record).includes('La Luna de cerca')), 'cambia las muestras del ejemplo');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    }
+  ]
+}

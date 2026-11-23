@@ -1,0 +1,68 @@
+:root {
+  --bg: #0d1117;
+  --box: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --blue: #58a6ff;
+  --green: #3fb950;
+  --red: #f85149;
+  --yellow: #F7DF1E;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+main { max-width: 56rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+
+h1 { color: var(--yellow); font-size: 1.6rem; margin-bottom: 0.25rem; }
+h2 { font-size: 1.1rem; margin: 0; }
+
+#zone {
+  margin: 1.5rem 0 1rem;
+  padding: 1.5rem;
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  background: var(--box);
+  text-align: center;
+}
+#zone.is-over { border-color: var(--blue); background: #1c2a3d; }
+#zone label { color: var(--blue); text-decoration: underline; cursor: pointer; }
+/* El input sigue en la página para el teclado y los lectores de pantalla; se ve su label. */
+#zone input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+#zone input:focus-visible + label { outline: 2px solid var(--yellow); outline-offset: 2px; }
+.hint { color: var(--muted); font-size: 0.9rem; margin-bottom: 0; }
+
+#reports { list-style: none; padding: 0; }
+#reports > li { padding: 0.5rem 0.75rem; margin-bottom: 0.5rem; background: var(--box); border-left: 4px solid var(--border); }
+#reports > li.ok { border-color: var(--green); }
+#reports > li.error { border-color: var(--red); }
+#reports ul { margin: 0.25rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1rem 0 0.5rem; }
+.toolbar h2 { flex: 1; }
+#total { color: var(--muted); font-weight: normal; font-size: 0.9rem; }
+
+button {
+  font: inherit;
+  padding: 0.35rem 0.8rem;
+  background: var(--box);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { border-color: var(--blue); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--border); }
+th { color: var(--blue); font-weight: 600; }

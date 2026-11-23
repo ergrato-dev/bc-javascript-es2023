@@ -388,16 +388,16 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 22: Trabajo con Archivos**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- File API
-- FileReader
-- Blob y URL.createObjectURL
-- Drag and Drop
-- Download de archivos
+- `Blob` y `File`: bytes y tipo MIME, `size` en bytes (UTF-8), `text`, `bytes` y `arrayBuffer`, `slice`, `TextEncoder`/`TextDecoder`, firmas de archivo y la marca BOM
+- Leer archivos del usuario: `<input type="file">` con `accept` y `multiple`, validar extensión y tamaño antes de leer, `file.text()`, `FileReader` y sus eventos, JSON, reglas de CSV y errores por fila
+- URLs de objeto y descargas: `URL.createObjectURL`, data URLs, `revokeObjectURL`, `<a download>`, exportar CSV (comillas, `\r\n`, BOM) y JSON, vista previa de imágenes
+- Arrastrar y soltar: `dragenter`, `dragover`, `dragleave` y `drop`, `preventDefault`, `dataTransfer.types` y `files`, resaltar con contador, botón y pegado con una sola función
 
-**Proyecto**: Lector y procesador de archivos
+**Proyecto**: Importador de colección: validar archivos (`formatBytes`, `checkFile`), leer CSV y JSON (`parseCsv`, `toRecords`, `readRecords`), unir registros por clave (`mergeRecords`) y exportar (`toCsv`, `exportFile`), con botón, arrastre y pegado, servida con `node server.js`
 
 ---
 

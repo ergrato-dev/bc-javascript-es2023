@@ -1,132 +1,115 @@
-# 📁 Semana 22: Trabajo con Archivos
+# Semana 22 - Trabajo con Archivos
 
-## 🎯 Objetivos de Aprendizaje
+Muchas páginas reciben archivos (una hoja de cálculo, una foto, un JSON de otro equipo) y muchas los devuelven (exportar a CSV, descargar un informe). Esta semana vas a ver qué es un archivo para JavaScript, a recibirlo con un botón o arrastrándolo, a leerlo y convertirlo en datos sin fiarte de su nombre, y a crear archivos en la página para que la persona los descargue, todo sin servidor.
 
-Al finalizar esta semana, serás capaz de:
+## Objetivos de aprendizaje
 
-- ✅ Leer archivos desde el navegador usando la File API
-- ✅ Procesar contenido de archivos con FileReader
-- ✅ Crear y gestionar objetos Blob y URLs de objeto
-- ✅ Implementar zonas de arrastrar y soltar (Drag & Drop) para archivos
-- ✅ Generar archivos descargables desde JavaScript
+Al terminar la semana podrás:
+
+- Crear y leer `Blob` y `File`, contar bytes, cortar con `slice` y reconocer un archivo por sus primeros bytes.
+- Recibir archivos con `<input type="file">` y validarlos por extensión y tamaño antes de leerlos.
+- Leer archivos con `file.text()` y `FileReader`, y convertir JSON y CSV en datos validando cada fila.
+- Mostrar y descargar archivos creados en la página con URLs de objeto, y liberarlas.
+- Exportar datos a CSV, con sus comillas y la marca BOM, y a JSON.
+- Montar una zona de arrastrar y soltar que funcione también con el botón, el teclado y el pegado.
+
+## Requisitos previos
+
+- `async`/`await` y `Promise.all` de las semanas [13](../week-13-programacion_asincronica_callbacks_promises/README.md) y [14](../week-14-async_await/README.md), y `try...catch` de la [semana 11](../week-11-manejo_errores_moderno/README.md).
+- Crear elementos con `textContent` de la [semana 17](../week-17-dom_manipulation_moderna/README.md) y las acciones por defecto con `preventDefault` de la [semana 18](../week-18-event_handling_avanzado/README.md).
+- El timestamp de un `Date` de la [semana 21](../week-21-fechas_tiempos_date_api/README.md).
+- Un navegador de escritorio actual (Chrome, Edge o Firefox) con sus DevTools, y saber abrir una carpeta en el explorador de archivos.
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
+
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 12.20.0 (o superior)
+  ```
 
 ---
 
-## 📚 Requisitos Previos
+## Contenidos
 
-Antes de iniciar esta semana, debes dominar:
+### 1. Teoría (2 h)
 
-- Fechas y Tiempos / Date API (Semana 21)
-- Formularios y validación (Semana 20)
-- Event handling avanzado (Semana 18)
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Blob y File](1-teoria/01-blob-file.md) | 30 min | Bytes y `type`, leer con `text`, `bytes` y `arrayBuffer`, `slice`, `File`, firmas y la marca BOM |
+| [02 - Leer archivos del usuario](1-teoria/02-leer-archivos.md) | 35 min | `<input type="file">`, validar antes de leer, `file.text()`, `FileReader`, JSON, CSV y errores por fila |
+| [03 - URLs de objeto y descargas](1-teoria/03-urls-descargas.md) | 30 min | `createObjectURL`, data URLs, `revokeObjectURL`, `<a download>`, exportar CSV y JSON, vista previa |
+| [04 - Arrastrar y soltar archivos](1-teoria/04-arrastrar-soltar.md) | 25 min | Eventos de arrastre, `preventDefault`, `dataTransfer`, resaltar la zona, botón y pegado |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Blob y File](2-practicas/lab-01-blob-file/README.md) | 50 min |
+| [Lab 02 - Leer archivos del usuario](2-practicas/lab-02-leer-archivos/README.md) | 55 min |
+| [Lab 03 - URLs de objeto y descargas](2-practicas/lab-03-urls-descargas/README.md) | 55 min |
+| [Lab 04 - Arrastrar y soltar archivos](2-practicas/lab-04-arrastrar-soltar/README.md) | 50 min |
+
+El lab 01 se ejecuta con Node; los demás son páginas que se abren en el navegador con doble clic.
+
+### 3. Proyecto (2 h)
+
+[Importador de colección](3-proyecto/README.md): completas las funciones de `src/logic.js` que validan archivos, leen CSV y JSON, validan cada fila, unen los registros y preparan la exportación, y describes en `src/data.js` y en `muestras/` las fichas del dominio que te asigna el instructor. `scripts/verificar-semana.sh 22` comprueba las funciones y tus muestras.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
 
 ---
 
-## 🗂️ Estructura de la Semana
+## Evaluación
+
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 14/14 comprobaciones, campos y muestras del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
 
 ```text
 week-22-trabajo_archivos/
-├── README.md
-├── RETO-SEMANAL.md
-├── rubrica-evaluacion.md
-├── 0-assets/
-│   ├── README.md
-│   ├── 01-file-api-structure.svg
-│   ├── 02-filereader-lifecycle.svg
-│   ├── 03-blob-url-flow.svg
-│   ├── 04-drag-drop-events.svg
-│   └── 05-download-pattern.svg
-├── 1-teoria/
-│   ├── 01-file-api.md
-│   ├── 02-filereader.md
-│   ├── 03-blob-url.md
-│   ├── 04-drag-drop.md
-│   └── 05-download-archivos.md
-├── 2-practicas/
-│   ├── practica-01-file-api/
-│   ├── practica-02-filereader/
-│   ├── practica-03-blob-url/
-│   └── practica-04-drag-drop/
-├── 3-proyecto/
-│   ├── README.md
-│   ├── index.html
-│   ├── styles.css
-│   ├── starter/
-│   │   └── script.js
-│   └── solution/          # Oculta por .gitignore
-├── 4-recursos/
-│   ├── README.md
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/
-    └── README.md
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                      # 4 diagramas SVG
+|-- 1-teoria/                      # 01 a 04
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-blob-file/          # starter/index.js
+|   |-- lab-02-leer-archivos/      # starter/index.html, main.js y muestras/
+|   |-- lab-03-urls-descargas/     # starter/index.html y main.js
+|   `-- lab-04-arrastrar-soltar/   # starter/index.html, main.js y muestras/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/                   # server.js, index.html, styles.css, src/ y muestras/
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## 📝 Contenidos
+## Versiones de la semana
 
-### 1️⃣ Teoría (2.5 horas)
-
-| # | Tema | Archivo | Duración |
-|---|------|---------|----------|
-| 1 | File API | [01-file-api.md](1-teoria/01-file-api.md) | 30 min |
-| 2 | FileReader | [02-filereader.md](1-teoria/02-filereader.md) | 35 min |
-| 3 | Blob y URL.createObjectURL | [03-blob-url.md](1-teoria/03-blob-url.md) | 30 min |
-| 4 | Drag and Drop | [04-drag-drop.md](1-teoria/04-drag-drop.md) | 30 min |
-| 5 | Download de archivos | [05-download-archivos.md](1-teoria/05-download-archivos.md) | 25 min |
-
-### 2️⃣ Prácticas (3 horas)
-
-| # | Práctica | Carpeta | Duración |
-|---|----------|---------|----------|
-| 1 | File API interactivo | [practica-01](2-practicas/practica-01-file-api/) | 45 min |
-| 2 | FileReader con promesas | [practica-02](2-practicas/practica-02-filereader/) | 45 min |
-| 3 | Blob y vista previa | [practica-03](2-practicas/practica-03-blob-url/) | 45 min |
-| 4 | Zona drag & drop | [practica-04](2-practicas/practica-04-drag-drop/) | 45 min |
-
-### 3️⃣ Proyecto (2 horas)
-
-**Lector y procesador de archivos**
-
-Construirás una aplicación que permita cargar archivos (txt, json, csv), visualizar su contenido, procesarlo y descargarlo modificado.
-
-📁 [Ver instrucciones del proyecto](3-proyecto/README.md)
+`Blob`, `File`, `TextEncoder` y `TextDecoder` existen en Node 24 igual que en el navegador: por eso el lab 01 y las comprobaciones del proyecto se ejecutan con Node. `FileReader`, `DataTransfer` y los eventos de arrastre solo existen en el navegador. `blob.bytes()` es reciente: necesita Node 22 o superior y un navegador actual; en uno antiguo, usa `new Uint8Array(await blob.arrayBuffer())`. El servidor del proyecto usa `import.meta.main`, que necesita Node 24.2 o superior. Las salidas se obtuvieron con Node 24.19.0 y Chromium 156. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## ⏱️ Distribución del Tiempo (8 horas)
+## Navegación
 
-| Actividad | Tiempo | Porcentaje |
-|-----------|--------|------------|
-| Teoría | 2.5h | 31% |
-| Prácticas | 3h | 38% |
-| Proyecto | 2h | 25% |
-| Recursos | 0.5h | 6% |
-
----
-
-## 📌 Entregables
-
-> **🎯 ÚNICO ENTREGABLE**: El proyecto semanal es el único entregable obligatorio.
-
-### Proyecto: Lector y procesador de archivos
-
-- [ ] Cargar archivos con `input[type=file]` o drag & drop
-- [ ] Leer y mostrar el contenido en pantalla
-- [ ] Procesar o transformar el contenido según el dominio
-- [ ] Ofrecer descarga del resultado procesado
-- [ ] Adaptar la interfaz y la lógica al dominio asignado
-
----
-
-## 🔗 Navegación
-
-| ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
-|-------------|-----------|--------------|
-| [Semana 21: Fechas y Tiempos](../week-21-fechas_tiempos_date_api/README.md) | [Índice](../../README.md) | Semana 23: Performance y Optimización (pendiente) |
-
----
-
-_Semana 22 de 28 · Etapa 2: Intermedio · Trabajo con Archivos_
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 21 - Fechas y Tiempos (Date API)](../week-21-fechas_tiempos_date_api/README.md) | Semana 23 - Performance y Optimización (pendiente) |

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="sans-serif">
+  <rect width="800" height="360" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">El camino de un archivo</text>
+
+  <!-- Entradas -->
+  <rect x="20" y="70" width="140" height="46" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="90" y="98" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">input.files</text>
+  <rect x="20" y="130" width="140" height="46" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="90" y="158" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">dataTransfer.files</text>
+  <rect x="20" y="190" width="140" height="46" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="90" y="218" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">clipboardData.files</text>
+  <text x="90" y="262" text-anchor="middle" fill="#8b949e" font-size="12">botón · soltar · pegar</text>
+
+  <!-- FileList -->
+  <rect x="190" y="120" width="110" height="66" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="245" y="148" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">FileList</text>
+  <text x="245" y="168" text-anchor="middle" fill="#8b949e" font-size="11">de File</text>
+
+  <!-- Validar -->
+  <rect x="330" y="120" width="130" height="66" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="395" y="148" text-anchor="middle" fill="#d29922" font-size="14" font-weight="bold">Validar</text>
+  <text x="395" y="168" text-anchor="middle" fill="#8b949e" font-size="11">extensión y size</text>
+
+  <!-- Leer -->
+  <rect x="490" y="120" width="130" height="66" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="555" y="148" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="bold">Leer</text>
+  <text x="555" y="168" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">file.text()</text>
+
+  <!-- Parsear -->
+  <rect x="650" y="120" width="130" height="66" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="715" y="148" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="bold">Parsear</text>
+  <text x="715" y="168" text-anchor="middle" fill="#8b949e" font-size="11">JSON o CSV</text>
+
+  <!-- flechas -->
+  <g stroke="#8b949e" stroke-width="2" fill="none">
+    <path d="M160 93 L175 93 L175 153 L186 153"/>
+    <path d="M160 153 L186 153"/>
+    <path d="M160 213 L175 213 L175 153"/>
+    <path d="M300 153 L326 153"/>
+    <path d="M460 153 L486 153"/>
+    <path d="M620 153 L646 153"/>
+  </g>
+  <g fill="#8b949e">
+    <polygon points="186,148 194,153 186,158"/>
+    <polygon points="326,148 334,153 326,158"/>
+    <polygon points="486,148 494,153 486,158"/>
+    <polygon points="646,148 654,153 646,158"/>
+  </g>
+
+  <!-- salidas de error -->
+  <line x1="395" y1="186" x2="395" y2="236" stroke="#f85149" stroke-width="2"/>
+  <rect x="320" y="236" width="150" height="44" rx="8" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="395" y="256" text-anchor="middle" fill="#f85149" font-size="12">Rechazado sin leer</text>
+  <text x="395" y="272" text-anchor="middle" fill="#8b949e" font-size="11">notas.txt · 2 MB</text>
+
+  <line x1="715" y1="186" x2="715" y2="236" stroke="#3fb950" stroke-width="2"/>
+  <rect x="610" y="236" width="180" height="78" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="700" y="256" text-anchor="middle" fill="#3fb950" font-size="12">Validar cada fila</text>
+  <text x="700" y="276" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">{ records, errors }</text>
+  <text x="700" y="298" text-anchor="middle" fill="#8b949e" font-size="11">Fila 4: seats no es un número</text>
+
+  <text x="400" y="340" text-anchor="middle" fill="#8b949e" font-size="12">Validar antes de leer: el nombre y el tamaño se conocen sin abrir el archivo</text>
+</svg>

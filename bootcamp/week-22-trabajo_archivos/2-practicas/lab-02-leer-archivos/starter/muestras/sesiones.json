@@ -1,0 +1,4 @@
+[
+  { "id": "S4", "title": "Noche de estrellas", "room": "Terraza", "seats": 30 },
+  { "id": "S5", "title": "Cuentos bajo la cúpula", "room": "Cúpula", "seats": 80 }
+]

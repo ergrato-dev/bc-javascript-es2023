@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lab 02 — Leer archivos del usuario</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; background: #0d1117; color: #c9d1d9; }
+      h1 { color: #F7DF1E; font-size: 1.4rem; }
+      label { display: block; margin: 1rem 0 0.5rem; }
+      ul { list-style: none; padding: 0; }
+      li { padding: 0.5rem 0.75rem; border-left: 4px solid #30363d; margin-bottom: 0.25rem; background: #161b22; }
+      .accepted { border-color: #3fb950; }
+      .rejected { border-color: #f85149; }
+    </style>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <h1>Lab 02 — Leer archivos del usuario</h1>
+    <p>Abre la consola de las DevTools (F12) para ver la salida de cada paso.</p>
+    <label for="files">Archivos de sesiones (CSV o JSON)</label>
+    <input id="files" type="file" accept=".csv,.json" multiple />
+    <ul id="summary"></ul>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Importador</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="src/main.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Importador</h1>
+      <p id="intro"></p>
+
+      <section id="zone" aria-labelledby="zone-title">
+        <h2 id="zone-title">Importar archivos</h2>
+        <p>
+          Suelta aquí tus archivos, pégalos con Ctrl+V o
+          <input id="files" type="file" multiple />
+          <label for="files">elígelos desde tu equipo</label>.
+        </p>
+        <p id="rules" class="hint"></p>
+      </section>
+
+      <ul id="reports" aria-live="polite"></ul>
+
+      <section aria-labelledby="records-title">
+        <div class="toolbar">
+          <h2 id="records-title">Registros <span id="total"></span></h2>
+          <button type="button" data-format="csv">Exportar CSV</button>
+          <button type="button" data-format="json">Exportar JSON</button>
+          <button type="button" id="clear">Vaciar</button>
+        </div>
+        <div class="scroll">
+          <table id="records">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
