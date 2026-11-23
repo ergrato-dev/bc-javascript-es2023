@@ -87,6 +87,6 @@ Sustituye una variable global, como `fetch`. Se deshace con `vi.unstubAllGlobals
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 27 - Patrones de Diseño y Clean Code](../../week-27-patrones_clean_code/README.md) → |
 
 [↑ Semana 26](../README.md)

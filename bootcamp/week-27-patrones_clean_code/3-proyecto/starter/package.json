@@ -1,0 +1,23 @@
+{
+  "name": "proyecto-refactorizacion",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js",
+    "test": "vitest run",
+    "lint": "eslint src",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "check": "eslint src && prettier --check src && vitest run"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@12.20.0",
+  "devDependencies": {
+    "eslint": "10.14.0",
+    "prettier": "3.10.0",
+    "vitest": "5.1.0"
+  }
+}

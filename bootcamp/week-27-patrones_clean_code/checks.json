@@ -1,0 +1,132 @@
+{
+  "semana": "27",
+  "titulo": "Patrones de Diseño y Clean Code",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/ y tests/ son módulos ES válidos",
+      "cmd": "cd {proyecto} && for f in src/*.js tests/*.js; do node --check \"$f\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "paquete",
+      "descripcion": "package.json es un módulo ES con eslint 10.x, prettier 3.x y vitest 5.x en versión exacta, los scripts test y lint, y hay pnpm-lock.yaml",
+      "cmd": "test -f {proyecto}/pnpm-lock.yaml && cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readFileSync } from 'node:fs'; const pkg = JSON.parse(readFileSync('package.json', 'utf8')); const dev = pkg.devDependencies ?? {}; assert.equal(pkg.type, 'module', 'type: module'); assert.match(dev.eslint ?? '', /^10[.][0-9]+[.][0-9]+$/, 'eslint con versión exacta 10.x'); assert.match(dev.prettier ?? '', /^3[.][0-9]+[.][0-9]+$/, 'prettier con versión exacta 3.x'); assert.match(dev.vitest ?? '', /^5[.][0-9]+[.][0-9]+$/, 'vitest con versión exacta 5.x'); assert.match(pkg.scripts?.test ?? '', /vitest run/, 'scripts.test ejecuta vitest run'); assert.match(pkg.scripts?.lint ?? '', /eslint/, 'scripts.lint ejecuta eslint');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "referencia-intacta",
+      "descripcion": "src/legacy.js, los tests de caracterización y la configuración de ESLint y Prettier son los del starter",
+      "cmd": "for f in src/legacy.js tests/characterization.test.js eslint.config.js .prettierrc.json .prettierignore; do cmp -s \"{proyecto}/$f\" \"{semana}/3-proyecto/starter/$f\" || { echo \"cambiado: $f\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "sin-legacy",
+      "descripcion": "src/logic.js no importa src/legacy.js ni desactiva reglas de ESLint o de Prettier",
+      "cmd": "cd {proyecto} && ! grep -nE \"legacy([.]js)?['\\\"]|eslint-disable|prettier-ignore\" src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "datos",
+      "descripcion": "SEED tiene 8 fichas o más, con id distintos, de 3 tipos o más, y todas correctas",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { SEED } from './src/data.js'; import { report } from './src/legacy.js'; assert.ok(Array.isArray(SEED) && SEED.length >= 8, 'SEED necesita 8 fichas o más'); assert.equal(new Set(SEED.map((item) => item.id)).size, SEED.length, 'cada ficha necesita un id distinto'); assert.ok(new Set(SEED.map((item) => item.type)).size >= 3, 'SEED necesita 3 tipos o más'); assert.ok(!report(SEED).includes('Fichas con errores'), 'SEED tiene fichas con errores: ' + report(SEED).split('Fichas con errores')[1]); assert.ok(new Set(SEED.map((item) => item.rating)).size >= 3, 'las valoraciones de SEED son casi todas iguales');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "SEED es de tu dominio, no el del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { SEED } from './src/data.js'; const example = ['Viaje a Marte', 'Agujeros negros', 'Eclipses', 'Cohetes de agua', 'Orión en invierno', 'Las estrellas de Lúa']; assert.ok(!SEED.some((item) => example.includes(item.name)), 'SEED tiene fichas del ejemplo'); assert.ok(!SEED.some((item) => ['documental', 'en directo', 'infantil'].includes(item.type)), 'SEED tiene los tipos del ejemplo');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "validateItem",
+      "descripcion": "validateItem devuelve los errores de una ficha con los textos y el orden del original",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { validateItem } from './src/logic.js'; const ok = { id: 'v1', name: 'Uno', type: 'tipo', rating: 5, visitors: 0 }; assert.deepEqual(validateItem(ok), [], 'una ficha correcta no tiene errores'); assert.deepEqual(validateItem({ ...ok, rating: 0 }), [], 'rating 0 es correcto'); assert.deepEqual(validateItem({}), ['falta el nombre', 'falta el tipo', 'la valoración debe estar entre 0 y 5', 'los visitantes deben ser un entero de 0 o más']); assert.deepEqual(validateItem({ ...ok, name: '   ', type: 7 }), ['falta el nombre', 'falta el tipo']); for (const rating of [-0.1, 5.1, Number.NaN, '4', Infinity]) assert.deepEqual(validateItem({ ...ok, rating }), ['la valoración debe estar entre 0 y 5'], 'rating ' + String(rating)); for (const visitors of [-1, 1.5, Number.NaN, Infinity, '3']) assert.deepEqual(validateItem({ ...ok, visitors }), ['los visitantes deben ser un entero de 0 o más'], 'visitors ' + String(visitors));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "splitValid",
+      "descripcion": "splitValid separa las fichas correctas, en su orden, de las que tienen errores, con id '?' si falta",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { splitValid } from './src/logic.js'; const ITEMS = [{ id: 'a1', name: 'Beta', type: 'uno', rating: 3, visitors: 10 }, { id: 'a2', name: 'alfa', type: 'dos', rating: 3, visitors: 2000 }, { id: 'a3', name: 'Gamma', type: 'uno', rating: 5, visitors: 0 }, { id: 'a4', name: 'Ñu', type: 'dos', rating: 0, visitors: 12345 }, { name: 'x', type: '', rating: 6, visitors: -2 }]; const { valid, invalid } = splitValid(ITEMS); assert.deepEqual(valid, ITEMS.slice(0, 4), 'valid: las 4 correctas, en su orden'); assert.deepEqual(invalid, [{ id: '?', errors: ['falta el tipo', 'la valoración debe estar entre 0 y 5', 'los visitantes deben ser un entero de 0 o más'] }]); assert.deepEqual(splitValid([]), { valid: [], invalid: [] });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "filterItems",
+      "descripcion": "filterItems filtra por tipo y por valoración mínima sin cambiar el array",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { filterItems } from './src/logic.js'; const ITEMS = [{ id: 'a1', name: 'Beta', type: 'uno', rating: 3, visitors: 10 }, { id: 'a2', name: 'alfa', type: 'dos', rating: 3, visitors: 2000 }, { id: 'a3', name: 'Gamma', type: 'uno', rating: 5, visitors: 0 }, { id: 'a4', name: 'Ñu', type: 'dos', rating: 0, visitors: 12345 }, { name: 'x', type: '', rating: 6, visitors: -2 }]; const items = ITEMS.slice(0, 4); const copy = structuredClone(items); const ids = (list) => list.map((item) => item.id); assert.deepEqual(ids(filterItems(items, {})), ['a1', 'a2', 'a3', 'a4'], 'sin opciones, todas'); assert.deepEqual(ids(filterItems(items, { type: 'uno' })), ['a1', 'a3']); assert.deepEqual(ids(filterItems(items, { minRating: 3 })), ['a1', 'a2', 'a3'], 'minRating incluye el valor justo'); assert.deepEqual(ids(filterItems(items, { type: 'dos', minRating: 1 })), ['a2']); assert.deepEqual(ids(filterItems(items, { type: '', minRating: 0 })), ['a1', 'a2', 'a3', 'a4'], 'type vacío: todos los tipos'); assert.deepEqual(items, copy, 'filterItems cambió el array');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "sortItems",
+      "descripcion": "sortItems ordena una copia con SORTERS, desempata por nombre, y acepta estrategias nuevas sin cambiarla",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { SORTERS, sortItems } from './src/logic.js'; const ITEMS = [{ id: 'a1', name: 'Beta', type: 'uno', rating: 3, visitors: 10 }, { id: 'a2', name: 'alfa', type: 'dos', rating: 3, visitors: 2000 }, { id: 'a3', name: 'Gamma', type: 'uno', rating: 5, visitors: 0 }, { id: 'a4', name: 'Ñu', type: 'dos', rating: 0, visitors: 12345 }, { name: 'x', type: '', rating: 6, visitors: -2 }]; const items = ITEMS.slice(0, 4); const copy = structuredClone(items); const ids = (list) => list.map((item) => item.id); assert.deepEqual(Object.keys(SORTERS).toSorted(), ['name', 'rating', 'visitors']); assert.deepEqual(ids(sortItems(items, { by: 'name' })), ['a2', 'a1', 'a3', 'a4'], 'por nombre, con localeCompare es'); assert.deepEqual(ids(sortItems(items, { by: 'rating' })), ['a4', 'a2', 'a1', 'a3'], 'por valoración, con empate por nombre'); assert.deepEqual(ids(sortItems(items, { by: 'visitors', desc: true })), ['a4', 'a2', 'a1', 'a3']); assert.deepEqual(ids(sortItems(items, { by: 'precio' })), ['a1', 'a2', 'a3', 'a4'], 'un criterio desconocido deja el orden'); assert.deepEqual(ids(sortItems(items, { desc: true })), ['a4', 'a3', 'a2', 'a1']); assert.deepEqual(items, copy, 'sortItems cambió el array'); assert.notEqual(sortItems(items, {}), items, 'sortItems devuelve el mismo array, no una copia'); SORTERS.id = (a, b) => b.id.localeCompare(a.id); assert.deepEqual(ids(sortItems(items, { by: 'id' })), ['a4', 'a3', 'a2', 'a1'], 'sortItems no usa una estrategia nueva de SORTERS');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "summarize",
+      "descripcion": "summarize calcula el resumen: número de fichas, media a un decimal, visitantes y tipo más frecuente",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { summarize } from './src/logic.js'; const ITEMS = [{ id: 'a1', name: 'Beta', type: 'uno', rating: 3, visitors: 10 }, { id: 'a2', name: 'alfa', type: 'dos', rating: 3, visitors: 2000 }, { id: 'a3', name: 'Gamma', type: 'uno', rating: 5, visitors: 0 }, { id: 'a4', name: 'Ñu', type: 'dos', rating: 0, visitors: 12345 }, { name: 'x', type: '', rating: 6, visitors: -2 }]; const items = ITEMS.slice(0, 4); assert.deepEqual(summarize(items), { count: 4, averageRating: 2.8, totalVisitors: 14355, topType: 'dos' }, 'empate de tipos: el primero por código'); assert.deepEqual(summarize(items.slice(0, 3)), { count: 3, averageRating: 3.7, totalVisitors: 2010, topType: 'uno' }); assert.deepEqual(summarize([]), { count: 0, averageRating: 0, totalVisitors: 0, topType: '—' }); assert.equal(summarize([{ ...items[0], type: 'Zeta' }, { ...items[0], type: 'alfa' }]).topType, 'Zeta', 'el empate se decide con < y >, no con localeCompare');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "formatReport",
+      "descripcion": "formatLine y formatReport escriben las líneas del informe como el original",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { formatLine, formatReport } from './src/logic.js'; const ITEMS = [{ id: 'a1', name: 'Beta', type: 'uno', rating: 3, visitors: 10 }, { id: 'a2', name: 'alfa', type: 'dos', rating: 3, visitors: 2000 }, { id: 'a3', name: 'Gamma', type: 'uno', rating: 5, visitors: 0 }, { id: 'a4', name: 'Ñu', type: 'dos', rating: 0, visitors: 12345 }, { name: 'x', type: '', rating: 6, visitors: -2 }]; assert.equal(formatLine(ITEMS[3], 12), '12. Ñu (dos) · ★ 0.0 · 12.345 visitantes'); assert.equal(formatLine(ITEMS[1], 1), '1. alfa (dos) · ★ 3.0 · 2000 visitantes'); const summary = { count: 1, averageRating: 3, totalVisitors: 2000, topType: 'dos' }; assert.equal(formatReport({ items: [ITEMS[1]], total: 5, summary, invalid: [] }), ['Informe: 1 de 5 fichas', '1. alfa (dos) · ★ 3.0 · 2000 visitantes', 'Media: 3.0 · Visitantes: 2000 · Tipo más frecuente: dos'].join(String.fromCharCode(10))); const empty = { count: 0, averageRating: 0, totalVisitors: 0, topType: '—' }; assert.equal(formatReport({ items: [], total: 2, summary: empty, invalid: [{ id: 'z9', errors: ['falta el nombre', 'falta el tipo'] }, { id: '?', errors: ['falta el tipo'] }] }), ['Informe: 0 de 2 fichas', 'Sin fichas que mostrar.', 'Media: 0.0 · Visitantes: 0 · Tipo más frecuente: —', 'Fichas con errores (2):', '- z9: falta el nombre, falta el tipo', '- ?: falta el tipo'].join(String.fromCharCode(10)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "createEmitter",
+      "descripcion": "createEmitter avisa a cada oyente de su evento, en orden, y on devuelve la función que deja de escuchar",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createEmitter } from './src/logic.js'; const emitter = createEmitter(); const calls = []; const off = emitter.on('a', (data) => calls.push('1:' + data)); emitter.on('a', (data) => calls.push('2:' + data)); emitter.on('b', (data) => calls.push('b:' + data)); emitter.emit('a', 'x'); assert.deepEqual(calls, ['1:x', '2:x']); assert.equal(typeof off, 'function', 'on devuelve una función'); off(); emitter.emit('a', 'y'); assert.deepEqual(calls, ['1:x', '2:x', '2:y'], 'tras off, el primero no escucha'); emitter.emit('nadie', 'z'); emitter.emit('b', 'w'); assert.deepEqual(calls.at(-1), 'b:w'); assert.notEqual(createEmitter().on, emitter.on, 'cada emisor tiene sus oyentes');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "createReporter",
+      "descripcion": "createReporter().build escribe el mismo informe que report() con otras fichas y opciones, y emite el resumen en el emisor que recibe",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createReporter, createEmitter } from './src/logic.js'; import { report } from './src/legacy.js'; const ITEMS = [{ id: 'a1', name: 'Beta', type: 'uno', rating: 3, visitors: 10 }, { id: 'a2', name: 'alfa', type: 'dos', rating: 3, visitors: 2000 }, { id: 'a3', name: 'Gamma', type: 'uno', rating: 5, visitors: 0 }, { id: 'a4', name: 'Ñu', type: 'dos', rating: 0, visitors: 12345 }, { name: 'x', type: '', rating: 6, visitors: -2 }]; const OPTIONS = [{}, { sort: 'name' }, { sort: 'rating', desc: true }, { sort: 'visitors' }, { type: 'dos' }, { minRating: 3, sort: 'name', desc: true }, { type: 'tres' }, { minRating: 3, type: 'uno' }]; for (const items of [ITEMS, ITEMS.toReversed(), []]) for (const options of OPTIONS) { const reporter = createReporter(); assert.equal(reporter.build(items, options), report(items, options.type, options.sort, options.desc, options.minRating), JSON.stringify(options)); } const emitter = createEmitter(); const seen = []; emitter.on('report', (summary) => seen.push(summary)); let expected; report(ITEMS, 'uno', undefined, false, undefined, (summary) => { expected = summary; }); createReporter({ emitter }).build(ITEMS, { type: 'uno' }); assert.deepEqual(seen, [expected], 'build emite report con el resumen en el emisor recibido'); const own = createReporter(); const got = []; own.on('report', (summary) => got.push(summary.count)); own.build(ITEMS); own.build([]); assert.deepEqual(got, [4, 0], 'sin emisor, createReporter crea el suyo y on escucha en él');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "tests-pasan",
+      "descripcion": "Los tests de caracterización pasan: tu versión hace lo mismo que la original",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && timeout 60 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "lint",
+      "descripcion": "ESLint no encuentra ningún problema en src/ con la configuración del starter",
+      "cmd": "cd {proyecto} && test -d node_modules/eslint && ./node_modules/.bin/eslint src",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "formato",
+      "descripcion": "src/ tiene el formato de Prettier",
+      "cmd": "cd {proyecto} && test -d node_modules/prettier && ./node_modules/.bin/prettier --check src",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    }
+  ]
+}

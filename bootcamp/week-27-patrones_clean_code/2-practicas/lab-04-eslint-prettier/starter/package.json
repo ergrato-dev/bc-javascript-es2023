@@ -1,0 +1,21 @@
+{
+  "name": "lab-04-eslint-prettier",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "eslint . && prettier --check ."
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@12.20.0",
+  "devDependencies": {
+    "eslint": "10.14.0",
+    "prettier": "3.10.0"
+  }
+}

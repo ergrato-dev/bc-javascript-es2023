@@ -23,6 +23,8 @@ Criterio: nunca la última versión publicada ni una con menos de 7 días, por r
 | Componente | Versión | Dónde se fija | Por qué |
 |---|---|---|---|
 | Vitest y @vitest/coverage-v8 | 5.1.0 (publicada el 2026-11-02; la 5.1.1 tenía menos de 7 días al fijarla) | `devDependencies` con versión exacta y `pnpm-lock.yaml`, desde S25 | Testing de S25–S28: ESM nativo, sin transpilar, API compatible con Jest. Las dos en la misma versión |
+| ESLint | 10.14.0 (publicada el 2026-10-30; la 10.15.0 es la última) | `devDependencies` con versión exacta y `pnpm-lock.yaml`, desde S27 | Linter con configuración plana (`eslint.config.js`). Reglas escritas una a una, sin `@eslint/js`, cuya única versión 10 es la última publicada |
+| Prettier | 3.10.0 (publicada el 2026-11-11; la 3.10.1 es la última) | `devDependencies` con versión exacta y `pnpm-lock.yaml`, desde S27 | Formateador. `.prettierrc.json` con `singleQuote` y `printWidth: 100`; `pnpm-lock.yaml` en `.prettierignore` |
 
 Hasta S24 los proyectos no tienen dependencias: JavaScript del navegador y de Node, sin `package.json`.
 

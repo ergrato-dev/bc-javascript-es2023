@@ -114,4 +114,4 @@ Vitest 5.1.0 y `@vitest/coverage-v8` 5.1.0, las mismas de la semana 25, fijadas 
 
 | ← Semana anterior | Siguiente → |
 |---|---|
-| [Semana 25 - Testing con Vitest - Parte 1](../week-25-testing_vitest_parte_1/README.md) | Semana 27 - Patrones de Diseño y Clean Code (pendiente) |
+| [Semana 25 - Testing con Vitest - Parte 1](../week-25-testing_vitest_parte_1/README.md) | [Semana 27 - Patrones de Diseño y Clean Code](../week-27-patrones_clean_code/README.md) |

@@ -54,7 +54,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ### 📗 Etapa 2: Intermedio (Semanas 13-24) — ✅ escrita
 **96 horas totales** | Programación asincrónica y manipulación del DOM
 
-### 📕 Etapa 3: Avanzado (Semanas 25-28) — 🟡 en curso (S25–S26 escritas)
+### 📕 Etapa 3: Avanzado (Semanas 25-28) — 🟡 en curso (S25–S27 escritas)
 **32 horas totales** | Testing, patrones y mejores prácticas
 
 ---
@@ -461,17 +461,18 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 27: Patrones de Diseño y Clean Code** ⏳ _pendiente_
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+#### **Week 27: Patrones de Diseño y Clean Code**
+**Estado**: ✅ Escrita
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Patrones: Module, Singleton, Factory, Observer
-- SOLID principles
-- Clean code principles
-- Code smells y refactoring
-- ESLint y Prettier (con `pnpm`)
+- Module, Singleton y Factory: lo público y lo privado de un módulo, la instancia única, funciones fábrica y fábricas que eligen qué crear
+- Observer y Strategy: un emisor de eventos, `EventTarget`, y estrategias en lugar de un `switch`
+- Clean code: nombres, funciones que hacen una cosa, objetos de opciones, cláusulas de guarda, números con nombre, efectos y comentarios
+- SOLID con funciones y objetos, e inyección de dependencias
+- Code smells, refactorizar con tests de caracterización, ESLint y Prettier con `pnpm`
 
-**Proyecto**: Refactorización de código legacy
+**Proyecto**: Refactorización de código legacy: la versión limpia de una función heredada que valida, filtra, ordena, resume y escribe el informe de un catálogo (`validateItem`, `splitValid`, `filterItems`, `SORTERS`, `sortItems`, `summarize`, `formatReport`, `createEmitter`, `createReporter`), con las fichas del dominio, el mismo informe que el original en 60 tests de caracterización y ESLint con límites de clean code sin errores
 
 ---
 

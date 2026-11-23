@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="sans-serif">
+  <rect width="800" height="450" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Refactorizar sin romper</text>
+
+  <!-- 1. Caracterización -->
+  <rect x="30" y="80" width="220" height="130" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="140" y="112" text-anchor="middle" fill="#58a6ff" font-size="17" font-weight="bold">1. Caracterizar</text>
+  <text x="140" y="140" text-anchor="middle" fill="#c9d1d9" font-size="13">Tests que apuntan lo que</text>
+  <text x="140" y="158" text-anchor="middle" fill="#c9d1d9" font-size="13">el código hace hoy,</text>
+  <text x="140" y="176" text-anchor="middle" fill="#c9d1d9" font-size="13">también lo raro.</text>
+  <text x="140" y="198" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="12">✓ pasan todos</text>
+
+  <path d="M 250 145 L 316 145" stroke="#30363d" stroke-width="3" fill="none"/>
+  <polygon points="316,138 330,145 316,152" fill="#30363d"/>
+
+  <!-- 2. Cambio pequeño -->
+  <rect x="332" y="80" width="200" height="130" rx="12" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="432" y="112" text-anchor="middle" fill="#d29922" font-size="17" font-weight="bold">2. Un cambio</text>
+  <text x="432" y="140" text-anchor="middle" fill="#c9d1d9" font-size="13">Renombrar, extraer</text>
+  <text x="432" y="158" text-anchor="middle" fill="#c9d1d9" font-size="13">una función, quitar</text>
+  <text x="432" y="176" text-anchor="middle" fill="#c9d1d9" font-size="13">un nivel de if.</text>
+
+  <path d="M 532 145 L 598 145" stroke="#30363d" stroke-width="3" fill="none"/>
+  <polygon points="598,138 612,145 598,152" fill="#30363d"/>
+
+  <!-- 3. Tests -->
+  <rect x="614" y="80" width="156" height="130" rx="12" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="692" y="112" text-anchor="middle" fill="#c9d1d9" font-size="17" font-weight="bold">3. Tests</text>
+  <text x="692" y="146" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">pnpm test</text>
+  <text x="692" y="176" text-anchor="middle" fill="#8b949e" font-size="12">sin tocarlos</text>
+
+  <!-- Verde: vuelta al cambio -->
+  <path d="M 660 210 C 660 290, 470 290, 450 222" stroke="#3fb950" stroke-width="3" fill="none"/>
+  <polygon points="443,226 448,210 457,224" fill="#3fb950"/>
+  <text x="560" y="300" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="bold">✓ verde: el siguiente cambio</text>
+
+  <!-- Rojo: deshacer -->
+  <path d="M 730 210 L 730 340" stroke="#f85149" stroke-width="3" fill="none"/>
+  <polygon points="723,340 730,354 737,340" fill="#f85149"/>
+  <rect x="440" y="356" width="330" height="72" rx="12" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="605" y="386" text-anchor="middle" fill="#f85149" font-size="15" font-weight="bold">× rojo: deshacer o arreglar</text>
+  <text x="605" y="410" text-anchor="middle" fill="#c9d1d9" font-size="13">El error está en el último cambio.</text>
+
+  <!-- Nota -->
+  <text x="40" y="270" fill="#c9d1d9" font-size="13">Refactorizar no cambia</text>
+  <text x="40" y="290" fill="#c9d1d9" font-size="13">lo que hace el código:</text>
+  <text x="40" y="310" fill="#c9d1d9" font-size="13">mismas entradas,</text>
+  <text x="40" y="330" fill="#c9d1d9" font-size="13">mismas salidas.</text>
+  <text x="40" y="364" fill="#8b949e" font-size="12">Arreglar un error o añadir algo</text>
+  <text x="40" y="382" fill="#8b949e" font-size="12">va en otro paso, después.</text>
+</svg>

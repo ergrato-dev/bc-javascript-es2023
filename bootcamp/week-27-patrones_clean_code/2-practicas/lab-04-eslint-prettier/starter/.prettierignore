@@ -1,0 +1,2 @@
+# Lo escribe pnpm: no se formatea a mano ni con Prettier.
+pnpm-lock.yaml
