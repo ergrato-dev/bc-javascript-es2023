@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" font-family="sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <rect width="800" height="480" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Un módulo por tarea, y tests para lo que escribes tú</text>
+
+  <!-- main.js -->
+  <rect x="300" y="60" width="200" height="90" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="400" y="88" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold" font-family="monospace">main.js</text>
+  <text x="400" y="110" text-anchor="middle" fill="#8b949e" font-size="12">la página: eventos y DOM</text>
+  <text x="400" y="128" text-anchor="middle" fill="#8b949e" font-size="12">crea el almacén y la API</text>
+
+  <!-- view.js -->
+  <rect x="40" y="60" width="200" height="90" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="140" y="88" text-anchor="middle" fill="#c9d1d9" font-size="16" font-weight="bold" font-family="monospace">view.js</text>
+  <text x="140" y="110" text-anchor="middle" fill="#8b949e" font-size="12">textos y HTML de las fichas</text>
+  <text x="140" y="128" text-anchor="middle" fill="#8b949e" font-size="12">sin DOM · ya escrito</text>
+  <line x1="300" y1="105" x2="244" y2="105" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- data.js -->
+  <rect x="560" y="60" width="200" height="90" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="660" y="88" text-anchor="middle" fill="#c9d1d9" font-size="16" font-weight="bold" font-family="monospace">data.js</text>
+  <text x="660" y="110" text-anchor="middle" fill="#8b949e" font-size="12">APP, FIELDS y SEED</text>
+  <text x="660" y="128" text-anchor="middle" fill="#8b949e" font-size="12">tu dominio</text>
+  <line x1="500" y1="105" x2="556" y2="105" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- store.js -->
+  <rect x="40" y="200" width="200" height="100" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="140" y="228" text-anchor="middle" fill="#3fb950" font-size="16" font-weight="bold" font-family="monospace">store.js</text>
+  <text x="140" y="250" text-anchor="middle" fill="#8b949e" font-size="12">createStore: Observer</text>
+  <text x="140" y="268" text-anchor="middle" fill="#8b949e" font-size="12">guarda el estado y avisa</text>
+
+  <!-- logic.js -->
+  <rect x="300" y="200" width="200" height="100" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="400" y="228" text-anchor="middle" fill="#3fb950" font-size="16" font-weight="bold" font-family="monospace">logic.js</text>
+  <text x="400" y="250" text-anchor="middle" fill="#8b949e" font-size="12">funciones puras: reduce,</text>
+  <text x="400" y="268" text-anchor="middle" fill="#8b949e" font-size="12">selectPage, validate, SORTERS</text>
+
+  <!-- api.js -->
+  <rect x="560" y="200" width="200" height="100" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="660" y="228" text-anchor="middle" fill="#3fb950" font-size="16" font-weight="bold" font-family="monospace">api.js</text>
+  <text x="660" y="250" text-anchor="middle" fill="#8b949e" font-size="12">createApi: Factory</text>
+  <text x="660" y="268" text-anchor="middle" fill="#8b949e" font-size="12">recibe fetchFn</text>
+
+  <!-- arrows main to store / logic / api -->
+  <line x1="340" y1="154" x2="200" y2="196" stroke="#8b949e" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="262" y="166" text-anchor="end" fill="#c9d1d9" font-size="11" font-family="monospace">dispatch</text>
+  <text x="230" y="182" text-anchor="end" fill="#d29922" font-size="11" font-family="monospace">avisa: render</text>
+  <line x1="400" y1="150" x2="400" y2="196" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="408" y="180" fill="#c9d1d9" font-size="11" font-family="monospace">selectPage</text>
+  <line x1="460" y1="150" x2="600" y2="196" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="572" y="168" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="monospace">list, create…</text>
+  <line x1="240" y1="250" x2="296" y2="250" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="268" y="242" text-anchor="middle" fill="#c9d1d9" font-size="11" font-family="monospace">reduce</text>
+
+  <!-- server.js -->
+  <rect x="560" y="330" width="200" height="60" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="660" y="356" text-anchor="middle" fill="#c9d1d9" font-size="16" font-weight="bold" font-family="monospace">server.js</text>
+  <text x="660" y="376" text-anchor="middle" fill="#8b949e" font-size="12">la API REST · ya escrito</text>
+  <line x1="660" y1="300" x2="660" y2="326" stroke="#8b949e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="668" y="318" fill="#c9d1d9" font-size="11">HTTP</text>
+
+  <!-- tests -->
+  <rect x="40" y="330" width="460" height="60" rx="8" fill="#161b22" stroke="#3fb950" stroke-dasharray="6 4"/>
+  <text x="270" y="356" text-anchor="middle" fill="#3fb950" font-size="15" font-weight="bold" font-family="monospace">tests/logic · store · api .test.js</text>
+  <text x="270" y="376" text-anchor="middle" fill="#8b949e" font-size="12">los escribes tú: 30 o más, cobertura del 90 %</text>
+  <line x1="140" y1="330" x2="140" y2="304" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <line x1="400" y1="330" x2="400" y2="304" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <line x1="500" y1="350" x2="556" y2="290" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+  <!-- pnpm check -->
+  <rect x="40" y="415" width="720" height="44" rx="8" fill="#161b22" stroke="#F7DF1E"/>
+  <text x="400" y="443" text-anchor="middle" fill="#c9d1d9" font-size="14"><tspan fill="#F7DF1E" font-family="monospace" font-weight="bold">pnpm check</tspan> = ESLint (límites de clean code) → Prettier → Vitest con cobertura</text>
+</svg>

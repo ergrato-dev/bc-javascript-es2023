@@ -1,0 +1,85 @@
+:root {
+  --bg: #0d1117;
+  --box: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --blue: #58a6ff;
+  --red: #f85149;
+  --yellow: #F7DF1E;
+}
+
+* { box-sizing: border-box; }
+
+/* `display: flex` de abajo ganaría al atributo hidden: así hidden siempre oculta. */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+main { max-width: 48rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+
+h1 { color: var(--yellow); font-size: 1.6rem; margin-bottom: 0.25rem; }
+h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+h3 { font-size: 1rem; margin: 0 0 0.25rem; }
+
+input, button {
+  font: inherit;
+  color: inherit;
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+}
+
+input:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+button { cursor: pointer; }
+button:hover:not(:disabled) { border-color: var(--blue); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+#search { display: flex; gap: 0.5rem; align-items: center; margin-top: 1.5rem; }
+#search input { flex: 1; min-width: 0; }
+label { font-weight: 600; }
+
+.status-line { display: flex; gap: 0.75rem; align-items: center; min-height: 2.75rem; }
+#status { color: var(--muted); margin: 0.5rem 0; }
+
+#list { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); }
+#list[aria-busy="true"] { opacity: 0.6; }
+
+.card {
+  background: var(--box);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+.card dl { display: grid; grid-template-columns: auto 1fr; gap: 0 0.75rem; margin: 0 0 0.75rem; font-size: 0.9rem; }
+.card dt { color: var(--muted); }
+.card dd { margin: 0; }
+.card button { margin-right: 0.5rem; padding: 0.2rem 0.6rem; }
+
+#summary { color: var(--muted); font-size: 0.9rem; }
+
+.sort { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+.sort button[aria-pressed="true"] { border-color: var(--blue); color: var(--blue); }
+
+#pager { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+
+#editor {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.field { display: grid; gap: 0.25rem; margin-bottom: 0.75rem; }
+.field small { color: var(--red); min-height: 1.2em; }
+.field input[aria-invalid="true"] { border-color: var(--red); }
+.actions { display: flex; gap: 0.5rem; }
+#form-status { color: var(--muted); }

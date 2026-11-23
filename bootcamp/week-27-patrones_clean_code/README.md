@@ -112,4 +112,4 @@ ESLint 10.14.0 y Prettier 3.10.0, nuevas esta semana, y Vitest 5.1.0, la de las 
 
 | ← Semana anterior | Siguiente → |
 |---|---|
-| [Semana 26 - Testing con Vitest - Parte 2](../week-26-testing_vitest_parte_2/README.md) | Semana 28 - Proyecto Final (pendiente) |
+| [Semana 26 - Testing con Vitest - Parte 2](../week-26-testing_vitest_parte_2/README.md) | [Semana 28 - Proyecto Final](../week-28-proyecto_final/README.md) |

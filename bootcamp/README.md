@@ -35,7 +35,7 @@ Estado de cada semana:
 | [25](week-25-testing_vitest_parte_1/README.md) | [Testing con Vitest — Parte 1](week-25-testing_vitest_parte_1/README.md) | Avanzado | ✅ |
 | [26](week-26-testing_vitest_parte_2/README.md) | [Testing con Vitest — Parte 2](week-26-testing_vitest_parte_2/README.md) | Avanzado | ✅ |
 | [27](week-27-patrones_clean_code/README.md) | [Patrones de Diseño y Clean Code](week-27-patrones_clean_code/README.md) | Avanzado | ✅ |
-| 28 | Proyecto Final — Bootcamp | Avanzado | ⬜ |
+| [28](week-28-proyecto_final/README.md) | [Proyecto Final — Bootcamp](week-28-proyecto_final/README.md) | Avanzado | ✅ |
 
 **Total: 28 semanas × 8 h = 224 horas.**
 

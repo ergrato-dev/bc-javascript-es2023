@@ -1,0 +1,153 @@
+{
+  "semana": "28",
+  "titulo": "Proyecto Final",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "server.js, src/ y tests/ son módulos ES válidos",
+      "cmd": "cd {proyecto} && for f in server.js src/*.js tests/*.js; do node --check \"$f\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "paquete",
+      "descripcion": "package.json es un módulo ES con eslint 10.x, prettier 3.x, vitest 5.x y @vitest/coverage-v8 5.x en versión exacta, y hay pnpm-lock.yaml",
+      "cmd": "test -f {proyecto}/pnpm-lock.yaml && cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readFileSync } from 'node:fs'; const pkg = JSON.parse(readFileSync('package.json', 'utf8')); const dev = pkg.devDependencies ?? {}; assert.equal(pkg.type, 'module', 'type: module'); assert.match(dev.eslint ?? '', /^10[.][0-9]+[.][0-9]+$/, 'eslint con versión exacta 10.x'); assert.match(dev.prettier ?? '', /^3[.][0-9]+[.][0-9]+$/, 'prettier con versión exacta 3.x'); assert.match(dev.vitest ?? '', /^5[.][0-9]+[.][0-9]+$/, 'vitest con versión exacta 5.x'); assert.equal(dev['@vitest/coverage-v8'], dev.vitest, '@vitest/coverage-v8 con la misma versión que vitest'); assert.match(pkg.scripts?.check ?? '', /eslint.*prettier.*vitest/, 'scripts.check ejecuta eslint, prettier y vitest');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "base-intacta",
+      "descripcion": "server.js, src/main.js, src/view.js y la configuración de ESLint, Vitest y Prettier son los del starter",
+      "cmd": "for f in server.js src/main.js src/view.js eslint.config.js vitest.config.js .prettierrc.json .prettierignore; do cmp -s \"{proyecto}/$f\" \"{semana}/3-proyecto/starter/$f\" || { echo \"cambiado: $f\"; exit 1; }; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js, src/store.js y src/api.js no tienen ningún TODO, y los tests no tienen it.todo ni it.skip",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js src/store.js src/api.js && ! grep -nE '[.](todo|skip|only)[(]' tests/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "sin-atajos",
+      "descripcion": "src/ y tests/ no desactivan reglas de ESLint, Prettier ni la cobertura",
+      "cmd": "cd {proyecto} && ! grep -nE 'eslint-disable|prettier-ignore|(v8|istanbul|c8) ignore' src/*.js tests/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "datos",
+      "descripcion": "data.js exporta APP (title, intro y perPage entero de 3 a 20), de 3 a 8 FIELDS (name camelCase sin repetir ni id, label, type text o number, el primero text y obligatorio, al menos un number) y de 8 a 30 SEED que cumplen las reglas de FIELDS, con el primer campo sin repetir",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, FIELDS, SEED } from './src/data.js'; for (const key of ['title', 'intro']) assert.ok(typeof APP[key] === 'string' && APP[key].trim() !== '', 'APP.' + key); assert.ok(Number.isInteger(APP.perPage) && APP.perPage >= 3 && APP.perPage <= 20, 'APP.perPage de 3 a 20'); assert.ok(Array.isArray(FIELDS) && FIELDS.length >= 3 && FIELDS.length <= 8, 'de 3 a 8 FIELDS'); const names = FIELDS.map((field) => field.name); assert.equal(new Set(names).size, names.length, 'name sin repetir'); for (const field of FIELDS) { assert.match(field.name, /^[a-z][a-zA-Z0-9]*$/, 'name camelCase: ' + field.name); assert.notEqual(field.name, 'id'); assert.ok(typeof field.label === 'string' && field.label !== '', 'label de ' + field.name); assert.ok(['text', 'number'].includes(field.type), 'type de ' + field.name); } assert.ok(FIELDS[0].type === 'text' && FIELDS[0].required === true, 'el primer campo es text y obligatorio'); assert.ok(FIELDS.some((field) => field.type === 'number'), 'al menos un campo number'); assert.ok(Array.isArray(SEED) && SEED.length >= 8 && SEED.length <= 30, 'de 8 a 30 fichas en SEED'); const empty = (value) => value === null || value === undefined || String(value).trim() === ''; for (const item of SEED) for (const field of FIELDS) { const value = item[field.name]; const where = item[names[0]] + '.' + field.name; if (empty(value)) { assert.ok(!field.required, where + ' es obligatorio'); continue; } if (field.type === 'number') { assert.ok(Number.isFinite(value), where + ' debe ser un número'); assert.ok((field.min === undefined || value >= field.min) && (field.max === undefined || value <= field.max), where + ' fuera de min y max'); } else { assert.equal(typeof value, 'string', where + ' debe ser un texto'); assert.ok(field.minLength === undefined || value.trim().length >= field.minLength, where + ' más corto que minLength'); } } const firsts = SEED.map((item) => String(item[names[0]]).toLowerCase()); assert.equal(new Set(firsts).size, firsts.length, 'el primer campo se repite en SEED');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "APP y SEED son de tu dominio, no del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, FIELDS, SEED } from './src/data.js'; const example = ['Sirio', 'Vega', 'Betelgeuse', 'Nebulosa de Orión', 'Pléyades', 'Galaxia de Andrómeda', 'Omega Centauri']; assert.ok(!/planetario/i.test(APP.title), 'APP.title es el del ejemplo'); assert.ok(!SEED.some((item) => example.includes(item[FIELDS[0].name])), 'SEED tiene fichas del ejemplo');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "validate",
+      "descripcion": "validate convierte los valores y da el primer error de cada campo con los textos del enunciado",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { validate } from './src/logic.js'; const F = [{ name: 'title', label: 'Título', type: 'text', required: true, minLength: 2 }, { name: 'genre', label: 'Género', type: 'text' }, { name: 'pages', label: 'Páginas', type: 'number', min: 1, max: 2000 }]; const ITEMS = [{ id: 1, title: 'Zorro', genre: 'Novela', pages: 300 }, { id: 2, title: 'árbol', genre: 'Poesía', pages: null }, { id: 3, title: 'Ébano', genre: null, pages: 120 }, { id: 4, title: 'Luz', genre: 'Novela', pages: 300 }, { id: 5, title: 'Ñandú', genre: 'Ensayo', pages: 45 }]; const titles = (list) => list.map((item) => item.title); let result = validate({ title: ' A ', genre: '  ', pages: '0' }, F); assert.deepEqual(result.data, { title: 'A', genre: null, pages: 0 }, 'data: texto recortado, vacío a null y número'); assert.deepEqual(result.errors, { title: 'Mínimo 2 caracteres', pages: 'Entre 1 y 2000' }); result = validate({ title: '', pages: 'abc' }, F); assert.deepEqual(result.errors, { title: 'Obligatorio', pages: 'Debe ser un número' }); assert.equal(result.data.title, null); result = validate({ title: '  Río ', pages: ' 2000 ' }, F); assert.deepEqual(result, { data: { title: 'Río', genre: null, pages: 2000 }, errors: {} }); assert.deepEqual(validate({ title: 'Ok', pages: 15 }, F).data.pages, 15, 'un number que ya es número'); assert.deepEqual(validate({}, F).errors, { title: 'Obligatorio' }, 'sin valores: solo el obligatorio');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "filterItems",
+      "descripcion": "filterItems busca todas las palabras en los campos text, sin tildes ni mayúsculas, y devuelve un array nuevo",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { filterItems } from './src/logic.js'; const F = [{ name: 'title', label: 'Título', type: 'text', required: true, minLength: 2 }, { name: 'genre', label: 'Género', type: 'text' }, { name: 'pages', label: 'Páginas', type: 'number', min: 1, max: 2000 }]; const ITEMS = [{ id: 1, title: 'Zorro', genre: 'Novela', pages: 300 }, { id: 2, title: 'árbol', genre: 'Poesía', pages: null }, { id: 3, title: 'Ébano', genre: null, pages: 120 }, { id: 4, title: 'Luz', genre: 'Novela', pages: 300 }, { id: 5, title: 'Ñandú', genre: 'Ensayo', pages: 45 }]; const titles = (list) => list.map((item) => item.title); const find = (query) => titles(filterItems(ITEMS, { query, fields: F })); assert.deepEqual(find('NOVELA zorro'), ['Zorro']); assert.deepEqual(find('arbol'), ['árbol']); assert.deepEqual(find('ñandu ENSAYO'), ['Ñandú']); assert.deepEqual(find('novela'), ['Zorro', 'Luz']); assert.deepEqual(find('300'), [], 'los number no cuentan'); assert.deepEqual(find('null'), [], 'un campo vacío no es el texto null'); const all = filterItems(ITEMS, { query: '   ', fields: F }); assert.deepEqual(all, ITEMS); assert.notEqual(all, ITEMS, 'un array nuevo');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "sortItems",
+      "descripcion": "SORTERS tiene text y number, y sortItems ordena con ellos, vacíos al final, estable y sin cambiar el array",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { SORTERS, sortItems } from './src/logic.js'; const F = [{ name: 'title', label: 'Título', type: 'text', required: true, minLength: 2 }, { name: 'genre', label: 'Género', type: 'text' }, { name: 'pages', label: 'Páginas', type: 'number', min: 1, max: 2000 }]; const ITEMS = [{ id: 1, title: 'Zorro', genre: 'Novela', pages: 300 }, { id: 2, title: 'árbol', genre: 'Poesía', pages: null }, { id: 3, title: 'Ébano', genre: null, pages: 120 }, { id: 4, title: 'Luz', genre: 'Novela', pages: 300 }, { id: 5, title: 'Ñandú', genre: 'Ensayo', pages: 45 }]; const titles = (list) => list.map((item) => item.title); assert.ok(SORTERS.text('Ábaco', 'Bola') < 0 && SORTERS.text('Ñu', 'Nube') > 0 && SORTERS.number(2, 10) < 0, 'SORTERS.text y SORTERS.number'); const copy = structuredClone(ITEMS); const sort = (by, desc) => titles(sortItems(ITEMS, { by, desc, fields: F })); assert.deepEqual(sort('title', false), ['árbol', 'Ébano', 'Luz', 'Ñandú', 'Zorro'], 'text en orden español'); assert.deepEqual(sort('pages', false), ['Ñandú', 'Ébano', 'Zorro', 'Luz', 'árbol'], 'number, iguales en su orden, vacío al final'); assert.deepEqual(sort('pages', true), ['Zorro', 'Luz', 'Ébano', 'Ñandú', 'árbol'], 'desc, vacío al final'); assert.deepEqual(sort('genre', true), ['árbol', 'Zorro', 'Luz', 'Ñandú', 'Ébano']); assert.deepEqual(sort(null, false), titles(ITEMS)); assert.deepEqual(sort('color', true), titles(ITEMS)); assert.notEqual(sortItems(ITEMS, { by: null, desc: false, fields: F }), ITEMS, 'un array nuevo'); assert.deepEqual(ITEMS, copy, 'sortItems cambió el array recibido');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "paginate",
+      "descripcion": "paginate devuelve items, page, pages y total, con la página llevada a su rango",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { paginate } from './src/logic.js'; const F = [{ name: 'title', label: 'Título', type: 'text', required: true, minLength: 2 }, { name: 'genre', label: 'Género', type: 'text' }, { name: 'pages', label: 'Páginas', type: 'number', min: 1, max: 2000 }]; const ITEMS = [{ id: 1, title: 'Zorro', genre: 'Novela', pages: 300 }, { id: 2, title: 'árbol', genre: 'Poesía', pages: null }, { id: 3, title: 'Ébano', genre: null, pages: 120 }, { id: 4, title: 'Luz', genre: 'Novela', pages: 300 }, { id: 5, title: 'Ñandú', genre: 'Ensayo', pages: 45 }]; const titles = (list) => list.map((item) => item.title); const ids = (result) => ({ ...result, items: result.items.map((item) => item.id) }); assert.deepEqual(ids(paginate(ITEMS, { page: 2, perPage: 2 })), { items: [3, 4], page: 2, pages: 3, total: 5 }); assert.deepEqual(ids(paginate(ITEMS, { page: 7, perPage: 2 })), { items: [5], page: 3, pages: 3, total: 5 }); assert.deepEqual(ids(paginate(ITEMS, { page: -1, perPage: 2 })), { items: [1, 2], page: 1, pages: 3, total: 5 }); assert.deepEqual(ids(paginate(ITEMS, { page: 1, perPage: 5 })).pages, 1); assert.deepEqual(paginate([], { page: 3, perPage: 4 }), { items: [], page: 1, pages: 1, total: 0 });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "summarize",
+      "descripcion": "summarize cuenta las fichas y da count, min, max y average (2 decimales) de cada campo number, sin los vacíos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { summarize } from './src/logic.js'; const F = [{ name: 'title', label: 'Título', type: 'text', required: true, minLength: 2 }, { name: 'genre', label: 'Género', type: 'text' }, { name: 'pages', label: 'Páginas', type: 'number', min: 1, max: 2000 }]; const ITEMS = [{ id: 1, title: 'Zorro', genre: 'Novela', pages: 300 }, { id: 2, title: 'árbol', genre: 'Poesía', pages: null }, { id: 3, title: 'Ébano', genre: null, pages: 120 }, { id: 4, title: 'Luz', genre: 'Novela', pages: 300 }, { id: 5, title: 'Ñandú', genre: 'Ensayo', pages: 45 }]; const titles = (list) => list.map((item) => item.title); assert.deepEqual(summarize(ITEMS, F), { total: 5, stats: { pages: { count: 4, min: 45, max: 300, average: 191.25 } } }); const two = [...F, { name: 'year', label: 'Año', type: 'number' }]; const thirds = [{ pages: 1, year: null }, { pages: 2 }, { pages: 2, year: '' }]; assert.deepEqual(summarize(thirds, two), { total: 3, stats: { pages: { count: 3, min: 1, max: 2, average: 1.67 }, year: { count: 0, min: null, max: null, average: null } } }); assert.deepEqual(summarize([], F), { total: 0, stats: { pages: { count: 0, min: null, max: null, average: null } } });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "reduce",
+      "descripcion": "reduce aplica las ocho acciones sin modificar el estado, y con otra devuelve el mismo objeto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { INITIAL_STATE, reduce } from './src/logic.js'; const F = [{ name: 'title', label: 'Título', type: 'text', required: true, minLength: 2 }, { name: 'genre', label: 'Género', type: 'text' }, { name: 'pages', label: 'Páginas', type: 'number', min: 1, max: 2000 }]; const ITEMS = [{ id: 1, title: 'Zorro', genre: 'Novela', pages: 300 }, { id: 2, title: 'árbol', genre: 'Poesía', pages: null }, { id: 3, title: 'Ébano', genre: null, pages: 120 }, { id: 4, title: 'Luz', genre: 'Novela', pages: 300 }, { id: 5, title: 'Ñandú', genre: 'Ensayo', pages: 45 }]; const titles = (list) => list.map((item) => item.title); const deepFreeze = (value) => { if (value && typeof value === 'object') { Object.values(value).forEach(deepFreeze); Object.freeze(value); } return value; }; const base = deepFreeze({ ...INITIAL_STATE, status: 'ready', items: structuredClone(ITEMS), page: 3, query: 'x', sort: { by: 'pages', desc: false } }); assert.deepEqual(reduce({ ...base, error: 'e' }, { type: 'loading' }), { ...base, status: 'loading', error: null }); assert.deepEqual(reduce(base, { type: 'loaded', items: [] }), { ...base, items: [], error: null }); assert.deepEqual(reduce(base, { type: 'failed', message: 'Sin red' }), { ...base, status: 'error', error: 'Sin red' }); assert.deepEqual(reduce(base, { type: 'query', query: 'luz' }), { ...base, query: 'luz', page: 1 }); assert.deepEqual(reduce(base, { type: 'sort', by: 'pages' }), { ...base, sort: { by: 'pages', desc: true }, page: 1 }); assert.deepEqual(reduce({ ...base, sort: { by: 'pages', desc: true } }, { type: 'sort', by: 'pages' }).sort, { by: 'pages', desc: false }); assert.deepEqual(reduce(base, { type: 'sort', by: 'title' }).sort, { by: 'title', desc: false }); assert.deepEqual(reduce(base, { type: 'page', page: 2 }), { ...base, page: 2 }); const changed = { id: 3, title: 'Ébano', genre: 'Novela', pages: 121 }; assert.deepEqual(reduce(base, { type: 'saved', item: changed }).items.map((item) => item.pages), [300, null, 121, 300, 45], 'saved reemplaza en su sitio'); assert.deepEqual(titles(reduce(base, { type: 'saved', item: { id: 9, title: 'Nuevo' } }).items), ['Zorro', 'árbol', 'Ébano', 'Luz', 'Ñandú', 'Nuevo'], 'saved añade al final'); assert.deepEqual(titles(reduce(base, { type: 'removed', id: 1 }).items), ['árbol', 'Ébano', 'Luz', 'Ñandú']); assert.deepEqual(reduce(base, { type: 'removed', id: 99 }).items, base.items); for (const type of ['zoom', 'toString', 'constructor', undefined]) assert.equal(reduce(base, { type }), base, 'type ' + type + ': el mismo objeto');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "selectPage",
+      "descripcion": "selectPage busca, ordena y pagina con el estado",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { INITIAL_STATE, selectPage } from './src/logic.js'; const F = [{ name: 'title', label: 'Título', type: 'text', required: true, minLength: 2 }, { name: 'genre', label: 'Género', type: 'text' }, { name: 'pages', label: 'Páginas', type: 'number', min: 1, max: 2000 }]; const ITEMS = [{ id: 1, title: 'Zorro', genre: 'Novela', pages: 300 }, { id: 2, title: 'árbol', genre: 'Poesía', pages: null }, { id: 3, title: 'Ébano', genre: null, pages: 120 }, { id: 4, title: 'Luz', genre: 'Novela', pages: 300 }, { id: 5, title: 'Ñandú', genre: 'Ensayo', pages: 45 }]; const titles = (list) => list.map((item) => item.title); const state = { ...INITIAL_STATE, items: ITEMS, query: 'novela', sort: { by: 'pages', desc: true }, page: 2 }; const view = selectPage(state, { fields: F, perPage: 1 }); assert.deepEqual({ ...view, items: titles(view.items) }, { items: ['Luz'], page: 2, pages: 2, total: 2 }); const all = selectPage({ ...INITIAL_STATE, items: ITEMS, sort: { by: 'title', desc: true } }, { fields: F, perPage: 2 }); assert.deepEqual({ ...all, items: titles(all.items) }, { items: ['Zorro', 'Ñandú'], page: 1, pages: 3, total: 5 });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "createStore",
+      "descripcion": "createStore guarda el estado, avisa a los oyentes en orden solo cuando cambia, y subscribe devuelve la función que los quita",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createStore } from './src/store.js'; const reducer = (state, action) => (action.type === 'add' ? { n: state.n + action.by } : state); const initial = { n: 0 }; const store = createStore({ reducer, initial }); assert.equal(store.getState(), initial, 'getState empieza con initial'); const calls = []; const stopA = store.subscribe((state, action) => calls.push('a' + state.n + action.by)); store.subscribe((state) => { calls.push('b' + state.n); stopA(); }); assert.equal(store.dispatch({ type: 'add', by: 2 }), undefined, 'dispatch no devuelve nada'); assert.deepEqual(store.getState(), { n: 2 }); assert.deepEqual(calls, ['a22', 'b2'], 'avisa en orden con estado y acción'); store.dispatch({ type: 'other' }); assert.deepEqual(calls, ['a22', 'b2'], 'sin cambio no avisa'); store.dispatch({ type: 'add', by: 1 }); assert.deepEqual(calls, ['a22', 'b2', 'b3'], 'el oyente quitado ya no recibe avisos'); assert.doesNotThrow(() => stopA(), 'quitar dos veces no falla'); const other = createStore({ reducer, initial: { n: 10 } }); other.dispatch({ type: 'add', by: 1 }); assert.deepEqual([store.getState().n, other.getState().n], [3, 11], 'cada almacén tiene su estado'); let seen = 0; let stopLate = () => {}; const third = createStore({ reducer, initial: { n: 0 } }); third.subscribe(() => stopLate()); stopLate = third.subscribe(() => { seen += 1; }); third.dispatch({ type: 'add', by: 1 }); third.dispatch({ type: 'add', by: 1 }); assert.equal(seen, 1, 'quitar un oyente durante un aviso no cambia ese aviso');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "createApi",
+      "descripcion": "createApi hace las cuatro peticiones con el fetchFn que recibe y convierte los errores en HttpError",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { HttpError, createApi } from './src/api.js'; const calls = []; let reply = { status: 200, body: { data: [{ id: 1 }] } }; const fetchFn = async (url, options) => { calls.push([url, options]); return new Response(typeof reply.body === 'string' || reply.body === null ? reply.body : JSON.stringify(reply.body), { status: reply.status }); }; globalThis.fetch = () => { throw new Error('createApi usó el fetch global'); }; const api = createApi({ baseUrl: 'http://x.test', fetchFn }); assert.deepEqual(await api.list(), [{ id: 1 }]); assert.deepEqual(calls.at(-1), ['http://x.test/api/items', { method: 'GET' }]); reply = { status: 201, body: { id: 5, title: 'Luz' } }; assert.deepEqual(await api.create({ title: 'Luz' }), { id: 5, title: 'Luz' }); assert.deepEqual(calls.at(-1), ['http://x.test/api/items', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{\\\"title\\\":\\\"Luz\\\"}' }]); reply = { status: 200, body: { id: 5, title: 'Sol' } }; assert.deepEqual(await api.update(5, { title: 'Sol' }), { id: 5, title: 'Sol' }); assert.deepEqual(calls.at(-1), ['http://x.test/api/items/5', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: '{\\\"title\\\":\\\"Sol\\\"}' }]); reply = { status: 204, body: null }; assert.equal(await api.remove(5), null); assert.deepEqual(calls.at(-1), ['http://x.test/api/items/5', { method: 'DELETE' }]); reply = { status: 422, body: { error: 'Revisa', fields: { title: 'Obligatorio' } } }; let error = await api.create({}).catch((reason) => reason); assert.ok(error instanceof HttpError && error instanceof Error, 'lanza un HttpError'); assert.deepEqual([error.status, error.message, error.fields], [422, 'Revisa', { title: 'Obligatorio' }]); reply = { status: 409, body: { error: 'Ya existe' } }; error = await api.update(5, {}).catch((reason) => reason); assert.deepEqual([error.status, error.message, error.fields], [409, 'Ya existe', null]); reply = { status: 500, body: 'Internal Server Error' }; error = await api.list().catch((reason) => reason); assert.deepEqual([error.name, error.status, error.message], ['HttpError', 500, 'Error 500']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "createApi-servidor",
+      "descripcion": "createApi funciona contra server.js con tus FIELDS y tu SEED: lista, crea, corrige, borra y recibe los 404 y 422",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { FIELDS, SEED } from './src/data.js'; import { createApi } from './src/api.js'; import { startServer } from './server.js'; const server = await startServer({ port: 0 }); try { const api = createApi({ baseUrl: server.url, fetchFn: fetch }); const first = FIELDS[0].name; const items = await api.list(); assert.equal(items.length, SEED.length, 'list devuelve todas las fichas'); const invalid = await api.create({}).catch((reason) => reason); assert.equal(invalid.status, 422); assert.equal(invalid.fields?.[first], 'Obligatorio', 'el 422 trae fields'); const created = await api.create({ ...SEED[0], [first]: 'Ficha de prueba' }); assert.ok(Number.isInteger(created.id), 'create devuelve la ficha con id'); const updated = await api.update(created.id, { ...SEED[0], [first]: 'Ficha corregida' }); assert.equal(updated[first], 'Ficha corregida'); assert.equal(await api.remove(created.id), null); const missing = await api.remove(created.id).catch((reason) => reason); assert.equal(missing.status, 404, 'borrar dos veces da 404'); assert.equal((await api.list()).length, SEED.length); } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "tests-pasan",
+      "descripcion": "Tus tests pasan: 30 o más, y 5 o más en cada uno de tests/logic.test.js, tests/store.test.js y tests/api.test.js",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && T=$(mktemp) && timeout 120 ./node_modules/.bin/vitest run --reporter=json --outputFile=\"$T\" >/dev/null 2>&1; cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readFileSync } from 'node:fs'; const report = JSON.parse(readFileSync(process.argv[1], 'utf8')); assert.equal(report.numFailedTests, 0, report.numFailedTests + ' tests fallan'); assert.equal(report.numFailedTestSuites, 0, 'un archivo de tests no se pudo ejecutar'); assert.ok(report.numPassedTests >= 30, 'solo ' + report.numPassedTests + ' tests pasan; hacen falta 30'); for (const name of ['logic', 'store', 'api']) { const file = report.testResults.find((result) => result.name.endsWith('tests/' + name + '.test.js')); const passed = file ? file.assertionResults.filter((test) => test.status === 'passed').length : 0; assert.ok(passed >= 5, 'tests/' + name + '.test.js: ' + passed + ' tests pasan; hacen falta 5'); }\" \"$T\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "cobertura",
+      "descripcion": "Tus tests cubren el 90 % o más de src/logic.js, src/store.js y src/api.js en las cuatro medidas",
+      "cmd": "cd {proyecto} && test -d node_modules/@vitest/coverage-v8 && timeout 120 ./node_modules/.bin/vitest run --coverage >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "lint",
+      "descripcion": "ESLint no encuentra ningún problema en src/ ni en tests/ con la configuración del starter",
+      "cmd": "cd {proyecto} && test -d node_modules/eslint && ./node_modules/.bin/eslint src tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "formato",
+      "descripcion": "src/ y tests/ tienen el formato de Prettier",
+      "cmd": "cd {proyecto} && test -d node_modules/prettier && ./node_modules/.bin/prettier --check src tests",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    }
+  ]
+}

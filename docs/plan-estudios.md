@@ -3,7 +3,7 @@
 **Duración Total**: 28 semanas (7 meses)
 **Horas Semanales**: 8 horas
 **Horas Totales**: 224 horas
-**Estado**: semanas 1-22 publicadas con la estructura anterior (en migración); semanas 23-28 pendientes. Estado al día en [bootcamp/README.md](../bootcamp/README.md)
+**Estado**: las 28 semanas escritas con el estándar bc-*. Estado al día en [bootcamp/README.md](../bootcamp/README.md)
 
 ---
 
@@ -54,7 +54,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ### 📗 Etapa 2: Intermedio (Semanas 13-24) — ✅ escrita
 **96 horas totales** | Programación asincrónica y manipulación del DOM
 
-### 📕 Etapa 3: Avanzado (Semanas 25-28) — 🟡 en curso (S25–S27 escritas)
+### 📕 Etapa 3: Avanzado (Semanas 25-28) — ✅ escrita
 **32 horas totales** | Testing, patrones y mejores prácticas
 
 ---
@@ -476,15 +476,16 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 28: Proyecto Final - Bootcamp** ⏳ _pendiente_
-**Horas**: 8h (0h teoría + 2h planning + 5.5h desarrollo + 0.5h presentación)
+#### **Week 28: Proyecto Final - Bootcamp**
+**Estado**: ✅ Escrita
+**Horas**: 8h (0.5h repaso + 2h práctica + 5h proyecto con plan y presentación + 0.5h recursos)
 
-**Temas**:
-- Consolidación de TODO lo aprendido
-- Arquitectura completa
-- Testing, Clean Code, Performance
+**Temas** (integradora, sin conceptos nuevos):
+- Repaso de las semanas 25 a 27: tests, dobles de prueba, integración, patrones y clean code
+- Arquitectura final: un módulo por responsabilidad, el almacén con Observer y la vista calculada desde el estado
+- Planificar en pasos pequeños en verde y presentar el proyecto en 5 minutos
 
-**Proyecto**: Aplicación web completa de nivel profesional (a elección: CRM, Blog, Dashboard, Social Network, etc.)
+**Proyecto**: Catálogo completo: la aplicación del dominio con API REST, búsqueda, orden, paginación, resumen y edición; el aprendiz escribe `logic.js` (`validate`, `filterItems`, `SORTERS`, `sortItems`, `paginate`, `summarize`, `reduce`, `selectPage`), `store.js` (`createStore`), `api.js` (`createApi`) y sus tests, con un 90 % de cobertura y `pnpm check` (ESLint, Prettier y Vitest) sin errores
 
 ---
 

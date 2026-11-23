@@ -1,7 +1,7 @@
 # Auditoría del repositorio — bc-javascript-es2023
 
 **Fecha**: 2026-11-19
-**Alcance**: S01–S25 publicadas (de 28 planificadas), configuración raíz, docs y scripts.
+**Alcance**: S01–S28 publicadas (las 28 planificadas), configuración raíz, docs y scripts.
 **Referencia**: estándar de los bootcamps cerrados en 2026-11 (`bc-ssh`, `bc-testing`) y [`CLAUDE.md`](CLAUDE.md).
 
 Este archivo es la lista de trabajo de la migración: cada semana migrada cierra su fila.
@@ -23,7 +23,7 @@ Este archivo es la lista de trabajo de la migración: cada semana migrada cierra
 |---|---|
 | Sin `CLAUDE.md`; `.github/copilot-instructions.md` (778 líneas) y `docs/guia-desarrollo-contenidos.md` contradecían las reglas: `yarn` permitido, SQLite, `solution/` en ejercicios | ✅ `CLAUDE.md` nuevo como fuente única; `copilot-instructions.md` reducido a puntero; guía retirada |
 | Lista de dominios anticopia dentro del repo (guía de desarrollo) | ✅ Retirada; catálogo en el repo privado de dominios |
-| Sin índice de semanas (`bootcamp/README.md`) | ✅ Creado: S01–S27 🟡, S28 ⬜ |
+| Sin índice de semanas (`bootcamp/README.md`) | ✅ Creado: S01–S28 |
 | Sin autograding: ni `checks.json` ni `scripts/verificar-semana.sh` | ✅ Script y contrato ([docs/autograding.md](docs/autograding.md)); los `checks.json` llegan con cada semana migrada |
 | Sin generador de navegación ni verificador de enlaces | ✅ `scripts/generar-navegacion.sh` y `scripts/verificar-enlaces.sh` |
 | Versiones repartidas por los README (Node 24, Jest 30+, ESLint 9+, Live Server) | ✅ Única fuente en [docs/stack-versions.md](docs/stack-versions.md) |
@@ -79,6 +79,7 @@ Teoría: número de archivos y rango de líneas. Glosario: términos.
 | 25 | ✅ | ✅ lab | — | ✅ | **Escrita de cero** (no existía carpeta). Primera semana con dependencias: Vitest y `@vitest/coverage-v8` 5.1.0 exactas, con `pnpm-lock.yaml`. Teoría: por qué tests, Vitest, matchers, organizar tests y cobertura, con 2 SVG. 4 labs con Vitest (en el 01 se crea el `package.json`), salidas reales salvo hora y duración. Proyecto «Tests del catálogo»: `logic.js` terminado y el aprendiz escribe los tests; 17 checks (29 casos del starter por título, 100 % de cobertura y 7 mutantes, uno por función, que los tests deben detectar). |
 | 26 | ✅ | ✅ lab | — | ✅ | **Escrita de cero** (no existía carpeta). Misma Vitest 5.1.0. Teoría: dobles de prueba (`vi.fn`, `vi.spyOn`, `vi.stubGlobal`, `vi.mock`), tests asíncronos y reloj falso, tests de integración, TDD y buenas prácticas, con 3 SVG. 4 labs con Vitest y salidas reales (el 03 arranca una API con `node:http` desde los tests; el 04, siete ciclos de TDD, dos sin guía). Proyecto «Tests del cliente asíncrono»: `logic.js` y `server.js` terminados y el aprendiz escribe tests unitarios con dobles y reloj falso y de integración sin dobles; 20 checks (39 casos por título, 100 % de cobertura, reloj falso, integración sin dobles y 8 mutantes). |
 | 27 | ✅ | ✅ lab | — | ✅ | **Escrita de cero** (no existía carpeta). ESLint 10.14.0 y Prettier 3.10.0 exactas (las últimas, 10.15.0 y 3.10.1, no se usan; sin `@eslint/js`, cuya única 10.x es la última). Teoría: Module/Singleton/Factory, Observer/Strategy, clean code, SOLID, code smells con refactor, ESLint y Prettier, con 3 SVG. 4 labs con salidas reales (01 y 02 con Node solo; 03 refactor con tests de caracterización y un paso que rompe un test; 04 ESLint y Prettier). Proyecto «Refactorización de código legacy»: `legacy.js` intacto, el aprendiz escribe `logic.js` (validateItem, splitValid, filterItems, SORTERS/sortItems, summarize, formatLine/formatReport, createEmitter, createReporter); 60 tests de caracterización, ESLint con límites (complexity 4, max-params 2, 15 líneas, no-magic-numbers) y 18 checks. |
+| 28 | ✅ | ✅ lab | — | ✅ | **Escrita de cero** (no existía carpeta). Integradora: repaso S25–S27, arquitectura final y planificar/presentar; 1 SVG. Lab 01 almacén y vista (Node, tres fallos silenciosos de un almacén ingenuo), lab 02 cadena de calidad (fetch falso, integración, cobertura con umbral, ESLint, Prettier, `pnpm check`). Proyecto «Catálogo completo»: `logic.js` (validate, filterItems, SORTERS, sortItems, paginate, summarize, reduce, selectPage), `store.js` (createStore) y `api.js` (createApi) con TODO, y los tests del aprendiz (30 o más, cobertura 90 %); `server.js` de S24 sin paginación. 21 checks; solución 21/21, starter 6/21, 16 mutantes detectados |
 
 **Conclusión**: S01–S15 necesitan migración estructural. S16–S22 necesitan además reescritura de teoría y labs, y un proyecto nuevo cuyo starter no traiga la solución.
 
@@ -93,7 +94,7 @@ Un bloque de 5 semanas por sesión, commit y push por semana terminada:
 | 3 | S11–S15 | migración ✅ |
 | 4 | S16–S20 | migración + reescritura de teoría, labs y proyecto |
 | 5 | S21–S25 | S21–S22 como la sesión 4; escribir S23 Performance, S24 Integrador intermedio, S25 Vitest I |
-| 6 | S26–S28 | escribir S26 Vitest II, S27 Patrones y Clean Code, S28 Proyecto final |
+| 6 | S26–S28 | escritas ✅ S26 Vitest II, S27 Patrones y Clean Code, S28 Proyecto final |
 
 <!-- nav -->
 ---
