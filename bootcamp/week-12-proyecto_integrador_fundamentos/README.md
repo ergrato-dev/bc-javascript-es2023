@@ -19,7 +19,7 @@ Esta semana no hay conceptos nuevos: cierras la etapa de Fundamentos juntando en
   node --version
   # v24.19.0 (o superior)
   pnpm --version
-  # 11.20.0 (o superior)
+  # 12.21.0 (o superior)
   ```
 
 ---
