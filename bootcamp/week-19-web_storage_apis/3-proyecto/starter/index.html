@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuaderno persistente</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1 id="app-title">Cuaderno persistente</h1>
+      <p class="summary" id="summary"></p>
+    </header>
+
+    <p class="message" id="message" role="status"></p>
+
+    <section class="panel">
+      <h2>Nueva entrada</h2>
+      <form id="entry-form" class="entry-form">
+        <label class="wide">Título
+          <input name="title" required maxlength="80" autocomplete="off">
+        </label>
+        <label>Categoría
+          <select name="category" id="category"></select>
+        </label>
+        <button class="btn" type="submit">Guardar</button>
+      </form>
+      <p class="hint">Lo que escribes se guarda como borrador en <code>sessionStorage</code>: recarga la página y sigue ahí.</p>
+    </section>
+
+    <section class="panel">
+      <div class="list-header">
+        <h2>Entradas</h2>
+        <button class="btn danger" type="button" id="reset">Borrar todo</button>
+      </div>
+      <ul class="entry-list" id="entry-list"></ul>
+      <p class="empty" id="empty" hidden>No hay entradas. Añade la primera con el formulario.</p>
+    </section>
+
+    <p class="storage-info" id="storage-info"></p>
+  </main>
+</body>
+</html>

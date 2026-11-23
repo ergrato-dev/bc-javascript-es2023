@@ -346,16 +346,16 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 19: Web Storage APIs**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- localStorage
-- sessionStorage
-- IndexedDB básico
-- Serialización (JSON.stringify/parse)
-- Manejo de cuotas y límites
+- `localStorage` y `sessionStorage`: `setItem`, `getItem` y `removeItem`, todo como texto, `null` y valores por defecto, cuánto dura y quién lo ve (origen), prefijos y el evento `storage` entre pestañas
+- Serialización con `JSON.stringify` y `JSON.parse`: lo que se pierde (`Date`, `Map`, `Set`, `undefined`, `NaN`), *reviver*, leer con `try/catch` y validación, sobre con versión y migración
+- IndexedDB básico: `open` y `upgradeneeded`, peticiones como promesas, transacciones `readonly` y `readwrite`, `add`, `put`, `get`, `getAll`, índices, `IDBKeyRange`, abort y `versionchange`
+- Cuotas, errores y caducidad: almacenamiento bloqueado, cuánto cabe, `QuotaExceededError`, guardar con resultado, `expiresAt` y `navigator.storage`
 
-**Proyecto**: Aplicación con persistencia de datos local
+**Proyecto**: Cuaderno persistente: lista guardada con versión (`serialize`, `deserialize`, `isValidEntry`, `migrate`), almacén que no rompe la página (`createStore`, `isStorageAvailable`), borrador con caducidad en `sessionStorage` (`createDraft`) y sincronización entre pestañas (`fromStorageEvent`), servido con `node server.js`
 
 ---
 

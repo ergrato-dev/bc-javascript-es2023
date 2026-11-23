@@ -1,0 +1,111 @@
+{
+  "semana": "19",
+  "titulo": "Web Storage APIs",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta APP (title, namespace en minúsculas y entry.one y entry.many), de 3 a 8 CATEGORIES sin repetir, DRAFT_TTL_MS entero positivo y de 4 a 12 entradas en SEED con id entero positivo y title de 5 o más caracteres sin repetir, category de CATEGORIES, createdAt Date válido y favorite booleano; al menos 2 categorías, 1 favorita y 1 que no lo es",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, CATEGORIES, DRAFT_TTL_MS, SEED } from './src/data.js'; assert.ok(typeof APP.title === 'string' && APP.title.trim() !== ''); assert.match(APP.namespace, /^[a-z0-9-]+$/); assert.ok(typeof APP.entry.one === 'string' && APP.entry.one !== '' && typeof APP.entry.many === 'string' && APP.entry.many !== ''); assert.ok(Array.isArray(CATEGORIES) && CATEGORIES.length >= 3 && CATEGORIES.length <= 8); assert.ok(CATEGORIES.every((category) => typeof category === 'string' && category.trim() !== '')); assert.equal(new Set(CATEGORIES).size, CATEGORIES.length); assert.ok(Number.isInteger(DRAFT_TTL_MS) && DRAFT_TTL_MS > 0); assert.ok(Array.isArray(SEED) && SEED.length >= 4 && SEED.length <= 12); assert.ok(SEED.every((entry) => Number.isInteger(entry.id) && entry.id > 0 && typeof entry.title === 'string' && entry.title.trim().length >= 5 && CATEGORIES.includes(entry.category) && entry.createdAt instanceof Date && !Number.isNaN(entry.createdAt.getTime()) && typeof entry.favorite === 'boolean')); assert.equal(new Set(SEED.map(({ id }) => id)).size, SEED.length); assert.equal(new Set(SEED.map(({ title }) => title.trim().toLowerCase())).size, SEED.length); assert.ok(new Set(SEED.map(({ category }) => category)).size >= 2); assert.ok(SEED.some(({ favorite }) => favorite) && SEED.some(({ favorite }) => !favorite));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título, el prefijo, las categorías y las entradas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, CATEGORIES, SEED } from './src/data.js'; assert.notEqual(APP.namespace, 'planetario'); assert.notEqual(APP.title.trim().toLowerCase(), 'cuaderno del planetario'); assert.ok(!['luna', 'planeta', 'estrella', 'cielo profundo'].every((category) => CATEGORIES.includes(category))); const example = ['luna en cuarto creciente', 'júpiter y sus cuatro lunas', 'betelgeuse en orión', 'galaxia de andrómeda', 'anillos de saturno', 'cúmulo de las pléyades']; assert.ok(SEED.every(({ title }) => !example.includes(title.trim().toLowerCase())));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "serializar",
+      "descripcion": "serialize guarda { version: 2, entries } en JSON con createdAt como texto ISO, y SCHEMA_VERSION vale 2",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { serialize, SCHEMA_VERSION } from './src/logic.js'; const entry = (id, extra = {}) => ({ id, title: 'Entrada ' + id, category: 'sala', createdAt: new Date('2026-01-0' + id + 'T10:00:00.000Z'), favorite: id % 2 === 0, ...extra }); assert.equal(SCHEMA_VERSION, 2); assert.equal(serialize([]), JSON.stringify({ version: 2, entries: [] })); const data = JSON.parse(serialize([entry(1), entry(2)])); assert.equal(data.version, 2); assert.equal(data.entries.length, 2); assert.equal(data.entries[0].createdAt, '2026-01-01T10:00:00.000Z'); assert.deepEqual(Object.keys(data.entries[1]), ['id', 'title', 'category', 'createdAt', 'favorite']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "validar",
+      "descripcion": "isValidEntry acepta una entrada correcta y rechaza null, id no entero o no positivo, title vacío, category no texto, createdAt que no es un Date válido y favorite no booleano",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { isValidEntry } from './src/logic.js'; const entry = (id, extra = {}) => ({ id, title: 'Entrada ' + id, category: 'sala', createdAt: new Date('2026-01-0' + id + 'T10:00:00.000Z'), favorite: id % 2 === 0, ...extra }); assert.equal(isValidEntry(entry(1)), true); for (const bad of [null, 'entrada', [], entry(1, { id: '1' }), entry(1, { id: 0 }), entry(1, { id: 1.5 }), entry(1, { title: '   ' }), entry(1, { title: 7 }), entry(1, { category: undefined }), entry(1, { createdAt: '2026-01-01' }), entry(1, { createdAt: new Date('nada') }), entry(1, { favorite: 'no' })]) assert.equal(isValidEntry(bad), false, JSON.stringify(bad));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "migrar",
+      "descripcion": "migrate convierte un array de la versión 1 en el sobre de la versión 2, devuelve igual un sobre de la versión 2 y lanza «Versión desconocida» con cualquier otra cosa",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { migrate } from './src/logic.js'; assert.deepEqual(migrate([{ id: 1, title: 'Uno', date: '2026-01-15' }, { id: 2, title: 'Dos', date: '2026-02-01' }]), { version: 2, entries: [{ id: 1, title: 'Uno', category: 'general', createdAt: '2026-01-15', favorite: false }, { id: 2, title: 'Dos', category: 'general', createdAt: '2026-02-01', favorite: false }] }); assert.deepEqual(migrate([]), { version: 2, entries: [] }); const current = { version: 2, entries: [] }; assert.equal(migrate(current), current); assert.throws(() => migrate({ version: 3, entries: [] }), { message: 'Versión desconocida: 3' }); assert.throws(() => migrate({}), { message: 'Versión desconocida: undefined' }); assert.throws(() => migrate(null), /Versión desconocida/);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "deserializar",
+      "descripcion": "deserialize devuelve status empty con null, ok con el texto de serialize (createdAt vuelve a ser Date) y migrated con un array de la versión 1",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { serialize, deserialize } from './src/logic.js'; const entry = (id, extra = {}) => ({ id, title: 'Entrada ' + id, category: 'sala', createdAt: new Date('2026-01-0' + id + 'T10:00:00.000Z'), favorite: id % 2 === 0, ...extra }); assert.deepEqual(deserialize(null), { entries: [], status: 'empty' }); const entries = [entry(1), entry(2)]; const back = deserialize(serialize(entries)); assert.equal(back.status, 'ok'); assert.deepEqual(back.entries, entries); assert.ok(back.entries[0].createdAt instanceof Date); const old = deserialize(JSON.stringify([{ id: 4, title: 'Antigua', date: '2026-03-01' }])); assert.equal(old.status, 'migrated'); assert.deepEqual(old.entries, [{ id: 4, title: 'Antigua', category: 'general', createdAt: new Date('2026-03-01'), favorite: false }]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "deserializar-corrupto",
+      "descripcion": "deserialize devuelve { entries: [], status: corrupt } con JSON roto, una versión desconocida o una entrada no válida, sin lanzar errores",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { deserialize } from './src/logic.js'; const texts = [JSON.stringify({ version: 2, entries: [] }).slice(0, -3), '', '{roto', 'null', JSON.stringify('hola'), JSON.stringify({ version: 3, entries: [] }), JSON.stringify({ version: 2, entries: [{ id: 'x' }] }), JSON.stringify({ version: 2, entries: [{ id: 1, title: 'Uno', category: 'a', createdAt: 'ayer', favorite: false }] })]; for (const text of texts) assert.deepEqual(deserialize(text), { entries: [], status: 'corrupt' }, text);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "almacen",
+      "descripcion": "createStore guarda con save ({ ok: true }), lee con load y borra con clear solo su clave",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createStore, serialize } from './src/logic.js'; const fake = () => { const items = new Map(); return { items, getItem: (key) => (items.has(key) ? items.get(key) : null), setItem: (key, value) => { items.set(key, String(value)); }, removeItem: (key) => { items.delete(key); } }; }; const entry = (id, extra = {}) => ({ id, title: 'Entrada ' + id, category: 'sala', createdAt: new Date('2026-01-0' + id + 'T10:00:00.000Z'), favorite: id % 2 === 0, ...extra }); const storage = fake(); storage.setItem('otra', 'x'); const store = createStore(storage, 'museo:entries'); assert.deepEqual(store.load(), { entries: [], status: 'empty' }); const entries = [entry(1), entry(2)]; assert.deepEqual(store.save(entries), { ok: true }); assert.equal(storage.getItem('museo:entries'), serialize(entries)); assert.deepEqual(store.load(), { entries, status: 'ok' }); store.clear(); assert.equal(storage.getItem('museo:entries'), null); assert.equal(storage.getItem('otra'), 'x');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "almacen-cuota",
+      "descripcion": "save devuelve { ok: false, reason: quota } con QuotaExceededError, deja lo guardado como estaba y relanza cualquier otro error",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createStore } from './src/logic.js'; const fake = () => { const items = new Map(); return { items, getItem: (key) => (items.has(key) ? items.get(key) : null), setItem: (key, value) => { items.set(key, String(value)); }, removeItem: (key) => { items.delete(key); } }; }; const entry = (id, extra = {}) => ({ id, title: 'Entrada ' + id, category: 'sala', createdAt: new Date('2026-01-0' + id + 'T10:00:00.000Z'), favorite: id % 2 === 0, ...extra }); const storage = fake(); const store = createStore(storage, 'k'); store.save([entry(1)]); const before = storage.getItem('k'); storage.setItem = () => { throw new DOMException('The quota has been exceeded.', 'QuotaExceededError'); }; assert.deepEqual(store.save([entry(1), entry(2)]), { ok: false, reason: 'quota' }); assert.equal(storage.getItem('k'), before); storage.setItem = () => { throw new TypeError('otro fallo'); }; assert.throws(() => store.save([]), TypeError);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "borrador",
+      "descripcion": "createDraft guarda y recupera el borrador, lo borra y devuelve null al caducar o si está roto, y clear lo quita",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createDraft } from './src/logic.js'; const fake = () => { const items = new Map(); return { items, getItem: (key) => (items.has(key) ? items.get(key) : null), setItem: (key, value) => { items.set(key, String(value)); }, removeItem: (key) => { items.delete(key); } }; }; const storage = fake(); let now = 1000; const draft = createDraft(storage, 'd', 500, () => now); assert.equal(draft.load(), null); draft.save({ title: 'Mitad', category: 'sala' }); assert.deepEqual(JSON.parse(storage.getItem('d')), { fields: { title: 'Mitad', category: 'sala' }, savedAt: 1000 }); now = 1499; assert.deepEqual(draft.load(), { title: 'Mitad', category: 'sala' }); now = 1500; assert.equal(draft.load(), null); assert.equal(storage.getItem('d'), null); storage.setItem('d', '{roto'); assert.equal(draft.load(), null); assert.equal(storage.getItem('d'), null); draft.save({ title: 'Otra' }); draft.clear(); assert.equal(storage.getItem('d'), null); const real = createDraft(storage, 'r', 60000); real.save({ title: 'Ahora' }); assert.deepEqual(real.load(), { title: 'Ahora' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "disponible",
+      "descripcion": "isStorageAvailable devuelve true si se puede escribir y borrar (sin dejar claves) y false si getStorage, setItem o removeItem lanzan",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { isStorageAvailable } from './src/logic.js'; const fake = () => { const items = new Map(); return { items, getItem: (key) => (items.has(key) ? items.get(key) : null), setItem: (key, value) => { items.set(key, String(value)); }, removeItem: (key) => { items.delete(key); } }; }; const storage = fake(); assert.equal(isStorageAvailable(() => storage), true); assert.equal(storage.items.size, 0); assert.equal(isStorageAvailable(() => { throw new DOMException('Access is denied.', 'SecurityError'); }), false); const full = fake(); full.setItem = () => { throw new DOMException('Full', 'QuotaExceededError'); }; assert.equal(isStorageAvailable(() => full), false); const stuck = fake(); stuck.removeItem = () => { throw new Error('no'); }; assert.equal(isStorageAvailable(() => stuck), false);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "evento-storage",
+      "descripcion": "fromStorageEvent devuelve la lista vacía si key es null, null si el cambio es de otra clave y deserialize(newValue) si es de su clave",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { fromStorageEvent, serialize } from './src/logic.js'; const entry = (id, extra = {}) => ({ id, title: 'Entrada ' + id, category: 'sala', createdAt: new Date('2026-01-0' + id + 'T10:00:00.000Z'), favorite: id % 2 === 0, ...extra }); assert.deepEqual(fromStorageEvent({ key: null, newValue: null }, 'k'), { entries: [], status: 'empty' }); assert.equal(fromStorageEvent({ key: 'otra', newValue: '[]' }, 'k'), null); const entries = [entry(2)]; assert.deepEqual(fromStorageEvent({ key: 'k', newValue: serialize(entries) }, 'k'), { entries, status: 'ok' }); assert.deepEqual(fromStorageEvent({ key: 'k', newValue: null }, 'k'), { entries: [], status: 'empty' }); assert.equal(fromStorageEvent({ key: 'k', newValue: '{roto' }, 'k').status, 'corrupt');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}
