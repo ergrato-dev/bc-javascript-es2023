@@ -22,7 +22,7 @@ Al terminar la semana podrás:
   node --version
   # v24.19.0 (o superior)
   pnpm --version
-  # 12.21.0 (o superior)
+  # 12.20.0 (o superior)
   ```
 
 ---
