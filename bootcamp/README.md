@@ -27,7 +27,7 @@ Estado de cada semana:
 | [17](week-17-dom_manipulation_moderna/README.md) | [DOM Manipulation Moderna](week-17-dom_manipulation_moderna/README.md) | Intermedio | ✅ |
 | [18](week-18-event_handling_avanzado/README.md) | [Event Handling Avanzado](week-18-event_handling_avanzado/README.md) | Intermedio | ✅ |
 | [19](week-19-web_storage_apis/README.md) | [Web Storage APIs](week-19-web_storage_apis/README.md) | Intermedio | ✅ |
-| [20](week-20-formularios_validacion/README.md) | [Formularios y Validación](week-20-formularios_validacion/README.md) | Intermedio | 🟡 |
+| [20](week-20-formularios_validacion/README.md) | [Formularios y Validación](week-20-formularios_validacion/README.md) | Intermedio | ✅ |
 | [21](week-21-fechas_tiempos_date_api/README.md) | [Fechas y Tiempos (Date API)](week-21-fechas_tiempos_date_api/README.md) | Intermedio | 🟡 |
 | [22](week-22-trabajo_archivos/README.md) | [Trabajo con Archivos](week-22-trabajo_archivos/README.md) | Intermedio | 🟡 |
 | 23 | Performance y Optimización | Intermedio | ⬜ |

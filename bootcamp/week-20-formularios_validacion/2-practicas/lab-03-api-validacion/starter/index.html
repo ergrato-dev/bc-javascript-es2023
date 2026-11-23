@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 03 - La API de validación</title>
+  <style>
+    body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 1rem; }
+    form { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; max-width: 28rem; display: grid; gap: 0.25rem; }
+    input, button { font: inherit; }
+    input { border: 2px solid #30363d; border-radius: 4px; }
+    input[aria-invalid="true"] { border-color: #f85149; }
+    .error { color: #f85149; min-height: 1.2em; margin: 0 0 0.5rem; font-size: 0.9rem; }
+    button { background: #58a6ff; color: #0d1117; border: 0; border-radius: 6px; padding: 0.4rem 0.8rem; justify-self: start; }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Avisos del acuario</h1>
+    <form id="alerts">
+      <label for="visitor">Nombre</label>
+      <input id="visitor" name="visitor" required aria-describedby="visitor-error">
+      <p id="visitor-error" class="error"></p>
+
+      <label for="email">Correo</label>
+      <input id="email" name="email" type="email" required aria-describedby="email-error">
+      <p id="email-error" class="error"></p>
+
+      <label for="confirmEmail">Repite el correo</label>
+      <input id="confirmEmail" name="confirmEmail" type="email" required aria-describedby="confirmEmail-error">
+      <p id="confirmEmail-error" class="error"></p>
+
+      <label for="tickets">Entradas</label>
+      <input id="tickets" name="tickets" type="number" required min="1" max="10" aria-describedby="tickets-error">
+      <p id="tickets-error" class="error"></p>
+
+      <button>Avisarme</button>
+    </form>
+    <p id="status" role="status"></p>
+    <p>Mira la consola de las DevTools (F12).</p>
+  </main>
+</body>
+</html>

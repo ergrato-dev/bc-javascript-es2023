@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 02 - Validación con atributos HTML</title>
+  <style>
+    body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 1rem; }
+    form { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; max-width: 28rem; display: grid; gap: 0.5rem; }
+    input, select, button { font: inherit; }
+    input, select { border: 2px solid #30363d; border-radius: 4px; }
+    input:user-invalid, select:user-invalid { border-color: #f85149; }
+    input:user-valid { border-color: #3fb950; }
+    button { background: #58a6ff; color: #0d1117; border: 0; border-radius: 6px; padding: 0.4rem 0.8rem; }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Socios del acuario</h1>
+    <form id="member">
+      <label for="visitor">Nombre</label>
+      <input id="visitor" name="visitor" required minlength="2" maxlength="40">
+
+      <label for="email">Correo</label>
+      <input id="email" name="email" type="email" required>
+
+      <label for="website">Web (opcional)</label>
+      <input id="website" name="website" type="url">
+
+      <label for="tickets">Entradas al año</label>
+      <input id="tickets" name="tickets" type="number" required min="1" max="10">
+
+      <label for="card">Carné</label>
+      <input id="card" name="card" pattern="AC-\d{4}" title="AC- y cuatro cifras, como AC-0420">
+
+      <label for="zone">Zona favorita</label>
+      <select id="zone" name="zone" required>
+        <option value="">Elige una zona</option>
+        <option>Medusas</option>
+        <option>Tiburones</option>
+        <option>Arrecife</option>
+      </select>
+
+      <label><input name="terms" type="checkbox" required> Acepto las normas del acuario</label>
+
+      <button>Hacerme socio</button>
+    </form>
+    <p>Mira la consola de las DevTools (F12). Escribe en los campos: el borde cambia al salir de ellos.</p>
+  </main>
+</body>
+</html>

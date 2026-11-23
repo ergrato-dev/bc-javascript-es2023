@@ -1,131 +1,114 @@
-# 🧾 Semana 20: Formularios y Validación
+# Semana 20 - Formularios y Validación
 
-## 🎯 Objetivos de Aprendizaje
+Un formulario es la forma en que una página pide datos. Esta semana vas a leerlos sin perder tipos por el camino, dejar que el navegador valide con atributos de HTML, preguntarle desde JavaScript qué falla y por qué, escribir tus propias reglas y mensajes, y enviar sin envíos dobles, colocando en su campo los errores que devuelve el servidor.
 
-Al finalizar esta semana, serás capaz de:
+## Objetivos de aprendizaje
 
-- ✅ Capturar datos con `FormData`
-- ✅ Aplicar validación nativa HTML5
-- ✅ Usar `Constraint Validation API` para reglas avanzadas
-- ✅ Implementar validación personalizada y mensajes claros
-- ✅ Gestionar submit handling con feedback al usuario
-- ✅ Diseñar formularios robustos para escenarios reales
+Al terminar la semana podrás:
+
+- Leer un formulario con `form.elements` y `FormData`, y convertir lo que llega en un objeto con tipos.
+- Atender el envío con `submit`, `preventDefault()` y `requestSubmit()`, y saber qué botón lo envió.
+- Validar con `required`, `type`, `min`, `max`, `step`, `minlength`, `maxlength` y `pattern`, y marcar los errores con `:user-invalid`.
+- Leer `validity`, usar `checkValidity()`, `reportValidity()` y `setCustomValidity()`, y escribir mensajes propios.
+- Escribir las reglas como datos y comprobarlas con funciones puras que no usan el DOM.
+- Mostrar cada error junto a su campo y en el momento adecuado, de forma accesible, y enviar una sola vez.
+
+## Requisitos previos
+
+- Las semanas [17](../week-17-dom_manipulation_moderna/README.md) y [18](../week-18-event_handling_avanzado/README.md): crear elementos con `textContent`, delegar eventos, la fase de captura y `preventDefault()`.
+- Expresiones regulares de la [semana 6](../week-06-strings_regexp_modernos/README.md), y `async/await` y `try/finally` de las semanas [11](../week-11-manejo_errores_moderno/README.md) y [14](../week-14-async_await/README.md).
+- Un navegador de escritorio actual (Chrome, Edge, Firefox o Safari) y saber abrir sus DevTools.
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
+
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 12.20.0 (o superior)
+  ```
 
 ---
 
-## 📚 Requisitos Previos
+## Contenidos
 
-Antes de iniciar esta semana, debes dominar:
+### 1. Teoría (2 h)
 
-- Web Storage APIs (Semana 19)
-- Event handling avanzado (Semana 18)
-- DOM manipulation moderna (Semana 17)
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Formularios y FormData](1-teoria/01-formularios-formdata.md) | 30 min | Las piezas de un formulario, `form.elements`, el evento `submit`, `FormData` y de `FormData` a un objeto con tipos |
+| [02 - Validación con atributos HTML](1-teoria/02-validacion-html.md) | 30 min | Las restricciones, cuándo valida el navegador, `:invalid` y `:user-invalid`, `novalidate` y por qué el servidor valida igualmente |
+| [03 - La API de validación](1-teoria/03-constraint-validation.md) | 30 min | `validity`, `checkValidity()` y `reportValidity()`, el evento `invalid`, `setCustomValidity()` y mensajes propios |
+| [04 - Validación propia y envío](1-teoria/04-validacion-propia-envio.md) | 30 min | Reglas como datos, errores accesibles, cuándo mostrar cada error, envío sin duplicados y errores del servidor |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Formularios y FormData](2-practicas/lab-01-formularios-formdata/README.md) | 50 min |
+| [Lab 02 - Validación con atributos HTML](2-practicas/lab-02-validacion-html/README.md) | 50 min |
+| [Lab 03 - La API de validación](2-practicas/lab-03-api-validacion/README.md) | 55 min |
+| [Lab 04 - Validación propia y envío](2-practicas/lab-04-validacion-propia-envio/README.md) | 55 min |
+
+Los labs son páginas que se abren en el navegador con doble clic: no necesitan Node ni servidor.
+
+### 3. Proyecto (2 h)
+
+[Formulario de inscripción](3-proyecto/README.md): completas las funciones de `src/logic.js` que leen el formulario, comprueban sus reglas, generan los atributos de cada campo, deciden qué errores se ven y tratan el envío y la respuesta del servidor, y describes en `src/data.js` el formulario del dominio que te asigna el instructor. `scripts/verificar-semana.sh 20` comprueba las funciones.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
 
 ---
 
-## 🗂️ Estructura de la Semana
+## Evaluación
+
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 15/15 comprobaciones y formulario del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
 
 ```text
 week-20-formularios_validacion/
-├── README.md
-├── RETO-SEMANAL.md
-├── rubrica-evaluacion.md
-├── 0-assets/
-│   ├── README.md
-│   ├── 01-form-lifecycle.svg
-│   ├── 02-formdata-flow.svg
-│   ├── 03-html5-validation-states.svg
-│   ├── 04-constraint-validation-api.svg
-│   └── 05-custom-validation-pipeline.svg
-├── 1-teoria/
-│   ├── 01-formdata-api.md
-│   ├── 02-html5-validation.md
-│   ├── 03-constraint-validation-api.md
-│   └── 04-validacion-personalizada-submit.md
-├── 2-practicas/
-│   ├── practica-01-formdata-api/
-│   ├── practica-02-html5-validation/
-│   ├── practica-03-constraint-validation-api/
-│   └── practica-04-custom-submit-handling/
-├── 3-proyecto/
-│   ├── README.md
-│   ├── index.html
-│   ├── styles.css
-│   ├── starter/
-│   │   └── script.js
-│   └── solution/          # Oculta por .gitignore
-├── 4-recursos/
-│   ├── README.md
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/
-    └── README.md
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 4 diagramas SVG
+|-- 1-teoria/                  # 01 a 04
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-formularios-formdata/
+|   |-- lab-02-validacion-html/
+|   |-- lab-03-api-validacion/
+|   `-- lab-04-validacion-propia-envio/  # cada lab: README.md y starter/ (index.html y main.js)
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # server.js, index.html, styles.css, src/data.js, src/logic.js, src/main.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## 📝 Contenidos
+## Versiones de la semana
 
-### 1️⃣ Teoría (2.5 horas)
-
-| # | Tema | Archivo | Duración |
-|---|------|---------|----------|
-| 1 | FormData API | [01-formdata-api.md](1-teoria/01-formdata-api.md) | 35 min |
-| 2 | Validación HTML5 | [02-html5-validation.md](1-teoria/02-html5-validation.md) | 35 min |
-| 3 | Constraint Validation API | [03-constraint-validation-api.md](1-teoria/03-constraint-validation-api.md) | 40 min |
-| 4 | Validación personalizada y submit handling | [04-validacion-personalizada-submit.md](1-teoria/04-validacion-personalizada-submit.md) | 40 min |
-
-### 2️⃣ Prácticas (3 horas)
-
-| # | Práctica | Carpeta | Duración |
-|---|----------|---------|----------|
-| 1 | Captura con FormData | [practica-01](2-practicas/practica-01-formdata-api/) | 45 min |
-| 2 | Validación nativa | [practica-02](2-practicas/practica-02-html5-validation/) | 45 min |
-| 3 | Reglas con Constraint API | [practica-03](2-practicas/practica-03-constraint-validation-api/) | 45 min |
-| 4 | Submit controlado | [practica-04](2-practicas/practica-04-custom-submit-handling/) | 45 min |
-
-### 3️⃣ Proyecto (2 horas)
-
-**Sistema de registro y login con validación**
-
-Construirás un flujo de formularios con validación nativa, reglas personalizadas y manejo de envío robusto.
-
-📁 [Ver instrucciones del proyecto](3-proyecto/README.md)
+Los labs se ejecutan en el navegador: cada `main.js` es un script normal (`<script defer>`), que carga también desde un archivo abierto con doble clic. El proyecto usa módulos ES, que solo cargan por `http://`, así que se abre con `node server.js`, sin dependencias. Ese servidor usa `import.meta.main`, que necesita Node 24.2 o superior; las comprobaciones usan el `FormData` global de Node. Las salidas de los labs se obtuvieron en Chromium en español; las de los comandos del proyecto, con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## ⏱️ Distribución del Tiempo (8 horas)
+## Navegación
 
-| Actividad | Tiempo | Porcentaje |
-|-----------|--------|------------|
-| Teoría | 2.5h | 31% |
-| Prácticas | 3h | 38% |
-| Proyecto | 2h | 25% |
-| Recursos | 0.5h | 6% |
-
----
-
-## 📌 Entregables
-
-> **🎯 ÚNICO ENTREGABLE**: El proyecto semanal es el único entregable obligatorio.
-
-### Proyecto: Sistema de registro y login con validación
-
-- [ ] Captura datos de formulario con `FormData`
-- [ ] Aplica validaciones HTML5 y mensajes útiles
-- [ ] Implementa reglas personalizadas con Constraint API
-- [ ] Maneja submit de forma controlada (`preventDefault` cuando aplique)
-- [ ] Adapta solución al dominio asignado
-
----
-
-## 🔗 Navegación
-
-| ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
-|-------------|-----------|--------------|
-| [Semana 19: Web Storage APIs](../week-19-web_storage_apis/README.md) | [Índice](../../README.md) | [Semana 21: Fechas y Tiempos](../week-21-fechas_tiempos_date_api/README.md) |
-
----
-
-_Semana 20 de 28 · Etapa 2: Intermedio · Formularios y Validación_
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 19 - Web Storage APIs](../week-19-web_storage_apis/README.md) | [Semana 21 - Fechas y Tiempos (Date API)](../week-21-fechas_tiempos_date_api/README.md) |

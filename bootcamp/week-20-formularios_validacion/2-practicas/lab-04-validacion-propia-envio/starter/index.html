@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 04 - Validación propia y envío</title>
+  <style>
+    body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 1rem; }
+    form { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; max-width: 28rem; display: grid; gap: 0.25rem; }
+    input, button { font: inherit; }
+    input { border: 2px solid #30363d; border-radius: 4px; }
+    input[aria-invalid="true"] { border-color: #f85149; }
+    .error { color: #f85149; min-height: 1.2em; margin: 0 0 0.5rem; font-size: 0.9rem; }
+    button { background: #58a6ff; color: #0d1117; border: 0; border-radius: 6px; padding: 0.4rem 0.8rem; justify-self: start; }
+    button:disabled { opacity: 0.6; }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Taller de buceo del acuario</h1>
+    <form id="workshop" novalidate>
+      <label for="visitor">Nombre</label>
+      <input id="visitor" name="visitor" aria-describedby="visitor-error">
+      <p id="visitor-error" class="error"></p>
+
+      <label for="email">Correo</label>
+      <input id="email" name="email" type="email" aria-describedby="email-error">
+      <p id="email-error" class="error"></p>
+
+      <label for="tickets">Plazas</label>
+      <input id="tickets" name="tickets" type="number" aria-describedby="tickets-error">
+      <p id="tickets-error" class="error"></p>
+
+      <label for="card">Carné de socio (opcional)</label>
+      <input id="card" name="card" aria-describedby="card-error">
+      <p id="card-error" class="error"></p>
+
+      <button>Inscribirme</button>
+    </form>
+    <p id="status" role="status"></p>
+    <p>Mira la consola de las DevTools (F12). El correo <code>ana@acuario.es</code> ya está inscrito.</p>
+  </main>
+</body>
+</html>

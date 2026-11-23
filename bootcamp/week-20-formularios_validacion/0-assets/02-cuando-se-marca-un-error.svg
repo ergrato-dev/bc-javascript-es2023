@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="sans-serif">
+  <rect width="800" height="380" fill="#0d1117"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Cuándo se muestra el error de un campo</text>
+  <text x="400" y="58" text-anchor="middle" fill="#8b949e" font-size="13">Campo «Nombre» con required y minlength="2"</text>
+
+  <!-- 1 -->
+  <rect x="16" y="80" width="176" height="200" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="104" y="106" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">1. Sin tocar</text>
+  <rect x="32" y="122" width="144" height="30" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="104" y="182" text-anchor="middle" fill="#8b949e" font-size="12">:invalid sí</text>
+  <text x="104" y="202" text-anchor="middle" fill="#3fb950" font-size="12">:user-invalid no</text>
+  <text x="104" y="240" text-anchor="middle" fill="#c9d1d9" font-size="12">Sin error visible</text>
+
+  <line x1="194" y1="180" x2="210" y2="180" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 2 -->
+  <rect x="214" y="80" width="176" height="200" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="302" y="106" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">2. Escribe «A»</text>
+  <rect x="230" y="122" width="144" height="30" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="242" y="142" fill="#c9d1d9" font-size="13">A</text>
+  <text x="302" y="182" text-anchor="middle" fill="#8b949e" font-size="12">Sigue en el campo</text>
+  <text x="302" y="202" text-anchor="middle" fill="#3fb950" font-size="12">:user-invalid no</text>
+  <text x="302" y="240" text-anchor="middle" fill="#c9d1d9" font-size="12">Sin error: aún escribe</text>
+
+  <line x1="392" y1="180" x2="408" y2="180" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 3 -->
+  <rect x="412" y="80" width="176" height="200" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="500" y="106" text-anchor="middle" fill="#f85149" font-size="14" font-weight="bold">3. Sale del campo</text>
+  <rect x="428" y="122" width="144" height="30" rx="4" fill="#0d1117" stroke="#f85149" stroke-width="2"/>
+  <text x="440" y="142" fill="#c9d1d9" font-size="13">A</text>
+  <text x="500" y="182" text-anchor="middle" fill="#8b949e" font-size="12">focusout: tocado</text>
+  <text x="500" y="202" text-anchor="middle" fill="#f85149" font-size="12">:user-invalid sí</text>
+  <text x="500" y="240" text-anchor="middle" fill="#f85149" font-size="12">Escribe al menos</text>
+  <text x="500" y="258" text-anchor="middle" fill="#f85149" font-size="12">2 caracteres.</text>
+
+  <line x1="590" y1="180" x2="606" y2="180" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 4 -->
+  <rect x="610" y="80" width="174" height="200" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="697" y="106" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="bold">4. Lo corrige</text>
+  <rect x="625" y="122" width="144" height="30" rx="4" fill="#0d1117" stroke="#3fb950" stroke-width="2"/>
+  <text x="637" y="142" fill="#c9d1d9" font-size="13">An</text>
+  <text x="697" y="182" text-anchor="middle" fill="#8b949e" font-size="12">input en un campo</text>
+  <text x="697" y="200" text-anchor="middle" fill="#8b949e" font-size="12">tocado: se revalida</text>
+  <text x="697" y="240" text-anchor="middle" fill="#3fb950" font-size="12">El error se va</text>
+  <text x="697" y="258" text-anchor="middle" fill="#3fb950" font-size="12">en esa misma tecla</text>
+
+  <!-- Enviar -->
+  <rect x="16" y="300" width="768" height="62" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="32" y="326" fill="#d29922" font-size="13" font-weight="bold">Al intentar enviar</text>
+  <text x="32" y="348" fill="#c9d1d9" font-size="13">Todos los campos cuentan como tocados: se muestran todos los errores y el foco va al primero.</text>
+</svg>

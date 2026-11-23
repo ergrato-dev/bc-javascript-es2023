@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="sans-serif">
+  <rect width="800" height="420" fill="#0d1117"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Cómo decide un campo si es válido</text>
+
+  <!-- Entradas -->
+  <rect x="16" y="64" width="220" height="140" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="126" y="90" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="bold">Atributos del HTML</text>
+  <text x="30" y="118" fill="#c9d1d9" font-family="monospace" font-size="12">required</text>
+  <text x="30" y="138" fill="#c9d1d9" font-family="monospace" font-size="12">type="email"</text>
+  <text x="30" y="158" fill="#c9d1d9" font-family="monospace" font-size="12">min="1" max="10"</text>
+  <text x="30" y="178" fill="#c9d1d9" font-family="monospace" font-size="12">pattern="AC-\d{4}"</text>
+
+  <rect x="16" y="224" width="220" height="110" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="126" y="250" text-anchor="middle" fill="#d29922" font-size="14" font-weight="bold">Regla propia</text>
+  <text x="30" y="278" fill="#c9d1d9" font-family="monospace" font-size="11">setCustomValidity('No</text>
+  <text x="30" y="296" fill="#c9d1d9" font-family="monospace" font-size="11">  coinciden.')</text>
+  <text x="30" y="318" fill="#8b949e" font-size="11">Se quita con setCustomValidity('')</text>
+
+  <line x1="240" y1="134" x2="290" y2="180" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="240" y1="278" x2="290" y2="232" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- validity -->
+  <rect x="294" y="64" width="230" height="270" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="409" y="90" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">input.validity</text>
+  <text x="310" y="118" fill="#8b949e" font-family="monospace" font-size="12">valueMissing     false</text>
+  <text x="310" y="140" fill="#f85149" font-family="monospace" font-size="12">typeMismatch     true</text>
+  <text x="310" y="162" fill="#8b949e" font-family="monospace" font-size="12">badInput         false</text>
+  <text x="310" y="184" fill="#8b949e" font-family="monospace" font-size="12">rangeOverflow    false</text>
+  <text x="310" y="206" fill="#8b949e" font-family="monospace" font-size="12">patternMismatch  false</text>
+  <text x="310" y="228" fill="#8b949e" font-family="monospace" font-size="12">tooShort ...     false</text>
+  <text x="310" y="250" fill="#8b949e" font-family="monospace" font-size="12">customError      false</text>
+  <line x1="310" y1="266" x2="508" y2="266" stroke="#30363d" stroke-width="1"/>
+  <text x="310" y="290" fill="#f85149" font-family="monospace" font-size="12">valid            false</text>
+  <text x="310" y="316" fill="#8b949e" font-size="11">valid = ningún indicador a true</text>
+
+  <line x1="528" y1="140" x2="568" y2="120" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="528" y1="260" x2="568" y2="280" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Salidas -->
+  <rect x="572" y="64" width="212" height="120" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="678" y="90" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="bold">Tu código pregunta</text>
+  <text x="586" y="118" fill="#c9d1d9" font-family="monospace" font-size="12">checkValidity()</text>
+  <text x="586" y="140" fill="#c9d1d9" font-family="monospace" font-size="12">reportValidity()</text>
+  <text x="586" y="162" fill="#c9d1d9" font-family="monospace" font-size="12">validationMessage</text>
+
+  <rect x="572" y="214" width="212" height="120" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="678" y="240" text-anchor="middle" fill="#f85149" font-size="14" font-weight="bold">Al enviar (sin novalidate)</text>
+  <text x="586" y="266" fill="#c9d1d9" font-size="12">Evento invalid en cada campo</text>
+  <text x="586" y="288" fill="#c9d1d9" font-size="12">No llega submit</text>
+  <text x="586" y="310" fill="#c9d1d9" font-size="12">Burbuja y foco en el primero</text>
+
+  <rect x="16" y="354" width="768" height="50" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="400" y="384" text-anchor="middle" fill="#c9d1d9" font-size="13">Con novalidate llega submit siempre: tu listener lee validity y escribe sus propios mensajes.</text>
+</svg>

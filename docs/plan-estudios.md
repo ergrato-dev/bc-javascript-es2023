@@ -360,16 +360,16 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 20: Formularios y Validación**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- FormData API
-- Validación HTML5
-- Constraint Validation API
-- Validación personalizada
-- Submit handling
+- Formularios y `FormData`: `name` y `<label>`, `form.elements`, `value` y `checked`, el evento `submit`, `requestSubmit()` y `submitter`, qué entra en `FormData`, `get`, `getAll` y `has`, y conversión a un objeto con tipos
+- Validación con atributos: `required`, `type`, `min`, `max`, `step`, `minlength`, `maxlength` y `pattern`, cuándo valida el navegador, `:invalid` y `:user-invalid`, `novalidate` y validación en el servidor
+- La API de validación: `validity` y sus indicadores, `checkValidity()` y `reportValidity()`, el evento `invalid` en captura, `setCustomValidity()` y mensajes propios
+- Validación propia y envío: reglas como datos y funciones puras, errores accesibles con `aria-invalid` y `aria-describedby`, campos tocados, envío sin duplicados y errores del servidor por campo
 
-**Proyecto**: Sistema de registro y login con validación
+**Proyecto**: Formulario de inscripción construido desde `FIELDS`: lectura con tipos (`readValues`), reglas y mensajes propios (`checkField`, `validate`), atributos HTML generados (`toAttributes`), errores al salir del campo y al enviar (`createFormState`, `summarize`) y envío sin duplicados con errores del servidor (`createSubmitter`, `fromServer`), servido con `node server.js`
 
 ---
 

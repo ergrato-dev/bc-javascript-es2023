@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscripción</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <main>
+    <h1 id="title">Inscripción</h1>
+    <p id="intro"></p>
+
+    <form id="signup" novalidate>
+      <div id="summary" class="summary" hidden>
+        <h2>Revisa estos campos</h2>
+        <ul id="summary-list"></ul>
+      </div>
+
+      <div id="fields"></div>
+
+      <button id="submit">Enviar</button>
+    </form>
+
+    <p id="status" class="status" role="status"></p>
+  </main>
+</body>
+</html>

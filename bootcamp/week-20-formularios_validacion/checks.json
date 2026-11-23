@@ -1,0 +1,111 @@
+{
+  "semana": "20",
+  "titulo": "Formularios y Validación",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta APP (title, intro y submitLabel), de 5 a 12 FIELDS con name sin repetir, label y type válidos, un campo email de tipo email, al menos 4 tipos distintos, uno obligatorio y uno opcional, reglas coherentes (options, pattern, sameAs, min y max), y TAKEN_EMAILS con correos en minúsculas",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, FIELDS, TAKEN_EMAILS } from './src/data.js'; for (const key of ['title', 'intro', 'submitLabel']) assert.ok(typeof APP[key] === 'string' && APP[key].trim() !== '', key); assert.ok(Array.isArray(FIELDS) && FIELDS.length >= 5 && FIELDS.length <= 12); const names = FIELDS.map((field) => field.name); assert.equal(new Set(names).size, names.length); const TYPES = ['text', 'email', 'number', 'textarea', 'select', 'checkbox', 'checkboxes']; for (const [index, field] of FIELDS.entries()) {   assert.match(field.name, /^[a-zA-Z][a-zA-Z0-9]*$/); assert.ok(typeof field.label === 'string' && field.label.trim() !== '', field.name); assert.ok(TYPES.includes(field.type), field.name);   if (['select', 'checkboxes'].includes(field.type)) { assert.ok(Array.isArray(field.options) && field.options.length >= 2, field.name); assert.equal(new Set(field.options).size, field.options.length); assert.ok(field.options.every((option) => typeof option === 'string' && option.trim() !== '')); }   if (field.pattern !== undefined) { assert.equal(typeof field.pattern, 'string'); new RegExp(field.pattern); assert.ok(typeof field.patternMessage === 'string' && field.patternMessage !== '', field.name); }   if (field.sameAs !== undefined) assert.ok(names.slice(0, index).includes(field.sameAs), field.name);   if (field.min !== undefined && field.max !== undefined) assert.ok(field.min <= field.max, field.name);   if (field.minLength !== undefined && field.maxLength !== undefined) assert.ok(field.minLength <= field.maxLength, field.name); } assert.equal(FIELDS.find((field) => field.name === 'email')?.type, 'email'); assert.ok(new Set(FIELDS.map((field) => field.type)).size >= 4); assert.ok(FIELDS.some((field) => field.required)); assert.ok(FIELDS.some((field) => !field.required && field.type !== 'checkboxes')); assert.ok(Array.isArray(TAKEN_EMAILS) && TAKEN_EMAILS.length >= 1); for (const email of TAKEN_EMAILS) { assert.match(email, /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/); assert.equal(email, email.toLowerCase()); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título, los correos ocupados, las opciones y las etiquetas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, FIELDS, TAKEN_EMAILS } from './src/data.js'; assert.notEqual(APP.title.trim().toLowerCase(), 'taller de observación del planetario'); assert.ok(!TAKEN_EMAILS.some((email) => email.endsWith('@planetario.es'))); const options = FIELDS.flatMap((field) => field.options ?? []); for (const example of ['Viernes 21:00', 'Sábado 23:00', 'Cúmulos de estrellas', 'Galaxias']) assert.ok(!options.includes(example), example); assert.ok(!FIELDS.some((field) => field.label === 'Acepto las normas del planetario' || field.label === 'Qué quieres observar')); const BS = String.fromCharCode(92); assert.ok(!FIELDS.some((field) => field.pattern === 'PL-' + BS + 'd{4}'));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "leer",
+      "descripcion": "readValues convierte un FormData: texto sin espacios en los extremos ('' si falta), number en null si está vacío y en Number si no, checkbox en booleano y checkboxes en el array de getAll",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readValues } from './src/logic.js'; const fields = [{ name: 'fullName', type: 'text' }, { name: 'note', type: 'textarea' }, { name: 'email', type: 'email' }, { name: 'age', type: 'number' }, { name: 'seats', type: 'number' }, { name: 'bad', type: 'number' }, { name: 'rules', type: 'checkbox' }, { name: 'news', type: 'checkbox' }, { name: 'rooms', type: 'checkboxes' }, { name: 'extras', type: 'checkboxes' }, { name: 'room', type: 'select' }]; const data = new FormData(); data.append('fullName', '  Ana Gil  '); data.append('age', ' 12 '); data.append('seats', ''); data.append('bad', '1e'); data.append('rules', 'on'); data.append('rooms', 'Arqueología'); data.append('rooms', 'Arte moderno'); data.append('room', 'Sala 2'); const values = readValues(data, fields); assert.deepEqual(values, { fullName: 'Ana Gil', note: '', email: '', age: 12, seats: null, bad: NaN, rules: true, news: false, rooms: ['Arqueología', 'Arte moderno'], extras: [], room: 'Sala 2' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "validar-vacios",
+      "descripcion": "checkField: 'Rellena este campo.' en un campo obligatorio vacío ('' o null) y null en uno opcional; casillas con 'Marca esta casilla para continuar.', 'Elige al menos N.' y 'Elige una de las opciones.'",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { checkField } from './src/logic.js'; const check = (field, value) => checkField(field, { [field.name]: value }); assert.equal(check({ name: 'a', type: 'text', required: true, minLength: 3 }, ''), \\\"Rellena este campo.\\\"); assert.equal(check({ name: 'a', type: 'text', minLength: 3, pattern: 'X' }, ''), null); assert.equal(check({ name: 'a', type: 'number', required: true, min: 1 }, null), \\\"Rellena este campo.\\\"); assert.equal(check({ name: 'a', type: 'number', min: 1 }, null), null); assert.equal(check({ name: 'a', type: 'select', required: true, options: ['x', 'y'] }, ''), \\\"Rellena este campo.\\\"); assert.equal(check({ name: 'a', type: 'checkbox', required: true }, false), \\\"Marca esta casilla para continuar.\\\"); assert.equal(check({ name: 'a', type: 'checkbox', required: true }, true), null); assert.equal(check({ name: 'a', type: 'checkbox' }, false), null); const group = { name: 'g', type: 'checkboxes', options: ['x', 'y', 'z'], minChecked: 2 }; assert.equal(check(group, ['x']), \\\"Elige al menos 2.\\\"); assert.equal(check(group, []), \\\"Elige al menos 2.\\\"); assert.equal(check(group, ['x', 'w']), \\\"Elige una de las opciones.\\\"); assert.equal(check(group, ['x', 'z']), null); assert.equal(check({ name: 'g', type: 'checkboxes', options: ['x', 'y'] }, []), null);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "validar-reglas",
+      "descripcion": "checkField comprueba email, minLength y maxLength (con los caracteres que lleva), número no válido, min, max, pattern anclado entero (con patternMessage o el mensaje por defecto) y options de un select",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { checkField } from './src/logic.js'; const check = (field, value) => checkField(field, { [field.name]: value }); const email = { name: 'email', type: 'email', required: true }; for (const bad of ['ana', 'ana@museo', 'ana @museo.es', '@museo.es']) assert.equal(check(email, bad), \\\"Escribe un correo como nombre@ejemplo.com.\\\", bad); assert.equal(check(email, 'ana@museo.es'), null); const name = { name: 'n', type: 'text', required: true, minLength: 3, maxLength: 5 }; assert.equal(check(name, 'Al'), \\\"Escribe al menos 3 caracteres (llevas 2).\\\"); assert.equal(check(name, 'Alejandra'), \\\"Escribe como máximo 5 caracteres (llevas 9).\\\"); assert.equal(check(name, 'Alba'), null); const age = { name: 'age', type: 'number', required: true, min: 8, max: 99 }; assert.equal(check(age, NaN), \\\"Escribe un número.\\\"); assert.equal(check(age, 5), \\\"El mínimo es 8.\\\"); assert.equal(check(age, 120), \\\"El máximo es 99.\\\"); assert.equal(check(age, 8), null); assert.equal(check(age, 99), null); assert.equal(check({ name: 'z', type: 'number', min: 0 }, 0), null); const BS = String.fromCharCode(92); const card = { name: 'c', type: 'text', pattern: 'PL-' + BS + 'd{4}', patternMessage: \\\"Escribe PL- y cuatro cifras.\\\" }; assert.equal(check(card, 'PL-12345'), \\\"Escribe PL- y cuatro cifras.\\\"); assert.equal(check(card, 'XPL-1234'), \\\"Escribe PL- y cuatro cifras.\\\"); assert.equal(check(card, 'PL-1234'), null); assert.equal(check({ name: 'c', type: 'text', pattern: 'a|b' }, 'ab'), \\\"El formato no es válido.\\\"); assert.equal(check({ name: 'c', type: 'text', pattern: 'a|b' }, 'b'), null); const room = { name: 'r', type: 'select', required: true, options: ['Sala 1', 'Sala 2'] }; assert.equal(check(room, 'Sala 3'), \\\"Elige una de las opciones.\\\"); assert.equal(check(room, 'Sala 2'), null);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "validar-coincide",
+      "descripcion": "checkField con sameAs: 'Los dos valores no coinciden.' si el valor es distinto del campo indicado, null si coinciden, y primero las demás reglas",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { checkField } from './src/logic.js'; const confirm = { name: 'confirmEmail', type: 'email', required: true, sameAs: 'email' }; assert.equal(checkField(confirm, { email: 'ana@museo.es', confirmEmail: 'ana@museo.es' }), null); assert.equal(checkField(confirm, { email: 'ana@museo.es', confirmEmail: 'ana@museo.com' }), \\\"Los dos valores no coinciden.\\\"); assert.equal(checkField(confirm, { email: 'ana@museo.es', confirmEmail: '' }), \\\"Rellena este campo.\\\"); assert.equal(checkField(confirm, { email: 'ana@museo.es', confirmEmail: 'ana' }), \\\"Escribe un correo como nombre@ejemplo.com.\\\");\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "validar-todo",
+      "descripcion": "validate devuelve { valid, errors } con un mensaje por cada campo con error, en el orden de los campos, y { valid: true, errors: {} } si no hay ninguno",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { validate } from './src/logic.js'; const fields = [{ name: 'fullName', type: 'text', required: true, minLength: 3 }, { name: 'email', type: 'email', required: true }, { name: 'confirmEmail', type: 'email', required: true, sameAs: 'email' }, { name: 'age', type: 'number', min: 8 }, { name: 'rules', type: 'checkbox', required: true }]; const result = validate(fields, { fullName: 'Al', email: 'ana@museo.es', confirmEmail: 'eva@museo.es', age: null, rules: false }); assert.deepEqual(result, { valid: false, errors: { fullName: \\\"Escribe al menos 3 caracteres (llevas 2).\\\", confirmEmail: \\\"Los dos valores no coinciden.\\\", rules: \\\"Marca esta casilla para continuar.\\\" } }); assert.deepEqual(Object.keys(result.errors), ['fullName', 'confirmEmail', 'rules']); assert.deepEqual(validate(fields, { fullName: 'Alba', email: 'ana@museo.es', confirmEmail: 'ana@museo.es', age: 30, rules: true }), { valid: true, errors: {} });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "atributos",
+      "descripcion": "toAttributes devuelve id, name y aria-describedby, el type de text, email, number y checkbox, required '' (salvo en checkboxes) y minlength, maxlength, min, max y pattern como texto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { toAttributes } from './src/logic.js'; assert.deepEqual(toAttributes({ name: 'age', label: 'Edad', type: 'number', required: true, min: 0, max: 99 }), { id: 'age', name: 'age', 'aria-describedby': 'age-error', type: 'number', required: '', min: '0', max: '99' }); const BS = String.fromCharCode(92); const pattern = 'AM-' + BS + 'd{5}'; assert.equal(pattern.length, 8); assert.deepEqual(toAttributes({ name: 'card', label: 'Carné', type: 'text', minLength: 2, maxLength: 8, pattern, patternMessage: 'x' }), { id: 'card', name: 'card', 'aria-describedby': 'card-error', type: 'text', minlength: '2', maxlength: '8', pattern }); assert.deepEqual(toAttributes({ name: 'notes', type: 'textarea', maxLength: 150 }), { id: 'notes', name: 'notes', 'aria-describedby': 'notes-error', maxlength: '150' }); assert.deepEqual(toAttributes({ name: 'room', type: 'select', required: true, options: ['a', 'b'] }), { id: 'room', name: 'room', 'aria-describedby': 'room-error', required: '' }); assert.deepEqual(toAttributes({ name: 'rooms', type: 'checkboxes', required: true, options: ['a', 'b'], minChecked: 1 }), { id: 'rooms', name: 'rooms', 'aria-describedby': 'rooms-error' }); assert.deepEqual(toAttributes({ name: 'rules', type: 'checkbox', required: true }), { id: 'rules', name: 'rules', 'aria-describedby': 'rules-error', type: 'checkbox', required: '' }); assert.deepEqual(toAttributes({ name: 'email', type: 'email' }), { id: 'email', name: 'email', 'aria-describedby': 'email-error', type: 'email' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "estado",
+      "descripcion": "createFormState muestra solo los errores de los campos tocados, todos tras submit(), en un objeto nuevo, y reset() lo olvida todo; cada llamada crea un estado independiente",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createFormState } from './src/logic.js'; const errors = { a: 'Error a', b: 'Error b', c: 'Error c' }; const state = createFormState(); const other = createFormState(); assert.deepEqual(state.visible(errors), {}); assert.equal(state.isTouched('a'), false); state.touch('b'); state.touch('zz'); assert.equal(state.isTouched('b'), true); assert.deepEqual(state.visible(errors), { b: 'Error b' }); assert.deepEqual(other.visible(errors), {}); assert.equal(other.isTouched('b'), false); state.submit(); const all = state.visible(errors); assert.deepEqual(all, errors); assert.notEqual(all, errors); assert.deepEqual(state.visible({}), {}); state.reset(); assert.deepEqual(state.visible(errors), {}); assert.equal(state.isTouched('b'), false); assert.deepEqual(Object.keys(errors), ['a', 'b', 'c']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "resumen",
+      "descripcion": "summarize devuelve [{ name, text: 'Etiqueta: mensaje' }] en el orden de los campos, solo con los que tienen error",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { summarize } from './src/logic.js'; const fields = [{ name: 'fullName', label: 'Nombre' }, { name: 'email', label: 'Correo' }, { name: 'age', label: 'Edad' }]; assert.deepEqual(summarize(fields, { age: \\\"El mínimo es 8.\\\", fullName: \\\"Rellena este campo.\\\" }), [{ name: 'fullName', text: \\\"Nombre: Rellena este campo.\\\" }, { name: 'age', text: \\\"Edad: El mínimo es 8.\\\" }]); assert.deepEqual(summarize(fields, {}), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "servidor",
+      "descripcion": "fromServer convierte { ok: true } en status 'ok', { ok: false, errors: [{ field, message }] } en status 'invalid' con errors por campo y cualquier otra respuesta en status 'error'",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { fromServer } from './src/logic.js'; assert.deepEqual(fromServer({ ok: true }), { status: 'ok', errors: {} }); assert.deepEqual(fromServer({ ok: false, errors: [{ field: 'email', message: \\\"Ese correo ya está inscrito.\\\" }, { field: 'age', message: 'Demasiado joven.' }] }), { status: 'invalid', errors: { email: \\\"Ese correo ya está inscrito.\\\", age: 'Demasiado joven.' } }); assert.deepEqual(fromServer({ ok: false, errors: [] }), { status: 'invalid', errors: {} }); for (const bad of [null, undefined, {}, { ok: 'true' }, { ok: false }, { ok: false, errors: 'email' }, 'ok']) assert.deepEqual(fromServer(bad), { status: 'error', errors: {} });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "envio",
+      "descripcion": "createSubmitter llama a send una sola vez mientras hay un envío en marcha (status 'busy'), devuelve fromServer de la respuesta, 'error' si send lanza, y permite un envío nuevo al terminar",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createSubmitter } from './src/logic.js'; let calls = 0; let finish; const send = (values) => { calls += 1; return new Promise((resolve) => { finish = () => resolve(values.answer); }); }; const submit = createSubmitter(send); const first = submit({ answer: { ok: true } }); assert.deepEqual(await submit({ answer: { ok: true } }), { status: 'busy', errors: {} }); assert.equal(calls, 1); finish(); assert.deepEqual(await first, { status: 'ok', errors: {} }); const second = submit({ answer: { ok: false, errors: [{ field: 'email', message: 'Ocupado.' }] } }); assert.equal(calls, 2); finish(); assert.deepEqual(await second, { status: 'invalid', errors: { email: 'Ocupado.' } }); let failures = 0; const failing = createSubmitter(async () => { failures += 1; throw new TypeError('Failed to fetch'); }); assert.deepEqual(await failing({}), { status: 'error', errors: {} }); assert.deepEqual(await failing({}), { status: 'error', errors: {} }); assert.equal(failures, 2); const otherSubmit = createSubmitter(send); const pending = submit({ answer: { ok: true } }); const parallel = otherSubmit({ answer: { ok: true } }); assert.equal(calls, 4); finish(); await parallel;\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}

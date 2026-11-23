@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="sans-serif">
+  <rect width="800" height="400" fill="#0d1117"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Del envío a la respuesta</text>
+
+  <!-- Paso 1 -->
+  <rect x="16" y="64" width="176" height="110" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="104" y="90" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="bold">1. submit</text>
+  <text x="104" y="116" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">preventDefault()</text>
+  <text x="104" y="136" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">FormData → values</text>
+
+  <line x1="194" y1="119" x2="210" y2="119" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Paso 2 -->
+  <rect x="214" y="64" width="176" height="110" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="302" y="90" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">2. validate</text>
+  <text x="302" y="116" text-anchor="middle" fill="#c9d1d9" font-size="12">Con errores: mostrarlos,</text>
+  <text x="302" y="134" text-anchor="middle" fill="#c9d1d9" font-size="12">foco en el primero</text>
+  <text x="302" y="156" text-anchor="middle" fill="#f85149" font-size="12">y no enviar</text>
+
+  <line x1="392" y1="119" x2="408" y2="119" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Paso 3 -->
+  <rect x="412" y="64" width="176" height="110" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="500" y="90" text-anchor="middle" fill="#d29922" font-size="14" font-weight="bold">3. Enviar una vez</text>
+  <text x="500" y="116" text-anchor="middle" fill="#c9d1d9" font-size="12">sending = true</text>
+  <text x="500" y="134" text-anchor="middle" fill="#c9d1d9" font-size="12">botón desactivado</text>
+  <text x="500" y="156" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">await send(values)</text>
+
+  <line x1="590" y1="119" x2="606" y2="119" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Paso 4 -->
+  <rect x="610" y="64" width="174" height="110" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="697" y="90" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">4. finally</text>
+  <text x="697" y="116" text-anchor="middle" fill="#c9d1d9" font-size="12">sending = false</text>
+  <text x="697" y="134" text-anchor="middle" fill="#c9d1d9" font-size="12">botón activo</text>
+  <text x="697" y="156" text-anchor="middle" fill="#8b949e" font-size="12">haya ido bien o mal</text>
+
+  <line x1="500" y1="176" x2="500" y2="200" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="500" y="222" text-anchor="middle" fill="#8b949e" font-size="13">La respuesta puede ser...</text>
+
+  <!-- Respuestas -->
+  <rect x="16" y="240" width="248" height="140" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="140" y="266" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="bold">{ ok: true }</text>
+  <text x="140" y="294" text-anchor="middle" fill="#c9d1d9" font-size="12">Mensaje en role="status"</text>
+  <text x="140" y="314" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">form.reset()</text>
+  <text x="140" y="334" text-anchor="middle" fill="#c9d1d9" font-size="12">Olvidar los campos tocados</text>
+
+  <rect x="276" y="240" width="248" height="140" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="400" y="266" text-anchor="middle" fill="#d29922" font-size="14" font-weight="bold">{ ok: false, errors: [...] }</text>
+  <text x="400" y="294" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">[{ field, message }]</text>
+  <text x="400" y="314" text-anchor="middle" fill="#c9d1d9" font-size="12">→ { email: 'Ya inscrito.' }</text>
+  <text x="400" y="334" text-anchor="middle" fill="#c9d1d9" font-size="12">Mostrar como los de validate</text>
+  <text x="400" y="354" text-anchor="middle" fill="#c9d1d9" font-size="12">y conservar lo escrito</text>
+
+  <rect x="536" y="240" width="248" height="140" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="660" y="266" text-anchor="middle" fill="#f85149" font-size="14" font-weight="bold">Fallo de red (throw)</text>
+  <text x="660" y="294" text-anchor="middle" fill="#c9d1d9" font-size="12">Mensaje general:</text>
+  <text x="660" y="314" text-anchor="middle" fill="#c9d1d9" font-size="12">«Inténtalo de nuevo»</text>
+  <text x="660" y="334" text-anchor="middle" fill="#c9d1d9" font-size="12">Conservar lo escrito</text>
+  <text x="660" y="354" text-anchor="middle" fill="#c9d1d9" font-size="12">para reenviar</text>
+</svg>

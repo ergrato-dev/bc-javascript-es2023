@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 01 - Formularios y FormData</title>
+  <style>
+    body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 1rem; }
+    form { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; max-width: 28rem; display: grid; gap: 0.5rem; }
+    fieldset { border: 1px solid #30363d; border-radius: 6px; }
+    input, button { font: inherit; }
+    button { background: #58a6ff; color: #0d1117; border: 0; border-radius: 6px; padding: 0.4rem 0.8rem; }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Reserva de entradas del acuario</h1>
+    <form id="booking">
+      <label for="visitor">Nombre</label>
+      <input id="visitor" name="visitor">
+
+      <label for="tickets">Entradas</label>
+      <input id="tickets" name="tickets" type="number" value="1">
+
+      <label><input name="guide" type="checkbox" value="yes"> Con visita guiada</label>
+
+      <fieldset>
+        <legend>Zonas que quieres ver</legend>
+        <label><input name="zones" type="checkbox" value="Medusas"> Medusas</label>
+        <label><input name="zones" type="checkbox" value="Tiburones"> Tiburones</label>
+        <label><input name="zones" type="checkbox" value="Arrecife"> Arrecife</label>
+      </fieldset>
+
+      <label for="office">Taquilla</label>
+      <input id="office" name="office" value="Central" disabled>
+
+      <p>
+        <button name="action" value="draft">Guardar borrador</button>
+        <button name="action" value="book">Reservar</button>
+      </p>
+    </form>
+    <p>Mira la consola de las DevTools (F12). Después de los pasos, rellena el formulario y pulsa los botones.</p>
+  </main>
+</body>
+</html>
