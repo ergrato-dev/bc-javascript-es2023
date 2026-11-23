@@ -15,6 +15,13 @@ fetch(url, { signal: controller.signal });
 controller.abort(); // Cancela la petición
 ```
 
+### AbortSignal.timeout()
+Crea una señal que se cancela sola pasados los milisegundos indicados. Si la petición no ha terminado, fetch se rechaza con un error de nombre `TimeoutError`.
+
+```javascript
+await fetch(url, { signal: AbortSignal.timeout(5000) });
+```
+
 ### API (Application Programming Interface)
 Conjunto de reglas y protocolos que permite la comunicación entre aplicaciones. Una API REST expone endpoints HTTP para operaciones CRUD.
 
@@ -87,9 +94,6 @@ Códigos numéricos que indican el resultado de una petición:
 
 ### JSON (JavaScript Object Notation)
 Formato de texto para intercambiar datos. Es el formato estándar en APIs REST modernas.
-
-### JSONPlaceholder
-API REST gratuita de pruebas que simula un backend con posts, comments, users y otros recursos.
 
 ## M
 
@@ -173,12 +177,15 @@ Propiedad de AbortController que se pasa a fetch para permitir la cancelación d
 ## T
 
 ### Timeout
-Tiempo máximo de espera para una petición. Se implementa con AbortController y setTimeout.
+Tiempo máximo de espera para una petición. Se implementa con `AbortSignal.timeout(ms)` o, a mano, con un AbortController y un `setTimeout` que llama a `abort()`.
 
 ```javascript
 const controller = new AbortController();
 setTimeout(() => controller.abort(), 5000);
 ```
+
+### TimeoutError
+Nombre del error con el que se rechaza fetch cuando vence la señal de `AbortSignal.timeout()`. Una cancelación con `controller.abort()` da, en cambio, un `AbortError`.
 
 ## U
 
@@ -191,3 +198,14 @@ params.append('q', 'búsqueda');
 params.append('page', '1');
 // Resultado: "q=b%C3%BAsqueda&page=1"
 ```
+
+<!-- nav -->
+---
+
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [🔌 Semana 16: APIs REST y CRUD](../../week-16-apis_rest_crud/README.md) → |
+
+[↑ Semana 15](../README.md)

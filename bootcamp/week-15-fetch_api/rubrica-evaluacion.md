@@ -1,117 +1,89 @@
-# 📊 Rúbrica de Evaluación - Semana 15: Fetch API
+# Rúbrica de Evaluación - Semana 15
 
-## 📋 Información General
+## Evidencias y ponderación
 
-| Aspecto | Detalle |
-|---------|---------|
-| **Semana** | 15 |
-| **Tema** | Fetch API |
-| **Entregable** | Consumidor de API REST Pública |
-| **Fecha límite** | Según calendario del instructor |
-
----
-
-## 🎯 Criterios de Evaluación
-
-### 1. Conocimiento (30%) 🧠
-
-Evaluación teórica sobre conceptos de Fetch API.
-
-| Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
-|----------|------------------|-------------|------------------|---------------------|
-| **Comprende Fetch API** | Explica correctamente cómo funciona fetch, su sintaxis y diferencias con XMLHttpRequest | Explica fetch con algunos detalles faltantes | Explica conceptos básicos de fetch | No comprende el funcionamiento de fetch |
-| **Request y Response** | Domina los objetos Request/Response, sus propiedades y métodos | Comprende la mayoría de propiedades | Conoce propiedades básicas | Confunde Request y Response |
-| **Headers y Config** | Configura headers correctamente, entiende Content-Type y Authorization | Configura headers con pequeños errores | Configura headers básicos | No sabe configurar headers |
-| **Manejo de errores** | Distingue errores de red vs HTTP, implementa estrategias robustas | Maneja errores correctamente con detalles menores | Maneja errores básicos | No diferencia tipos de errores |
+| Tipo de evidencia | Ponderación | Descripción |
+|---|---:|---|
+| Conocimiento | 30% | `fetch` y `Response`, métodos HTTP, cabeceras, cancelación y tipos de error |
+| Desempeño | 40% | Labs 01 a 04 descomentados y ejecutados |
+| Producto | 30% | Cliente del catálogo: `src/logic.js` completo y datos del dominio asignado |
 
 ---
 
-### 2. Desempeño (40%) 💪
+## Criterios por evidencia
 
-Evaluación práctica durante ejercicios en clase.
+## 1) Conocimiento (30%)
 
-| Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
-|----------|------------------|-------------|------------------|---------------------|
-| **Peticiones GET** | Realiza peticiones GET correctamente con async/await | Realiza GET con pequeños errores | Realiza GET básico | No logra hacer peticiones GET |
-| **Peticiones POST** | Envía datos JSON correctamente con Content-Type apropiado | Envía POST con detalles menores faltantes | Envía POST básico sin headers | No logra enviar POST |
-| **Parseo de respuestas** | Usa .json(), .text(), .blob() según el tipo de respuesta | Parsea JSON correctamente, otros tipos con ayuda | Solo parsea JSON básico | No parsea respuestas correctamente |
-| **Verificación HTTP** | Verifica response.ok, status, statusText correctamente | Verifica respuestas con errores menores | Verificación básica | No verifica respuestas HTTP |
-| **Manejo de errores** | Implementa try/catch con mensajes descriptivos | Implementa try/catch básico | Captura errores sin procesarlos | No maneja errores |
+### Criterios
 
----
+- Explica qué devuelve `fetch`, cuándo se cumple su promesa y por qué el cuerpo se lee aparte y una sola vez.
+- Explica por qué `fetch` no se rechaza con un `404` o un `500`, cuándo sí se rechaza y cómo se comprueba el estado.
+- Elige el método HTTP adecuado para crear, reemplazar, cambiar y borrar, y explica para qué sirven `Content-Type`, `Accept` y `Authorization`.
+- Explica qué pasa si se envía un objeto en `body` sin `JSON.stringify` y qué hacer con una respuesta `204`.
+- Distingue un `AbortError` de un `TimeoutError` y explica cómo se produce cada uno.
+- Decide qué errores tiene sentido reintentar y cuáles no, y por qué.
 
-### 3. Producto (30%) 📦
+### Niveles
 
-Evaluación del proyecto entregable.
-
-| Criterio | Excelente (100%) | Bueno (80%) | Suficiente (70%) | Insuficiente (<70%) |
-|----------|------------------|-------------|------------------|---------------------|
-| **Consumo de API** | Consume API pública correctamente, maneja múltiples endpoints | Consume API con un endpoint funcional | Consume API parcialmente | No logra consumir API |
-| **Estados de carga** | Implementa loading, success, error con UI clara | Implementa estados con feedback básico | Muestra loading básico | Sin estados de carga |
-| **Manejo de errores** | Errores de red y HTTP diferenciados con retry | Maneja errores con mensajes al usuario | Maneja errores básicos | Sin manejo de errores |
-| **Interfaz de usuario** | UI limpia, responsiva, con feedback visual | UI funcional con diseño aceptable | UI básica pero funcional | UI no funcional |
-| **Adaptación al dominio** | Implementación creativa y coherente con el dominio | Adaptación correcta al dominio | Adaptación parcial | Sin adaptar al dominio |
-| **Código limpio** | Código modular, comentado, reutilizable | Código organizado con comentarios | Código funcional | Código desorganizado |
+- **Alto (27-30):** cada respuesta va con un ejemplo propio que se puede ejecutar contra la API de prácticas.
+- **Medio (21-26):** comprende los conceptos con una o dos confusiones menores (por ejemplo, cree que un `404` salta al `catch` o que `PUT` y `PATCH` son intercambiables).
+- **Bajo (<21):** no distingue la `Response` de su cuerpo o no sabe comprobar si una petición ha ido bien.
 
 ---
 
-## 📝 Rúbrica del Proyecto
+## 2) Desempeño (40%)
 
-### Requisitos Funcionales (60%)
+### Criterios
 
-| Requisito | Puntos | Descripción |
-|-----------|--------|-------------|
-| RF1: Peticiones GET | 15 | Obtener datos de API y mostrarlos |
-| RF2: Estados de carga | 15 | Loading, success, error visibles |
-| RF3: Manejo de errores | 15 | try/catch con feedback al usuario |
-| RF4: UI dinámica | 15 | Datos renderizados dinámicamente |
+- Lab 01: los 7 pasos descomentados; explica por qué el paso 4 da error y por qué el paso 6 no lo da.
+- Lab 02: los 7 pasos; explica el `400` del paso 2 y por qué el paso 5 lee el cuerpo con `text()`.
+- Lab 03: los 7 pasos; explica qué cabeceras añade `fetch` por su cuenta en el paso 3 y la diferencia entre los dos errores del paso 6.
+- Lab 04: los 7 pasos; explica de dónde sale `ECONNREFUSED` en el paso 1 y por qué el `404` del paso 6 no se reintenta.
 
-### Requisitos Técnicos (25%)
+En todos, `node starter/index.js` termina sin errores y la salida coincide con la del README del lab.
 
-| Requisito | Puntos | Descripción |
-|-----------|--------|-------------|
-| RT1: Fetch con async/await | 10 | Uso correcto de async/await |
-| RT2: Verificación HTTP | 5 | Verificar response.ok y status |
-| RT3: Headers apropiados | 5 | Accept header configurado |
-| RT4: Código modular | 5 | Funciones separadas y reutilizables |
+### Niveles
 
-### Calidad de Código (15%)
-
-| Criterio | Puntos | Descripción |
-|----------|--------|-------------|
-| Nomenclatura en inglés | 5 | Variables y funciones en inglés |
-| Comentarios en español | 5 | Documentación clara y educativa |
-| Código limpio | 5 | Sin código duplicado, bien formateado |
+- **Alto (36-40):** los cuatro labs completos y cada pregunta del apartado «Comprobación» respondida con sus palabras.
+- **Medio (28-35):** los cuatro labs completos, con alguna explicación copiada de la teoría o incompleta.
+- **Bajo (<28):** labs sin terminar o con errores al ejecutar.
 
 ---
 
-## 🎓 Escala de Calificación
+## 3) Producto (30%)
 
-| Rango | Calificación | Descripción |
-|-------|--------------|-------------|
-| 90-100% | Excelente | Dominio completo del tema |
-| 80-89% | Bueno | Comprensión sólida con detalles menores |
-| 70-79% | Suficiente | Cumple requisitos mínimos |
-| <70% | Insuficiente | No cumple requisitos mínimos |
+### Criterios
+
+- `PROYECTO=... ./scripts/verificar-semana.sh 15` pasa las 17 comprobaciones.
+- `TITLE` y las fichas de `src/data.js` describen el dominio asignado: de 4 a 8 fichas coherentes, con detalles creíbles.
+- La página funciona servida con `node server.js`: las siete pruebas del paso 11 del proyecto dan el resultado descrito y la consola no muestra errores inesperados.
+- Las funciones usan lo de la semana donde corresponde: `requestJson` es el único `fetch` y concentra las cabeceras, el `JSON.stringify`, `AbortSignal.timeout()` y la conversión de errores; las funciones de la API se apoyan en `buildUrl` y `requestJson` sin repetir esa lógica; `describeError` distingue los errores por `name`, `instanceof HttpError` y `status`.
+
+### Niveles
+
+- **Alto (27-30):** 17/17, datos propios del dominio y página sin errores.
+- **Medio (21-26):** 17/17 con datos poco adaptados (fichas de relleno) o alguna prueba de la página que falla.
+- **Bajo (<21):** menos de 17 comprobaciones, o datos del ejemplo Planetario sin cambiar.
 
 ---
 
-## ✅ Checklist de Entrega
+## Calificación
 
-### Antes de entregar, verifica:
+| Evidencia | Peso | Mínimo para aprobar |
+|---|---:|---:|
+| Conocimiento | 30% | 21 |
+| Desempeño | 40% | 28 |
+| Producto | 30% | 21 |
 
-- [ ] El proyecto consume al menos una API pública
-- [ ] Se muestran estados de carga (loading)
-- [ ] Los errores se manejan con mensajes al usuario
-- [ ] La UI muestra los datos de forma clara
-- [ ] El código está comentado en español
-- [ ] Las variables/funciones están en inglés
-- [ ] El proyecto está adaptado a tu dominio asignado
-- [ ] Incluye capturas de pantalla en el README
-- [ ] El código funciona sin errores en consola
+La semana se aprueba con un 70% en total y el mínimo de cada evidencia.
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-[⬅️ Volver a Semana 15](README.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Proyecto — Cliente del catálogo](3-proyecto/README.md) | [Recursos — ebooks](4-recursos/ebooks-free/README.md) → |
+
+[↑ Semana 15](README.md)

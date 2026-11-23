@@ -1,0 +1,125 @@
+{
+  "semana": "15",
+  "titulo": "Fetch API",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "un-fetch",
+      "descripcion": "src/logic.js llama a fetch una sola vez (en requestJson) y no usa .then()",
+      "cmd": "cd {proyecto} && grep -v '^ *//' src/logic.js | grep -o 'fetch(' | wc -l | grep -qxE ' *1' && ! grep -v '^ *//' src/logic.js | grep -n '\\.then('",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE y por defecto de 4 a 8 fichas con id entero positivo sin repetir, name de 3 o más caracteres sin repetir y detail de texto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE } from './src/data.js'; assert.ok(typeof TITLE === 'string' && TITLE.trim() !== ''); assert.ok(Array.isArray(items) && items.length >= 4 && items.length <= 8); assert.ok(items.every((item) => Number.isInteger(item.id) && item.id > 0 && typeof item.name === 'string' && item.name.trim().length >= 3 && typeof item.detail === 'string' && item.detail.trim() !== '')); assert.equal(new Set(items.map(({ id }) => id)).size, items.length); assert.equal(new Set(items.map(({ name }) => name)).size, items.length);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título y las fichas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.ok(!items.some(({ name }) => ['Viaje a Saturno', 'Nebulosas', 'Taller de cohetes', 'Cielo de invierno', 'Eclipses', 'Telescopio solar'].includes(name)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "url",
+      "descripcion": "buildUrl une la base y la ruta y añade solo los parámetros con valor",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { buildUrl } from './src/logic.js'; const base = 'http://localhost:3000'; assert.equal(buildUrl(base, '/api/items'), base + '/api/items'); assert.equal(buildUrl(base, '/api/items', { search: 'sol', limit: 2 }), base + '/api/items?search=sol&limit=2'); assert.equal(buildUrl(base, '/api/items', { search: '', limit: undefined, page: null }), base + '/api/items'); assert.equal(buildUrl(base, '/api/items', { search: 'a b&c' }), base + '/api/items?search=a+b%26c'); assert.equal(buildUrl(base, '/api/items', { limit: 0 }), base + '/api/items?limit=0');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "peticion-get",
+      "descripcion": "requestJson hace un GET con Accept: application/json y una señal de cancelación, y devuelve el cuerpo JSON",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { startServer } from '{semana}/3-proyecto/starter/server.js'; import { requestJson } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a' }, { id: 2, name: 'Beta', detail: 'b' }, { id: 3, name: 'Alfabeto', detail: 'c' }]; const server = await startServer({ items }); const api = server.url; try { const calls = []; const realFetch = globalThis.fetch; globalThis.fetch = (url, options) => { calls.push(options); return realFetch(url, options); }; assert.deepEqual(await requestJson(api + '/api/items/2'), items[1]); assert.equal(calls.length, 1); const options = calls[0] ?? {}; assert.equal(options.method ?? 'GET', 'GET'); assert.equal(new Headers(options.headers).get('accept'), 'application/json'); assert.ok(options.signal instanceof AbortSignal); assert.equal(options.body, undefined); } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "peticion-json",
+      "descripcion": "requestJson envía data como cuerpo JSON con Content-Type: application/json",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { startServer } from '{semana}/3-proyecto/starter/server.js'; import { requestJson } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a' }, { id: 2, name: 'Beta', detail: 'b' }, { id: 3, name: 'Alfabeto', detail: 'c' }]; const server = await startServer({ items }); const api = server.url; try { const calls = []; const realFetch = globalThis.fetch; globalThis.fetch = (url, options) => { calls.push(options); return realFetch(url, options); }; const created = await requestJson(api + '/api/items', { method: 'POST', data: { name: 'Delta', detail: 'd' } }); assert.deepEqual(created, { id: 4, name: 'Delta', detail: 'd' }); const headers = new Headers(calls[0].headers); assert.equal(calls[0].method, 'POST'); assert.equal(headers.get('content-type'), 'application/json'); assert.equal(headers.get('accept'), 'application/json'); assert.equal(calls[0].body, JSON.stringify({ name: 'Delta', detail: 'd' })); } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "peticion-errores",
+      "descripcion": "requestJson se rechaza con un HttpError con el status y el mensaje de la API (o statusText), y devuelve null con un 204",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { startServer } from '{semana}/3-proyecto/starter/server.js'; import { requestJson, HttpError } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a' }, { id: 2, name: 'Beta', detail: 'b' }, { id: 3, name: 'Alfabeto', detail: 'c' }]; const server = await startServer({ items }); const api = server.url; try { await assert.rejects(requestJson(api + '/api/items/99'), (error) => error instanceof HttpError && error.status === 404 && error.message === 'No existe la ficha 99'); await assert.rejects(requestJson(api + '/api/items', { method: 'POST', data: { name: 'Sin detalle' } }), (error) => error instanceof HttpError && error.status === 400 && error.message === 'La ficha necesita name y detail'); assert.equal(await requestJson(api + '/api/items/1', { method: 'DELETE' }), null); const realFetch = globalThis.fetch; globalThis.fetch = async () => new Response('Caído', { status: 503, statusText: 'Service Unavailable', headers: { 'Content-Type': 'text/plain' } }); await assert.rejects(requestJson(api + '/api/items'), (error) => error instanceof HttpError && error.status === 503 && error.message === 'Service Unavailable'); globalThis.fetch = realFetch; } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "tiempo-agotado",
+      "descripcion": "requestJson cancela la petición pasados timeoutMs con un TimeoutError, y espera si la API responde a tiempo",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { startServer } from '{semana}/3-proyecto/starter/server.js'; import { requestJson } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a' }, { id: 2, name: 'Beta', detail: 'b' }, { id: 3, name: 'Alfabeto', detail: 'c' }]; const server = await startServer({ items }); const api = server.url; try { const start = performance.now(); await assert.rejects(requestJson(api + '/api/items/1?delay=400', { timeoutMs: 100 }), { name: 'TimeoutError' }); assert.ok(performance.now() - start < 350); assert.deepEqual(await requestJson(api + '/api/items/1?delay=100'), items[0]); } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "listar",
+      "descripcion": "listItems pide /api/items con search y limit solo cuando tienen valor",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { startServer } from '{semana}/3-proyecto/starter/server.js'; import { listItems } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a' }, { id: 2, name: 'Beta', detail: 'b' }, { id: 3, name: 'Alfabeto', detail: 'c' }]; const server = await startServer({ items }); const api = server.url; try { assert.deepEqual(await listItems(api), items); assert.deepEqual(await listItems(api, { search: 'ALFA' }), [items[0], items[2]]); assert.deepEqual(await listItems(api, { search: 'alfa', limit: 1 }), [items[0]]); assert.deepEqual(await listItems(api, { search: '', limit: '' }), items); assert.deepEqual(await listItems(api, { search: 'zeta' }), []); } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "ficha",
+      "descripcion": "getItem devuelve una ficha por su id o se rechaza con un 404",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { startServer } from '{semana}/3-proyecto/starter/server.js'; import { getItem } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a' }, { id: 2, name: 'Beta', detail: 'b' }, { id: 3, name: 'Alfabeto', detail: 'c' }]; const server = await startServer({ items }); const api = server.url; try { assert.deepEqual(await getItem(api, 3), items[2]); await assert.rejects(getItem(api, 42), { status: 404, message: 'No existe la ficha 42' }); } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "crear",
+      "descripcion": "createItem crea la ficha con POST y la devuelve con su id; sin detail se rechaza con un 400",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { startServer } from '{semana}/3-proyecto/starter/server.js'; import { createItem, getItem } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a' }, { id: 2, name: 'Beta', detail: 'b' }, { id: 3, name: 'Alfabeto', detail: 'c' }]; const server = await startServer({ items }); const api = server.url; try { const created = await createItem(api, { name: 'Delta', detail: 'd' }); assert.deepEqual(created, { id: 4, name: 'Delta', detail: 'd' }); assert.deepEqual(await getItem(api, 4), created); await assert.rejects(createItem(api, { name: 'Épsilon' }), { status: 400, message: 'La ficha necesita name y detail' }); } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "editar",
+      "descripcion": "updateItem cambia solo los campos enviados con PATCH y devuelve la ficha actualizada",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { startServer } from '{semana}/3-proyecto/starter/server.js'; import { updateItem, getItem } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a' }, { id: 2, name: 'Beta', detail: 'b' }, { id: 3, name: 'Alfabeto', detail: 'c' }]; const server = await startServer({ items }); const api = server.url; try { const updated = await updateItem(api, 2, { detail: 'nuevo' }); assert.deepEqual(updated, { id: 2, name: 'Beta', detail: 'nuevo' }); assert.deepEqual(await getItem(api, 2), updated); await assert.rejects(updateItem(api, 2, { name: ' ' }), { status: 400 }); await assert.rejects(updateItem(api, 42, { detail: 'x' }), { status: 404 }); } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "borrar",
+      "descripcion": "deleteItem borra con DELETE y da null; la ficha deja de existir",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { startServer } from '{semana}/3-proyecto/starter/server.js'; import { deleteItem, getItem, listItems } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a' }, { id: 2, name: 'Beta', detail: 'b' }, { id: 3, name: 'Alfabeto', detail: 'c' }]; const server = await startServer({ items }); const api = server.url; try { assert.equal(await deleteItem(api, 1), null); await assert.rejects(getItem(api, 1), { status: 404 }); assert.equal((await listItems(api)).length, 2); await assert.rejects(deleteItem(api, 1), { status: 404, message: 'No existe la ficha 1' }); } finally { await server.close(); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "mensajes",
+      "descripcion": "describeError da el mensaje de cada tipo de error: tiempo agotado, red, HTTP 5xx, HTTP 4xx y otros",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { describeError, HttpError, TIMEOUT_MS } from './src/logic.js'; const timeout = new DOMException('The operation was aborted due to timeout', 'TimeoutError'); assert.equal(describeError(timeout), 'El servidor no ha respondido en ' + TIMEOUT_MS / 1000 + ' s.'); assert.equal(describeError(new TypeError('fetch failed')), 'No hay conexión con el servidor.'); assert.equal(describeError(new HttpError(503, 'Service Unavailable')), 'El servidor tiene un problema. Inténtalo más tarde.'); assert.equal(describeError(new HttpError(500, 'x')), 'El servidor tiene un problema. Inténtalo más tarde.'); assert.equal(describeError(new HttpError(404, 'No existe la ficha 9')), 'No existe la ficha 9'); assert.equal(describeError(new HttpError(400, 'La ficha necesita name y detail')), 'La ficha necesita name y detail'); assert.equal(describeError(new SyntaxError('Unexpected token')), 'Error inesperado: Unexpected token');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    }
+  ]
+}

@@ -240,22 +240,9 @@ async function getDataFetch(url) {
 
 ---
 
-## 🧪 Ejercicio Rápido
+## 🧪 Pruébalo
 
-```javascript
-// Practica: Obtén el post con ID 1 de JSONPlaceholder
-// URL: https://jsonplaceholder.typicode.com/posts/1
-
-// Tu código aquí:
-const getPost = async (id) => {
-  // 1. Hacer fetch a la URL correcta
-  // 2. Parsear como JSON
-  // 3. Retornar el post
-};
-
-// Resultado esperado:
-// { id: 1, title: "sunt aut facere...", body: "...", userId: 1 }
-```
+El [lab 01](../2-practicas/lab-01-primera-peticion/README.md) hace estas mismas peticiones contra una API que arranca en tu equipo, así que no necesitas internet y la salida coincide siempre con la del README.
 
 ---
 
@@ -281,8 +268,13 @@ const getPost = async (id) => {
 - [MDN: Using Fetch](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch)
 - [JavaScript.info: Fetch](https://javascript.info/fetch)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-[⬅️ Volver a Semana 15](../README.md) | [Siguiente: Request y Response ➡️](02-request-response.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 15 - Fetch API](../README.md) | [Teoría — 📦 Objetos Request y Response](02-request-response.md) → |
+
+[↑ Semana 15](../README.md)

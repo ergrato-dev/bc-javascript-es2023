@@ -348,45 +348,35 @@ try {
 
 ```javascript
 // ============================================
-// Retry con AbortController (con timeout)
+// Retry con tiempo máximo por intento
 // ============================================
+
+const isRetryable = (error) =>
+  error.name === 'TimeoutError' || error.name === 'TypeError' || error.status >= 500;
 
 const fetchWithRetryAndTimeout = async (url, options = {}, config = {}) => {
   const { maxRetries = 3, timeout = 10000 } = config;
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), timeout);
-
     try {
-      const response = await fetch(url, {
-        ...options,
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
+      // AbortSignal.timeout crea una señal nueva por intento, que se cancela sola
+      const response = await fetch(url, { ...options, signal: AbortSignal.timeout(timeout) });
 
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+        const error = new Error(`HTTP ${response.status}`);
+        error.status = response.status;
+        throw error;
       }
 
       return response;
-
     } catch (error) {
-      clearTimeout(timeoutId);
+      console.warn(`Intento ${attempt}: ${error.name === 'TimeoutError' ? `más de ${timeout} ms` : error.message}`);
 
-      if (error.name === 'AbortError') {
-        console.warn(`Intento ${attempt}: Timeout después de ${timeout}ms`);
-      } else {
-        console.warn(`Intento ${attempt}: ${error.message}`);
-      }
+      // Un 404 o un 400 darán lo mismo en el siguiente intento: no se reintentan
+      if (attempt === maxRetries || !isRetryable(error)) throw error;
 
-      if (attempt < maxRetries) {
-        const delay = Math.pow(2, attempt - 1) * 1000;
-        await new Promise(resolve => setTimeout(resolve, delay));
-      } else {
-        throw error;
-      }
+      const delay = Math.pow(2, attempt - 1) * 1000;
+      await new Promise((resolve) => setTimeout(resolve, delay));
     }
   }
 };
@@ -493,8 +483,13 @@ try {
 - [MDN: Fetch - Checking that the fetch was successful](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Using_Fetch#checking_that_the_fetch_was_successful)
 - [JavaScript.info: Fetch error handling](https://javascript.info/fetch#error-handling)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-[⬅️ Headers y Configuración](03-headers-config.md) | [Volver a Semana 15 ➡️](../README.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — ⚙️ Headers y Configuración](03-headers-config.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 15](../README.md)

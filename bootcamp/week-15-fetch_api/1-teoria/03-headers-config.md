@@ -388,6 +388,23 @@ try {
 }
 ```
 
+Hoy la plataforma trae ese wrapper hecho: `AbortSignal.timeout(ms)` crea una señal que se cancela sola pasado ese tiempo, sin `setTimeout` ni `clearTimeout`. El error se llama `TimeoutError` en lugar de `AbortError`, así que puedes distinguir un tiempo agotado de una cancelación que haces tú con `controller.abort()`:
+
+```javascript
+try {
+  const response = await fetch('/api/data', { signal: AbortSignal.timeout(5000) });
+  const data = await response.json();
+} catch (error) {
+  if (error.name === 'TimeoutError') {
+    console.error('Timeout: la petición tardó más de 5 s');
+  } else if (error.name === 'AbortError') {
+    console.error('Petición cancelada');
+  }
+}
+```
+
+Es la forma que usan el [lab 03](../2-practicas/lab-03-headers-config/README.md) y el proyecto de la semana.
+
 ---
 
 ## 📊 Diagrama: Configuración de Fetch
@@ -413,8 +430,13 @@ try {
 - [MDN: AbortController](https://developer.mozilla.org/es/docs/Web/API/AbortController)
 - [MDN: CORS](https://developer.mozilla.org/es/docs/Web/HTTP/CORS)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-[⬅️ Request y Response](02-request-response.md) | [Siguiente: Manejo de Errores ➡️](04-error-handling.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 📦 Objetos Request y Response](02-request-response.md) | [Teoría — 🛡️ Manejo de Errores en Fetch](04-error-handling.md) → |
+
+[↑ Semana 15](../README.md)

@@ -348,8 +348,13 @@ const mockFetch = async (url) => {
 - [MDN: Request](https://developer.mozilla.org/es/docs/Web/API/Request)
 - [MDN: Headers](https://developer.mozilla.org/es/docs/Web/API/Headers)
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-[⬅️ Fetch Basics](01-fetch-basics.md) | [Siguiente: Headers y Configuración ➡️](03-headers-config.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🌐 Fetch API Básica](01-fetch-basics.md) | [Teoría — ⚙️ Headers y Configuración](03-headers-config.md) → |
+
+[↑ Semana 15](../README.md)

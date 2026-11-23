@@ -289,16 +289,17 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 15: Fetch API**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Fetch API básica
-- Request y Response objects
-- Headers y configuración
-- Manejo de JSON
-- Error handling en fetch
+- Fetch API básica: `Response`, `status`/`ok`, `json()`/`text()` y `URLSearchParams`
+- Request y Response objects, `clone()`
+- Métodos HTTP con cuerpo JSON (`POST`, `PUT`, `PATCH`, `DELETE`) y respuestas `204`
+- Headers, `Authorization` y cancelación con `AbortController` y `AbortSignal.timeout()`
+- Error handling en fetch: red, estado HTTP, JSON inválido, tiempo agotado y reintentos
 
-**Proyecto**: Consumidor de API REST pública
+**Proyecto**: Cliente del catálogo: buscar, abrir, crear, editar y borrar las fichas del dominio en una API REST local (`node server.js`) con una sola función `requestJson` que concentra las cabeceras, el JSON, el tiempo máximo y la conversión a `HttpError`, más un mensaje para cada tipo de error
 
 ---
 
