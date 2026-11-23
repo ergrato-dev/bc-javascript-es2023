@@ -246,7 +246,7 @@ sesiones-planetario.json application/json 256 bytes
 Recarga `http://localhost:3000`. Con los datos de ejemplo:
 
 1. Las reglas dicen `Se admiten .csv y .json de hasta 50.0 KB, con las columnas id, title, room, seats, minutes.` Los botones de exportar están desactivados.
-2. Pulsa «elígelos desde tu equipo» y elige a la vez `datos.csv` y `leeme.txt` (cambia el filtro del diálogo a «Todos los archivos»). Aparecen dos informes: `datos.csv (273 B): 6 nuevos, 0 actualizados, 0 con errores` en verde y `leeme.txt: el tipo .txt no se admite (usa .csv o .json)` en rojo. La tabla tiene 6 registros; «Constelaciones, mitos y mapas» ocupa una sola celda y el taller lleva sus comillas.
+2. Pulsa «elígelos desde tu equipo» y elige a la vez `datos.csv` y `leeme.txt` (cambia el filtro del diálogo a «Todos los archivos»). Aparecen dos informes: `datos.csv (266 B): 6 nuevos, 0 actualizados, 0 con errores` en verde y `leeme.txt: el tipo .txt no se admite (usa .csv o .json)` en rojo. La tabla tiene 6 registros; «Constelaciones, mitos y mapas» ocupa una sola celda y el taller lleva sus comillas.
 3. Arrastra `datos-extra.json` y `con-errores.csv` hasta la zona: se resalta en azul mientras arrastras. Al soltar, `datos-extra.json (362 B): 2 nuevos, 1 actualizados, 0 con errores` y, en rojo, `con-errores.csv (148 B): 2 nuevos, 0 actualizados, 2 con errores` con `Fila 3: falta title` y `Fila 4: seats no es un número`. La tabla tiene 10 registros, y `S2` tiene ahora 45 plazas.
 4. Suelta un archivo fuera de la zona: no pasa nada, la página sigue igual.
 5. Pulsa **Exportar CSV**: se descarga `sesiones-planetario.csv` (422 B). Ábrelo con una hoja de cálculo: las tildes y las comas se ven bien. Pulsa **Exportar JSON**: `sesiones-planetario.json`.
