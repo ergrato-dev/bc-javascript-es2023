@@ -51,7 +51,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ### 📘 Etapa 1: Fundamentos Modernos (Semanas 1-12)
 **96 horas totales** | JavaScript ES2023 desde cero
 
-### 📗 Etapa 2: Intermedio (Semanas 13-24) — semanas 23-24 ⏳ pendientes
+### 📗 Etapa 2: Intermedio (Semanas 13-24) — ✅ escrita
 **96 horas totales** | Programación asincrónica y manipulación del DOM
 
 ### 📕 Etapa 3: Avanzado (Semanas 25-28) — ⏳ pendiente
@@ -415,15 +415,17 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 24: Proyecto Integrador - Intermedio** ⏳ _pendiente_
-**Horas**: 8h (0.5h teoría + 1.5h planning + 5.5h desarrollo + 0.5h recursos)
+#### **Week 24: Proyecto Integrador - Intermedio**
+**Estado**: ✅ Escrita
+**Horas**: 8h (0.5h repaso + 2.5h práctica + 4.5h proyecto + 0.5h recursos)
 
-**Temas**:
-- Integración de conceptos de semanas 13-23
-- Arquitectura de aplicación asíncrona
-- UX y manejo de estados de carga
+**Temas** (sin conceptos nuevos):
+- Repaso de las semanas 13 a 23: qué usa el proyecto de cada una
+- Arquitectura de una aplicación asíncrona: datos, lógica sin DOM, página y servidor; el camino de un evento; la copia local al arrancar
+- Estados de carga y experiencia de uso: cinco estados y `savedAt`, no vaciar mientras carga, mensajes de error útiles y estados accesibles
+- Labs de repaso: peticiones que se cruzan (13–16), la copia local (19, 21 y 22) y estados en la página (16–20)
 
-**Proyecto**: Aplicación web completa con API, DOM, Storage y optimización
+**Proyecto**: Catálogo conectado: API REST local con búsqueda y páginas (`requestJson`, `createLatest`), estado con un reductor (`reduce`, `statusText`), fichas escapadas y formulario validado igual que el servidor (`cardHtml`, `validate`) y copia en `localStorage` con versión y caducidad (`createCache`), servida con `node server.js`
 
 ---
 

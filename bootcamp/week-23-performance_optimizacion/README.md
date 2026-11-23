@@ -112,4 +112,4 @@ week-23-performance_optimizacion/
 
 | ← Semana anterior | Siguiente → |
 |---|---|
-| [Semana 22 - Trabajo con Archivos](../week-22-trabajo_archivos/README.md) | Semana 24 - Proyecto Integrador Intermedio (pendiente) |
+| [Semana 22 - Trabajo con Archivos](../week-22-trabajo_archivos/README.md) | [Semana 24 - Proyecto Integrador - Intermedio](../week-24-proyecto_integrador_intermedio/README.md) |

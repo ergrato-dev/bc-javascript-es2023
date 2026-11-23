@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo conectado</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <main>
+    <h1 id="title">Catálogo conectado</h1>
+    <p id="intro"></p>
+
+    <form id="search" role="search">
+      <label for="query">Buscar</label>
+      <input id="query" name="query" type="search" autocomplete="off">
+    </form>
+
+    <div class="status-line">
+      <p id="status" role="status"></p>
+      <button id="retry" type="button" hidden>Reintentar</button>
+    </div>
+
+    <section id="list" aria-label="Fichas" aria-busy="false"></section>
+
+    <nav id="pager" aria-label="Páginas" hidden>
+      <button id="prev" type="button">← Anterior</button>
+      <button id="next" type="button">Siguiente →</button>
+    </nav>
+
+    <form id="editor" novalidate>
+      <h2 id="editor-title">Nueva ficha</h2>
+      <div id="fields"></div>
+      <div class="actions">
+        <button id="save" type="submit">Guardar</button>
+        <button id="cancel" type="button" hidden>Cancelar edición</button>
+      </div>
+      <p id="form-status" role="status"></p>
+    </form>
+  </main>
+</body>
+</html>

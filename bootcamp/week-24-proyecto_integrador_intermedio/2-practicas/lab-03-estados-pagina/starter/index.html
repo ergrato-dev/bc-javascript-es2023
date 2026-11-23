@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lab 03 — Estados en la página</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; background: #0d1117; color: #c9d1d9; }
+      h1 { color: #F7DF1E; font-size: 1.4rem; }
+      h2 { font-size: 1.1rem; margin-top: 2rem; }
+      #status { color: #8b949e; min-height: 1.5em; }
+      #list { display: grid; gap: 0.5rem; }
+      #list[aria-busy="true"] { opacity: 0.5; }
+      .card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 0.5rem 0.75rem; }
+      input, button { font: inherit; color: inherit; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 0.3rem 0.6rem; }
+      input[aria-invalid="true"] { border-color: #f85149; }
+      label { display: block; margin-top: 0.5rem; }
+    </style>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <h1>Lab 03 — Estados en la página</h1>
+    <p>Abre la consola de las DevTools (F12) para ver la salida de cada paso.</p>
+
+    <h2>Fichas (pasos 1 a 4)</h2>
+    <p id="status" role="status"></p>
+    <div id="list" aria-busy="false"></div>
+
+    <h2>Formulario (pasos 5 y 6)</h2>
+    <form id="form" novalidate>
+      <label for="name">Nombre</label>
+      <input id="name" name="name">
+      <label for="type">Tipo</label>
+      <input id="type" name="type">
+      <p><button id="send" type="submit">Guardar</button></p>
+    </form>
+  </body>
+</html>
