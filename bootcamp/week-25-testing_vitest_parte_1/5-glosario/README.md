@@ -96,6 +96,6 @@ Framework de tests para JavaScript. Entiende los módulos ES sin configurar nada
 
 | Anterior | Siguiente |
 |---|---|
-| ← [Recursos — web](../4-recursos/webgrafia/README.md) | — |
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [Semana 26 - Testing con Vitest - Parte 2](../../week-26-testing_vitest_parte_2/README.md) → |
 
 [↑ Semana 25](../README.md)

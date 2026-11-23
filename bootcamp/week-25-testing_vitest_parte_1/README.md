@@ -112,4 +112,4 @@ Vitest 5.1.0 y `@vitest/coverage-v8` 5.1.0, fijados con versión exacta en cada 
 
 | ← Semana anterior | Siguiente → |
 |---|---|
-| [Semana 24 - Proyecto Integrador - Intermedio](../week-24-proyecto_integrador_intermedio/README.md) | Semana 26 - Testing con Vitest - Parte 2 (pendiente) |
+| [Semana 24 - Proyecto Integrador - Intermedio](../week-24-proyecto_integrador_intermedio/README.md) | [Semana 26 - Testing con Vitest - Parte 2](../week-26-testing_vitest_parte_2/README.md) |

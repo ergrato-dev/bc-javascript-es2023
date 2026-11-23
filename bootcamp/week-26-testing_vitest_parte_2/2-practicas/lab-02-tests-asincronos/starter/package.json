@@ -1,0 +1,16 @@
+{
+  "name": "lab-02-tests-asincronos",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@12.20.0",
+  "devDependencies": {
+    "vitest": "5.1.0"
+  }
+}

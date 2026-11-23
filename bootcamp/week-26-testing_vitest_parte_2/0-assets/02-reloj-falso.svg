@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="sans-serif">
+  <rect width="800" height="450" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Un reintento tras 1000 ms, con el reloj real y con el falso</text>
+
+  <!-- Reloj real -->
+  <rect x="30" y="56" width="740" height="160" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="46" y="80" fill="#f85149" font-size="15" font-weight="bold">Reloj real: el test espera</text>
+  <line x1="80" y1="140" x2="720" y2="140" stroke="#30363d" stroke-width="3"/>
+  <rect x="100" y="132" width="580" height="16" fill="#f85149" opacity="0.35"/>
+  <circle cx="100" cy="140" r="8" fill="#58a6ff"/>
+  <circle cx="680" cy="140" r="8" fill="#3fb950"/>
+  <text x="100" y="118" text-anchor="middle" fill="#58a6ff" font-size="13">1.er intento: 503</text>
+  <text x="680" y="118" text-anchor="middle" fill="#3fb950" font-size="13">2.º intento: 200</text>
+  <text x="100" y="172" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="12">0 ms</text>
+  <text x="680" y="172" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="12">1000 ms</text>
+  <text x="390" y="200" text-anchor="middle" fill="#c9d1d9" font-size="13">El test tarda 1 s y solo sabe que al final funcionó</text>
+
+  <!-- Reloj falso -->
+  <rect x="30" y="236" width="740" height="190" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="46" y="260" fill="#3fb950" font-size="15" font-weight="bold">Reloj falso: el test adelanta el tiempo</text>
+  <line x1="80" y1="320" x2="720" y2="320" stroke="#30363d" stroke-width="3"/>
+  <circle cx="100" cy="320" r="8" fill="#58a6ff"/>
+  <circle cx="680" cy="320" r="8" fill="#3fb950"/>
+  <line x1="660" y1="306" x2="660" y2="334" stroke="#d29922" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="100" y="298" text-anchor="middle" fill="#58a6ff" font-size="13">1.er intento</text>
+  <text x="660" y="298" text-anchor="end" fill="#d29922" font-size="13">999 ms: aún 1 llamada</text>
+  <text x="690" y="298" fill="#3fb950" font-size="13">2.º</text>
+  <text x="100" y="352" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="12">0 ms</text>
+  <text x="680" y="352" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="12">1000 ms</text>
+  <g font-family="monospace" font-size="12">
+    <text x="60" y="384" fill="#c9d1d9">await vi.advanceTimersByTimeAsync(999)</text>
+    <text x="400" y="384" fill="#d29922">toHaveBeenCalledTimes(1)</text>
+    <text x="60" y="406" fill="#c9d1d9">await vi.advanceTimersByTimeAsync(1)</text>
+    <text x="400" y="406" fill="#3fb950">toHaveBeenCalledTimes(2)</text>
+  </g>
+  <text x="740" y="406" text-anchor="end" fill="#c9d1d9" font-size="13">en 2 ms</text>
+</svg>

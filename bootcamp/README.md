@@ -33,7 +33,7 @@ Estado de cada semana:
 | [23](week-23-performance_optimizacion/README.md) | [Performance y Optimización](week-23-performance_optimizacion/README.md) | Intermedio | ✅ |
 | [24](week-24-proyecto_integrador_intermedio/README.md) | [Proyecto Integrador — Intermedio](week-24-proyecto_integrador_intermedio/README.md) | Intermedio | ✅ |
 | [25](week-25-testing_vitest_parte_1/README.md) | [Testing con Vitest — Parte 1](week-25-testing_vitest_parte_1/README.md) | Avanzado | ✅ |
-| 26 | Testing con Vitest — Parte 2 | Avanzado | ⬜ |
+| [26](week-26-testing_vitest_parte_2/README.md) | [Testing con Vitest — Parte 2](week-26-testing_vitest_parte_2/README.md) | Avanzado | ✅ |
 | 27 | Patrones de Diseño y Clean Code | Avanzado | ⬜ |
 | 28 | Proyecto Final — Bootcamp | Avanzado | ⬜ |
 

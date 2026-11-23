@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="sans-serif">
+  <rect width="800" height="450" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">El ciclo de TDD</text>
+
+  <!-- Flechas del ciclo -->
+  <path d="M 330 150 L 470 150" stroke="#30363d" stroke-width="3" fill="none"/>
+  <polygon points="470,143 484,150 470,157" fill="#30363d"/>
+  <path d="M 560 210 L 480 300" stroke="#30363d" stroke-width="3" fill="none"/>
+  <polygon points="474,293 472,309 486,303" fill="#30363d"/>
+  <path d="M 320 300 L 248 218" stroke="#30363d" stroke-width="3" fill="none"/>
+  <polygon points="242,225 238,209 254,213" fill="#30363d"/>
+
+  <!-- Rojo -->
+  <rect x="90" y="90" width="240" height="120" rx="12" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="210" y="122" text-anchor="middle" fill="#f85149" font-size="20" font-weight="bold">1. Rojo</text>
+  <text x="210" y="150" text-anchor="middle" fill="#c9d1d9" font-size="13">Un test de algo que</text>
+  <text x="210" y="168" text-anchor="middle" fill="#c9d1d9" font-size="13">el código aún no hace.</text>
+  <text x="210" y="192" text-anchor="middle" fill="#f85149" font-size="12">× falla por la razón esperada</text>
+
+  <!-- Verde -->
+  <rect x="490" y="90" width="240" height="120" rx="12" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="610" y="122" text-anchor="middle" fill="#3fb950" font-size="20" font-weight="bold">2. Verde</text>
+  <text x="610" y="150" text-anchor="middle" fill="#c9d1d9" font-size="13">El código mínimo</text>
+  <text x="610" y="168" text-anchor="middle" fill="#c9d1d9" font-size="13">para que pase.</text>
+  <text x="610" y="192" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="12">✓ pasan todos</text>
+
+  <!-- Refactorizar -->
+  <rect x="280" y="300" width="240" height="120" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="400" y="332" text-anchor="middle" fill="#58a6ff" font-size="20" font-weight="bold">3. Refactorizar</text>
+  <text x="400" y="360" text-anchor="middle" fill="#c9d1d9" font-size="13">Mejorar el código</text>
+  <text x="400" y="378" text-anchor="middle" fill="#c9d1d9" font-size="13">sin cambiar lo que hace.</text>
+  <text x="400" y="402" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="12">✓ siguen pasando todos</text>
+
+  <text x="400" y="142" text-anchor="middle" fill="#8b949e" font-size="12">escribir código</text>
+  <text x="640" y="268" fill="#8b949e" font-size="12">con todo en verde</text>
+  <text x="160" y="268" text-anchor="middle" fill="#8b949e" font-size="12">siguiente caso</text>
+</svg>

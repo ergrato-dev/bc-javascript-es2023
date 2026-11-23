@@ -54,7 +54,7 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ### 📗 Etapa 2: Intermedio (Semanas 13-24) — ✅ escrita
 **96 horas totales** | Programación asincrónica y manipulación del DOM
 
-### 📕 Etapa 3: Avanzado (Semanas 25-28) — 🟡 en curso (S25 escrita)
+### 📕 Etapa 3: Avanzado (Semanas 25-28) — 🟡 en curso (S25–S26 escritas)
 **32 horas totales** | Testing, patrones y mejores prácticas
 
 ---
@@ -446,17 +446,18 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 26: Testing con Vitest - Parte 2** ⏳ _pendiente_
-**Horas**: 8h (2.5h teoría + 3.5h práctica + 1.5h proyecto + 0.5h recursos)
+#### **Week 26: Testing con Vitest - Parte 2**
+**Estado**: ✅ Escrita
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Mocking
-- Async testing
-- Integration tests
-- TDD (Test-Driven Development)
-- Best practices
+- Dobles de prueba: recibir las dependencias, `vi.fn`, `vi.spyOn`, `vi.stubGlobal` y `vi.mock`, y deshacer cada cambio
+- Tests asíncronos: `async`/`await`, `resolves`, `rejects`, el test que termina antes que su comprobación, y el reloj falso (`useFakeTimers`, `advanceTimersByTimeAsync`, `setSystemTime`)
+- Tests de integración: un servidor de verdad en `beforeAll`/`afterAll`, datos iniciales en cada test, y cuándo un doble y cuándo lo de verdad
+- TDD: rojo, verde y refactorizar, el código mínimo y la triangulación
+- Buenas prácticas: tests deterministas, comportamiento y no detalles, los dobles justos, rápidos y legibles
 
-**Proyecto**: Testing de módulos asíncronos
+**Proyecto**: Tests del cliente asíncrono: los tests de siete funciones ya escritas para hablar con la API de un catálogo (`requestJson`, `withRetry`, `withTimeout`, `createCache`, `debounce`, `createCatalogClient`, `createPoller`), unitarios con dobles y reloj falso y de integración contra `server.js` con las fichas del dominio, al 100 % de cobertura y detectando ocho errores introducidos
 
 ---
 

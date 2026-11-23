@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="sans-serif">
+  <rect width="800" height="450" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">La misma función, con piezas de verdad y con dobles</text>
+
+  <!-- En la aplicación -->
+  <text x="30" y="72" fill="#8b949e" font-size="13">En la aplicación</text>
+  <rect x="30" y="84" width="200" height="120" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="130" y="134" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="15">checkout(cart, {</text>
+  <text x="130" y="156" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="15">pay, notify })</text>
+
+  <line x1="230" y1="118" x2="420" y2="118" stroke="#30363d" stroke-width="2"/>
+  <polygon points="420,112 432,118 420,124" fill="#30363d"/>
+  <text x="326" y="110" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">pay(12.5)</text>
+  <line x1="230" y1="172" x2="420" y2="172" stroke="#30363d" stroke-width="2"/>
+  <polygon points="420,166 432,172 420,178" fill="#30363d"/>
+  <text x="326" y="164" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">notify(mensaje)</text>
+
+  <rect x="436" y="94" width="334" height="48" rx="8" fill="#161b22" stroke="#f85149"/>
+  <text x="452" y="114" fill="#c9d1d9" font-size="14">Pasarela de pago</text>
+  <text x="452" y="132" fill="#f85149" font-size="12">Cobra de verdad, necesita red, tarda</text>
+  <rect x="436" y="150" width="334" height="48" rx="8" fill="#161b22" stroke="#f85149"/>
+  <text x="452" y="170" fill="#c9d1d9" font-size="14">Servicio de correo</text>
+  <text x="452" y="188" fill="#f85149" font-size="12">Envía un correo a alguien de verdad</text>
+
+  <!-- En el test -->
+  <line x1="30" y1="230" x2="770" y2="230" stroke="#30363d" stroke-dasharray="6 6"/>
+  <text x="30" y="262" fill="#8b949e" font-size="13">En el test</text>
+  <rect x="30" y="274" width="200" height="120" rx="8" fill="#161b22" stroke="#58a6ff"/>
+  <text x="130" y="324" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="15">checkout(cart, {</text>
+  <text x="130" y="346" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="15">pay, notify })</text>
+
+  <line x1="230" y1="308" x2="420" y2="308" stroke="#30363d" stroke-width="2"/>
+  <polygon points="420,302 432,308 420,314" fill="#30363d"/>
+  <text x="326" y="300" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">pay(12.5)</text>
+  <line x1="230" y1="362" x2="420" y2="362" stroke="#30363d" stroke-width="2"/>
+  <polygon points="420,356 432,362 420,368" fill="#30363d"/>
+  <text x="326" y="354" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">notify(mensaje)</text>
+
+  <rect x="436" y="284" width="334" height="48" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="452" y="304" fill="#3fb950" font-family="monospace" font-size="13">vi.fn().mockReturnValue({ id: 'A1' })</text>
+  <text x="452" y="322" fill="#c9d1d9" font-size="12">Responde algo fijo, sin cobrar</text>
+  <rect x="436" y="340" width="334" height="48" rx="8" fill="#161b22" stroke="#3fb950"/>
+  <text x="452" y="360" fill="#3fb950" font-family="monospace" font-size="13">vi.fn()</text>
+  <text x="452" y="378" fill="#c9d1d9" font-size="12">Apunta cada llamada en notify.mock.calls</text>
+
+  <text x="400" y="428" text-anchor="middle" fill="#d29922" font-size="14">checkout no nota la diferencia: llama a pay y a notify igual en los dos casos</text>
+</svg>

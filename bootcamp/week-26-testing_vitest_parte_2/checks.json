@@ -1,0 +1,146 @@
+{
+  "semana": "26",
+  "titulo": "Testing con Vitest — Parte 2",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/ y tests/ son módulos ES válidos",
+      "cmd": "cd {proyecto} && for f in src/*.js tests/*.js; do node --check \"$f\" || exit 1; done",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "paquete",
+      "descripcion": "package.json es un módulo ES con vitest y @vitest/coverage-v8 5.x en la misma versión exacta, el script test ejecuta vitest run y hay pnpm-lock.yaml",
+      "cmd": "test -f {proyecto}/pnpm-lock.yaml && cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readFileSync } from 'node:fs'; const pkg = JSON.parse(readFileSync('package.json', 'utf8')); const dev = pkg.devDependencies ?? {}; assert.equal(pkg.type, 'module', 'type: module'); assert.match(dev.vitest ?? '', /^5[.][0-9]+[.][0-9]+$/, 'vitest con versión exacta 5.x, sin ^ ni ~'); assert.equal(dev['@vitest/coverage-v8'], dev.vitest, '@vitest/coverage-v8 en la misma versión que vitest'); assert.match(pkg.scripts?.test ?? '', /vitest run/, 'scripts.test ejecuta vitest run');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "codigo-intacto",
+      "descripcion": "src/logic.js y src/server.js son los del starter, sin cambios",
+      "cmd": "cmp -s {proyecto}/src/logic.js {semana}/3-proyecto/starter/src/logic.js && cmp -s {proyecto}/src/server.js {semana}/3-proyecto/starter/src/server.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "tests/ no tiene ningún it.todo ni TODO",
+      "cmd": "cd {proyecto} && ! grep -rnE '[.]todo[(]|TODO' tests/",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "sin-only-skip",
+      "descripcion": "tests/ no tiene .only ni .skip, que esconden tests",
+      "cmd": "cd {proyecto} && ! grep -rnE '[.](only|skip)[(]' tests/",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "datos",
+      "descripcion": "data.js exporta de 6 a 20 fichas en SEED, todas con los mismos campos (id, name y de 1 a 4 más), id entero mayor que 0 y name sin repetir",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { SEED } from './src/data.js'; assert.ok(Array.isArray(SEED) && SEED.length >= 6 && SEED.length <= 20, 'de 6 a 20 fichas en SEED'); const keys = Object.keys(SEED[0]).toSorted().join(); assert.ok(keys.split(',').includes('id') && keys.split(',').includes('name'), 'cada ficha tiene id y name'); assert.ok(keys.split(',').length >= 3 && keys.split(',').length <= 6, 'de 1 a 4 campos además de id y name'); for (const item of SEED) { assert.equal(Object.keys(item).toSorted().join(), keys, 'campos distintos en la ficha ' + item.id); assert.ok(Number.isInteger(item.id) && item.id > 0, 'id entero mayor que 0: ' + item.id); assert.ok(typeof item.name === 'string' && item.name.trim() !== '', 'name de la ficha ' + item.id); } assert.equal(new Set(SEED.map((item) => item.id)).size, SEED.length, 'id repetido'); assert.equal(new Set(SEED.map((item) => item.name)).size, SEED.length, 'name repetido');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "SEED es de tu dominio, no el del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { SEED } from './src/data.js'; const example = ['Sirio', 'Vega', 'Betelgeuse', 'Pléyades', 'Andrómeda', 'Aldebarán']; assert.ok(!SEED.some((item) => example.includes(item.name)), 'SEED tiene fichas del ejemplo'); assert.ok(!('constellation' in SEED[0]), 'SEED tiene los campos del ejemplo');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "tests-pasan",
+      "descripcion": "pnpm test pasa en menos de 30 segundos",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && timeout 30 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "casos",
+      "descripcion": "Cada caso del starter es un test que pasa, con su describe y su título (39 casos)",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && { timeout 60 ./node_modules/.bin/vitest run --reporter=json --outputFile=\"$t/r.json\" >/dev/null 2>&1; true; } && node --input-type=module -e \"import assert from 'node:assert/strict'; import { readFileSync } from 'node:fs'; const report = JSON.parse(readFileSync(process.argv[1], 'utf8')); const passed = report.testResults.flatMap((file) => file.assertionResults).filter((test) => test.status === 'passed'); const names = new Set(passed.map((test) => test.ancestorTitles.join(' > ') + ' > ' + test.title)); const cases = {\\\"requestJson\\\":[\\\"devuelve el JSON y pasa a fetchFn la URL y las opciones\\\",\\\"devuelve null en una respuesta 204\\\",\\\"lanza HttpError con el status y el error del servidor\\\",\\\"lanza HttpError con HTTP y el status si el cuerpo no es JSON\\\",\\\"usa el fetch global si no recibe fetchFn\\\"],\\\"withRetry\\\":[\\\"devuelve el resultado sin reintentar si la tarea funciona\\\",\\\"reintenta hasta que la tarea funciona y le pasa el número de intento\\\",\\\"se rinde tras retries reintentos y lanza el último error\\\",\\\"espera delay, 2 × delay y 4 × delay entre intentos\\\",\\\"no reintenta un HttpError 4xx\\\",\\\"reintenta un HttpError 5xx\\\"],\\\"withTimeout\\\":[\\\"devuelve el valor si la promesa llega a tiempo\\\",\\\"rechaza con TimeoutError al cumplirse ms\\\",\\\"deja pasar el error de la promesa\\\"],\\\"createCache\\\":[\\\"lanza RangeError si ttl no es mayor que 0\\\",\\\"get devuelve lo que guardó set, y undefined si no existe\\\",\\\"una entrada caduca justo al cumplir ttl\\\",\\\"getOrLoad llama a load solo si no hay valor\\\",\\\"getOrLoad no guarda nada si load falla\\\",\\\"usa Date.now si no recibe now\\\"],\\\"debounce\\\":[\\\"llama a fn una vez, ms después de la última llamada, con sus argumentos\\\",\\\"cancel anula la llamada pendiente\\\"],\\\"createCatalogClient\\\":[\\\"list pide /items con el texto sin espacios a los lados y codificado\\\",\\\"list sin texto pide /items?q=\\\",\\\"get pide /items/:id\\\",\\\"create envía un POST con la ficha en JSON\\\"],\\\"createPoller\\\":[\\\"start ejecuta la tarea enseguida y después cada interval\\\",\\\"pasa a onError los fallos y sigue sondeando\\\",\\\"un fallo sin onError no para el sondeo\\\",\\\"stop detiene el sondeo\\\",\\\"start dos veces no duplica el sondeo\\\"],\\\"integración\\\":[\\\"list sin texto devuelve todas las fichas\\\",\\\"list encuentra fichas sin distinguir mayúsculas ni tildes\\\",\\\"list con un texto con & no pierde lo que va detrás\\\",\\\"get devuelve una ficha por su id\\\",\\\"get de un id que no existe lanza HttpError 404\\\",\\\"create guarda una ficha y get la devuelve\\\",\\\"create sin nombre lanza HttpError 400\\\",\\\"cada test empieza con las fichas de SEED\\\"]}; const missing = Object.entries(cases).flatMap(([group, titles]) => titles.map((title) => group + ' > ' + title)).filter((name) => !names.has(name)); assert.deepEqual(missing, [], 'casos que faltan o no pasan');\" \"$t/r.json\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "reloj-falso",
+      "descripcion": "tests/logic.test.js usa el reloj falso (vi.useFakeTimers) y lo devuelve (vi.useRealTimers)",
+      "cmd": "cd {proyecto} && grep -q 'vi[.]useFakeTimers' tests/logic.test.js && grep -q 'vi[.]useRealTimers' tests/logic.test.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "integracion-real",
+      "descripcion": "tests/integration.test.js arranca src/server.js y no usa dobles (vi.fn, vi.spyOn, vi.mock ni vi.stubGlobal)",
+      "cmd": "cd {proyecto} && grep -q 'startServer' tests/integration.test.js && ! grep -nE 'vi[.](fn|spyOn|mock|stubGlobal)' tests/integration.test.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 11"
+    },
+    {
+      "id": "cobertura",
+      "descripcion": "Los tests cubren el 100% de src/logic.js: líneas, ramas, funciones y sentencias",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && timeout 60 ./node_modules/.bin/vitest run --coverage --coverage.include=src/logic.js --coverage.thresholds.100 --coverage.reporter=text-summary >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 12"
+    },
+    {
+      "id": "mutante-requestjson",
+      "descripcion": "Tus tests fallan si requestJson solo trata como error los status 5xx",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('if (!response.ok) {', 'if (response.status >= 500) {'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! timeout 60 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "mutante-withretry-reintentos",
+      "descripcion": "Tus tests fallan si withRetry hace un reintento de más",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('attempt >= retries', 'attempt > retries'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! timeout 60 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "mutante-withretry-espera",
+      "descripcion": "Tus tests fallan si withRetry espera delay, 2 × delay y 3 × delay en lugar de doblar la espera",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('delay * 2 ** attempt', 'delay * (attempt + 1)'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! timeout 60 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "mutante-withtimeout",
+      "descripcion": "Tus tests fallan si withTimeout no cancela su temporizador al terminar",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('.finally(() => clearTimeout(timer))', '.finally(() => {})'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! timeout 60 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "mutante-createcache",
+      "descripcion": "Tus tests fallan si createCache da por buena una entrada justo al cumplir ttl",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('now() - entry.savedAt >= ttl', 'now() - entry.savedAt > ttl'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! timeout 60 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "mutante-debounce",
+      "descripcion": "Tus tests fallan si debounce no cancela la espera anterior en cada llamada",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('    clearTimeout(timer);', ''); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! timeout 60 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "mutante-createcatalogclient",
+      "descripcion": "Tus tests fallan si createCatalogClient no codifica el texto de la búsqueda",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('encodeURIComponent(query.trim())', 'query.trim()'); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! timeout 60 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "mutante-createpoller",
+      "descripcion": "Tus tests fallan si createPoller no para el sondeo con stop",
+      "cmd": "cd {proyecto} && test -d node_modules/vitest && t=$(mktemp -d) && trap 'rm -rf \"$t\"' EXIT && tar --exclude=node_modules --exclude=coverage -cf - . | tar -xf - -C \"$t\" && ln -s \"$PWD/node_modules\" \"$t/node_modules\" && cd \"$t\" && node --input-type=module -e \"import { readFileSync, writeFileSync } from 'node:fs'; const before = readFileSync('src/logic.js', 'utf8'); const after = before.replace('clearInterval(timer);', ''); if (after === before) throw new Error('src/logic.js no es el del starter'); writeFileSync('src/logic.js', after);\" && ! timeout 60 ./node_modules/.bin/vitest run >/dev/null 2>&1",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    }
+  ]
+}
