@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" font-family="sans-serif">
+  <rect width="800" height="470" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Una sesión con token, petición a petición</text>
+
+  <!-- Participantes -->
+  <rect x="60" y="54" width="170" height="40" rx="6" fill="#161b22" stroke="#58a6ff"/>
+  <text x="145" y="79" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">Cliente (página)</text>
+  <rect x="570" y="54" width="170" height="40" rx="6" fill="#161b22" stroke="#3fb950"/>
+  <text x="655" y="79" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">API</text>
+  <line x1="145" y1="94" x2="145" y2="452" stroke="#30363d" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="655" y1="94" x2="655" y2="452" stroke="#30363d" stroke-width="2" stroke-dasharray="6 4"/>
+
+  <!-- 1 login -->
+  <line x1="150" y1="124" x2="644" y2="124" stroke="#58a6ff" stroke-width="2"/>
+  <polygon points="644,119 652,124 644,129" fill="#58a6ff"/>
+  <text x="400" y="116" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">POST /login  { user, password }</text>
+  <line x1="650" y1="154" x2="156" y2="154" stroke="#3fb950" stroke-width="2"/>
+  <polygon points="156,149 148,154 156,159" fill="#3fb950"/>
+  <text x="400" y="146" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="13">200  { token, role, expiresIn }</text>
+  <text x="18" y="158" fill="#8b949e" font-size="12">guarda el token</text>
+
+  <!-- 2 petición con token -->
+  <line x1="150" y1="196" x2="644" y2="196" stroke="#58a6ff" stroke-width="2"/>
+  <polygon points="644,191 652,196 644,201" fill="#58a6ff"/>
+  <text x="400" y="188" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">GET /notes   Authorization: Bearer &lt;token&gt;</text>
+  <line x1="650" y1="224" x2="156" y2="224" stroke="#3fb950" stroke-width="2"/>
+  <polygon points="156,219 148,224 156,229" fill="#3fb950"/>
+  <text x="400" y="216" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="13">200  [ ... ]</text>
+
+  <!-- 3 403 -->
+  <line x1="150" y1="266" x2="644" y2="266" stroke="#58a6ff" stroke-width="2"/>
+  <polygon points="644,261 652,266 644,271" fill="#58a6ff"/>
+  <text x="400" y="258" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">DELETE /notes/1   Bearer &lt;token de keeper&gt;</text>
+  <line x1="650" y1="294" x2="156" y2="294" stroke="#d29922" stroke-width="2"/>
+  <polygon points="156,289 148,294 156,299" fill="#d29922"/>
+  <text x="400" y="286" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="13">403  sé quién eres, pero no puedes</text>
+
+  <!-- 4 401 -->
+  <line x1="150" y1="336" x2="644" y2="336" stroke="#58a6ff" stroke-width="2"/>
+  <polygon points="644,331 652,336 644,341" fill="#58a6ff"/>
+  <text x="400" y="328" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">GET /me   Bearer &lt;token caducado&gt;</text>
+  <line x1="650" y1="364" x2="156" y2="364" stroke="#f85149" stroke-width="2"/>
+  <polygon points="156,359 148,364 156,369" fill="#f85149"/>
+  <text x="400" y="356" text-anchor="middle" fill="#f85149" font-family="monospace" font-size="13">401  no sé quién eres</text>
+  <text x="18" y="368" fill="#8b949e" font-size="12">olvida el token</text>
+  <text x="18" y="384" fill="#8b949e" font-size="12">y pide login</text>
+
+  <!-- 5 logout -->
+  <line x1="150" y1="410" x2="644" y2="410" stroke="#58a6ff" stroke-width="2"/>
+  <polygon points="644,405 652,410 644,415" fill="#58a6ff"/>
+  <text x="400" y="402" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">POST /logout   Bearer &lt;token&gt;</text>
+  <line x1="650" y1="438" x2="156" y2="438" stroke="#3fb950" stroke-width="2"/>
+  <polygon points="156,433 148,438 156,443" fill="#3fb950"/>
+  <text x="400" y="430" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="13">204  el token deja de valer</text>
+</svg>

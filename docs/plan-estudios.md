@@ -304,16 +304,16 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 16: APIs REST y CRUD**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Métodos HTTP (GET, POST, PUT, DELETE, PATCH)
-- RESTful APIs
-- CRUD completo
-- Autenticación básica (headers, tokens)
-- Manejo de estados de carga
+- Diseño REST: recursos y URLs, métodos seguros e idempotentes, códigos de estado (`201`, `401`, `403`, `405`, `409`, `422`) y errores con forma estable
+- Paginación por página y por cursor, filtros, orden, cabecera `Link` y generadores de páginas
+- Autenticación con token: `POST /login`, `Authorization: Bearer`, caducidad, JWT, autenticación básica y dónde guardar el token
+- Estados de carga (`idle`, `loading`, `success`, `empty`, `error`) con un reductor, envíos dobles, condiciones de carrera y actualizaciones optimistas
 
-**Proyecto**: Aplicación CRUD completa con API
+**Proyecto**: Panel de la colección: CRUD de las fichas del dominio en una API local paginada y con inicio de sesión (`node server.js`), con `createApi` (token, `401` y `HttpError` con `fields`), `listPage`, `saveItem`, `deleteItem`, `pageInfo`, un reductor de estado y `createLatest` para cancelar las búsquedas viejas
 
 ---
 

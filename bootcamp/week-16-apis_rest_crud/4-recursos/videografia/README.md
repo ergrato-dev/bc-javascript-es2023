@@ -1,26 +1,16 @@
 # 🎬 Videografía - Semana 16
 
-## Sugerencias
+1. [What is a REST API?](https://www.youtube.com/watch?v=lsMQRaeKNDk) - IBM Technology (inglés). Explicación en pizarra de qué es una API REST. Repaso de la teoría 01.
+2. [What is a REST API?](https://www.youtube.com/watch?v=SLwpqD8n3d0) - Programming with Mosh (inglés). Otra introducción, con recursos, URLs y métodos HTTP.
+3. [RESTful APIs in 100 Seconds](https://www.youtube.com/watch?v=-MTSQjw5DrM) - Fireship (inglés). El resumen rápido y, después, un servidor con Express: esa segunda parte es el otro lado de la API, que no hace falta para esta semana.
 
-1. REST API Crash Course (enfoque conceptual)
-2. HTTP Methods in Practice (GET/POST/PUT/PATCH/DELETE)
-3. Fetch + Async/Await CRUD mini app
-
+<!-- nav -->
 ---
 
-## Guía de observación activa
+## 🔗 Navegación
 
-Mientras veas cada video, registra:
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — ebooks](../ebooks-free/README.md) | [Recursos — web](../webgrafia/README.md) → |
 
-- Qué método HTTP se usa y por qué
-- Qué headers son obligatorios en cada caso
-- Cómo manejan errores de red vs errores HTTP
-- Qué cambios hacen en la UI al entrar/salir de `loading`
-
----
-
-## Aplicación inmediata (30 min)
-
-1. Reproduce 1 operación del video en tu práctica local.
-2. Verifica la respuesta con DevTools (Network).
-3. Escribe un breve resumen de mejora para tu proyecto semanal.
+[↑ Semana 16](../../README.md)

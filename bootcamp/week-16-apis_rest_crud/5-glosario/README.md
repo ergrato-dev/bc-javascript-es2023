@@ -1,138 +1,133 @@
 # 📖 Glosario - Semana 16: APIs REST y CRUD
 
-Términos clave ordenados alfabéticamente para reforzar teoría, prácticas y proyecto.
+Términos clave de esta semana ordenados alfabéticamente.
+
+---
 
 ## A
 
-### Authorization
-Header HTTP usado para enviar credenciales o tokens.
+### Actualización optimista
+Cambiar la interfaz antes de que responda la API, como si la petición fuera a salir bien, y deshacer el cambio si falla. Lo contrario es la actualización pesimista, que espera la respuesta. Ver [teoría 04](../1-teoria/04-estados-carga.md).
 
-### API REST
-Interfaz de comunicación basada en recursos, métodos HTTP y representaciones (generalmente JSON).
+### Autenticación
+Comprobar quién hace la petición. Si falla, la API responde `401`.
 
-### Accept
-Header que indica el formato que el cliente espera recibir.
+### Autorización
+Comprobar si quien hace la petición puede hacer esa acción. Si falla, la API responde `403`.
+
+### Authorization (cabecera)
+Cabecera HTTP que lleva la credencial de la petición. Con un token: `Authorization: Bearer <token>`.
+
+## B
+
+### Bearer
+Esquema de autenticación en el que quien porta el token tiene acceso. El formato es exacto: la palabra `Bearer`, un espacio y el token.
 
 ## C
 
+### Clave de idempotencia
+Cabecera (a menudo `Idempotency-Key`) con un id único que permite reintentar un `POST` sin crear el recurso dos veces, si la API la admite.
+
+### Colección
+Recurso que agrupa elementos del mismo tipo, como `/species`. `GET` la lista y `POST` crea un elemento en ella.
+
+### Condición de carrera
+Error en el que el resultado depende de qué operación termina antes. En un buscador, una respuesta lenta que llega después de otra más nueva y la sobrescribe.
+
 ### CRUD
-Create, Read, Update, Delete: operaciones básicas sobre recursos.
+*Create, Read, Update, Delete*: las cuatro operaciones básicas sobre un recurso, que en REST son `POST`, `GET`, `PUT`/`PATCH` y `DELETE`.
 
-### Content-Type
-Header que define el formato del body enviado (por ejemplo, `application/json`).
-
-### Collection
-Conjunto de recursos de un mismo tipo. Ejemplo: `/items`.
+### Cursor
+Marca opaca que devuelve la API (`nextCursor`) para pedir la página siguiente desde un elemento concreto. `null` indica que no hay más.
 
 ## D
 
-### DELETE
-Método HTTP para eliminar un recurso.
-
-### DTO (Data Transfer Object)
-Objeto que representa los datos que viajan entre cliente y servidor.
+### Debounce
+Esperar a que pase un tiempo sin cambios (por ejemplo, 300 ms sin teclear) antes de lanzar una acción, para no hacer una petición por tecla.
 
 ## E
 
-### Endpoint
-URL que representa una operación sobre un recurso de la API.
+### Elemento
+Un recurso concreto de una colección, identificado por su id en la ruta: `/species/13`.
 
-### Error de red
-Falla de conectividad donde la petición no llega a servidor o no recibe respuesta válida.
-
-## F
-
-### Fetch API
-API nativa de JavaScript para realizar peticiones HTTP asincrónicas.
-
-## G
-
-### GET
-Método HTTP para lectura de datos.
-
-## H
-
-### Header
-Metadato que acompaña request/response HTTP.
-
-### HTTP
-Protocolo de comunicación entre cliente y servidor web.
+### Envelope (sobre)
+Respuesta que envuelve los datos con información extra: `{ data, meta }`, donde `meta` trae la página, el tamaño y el total.
 
 ## I
 
-### Idempotencia
-Propiedad por la cual ejecutar una operación varias veces produce el mismo resultado observable.
+### Idempotente
+Método cuya repetición deja el servidor igual que hacerlo una vez: `GET`, `PUT` y `DELETE`. `POST` no lo es. La respuesta puede cambiar (`204` y después `404`); el estado del servidor, no.
 
 ## J
 
-### JSON
-Formato estándar de intercambio de datos en APIs modernas.
+### JWT (JSON Web Token)
+Token con tres partes en Base64URL separadas por puntos: cabecera, datos y firma. Los datos se leen sin clave, así que nunca llevan secretos.
 
-## M
+## L
 
-### Método HTTP
-Verbo que define la intención de la operación: GET, POST, PUT, PATCH, DELETE.
+### Link (cabecera)
+Cabecera con las URL relacionadas con la respuesta, como la página anterior y la siguiente: `</species?page=3>; rel="next"`.
+
+### Location (cabecera)
+Cabecera de una respuesta `201` con la URL del recurso creado.
+
+## O
+
+### Offset
+Cuántos elementos se salta una página: `(page - 1) * perPage`.
 
 ## P
 
-### PATCH
-Método HTTP para actualizar parcialmente un recurso.
+### Paginación
+Devolver una colección por partes de tamaño fijo. Por número de página (`page`, `perPage`) o por cursor.
 
-### POST
-Método HTTP para crear un recurso.
-
-### PUT
-Método HTTP para reemplazar completamente un recurso.
-
-### Payload
-Cuerpo de datos enviado en una petición HTTP.
-
-## Q
-
-### Query Parameters
-Parámetros en la URL para filtrar, ordenar o paginar resultados.
+### Problem Details
+Formato estándar (RFC 9457) para el cuerpo de los errores, con el tipo `application/problem+json`.
 
 ## R
 
-### Resource
-Entidad principal de una API REST (ejemplo: `/posts`, `/users`).
+### Recurso
+Cualquier cosa que ofrece una API con su propia URL: una colección, un elemento o un recurso anidado como `/habitats/1/species`.
+
+### Reductor
+Función pura `(estado, evento) => estadoNuevo` que concentra todos los cambios de estado y no modifica el estado que recibe.
 
 ### REST
-Estilo arquitectónico que organiza APIs alrededor de recursos y métodos HTTP.
-
-### Response
-Objeto que devuelve `fetch`, contiene status, headers y body.
-
-### Retry
-Reintento de una operación fallida, manual o automático.
+Estilo de diseño de APIs sobre HTTP: recursos con URL, métodos con significado fijo y peticiones sin estado.
 
 ## S
 
-### Status Code
-Código de respuesta HTTP que describe el resultado de una petición.
+### Seguro (método)
+Método que no cambia nada en el servidor: `GET` y `HEAD`.
 
-### Stateful UI
-Interfaz que cambia según estado de la operación (idle, loading, success, error).
+### Stateless (sin estado)
+El servidor no recuerda las peticiones anteriores: cada una trae todo lo necesario, también el token.
 
 ## T
 
 ### Token
-Cadena usada para autenticar peticiones hacia una API.
+Credencial temporal que da la API al iniciar sesión y que el cliente envía en cada petición. Caduca y se puede invalidar con un cierre de sesión.
 
-### Timeout
-Tiempo máximo de espera para una petición antes de abortarla.
+## X
 
-## U
+### XSS (Cross-Site Scripting)
+Ataque que consigue ejecutar JavaScript ajeno en una página. Ese código puede leer lo que haya en `localStorage`, por ejemplo un token.
 
-### URLSearchParams
-Interfaz para construir query strings de forma segura.
+## Números
 
-## V
+### 409 Conflict
+Datos válidos que chocan con el estado del servidor, como un nombre repetido.
 
-### Validación
-Proceso de comprobar que los datos enviados cumplen reglas antes de hacer la petición.
+### 422 Unprocessable Content
+Datos que no cumplen las reglas de la API. El cuerpo suele traer los errores por campo.
 
-## W
+<!-- nav -->
+---
 
-### Wrapper
-Función utilitaria que encapsula `fetch` para centralizar lógica común.
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [🧱 Semana 17: DOM Manipulation Moderna](../../week-17-dom_manipulation_moderna/README.md) → |
+
+[↑ Semana 16](../README.md)

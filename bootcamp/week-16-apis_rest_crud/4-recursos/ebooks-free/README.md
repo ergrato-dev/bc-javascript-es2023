@@ -1,28 +1,31 @@
-# 📘 Ebooks Free - Semana 16
+# 📖 Ebooks gratuitos - Semana 16
 
-## Recomendados
+## Diseño de APIs
 
-1. Eloquent JavaScript - HTTP and Forms
-2. You Don't Know JS Yet - Scope & Closures (bases para arquitectura de clientes API)
-3. Full Stack Open (sección REST APIs)
+1. **Zalando RESTful API Guidelines** - Zalando
+   - Enlace: [opensource.zalando.com](https://opensource.zalando.com/restful-api-guidelines/)
+   - Las reglas de diseño de una empresa con cientos de APIs: nombres de recursos, métodos, códigos de estado, paginación (con una sección que prefiere el cursor) y errores con *Problem Details*
+   - Nivel: intermedio · Idioma: inglés
 
+2. **API Design Guide** - Google Cloud
+   - Enlace: [cloud.google.com/apis/design](https://cloud.google.com/apis/design)
+   - Recursos, métodos estándar, errores y paginación con `page_token`, la versión de Google del cursor
+   - Nivel: intermedio · Idioma: inglés
+
+## Peticiones desde JavaScript
+
+3. **JavaScript.info - Parte 3: Network requests** - Ilya Kantor
+   - Enlace: [es.javascript.info/fetch-api](https://es.javascript.info/fetch-api)
+   - Las opciones de `fetch` que usa esta semana (`signal`, `credentials`, `keepalive`) y la [cancelación con AbortController](https://es.javascript.info/fetch-abort)
+   - Nivel: principiante a intermedio · Idioma: español
+
+<!-- nav -->
 ---
 
-## Ruta sugerida de lectura (90 min)
+## 🔗 Navegación
 
-1. **Eloquent JavaScript** (30 min)
-: Entender request/response y estructura de interacción cliente-servidor.
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
 
-2. **Full Stack Open - REST APIs** (40 min)
-: Identificar buenas convenciones para endpoints, payload y status.
-
-3. **YDKJS Yet - Scope/Closures** (20 min)
-: Aplicar encapsulación para construir un `apiClient` reutilizable.
-
----
-
-## Qué extraer para tu proyecto
-
-- Patrón de funciones pequeñas para `create`, `read`, `update`, `delete`
-- Validación de `response.ok` y errores descriptivos
-- Estrategia para centralizar headers y token en un solo módulo
+[↑ Semana 16](../../README.md)

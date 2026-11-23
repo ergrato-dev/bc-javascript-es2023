@@ -23,7 +23,7 @@ Estado de cada semana:
 | [13](week-13-programacion_asincronica_callbacks_promises/README.md) | [Programación Asincrónica — Callbacks y Promises](week-13-programacion_asincronica_callbacks_promises/README.md) | Intermedio | ✅ |
 | [14](week-14-async_await/README.md) | [Async/Await](week-14-async_await/README.md) | Intermedio | ✅ |
 | [15](week-15-fetch_api/README.md) | [Fetch API](week-15-fetch_api/README.md) | Intermedio | ✅ |
-| [16](week-16-apis_rest_crud/README.md) | [APIs REST y CRUD](week-16-apis_rest_crud/README.md) | Intermedio | 🟡 |
+| [16](week-16-apis_rest_crud/README.md) | [APIs REST y CRUD](week-16-apis_rest_crud/README.md) | Intermedio | ✅ |
 | [17](week-17-dom_manipulation_moderna/README.md) | [DOM Manipulation Moderna](week-17-dom_manipulation_moderna/README.md) | Intermedio | 🟡 |
 | [18](week-18-event_handling_avanzado/README.md) | [Event Handling Avanzado](week-18-event_handling_avanzado/README.md) | Intermedio | 🟡 |
 | [19](week-19-web_storage_apis/README.md) | [Web Storage APIs](week-19-web_storage_apis/README.md) | Intermedio | 🟡 |
