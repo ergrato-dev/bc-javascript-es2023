@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 03 - Contenido, atributos y clases</title>
+  <style>
+    :root { --accent: #58a6ff; }
+    body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 1rem; }
+    .card { border: 2px solid #30363d; border-radius: 8px; padding: 1rem; max-width: 30rem; }
+    .card.is-featured { border-color: var(--accent); }
+    .card.is-closed { opacity: 0.5; }
+    .title { color: var(--accent); }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <article id="card" class="card">
+      <h2 class="title">Pulpo común</h2>
+      <p class="note">Tanque 3 <span hidden>(cuarentena)</span></p>
+      <div class="extra"></div>
+    </article>
+    <form id="edit">
+      <label for="name">Nombre</label>
+      <input id="name" name="name" value="Pulpo común">
+      <label><input type="checkbox" id="visible" name="visible" checked> Visible</label>
+      <button type="button" id="feature" aria-pressed="false">Destacar</button>
+    </form>
+  </main>
+</body>
+</html>

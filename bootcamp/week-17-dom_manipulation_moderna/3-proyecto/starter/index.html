@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constructor de fichas</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">Constructor de fichas</h1>
+      <p id="summary" class="summary" role="status"></p>
+    </header>
+
+    <section class="panel">
+      <h2>Nueva ficha</h2>
+      <form id="card-form" class="card-form">
+        <label>Nombre <input name="name" required minlength="3" autocomplete="off"></label>
+        <label>Categoría <input name="category" required autocomplete="off"></label>
+        <label class="wide">Detalle <input name="detail" required autocomplete="off"></label>
+        <label class="check"><input type="checkbox" name="featured"> Destacada</label>
+        <button type="submit" class="btn">Añadir</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="filters">
+        <label>Buscar <input type="search" id="search" placeholder="Nombre o detalle"></label>
+        <label>Categoría <select id="category"></select></label>
+      </div>
+      <p id="render-info" class="render-info"></p>
+      <ul id="card-list" class="card-list"></ul>
+      <p id="empty" class="empty" hidden>No hay fichas con estos filtros.</p>
+    </section>
+
+    <section class="panel">
+      <h2 id="html-title">HTML de la ficha</h2>
+      <pre id="html-output" class="html-output"></pre>
+    </section>
+  </div>
+</body>
+</html>

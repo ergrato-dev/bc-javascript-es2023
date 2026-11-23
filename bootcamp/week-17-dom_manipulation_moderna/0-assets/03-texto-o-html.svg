@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="sans-serif">
+  <rect width="800" height="380" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">El mismo texto, como HTML o como texto</text>
+
+  <!-- Dato -->
+  <rect x="120" y="56" width="560" height="56" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="400" y="78" text-anchor="middle" fill="#8b949e" font-size="12">Un nombre que llega de un formulario o de una API</text>
+  <text x="400" y="100" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">Pulpo&lt;img src="x" onerror="robarDatos()"&gt;</text>
+
+  <line x1="300" y1="112" x2="200" y2="150" stroke="#f85149" stroke-width="2"/>
+  <line x1="500" y1="112" x2="600" y2="150" stroke="#3fb950" stroke-width="2"/>
+
+  <!-- innerHTML -->
+  <rect x="30" y="150" width="350" height="210" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="205" y="178" text-anchor="middle" fill="#f85149" font-family="monospace" font-size="16">card.innerHTML = name</text>
+  <text x="50" y="210" fill="#c9d1d9" font-size="13">El navegador lo interpreta como HTML:</text>
+  <text x="70" y="236" fill="#8b949e" font-family="monospace" font-size="13">"Pulpo"   (texto)</text>
+  <text x="70" y="258" fill="#f85149" font-family="monospace" font-size="13">&lt;img&gt;     (elemento nuevo)</text>
+  <text x="50" y="290" fill="#c9d1d9" font-size="13">La imagen no carga y se ejecuta</text>
+  <text x="50" y="310" fill="#f85149" font-family="monospace" font-size="13">robarDatos()</text>
+  <text x="50" y="340" fill="#f85149" font-size="13" font-weight="bold">XSS: código ajeno en tu página</text>
+
+  <!-- textContent -->
+  <rect x="420" y="150" width="350" height="210" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="595" y="178" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="16">card.textContent = name</text>
+  <text x="440" y="210" fill="#c9d1d9" font-size="13">Un único nodo de texto:</text>
+  <text x="460" y="236" fill="#8b949e" font-family="monospace" font-size="12">"Pulpo&lt;img src=…&gt;"</text>
+  <text x="440" y="290" fill="#c9d1d9" font-size="13">Se ve el texto tal cual,</text>
+  <text x="440" y="310" fill="#c9d1d9" font-size="13">con sus &lt; y &gt;. No se ejecuta nada.</text>
+  <text x="440" y="340" fill="#3fb950" font-size="13" font-weight="bold">Seguro para cualquier dato</text>
+</svg>

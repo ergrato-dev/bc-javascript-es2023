@@ -318,16 +318,16 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 17: DOM Manipulation Moderna**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- querySelector y querySelectorAll
-- createElement, appendChild, removeChild
-- classList API
-- textContent vs innerHTML
-- Template elements
+- El árbol DOM: nodos y elementos, `querySelector` y `querySelectorAll`, colecciones estáticas y vivas, `closest`, `matches` y `dataset`
+- Crear, insertar, mover, copiar y quitar nodos: `createElement`, `append`, `before`, `after`, `cloneNode`, `remove`, `replaceChildren` y `DocumentFragment`
+- `textContent` frente a `innerHTML`, XSS y escapado, atributos frente a propiedades, `classList.toggle` con `force`, `hidden`, `aria-pressed` y variables CSS
+- `<template>`, render a partir de los datos y render por clave que conserva el foco
 
-**Proyecto**: Constructor de UI dinámico
+**Proyecto**: Constructor de fichas: las fichas del dominio descritas con objetos (`h`, `cardSpec`), convertidas en HTML escapado (`escapeHtml`, `toHtml`), filtradas (`visibleItems`, `categoriesOf`) y montadas en el DOM con un render por clave (`diffKeys`), servidas con `node server.js`
 
 ---
 

@@ -1,0 +1,118 @@
+{
+  "semana": "17",
+  "titulo": "DOM Manipulation Moderna",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-innerhtml",
+      "descripcion": "Ningún archivo de src/ usa innerHTML, outerHTML ni insertAdjacentHTML",
+      "cmd": "cd {proyecto} && ! grep -nE 'innerHTML|outerHTML|insertAdjacentHTML' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE y por defecto de 8 a 15 fichas con id entero positivo sin repetir, name de 3 o más caracteres sin repetir, category y detail de texto y featured booleano; al menos 2 categorías y 1 destacada",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE } from './src/data.js'; const filled = (value) => typeof value === 'string' && value.trim() !== ''; assert.ok(filled(TITLE)); assert.ok(Array.isArray(items) && items.length >= 8 && items.length <= 15); assert.ok(items.every((item) => Number.isInteger(item.id) && item.id > 0 && filled(item.name) && item.name.trim().length >= 3 && filled(item.category) && filled(item.detail) && typeof item.featured === 'boolean')); assert.equal(new Set(items.map(({ id }) => id)).size, items.length); assert.equal(new Set(items.map(({ name }) => name.trim().toLowerCase())).size, items.length); assert.ok(new Set(items.map(({ category }) => category)).size >= 2); assert.ok(items.some(({ featured }) => featured));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título y las fichas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.ok(!items.some(({ name }) => ['Saturno', 'Júpiter', 'Marte', 'Sirio', 'Betelgeuse', 'Polaris', 'Andrómeda', 'Vía Láctea', 'Nebulosa de Orión', 'Nebulosa del Cangrejo'].includes(name)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "describir",
+      "descripcion": "h devuelve { tag, props, children } con props {} por defecto, los hijos aplanados, sin null, undefined, false ni '', y los números como texto",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { h } from './src/logic.js'; assert.deepEqual(h('br'), { tag: 'br', props: {}, children: [] }); assert.deepEqual(h('p', null, 'Hay ', 3, [' fichas', false]), { tag: 'p', props: {}, children: ['Hay ', '3', ' fichas'] }); const inner = h('b', { class: 'x' }, 'hola'); assert.deepEqual(h('div', { id: 'a' }, [[inner, null], undefined, '', 0]), { tag: 'div', props: { id: 'a' }, children: [{ tag: 'b', props: { class: 'x' }, children: ['hola'] }, '0'] });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "clases",
+      "descripcion": "classNames junta con espacios las clases que no son falsy",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { classNames } from './src/logic.js'; assert.equal(classNames('card', false, 'is-featured', null, '', undefined), 'card is-featured'); assert.equal(classNames(), ''); assert.equal(classNames(false && 'a', true && 'b'), 'b');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "escapar",
+      "descripcion": "escapeHtml sustituye & < > \" y ' por sus entidades, con el & primero, y acepta números",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { escapeHtml } from './src/logic.js'; assert.equal(escapeHtml('<a href=\\\"x\\\">Tom & \\'Jerry\\'</a>'), '&lt;a href=&quot;x&quot;&gt;Tom &amp; &#39;Jerry&#39;&lt;/a&gt;'); assert.equal(escapeHtml('&lt;'), '&amp;lt;'); assert.equal(escapeHtml(42), '42'); assert.equal(escapeHtml('sin cambios'), 'sin cambios');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "html",
+      "descripcion": "toHtml convierte textos y elementos en HTML: atributos en orden, class vacía omitida, dataset en kebab-case, true sin valor y false, null o undefined omitidos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { h, toHtml } from './src/logic.js'; assert.equal(toHtml('a < b'), 'a &lt; b'); assert.equal(toHtml(h('p', { class: 'note', hidden: true }, 'a < b')), '<p class=\\\"note\\\" hidden>a &lt; b</p>'); assert.equal(toHtml(h('ul', { class: '' }, h('li', { dataset: { id: '1', lastCheck: 'hoy' } }, 'Uno'), h('li', null))), '<ul><li data-id=\\\"1\\\" data-last-check=\\\"hoy\\\">Uno</li><li></li></ul>'); assert.equal(toHtml(h('button', { type: 'button', disabled: false, title: null, 'aria-pressed': 'true', tabindex: 0 }, 'Ok')), '<button type=\\\"button\\\" aria-pressed=\\\"true\\\" tabindex=\\\"0\\\">Ok</button>');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "html-seguro",
+      "descripcion": "toHtml escapa los textos y los valores de los atributos, así que un dato con HTML no crea etiquetas",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { h, toHtml } from './src/logic.js'; const evil = '\\\"><img src=x onerror=alert(1)>'; const html = toHtml(h('p', { title: evil, dataset: { note: evil } }, evil)); assert.ok(!html.includes('<img')); assert.equal(html, '<p title=\\\"&quot;&gt;&lt;img src=x onerror=alert(1)&gt;\\\" data-note=\\\"&quot;&gt;&lt;img src=x onerror=alert(1)&gt;\\\">&quot;&gt;&lt;img src=x onerror=alert(1)&gt;</p>');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "ficha",
+      "descripcion": "cardSpec describe la ficha: un li con class card y data-id, el título, la categoría, el detalle y los tres botones",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { cardSpec, h } from './src/logic.js'; const item = Object.freeze({ id: 3, name: 'Gamma', category: 'B', detail: 'tres', featured: false }); assert.deepEqual(cardSpec(item), h('li', { class: 'card', dataset: { id: '3' } }, h('h3', { class: 'card-title' }, 'Gamma'), h('p', { class: 'card-category' }, 'B'), h('p', { class: 'card-detail' }, 'tres'), h('div', { class: 'card-actions' }, h('button', { type: 'button', class: 'feature', 'aria-pressed': 'false' }, 'Destacar'), h('button', { type: 'button', class: 'show-html' }, 'Ver HTML'), h('button', { type: 'button', class: 'remove' }, 'Quitar')))); assert.equal(cardSpec({ ...item, featured: true }).props.class, 'card is-featured'); assert.equal(cardSpec(item, { selected: true }).props.class, 'card is-selected');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "ficha-html",
+      "descripcion": "toHtml(cardSpec(...)) de una ficha destacada y seleccionada da exactamente el HTML del README, con los datos escapados",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { cardSpec, toHtml } from './src/logic.js'; assert.equal(toHtml(cardSpec({ id: 7, name: 'Ío & Europa', category: 'Luna', detail: 'a < b', featured: true }, { selected: true })), '<li class=\\\"card is-featured is-selected\\\" data-id=\\\"7\\\"><h3 class=\\\"card-title\\\">Ío &amp; Europa</h3><p class=\\\"card-category\\\">Luna</p><p class=\\\"card-detail\\\">a &lt; b</p><div class=\\\"card-actions\\\"><button type=\\\"button\\\" class=\\\"feature\\\" aria-pressed=\\\"true\\\">Quitar destacado</button><button type=\\\"button\\\" class=\\\"show-html\\\">Ver HTML</button><button type=\\\"button\\\" class=\\\"remove\\\">Quitar</button></div></li>');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "visibles",
+      "descripcion": "visibleItems filtra por categoría y por texto en name o detail (sin mayúsculas ni espacios de los extremos), pone las destacadas primero y no cambia el array",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { visibleItems } from './src/logic.js'; const items = Object.freeze([{ id: 1, name: 'Alfa', category: 'B', detail: 'uno', featured: false }, { id: 2, name: 'Beta', category: 'A', detail: 'Dos alfa', featured: true }, { id: 3, name: 'Gamma', category: 'B', detail: 'tres', featured: false }, { id: 4, name: 'Delta', category: 'Á', detail: 'cuatro', featured: true }, { id: 5, name: 'Épsilon', category: 'A', detail: 'cinco', featured: false }].map((item) => Object.freeze(item))); const ids = (list) => list.map(({ id }) => id); assert.deepEqual(ids(visibleItems(items)), [2, 4, 1, 3, 5]); assert.deepEqual(ids(visibleItems(items, { category: 'B' })), [1, 3]); assert.deepEqual(ids(visibleItems(items, { search: '  ALFA ' })), [2, 1]); assert.deepEqual(ids(visibleItems(items, { search: 'a', category: 'A' })), [2]); assert.deepEqual(visibleItems(items, { search: 'zzz' }), []); assert.notEqual(visibleItems(items), items);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "categorias",
+      "descripcion": "categoriesOf devuelve las categorías sin repetir y en orden alfabético en español, sin cambiar el array",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { categoriesOf } from './src/logic.js'; const items = Object.freeze([{ id: 1, name: 'Alfa', category: 'B', detail: 'uno', featured: false }, { id: 2, name: 'Beta', category: 'A', detail: 'Dos alfa', featured: true }, { id: 3, name: 'Gamma', category: 'B', detail: 'tres', featured: false }, { id: 4, name: 'Delta', category: 'Á', detail: 'cuatro', featured: true }, { id: 5, name: 'Épsilon', category: 'A', detail: 'cinco', featured: false }].map((item) => Object.freeze(item))); assert.deepEqual(categoriesOf(items), ['A', 'Á', 'B']); assert.deepEqual(categoriesOf([]), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "claves",
+      "descripcion": "diffKeys devuelve removed, added y kept, cada uno en el orden pedido, sin cambiar los arrays",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { diffKeys } from './src/logic.js'; const before = Object.freeze([1, 2, 3]); const after = Object.freeze([4, 3, 1]); assert.deepEqual(diffKeys(before, after), { removed: [2], added: [4], kept: [3, 1] }); assert.deepEqual(diffKeys([], [5, 6]), { removed: [], added: [5, 6], kept: [] }); assert.deepEqual(diffKeys([5, 6], []), { removed: [5, 6], added: [], kept: [] }); assert.deepEqual(diffKeys([9, 8], [8, 9]), { removed: [], added: [], kept: [8, 9] });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}

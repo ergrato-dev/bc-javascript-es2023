@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="sans-serif">
+  <rect width="800" height="400" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Dónde inserta cada método</text>
+
+  <!-- Antes de la lista -->
+  <rect x="200" y="58" width="320" height="34" rx="6" fill="#161b22" stroke="#d29922" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="360" y="80" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="14">list.before(nodo)</text>
+
+  <!-- La lista -->
+  <rect x="160" y="106" width="400" height="236" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="180" y="130" fill="#58a6ff" font-family="monospace" font-size="15">&lt;ul id="todo"&gt;</text>
+
+  <rect x="200" y="142" width="320" height="30" rx="6" fill="#0d1117" stroke="#3fb950" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="360" y="162" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="14">list.prepend(nodo)</text>
+
+  <rect x="200" y="180" width="320" height="30" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="360" y="200" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="14">&lt;li&gt;Limpiar filtros&lt;/li&gt;</text>
+
+  <rect x="200" y="218" width="320" height="30" rx="6" fill="#0d1117" stroke="#F7DF1E" stroke-width="2"/>
+  <text x="360" y="238" text-anchor="middle" fill="#F7DF1E" font-family="monospace" font-size="14">&lt;li&gt;Medir el pH&lt;/li&gt;  ← ref</text>
+
+  <rect x="200" y="256" width="320" height="30" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <text x="360" y="276" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="14">&lt;li&gt;Dar de comer&lt;/li&gt;</text>
+
+  <rect x="200" y="294" width="320" height="30" rx="6" fill="#0d1117" stroke="#3fb950" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="360" y="314" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="14">list.append(nodo)</text>
+
+  <!-- before/after de ref -->
+  <line x1="520" y1="214" x2="590" y2="190" stroke="#F7DF1E" stroke-width="2"/>
+  <line x1="520" y1="252" x2="590" y2="276" stroke="#F7DF1E" stroke-width="2"/>
+  <text x="596" y="195" fill="#F7DF1E" font-family="monospace" font-size="14">ref.before(nodo)</text>
+  <text x="596" y="281" fill="#F7DF1E" font-family="monospace" font-size="14">ref.after(nodo)</text>
+
+  <!-- Después de la lista -->
+  <rect x="200" y="352" width="320" height="34" rx="6" fill="#161b22" stroke="#d29922" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="360" y="374" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="14">list.after(nodo)</text>
+
+  <!-- Leyenda -->
+  <text x="20" y="200" fill="#3fb950" font-size="13">verde: dentro</text>
+  <text x="20" y="220" fill="#3fb950" font-size="13">(hijo de list)</text>
+  <text x="20" y="260" fill="#d29922" font-size="13">naranja: fuera</text>
+  <text x="20" y="280" fill="#d29922" font-size="13">(hermano de list)</text>
+</svg>

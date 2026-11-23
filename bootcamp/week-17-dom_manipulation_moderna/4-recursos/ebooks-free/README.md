@@ -1,28 +1,27 @@
-# 📘 Ebooks Free - Semana 17
+# 📖 Ebooks gratuitos - Semana 17
 
-## Recomendados
+1. **JavaScript.info - Parte 2: Documento** - Ilya Kantor
+   - Enlace: [es.javascript.info/document](https://es.javascript.info/document)
+   - El árbol DOM, [recorrerlo](https://es.javascript.info/dom-navigation), buscar con selectores, atributos y propiedades, crear y modificar nodos y estilos. Cada capítulo trae ejercicios con solución
+   - Nivel: principiante a intermedio · Idioma: español
 
-1. Eloquent JavaScript - The Document Object Model
-2. MDN Web Docs - DOM Guides (formato handbook)
-3. Frontend Architecture Notes (secciones de render y componentes)
+2. **Eloquent JavaScript - Capítulo 14: The Document Object Model** - Marijn Haverbeke
+   - Enlace: [eloquentjavascript.net/14_dom.html](https://eloquentjavascript.net/14_dom.html)
+   - El DOM como estructura de datos: nodos, colecciones vivas, crear nodos y por qué cambiar la página muchas veces seguidas es lento
+   - Nivel: intermedio · Idioma: inglés
 
+3. **MDN Learn - DOM scripting introduction** - MDN
+   - Enlace: [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/DOM_scripting)
+   - Tutorial guiado del curso de desarrollo web de MDN: seleccionar, crear, mover y quitar elementos, y cambiar estilos, con un ejercicio final de lista de la compra
+   - Nivel: principiante · Idioma: inglés
+
+<!-- nav -->
 ---
 
-## Ruta de lectura (80-90 min)
+## 🔗 Navegación
 
-1. Eloquent JavaScript (35 min)
-: Comprender árbol DOM, nodos y mutaciones.
+| Anterior | Siguiente |
+|---|---|
+| ← [Rúbrica de evaluación](../../rubrica-evaluacion.md) | [Recursos — videos](../videografia/README.md) → |
 
-2. Guías MDN DOM (35 min)
-: Profundizar selectores, creación de elementos y template.
-
-3. Notas de arquitectura (20 min)
-: Organizar funciones de render y estado UI.
-
----
-
-## Aplicación al proyecto
-
-- Diseñar función de render única
-- Separar selección de nodos en `elements`
-- Evitar duplicación de markup con template
+[↑ Semana 17](../../README.md)

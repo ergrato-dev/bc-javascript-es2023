@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 04 - Plantillas y render</title>
+  <style>
+    body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 1rem; }
+    .tank { border: 2px solid #30363d; border-radius: 8px; padding: 0.5rem 1rem; margin: 0.5rem 0; list-style: none; }
+    .tank.is-featured { border-color: #F7DF1E; }
+    .tank h3 { margin: 0; color: #58a6ff; }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Tanques</h1>
+    <ul id="list"></ul>
+    <p id="empty" hidden>No hay tanques que mostrar.</p>
+  </main>
+
+  <!-- El contenido de <template> no se muestra ni forma parte de la página hasta que lo clonas. -->
+  <template id="tank-template">
+    <li class="tank">
+      <h3 class="name"></h3>
+      <p class="detail"></p>
+      <button type="button" class="feature" aria-pressed="false">Destacar</button>
+    </li>
+  </template>
+</body>
+</html>

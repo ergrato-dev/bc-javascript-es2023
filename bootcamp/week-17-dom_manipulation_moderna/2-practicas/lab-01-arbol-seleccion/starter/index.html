@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 01 - El árbol y la selección</title>
+  <style>
+    body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 1rem; }
+    .is-closed { opacity: 0.5; }
+    .badge { font-size: 0.8em; color: #58a6ff; }
+  </style>
+  <!-- defer: el script se ejecuta cuando el HTML ya está leído, así que el árbol existe. -->
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main id="app">
+    <h1>Acuario municipal</h1>
+    <section id="tanks" data-zone="norte">
+      <h2>Tanques</h2>
+      <ul class="tank-list">
+        <li class="tank" data-id="1" data-habitat="arrecife">Arrecife de coral <span class="badge">abierto</span></li>
+        <li class="tank is-closed" data-id="2" data-habitat="oceano">Océano abierto <span class="badge">cerrado</span></li>
+        <li class="tank" data-id="3" data-habitat="rio">Río amazónico <span class="badge">abierto</span></li>
+      </ul>
+    </section>
+    <form id="search">
+      <label for="q">Buscar</label>
+      <input id="q" name="q" value="coral">
+    </form>
+  </main>
+</body>
+</html>

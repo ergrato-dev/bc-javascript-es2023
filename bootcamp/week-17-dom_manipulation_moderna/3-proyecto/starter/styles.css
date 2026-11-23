@@ -1,0 +1,112 @@
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --blue: #58a6ff;
+  --green: #3fb950;
+  --red: #f85149;
+  --yellow: #F7DF1E;
+}
+
+* { box-sizing: border-box; }
+
+/* El atributo hidden tiene que ganar a cualquier display de esta hoja (teoría 03, sección 6). */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.container { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+.header h1 { margin: 0; color: var(--yellow); }
+.summary { margin: 0.25rem 0 0; color: var(--muted); }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-top: 1.25rem;
+}
+.panel h2 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+
+label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.9rem; color: var(--muted); }
+
+input, select {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.4rem 0.6rem;
+}
+input:focus-visible, select:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+.card-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; align-items: end; }
+.card-form .wide { grid-column: span 2; }
+.card-form .check { flex-direction: row; align-items: center; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 1rem; }
+.filters label { flex: 1 1 200px; }
+
+.render-info { color: var(--muted); font-size: 0.85rem; margin: 0.75rem 0; }
+
+.btn, .card-actions button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  padding: 0.4rem 0.8rem;
+}
+.btn { background: var(--blue); color: var(--bg); border-color: var(--blue); font-weight: 600; }
+.card-actions button:hover { border-color: var(--blue); }
+.card-actions .remove:hover { border-color: var(--red); color: var(--red); }
+.card-actions .feature[aria-pressed="true"] { border-color: var(--yellow); color: var(--yellow); }
+
+.card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+.card {
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+}
+.card.is-featured { border-color: var(--yellow); }
+.card.is-selected { box-shadow: 0 0 0 3px var(--blue); }
+.card-title { margin: 0; color: var(--blue); font-size: 1.05rem; }
+.card-category { margin: 0.1rem 0 0.5rem; font-size: 0.8rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.05em; }
+.card-detail { margin: 0 0 0.75rem; }
+.card-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.empty { color: var(--muted); text-align: center; padding: 1rem; }
+
+.html-output {
+  margin: 0;
+  padding: 0.75rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+@media (max-width: 600px) {
+  .card-form .wide { grid-column: auto; }
+}
