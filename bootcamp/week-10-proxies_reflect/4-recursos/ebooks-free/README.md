@@ -16,31 +16,7 @@ Libros electrónicos gratuitos sobre metaprogramación en JavaScript.
 - **Idioma**: Inglés
 - **Descripción**: Cobertura profunda de Proxy, Reflect y Symbol con ejemplos prácticos.
 
-### 2. Exploring ES2023
-
-- **Autor**: Dr. Axel Rauschmayer
-- **Capítulo relevante**: Chapter 28: Metaprogramming with proxies
-- **Enlace**: [Exploring ES6 - Proxies](https://exploringjs.com/es6/ch_proxies.html)
-- **Idioma**: Inglés
-- **Descripción**: Análisis detallado de todas las traps disponibles y sus invariantes.
-
-### 3. JavaScript for Impatient Programmers
-
-- **Autor**: Dr. Axel Rauschmayer
-- **Capítulo relevante**: Chapter 32: Metaprogramming with Proxies
-- **Enlace**: [JavaScript for Impatient Programmers](https://exploringjs.com/impatient-js/ch_proxies.html)
-- **Idioma**: Inglés
-- **Descripción**: Versión actualizada y concisa sobre Proxies.
-
-### 4. Deep JavaScript
-
-- **Autor**: Dr. Axel Rauschmayer
-- **Capítulo relevante**: Metaprogramming
-- **Enlace**: [Deep JavaScript](https://exploringjs.com/deep-js/toc.html)
-- **Idioma**: Inglés
-- **Descripción**: Conceptos avanzados de JavaScript incluyendo metaprogramación.
-
-### 5. The Modern JavaScript Tutorial
+### 2. The Modern JavaScript Tutorial
 
 - **Autor**: javascript.info
 - **Capítulo relevante**: Proxy and Reflect
@@ -55,9 +31,6 @@ Libros electrónicos gratuitos sobre metaprogramación en JavaScript.
 | Libro | Proxy Básico | Traps | Reflect | Patrones |
 |-------|--------------|-------|---------|----------|
 | YDKJS ES2023 & Beyond | ✅ | ✅ | ✅ | ✅ |
-| Exploring ES2023 | ✅ | ✅ | ✅ | ✅ |
-| JS for Impatient | ✅ | ✅ | ✅ | ⚪ |
-| Deep JavaScript | ✅ | ✅ | ✅ | ✅ |
 | javascript.info | ✅ | ✅ | ✅ | ✅ |
 
 ---
@@ -66,8 +39,6 @@ Libros electrónicos gratuitos sobre metaprogramación en JavaScript.
 
 1. **javascript.info** - Para empezar con ejemplos prácticos
 2. **YDKJS ES2023 & Beyond** - Para entender el "por qué"
-3. **Exploring ES2023** - Para referencia completa de traps
-4. **Deep JavaScript** - Para casos avanzados
 
 <!-- nav -->
 ---

@@ -22,24 +22,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 
 ---
 
-### 2. **JavaScript for Impatient Programmers (ES2022)**
-**Autor**: Dr. Axel Rauschmayer
-**Idioma**: Inglés
-**Nivel**: Intermedio-Avanzado
-
-**Capítulos Recomendados**:
-- Chapter 11: Parameter handling
-- Chapter 15: Destructuring
-- Chapter 16: Arrays
-- Chapter 17: Maps and Sets
-
-**Enlace**: [https://exploringjs.com/impatient-js/](https://exploringjs.com/impatient-js/)
-
-**Por qué leerlo**: Cobertura exhaustiva de ES2023 con enfoque en parámetros, spread/rest y arrays modernos.
-
----
-
-### 3. **You Don't Know JS: ES2023 & Beyond**
+### 2. **You Don't Know JS: ES2023 & Beyond**
 **Autor**: Kyle Simpson
 **Idioma**: Inglés
 **Nivel**: Intermedio-Avanzado
@@ -54,7 +37,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 
 ---
 
-### 4. **JavaScript: The Definitive Guide (7th Edition) - Capítulos Selectos**
+### 3. **JavaScript: The Definitive Guide (7th Edition) - Capítulos Selectos**
 **Autor**: David Flanagan
 **Idioma**: Inglés
 **Nivel**: Todos los niveles
@@ -72,7 +55,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 
 ## 📗 Programación Funcional
 
-### 5. **Functional-Light JavaScript**
+### 4. **Functional-Light JavaScript**
 **Autor**: Kyle Simpson
 **Idioma**: Inglés
 **Nivel**: Intermedio
@@ -89,7 +72,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 
 ## 📙 Recursos en Español
 
-### 6. **El Tutorial de JavaScript Moderno**
+### 5. **El Tutorial de JavaScript Moderno**
 **Idioma**: Español
 **Nivel**: Principiante-Intermedio
 
@@ -104,7 +87,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno.
 
 ---
 
-### 7. **Introducción a JavaScript (MDN en Español)**
+### 6. **Introducción a JavaScript (MDN en Español)**
 **Idioma**: Español
 **Nivel**: Todos los niveles
 

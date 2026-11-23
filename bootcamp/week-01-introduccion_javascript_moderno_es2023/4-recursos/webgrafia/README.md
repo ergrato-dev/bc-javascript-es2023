@@ -30,11 +30,6 @@ Recursos web recomendados para profundizar en los conceptos de ES2023 vistos est
   - Ejemplos lado a lado
   - Referencia rápida
 
-- **[Exploring ES6 - Dr. Axel Rauschmayer](https://exploringjs.com/es6/)**
-  - Libro online gratuito
-  - Explicaciones profundas
-  - Casos de uso avanzados
-
 ---
 
 ## 🎯 Artículos Recomendados

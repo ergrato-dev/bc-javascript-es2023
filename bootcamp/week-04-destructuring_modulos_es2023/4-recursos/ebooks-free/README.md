@@ -17,29 +17,9 @@ Libros electrónicos gratuitos para profundizar en destructuring y módulos ES20
 
 ---
 
-### 2. **JavaScript for Impatient Programmers**
-- **Autor**: Dr. Axel Rauschmayer
-- **Idioma**: Inglés
-- **Enlace**: [exploringjs.com/impatient-js](https://exploringjs.com/impatient-js/)
-- **Capítulos relevantes**:
-  - Chapter 32: Destructuring
-  - Chapter 27: Modules
-- **Descripción**: Enfocado en ES2023 con explicaciones profundas y ejemplos claros.
-
 ---
 
-### 3. **Exploring ES2023**
-- **Autor**: Dr. Axel Rauschmayer
-- **Idioma**: Inglés
-- **Enlace**: [exploringjs.com/es6](https://exploringjs.com/es6/)
-- **Capítulos relevantes**:
-  - Chapter 10: Destructuring
-  - Chapter 16: Modules
-- **Descripción**: Referencia completa de todas las características de ES2023.
-
----
-
-### 4. **JavaScript.info - The Modern JavaScript Tutorial**
+### 2. **JavaScript.info - The Modern JavaScript Tutorial**
 - **Autor**: Ilya Kantor
 - **Idioma**: Inglés/Español
 - **Enlace**: [javascript.info](https://javascript.info/)
@@ -51,7 +31,7 @@ Libros electrónicos gratuitos para profundizar en destructuring y módulos ES20
 
 ---
 
-### 5. **You Don't Know JS Yet (2nd Edition)**
+### 3. **You Don't Know JS Yet (2nd Edition)**
 - **Autor**: Kyle Simpson
 - **Idioma**: Inglés
 - **Enlace**: [github.com/getify/You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)

@@ -61,7 +61,7 @@
 **Fuente**: 2ality (Dr. Axel Rauschmayer)
 **Enlace**: [2ality.com](https://2ality.com/2014/12/es6-symbols.html)
 
-> Análisis profundo del autor de "Exploring ES2023".
+> Análisis profundo de Axel Rauschmayer, autor del blog 2ality.
 
 ---
 
@@ -119,7 +119,6 @@
 
 1. ECMA-262 Specification
 2. Keith Cirkel - Metaprogramming
-3. Exploring Deep JavaScript
 
 ---
 

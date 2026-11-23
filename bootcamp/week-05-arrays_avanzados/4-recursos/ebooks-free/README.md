@@ -38,22 +38,13 @@ Recursos bibliográficos gratuitos para profundizar en Arrays Avanzados de JavaS
 - **Idioma**: Inglés
 - **Por qué leerlo**: Referencia rápida y completa de métodos de arrays
 
-### 5. Exploring ES2023
-
-- **Autor**: Dr. Axel Rauschmayer
-- **Capítulo relevante**: 7.10 New Array methods
-- **Enlace**: [exploringjs.com/es6](https://exploringjs.com/es6/ch_arrays.html)
-- **Idioma**: Inglés
-- **Por qué leerlo**: Detalle técnico de los nuevos métodos introducidos en ES2023
-
 ---
 
 ## 🎯 Orden de Lectura Sugerido
 
 1. **JavaScript.info** - Para empezar (ejemplos prácticos)
 2. **Eloquent JavaScript** - Fundamentos sólidos
-3. **Exploring ES2023** - Detalles de ES2023
-4. **You Don't Know JS** - Profundización avanzada
+3. **You Don't Know JS** - Profundización avanzada
 
 ---
 

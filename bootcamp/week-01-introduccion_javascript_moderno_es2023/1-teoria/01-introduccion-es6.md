@@ -374,7 +374,6 @@ Antes de continuar, asegúrate de entender:
 ### Lecturas Recomendadas
 - [ES6 Features](http://es6-features.org/)
 - [JavaScript.info: Modern JavaScript](https://javascript.info/)
-- [Exploring ES6 (libro gratuito)](https://exploringjs.com/es6/)
 
 <!-- nav -->
 ---

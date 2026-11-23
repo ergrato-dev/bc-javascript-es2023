@@ -38,22 +38,11 @@
 
 ---
 
-### 📕 Exploring ES2023
-
-- **Autor**: Dr. Axel Rauschmayer
-- **Idioma**: Inglés
-- **Enlace**: [exploringjs.com/es6](https://exploringjs.com/es6/)
-- **Capítulos relevantes**:
-  - Chapter 21: Iterables and iterators
-  - Chapter 22: Generators
-
----
-
 ## 💡 Recomendación de Lectura
 
 1. **Principiante**: JavaScript.info (explicaciones claras y ejemplos)
 2. **Intermedio**: Eloquent JavaScript (contexto amplio)
-3. **Avanzado**: Exploring ES2023 (detalles técnicos profundos)
+3. **Avanzado**: You Don't Know JS Yet (detalles técnicos profundos)
 
 <!-- nav -->
 ---

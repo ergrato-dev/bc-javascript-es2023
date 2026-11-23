@@ -49,43 +49,6 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 
 ---
 
-### **JavaScript for Impatient Programmers - Dr. Axel Rauschmayer**
-- 🔗 [exploringjs.com/impatient-js](https://exploringjs.com/impatient-js/)
-- 📊 Nivel: Principiante (con experiencia en programación)
-- 📄 Formato: HTML, PDF (de pago)
-- 🌐 Idioma: Inglés
-- ✅ Versión HTML gratuita
-
-**Contenido destacado:**
-- Enfocado 100% en JavaScript moderno (ES2022+)
-- No cubre características obsoletas
-- Sintaxis y features actuales
-
-**Por qué leerlo:**
-- Perfecto para quien ya programa en otro lenguaje
-- Solo JavaScript moderno (como este bootcamp)
-- Ejemplos concisos y claros
-
----
-
-### **Exploring ES2023 - Dr. Axel Rauschmayer**
-- 🔗 [exploringjs.com/es6](https://exploringjs.com/es6/)
-- 📊 Nivel: Intermedio a Avanzado
-- 📄 Formato: HTML, PDF (de pago)
-- 🌐 Idioma: Inglés
-- ✅ Versión HTML gratuita
-
-**Capítulos esenciales para Semana 01:**
-- Variables and scoping (let y const)
-- Arrow functions
-- Template literals
-- Destructuring
-
-**Por qué leerlo:**
-- Deep dive en ES2023
-- Explicaciones técnicas profundas
-- Del autor de 2ality.com
-
 ---
 
 ## 📘 Libros Enfocados en ES2023
@@ -273,7 +236,6 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 **Lectura Prioritaria:**
 1. **JavaScript.info** - Secciones de variables, functions
 2. **Eloquent JavaScript** - Capítulos 1-4
-3. **Exploring ES2023** - Capítulos de let/const, arrows, destructuring
 
 **Lectura Complementaria:**
 - MDN Guide como referencia
@@ -292,8 +254,7 @@ Libros electrónicos gratuitos y legales para profundizar en JavaScript moderno 
 ```
 Semana 01:
 ├── JavaScript.info (Variables y Functions)
-├── Eloquent JavaScript (Capítulos 1-4)
-└── Exploring ES2023 (Capítulos relevantes)
+└── Eloquent JavaScript (Capítulos 1-4)
 
 Semana 02+:
 ├── YDKJS (toda la serie)
@@ -344,7 +305,7 @@ Respeta los derechos de autor. Si un libro te resulta muy útil, considera:
 
 - Comienza con **JavaScript.info** para conceptos básicos
 - Usa **MDN** como referencia rápida
-- Profundiza con **Exploring ES2023** cuando domines lo básico
+- Profundiza con **You Don't Know JS** cuando domines lo básico
 
 ---
 
