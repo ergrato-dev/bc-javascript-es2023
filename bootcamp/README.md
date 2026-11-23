@@ -30,7 +30,7 @@ Estado de cada semana:
 | [20](week-20-formularios_validacion/README.md) | [Formularios y Validación](week-20-formularios_validacion/README.md) | Intermedio | ✅ |
 | [21](week-21-fechas_tiempos_date_api/README.md) | [Fechas y Tiempos (Date API)](week-21-fechas_tiempos_date_api/README.md) | Intermedio | ✅ |
 | [22](week-22-trabajo_archivos/README.md) | [Trabajo con Archivos](week-22-trabajo_archivos/README.md) | Intermedio | ✅ |
-| 23 | Performance y Optimización | Intermedio | ⬜ |
+| [23](week-23-performance_optimizacion/README.md) | [Performance y Optimización](week-23-performance_optimizacion/README.md) | Intermedio | ✅ |
 | 24 | Proyecto Integrador — Intermedio | Intermedio | ⬜ |
 | 25 | Testing con Vitest — Parte 1 | Avanzado | ⬜ |
 | 26 | Testing con Vitest — Parte 2 | Avanzado | ⬜ |

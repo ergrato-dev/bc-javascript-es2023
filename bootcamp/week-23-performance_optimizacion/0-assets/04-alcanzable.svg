@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="sans-serif">
+  <rect width="800" height="380" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Qué borra el recolector de basura</text>
+
+  <!-- Raíces -->
+  <text x="110" y="70" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">Raíces</text>
+  <rect x="30" y="84" width="160" height="44" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="110" y="111" text-anchor="middle" fill="#58a6ff" font-size="12">variables del módulo</text>
+  <rect x="30" y="150" width="160" height="44" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="110" y="177" text-anchor="middle" fill="#58a6ff" font-size="12">listeners de window</text>
+  <rect x="30" y="216" width="160" height="44" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="110" y="243" text-anchor="middle" fill="#58a6ff" font-size="12">setInterval activo</text>
+
+  <!-- Alcanzables en uso -->
+  <text x="400" y="70" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="bold">Alcanzables: se quedan</text>
+  <rect x="320" y="84" width="160" height="44" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="400" y="111" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">records</text>
+  <rect x="320" y="150" width="160" height="44" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="400" y="177" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">onResize</text>
+
+  <line x1="190" y1="106" x2="312" y2="106" stroke="#3fb950" stroke-width="2"/>
+  <polygon points="310,100 320,106 310,112" fill="#3fb950"/>
+  <line x1="190" y1="172" x2="312" y2="172" stroke="#3fb950" stroke-width="2"/>
+  <polygon points="310,166 320,172 310,178" fill="#3fb950"/>
+
+  <!-- Fuga -->
+  <rect x="320" y="216" width="160" height="44" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="400" y="236" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">tick()</text>
+  <text x="400" y="252" text-anchor="middle" fill="#8b949e" font-size="10">del reloj ya quitado</text>
+  <line x1="190" y1="238" x2="312" y2="238" stroke="#d29922" stroke-width="2"/>
+  <polygon points="310,232 320,238 310,244" fill="#d29922"/>
+
+  <rect x="560" y="216" width="200" height="44" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="660" y="236" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">data: 100 000 elementos</text>
+  <text x="660" y="252" text-anchor="middle" fill="#8b949e" font-size="10">nadie la usa, nadie la suelta</text>
+  <line x1="480" y1="238" x2="552" y2="238" stroke="#d29922" stroke-width="2"/>
+  <polygon points="550,232 560,238 550,244" fill="#d29922"/>
+  <text x="660" y="207" text-anchor="middle" fill="#d29922" font-size="14" font-weight="bold">Fuga: se queda sin uso</text>
+
+  <!-- No alcanzables -->
+  <text x="660" y="70" text-anchor="middle" fill="#f85149" font-size="14" font-weight="bold">No alcanzables: se borran</text>
+  <rect x="560" y="84" width="200" height="44" rx="8" fill="#161b22" stroke="#f85149" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="660" y="111" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="12">fichas de processOnce()</text>
+  <rect x="560" y="150" width="200" height="34" rx="8" fill="#161b22" stroke="#f85149" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="660" y="172" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="12">clave de un WeakMap</text>
+
+  <!-- Arreglo -->
+  <rect x="30" y="300" width="740" height="52" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="400" y="322" text-anchor="middle" fill="#c9d1d9" font-size="13">Para que se borre, corta la referencia desde la raíz:</text>
+  <text x="400" y="342" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="12">clearInterval(timer) · controller.abort() · observer.disconnect() · cache.delete(key)</text>
+</svg>

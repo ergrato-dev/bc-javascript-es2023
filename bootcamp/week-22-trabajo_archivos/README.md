@@ -112,4 +112,4 @@ week-22-trabajo_archivos/
 
 | ← Semana anterior | Siguiente → |
 |---|---|
-| [Semana 21 - Fechas y Tiempos (Date API)](../week-21-fechas_tiempos_date_api/README.md) | Semana 23 - Performance y Optimización (pendiente) |
+| [Semana 21 - Fechas y Tiempos (Date API)](../week-21-fechas_tiempos_date_api/README.md) | [Semana 23 - Performance y Optimización](../week-23-performance_optimizacion/README.md) |

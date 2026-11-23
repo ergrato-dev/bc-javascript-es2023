@@ -1,0 +1,104 @@
+{
+  "semana": "23",
+  "titulo": "Performance y Optimización",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta APP (title, intro, total entero de 500 a 5000, searchFields con campos de FIELDS, pageSize de 10 a 50 y delay de 150 a 500), de 3 a 8 FIELDS con name camelCase sin repetir (ni id) y label, de 8 a 30 SEED con todos los campos, y makeRecords genera total fichas con id del 1 en adelante",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, FIELDS, SEED, makeRecords } from './src/data.js'; for (const key of ['title', 'intro']) assert.ok(typeof APP[key] === 'string' && APP[key].trim() !== '', key); const between = (value, min, max) => Number.isInteger(value) && value >= min && value <= max; assert.ok(between(APP.total, 500, 5000), 'total'); assert.ok(between(APP.pageSize, 10, 50), 'pageSize'); assert.ok(between(APP.delay, 150, 500), 'delay'); assert.ok(Array.isArray(FIELDS) && FIELDS.length >= 3 && FIELDS.length <= 8, 'de 3 a 8 FIELDS'); const names = FIELDS.map((field) => field.name); for (const field of FIELDS) { assert.match(field.name, /^[a-z][a-zA-Z0-9]*$/, 'name camelCase'); assert.notEqual(field.name, 'id', 'id lo pone makeRecords'); assert.ok(typeof field.label === 'string' && field.label.trim() !== '', 'label de ' + field.name); } assert.equal(new Set(names).size, names.length, 'name repetido'); assert.ok(Array.isArray(APP.searchFields) && APP.searchFields.length >= 1 && APP.searchFields.every((name) => names.includes(name)), 'searchFields con campos de FIELDS'); assert.ok(Array.isArray(SEED) && SEED.length >= 8 && SEED.length <= 30, 'de 8 a 30 SEED'); for (const item of SEED) for (const name of names) assert.ok(item[name] !== undefined && String(item[name]).trim() !== '', 'SEED sin ' + name); const records = makeRecords(); assert.equal(records.length, APP.total, 'makeRecords genera total fichas'); assert.deepEqual(records.map((record) => record.id), Array.from({ length: APP.total }, (_, i) => i + 1), 'id del 1 en adelante');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título, los campos y las fichas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, FIELDS, SEED } from './src/data.js'; assert.ok(!/planetario/i.test(APP.title + APP.intro), 'cambia el título y la presentación'); assert.notDeepEqual(FIELDS.map((field) => field.name), ['name', 'type', 'constellation', 'magnitude'], 'cambia los campos'); assert.ok(!SEED.some((item) => Object.values(item).includes('Sirio')), 'cambia las fichas de SEED');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "normalize",
+      "descripcion": "normalize quita tildes y diéresis, pasa a minúsculas, recorta y deja un solo espacio entre palabras, y acepta números",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { normalize } from './src/logic.js'; assert.equal(normalize('  Nebulosa   de ORIÓN '), 'nebulosa de orion'); assert.equal(normalize('Pingüino Ñandú ÁÉÍÓÚ'), 'pinguino nandu aeiou'); assert.equal(normalize(''), ''); assert.equal(normalize(1540), '1540');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "build-index",
+      "descripcion": "buildIndex devuelve { record, text } por registro, en orden, con el mismo objeto y text normalizado de los campos pedidos (un campo que falta no deja espacios de más)",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { buildIndex } from './src/logic.js'; const records = [{ name: 'Vega', type: 'Estrella', room: 'Cúpula' }, { name: 'M42', type: 'Nebulosa' }]; const index = buildIndex(records, ['name', 'room', 'type']); assert.equal(index.length, 2); assert.equal(index[0].record, records[0], 'el mismo objeto, no una copia'); assert.equal(index[0].text, 'vega cupula estrella'); assert.equal(index[1].text, 'm42 nebulosa'); assert.deepEqual(buildIndex([], ['name']), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "search",
+      "descripcion": "search devuelve los registros con todas las palabras (en cualquier orden, sin mirar tildes ni mayúsculas), en el orden del índice; sin palabras, todos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { buildIndex, search } from './src/logic.js'; const records = [{ name: 'Nebulosa de Orión' }, { name: 'Betelgeuse en Orión' }, { name: 'Nebulosa del Anillo' }]; const index = buildIndex(records, ['name']); assert.deepEqual(search(index, 'ORION'), [records[0], records[1]]); assert.deepEqual(search(index, '  orión   nebu '), [records[0]]); assert.deepEqual(search(index, 'anillo nebulosa'), [records[2]]); assert.deepEqual(search(index, 'galaxia'), []); assert.deepEqual(search(index, '   '), records); assert.equal(search(index, '')[0], records[0]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "paginate",
+      "descripcion": "paginate devuelve { items, page, pages, total, hasMore }, con pages como mínimo 1 e items vacío en una página que no existe",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { paginate } from './src/logic.js'; const letters = ['a', 'b', 'c', 'd', 'e']; assert.deepEqual(paginate(letters, 1, 2), { items: ['a', 'b'], page: 1, pages: 3, total: 5, hasMore: true }); assert.deepEqual(paginate(letters, 3, 2), { items: ['e'], page: 3, pages: 3, total: 5, hasMore: false }); assert.deepEqual(paginate(letters, 4, 2), { items: [], page: 4, pages: 3, total: 5, hasMore: false }); assert.deepEqual(paginate([], 1, 20), { items: [], page: 1, pages: 1, total: 0, hasMore: false }); assert.deepEqual(letters, ['a', 'b', 'c', 'd', 'e'], 'no cambia la lista');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "debounce",
+      "descripcion": "debounce ejecuta fn una vez, con los últimos argumentos, cuando dejan de llamarla ms milisegundos; llamadas separadas se ejecutan todas y cancel() anula la pendiente",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { debounce } from './src/logic.js'; const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms)); const calls = []; const later = debounce((...args) => calls.push(args), 40); later('a'); later('b'); later('c', 1); await wait(20); assert.deepEqual(calls, [], 'no se ejecuta antes de tiempo'); later('d', 2); await wait(20); assert.deepEqual(calls, [], 'cada llamada reinicia la espera'); await wait(50); assert.deepEqual(calls, [['d', 2]], 'una vez, con los últimos argumentos'); later('e'); await wait(70); later('f'); await wait(70); assert.deepEqual(calls, [['d', 2], ['e'], ['f']]); later('g'); later.cancel(); await wait(70); assert.equal(calls.length, 3, 'cancel anula la pendiente');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "throttle",
+      "descripcion": "throttle ejecuta la primera llamada enseguida, una más al cerrar la ventana con los últimos argumentos si llegaron llamadas, nada si no llegaron, y cancel() anula la pendiente",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { throttle } from './src/logic.js'; const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms)); const calls = []; const limited = throttle((value) => calls.push(value), 60); limited(1); assert.deepEqual(calls, [1], 'la primera, enseguida'); limited(2); limited(3); await wait(20); assert.deepEqual(calls, [1], 'nada más durante la ventana'); await wait(70); assert.deepEqual(calls, [1, 3], 'al cerrar, la última'); await wait(100); assert.deepEqual(calls, [1, 3], 'sin llamadas, nada'); limited(4); assert.deepEqual(calls, [1, 3, 4], 'ventana cerrada: enseguida'); limited(5); limited.cancel(); await wait(100); limited(6); assert.deepEqual(calls, [1, 3, 4, 6], 'cancel anula la pendiente y cierra la ventana'); limited.cancel();\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "memoize",
+      "descripcion": "memoize llama a fn una vez por argumento, expone la caché en cache (un Map) y, al pasar de max, borra el que lleva más tiempo sin usarse",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { memoize } from './src/logic.js'; let calls = 0; const double = memoize((n) => { calls += 1; return { value: n * 2 }; }, 2); const first = double(1); assert.equal(double(1), first, 'el mismo resultado guardado'); assert.equal(calls, 1); assert.ok(double.cache instanceof Map); assert.equal(double.cache.get(1), first); double(2); double(1); double(3); assert.equal(calls, 3); assert.deepEqual([...double.cache.keys()], [1, 3], 'borra el 2: lleva más tiempo sin usarse'); double(2); assert.equal(calls, 4, 'el 2 se vuelve a calcular'); const big = memoize((n) => n); for (let n = 0; n < 150; n += 1) big(n); assert.equal(big.cache.size, 100, 'max es 100 si no se indica');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "measure",
+      "descripcion": "measure ejecuta fn runs veces (5 si no se indica) con performance.now() y devuelve { result, ms, runs }, con la mediana de los tiempos",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { measure } from './src/logic.js'; const fake = (times) => { let i = 0; Object.defineProperty(globalThis, 'performance', { value: { now: () => times[i++] }, configurable: true }); }; let calls = 0; fake([0, 9, 10, 11, 20, 22]); assert.deepEqual(measure(() => { calls += 1; return calls * 10; }, 3), { result: 30, ms: 2, runs: 3 }); fake([0, 4, 10, 11, 20, 22, 30, 39]); assert.equal(measure(() => 0, 4).ms, 3, 'número par: media de los dos del medio'); calls = 0; fake([0, 1, 1, 3, 3, 6, 6, 10, 10, 30]); const five = measure(() => { calls += 1; }); assert.equal(five.runs, 5); assert.equal(calls, 5); assert.equal(five.ms, 3);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "catalogo",
+      "descripcion": "Con tus datos: el catálogo se indexa por searchFields, la primera palabra de una ficha de SEED encuentra sus copias, una búsqueda vacía devuelve todas, la paginación da las páginas esperadas y buscar tarda menos de 50 ms",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, FIELDS, SEED, makeRecords } from './src/data.js'; import { buildIndex, measure, normalize, paginate, search } from './src/logic.js'; const records = makeRecords(); const index = buildIndex(records, APP.searchFields); assert.equal(search(index, '').length, APP.total); const word = normalize(SEED[0][APP.searchFields[0]]).split(' ')[0]; assert.ok(search(index, word).length >= Math.floor(APP.total / SEED.length), 'la primera palabra de SEED[0] encuentra sus copias: ' + word); assert.equal(paginate(records, 1, APP.pageSize).pages, Math.ceil(APP.total / APP.pageSize)); const { ms } = measure(() => search(index, word), 5); assert.ok(ms < 50, 'buscar tarda ' + ms.toFixed(1) + ' ms'); assert.ok(FIELDS.length >= 3);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    }
+  ]
+}

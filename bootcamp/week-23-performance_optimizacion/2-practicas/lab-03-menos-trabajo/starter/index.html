@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lab 03 — Hacer menos trabajo en la página</title>
+    <style>
+      body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 2rem auto; padding: 0 1rem; background: #0d1117; color: #c9d1d9; }
+      h1 { color: #F7DF1E; font-size: 1.4rem; }
+      h2 { font-size: 1.1rem; margin-top: 2rem; }
+      #boxes { display: flex; flex-wrap: wrap; gap: 2px; }
+      .box { width: 20px; height: 8px; background: #58a6ff; }
+      #list { max-height: 8rem; overflow: auto; border: 1px solid #30363d; padding-left: 2rem; }
+      #gallery { display: grid; gap: 1rem; }
+      figure { margin: 0; height: 180px; border: 1px solid #30363d; border-radius: 6px; display: grid; place-items: center; background: #161b22; }
+      figure img { width: 160px; height: 90px; }
+    </style>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <h1>Lab 03 — Hacer menos trabajo en la página</h1>
+    <p>Abre la consola de las DevTools (F12) para ver la salida de cada paso.</p>
+
+    <h2>Cajas (pasos 1 y 5)</h2>
+    <div id="boxes"></div>
+
+    <h2>Lista (paso 2)</h2>
+    <ol id="list"></ol>
+
+    <h2>Galería (paso 4)</h2>
+    <div id="gallery"></div>
+  </body>
+</html>

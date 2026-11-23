@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Buscador</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="src/main.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Buscador</h1>
+      <p id="intro"></p>
+
+      <form id="form" role="search">
+        <label for="search">Buscar</label>
+        <input id="search" type="search" autocomplete="off" placeholder="Escribe una o varias palabras" />
+        <button type="submit">Buscar ya</button>
+      </form>
+
+      <p id="catalog" class="hint"></p>
+      <p id="metrics" class="hint" aria-live="off"></p>
+
+      <h2 id="summary" aria-live="polite"></h2>
+      <ul id="results"></ul>
+      <div id="sentinel" aria-hidden="true"></div>
+    </main>
+    <button type="button" id="top" hidden>↑ Volver arriba</button>
+  </body>
+</html>

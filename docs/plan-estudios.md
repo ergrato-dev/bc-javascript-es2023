@@ -401,17 +401,17 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 
 ---
 
-#### **Week 23: Performance y Optimización** ⏳ _pendiente_
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+#### **Week 23: Performance y Optimización**
+**Estado**: ✅ Escrita
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Debounce y Throttle
-- Lazy loading
-- Performance API
-- Memory leaks
-- Best practices
+- Medir antes de optimizar: 16, 50 y 100 ms, `performance.now()`, `mark` y `measure`, repetir y usar la mediana, cómo crece el coste con los datos, DevTools y `PerformanceObserver`
+- Debounce y throttle: eventos en ráfaga, debounce, throttle con llamada final, `cancel`, `requestAnimationFrame` y listeners pasivos
+- Hacer menos trabajo: memoize con caché LRU, índices, paginar con `IntersectionObserver`, `loading="lazy"`, fases del pintado y *layout thrashing*, tareas largas e `import()`
+- Fugas de memoria: recolector y objetos alcanzables, listeners, temporizadores y observadores, cachés, nodos desconectados, closures, `WeakMap` y heap snapshots
 
-**Proyecto**: Optimización de aplicación existente
+**Proyecto**: Buscador rápido del catálogo: normalizar e indexar (`normalize`, `buildIndex`), buscar y paginar (`search`, `paginate`), limitar el trabajo (`debounce`, `throttle`, `memoize`) y medir (`measure`), con scroll infinito y medidas en la página, servida con `node server.js`
 
 ---
 
