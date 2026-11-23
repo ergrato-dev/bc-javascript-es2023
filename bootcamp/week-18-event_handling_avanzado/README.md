@@ -1,131 +1,114 @@
-# 🖱️ Semana 18: Event Handling Avanzado
+# Semana 18 - Event Handling Avanzado
 
-## 🎯 Objetivos de Aprendizaje
+En la semana 17 cambiaste la página desde JavaScript; esta semana la página responde a quien la usa. Vas a escuchar clics y teclas, seguir el camino que recorre un evento por el árbol, atender con un solo listener todos los botones de una lista (también los que se crean después), cancelar lo que el navegador hace por defecto e inventar eventos propios para que las partes de tu código se avisen sin conocerse.
 
-Al finalizar esta semana, serás capaz de:
+## Objetivos de aprendizaje
 
-- ✅ Gestionar eventos con `addEventListener` y `removeEventListener`
-- ✅ Diferenciar bubbling y capturing en el flujo de eventos
-- ✅ Implementar delegación de eventos para listas dinámicas
-- ✅ Crear y despachar eventos personalizados con `CustomEvent`
-- ✅ Controlar comportamiento nativo con `preventDefault` y `stopPropagation`
-- ✅ Diseñar interacciones robustas y escalables en UI
+Al terminar la semana podrás:
+
+- Añadir y quitar listeners con `addEventListener`, `removeEventListener`, `once` y `AbortController`, y leer el objeto evento y el teclado.
+- Explicar las fases de captura, destino y burbuja, y distinguir `target` de `currentTarget`.
+- Saber qué rompe `stopPropagation` y qué eventos no suben.
+- Delegar los eventos de una lista en su contenedor con `closest`, `contains` y `data-action`.
+- Cancelar acciones por defecto con `preventDefault` y saber cuándo no se puede.
+- Crear eventos con `CustomEvent` y `dispatchEvent`, vetar una acción con un evento cancelable y usar un `EventTarget` como bus de eventos.
+
+## Requisitos previos
+
+- La [semana 17](../week-17-dom_manipulation_moderna/README.md) completa: `querySelector`, `closest`, `dataset`, `createElement` y `classList`.
+- Los *callbacks* de la [semana 13](../week-13-programacion_asincronica_callbacks_promises/README.md) y el `AbortController` de la [semana 14](../week-14-async_await/README.md).
+- Un navegador de escritorio actual (Chrome, Edge, Firefox o Safari) y saber abrir sus DevTools.
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
+
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 12.20.0 (o superior)
+  ```
 
 ---
 
-## 📚 Requisitos Previos
+## Contenidos
 
-Antes de iniciar esta semana, debes dominar:
+### 1. Teoría (2 h)
 
-- Manipulación moderna del DOM (Semana 17)
-- APIs REST y manejo de estados de UI (Semana 16)
-- async/await y manejo de errores (Semanas 13-14)
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Escuchar eventos](1-teoria/01-escuchar-eventos.md) | 30 min | `addEventListener`, el objeto evento, el teclado, `onclick`, quitar listeners, `this` y `currentTarget` |
+| [02 - Propagación](1-teoria/02-propagacion.md) | 30 min | Captura, destino y burbuja, `target` y `currentTarget`, `stopPropagation` y eventos que no suben |
+| [03 - Delegación](1-teoria/03-delegacion.md) | 30 min | Un listener en el contenedor, `closest` y `contains`, `data-action`, qué eventos se delegan y teclado |
+| [04 - Acciones por defecto y eventos propios](1-teoria/04-acciones-eventos-propios.md) | 30 min | `preventDefault`, `cancelable` y `passive`, `CustomEvent`, `dispatchEvent`, vetos y `EventTarget` |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Escuchar eventos](2-practicas/lab-01-escuchar-eventos/README.md) | 55 min |
+| [Lab 02 - Propagación](2-practicas/lab-02-propagacion/README.md) | 50 min |
+| [Lab 03 - Delegación](2-practicas/lab-03-delegacion/README.md) | 55 min |
+| [Lab 04 - Acciones del navegador y eventos propios](2-practicas/lab-04-acciones-eventos-propios/README.md) | 50 min |
+
+Los labs son páginas que se abren en el navegador con doble clic: no necesitan Node ni servidor.
+
+### 3. Proyecto (2 h)
+
+[Centro de avisos](3-proyecto/README.md): completas las funciones de `src/logic.js` que interpretan los botones y las teclas, cambian la lista de avisos sin modificarla y crean los eventos propios y el bus, y adaptas `src/data.js` al dominio que te asigna el instructor. `scripts/verificar-semana.sh 18` comprueba las funciones.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
 
 ---
 
-## 🗂️ Estructura de la Semana
+## Evaluación
+
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 15/15 comprobaciones y datos del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
 
 ```text
 week-18-event_handling_avanzado/
-├── README.md
-├── RETO-SEMANAL.md
-├── rubrica-evaluacion.md
-├── 0-assets/
-│   ├── README.md
-│   ├── 01-event-flow-bubbling-capturing.svg
-│   ├── 02-delegation-pattern.svg
-│   ├── 03-preventdefault-stoppropagation.svg
-│   ├── 04-custom-event-architecture.svg
-│   └── 05-listener-lifecycle.svg
-├── 1-teoria/
-│   ├── 01-add-remove-listeners.md
-│   ├── 02-bubbling-capturing.md
-│   ├── 03-event-delegation.md
-│   └── 04-custom-events-control.md
-├── 2-practicas/
-│   ├── practica-01-add-remove-listeners/
-│   ├── practica-02-bubbling-capturing/
-│   ├── practica-03-event-delegation/
-│   └── practica-04-custom-events/
-├── 3-proyecto/
-│   ├── README.md
-│   ├── index.html
-│   ├── styles.css
-│   ├── starter/
-│   │   └── script.js
-│   └── solution/          # Oculta por .gitignore
-├── 4-recursos/
-│   ├── README.md
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/
-    └── README.md
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 3 diagramas SVG
+|-- 1-teoria/                  # 01 a 04
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-escuchar-eventos/
+|   |-- lab-02-propagacion/
+|   |-- lab-03-delegacion/
+|   `-- lab-04-acciones-eventos-propios/  # cada lab: README.md y starter/ (index.html y main.js)
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # server.js, index.html, styles.css, src/data.js, src/logic.js, src/main.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## 📝 Contenidos
+## Versiones de la semana
 
-### 1️⃣ Teoría (2.5 horas)
-
-| # | Tema | Archivo | Duración |
-|---|------|---------|----------|
-| 1 | add/remove Event Listeners | [01-add-remove-listeners.md](1-teoria/01-add-remove-listeners.md) | 35 min |
-| 2 | Bubbling y Capturing | [02-bubbling-capturing.md](1-teoria/02-bubbling-capturing.md) | 40 min |
-| 3 | Event Delegation | [03-event-delegation.md](1-teoria/03-event-delegation.md) | 35 min |
-| 4 | CustomEvent y control de flujo | [04-custom-events-control.md](1-teoria/04-custom-events-control.md) | 40 min |
-
-### 2️⃣ Prácticas (3 horas)
-
-| # | Práctica | Carpeta | Duración |
-|---|----------|---------|----------|
-| 1 | Listeners básicos | [practica-01](2-practicas/practica-01-add-remove-listeners/) | 45 min |
-| 2 | Bubbling vs capturing | [practica-02](2-practicas/practica-02-bubbling-capturing/) | 45 min |
-| 3 | Delegación de eventos | [practica-03](2-practicas/practica-03-event-delegation/) | 45 min |
-| 4 | Eventos personalizados | [practica-04](2-practicas/practica-04-custom-events/) | 45 min |
-
-### 3️⃣ Proyecto (2 horas)
-
-**Sistema de notificaciones interactivas**
-
-Construirás un sistema de notificaciones con delegación de eventos, control de propagación y eventos personalizados.
-
-📁 [Ver instrucciones del proyecto](3-proyecto/README.md)
+Los labs se ejecutan en el navegador: cada `main.js` es un script normal (`<script defer>`), que carga también desde un archivo abierto con doble clic. El proyecto usa módulos ES, que solo cargan por `http://`, así que se abre con `node server.js`, sin dependencias. Ese servidor usa `import.meta.main`, que necesita Node 24.2 o superior. Las salidas de los labs se obtuvieron en Chromium; las de los comandos del proyecto, con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## ⏱️ Distribución del Tiempo (8 horas)
+## Navegación
 
-| Actividad | Tiempo | Porcentaje |
-|-----------|--------|------------|
-| Teoría | 2.5h | 31% |
-| Prácticas | 3h | 38% |
-| Proyecto | 2h | 25% |
-| Recursos | 0.5h | 6% |
-
----
-
-## 📌 Entregables
-
-> **🎯 ÚNICO ENTREGABLE**: El proyecto semanal es el único entregable obligatorio.
-
-### Proyecto: Sistema de Notificaciones Interactivas
-
-- [ ] Implementa listeners y limpieza de listeners
-- [ ] Usa delegación de eventos en listas dinámicas
-- [ ] Maneja bubbling/capturing según requerimiento
-- [ ] Usa `CustomEvent` para comunicación entre componentes
-- [ ] Controla `preventDefault` y `stopPropagation` cuando aplique
-
----
-
-## 🔗 Navegación
-
-| ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
-|-------------|-----------|--------------|
-| [Semana 17: DOM Manipulation Moderna](../week-17-dom_manipulation_moderna/README.md) | [Índice](../../README.md) | [Semana 19: Web Storage APIs](../week-19-web_storage_apis/README.md) |
-
----
-
-_Semana 18 de 28 · Etapa 2: Intermedio · Event Handling Avanzado_
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 17 - DOM Manipulation Moderna](../week-17-dom_manipulation_moderna/README.md) | [Semana 19 - Web Storage APIs](../week-19-web_storage_apis/README.md) |

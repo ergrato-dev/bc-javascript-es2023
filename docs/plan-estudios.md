@@ -332,16 +332,16 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 18: Event Handling Avanzado**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- addEventListener y removeEventListener
-- Event bubbling y capturing
-- Event delegation
-- Eventos personalizados (CustomEvent)
-- preventDefault y stopPropagation
+- `addEventListener`, el objeto evento y el teclado (`key`, `code`, modificadores); quitar listeners con `removeEventListener`, `once` y `AbortController`; `this` y `currentTarget`
+- Propagación: captura, destino y burbuja, `target` frente a `currentTarget`, `stopPropagation` y sus riesgos, eventos que no suben y `focusin`
+- Delegación en el contenedor con `closest`, `contains` y `data-action`, y qué eventos se delegan
+- Acciones por defecto con `preventDefault`, `cancelable` y `passive`; `Event`, `CustomEvent` y `dispatchEvent`, eventos propios que se pueden vetar y `EventTarget` como bus
 
-**Proyecto**: Sistema de notificaciones interactivas
+**Proyecto**: Centro de avisos: acciones de botones y atajos de teclado interpretadas con funciones puras (`parseAction`, `shortcutFor`, `nextIndex`), lista de avisos inmutable (`applyAction`, `summarize`, `sortNotices`) y bus de eventos propios cancelables (`createNoticeEvent`, `createBus`), con delegación en `main.js`, servido con `node server.js`
 
 ---
 

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="sans-serif">
+  <rect width="800" height="400" fill="#0d1117"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Un evento cancelable: preguntar antes de actuar</text>
+
+  <!-- Quien lanza -->
+  <rect x="16" y="80" width="222" height="84" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="127" y="108" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="bold">Quien lanza</text>
+  <text x="127" y="132" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">new CustomEvent('box:remove',</text>
+  <text x="127" y="150" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">{ cancelable: true })</text>
+
+  <line x1="238" y1="122" x2="296" y2="122" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="268" y="112" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="11">dispatch</text>
+
+  <!-- Listeners -->
+  <rect x="300" y="64" width="220" height="116" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="410" y="90" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">Listeners, en orden</text>
+  <rect x="316" y="102" width="188" height="30" rx="6" fill="#0d1117" stroke="#f85149"/>
+  <text x="410" y="122" text-anchor="middle" fill="#f85149" font-size="12">¿protegida? preventDefault()</text>
+  <rect x="316" y="140" width="188" height="30" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="410" y="160" text-anchor="middle" fill="#c9d1d9" font-size="12">registro: lee defaultPrevented</text>
+
+  <line x1="520" y1="122" x2="586" y2="122" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Resultado -->
+  <rect x="590" y="80" width="180" height="84" rx="10" fill="#161b22" stroke="#F7DF1E" stroke-width="2"/>
+  <text x="680" y="108" text-anchor="middle" fill="#F7DF1E" font-size="14" font-weight="bold">dispatchEvent</text>
+  <text x="680" y="132" text-anchor="middle" fill="#c9d1d9" font-size="12">devuelve true o false</text>
+  <text x="680" y="150" text-anchor="middle" fill="#c9d1d9" font-size="12">a quien lanzó</text>
+
+  <!-- Ramas -->
+  <line x1="640" y1="164" x2="560" y2="236" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="720" y1="164" x2="720" y2="236" stroke="#f85149" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="400" y="240" width="220" height="70" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="510" y="268" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="bold">true: nadie la vetó</text>
+  <text x="510" y="292" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">item.remove()</text>
+
+  <rect x="640" y="240" width="140" height="70" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="710" y="268" text-anchor="middle" fill="#f85149" font-size="14" font-weight="bold">false: vetada</text>
+  <text x="710" y="292" text-anchor="middle" fill="#c9d1d9" font-size="12">no hace nada</text>
+
+  <text x="30" y="350" fill="#c9d1d9" font-size="13">El listener que veta no sabe quitar cajas; quien lanza no sabe por qué se veta.</text>
+  <text x="30" y="374" fill="#8b949e" font-size="13">Sin cancelable: true, preventDefault() no hace nada y dispatchEvent siempre devuelve true.</text>
+</svg>

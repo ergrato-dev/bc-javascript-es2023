@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="sans-serif">
+  <rect width="800" height="440" fill="#0d1117"/>
+  <defs>
+    <marker id="down" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="up" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Las tres fases de un clic en span#label</text>
+
+  <!-- Camino -->
+  <rect x="300" y="60" width="200" height="44" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="400" y="88" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="14">document</text>
+  <rect x="300" y="124" width="200" height="44" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="400" y="152" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="14">section#archive</text>
+  <rect x="300" y="188" width="200" height="44" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="400" y="216" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="14">div#shelf</text>
+  <rect x="300" y="252" width="200" height="44" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="400" y="280" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="14">button#box</text>
+  <rect x="300" y="316" width="200" height="44" rx="8" fill="#161b22" stroke="#F7DF1E" stroke-width="3"/>
+  <text x="400" y="344" text-anchor="middle" fill="#F7DF1E" font-family="monospace" font-size="14">span#label</text>
+
+  <!-- Captura -->
+  <line x1="260" y1="70" x2="260" y2="306" stroke="#58a6ff" stroke-width="3" marker-end="url(#down)"/>
+  <text x="240" y="170" text-anchor="end" fill="#58a6ff" font-size="16" font-weight="bold">1. Captura</text>
+  <text x="240" y="194" text-anchor="end" fill="#c9d1d9" font-size="13">baja desde document</text>
+  <text x="240" y="214" text-anchor="end" fill="#c9d1d9" font-size="13">{ capture: true }</text>
+
+  <!-- Burbuja -->
+  <line x1="540" y1="318" x2="540" y2="70" stroke="#3fb950" stroke-width="3" marker-end="url(#up)"/>
+  <text x="560" y="170" fill="#3fb950" font-size="16" font-weight="bold">3. Burbuja</text>
+  <text x="560" y="194" fill="#c9d1d9" font-size="13">sube hasta document</text>
+  <text x="560" y="214" fill="#c9d1d9" font-size="13">la opción por defecto</text>
+
+  <!-- Destino -->
+  <text x="400" y="390" text-anchor="middle" fill="#F7DF1E" font-size="16" font-weight="bold">2. Destino: event.target</text>
+  <text x="400" y="418" text-anchor="middle" fill="#c9d1d9" font-size="13">stopPropagation() corta el camino en el elemento que lo llama</text>
+</svg>

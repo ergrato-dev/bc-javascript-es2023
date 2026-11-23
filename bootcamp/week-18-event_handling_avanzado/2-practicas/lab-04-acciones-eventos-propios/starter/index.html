@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 04 - Acciones del navegador y eventos propios</title>
+  <style>
+    body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 1rem; }
+    a { color: #58a6ff; }
+    section { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; margin-top: 1rem; }
+    li[data-locked="true"]::after { content: " 🔒"; }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Sala de consulta del archivo histórico</h1>
+    <nav>
+      <a id="to-catalog" href="#catalogo">Ir al catálogo</a> ·
+      <a id="to-index" href="#indice">Ir al índice</a>
+    </nav>
+    <p><label><input type="checkbox" id="digitized"> Digitalizado</label></p>
+    <p>Préstamos: <strong id="loan-count">0</strong></p>
+
+    <section id="catalogo">
+      <h2>Catálogo</h2>
+      <ul id="boxes">
+        <li data-id="1" data-locked="false">Actas municipales de 1931</li>
+        <li data-id="2" data-locked="true">Fueros de la villa, 1472</li>
+        <li data-id="3" data-locked="false">Planos del puerto, 1898</li>
+      </ul>
+    </section>
+
+    <section id="indice">
+      <h2>Índice</h2>
+      <p>Fondos ordenados por fecha.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -25,7 +25,7 @@ Estado de cada semana:
 | [15](week-15-fetch_api/README.md) | [Fetch API](week-15-fetch_api/README.md) | Intermedio | ✅ |
 | [16](week-16-apis_rest_crud/README.md) | [APIs REST y CRUD](week-16-apis_rest_crud/README.md) | Intermedio | ✅ |
 | [17](week-17-dom_manipulation_moderna/README.md) | [DOM Manipulation Moderna](week-17-dom_manipulation_moderna/README.md) | Intermedio | ✅ |
-| [18](week-18-event_handling_avanzado/README.md) | [Event Handling Avanzado](week-18-event_handling_avanzado/README.md) | Intermedio | 🟡 |
+| [18](week-18-event_handling_avanzado/README.md) | [Event Handling Avanzado](week-18-event_handling_avanzado/README.md) | Intermedio | ✅ |
 | [19](week-19-web_storage_apis/README.md) | [Web Storage APIs](week-19-web_storage_apis/README.md) | Intermedio | 🟡 |
 | [20](week-20-formularios_validacion/README.md) | [Formularios y Validación](week-20-formularios_validacion/README.md) | Intermedio | 🟡 |
 | [21](week-21-fechas_tiempos_date_api/README.md) | [Fechas y Tiempos (Date API)](week-21-fechas_tiempos_date_api/README.md) | Intermedio | 🟡 |

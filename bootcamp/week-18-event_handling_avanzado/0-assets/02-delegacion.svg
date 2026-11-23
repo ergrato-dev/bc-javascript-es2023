@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="sans-serif">
+  <rect width="800" height="420" fill="#0d1117"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3fb950"/>
+    </marker>
+  </defs>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Un listener por botón o uno en la lista</text>
+
+  <!-- Izquierda: un listener por botón -->
+  <text x="200" y="72" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">Un listener por botón</text>
+  <rect x="40" y="88" width="320" height="216" rx="10" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="56" y="112" fill="#8b949e" font-family="monospace" font-size="13">ul#requests</text>
+  <rect x="56" y="124" width="288" height="44" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="70" y="151" fill="#c9d1d9" font-family="monospace" font-size="13">li 1</text>
+  <rect x="150" y="133" width="80" height="26" rx="5" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="190" y="151" text-anchor="middle" fill="#d29922" font-size="12">listener</text>
+  <rect x="246" y="133" width="80" height="26" rx="5" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="286" y="151" text-anchor="middle" fill="#d29922" font-size="12">listener</text>
+  <rect x="56" y="178" width="288" height="44" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="70" y="205" fill="#c9d1d9" font-family="monospace" font-size="13">li 2</text>
+  <rect x="150" y="187" width="80" height="26" rx="5" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="190" y="205" text-anchor="middle" fill="#d29922" font-size="12">listener</text>
+  <rect x="246" y="187" width="80" height="26" rx="5" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="286" y="205" text-anchor="middle" fill="#d29922" font-size="12">listener</text>
+  <rect x="56" y="232" width="288" height="44" rx="6" fill="#0d1117" stroke="#f85149" stroke-dasharray="6 4"/>
+  <text x="70" y="259" fill="#f85149" font-family="monospace" font-size="13">li 3 (nuevo)</text>
+  <text x="240" y="259" text-anchor="middle" fill="#f85149" font-size="12">sin listener</text>
+  <text x="200" y="334" text-anchor="middle" fill="#c9d1d9" font-size="13">4 listeners, y hay que añadirlos</text>
+  <text x="200" y="354" text-anchor="middle" fill="#c9d1d9" font-size="13">a cada elemento que se crea después</text>
+
+  <!-- Derecha: delegación -->
+  <text x="600" y="72" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="bold">Delegación</text>
+  <rect x="440" y="88" width="320" height="216" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="456" y="112" fill="#8b949e" font-family="monospace" font-size="13">ul#requests</text>
+  <rect x="640" y="96" width="104" height="24" rx="5" fill="#0d1117" stroke="#3fb950" stroke-width="2"/>
+  <text x="692" y="113" text-anchor="middle" fill="#3fb950" font-size="12">1 listener</text>
+  <rect x="456" y="130" width="288" height="44" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="470" y="157" fill="#c9d1d9" font-family="monospace" font-size="13">li 1</text>
+  <rect x="456" y="184" width="288" height="44" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="470" y="211" fill="#c9d1d9" font-family="monospace" font-size="13">li 2</text>
+  <rect x="456" y="238" width="288" height="44" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="470" y="265" fill="#c9d1d9" font-family="monospace" font-size="13">li 3 (nuevo)</text>
+  <rect x="580" y="246" width="100" height="28" rx="5" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="630" y="265" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="12">span.icon</text>
+  <line x1="700" y1="250" x2="700" y2="132" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="600" y="334" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">target.closest('[data-action]')</text>
+  <text x="600" y="354" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">list.contains(button)</text>
+  <text x="600" y="374" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="13">actions[button.dataset.action]</text>
+  <text x="400" y="404" text-anchor="middle" fill="#8b949e" font-size="13">El clic sube hasta la lista, y su listener busca el botón desde event.target</text>
+</svg>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 03 - Delegación</title>
+  <style>
+    body { font-family: sans-serif; background: #0d1117; color: #c9d1d9; padding: 1rem; }
+    section { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; }
+    ul { list-style: none; padding: 0; }
+    li { display: flex; gap: 0.5rem; align-items: center; padding: 0.4rem; border-bottom: 1px solid #30363d; }
+    li.is-active { background: #0d1117; outline: 1px solid #58a6ff; }
+    li.is-approved .title { color: #3fb950; }
+    .title { flex: 1; }
+    #panel.is-folded ul { display: none; }
+    button { background: #0d1117; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 0.3rem 0.6rem; cursor: pointer; }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Solicitudes de consulta</h1>
+    <section id="panel" data-action="toggle-panel">
+      <h2>Pendientes (pulsa en el panel para plegarlo)</h2>
+      <ul id="requests">
+        <li data-id="1">
+          <span class="title">Actas municipales de 1931</span>
+          <button type="button" data-action="approve"><span class="icon">✔</span> Aprobar</button>
+          <button type="button" data-action="reject">Rechazar</button>
+        </li>
+        <li data-id="2">
+          <span class="title">Planos del puerto, 1898</span>
+          <button type="button" data-action="approve"><span class="icon">✔</span> Aprobar</button>
+          <button type="button" data-action="reject">Rechazar</button>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro de avisos</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">Centro de avisos</h1>
+      <p id="summary" class="summary" role="status"></p>
+    </header>
+
+    <section class="panel">
+      <h2>Nuevo aviso</h2>
+      <form id="notice-form" class="notice-form">
+        <label class="wide">Texto <input name="title" required minlength="5" autocomplete="off"></label>
+        <label>Nivel
+          <select name="level">
+            <option value="info">Info</option>
+            <option value="aviso">Aviso</option>
+            <option value="urgente">Urgente</option>
+          </select>
+        </label>
+        <button type="submit" class="btn">Añadir</button>
+      </form>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <div id="toolbar" class="toolbar">
+          <button type="button" class="btn" data-action="read-all">Marcar todos leídos</button>
+          <button type="button" class="btn" data-action="clear-read">Quitar los leídos</button>
+        </div>
+        <p id="message" class="message" role="status"></p>
+        <ul id="notice-list" class="notice-list"></ul>
+        <p id="empty" class="empty" hidden>No hay avisos.</p>
+        <p class="hint">Atajos: <kbd>j</kbd>/<kbd>k</kbd> o las flechas para moverte, <kbd>r</kbd> leído, <kbd>p</kbd> fijar, <kbd>x</kbd> cerrar.</p>
+      </section>
+
+      <aside class="panel">
+        <h2>Registro de eventos</h2>
+        <ol id="event-log" class="event-log"></ol>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>

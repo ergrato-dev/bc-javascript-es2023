@@ -1,0 +1,111 @@
+{
+  "semana": "18",
+  "titulo": "Event Handling Avanzado",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE y por defecto de 6 a 12 avisos con id entero positivo sin repetir, title de 5 o más caracteres sin repetir, level info, aviso o urgente, y read y pinned booleanos; al menos 2 niveles, 1 fijado, 2 leídos y 2 sin leer",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import notices, { TITLE } from './src/data.js'; assert.ok(typeof TITLE === 'string' && TITLE.trim() !== ''); assert.ok(Array.isArray(notices) && notices.length >= 6 && notices.length <= 12); assert.ok(notices.every((notice) => Number.isInteger(notice.id) && notice.id > 0 && typeof notice.title === 'string' && notice.title.trim().length >= 5 && ['info', 'aviso', 'urgente'].includes(notice.level) && typeof notice.read === 'boolean' && typeof notice.pinned === 'boolean')); assert.equal(new Set(notices.map(({ id }) => id)).size, notices.length); assert.equal(new Set(notices.map(({ title }) => title.trim().toLowerCase())).size, notices.length); assert.ok(new Set(notices.map(({ level }) => level)).size >= 2); assert.ok(notices.some(({ pinned }) => pinned)); assert.ok(notices.filter(({ read }) => read).length >= 2); assert.ok(notices.filter(({ read }) => !read).length >= 2);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título y los avisos no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import notices, { TITLE } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); const words = ['telescopio', 'eclipse', 'cúpula', 'saturno', 'constelaciones', 'exoplanetas']; assert.ok(!notices.some(({ title }) => words.some((word) => title.toLowerCase().includes(word))));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "accion",
+      "descripcion": "parseAction convierte { action, id } en { type, id }: las acciones de aviso con id entero positivo, las de la lista con id null y el resto null",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { parseAction } from './src/logic.js'; assert.deepEqual(parseAction({ action: 'pin', id: '3' }), { type: 'pin', id: 3 }); assert.deepEqual(parseAction({ action: 'toggle-read', id: '12' }), { type: 'toggle-read', id: 12 }); assert.deepEqual(parseAction({ action: 'dismiss', id: '7' }), { type: 'dismiss', id: 7 }); assert.deepEqual(parseAction({ action: 'read-all' }), { type: 'read-all', id: null }); assert.deepEqual(parseAction({ action: 'clear-read', id: '4' }), { type: 'clear-read', id: null }); for (const id of [undefined, '', '0', '-2', '1.5', 'abc']) assert.equal(parseAction({ action: 'pin', id }), null); assert.equal(parseAction({ action: 'archive', id: '1' }), null); assert.equal(parseAction({ action: 'toString', id: '1' }), null); assert.equal(parseAction({}), null);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "aplicar",
+      "descripcion": "applyAction aplica toggle-read, pin, dismiss, read-all, clear-read y add",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { applyAction } from './src/logic.js'; const notices = Object.freeze([{ id: 1, title: 'Uno', level: 'info', read: true, pinned: false }, { id: 2, title: 'Dos', level: 'urgente', read: false, pinned: true }, { id: 3, title: 'Tres', level: 'urgente', read: false, pinned: false }, { id: 4, title: 'Cuatro', level: 'aviso', read: true, pinned: true }, { id: 5, title: 'Cinco', level: 'info', read: true, pinned: false }].map((notice) => Object.freeze(notice))); const ids = (list) => list.map(({ id }) => id); const find = (list, id) => list.find((notice) => notice.id === id); assert.equal(find(applyAction(notices, { type: 'toggle-read', id: 3 }), 3).read, true); assert.equal(find(applyAction(notices, { type: 'toggle-read', id: 1 }), 1).read, false); assert.equal(find(applyAction(notices, { type: 'pin', id: 2 }), 2).pinned, false); assert.equal(find(applyAction(notices, { type: 'pin', id: 5 }), 5).pinned, true); assert.deepEqual(ids(applyAction(notices, { type: 'dismiss', id: 3 })), [1, 2, 4, 5]); assert.ok(applyAction(notices, { type: 'read-all', id: null }).every(({ read }) => read)); assert.deepEqual(ids(applyAction(notices, { type: 'clear-read', id: null })), [2, 3, 4]); const extra = { id: 9, title: 'Nueve', level: 'info', read: false, pinned: false }; assert.deepEqual(applyAction(notices, { type: 'add', notice: extra }).at(-1), extra); assert.equal(applyAction(notices, { type: 'add', notice: extra }).length, 6);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "aplicar-inmutable",
+      "descripcion": "applyAction no modifica la lista ni los avisos, cambia solo el aviso pedido y devuelve la misma lista con una acción desconocida",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { applyAction } from './src/logic.js'; const notices = Object.freeze([{ id: 1, title: 'Uno', level: 'info', read: true, pinned: false }, { id: 2, title: 'Dos', level: 'urgente', read: false, pinned: true }, { id: 3, title: 'Tres', level: 'urgente', read: false, pinned: false }, { id: 4, title: 'Cuatro', level: 'aviso', read: true, pinned: true }, { id: 5, title: 'Cinco', level: 'info', read: true, pinned: false }].map((notice) => Object.freeze(notice))); const ids = (list) => list.map(({ id }) => id); const after = applyAction(notices, { type: 'toggle-read', id: 3 }); assert.notEqual(after, notices); assert.equal(after[0], notices[0]); assert.notEqual(after[2], notices[2]); assert.deepEqual({ ...after[2], read: false }, notices[2]); assert.equal(notices[2].read, false); assert.equal(applyAction(notices, { type: 'archive', id: 1 }), notices); assert.deepEqual(ids(applyAction(notices, { type: 'dismiss', id: 99 })), [1, 2, 3, 4, 5]);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "resumen",
+      "descripcion": "summarize cuenta total, unread, pinned y urgent (urgentes sin leer)",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { summarize } from './src/logic.js'; const notices = Object.freeze([{ id: 1, title: 'Uno', level: 'info', read: true, pinned: false }, { id: 2, title: 'Dos', level: 'urgente', read: false, pinned: true }, { id: 3, title: 'Tres', level: 'urgente', read: false, pinned: false }, { id: 4, title: 'Cuatro', level: 'aviso', read: true, pinned: true }, { id: 5, title: 'Cinco', level: 'info', read: true, pinned: false }].map((notice) => Object.freeze(notice))); const ids = (list) => list.map(({ id }) => id); assert.deepEqual(summarize(notices), { total: 5, unread: 2, pinned: 2, urgent: 2 }); assert.deepEqual(summarize([]), { total: 0, unread: 0, pinned: 0, urgent: 0 });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "ordenar",
+      "descripcion": "sortNotices pone primero los fijados, después los no leídos y, en cada grupo, el id más alto, sin cambiar la lista",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { sortNotices } from './src/logic.js'; const notices = Object.freeze([{ id: 1, title: 'Uno', level: 'info', read: true, pinned: false }, { id: 2, title: 'Dos', level: 'urgente', read: false, pinned: true }, { id: 3, title: 'Tres', level: 'urgente', read: false, pinned: false }, { id: 4, title: 'Cuatro', level: 'aviso', read: true, pinned: true }, { id: 5, title: 'Cinco', level: 'info', read: true, pinned: false }].map((notice) => Object.freeze(notice))); const ids = (list) => list.map(({ id }) => id); assert.deepEqual(ids(sortNotices(notices)), [2, 4, 3, 5, 1]); assert.notEqual(sortNotices(notices), notices); assert.deepEqual(sortNotices([]), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "atajos",
+      "descripcion": "shortcutFor devuelve la acción de cada tecla de SHORTCUTS, en mayúscula o minúscula, y null con Ctrl, Meta o Alt, escribiendo en un campo o con otra tecla",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { shortcutFor } from './src/logic.js'; const press = (key, extra = {}) => shortcutFor({ key, ctrlKey: false, metaKey: false, altKey: false, inField: false, ...extra }); assert.equal(press('j'), 'next'); assert.equal(press('ArrowDown'), 'next'); assert.equal(press('k'), 'prev'); assert.equal(press('ArrowUp'), 'prev'); assert.equal(press('r'), 'toggle-read'); assert.equal(press('R'), 'toggle-read'); assert.equal(press('P'), 'pin'); assert.equal(press('x'), 'dismiss'); assert.equal(press('Delete'), 'dismiss'); assert.equal(press('r', { ctrlKey: true }), null); assert.equal(press('r', { metaKey: true }), null); assert.equal(press('x', { altKey: true }), null); assert.equal(press('j', { inField: true }), null); assert.equal(press('q'), null); assert.equal(press('Enter'), null); assert.equal(press('arrowdown'), null); assert.equal(press('constructor'), null);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "indice",
+      "descripcion": "nextIndex avanza o retrocede con vuelta al principio y al final, empieza por el primero o el último si current es -1 y devuelve -1 con la lista vacía",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { nextIndex } from './src/logic.js'; assert.equal(nextIndex(0, 3, 1), 1); assert.equal(nextIndex(2, 3, 1), 0); assert.equal(nextIndex(0, 3, -1), 2); assert.equal(nextIndex(1, 3, -1), 0); assert.equal(nextIndex(-1, 3, 1), 0); assert.equal(nextIndex(-1, 3, -1), 2); assert.equal(nextIndex(0, 1, 1), 0); assert.equal(nextIndex(-1, 0, 1), -1); assert.equal(nextIndex(-1, 0, -1), -1);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "evento",
+      "descripcion": "createNoticeEvent crea un CustomEvent notice:<tipo> que sube y se puede cancelar, con una copia congelada de detail",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createNoticeEvent } from './src/logic.js'; const detail = { id: 3 }; const event = createNoticeEvent('pin', detail); assert.ok(event instanceof CustomEvent); assert.equal(event.type, 'notice:pin'); assert.equal(event.bubbles, true); assert.equal(event.cancelable, true); assert.deepEqual(event.detail, { id: 3 }); assert.notEqual(event.detail, detail); assert.ok(Object.isFrozen(event.detail)); assert.deepEqual(createNoticeEvent('read-all').detail, {}); event.preventDefault(); assert.equal(event.defaultPrevented, true);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "bus",
+      "descripcion": "createBus devuelve on y emit: on escucha notice:<tipo>, acepta once y devuelve una función que quita el listener; cada bus es independiente",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createBus } from './src/logic.js'; const bus = createBus(); const seen = []; const off = bus.on('pin', (event) => seen.push(event.type + ' ' + event.detail.id)); bus.on('pin', () => seen.push('una vez'), { once: true }); bus.on('dismiss', () => seen.push('dismiss')); bus.emit('pin', { id: 1 }); bus.emit('pin', { id: 2 }); off(); bus.emit('pin', { id: 3 }); assert.deepEqual(seen, ['notice:pin 1', 'una vez', 'notice:pin 2']); assert.equal(typeof off, 'function'); const other = createBus(); other.emit('dismiss', {}); assert.deepEqual(seen, ['notice:pin 1', 'una vez', 'notice:pin 2']);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    },
+    {
+      "id": "bus-veto",
+      "descripcion": "emit devuelve false si un listener llama a preventDefault y true si no; los listeners siguientes ven defaultPrevented",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { createBus } from './src/logic.js'; const bus = createBus(); assert.equal(bus.emit('dismiss', { id: 1 }), true); bus.on('dismiss', (event) => { if (event.detail.id === 2) event.preventDefault(); }); let later; bus.on('dismiss', (event) => { later = event.defaultPrevented; }); assert.equal(bus.emit('dismiss', { id: 1 }), true); assert.equal(later, false); assert.equal(bus.emit('dismiss', { id: 2 }), false); assert.equal(later, true);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}
