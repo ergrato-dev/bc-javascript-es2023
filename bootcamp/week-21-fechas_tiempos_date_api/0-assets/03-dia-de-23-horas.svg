@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="sans-serif">
+  <rect width="800" height="360" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">29 de marzo de 2026 en Madrid: un día de 23 horas</text>
+
+  <!-- Sábado -->
+  <rect x="40" y="70" width="330" height="60" rx="8" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+  <text x="205" y="96" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="bold">Sábado 28 · 24 horas</text>
+  <text x="205" y="118" text-anchor="middle" fill="#8b949e" font-size="12">UTC+1</text>
+
+  <!-- Domingo -->
+  <rect x="390" y="70" width="370" height="60" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="575" y="96" text-anchor="middle" fill="#d29922" font-size="14" font-weight="bold">Domingo 29 · 23 horas</text>
+  <text x="575" y="118" text-anchor="middle" fill="#8b949e" font-size="12">a las 2:00 el reloj salta a las 3:00 · UTC+2</text>
+
+  <!-- Dos sumas -->
+  <rect x="40" y="160" width="350" height="140" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+  <text x="215" y="188" text-anchor="middle" fill="#f85149" font-size="15" font-weight="bold">Sumar 24 h de reloj</text>
+  <text x="215" y="216" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">new Date(sábado12h + DAY)</text>
+  <text x="215" y="244" text-anchor="middle" fill="#c9d1d9" font-size="13">→ domingo a las 13:00</text>
+  <text x="215" y="276" text-anchor="middle" fill="#8b949e" font-size="12">(domingo − sábado) / DAY = 0,958</text>
+
+  <rect x="410" y="160" width="350" height="140" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="585" y="188" text-anchor="middle" fill="#3fb950" font-size="15" font-weight="bold">Sumar un día de calendario</text>
+  <text x="585" y="216" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">copia.setDate(getDate() + 1)</text>
+  <text x="585" y="244" text-anchor="middle" fill="#c9d1d9" font-size="13">→ domingo a las 12:00</text>
+  <text x="585" y="276" text-anchor="middle" fill="#8b949e" font-size="12">Math.round(diferencia / DAY) = 1</text>
+
+  <text x="400" y="334" text-anchor="middle" fill="#c9d1d9" font-size="13">Días con setDate y redondeo; horas y minutos con milisegundos</text>
+</svg>

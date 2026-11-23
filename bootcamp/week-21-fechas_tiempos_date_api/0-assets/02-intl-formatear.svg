@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="sans-serif">
+  <rect width="800" height="360" fill="#0d1117"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Una fecha, un formateador</text>
+
+  <rect x="30" y="140" width="170" height="70" rx="10" fill="#161b22" stroke="#F7DF1E" stroke-width="2"/>
+  <text x="115" y="170" text-anchor="middle" fill="#F7DF1E" font-size="14" font-weight="bold">launch</text>
+  <text x="115" y="192" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">un instante</text>
+
+  <rect x="250" y="70" width="230" height="210" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="365" y="98" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="bold">Intl.DateTimeFormat</text>
+  <text x="365" y="130" text-anchor="middle" fill="#c9d1d9" font-size="12">locale: 'es', 'es-CO', 'en-US'</text>
+  <text x="365" y="156" text-anchor="middle" fill="#8b949e" font-size="12">decide orden y palabras</text>
+  <text x="365" y="194" text-anchor="middle" fill="#c9d1d9" font-size="12">opciones: dateStyle, month,</text>
+  <text x="365" y="214" text-anchor="middle" fill="#c9d1d9" font-size="12">weekday, hourCycle, timeZone</text>
+  <text x="365" y="240" text-anchor="middle" fill="#8b949e" font-size="12">deciden qué piezas salen</text>
+
+  <line x1="202" y1="175" x2="246" y2="175" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="482" y1="120" x2="526" y2="96" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="482" y1="175" x2="526" y2="175" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="482" y1="230" x2="526" y2="254" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="530" y="70" width="250" height="52" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="655" y="92" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="12">format()</text>
+  <text x="655" y="111" text-anchor="middle" fill="#c9d1d9" font-size="11">viernes, 27 de marzo de 2026, 19:30</text>
+
+  <rect x="530" y="149" width="250" height="52" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="655" y="171" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="12">formatToParts()</text>
+  <text x="655" y="190" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="11">[{ type: 'weekday', ... }]</text>
+
+  <rect x="530" y="228" width="250" height="52" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <text x="655" y="250" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="12">RelativeTimeFormat</text>
+  <text x="655" y="269" text-anchor="middle" fill="#c9d1d9" font-size="11">mañana · hace 2 horas</text>
+
+  <text x="400" y="326" text-anchor="middle" fill="#f85149" font-size="13">Texto para personas: nunca para guardar, comparar ni ordenar</text>
+</svg>

@@ -374,16 +374,16 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 21: Fechas y Tiempos (Date API)**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
-- Date object
-- Formateo de fechas
-- Operaciones con fechas
-- Timezones
-- Introducción a Temporal API
+- El objeto `Date`: el timestamp y el epoch, crear desde texto ISO 8601 y desde componentes (mes desde 0), componentes locales y UTC, la fecha sin hora leída en UTC, fechas inválidas y desbordadas, copiar, comparar y JSON
+- Formatear con `Intl`: `toLocaleDateString`, `Intl.DateTimeFormat` con estilos y componentes, `formatToParts`, `Intl.RelativeTimeFormat` y claves `AAAA-MM-DD`
+- Operaciones: leer fechas locales de un formulario, sumar días y meses, días de calendario, el horario de verano, ordenar y filtrar, duraciones y la cuadrícula de un mes
+- Zonas horarias y `Temporal`: instantes y fechas de calendario, `timeZone`, desfases, guardar en UTC y mostrar en local, `PlainDate`, `ZonedDateTime`, `Instant` y `Duration`
 
-**Proyecto**: Calendario y agenda personal
+**Proyecto**: Agenda de actividades con calendario mensual: lectura de fechas locales (`parseLocal`), claves y sumas de días (`toDateKey`, `addDays`), días de calendario (`daysBetween`), cuadrícula del mes (`monthGrid`), estado de cada actividad (`getStatus`) y textos con `Intl` (`relativeLabel`, `formatWhen`), servida con `node server.js`
 
 ---
 

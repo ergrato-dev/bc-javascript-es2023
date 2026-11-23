@@ -1,0 +1,104 @@
+{
+  "semana": "21",
+  "titulo": "Fechas y Tiempos (Date API)",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 1"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta APP (title, intro, un locale válido y de 1 a 4 zonas IANA válidas) y de 6 a 20 EVENTS con id sin repetir, title, place, date AAAA-MM-DD y time HH:mm que existen, y minutes entero de 15 a 600, en al menos 2 meses y con algún día de 2 o más actividades",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, EVENTS } from './src/data.js'; for (const key of ['title', 'intro', 'locale']) assert.ok(typeof APP[key] === 'string' && APP[key].trim() !== '', key); assert.equal(Intl.DateTimeFormat.supportedLocalesOf([APP.locale]).length, 1, APP.locale); assert.ok(Array.isArray(APP.zones) && APP.zones.length >= 1 && APP.zones.length <= 4); for (const zone of APP.zones) assert.doesNotThrow(() => new Intl.DateTimeFormat('en', { timeZone: zone }), zone); assert.ok(Array.isArray(EVENTS) && EVENTS.length >= 6 && EVENTS.length <= 20); assert.equal(new Set(EVENTS.map((event) => event.id)).size, EVENTS.length); for (const event of EVENTS) {   for (const key of ['id', 'title', 'place']) assert.ok(typeof event[key] === 'string' && event[key].trim() !== '', event.id + ': ' + key);   assert.match(event.date, /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/, event.id); assert.match(event.time, /^[0-9]{2}:[0-9]{2}$/, event.id);   const [y, m, d] = event.date.split('-').map(Number); const [h, min] = event.time.split(':').map(Number); const date = new Date(y, m - 1, d, h, min);   assert.ok(date.getMonth() === m - 1 && date.getDate() === d && date.getHours() === h && date.getMinutes() === min, event.id + ': la fecha u hora no existe');   assert.ok(Number.isInteger(event.minutes) && event.minutes >= 15 && event.minutes <= 600, event.id + ': minutes'); } assert.ok(new Set(EVENTS.map((event) => event.date.slice(0, 7))).size >= 2, 'al menos 2 meses'); assert.ok(Object.values(Object.groupBy(EVENTS, (event) => event.date)).some((list) => list.length >= 2), 'un día con 2 actividades');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título y las actividades no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { APP, EVENTS } from './src/data.js'; assert.notEqual(APP.title, 'Agenda del planetario'); const example = ['Constelaciones de marzo', 'Cuentos bajo la cúpula', 'Noche de estrellas', 'La Luna de cerca', 'Observación de Júpiter', 'Planetas gigantes', 'Charla: ¿vida en Marte?', 'Lluvia de estrellas']; assert.ok(EVENTS.every((event) => !example.includes(event.title)), 'cambia los títulos del ejemplo'); assert.ok(!/planetari/i.test(APP.title + APP.intro), 'el título o la introducción hablan del planetario');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "leer",
+      "descripcion": "parseLocal convierte 'AAAA-MM-DD' y 'HH:mm' (por defecto '00:00') en un Date local y devuelve null si el formato no es exacto o la fecha u hora no existe",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { parseLocal } from './src/logic.js'; const p2 = (n) => String(n).padStart(2, '0'); const show = (d) => d === null ? null : [d.getFullYear(), p2(d.getMonth() + 1), p2(d.getDate())].join('-') + ' ' + p2(d.getHours()) + ':' + p2(d.getMinutes()); assert.equal(show(parseLocal('2026-03-27', '19:30')), '2026-03-27 19:30'); assert.equal(show(parseLocal('2026-03-27')), '2026-03-27 00:00'); assert.equal(show(parseLocal('2028-02-29', '08:05')), '2028-02-29 08:05'); assert.equal(show(parseLocal('2026-12-31', '23:59')), '2026-12-31 23:59'); for (const [date, time] of [['2026-02-30', '10:00'], ['2026-04-31', '10:00'], ['2026-13-01', '10:00'], ['2026-00-10', '10:00'], ['2026-03-27', '24:00'], ['2026-03-27', '10:60'], ['27/03/2026', '10:00'], ['2026-3-7', '10:00'], ['2026-03-27', '9:30'], ['', '10:00'], ['2026-03-27', '']]) assert.equal(parseLocal(date, time), null, date + ' ' + time); assert.ok(parseLocal('2026-03-27', '19:30') instanceof Date);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "leer-verano",
+      "descripcion": "parseLocal devuelve null para una hora que no existe por el cambio al horario de verano (Madrid, 29 de marzo de 2026 a las 02:30)",
+      "cmd": "cd {proyecto} && TZ=Europe/Madrid node --input-type=module -e \"import assert from 'node:assert/strict'; import { parseLocal } from './src/logic.js'; const p2 = (n) => String(n).padStart(2, '0'); const show = (d) => d === null ? null : [d.getFullYear(), p2(d.getMonth() + 1), p2(d.getDate())].join('-') + ' ' + p2(d.getHours()) + ':' + p2(d.getMinutes()); assert.equal(parseLocal('2026-03-29', '02:30'), null); assert.equal(show(parseLocal('2026-03-29', '03:30')), '2026-03-29 03:30'); assert.equal(show(parseLocal('2026-03-29', '01:59')), '2026-03-29 01:59');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "clave",
+      "descripcion": "toDateKey devuelve 'AAAA-MM-DD' del día local, con ceros a la izquierda",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { toDateKey } from './src/logic.js'; assert.equal(toDateKey(new Date(2026, 2, 5, 23, 0)), '2026-03-05'); assert.equal(toDateKey(new Date(2026, 10, 15)), '2026-11-15'); assert.equal(toDateKey(new Date('2026-03-28T03:00:00Z')), '2026-03-27');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "sumar",
+      "descripcion": "addDays devuelve un Date nuevo days días de calendario después o antes, a la misma hora local, sin cambiar el original, también en el cambio de hora",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { addDays } from './src/logic.js'; const p2 = (n) => String(n).padStart(2, '0'); const show = (d) => d === null ? null : [d.getFullYear(), p2(d.getMonth() + 1), p2(d.getDate())].join('-') + ' ' + p2(d.getHours()) + ':' + p2(d.getMinutes()); const start = new Date(2026, 2, 27, 19, 30); const before = start.getTime(); assert.equal(show(addDays(start, 1)), '2026-03-28 19:30'); assert.equal(show(addDays(start, 7)), '2026-04-03 19:30'); assert.equal(show(addDays(start, -30)), '2026-02-25 19:30'); assert.equal(show(addDays(new Date(2026, 11, 31, 8), 1)), '2027-01-01 08:00'); assert.equal(show(addDays(start, 0)), '2026-03-27 19:30'); assert.equal(start.getTime(), before); assert.notEqual(addDays(start, 0), start); process.env.TZ = 'Europe/Madrid'; assert.equal(show(addDays(new Date(2026, 2, 28, 12), 1)), '2026-03-29 12:00');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "dias",
+      "descripcion": "daysBetween cuenta días de calendario sin mirar la hora, negativos hacia el pasado y correctos con el cambio de hora",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { daysBetween } from './src/logic.js'; const now = new Date(2026, 2, 27, 21, 0); assert.equal(daysBetween(now, new Date(2026, 2, 27, 23, 0)), 0); assert.equal(daysBetween(now, new Date(2026, 2, 28, 8, 0)), 1); assert.equal(daysBetween(now, new Date(2026, 2, 30, 8, 0)), 3); assert.equal(daysBetween(now, new Date(2026, 2, 20, 23, 0)), -7); assert.equal(daysBetween(new Date(2026, 11, 31, 23, 59), new Date(2027, 0, 1, 0, 1)), 1); process.env.TZ = 'Europe/Madrid'; assert.equal(daysBetween(new Date(2026, 2, 28, 0, 0), new Date(2026, 2, 30, 0, 0)), 2); assert.equal(daysBetween(new Date(2026, 9, 24, 12), new Date(2026, 9, 26, 0)), 2); assert.equal(daysBetween(new Date(2026, 2, 30), new Date(2026, 2, 28)), -2);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "calendario",
+      "descripcion": "monthGrid devuelve las semanas del mes empezando en lunes, de 7 elementos cada una, con el número del día o null en los huecos",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { monthGrid } from './src/logic.js'; const march = monthGrid(2026, 2); assert.equal(march.length, 6); assert.deepEqual(march[0], [null, null, null, null, null, null, 1]); assert.deepEqual(march[1], [2, 3, 4, 5, 6, 7, 8]); assert.deepEqual(march[5], [30, 31, null, null, null, null, null]); const february = monthGrid(2027, 1); assert.equal(february.length, 4); assert.deepEqual(february[0], [1, 2, 3, 4, 5, 6, 7]); assert.deepEqual(february[3], [22, 23, 24, 25, 26, 27, 28]); const leap = monthGrid(2028, 1); assert.ok(leap.flat().includes(29)); assert.ok(!monthGrid(2026, 1).flat().includes(29)); for (const [year, month] of [[2026, 0], [2026, 1], [2026, 2], [2026, 7], [2027, 1], [2028, 1]]) {   const weeks = monthGrid(year, month); const days = weeks.flat().filter((day) => day !== null);   assert.ok(weeks.every((week) => week.length === 7)); assert.deepEqual(days, Array.from({ length: new Date(year, month + 1, 0).getDate() }, (_, index) => index + 1));   assert.equal(weeks[0].indexOf(1), (new Date(year, month, 1).getDay() + 6) % 7); }\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "estado",
+      "descripcion": "getStatus devuelve 'past' desde el final (inicio + minutes), 'ongoing' desde el inicio, 'soon' si empieza dentro de 24 horas o menos y 'upcoming' si falta más",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { getStatus } from './src/logic.js'; const event = { id: 'x', title: 'X', date: '2026-03-27', time: '19:30', minutes: 90, place: 'Sala' }; const at = (d, h, m = 0) => new Date(2026, 2, d, h, m); assert.equal(getStatus(event, at(27, 21, 0)), 'past'); assert.equal(getStatus(event, at(28, 9)), 'past'); assert.equal(getStatus(event, at(27, 20, 59)), 'ongoing'); assert.equal(getStatus(event, at(27, 19, 30)), 'ongoing'); assert.equal(getStatus(event, at(27, 19, 29)), 'soon'); assert.equal(getStatus(event, at(26, 19, 30)), 'soon'); assert.equal(getStatus(event, at(26, 19, 29)), 'upcoming'); assert.equal(getStatus(event, at(1, 10)), 'upcoming');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "relativo",
+      "descripcion": "relativeLabel usa RelativeTimeFormat con numeric 'auto': minutos si faltan o pasaron menos de 60, horas si menos de 24 y si no días de calendario",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { relativeLabel } from './src/logic.js'; const rtf = (locale) => new Intl.RelativeTimeFormat(locale, { numeric: 'auto' }); const es = rtf('es'); const en = rtf('en'); const now = new Date(2026, 2, 27, 20, 0); const at = (d, h, m = 0) => new Date(2026, 2, d, h, m); assert.equal(relativeLabel(at(27, 20, 15), now, 'es'), es.format(15, 'minute')); assert.equal(relativeLabel(at(27, 19, 30), now, 'es'), es.format(-30, 'minute')); assert.equal(relativeLabel(at(27, 20, 0), now, 'es'), es.format(0, 'minute')); assert.equal(relativeLabel(at(27, 21, 0), now, 'es'), es.format(1, 'hour')); assert.equal(relativeLabel(at(27, 11, 0), now, 'es'), es.format(-9, 'hour')); assert.equal(relativeLabel(at(28, 10, 0), now, 'es'), es.format(14, 'hour')); assert.equal(relativeLabel(at(28, 21, 0), now, 'es'), es.format(1, 'day')); assert.equal(relativeLabel(at(31, 20, 0), now, 'es'), es.format(4, 'day')); assert.equal(relativeLabel(at(5, 18, 0), now, 'es'), es.format(-22, 'day')); assert.equal(relativeLabel(at(29, 9, 0), now, 'en'), en.format(2, 'day')); assert.equal(relativeLabel(at(27, 20, 15), now, 'es'), 'dentro de 15 minutos');\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "formato",
+      "descripcion": "formatWhen devuelve { day, time, offset } con dateStyle 'full', timeStyle 'short' y la pieza timeZoneName de shortOffset, en el locale y la zona indicados (o la del equipo)",
+      "cmd": "cd {proyecto} && TZ=America/Bogota node --input-type=module -e \"import assert from 'node:assert/strict'; import { formatWhen } from './src/logic.js'; const date = new Date(2026, 2, 27, 19, 30); const expected = (locale, timeZone) => ({   day: new Intl.DateTimeFormat(locale, { dateStyle: 'full', timeZone }).format(date),   time: new Intl.DateTimeFormat(locale, { timeStyle: 'short', timeZone }).format(date),   offset: new Intl.DateTimeFormat(locale, { timeZoneName: 'shortOffset', timeZone }).formatToParts(date).find((part) => part.type === 'timeZoneName').value, }); assert.deepEqual(formatWhen(date, 'es-CO'), expected('es-CO')); assert.deepEqual(formatWhen(date, 'es-ES', 'Europe/Madrid'), expected('es-ES', 'Europe/Madrid')); assert.deepEqual(formatWhen(date, 'en-US', 'Asia/Tokyo'), expected('en-US', 'Asia/Tokyo')); assert.equal(formatWhen(date, 'es-ES', 'Europe/Madrid').offset, 'GMT+1'); assert.match(formatWhen(date, 'es-ES', 'Europe/Madrid').day, /sábado/);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}

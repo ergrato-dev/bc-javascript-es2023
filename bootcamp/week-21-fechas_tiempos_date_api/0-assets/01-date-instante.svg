@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="sans-serif">
+  <rect width="800" height="360" fill="#0d1117"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">Un Date guarda un solo número</text>
+
+  <!-- Línea del tiempo -->
+  <line x1="40" y1="100" x2="760" y2="100" stroke="#30363d" stroke-width="3"/>
+  <circle cx="80" cy="100" r="7" fill="#8b949e"/>
+  <text x="80" y="80" text-anchor="middle" fill="#8b949e" font-size="13">epoch</text>
+  <text x="80" y="128" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="11">1970-01-01T00:00Z</text>
+  <circle cx="640" cy="100" r="9" fill="#F7DF1E"/>
+  <text x="640" y="80" text-anchor="middle" fill="#F7DF1E" font-size="13">launch</text>
+  <line x1="90" y1="150" x2="630" y2="150" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="360" y="174" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="14">getTime() → 1774657800000 ms</text>
+
+  <!-- Dos lecturas -->
+  <rect x="60" y="210" width="320" height="120" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="220" y="238" text-anchor="middle" fill="#3fb950" font-size="15" font-weight="bold">Leído en hora local (Bogotá)</text>
+  <text x="220" y="266" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">getDate() 27 · getHours() 19</text>
+  <text x="220" y="290" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">getMonth() 2  (marzo)</text>
+  <text x="220" y="314" text-anchor="middle" fill="#8b949e" font-size="12">Cambia según la zona del equipo</text>
+
+  <rect x="420" y="210" width="320" height="120" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="580" y="238" text-anchor="middle" fill="#58a6ff" font-size="15" font-weight="bold">Leído en UTC</text>
+  <text x="580" y="266" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">getUTCDate() 28 · getUTCHours() 0</text>
+  <text x="580" y="290" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">2026-03-28T00:30:00.000Z</text>
+  <text x="580" y="314" text-anchor="middle" fill="#8b949e" font-size="12">Igual en todas las zonas</text>
+</svg>

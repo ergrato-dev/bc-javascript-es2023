@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="sans-serif">
+  <rect width="800" height="380" fill="#0d1117"/>
+  <text x="400" y="34" text-anchor="middle" fill="#F7DF1E" font-size="20" font-weight="bold">¿Instante o fecha de calendario?</text>
+
+  <!-- Instante -->
+  <rect x="30" y="60" width="360" height="290" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="210" y="88" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold">Instante</text>
+  <text x="210" y="112" text-anchor="middle" fill="#8b949e" font-size="12">Una sesión en directo</text>
+  <text x="210" y="142" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">2026-03-28T00:30:00.000Z</text>
+  <text x="70" y="180" fill="#c9d1d9" font-size="13">Bogotá</text>
+  <text x="350" y="180" text-anchor="end" fill="#c9d1d9" font-size="13">vie 27 · 19:30</text>
+  <text x="70" y="208" fill="#c9d1d9" font-size="13">Madrid</text>
+  <text x="350" y="208" text-anchor="end" fill="#c9d1d9" font-size="13">sáb 28 · 1:30</text>
+  <text x="70" y="236" fill="#c9d1d9" font-size="13">Tokio</text>
+  <text x="350" y="236" text-anchor="end" fill="#c9d1d9" font-size="13">sáb 28 · 9:30</text>
+  <text x="210" y="276" text-anchor="middle" fill="#58a6ff" font-size="13">Mismo momento, otra hora en cada zona</text>
+  <text x="210" y="304" text-anchor="middle" fill="#8b949e" font-size="12">Date · Temporal.Instant</text>
+  <text x="210" y="326" text-anchor="middle" fill="#8b949e" font-size="12">Temporal.ZonedDateTime si importa la zona</text>
+
+  <!-- Calendario -->
+  <rect x="410" y="60" width="360" height="290" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+  <text x="590" y="88" text-anchor="middle" fill="#3fb950" font-size="16" font-weight="bold">Fecha de calendario</text>
+  <text x="590" y="112" text-anchor="middle" fill="#8b949e" font-size="12">Un cumpleaños</text>
+  <text x="590" y="142" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="12">'2026-03-27'</text>
+  <text x="450" y="180" fill="#c9d1d9" font-size="13">Bogotá</text>
+  <text x="730" y="180" text-anchor="end" fill="#c9d1d9" font-size="13">27 de marzo</text>
+  <text x="450" y="208" fill="#c9d1d9" font-size="13">Madrid</text>
+  <text x="730" y="208" text-anchor="end" fill="#c9d1d9" font-size="13">27 de marzo</text>
+  <text x="450" y="236" fill="#c9d1d9" font-size="13">Tokio</text>
+  <text x="730" y="236" text-anchor="end" fill="#c9d1d9" font-size="13">27 de marzo</text>
+  <text x="590" y="276" text-anchor="middle" fill="#3fb950" font-size="13">Mismo texto en todas las zonas</text>
+  <text x="590" y="304" text-anchor="middle" fill="#8b949e" font-size="12">Texto AAAA-MM-DD · Temporal.PlainDate</text>
+  <text x="590" y="326" text-anchor="middle" fill="#f85149" font-size="12">new Date('2026-03-27') lo fija a UTC</text>
+</svg>

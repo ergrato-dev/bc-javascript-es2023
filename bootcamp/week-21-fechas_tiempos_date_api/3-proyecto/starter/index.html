@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="src/main.js"></script>
+</head>
+<body>
+  <main>
+    <h1 id="title">Agenda</h1>
+    <p id="intro"></p>
+    <p id="today" class="muted"></p>
+
+    <section class="calendar" aria-labelledby="month-label">
+      <div class="month-bar">
+        <button id="prev" type="button" aria-label="Mes anterior">‹</button>
+        <h2 id="month-label"></h2>
+        <button id="next" type="button" aria-label="Mes siguiente">›</button>
+      </div>
+      <table id="grid">
+        <thead><tr id="weekdays"></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <div class="toolbar">
+      <p id="upcoming" class="muted"></p>
+      <label>Ver horas en
+        <select id="zone"></select>
+      </label>
+    </div>
+
+    <h2 id="list-label">Actividades</h2>
+    <ul id="list" class="list"></ul>
+
+    <form id="add" class="add">
+      <h2>Añadir actividad</h2>
+      <label>Título <input name="title" required maxlength="60"></label>
+      <div class="row">
+        <label>Fecha <input name="date" type="date" required></label>
+        <label>Hora <input name="time" type="time" required></label>
+        <label>Minutos <input name="minutes" type="number" required min="15" max="600" step="5" value="60"></label>
+      </div>
+      <p id="form-error" class="error" role="alert"></p>
+      <button>Añadir</button>
+    </form>
+  </main>
+</body>
+</html>
