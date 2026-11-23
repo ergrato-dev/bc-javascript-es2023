@@ -1,0 +1,17 @@
+// Datos de ejemplo del dominio. Cambia el título y las fichas por las de tu dominio.
+
+export const TITLE = '🔭 Planetario — explorador del catálogo';
+
+// Las fichas del catálogo. Se piden a un servidor simulado: nadie se conecta a ningún sitio.
+// - id: número entero positivo, sin repetir.
+// - name: nombre de la ficha, de 3 o más caracteres, sin repetir.
+// - detail: una línea de descripción.
+// - delay: milisegundos que tarda el servidor en devolver la ficha, un entero de 50 a 2000.
+export default [
+  { id: 1, name: 'Viaje a Saturno', detail: 'Sesión de 40 min en la cúpula principal', delay: 400 },
+  { id: 2, name: 'Nebulosas', detail: 'Proyección de imágenes del telescopio Hubble', delay: 900 },
+  { id: 3, name: 'Taller de cohetes', detail: 'Actividad para grupos escolares', delay: 600 },
+  { id: 4, name: 'Cielo de invierno', detail: 'Constelaciones visibles en diciembre', delay: 1200 },
+  { id: 5, name: 'Eclipses', detail: 'Por qué ocurren y cuándo será el próximo', delay: 300 },
+  { id: 6, name: 'Telescopio solar', detail: 'Observación de manchas solares en la terraza', delay: 800 },
+];

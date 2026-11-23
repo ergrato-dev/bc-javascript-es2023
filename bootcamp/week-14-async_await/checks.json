@@ -1,0 +1,97 @@
+{
+  "semana": "14",
+  "titulo": "Async/Await",
+  "checks": [
+    {
+      "id": "sintaxis",
+      "descripcion": "src/data.js, src/logic.js y src/main.js son módulos ES válidos",
+      "cmd": "cd {proyecto} && node --check src/data.js && node --check src/logic.js && node --check src/main.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "sin-todo",
+      "descripcion": "src/logic.js no tiene ningún TODO",
+      "cmd": "cd {proyecto} && ! grep -n 'TODO' src/logic.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-var",
+      "descripcion": "El código usa const y let, nunca var",
+      "cmd": "cd {proyecto} && ! grep -nwE 'var' src/*.js",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "sin-then",
+      "descripcion": "src/logic.js espera con await y recorre las páginas con for await, sin .then()",
+      "cmd": "cd {proyecto} && ! grep -v '^ *//' src/logic.js | grep -n '\\.then(' && grep -v '^ *//' src/logic.js | grep -q 'for await'",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 10"
+    },
+    {
+      "id": "datos-exports",
+      "descripcion": "data.js exporta TITLE y por defecto de 4 a 8 fichas con id entero positivo sin repetir, name de 3 o más caracteres sin repetir, detail de texto y delay entero de 50 a 2000",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE } from './src/data.js'; assert.ok(typeof TITLE === 'string' && TITLE.trim() !== ''); assert.ok(Array.isArray(items) && items.length >= 4 && items.length <= 8); assert.ok(items.every((item) => Number.isInteger(item.id) && item.id > 0 && typeof item.name === 'string' && item.name.trim().length >= 3 && typeof item.detail === 'string' && item.detail.trim() !== '' && Number.isInteger(item.delay) && item.delay >= 50 && item.delay <= 2000)); assert.equal(new Set(items.map(({ id }) => id)).size, items.length); assert.equal(new Set(items.map(({ name }) => name)).size, items.length);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "datos-dominio",
+      "descripcion": "El título y las fichas no son los del ejemplo Planetario",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import items, { TITLE } from './src/data.js'; assert.ok(!TITLE.toLowerCase().includes('planetario')); assert.ok(!items.some(({ name }) => ['Viaje a Saturno', 'Nebulosas', 'Taller de cohetes', 'Cielo de invierno', 'Eclipses', 'Telescopio solar'].includes(name)));\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 2"
+    },
+    {
+      "id": "ficha",
+      "descripcion": "getItem devuelve una promesa que, pasados delay ms, da la ficha o se rechaza con «No existe la ficha <id>»",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { getItem } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a', delay: 60 }, { id: 2, name: 'Beta', detail: 'b', delay: 20 }, { id: 3, name: 'Gamma', detail: 'c', delay: 60 }]; const start = performance.now(); const ms = () => performance.now() - start; const pending = getItem(items, 1); assert.ok(pending instanceof Promise); assert.equal(await pending, items[0]); assert.ok(ms() >= 55); await assert.rejects(getItem(items, 99), { message: 'No existe la ficha 99' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 3"
+    },
+    {
+      "id": "secuencia",
+      "descripcion": "getInSequence pide las fichas una detrás de otra, en orden, y se detiene en la primera que falla",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { getInSequence } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a', delay: 60 }, { id: 2, name: 'Beta', detail: 'b', delay: 20 }, { id: 3, name: 'Gamma', detail: 'c', delay: 60 }]; const start = performance.now(); const ms = () => performance.now() - start; assert.deepEqual(await getInSequence(items, [3, 2, 1]), [items[2], items[1], items[0]]); assert.ok(ms() >= 135); let touched = false; const watched = { id: 7, name: 'Zeta', detail: 'z', get delay() { touched = true; return 10; } }; await assert.rejects(getInSequence([...items, watched], [2, 99, 7]), { message: 'No existe la ficha 99' }); assert.equal(touched, false); assert.deepEqual(await getInSequence(items, []), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 4"
+    },
+    {
+      "id": "paralelo",
+      "descripcion": "getInParallel pide todas a la vez, con las fichas en el orden de ids, o se rechaza con el primer error",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { getInParallel } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a', delay: 60 }, { id: 2, name: 'Beta', detail: 'b', delay: 20 }, { id: 3, name: 'Gamma', detail: 'c', delay: 60 }]; const start = performance.now(); const ms = () => performance.now() - start; assert.deepEqual(await getInParallel(items, [3, 2, 1]), [items[2], items[1], items[0]]); assert.ok(ms() < 120); await assert.rejects(getInParallel(items, [1, 98]), { message: 'No existe la ficha 98' });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 5"
+    },
+    {
+      "id": "disponibles",
+      "descripcion": "getAvailable pide todas a la vez y devuelve { found, missing } en el orden de ids, sin lanzar",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { getAvailable } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a', delay: 60 }, { id: 2, name: 'Beta', detail: 'b', delay: 20 }, { id: 3, name: 'Gamma', detail: 'c', delay: 60 }]; const start = performance.now(); const ms = () => performance.now() - start; assert.deepEqual(await getAvailable(items, [3, 50, 1, 60]), { found: [items[2], items[0]], missing: [50, 60] }); assert.ok(ms() < 150); assert.deepEqual(await getAvailable(items, []), { found: [], missing: [] });\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 6"
+    },
+    {
+      "id": "reintento",
+      "descripcion": "retry repite task hasta attempts veces, espera delayMs entre intentos y al rendirse lanza «Falló tras <n> intentos» con el último error como cause",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { retry } from './src/logic.js'; let calls = 0; const flaky = async () => { calls += 1; if (calls < 3) throw new Error('fallo ' + calls); return 'ok ' + calls; }; const start = performance.now(); const ms = () => performance.now() - start; assert.equal(await retry(flaky, 5, 40), 'ok 3'); assert.equal(calls, 3); assert.ok(ms() >= 75); calls = 0; const second = performance.now(); await assert.rejects(retry(flaky, 2, 40), (error) => error.message === 'Falló tras 2 intentos' && error.cause instanceof Error && error.cause.message === 'fallo 2'); assert.equal(calls, 2); const took = performance.now() - second; assert.ok(took >= 35 && took < 75);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 7"
+    },
+    {
+      "id": "paginas",
+      "descripcion": "pages es un generador asíncrono que entrega páginas de size fichas, esperando 100 ms antes de cada una",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { pages } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a', delay: 60 }, { id: 2, name: 'Beta', detail: 'b', delay: 20 }, { id: 3, name: 'Gamma', detail: 'c', delay: 60 }]; const iterator = pages(items, 2); assert.equal(typeof iterator[Symbol.asyncIterator], 'function'); const start = performance.now(); const ms = () => performance.now() - start; assert.deepEqual(await Array.fromAsync(iterator), [[items[0], items[1]], [items[2]]]); assert.ok(ms() >= 190); assert.deepEqual(await Array.fromAsync(pages(items, 5)), [items]); assert.deepEqual(await Array.fromAsync(pages([], 2)), []);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 8"
+    },
+    {
+      "id": "buscar",
+      "descripcion": "findFirst devuelve la primera ficha cuyo nombre contiene el texto (sin distinguir mayúsculas), deja de pedir páginas al encontrarla y devuelve null si no hay",
+      "cmd": "cd {proyecto} && node --input-type=module -e \"import assert from 'node:assert/strict'; import { findFirst } from './src/logic.js'; const items = [{ id: 1, name: 'Alfa', detail: 'a', delay: 60 }, { id: 2, name: 'Beta', detail: 'b', delay: 20 }, { id: 3, name: 'Gamma', detail: 'c', delay: 60 }]; const start = performance.now(); const ms = () => performance.now() - start; assert.equal(await findFirst(items, 1, 'ALF'), items[0]); assert.ok(ms() < 180); assert.equal(await findFirst(items, 2, 'mma'), items[2]); assert.equal(await findFirst(items, 2, 'omega'), null);\"",
+      "assert": "exit0",
+      "pista": "3-proyecto/README.md, paso 9"
+    }
+  ]
+}

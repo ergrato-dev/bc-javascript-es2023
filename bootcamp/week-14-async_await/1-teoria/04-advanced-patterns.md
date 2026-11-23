@@ -444,7 +444,7 @@ const result = await processUser(userId);
 // ============================================
 // Compose (orden inverso)
 // ============================================
-const asyncCompose = (...fns) => asyncPipe(...fns.reverse());
+const asyncCompose = (...fns) => asyncPipe(...fns.toReversed());
 ```
 
 ---
@@ -464,6 +464,13 @@ const asyncCompose = (...fns) => asyncPipe(...fns.reverse());
 - [MDN: for await...of](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/for-await...of)
 - [JavaScript.info: Async iterators and generators](https://javascript.info/async-iterators-generators)
 
+<!-- nav -->
 ---
 
-[⬅️ Anterior: Error Handling](03-error-handling.md) | [Volver a Semana 14](../README.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🛡️ Manejo de Errores en Async/Await](03-error-handling.md) | [Índice de labs](../2-practicas/README.md) → |
+
+[↑ Semana 14](../README.md)

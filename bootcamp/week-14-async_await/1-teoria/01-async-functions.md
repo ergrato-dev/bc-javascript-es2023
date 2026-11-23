@@ -274,6 +274,13 @@ console.log('B. Después de llamar');
 - [MDN: async function](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/async_function)
 - [JavaScript.info: Async/await](https://javascript.info/async-await)
 
+<!-- nav -->
 ---
 
-[⬅️ Volver a Semana 14](../README.md) | [Siguiente: await keyword ➡️](02-await-keyword.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Semana 14 - Async/Await](../README.md) | [Teoría — ⏸️ La Palabra Clave await](02-await-keyword.md) → |
+
+[↑ Semana 14](../README.md)

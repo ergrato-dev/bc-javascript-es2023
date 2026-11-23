@@ -1,132 +1,110 @@
-# 📘 Semana 14: Async/Await
+# Semana 14 - Async/Await
 
-## 🎯 Objetivos de Aprendizaje
+La semana 13 terminó con cadenas de `.then()` y combinadores de promesas. Esta semana se escribe el mismo código asíncrono con `async` y `await`, que lo deja de arriba abajo como el código síncrono y devuelve el `try`/`catch` de siempre para los errores. Verás también cuándo esperar una cosa detrás de otra y cuándo lanzarlas a la vez, y cómo recorrer datos que llegan poco a poco con `for await...of` y los generadores asíncronos.
 
-Al finalizar esta semana, serás capaz de:
+## Objetivos de aprendizaje
 
-- ✅ Comprender y utilizar funciones `async`
-- ✅ Aplicar `await` para manejar operaciones asíncronas
-- ✅ Implementar manejo de errores con `try/catch` en código asíncrono
-- ✅ Distinguir entre ejecución secuencial y paralela
-- ✅ Usar `for await...of` para iterables asíncronos
-- ✅ Aplicar top-level await en módulos ES (ES2022)
+Al terminar la semana podrás:
+
+- Declarar funciones `async`, explicar por qué siempre devuelven una promesa y esperar resultados con `await`, también en el nivel superior de un módulo.
+- Reescribir una cadena de `.then()` con `async`/`await` y predecir en qué orden se ejecuta el código que rodea a un `await`.
+- Manejar errores asíncronos con `try`/`catch`/`finally`, relanzarlos con `cause`, saber cuándo hace falta `return await` y reintentar una operación que falla.
+- Elegir entre ejecución en orden y en paralelo, combinarlas cuando unas operaciones dependen de otras y limitar cuántas corren a la vez.
+- Recorrer iterables asíncronos con `for await...of`, escribir generadores asíncronos (`async function*`) y reunir sus valores con `Array.fromAsync`.
+
+## Requisitos previos
+
+- La [semana 13](../week-13-programacion_asincronica_callbacks_promises/README.md): promesas, `.then()`/`.catch()` y `Promise.all`, `allSettled` y `race`.
+- Los generadores de la [semana 08](../week-08-iteradores_generadores/README.md) y los errores con `cause` de la [semana 11](../week-11-manejo_errores_moderno/README.md).
+- Node y pnpm en las versiones de [docs/stack-versions.md](../../docs/stack-versions.md):
+
+  ```bash
+  node --version
+  # v24.19.0 (o superior)
+  pnpm --version
+  # 11.20.0 (o superior)
+  ```
 
 ---
 
-## 📚 Requisitos Previos
+## Contenidos
 
-Antes de iniciar esta semana, debes dominar:
+### 1. Teoría (2 h)
 
-- ✅ Promises (semana 13)
-- ✅ Promise chaining y combinadores
-- ✅ Manejo de errores con `.catch()`
-- ✅ Módulos ES (`import`/`export`)
+| Archivo | Tiempo | Tema |
+|---|---|---|
+| [01 - Funciones async](1-teoria/01-async-functions.md) | 30 min | Sintaxis, valor de retorno y comparación con promesas |
+| [02 - await](1-teoria/02-await-keyword.md) | 30 min | Qué espera, flujo de ejecución, errores comunes y *top-level await* |
+| [03 - Manejo de errores](1-teoria/03-error-handling.md) | 30 min | `try`/`catch`/`finally`, errores propios, `cause` y reintentos |
+| [04 - Patrones avanzados](1-teoria/04-advanced-patterns.md) | 30 min | En orden o en paralelo, `for await...of`, generadores asíncronos, concurrencia y cancelación |
+
+### 2. Prácticas (3 h 30 min)
+
+| Lab | Tiempo |
+|---|---|
+| [Lab 01 - Funciones async y await](2-practicas/lab-01-async-basico/README.md) | 50 min |
+| [Lab 02 - Errores con async/await](2-practicas/lab-02-error-handling/README.md) | 55 min |
+| [Lab 03 - En orden o a la vez](2-practicas/lab-03-parallel-vs-sequential/README.md) | 55 min |
+| [Lab 04 - Iteración asíncrona](2-practicas/lab-04-async-iteration/README.md) | 50 min |
+
+### 3. Proyecto (2 h)
+
+[Explorador de catálogo](3-proyecto/README.md): completas las funciones de `src/logic.js` que piden las fichas de tu dominio a un servidor simulado en orden, a la vez, solo las que existan, con reintentos, por páginas y buscando por nombre, y adaptas `src/data.js` al dominio que te asigna el instructor. `scripts/verificar-semana.sh 14` comprueba las funciones.
+
+### 4. Recursos (30 min)
+
+[Ebooks](4-recursos/ebooks-free/README.md) · [Videos](4-recursos/videografia/README.md) · [Web](4-recursos/webgrafia/README.md) · [Glosario](5-glosario/README.md)
 
 ---
 
-## 🗂️ Estructura de la Semana
+## Evaluación
 
-```
+| Evidencia | Peso | Qué se evalúa |
+|---|---:|---|
+| Conocimiento | 30% | Los conceptos de la teoría, con ejemplos propios |
+| Desempeño | 40% | Los cuatro labs ejecutados y sus preguntas de comprobación |
+| Producto | 30% | El proyecto: 13/13 comprobaciones y datos del dominio |
+
+Detalle en la [rúbrica](rubrica-evaluacion.md).
+
+---
+
+## Estructura
+
+```text
 week-14-async_await/
-├── README.md                          # Este archivo
-├── RETO-SEMANAL.md                    # Reto adicional (opcional)
-├── rubrica-evaluacion.md              # Criterios de evaluación
-├── 0-assets/                          # Diagramas y recursos visuales
-├── 1-teoria/                          # Material teórico
-│   ├── 01-async-functions.md          # Funciones async
-│   ├── 02-await-keyword.md            # Palabra clave await
-│   ├── 03-error-handling.md           # Manejo de errores
-│   └── 04-advanced-patterns.md        # Patrones avanzados
-├── 2-practicas/                       # Ejercicios guiados
-│   ├── practica-01-async-basico/      # Sintaxis básica
-│   ├── practica-02-error-handling/    # Manejo de errores
-│   ├── practica-03-parallel-vs-sequential/  # Ejecución paralela
-│   └── practica-04-async-iteration/   # Iteración asíncrona
-├── 3-proyecto/                        # Proyecto semanal
-│   ├── README.md                      # Instrucciones del proyecto
-│   ├── index.html                     # Interfaz
-│   ├── styles.css                     # Estilos
-│   ├── starter/                       # Código inicial
-│   └── solution/                      # Solución de referencia
-├── 4-recursos/                        # Recursos adicionales
-│   ├── ebooks-free/
-│   ├── videografia/
-│   └── webgrafia/
-└── 5-glosario/                        # Términos clave
-    └── README.md
+|-- README.md
+|-- rubrica-evaluacion.md
+|-- checks.json
+|-- 0-assets/                  # 3 diagramas SVG
+|-- 1-teoria/                  # 01 a 04
+|-- 2-practicas/
+|   |-- README.md
+|   |-- lab-01-async-basico/
+|   |-- lab-02-error-handling/
+|   |-- lab-03-parallel-vs-sequential/
+|   `-- lab-04-async-iteration/
+|-- 3-proyecto/
+|   |-- README.md
+|   `-- starter/               # index.html, styles.css, src/data.js, src/logic.js, src/main.js
+|-- 4-recursos/
+|   |-- ebooks-free/README.md
+|   |-- videografia/README.md
+|   `-- webgrafia/README.md
+`-- 5-glosario/
+    `-- README.md
 ```
 
 ---
 
-## 📝 Contenidos
+## Versiones de la semana
 
-### 1️⃣ Teoría (2.5 horas)
-
-| Archivo | Tema | Duración |
-|---------|------|----------|
-| [01-async-functions.md](1-teoria/01-async-functions.md) | Funciones async y su comportamiento | 40 min |
-| [02-await-keyword.md](1-teoria/02-await-keyword.md) | Palabra clave await y flujo de ejecución | 40 min |
-| [03-error-handling.md](1-teoria/03-error-handling.md) | Manejo de errores con try/catch | 35 min |
-| [04-advanced-patterns.md](1-teoria/04-advanced-patterns.md) | Patrones avanzados y top-level await | 35 min |
-
-### 2️⃣ Prácticas (3 horas)
-
-| Práctica | Tema | Duración |
-|----------|------|----------|
-| [Práctica 01](2-practicas/practica-01-async-basico/) | Sintaxis básica de async/await | 45 min |
-| [Práctica 02](2-practicas/practica-02-error-handling/) | Manejo de errores en async/await | 45 min |
-| [Práctica 03](2-practicas/practica-03-parallel-vs-sequential/) | Ejecución paralela vs secuencial | 45 min |
-| [Práctica 04](2-practicas/practica-04-async-iteration/) | for await...of y generadores async | 45 min |
-
-### 3️⃣ Proyecto (2 horas)
-
-| Proyecto | Descripción |
-|----------|-------------|
-| [Sistema de Carga de Datos](3-proyecto/) | Aplicación que carga datos de múltiples fuentes de forma asíncrona |
+Node para ejecutar los labs y comprobar el proyecto; `pnpm dlx serve` para abrir el proyecto en el navegador. `Array.fromAsync` (lab 04 y comprobaciones del proyecto) necesita Node 22 o superior. Las salidas de este material se obtuvieron con Node 24.19.0. Las versiones de todo el curso están en [stack-versions](../../docs/stack-versions.md).
 
 ---
 
-## ⏱️ Distribución del Tiempo (8 horas)
+## Navegación
 
-| Actividad | Tiempo | Porcentaje |
-|-----------|--------|------------|
-| 📖 Teoría | 2.5h | 31% |
-| 💻 Prácticas | 3h | 38% |
-| 🏗️ Proyecto | 2h | 25% |
-| 📚 Recursos | 0.5h | 6% |
-| **Total** | **8h** | **100%** |
-
----
-
-## 📌 Entregables
-
-> **🎯 ÚNICO ENTREGABLE**: El proyecto semanal es el **único entregable obligatorio**.
-
-El proyecto debe demostrar:
-
-1. ✅ Uso correcto de `async/await`
-2. ✅ Manejo de errores con `try/catch`
-3. ✅ Ejecución paralela cuando sea apropiado
-4. ✅ Adaptación al dominio asignado
-
----
-
-## 🔗 Navegación
-
-| ⬅️ Anterior | 🏠 Inicio | Siguiente ➡️ |
-|-------------|-----------|--------------|
-| [Semana 13: Promises](../week-13-programacion_asincronica_callbacks_promises/README.md) | [Bootcamp](../../README.md) | [Semana 15: Fetch API](../week-15-fetch_api/README.md) |
-
----
-
-## 💡 Tips de la Semana
-
-> **💡 Tip #1**: `async/await` es azúcar sintáctico sobre Promises. Todo lo que aprendiste en la semana 13 sigue siendo válido.
-
-> **💡 Tip #2**: Usa `Promise.all()` con `await` cuando necesites ejecutar operaciones en paralelo: `const [a, b] = await Promise.all([fetchA(), fetchB()])`.
-
-> **💡 Tip #3**: El error más común es olvidar `await` antes de una Promise. El código se ejecutará, pero no esperará el resultado.
-
----
-
-_Semana 14 de 28 · Etapa 2: Intermedio · Programación Asincrónica_
+| ← Semana anterior | Siguiente → |
+|---|---|
+| [Semana 13 - Programación Asincrónica - Callbacks y Promises](../week-13-programacion_asincronica_callbacks_promises/README.md) | [Semana 15 - Fetch API](../week-15-fetch_api/README.md) |

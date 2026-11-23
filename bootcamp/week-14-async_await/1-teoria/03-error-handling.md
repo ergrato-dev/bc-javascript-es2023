@@ -11,13 +11,13 @@ Al finalizar este tema, serás capaz de:
 
 ---
 
-## � Diagrama: Flujo de try/catch/finally
+## 📊 Diagrama: Flujo de try/catch/finally
 
 ![Flujo try/catch/finally](../0-assets/03-try-catch-finally.svg)
 
 ---
 
-## �📋 Contenido
+## 📋 Contenido
 
 ### 1. try/catch en funciones async
 
@@ -412,6 +412,13 @@ async function main() {
 - [MDN: try...catch](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/try...catch)
 - [JavaScript.info: Error handling with promises](https://javascript.info/promise-error-handling)
 
+<!-- nav -->
 ---
 
-[⬅️ Anterior: await keyword](02-await-keyword.md) | [Siguiente: Patrones Avanzados ➡️](04-advanced-patterns.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — ⏸️ La Palabra Clave await](02-await-keyword.md) | [Teoría — 🚀 Patrones Avanzados de Async/Await](04-advanced-patterns.md) → |
+
+[↑ Semana 14](../README.md)

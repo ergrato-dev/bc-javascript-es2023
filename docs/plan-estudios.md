@@ -273,17 +273,18 @@ Este bootcamp cubre todas las características modernas de JavaScript hasta ES20
 ---
 
 #### **Week 14: Async/Await**
-**Horas**: 8h (2.5h teoría + 3h práctica + 2h proyecto + 0.5h recursos)
+**Estado**: ✅ Migrada
+**Horas**: 8h (2h teoría + 3.5h práctica + 2h proyecto + 0.5h recursos)
 
 **Temas**:
 - async functions
 - await keyword
-- Error handling con try/catch
-- Parallel vs Sequential execution
+- Error handling con try/catch/finally, `cause` y reintentos
+- Parallel vs Sequential execution y concurrencia limitada
 - Top-level await (ES2022)
-- `for await...of` para iterables asíncronos
+- `for await...of`, generadores asíncronos y `Array.fromAsync` (ES2024)
 
-**Proyecto**: Sistema de carga de datos asíncrono
+**Proyecto**: Explorador de catálogo: pedir las fichas del dominio a un servidor simulado en orden (`await` en un `for...of`), a la vez (`Promise.all`), solo las que existan (`allSettled`), con reintentos (`cause` con el último error), por páginas con un generador asíncrono y buscando por nombre con un `for await` que se detiene al encontrarla, sin `.then()`
 
 ---
 

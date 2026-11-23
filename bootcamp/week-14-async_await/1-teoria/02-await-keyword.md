@@ -341,6 +341,13 @@ console.log('Usando config:', config.apiUrl);
 - [MDN: await](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/await)
 - [V8: Top-level await](https://v8.dev/features/top-level-await)
 
+<!-- nav -->
 ---
 
-[⬅️ Anterior: async functions](01-async-functions.md) | [Siguiente: Error Handling ➡️](03-error-handling.md)
+## 🔗 Navegación
+
+| Anterior | Siguiente |
+|---|---|
+| ← [Teoría — 🚀 Funciones Async](01-async-functions.md) | [Teoría — 🛡️ Manejo de Errores en Async/Await](03-error-handling.md) → |
+
+[↑ Semana 14](../README.md)

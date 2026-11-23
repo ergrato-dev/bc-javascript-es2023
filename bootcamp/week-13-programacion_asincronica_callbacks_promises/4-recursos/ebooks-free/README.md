@@ -12,11 +12,6 @@
    - Explica el bucle de eventos y las promesas con ejemplos cortos
    - Nivel: principiante · Idioma: inglés
 
-3. **JavaScript for impatient programmers** - Axel Rauschmayer
-   - Enlace: [exploringjs.com](https://exploringjs.com/js/book/index.html)
-   - Capítulos: *Asynchronous programming*, *Promises for asynchronous programming*
-   - Nivel: intermedio · Idioma: inglés
-
 <!-- nav -->
 ---
 

@@ -41,6 +41,15 @@ const asyncIterable = {
 
 ---
 
+### `Array.fromAsync()`
+Método estático (ES2024) que recorre un iterable asíncrono y devuelve una Promise del array con todos sus valores. Acepta una función que transforma cada valor, como `Array.from`.
+
+```javascript
+const pages = await Array.fromAsync(readPages()); // [[...], [...]]
+```
+
+---
+
 ## B
 
 ### Blocking
@@ -148,8 +157,13 @@ const promise = Promise.resolve(42);
 const value = await promise; // value = 42 (unwrapped)
 ```
 
+<!-- nav -->
 ---
 
 ## 🔗 Navegación
 
-[⬅️ Volver a Semana 14](../README.md)
+| Anterior | Siguiente |
+|---|---|
+| ← [Recursos — web](../4-recursos/webgrafia/README.md) | [📡 Semana 15: Fetch API](../../week-15-fetch_api/README.md) → |
+
+[↑ Semana 14](../README.md)

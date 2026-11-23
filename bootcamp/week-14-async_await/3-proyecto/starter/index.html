@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explorador de catálogo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="app-title">🗂️ Explorador de catálogo</h1>
+      <div class="stats-summary">
+        <span class="stat">Fichas: <strong id="stat-items">0</strong></span>
+        <span class="stat">Cargadas: <strong id="stat-loaded">0</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2>🔎 Pedir fichas</h2>
+      <form id="query-form" class="item-form">
+        <div class="form-group">
+          <label for="mode">Cómo pedirlas</label>
+          <select id="mode">
+            <option value="sequence">En orden: un await detrás de otro</option>
+            <option value="parallel">Todas a la vez: Promise.all</option>
+            <option value="available">Las que existan: Promise.allSettled</option>
+            <option value="retry">Con reintentos: retry</option>
+            <option value="pages">Por páginas: for await</option>
+            <option value="search">Buscar por nombre: for await con salida</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="ids">Ids separados por comas (en orden, a la vez, las que existan y con reintentos)</label>
+          <input type="text" id="ids" value="1, 2, 3">
+        </div>
+        <div class="form-group">
+          <label for="failures">Fallos del servidor antes de responder (con reintentos; se permiten 3 intentos)</label>
+          <input type="number" id="failures" min="0" max="5" value="2">
+        </div>
+        <div class="form-group">
+          <label for="search">Texto que buscar (buscar por nombre; las páginas son de 2 fichas)</label>
+          <input type="text" id="search" value="sol">
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="btn-query" class="btn btn-primary">Pedir</button>
+        </div>
+      </form>
+      <p id="query-message" class="message" role="status"></p>
+      <div class="change-log">
+        <h2>📜 Registro</h2>
+        <ol id="query-log"></ol>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📇 Fichas</h2>
+      </div>
+      <div id="item-list" class="item-list"></div>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
